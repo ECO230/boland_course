@@ -170,4 +170,32 @@ details summary {
 
 /* Optional: slightly reduce vertical rhythm across slides */
 /* :root { --r-block-margin: 0.6rem; } */
-``
+
+
+
+/* Full-width question block: slightly smaller + tighter to fit above columns */
+.slide-question {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.12em;      /* adjust 1.08–1.18em to taste */
+  line-height: 1.2;
+  margin: 0.35rem auto 0.8rem;
+}
+
+/* Compact bullets for dense slides */
+.tight-list {
+  font-size: 1.00em;
+  line-height: 1.25;
+  margin: 0;              /* remove extra margin above/below list wrapper */
+}
+.tight-list li { margin: 0.15rem 0; }
+
+/* Keep images inside the slide; scale by viewport height so they don't overflow */
+.fit-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: 62vh;       /* tighten to 58–60vh if you need even more headroom */
+  object-fit: contain;
+}
+
