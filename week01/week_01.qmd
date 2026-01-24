@@ -1,0 +1,371 @@
+---
+title: "ECO 230 – Week 1 Lecture"
+author: "Mike Boland, MBA"
+format:
+  revealjs:
+    theme: simple
+    css: ../shared/styles/accessibility.css
+    slide-number: true
+    hash: true
+    controls: true
+    transition: fade
+    pdf-export: true
+    toc: false
+    self-contained: false
+execute:
+  echo: false
+---
+
+```{=html}
+<!--
+This Quarto deck was generated from Week 1 PPT + three transcripts.
+Hidden titles are provided using the .sr-only class (defined in accessibility.css).
+Replace any media/* placeholder image paths with your actual files.
+If videos are hosted in Canvas, leave the external links as-is and keep the transcripts here.
+-->
+```
+
+## [Course & Section]{.sr-only}
+
+**ECO 230**\
+**Section 005**
+
+------------------------------------------------------------------------
+
+## [Instructor & Contact]{.sr-only}
+
+**Mike Boland, MBA**\
+**mboland\@uwlax.edu**\
+**Phone:** 608-385-6497
+
+------------------------------------------------------------------------
+
+## [What is Statistics?]{.sr-only}
+
+**What is statistics?**
+
+![](media/images/w01_s03_image.jpeg){fig-alt="Photo of several dogs lying on a blanket; playful opener for the topic." width="70%"}
+
+------------------------------------------------------------------------
+
+## [Analytics Definition]{.sr-only}
+
+**Analytics is the art of finding out what is in your data.**
+
+![](media/images/decorative-blanket.jpg){fig-alt="" aria-hidden="true" width="65%"}
+
+------------------------------------------------------------------------
+
+## [Analytics vs. Certainty]{.sr-only}
+
+**If you can (with some effort) find the answer with certainty you are using analytics.**
+
+![](media/images/decorative-blanket-2.jpg){fig-alt="" aria-hidden="true" width="65%"}
+
+------------------------------------------------------------------------
+
+## [Analytics vs. Statistics (1)]{.sr-only}
+
+**Analytics deals with what you know.**\
+**Statistics deals with what you do not know.**
+
+![](media/images/decorative-blanket-3.jpg){fig-alt="" aria-hidden="true" width="65%"}
+
+------------------------------------------------------------------------
+
+## [Analytics vs. Statistics (2)]{.sr-only}
+
+**Analytics helps you get good questions.**\
+**Statistics helps you get good answers.**
+
+![](media/images/decorative-blanket-4.jpg){fig-alt="" aria-hidden="true" width="65%"}
+
+------------------------------------------------------------------------
+
+## [Statistics as Decision-Making]{.sr-only}
+
+**Statistics is the science of making decisions under uncertainty.**
+
+![](media/images/decorative-blanket-5.jpg){fig-alt="" aria-hidden="true" width="65%"}
+
+------------------------------------------------------------------------
+
+## [Learning Curve]{.sr-only}
+
+![](media/images/learning-curve.png){fig-alt="Stylized learning curve chart with Time on the x-axis and Skill on the y-axis, labeled phases ‘This Sucks’, ‘This $ucks’, and ‘This Is Fun’." width="75%"}
+
+**Learning Curve**
+
+```{r}
+
+# install.packages(c("ggplot2", "dplyr"))  # if needed
+
+library(ggplot2)
+library(dplyr)
+
+set.seed(42)
+
+# Helper: light moving-average to get gentle wiggles (base R, no extra packages)
+ma <- function(x, k = 7) {
+  stats::filter(x, rep(1/k, k), sides = 2) |> as.numeric()
+}
+
+# X axis
+n  <- 600
+x  <- seq(0, 100, length.out = n)  # "Time"
+
+# --- Curves (all scaled to [0, 1]) ----------------------------------------
+
+# 1) Orange: fast start, then plateaus
+#    Use a Gompertz-like rise to a plateau; add tiny noise + smooth
+a_or  <- 0.015         # rate
+y_or0 <- exp(-exp(-a_or*(x - 25)))  # Gompertz shape
+y_or  <- (y_or0 - min(y_or0)) / (max(y_or0) - min(y_or0))
+y_or  <- pmin(1, pmax(0, y_or + rnorm(n, 0, 0.004)))
+y_or  <- ma(y_or, 9)
+y_or  <- pmin(1, pmax(0, y_or))
+
+# 2) Blue: centered S-curve (logistic), steeper in the middle
+k_bl  <- 0.22   # steepness
+x0_bl <- 55     # inflection near the middle
+y_bl0 <- 1 / (1 + exp(-k_bl*(x - x0_bl)))
+y_bl  <- (y_bl0 - min(y_bl0)) / (max(y_bl0) - min(y_bl0))
+y_bl  <- pmin(1, pmax(0, y_bl + rnorm(n, 0, 0.004)))
+y_bl  <- ma(y_bl, 7)
+y_bl  <- pmin(1, pmax(0, y_bl))
+
+# 3) Purple: slow, steady climb across most of the range
+#    Use a power curve + linear blend to stay gradual for longer
+y_pr0 <- (x/100)^4.35 * 0.92 + (x/100) * 0.08
+y_pr  <- pmin(1, pmax(0, y_pr0 + rnorm(n, 0, 0.004)))
+y_pr  <- ma(y_pr, 9)
+y_pr  <- pmin(1, pmax(0, y_pr))
+
+# Bind to tidy frame
+df <- bind_rows(
+  data.frame(x = x, y = y_bl, curve = "Blue – S curve"),
+  data.frame(x = x, y = y_or, curve = "Orange – fast then plateau"),
+  data.frame(x = x, y = y_pr, curve = "Purple – steady long climb")
+)
+
+# Colors chosen to resemble your figure
+cols <- c(
+  "Blue – S curve"               = "#2B5C88",
+  "Orange – fast then plateau"   = "#E5871B",
+  "Purple – steady long climb"   = "#6B5CA5"
+)
+
+p <- ggplot(df, aes(x, y, color = curve)) +
+  geom_line(linewidth = 1.0, lineend = "round") +
+  scale_color_manual(values = cols, guide = "none") +
+  coord_cartesian(ylim = c(0, 1), xlim = c(0, 100), expand = FALSE) +
+  scale_y_continuous(labels = scales::label_number(accuracy = 0.01)) +
+  labs(
+    title = "Learning Curve",
+    x = "Time",
+    y = "Skill"
+  ) +
+  theme_minimal(base_size = 16) +
+  theme(
+    plot.title = element_text(face = "bold", size = 26, hjust = 0),
+    panel.grid.minor = element_blank(),
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    axis.line = element_line(color = "#333333", linewidth = 0.7),
+    axis.ticks = element_line(color = "#333333", linewidth = 0.5)
+  )
+
+# Optional: label line ends like in many learning-curve graphics
+endpoints <- df %>% group_by(curve) %>% slice_tail(n = 1)
+p +
+  geom_text(
+    data = endpoints,
+    aes(label = sub(".*–\\s", "", curve)),
+    hjust = -0.05, vjust = 0.5, size = 5, fontface = "plain",
+    show.legend = FALSE
+  ) +
+  coord_cartesian(xlim = c(0, 102))  # add room for end labels
+
+# ggsave("learning_curves.png", width = 12, height = 6, dpi = 300)
+
+```
+
+::: center
+step1_blue.png
+
+step2_blue_orange.png
+
+step3_all.png
+:::
+
+------------------------------------------------------------------------
+
+## [I’m Old (humor)]{.sr-only}
+
+![](media/images/im-old.png){fig-alt="Lightweight humorous image labeled ‘I’m Old’." width="60%"}
+
+------------------------------------------------------------------------
+
+## [ETL Overview]{.sr-only}
+
+**Extract – Transform – Load**
+
+-   **Extract:** get data from its source to your working environment\
+-   **Transform:** clean, standardize, reshape to a consistent structure\
+-   **Load:** place the prepared data into the analysis tool (Excel, R, Tableau, DB)
+
+![](media/images/etl-icons.png){fig-alt="Icon trio depicting Extract, Transform, and Load steps." width="70%"}
+
+------------------------------------------------------------------------
+
+## [Transform Emphasis]{.sr-only}
+
+**Extract – *Transform* – Load**\
+Edit data so it is stored in a **consistent** and **efficient** way.
+
+![](media/images/transform-focus.png){fig-alt="Diagram emphasizing the Transform phase: cleaning, reshaping, standardizing fields like dates, categories, and locations." width="70%"}
+
+------------------------------------------------------------------------
+
+## [Load Destinations]{.sr-only}
+
+**Extract – Transform – *Load***
+
+**Destinations:** Databases, Excel, R, Tableau, SPSS
+
+![](media/images/load-destinations.png){fig-alt="Row of logos/icons for common analysis tools: database cylinder, Excel, R, Tableau, SPSS." width="80%"}
+
+------------------------------------------------------------------------
+
+## [Video: ETL (watch on Canvas) + Transcript]{.sr-only}
+
+> **Watch on Canvas:** *ETL overview video*\
+> (Replace `#` with your Canvas URL.)
+
+[▶️ Open video in Canvas](#)
+
+<details>
+
+<summary><strong>Transcript — ETL</strong> (click to expand)</summary>
+
+{{< include transcripts/video1.md >}}
+
+</details>
+
+------------------------------------------------------------------------
+
+## [Unit of Analysis]{.sr-only}
+
+**Unit of Analysis**\
+What does each **row / observation / grain** in this dataset represent?
+
+-   Everyone in a ZIP code\
+-   Individual consumers\
+-   Individual purchases\
+-   GDP of an economy\
+-   Population of a planet
+
+![](media/images/unit-of-analysis.png){fig-alt="Visual cue reminding that each dataset row should map to a clearly defined observational unit." width="70%"}
+
+------------------------------------------------------------------------
+
+## [Data Grouping: Cross-Sectional]{.sr-only}
+
+**Data Grouping: Cross‑Sectional**\
+A snapshot of different subjects at **one point in time**.
+
+![](media/images/cross-sectional.png){fig-alt="Photo of a water droplet frozen in time; metaphor for a single-time snapshot of data." width="70%"}
+
+------------------------------------------------------------------------
+
+## [Data Grouping: Time-Series]{.sr-only}
+
+**Data Grouping: Time‑Series**\
+Track measurements of (often different) subjects **over time**.
+
+![](media/images/time-series.png){fig-alt="Illustration of growth over months; metaphor for changes tracked over time." width="70%"}
+
+------------------------------------------------------------------------
+
+## [Data Grouping: Panel]{.sr-only}
+
+**Data Grouping: Panel**\
+Track the **same subjects** repeatedly over time.
+
+![](media/images/panel-data.png){fig-alt="Illustration of multiple parallel timelines for the same subjects; metaphor for panel data." width="70%"}
+
+------------------------------------------------------------------------
+
+## [Tall vs Wide; Know Your Structure]{.sr-only}
+
+**Understand the Structure of your data**
+
+-   **Tall** — more rows, fewer columns\
+-   **Wide** — more columns, fewer rows
+
+**Example (Tall):**
+
+| Name | Variable | Value |
+|------|----------|-------|
+| Mike | Gender   | Male  |
+| Mike | Age      | 43    |
+| Mike | Monday   | 6.5   |
+| Mike | Tuesday  | 7.2   |
+
+**Example (Wide):**
+
+| Name | Gender | Age | Monday | Tuesday |
+|------|--------|-----|--------|---------|
+| Mike | Male   | 43  | 6.5    | 7.2     |
+
+------------------------------------------------------------------------
+
+## [Rows vs Columns]{.sr-only}
+
+**Rows** stack **observations**.\
+**Columns** hold **variables**.
+
+![](media/images/rows-columns.png){fig-alt="Simple grid with arrows: rows for observations (left-to-right), columns for variables (top-to-bottom)." width="70%"}
+
+------------------------------------------------------------------------
+
+## [Data Types Overview]{.sr-only}
+
+**Categories** • **Numbers**\
+**Continuous** • **Discrete**\
+**Categorical** (**logical/true–false**, **ordinal**, **factor**)\
+**Numeric** (**integer**, **double/real**)
+
+------------------------------------------------------------------------
+
+## [Observations — Atomic Data Example]{.sr-only}
+
+**Observations (Atomic Data)** — sleep tracking example
+
+-   Start Time: 10:53 PM\
+-   End Time: 6:18 AM\
+-   REM: 87 minutes; Deep: 231; Light: 127\
+-   Total Sleep: 445; Quality: 92%\
+-   Name: Mike; Date: 9/7/2023; Gender: Male; Location: Bed
+
+![](media/images/atomic-data.png){fig-alt="Cube metaphor for an atomic observation; each row represents one measured event with associated variables." width="60%"}
+
+------------------------------------------------------------------------
+
+## [Dimensions & Measures]{.sr-only}
+
+**Dimensions** *(categories, filters, axis labels)*: Month, Location, Person\
+**Measures** *(aggregations)*: Averages, Standard Deviations, Counts, Sums
+
+**Example (June, Glamping):**\
+Mean = 523.12 minutes · Median = 600 minutes · Quality = 82.35% · N = 2,345
+
+![](media/images/dimensions-measures.png){fig-alt="Schematic showing dimensions (Month, Location, Person) and measures (Average, STD, Count)." width="70%"}
+
+------------------------------------------------------------------------
+
+## [Example Table]{.sr-only}
+
+**Measures vs. Dimensions; Tall vs. Wide**
+
+\``{.markdown} Name,Gender,Location,Month,Day,Start,End,REM,Deep,Light,Total Cam,M,Glamping,Jan,Mon,10:17 PM,8:21 AM,10,80,28,118 Cam,M,Home,Jul,Mon,8:20 PM,9:32 AM,100,179,234,513 John,M,Home,Aug,Mon,8:32 PM,11:32 AM,86,359,233,677 Lydia,F,Home,Aug,Mon,8:34 AM,4:45 AM,98,299,219,616`

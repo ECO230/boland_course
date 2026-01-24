@@ -1,0 +1,597 @@
+[
+  {
+    "objectID": "week01/week_01.html#course-section",
+    "href": "week01/week_01.html#course-section",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Course & Section",
+    "text": "Course & Section\nECO 230\nSection 005"
+  },
+  {
+    "objectID": "week01/week_01.html#instructor-contact",
+    "href": "week01/week_01.html#instructor-contact",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Instructor & Contact",
+    "text": "Instructor & Contact\nMike Boland, MBA\nmboland@uwlax.edu\nPhone: 608-385-6497"
+  },
+  {
+    "objectID": "week01/week_01.html#what-is-statistics",
+    "href": "week01/week_01.html#what-is-statistics",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "What is Statistics?",
+    "text": "What is Statistics?\nWhat is statistics?"
+  },
+  {
+    "objectID": "week01/week_01.html#analytics-definition",
+    "href": "week01/week_01.html#analytics-definition",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Analytics Definition",
+    "text": "Analytics Definition\nAnalytics is the art of finding out what is in your data."
+  },
+  {
+    "objectID": "week01/week_01.html#analytics-vs.-certainty",
+    "href": "week01/week_01.html#analytics-vs.-certainty",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Analytics vs. Certainty",
+    "text": "Analytics vs. Certainty\nIf you can (with some effort) find the answer with certainty you are using analytics."
+  },
+  {
+    "objectID": "week01/week_01.html#analytics-vs.-statistics-1",
+    "href": "week01/week_01.html#analytics-vs.-statistics-1",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Analytics vs. Statistics (1)",
+    "text": "Analytics vs. Statistics (1)\nAnalytics deals with what you know.\nStatistics deals with what you do not know."
+  },
+  {
+    "objectID": "week01/week_01.html#analytics-vs.-statistics-2",
+    "href": "week01/week_01.html#analytics-vs.-statistics-2",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Analytics vs. Statistics (2)",
+    "text": "Analytics vs. Statistics (2)\nAnalytics helps you get good questions.\nStatistics helps you get good answers."
+  },
+  {
+    "objectID": "week01/week_01.html#statistics-as-decision-making",
+    "href": "week01/week_01.html#statistics-as-decision-making",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Statistics as Decision-Making",
+    "text": "Statistics as Decision-Making\nStatistics is the science of making decisions under uncertainty."
+  },
+  {
+    "objectID": "week01/week_01.html#learning-curve",
+    "href": "week01/week_01.html#learning-curve",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Learning Curve",
+    "text": "Learning Curve\n\nLearning Curve\n\n\n\n\n\n\n\n\n\n\nstep1_blue.png\nstep2_blue_orange.png\nstep3_all.png"
+  },
+  {
+    "objectID": "week01/week_01.html#im-old-humor",
+    "href": "week01/week_01.html#im-old-humor",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "I’m Old (humor)",
+    "text": "I’m Old (humor)"
+  },
+  {
+    "objectID": "week01/week_01.html#etl-overview",
+    "href": "week01/week_01.html#etl-overview",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "ETL Overview",
+    "text": "ETL Overview\nExtract – Transform – Load\n\nExtract: get data from its source to your working environment\n\nTransform: clean, standardize, reshape to a consistent structure\n\nLoad: place the prepared data into the analysis tool (Excel, R, Tableau, DB)"
+  },
+  {
+    "objectID": "week01/week_01.html#transform-emphasis",
+    "href": "week01/week_01.html#transform-emphasis",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Transform Emphasis",
+    "text": "Transform Emphasis\nExtract – Transform – Load\nEdit data so it is stored in a consistent and efficient way."
+  },
+  {
+    "objectID": "week01/week_01.html#load-destinations",
+    "href": "week01/week_01.html#load-destinations",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Load Destinations",
+    "text": "Load Destinations\nExtract – Transform – Load\nDestinations: Databases, Excel, R, Tableau, SPSS"
+  },
+  {
+    "objectID": "week01/week_01.html#video-etl-watch-on-canvas-transcript",
+    "href": "week01/week_01.html#video-etl-watch-on-canvas-transcript",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Video: ETL (watch on Canvas) + Transcript",
+    "text": "Video: ETL (watch on Canvas) + Transcript\n\nWatch on Canvas: ETL overview video\n(Replace # with your Canvas URL.)\n\n▶️ Open video in Canvas\n\n\nTranscript — ETL (click to expand)"
+  },
+  {
+    "objectID": "week01/week_01.html#unit-of-analysis",
+    "href": "week01/week_01.html#unit-of-analysis",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Unit of Analysis",
+    "text": "Unit of Analysis\nUnit of Analysis\nWhat does each row / observation / grain in this dataset represent?\n\nEveryone in a ZIP code\n\nIndividual consumers\n\nIndividual purchases\n\nGDP of an economy\n\nPopulation of a planet"
+  },
+  {
+    "objectID": "week01/week_01.html#data-grouping-cross-sectional",
+    "href": "week01/week_01.html#data-grouping-cross-sectional",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Data Grouping: Cross-Sectional",
+    "text": "Data Grouping: Cross-Sectional\nData Grouping: Cross‑Sectional\nA snapshot of different subjects at one point in time."
+  },
+  {
+    "objectID": "week01/week_01.html#data-grouping-time-series",
+    "href": "week01/week_01.html#data-grouping-time-series",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Data Grouping: Time-Series",
+    "text": "Data Grouping: Time-Series\nData Grouping: Time‑Series\nTrack measurements of (often different) subjects over time."
+  },
+  {
+    "objectID": "week01/week_01.html#data-grouping-panel",
+    "href": "week01/week_01.html#data-grouping-panel",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Data Grouping: Panel",
+    "text": "Data Grouping: Panel\nData Grouping: Panel\nTrack the same subjects repeatedly over time."
+  },
+  {
+    "objectID": "week01/week_01.html#tall-vs-wide-know-your-structure",
+    "href": "week01/week_01.html#tall-vs-wide-know-your-structure",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Tall vs Wide; Know Your Structure",
+    "text": "Tall vs Wide; Know Your Structure\nUnderstand the Structure of your data\n\nTall — more rows, fewer columns\n\nWide — more columns, fewer rows\n\nExample (Tall):\n\n\n\nName\nVariable\nValue\n\n\n\n\nMike\nGender\nMale\n\n\nMike\nAge\n43\n\n\nMike\nMonday\n6.5\n\n\nMike\nTuesday\n7.2\n\n\n\nExample (Wide):\n\n\n\nName\nGender\nAge\nMonday\nTuesday\n\n\n\n\nMike\nMale\n43\n6.5\n7.2"
+  },
+  {
+    "objectID": "week01/week_01.html#rows-vs-columns",
+    "href": "week01/week_01.html#rows-vs-columns",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Rows vs Columns",
+    "text": "Rows vs Columns\nRows stack observations.\nColumns hold variables."
+  },
+  {
+    "objectID": "week01/week_01.html#data-types-overview",
+    "href": "week01/week_01.html#data-types-overview",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Data Types Overview",
+    "text": "Data Types Overview\nCategories • Numbers\nContinuous • Discrete\nCategorical (logical/true–false, ordinal, factor)\nNumeric (integer, double/real)"
+  },
+  {
+    "objectID": "week01/week_01.html#observations-atomic-data-example",
+    "href": "week01/week_01.html#observations-atomic-data-example",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Observations — Atomic Data Example",
+    "text": "Observations — Atomic Data Example\nObservations (Atomic Data) — sleep tracking example\n\nStart Time: 10:53 PM\n\nEnd Time: 6:18 AM\n\nREM: 87 minutes; Deep: 231; Light: 127\n\nTotal Sleep: 445; Quality: 92%\n\nName: Mike; Date: 9/7/2023; Gender: Male; Location: Bed"
+  },
+  {
+    "objectID": "week01/week_01.html#dimensions-measures",
+    "href": "week01/week_01.html#dimensions-measures",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Dimensions & Measures",
+    "text": "Dimensions & Measures\nDimensions (categories, filters, axis labels): Month, Location, Person\nMeasures (aggregations): Averages, Standard Deviations, Counts, Sums\nExample (June, Glamping):\nMean = 523.12 minutes · Median = 600 minutes · Quality = 82.35% · N = 2,345"
+  },
+  {
+    "objectID": "week01/week_01.html#example-table",
+    "href": "week01/week_01.html#example-table",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Example Table",
+    "text": "Example Table\nMeasures vs. Dimensions; Tall vs. Wide\n`{.markdown} Name,Gender,Location,Month,Day,Start,End,REM,Deep,Light,Total Cam,M,Glamping,Jan,Mon,10:17 PM,8:21 AM,10,80,28,118 Cam,M,Home,Jul,Mon,8:20 PM,9:32 AM,100,179,234,513 John,M,Home,Aug,Mon,8:32 PM,11:32 AM,86,359,233,677 Lydia,F,Home,Aug,Mon,8:34 AM,4:45 AM,98,299,219,616"
+  },
+  {
+    "objectID": "week01/study/video1-study.html#topic-extract-transform-load-etl",
+    "href": "week01/study/video1-study.html#topic-extract-transform-load-etl",
+    "title": "ECO 230",
+    "section": "Topic: Extract, Transform, Load (ETL)",
+    "text": "Topic: Extract, Transform, Load (ETL)"
+  },
+  {
+    "objectID": "week01/study/video1-study.html#learning-objectives",
+    "href": "week01/study/video1-study.html#learning-objectives",
+    "title": "Study Guide — Video 1",
+    "section": "",
+    "text": "Understand the purpose and sequence of the ETL process.\nDistinguish between raw, unstructured, and structured data.\nRecognize why transformation is central to analysis.\nIdentify common data sources and loading destinations."
+  },
+  {
+    "objectID": "week01/study/video1-study.html#key-takeaways",
+    "href": "week01/study/video1-study.html#key-takeaways",
+    "title": "Study Guide — Video 1",
+    "section": "",
+    "text": "Extract = Getting the data from its source (database, website, sensor feed, file, etc.).\nTransform = Cleaning, formatting, reshaping, and standardizing so it’s consistent.\nLoad = Bringing the cleaned data into the tool where analysis happens (Excel, R, Tableau, DBs).\nMost analysis work happens in the Transform stage.\nData from third‑party sources often requires substantial cleanup.\nStructured vs. unstructured sources influence how much transformation is needed."
+  },
+  {
+    "objectID": "week01/study/video1-study.html#core-concepts",
+    "href": "week01/study/video1-study.html#core-concepts",
+    "title": "Study Guide — Video 1",
+    "section": "",
+    "text": "Moving data from source → computer or tool. This could be downloads, APIs, database connections, or streaming sources.\n\n\n\nEnsuring variables are consistent: - date formats\n- numerical types\n- categorical codes\n- missingness\n- pivoting between tall/wide\nThis enables charts, summaries, and models to behave predictably.\n\n\n\nFinal storage in the analysis environment.\nSometimes data is loaded back to the original DB; sometimes directly into R, Excel, etc."
+  },
+  {
+    "objectID": "week01/study/video1-study.html#practice-questions",
+    "href": "week01/study/video1-study.html#practice-questions",
+    "title": "Study Guide — Video 1",
+    "section": "",
+    "text": "A)  Extract\\\n\n\nTransform\n\n\n\nLoad\n\n\n\nArchive\nCorrect answer: B\n\n\n\nA)  Reformatting dates\\\n\n\nDownloading a CSV from the Census Bureau\n\n\n\nCreating new variables\n\n\n\nWriting a SQL summary\nCorrect answer: B\n\n\n\nA)  Cleaning and standardizing\\\n\n\nMoving data into the analysis tool\n\n\n\nGenerating summaries\n\n\n\nInterpreting charts\nCorrect answer: B\n\n\n\n\n\n\n\nGive an example of unstructured data and why it’s difficult to work with.\n\nWhy is the Transform step essential before analysis?\n\nDescribe a real-world example of ETL from your job or daily life."
+  },
+  {
+    "objectID": "week01/study/video1-study.html#aipowered-study-prompts",
+    "href": "week01/study/video1-study.html#aipowered-study-prompts",
+    "title": "Study Guide — Video 1",
+    "section": "",
+    "text": "Copy/paste into ChatGPT or Copilot:\n\n“Explain ETL to me like I’m brand new to data analytics, using only everyday examples.”\n“Give me 3 messy data scenarios and ask me how I would transform each one.”\n“Quiz me with 5 increasingly challenging questions about ETL and explain why each answer is right or wrong.”\n“Show me a before/after example of transforming poorly formatted data into tidy data ready for analysis.”"
+  },
+  {
+    "objectID": "week01/test.html",
+    "href": "week01/test.html",
+    "title": "test",
+    "section": "",
+    "text": "What is statistics?"
+  },
+  {
+    "objectID": "week01/test.html#test",
+    "href": "week01/test.html#test",
+    "title": "test",
+    "section": "",
+    "text": "This\nIS"
+  },
+  {
+    "objectID": "week01/transcripts/video2.html",
+    "href": "week01/transcripts/video2.html",
+    "title": "Transcript — Video 2 (Measurement Scales)",
+    "section": "",
+    "text": "Transcript — Video 2 (Measurement Scales)\nSo once you have an idea of what data is in our dataset, how it’s tract, it’s good to take a look at those variables and think, Okay, how is this data is actually stored? Either How was it coded? How is it stored numerically? Is that gonna be useful for us? Is it going to be, is it going to tell us the information that we need? Or do we need to go look at data from a different source?\nSo textbook definition of how data is measured is as follows. As follows. Here, we talked a little bit about those categorical variables. There’s numeric variables. But this type of data and how it’s stored. It is also important to know what’s the scale that the date is on. So textbook definition, we have nominal ordinal, interval and ratio scale data. And this is getting into, once we have this data, numerically, what we do with it mathematically.\nNominal scale is the lowest level. This is a naming type verbal, so the categories that we have are just there for naming purposes just to keep track of. Okay. This person isn’t, this, isn’t this category or not. It’s usually a categorical type scale.\nOrdinal scale is the same sort of thing. We looked at this a little bit with categorical scales where there’s some order inherent to the, to the way the data is tracked.\n(… transcript continues …)"
+  },
+  {
+    "objectID": "week01/transcripts/video1.html",
+    "href": "week01/transcripts/video1.html",
+    "title": "Transcript — Video 1 (ETL)",
+    "section": "",
+    "text": "Transcript — Video 1 (ETL)\nIt’s usually one of our first task is figuring out how to get the data where we need it to be in order to use it and do our analysis on it. So generally when we’re getting data, it’s going to follow this type of a process, extract, transform load or ETL process. A lot of the data that we’re gonna be working with, especially for this course, is going to be data that other people have gathered what’s known as secondary data. Later on in the class, we will talk little bit about primary data, how to, how to gather data for a specific purpose. But the vast majority of the time we’re gonna be using data that’s already existing and whether it is from a third party source or internally within our company has sales database or something like that. We usually don’t have a lot of say in how their data is structured, how it’s set up. So we need to figure out how to get that data in the form that it’s in currently. And then get it into a form that we’re gonna be able to do. Our nails the sun.\nThe first step in that process is to extract the data. And that is to get the data from wherever it is to our computer, to where we’re gonna be working with it at. That data can take on a number of different forms. Sometimes the data is relatively clean. If it is a something like this where we have a structured database where everything is set up just so you know, each point of data is in its own row, each specific variables in its own column. So sometimes it might be pretty much in the form that we need to use it, right where it is.\nOther times you might be grabbing it from a website or something like that. If you wanted to do some analysis looking at census data, you will go to the Census Bureau’s website and download data from there. It might just be unstructured data just pouring into, into a database, some sort of a sensor or something that is tracking data, looking at a motion sensor or something like that. Where, you know, every time that that sensor is triggered, it it changes from a truth or false yes or no sort of a thing. Measuring the brightness or measuring the voltage of a certain sensor. Measuring whether or not motion was detected on a video camera. That data might just be constantly pouring in. And then we have to figure out, okay, how we’re gonna deal with this L. We’re going to figure out what the timestamp was. What does this data, what is it telling us?\nThat first step is to is to extract that data. So get it out of where it is right now. Get it to where we need it to be. Once we have that data downloaded or transferred over to where we’re gonna be using it or connected to, you know, sometimes we don’t actually need the data, we just make a connection to where it’s at. Next step is to transform that data to get it into a format that’s going to be convenient for us to use that we can do analysis on without a constantly having to go in and edit things and change things and recalculate. So that’s the T part of the ETL process transform to get the data from the form that it’s in when we get it, to change it to the form that we’re gonna be using it for our analysis.\nSo a lot of times we’re editing this data, so it’s gonna be stored in a consistent way. It’s gonna be efficient for us to go and look at it. There’s certain rules that we’re going to follow that’s gonna make our lives much easier when it comes time to analyze that data or build a chart or do some analysis on it. There are some standard ways to keep that where any tool that we’re going to connect to that data width is going to be able to look at it in a similar way.\nThe example on the top here, that a good before if we download data from the Census Bureau, It’s gonna look something like this. So this data is stored in a way where we have gigabytes of data on. However many million people live in the country. All that data is stored on a server somewhere in a way that’s going to be convenient for the Census Bureau. That’s not necessarily convenient for us. You can see we have a lot of empty space here. If category one, category to category three, you might not know what those things mean.\nA lot of times we need to transform that data to get it into something. It’s going to be a little bit more convenient for us to use consistent way to measure what was the time that his data was recorded? Consistent way to measure geographically, what was their zip code? What was the date of what was what were the different categories that it falls into? A lot of times we can store that in a much more efficient way. We do it as part of the transform process.\nLast step then is to load it into the program that we’re gonna be using to do our analysis. In this can be anything. Sometimes we go from a database, we transform it and put it right back into that same database. This doesn’t necessarily have to be different programs that we’re using.\n(… transcript continues …)"
+  },
+  {
+    "objectID": "week01/study/video3-study.html",
+    "href": "week01/study/video3-study.html",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "Identify the unit of analysis in any dataset.\nDistinguish cross‑sectional, time‑series, and panel data.\nUnderstand dimensions vs. measures.\nRecognize tall vs. wide data structures.\nApply the four principles of tidy data.\n\n\n\n\n\n\nUnit of analysis = what each row represents.\nCross‑sectional = different subjects at one time.\nTime‑series = measurements over time (subjects may differ).\nPanel = same subjects over time.\nTall data = many rows; good for grouping, pivoting, combining.\nWide data = many columns; good for fast lookups.\nDimensions = categories for slicing/filtering (e.g., person, month, location).\nMeasures = numeric values to summarize (e.g., mean sleep minutes).\nTidy data principles:\n\nVariables in columns\n\nObservations in rows\n\nOne table per observational unit\n\nKeys connect tables\n\n\n\n\n\n\n\n\nThe entity described by each row (person, transaction, date, etc.).\n\n\n\nCategorical descriptors used for slicing or grouping.\n\n\n\nNumerical values used for summaries like average, count, standard deviation.\n\n\n\nTwo orientations of the same underlying information.\n\n\n\n\n\n\n\n\nWhich dataset structure is ideal for pivoting between categories?\n\n\nWide\n\n\n\nTall\nCorrect answer: B\n\n\nA dataset tracking the same individuals every month is:\n\n\nCross‑sectional\n\n\n\nTime‑series\n\n\n\nPanel\nCorrect answer: C\n\n\n“Month, Location, Person” in a sleep‑tracking dataset are:\n\n\nMeasures\n\n\n\nDimensions\nCorrect answer: B\n\n\n\n\n\n\n\nDescribe a dataset from real life and identify its unit of analysis.\n\nExplain why tall datasets are usually easier to join and aggregate.\n\nDescribe when you would prefer a wide dataset.\n\n\n\n\n\n\n\n“Convert a wide dataset to tall format and explain the impact on analysis.”\n“Give me examples of cross‑sectional, time‑series, and panel data from everyday life.”\n“Ask me 5 questions that require identifying unit of analysis errors.”\n“Give me messy untidy data and ask me to reorganize it into valid tidy format.”"
+  },
+  {
+    "objectID": "week01/study/video3-study.html#learning-objectives",
+    "href": "week01/study/video3-study.html#learning-objectives",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "Identify the unit of analysis in any dataset.\nDistinguish cross‑sectional, time‑series, and panel data.\nUnderstand dimensions vs. measures.\nRecognize tall vs. wide data structures.\nApply the four principles of tidy data."
+  },
+  {
+    "objectID": "week01/study/video3-study.html#key-takeaways",
+    "href": "week01/study/video3-study.html#key-takeaways",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "Unit of analysis = what each row represents.\nCross‑sectional = different subjects at one time.\nTime‑series = measurements over time (subjects may differ).\nPanel = same subjects over time.\nTall data = many rows; good for grouping, pivoting, combining.\nWide data = many columns; good for fast lookups.\nDimensions = categories for slicing/filtering (e.g., person, month, location).\nMeasures = numeric values to summarize (e.g., mean sleep minutes).\nTidy data principles:\n\nVariables in columns\n\nObservations in rows\n\nOne table per observational unit\n\nKeys connect tables"
+  },
+  {
+    "objectID": "week01/study/video3-study.html#concept-definitions",
+    "href": "week01/study/video3-study.html#concept-definitions",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "The entity described by each row (person, transaction, date, etc.).\n\n\n\nCategorical descriptors used for slicing or grouping.\n\n\n\nNumerical values used for summaries like average, count, standard deviation.\n\n\n\nTwo orientations of the same underlying information."
+  },
+  {
+    "objectID": "week01/study/video3-study.html#practice-questions",
+    "href": "week01/study/video3-study.html#practice-questions",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "Which dataset structure is ideal for pivoting between categories?\n\n\nWide\n\n\n\nTall\nCorrect answer: B\n\n\nA dataset tracking the same individuals every month is:\n\n\nCross‑sectional\n\n\n\nTime‑series\n\n\n\nPanel\nCorrect answer: C\n\n\n“Month, Location, Person” in a sleep‑tracking dataset are:\n\n\nMeasures\n\n\n\nDimensions\nCorrect answer: B\n\n\n\n\n\n\n\nDescribe a dataset from real life and identify its unit of analysis.\n\nExplain why tall datasets are usually easier to join and aggregate.\n\nDescribe when you would prefer a wide dataset."
+  },
+  {
+    "objectID": "week01/study/video3-study.html#aipowered-study-prompts",
+    "href": "week01/study/video3-study.html#aipowered-study-prompts",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "“Convert a wide dataset to tall format and explain the impact on analysis.”\n“Give me examples of cross‑sectional, time‑series, and panel data from everyday life.”\n“Ask me 5 questions that require identifying unit of analysis errors.”\n“Give me messy untidy data and ask me to reorganize it into valid tidy format.”"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html",
+    "href": "week01/quarto/Week1.html",
+    "title": "ECO 230 — Week 1",
+    "section": "",
+    "text": "mboland@uwlax.edu\nPhone: 608-385-6497"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#mike-boland-mba",
+    "href": "week01/quarto/Week1.html#mike-boland-mba",
+    "title": "ECO 230 — Week 1",
+    "section": "",
+    "text": "mboland@uwlax.edu\nPhone: 608-385-6497"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#what-is-statistics",
+    "href": "week01/quarto/Week1.html#what-is-statistics",
+    "title": "ECO 230 — Week 1",
+    "section": "What is statistics?",
+    "text": "What is statistics?"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#analytics-is-the-art-of-finding-out-what-is-in-your-data.",
+    "href": "week01/quarto/Week1.html#analytics-is-the-art-of-finding-out-what-is-in-your-data.",
+    "title": "ECO 230 — Week 1",
+    "section": "Analytics is the art of finding out what is in your data.",
+    "text": "Analytics is the art of finding out what is in your data."
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#if-you-can-with-some-effort-find-the-answer-with-certainty-you-are-using-analytics.",
+    "href": "week01/quarto/Week1.html#if-you-can-with-some-effort-find-the-answer-with-certainty-you-are-using-analytics.",
+    "title": "ECO 230 — Week 1",
+    "section": "If you can (with some effort) find the answer with certainty you are using analytics.",
+    "text": "If you can (with some effort) find the answer with certainty you are using analytics."
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#analytics-deals-with-what-you-know.",
+    "href": "week01/quarto/Week1.html#analytics-deals-with-what-you-know.",
+    "title": "ECO 230 — Week 1",
+    "section": "Analytics deals with what you know.",
+    "text": "Analytics deals with what you know.\n\n\n\n\n\nStatistics deals with what you do not know."
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#analytics-helps-you-get-good-questions.",
+    "href": "week01/quarto/Week1.html#analytics-helps-you-get-good-questions.",
+    "title": "ECO 230 — Week 1",
+    "section": "Analytics helps you get good questions.",
+    "text": "Analytics helps you get good questions.\n\n\n\n\n\nStatistics helps you get good answers."
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#statistics-is-the-science-of-making-decisions-under-uncertainty.",
+    "href": "week01/quarto/Week1.html#statistics-is-the-science-of-making-decisions-under-uncertainty.",
+    "title": "ECO 230 — Week 1",
+    "section": "Statistics is the science of making decisions under uncertainty.",
+    "text": "Statistics is the science of making decisions under uncertainty."
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#time",
+    "href": "week01/quarto/Week1.html#time",
+    "title": "ECO 230 — Week 1",
+    "section": "Time",
+    "text": "Time\n\n\n\n\n\nSkill\nThis Sucks\nThis $ucks\nThis Is Fun\nLearning Curve"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#im-old",
+    "href": "week01/quarto/Week1.html#im-old",
+    "title": "ECO 230 — Week 1",
+    "section": "I’m Old",
+    "text": "I’m Old"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#extract-transform-load",
+    "href": "week01/quarto/Week1.html#extract-transform-load",
+    "title": "ECO 230 — Week 1",
+    "section": "Extract Transform Load",
+    "text": "Extract Transform Load"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#extract-transform-load-1",
+    "href": "week01/quarto/Week1.html#extract-transform-load-1",
+    "title": "ECO 230 — Week 1",
+    "section": "Extract Transform Load",
+    "text": "Extract Transform Load\n\nEdit data so it is stored in a consistent and efficient way"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#extract-transform-load-2",
+    "href": "week01/quarto/Week1.html#extract-transform-load-2",
+    "title": "ECO 230 — Week 1",
+    "section": "Extract Transform Load",
+    "text": "Extract Transform Load\n\nDatabase\nDatabase\nExtract\nTransform\nLoad"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#unit-of-analysis",
+    "href": "week01/quarto/Week1.html#unit-of-analysis",
+    "title": "ECO 230 — Week 1",
+    "section": "Unit of Analysis",
+    "text": "Unit of Analysis\n\nEveryone in a zipcode\nIndividual consumers\nIndividual purchases\nGDP of an economy\nPopulation of a planet\nWhat does each thingie (row, observation, grain) of this data represent?"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#data-grouping-cross-sectional",
+    "href": "week01/quarto/Week1.html#data-grouping-cross-sectional",
+    "title": "ECO 230 — Week 1",
+    "section": "Data Grouping: Cross-Sectional",
+    "text": "Data Grouping: Cross-Sectional"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#data-grouping-time-series",
+    "href": "week01/quarto/Week1.html#data-grouping-time-series",
+    "title": "ECO 230 — Week 1",
+    "section": "Data Grouping: Time-Series",
+    "text": "Data Grouping: Time-Series"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#data-grouping-panel",
+    "href": "week01/quarto/Week1.html#data-grouping-panel",
+    "title": "ECO 230 — Week 1",
+    "section": "Data Grouping: Panel",
+    "text": "Data Grouping: Panel"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#tall-more-rows-fewer-columns",
+    "href": "week01/quarto/Week1.html#tall-more-rows-fewer-columns",
+    "title": "ECO 230 — Week 1",
+    "section": "Tall – More rows, fewer columns",
+    "text": "Tall – More rows, fewer columns\n\nUnderstand the Structure of your data\nWide – More columns, fewer rows"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#columns",
+    "href": "week01/quarto/Week1.html#columns",
+    "title": "ECO 230 — Week 1",
+    "section": "Columns",
+    "text": "Columns\n\nRows"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#categories",
+    "href": "week01/quarto/Week1.html#categories",
+    "title": "ECO 230 — Week 1",
+    "section": "Categories",
+    "text": "Categories\n\nNumbers\nContinuous\nDiscrete\nCategorical\nTrue/False\nOrdinal\nfactor\nlogical\nfactor\ndouble\ninteger"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#observations-atomic-data",
+    "href": "week01/quarto/Week1.html#observations-atomic-data",
+    "title": "ECO 230 — Week 1",
+    "section": "Observations – Atomic Data",
+    "text": "Observations – Atomic Data\n\nStart Time: 10:53 P.M.\nEnd Time: 6:18 A.M.\nR.E.M: 87 Minutes\nDeep Sleep: 231 Minutes\nLight Sleep: 127 Minutes\nTotal Sleep: 445\nQuality: 92%\nName: Mike\nDate: 9/7/2023\nGender: Male\nLocation: Bed\nCategories\nNumbers"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#dimensions",
+    "href": "week01/quarto/Week1.html#dimensions",
+    "title": "ECO 230 — Week 1",
+    "section": "Dimensions",
+    "text": "Dimensions\n\nCategories\nFilters\nAxis Labels\nJan\nFeb\nMar\nApr\nMay\nJun\nHome\nNice Hotel\nCheap Hotel\nCamping\nGlamping\nMike\nCam\nSloane\nJohn\nLucas\nLydia\nMeasures\nAverages\nStandard Deviation\nCounts\nSums\nJune Glamping:\nMean = 523.12 Minutes\nMedian = 600 Minutes\nQuality = 82.35%\nN Records = 2,345"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#measures",
+    "href": "week01/quarto/Week1.html#measures",
+    "title": "ECO 230 — Week 1",
+    "section": "Measures",
+    "text": "Measures\n\nDimensions\nTall vs Wide"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#each-variable-you-measure-should-be-in-one-column",
+    "href": "week01/quarto/Week1.html#each-variable-you-measure-should-be-in-one-column",
+    "title": "ECO 230 — Week 1",
+    "section": "Each variable you measure should be in one column",
+    "text": "Each variable you measure should be in one column\n\nEach observation of that variable should be in a different row\nThere should be one table for each type of observational unit\nIf you have multiple tables you need a key to link them\nPrinciples of Tidy Data"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#nominal-scale",
+    "href": "week01/quarto/Week1.html#nominal-scale",
+    "title": "ECO 230 — Week 1",
+    "section": "Nominal Scale",
+    "text": "Nominal Scale\n\nOrdinal Scale\nInterval Scale\nRatio Scale\nDiscrete\nContinuous\nGrouping\nAverage"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#tableau",
+    "href": "week01/quarto/Week1.html#tableau",
+    "title": "ECO 230 — Week 1",
+    "section": "Tableau",
+    "text": "Tableau"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#posit.cloud",
+    "href": "week01/quarto/Week1.html#posit.cloud",
+    "title": "ECO 230 — Week 1",
+    "section": "Posit.cloud",
+    "text": "Posit.cloud"
+  },
+  {
+    "objectID": "week01/quarto/Week1.html#my_data",
+    "href": "week01/quarto/Week1.html#my_data",
+    "title": "ECO 230 — Week 1",
+    "section": "my_data %>%",
+    "text": "my_data %&gt;%\n\nidt(gpa ~ on_off_campus)\nmy_data %&gt;%\nano(gpa ~ class_rank)"
+  },
+  {
+    "objectID": "week01/snippets/video2-block.html",
+    "href": "week01/snippets/video2-block.html",
+    "title": "Transcript — Video 2 (Measurement Scales)",
+    "section": "",
+    "text": "Watch on Canvas: Measurement Scales Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Measurement Scales (click to expand)"
+  },
+  {
+    "objectID": "week01/snippets/video2-block.html#video-measurement-scales",
+    "href": "week01/snippets/video2-block.html#video-measurement-scales",
+    "title": "Transcript — Video 2 (Measurement Scales)",
+    "section": "",
+    "text": "Watch on Canvas: Measurement Scales Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Measurement Scales (click to expand)"
+  },
+  {
+    "objectID": "week01/snippets/video3-block.html",
+    "href": "week01/snippets/video3-block.html",
+    "title": "Transcript — Video 3 (Tidy Data & Structure)",
+    "section": "",
+    "text": "Watch on Canvas: Tidy Data & Structure Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Tidy Data & Structure (click to expand)"
+  },
+  {
+    "objectID": "week01/snippets/video3-block.html#video-tidy-data-data-structure",
+    "href": "week01/snippets/video3-block.html#video-tidy-data-data-structure",
+    "title": "Transcript — Video 3 (Tidy Data & Structure)",
+    "section": "",
+    "text": "Watch on Canvas: Tidy Data & Structure Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Tidy Data & Structure (click to expand)"
+  },
+  {
+    "objectID": "week01/snippets/video1-block.html",
+    "href": "week01/snippets/video1-block.html",
+    "title": "Transcript — Video 1 (ETL)",
+    "section": "",
+    "text": "Watch on Canvas: ETL Overview Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — ETL (click to expand)"
+  },
+  {
+    "objectID": "week01/snippets/video1-block.html#video-etl-overview",
+    "href": "week01/snippets/video1-block.html#video-etl-overview",
+    "title": "Transcript — Video 1 (ETL)",
+    "section": "",
+    "text": "Watch on Canvas: ETL Overview Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — ETL (click to expand)"
+  },
+  {
+    "objectID": "week01/week_01.html",
+    "href": "week01/week_01.html",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "",
+    "text": "ECO 230\nSection 005"
+  },
+  {
+    "objectID": "week01/study/video2-study.html",
+    "href": "week01/study/video2-study.html",
+    "title": "Study Guide — Video 2",
+    "section": "",
+    "text": "Identify each measurement scale (nominal, ordinal, interval, ratio).\nRecognize when averages make sense and when they don’t.\nUnderstand discrete vs. continuous variables.\nKnow how variables are coded behind the scenes.\n\n\n\n\n\n\nNominal = categories without order (e.g., shirt color, ZIP code).\nOrdinal = categories with order (e.g., GPA brackets, class rank).\nInterval = numeric scale without a meaningful zero (e.g., Fahrenheit).\nRatio = numeric scale with a real zero (e.g., GPA as a continuous number, height, weight).\nDiscrete = whole units (e.g., number of people).\nContinuous = can take fractional values (e.g., weights, GPAs).\nAverages are meaningful for ratio data; sometimes meaningful for ordinal; rarely meaningful for nominal.\nComputers assign numeric codes to categories, but that doesn’t make them numerical.\n\n\n\n\n\n\n\nCategorical labels without inherent order.\n\n\n\nCategories with meaningful ranking, but distances between categories are unknown.\n\n\n\nNumeric scale where differences make sense but zero is arbitrary.\n\n\n\nTrue numeric scale with a real zero; ratios are meaningful.\n\n\n\n\n\n\n\n\nWhich scale is GPA when recorded exactly (e.g., 3.27)?\n\n\nNominal\n\n\n\nOrdinal\n\n\n\nInterval\n\n\n\nRatio\nCorrect answer: D\n\n\nOn which scale does it not make sense to compute an average?\n\n\nNominal\n\n\n\nOrdinal\n\n\n\nInterval\n\n\n\nRatio\nCorrect answer: A\n\n\n“Freshman → Sophomore → Junior → Senior” is:\n\n\nNominal\n\n\n\nOrdinal\n\n\n\nInterval\n\n\n\nRatio\nCorrect answer: B\n\n\n\n\n\n\n\nGive an example of why treating nominal data as numeric can be misleading.\n\nExplain why Fahrenheit is an interval scale.\n\nDescribe a variable you use in real life and identify its scale.\n\n\n\n\n\n\n\n“Explain each measurement scale using analogies from sports or gaming.”\n“Give me 10 examples of variables and ask me to classify their scale.”\n“Convert a ratio variable into an ordinal scale and explain what information is lost.”\n“Give me trick questions that test whether I understand when averages make sense.”"
+  },
+  {
+    "objectID": "week01/study/video2-study.html#learning-objectives",
+    "href": "week01/study/video2-study.html#learning-objectives",
+    "title": "Study Guide — Video 2",
+    "section": "",
+    "text": "Identify each measurement scale (nominal, ordinal, interval, ratio).\nRecognize when averages make sense and when they don’t.\nUnderstand discrete vs. continuous variables.\nKnow how variables are coded behind the scenes."
+  },
+  {
+    "objectID": "week01/study/video2-study.html#key-takeaways",
+    "href": "week01/study/video2-study.html#key-takeaways",
+    "title": "Study Guide — Video 2",
+    "section": "",
+    "text": "Nominal = categories without order (e.g., shirt color, ZIP code).\nOrdinal = categories with order (e.g., GPA brackets, class rank).\nInterval = numeric scale without a meaningful zero (e.g., Fahrenheit).\nRatio = numeric scale with a real zero (e.g., GPA as a continuous number, height, weight).\nDiscrete = whole units (e.g., number of people).\nContinuous = can take fractional values (e.g., weights, GPAs).\nAverages are meaningful for ratio data; sometimes meaningful for ordinal; rarely meaningful for nominal.\nComputers assign numeric codes to categories, but that doesn’t make them numerical."
+  },
+  {
+    "objectID": "week01/study/video2-study.html#concept-definitions",
+    "href": "week01/study/video2-study.html#concept-definitions",
+    "title": "Study Guide — Video 2",
+    "section": "",
+    "text": "Categorical labels without inherent order.\n\n\n\nCategories with meaningful ranking, but distances between categories are unknown.\n\n\n\nNumeric scale where differences make sense but zero is arbitrary.\n\n\n\nTrue numeric scale with a real zero; ratios are meaningful."
+  },
+  {
+    "objectID": "week01/study/video2-study.html#practice-questions",
+    "href": "week01/study/video2-study.html#practice-questions",
+    "title": "Study Guide — Video 2",
+    "section": "",
+    "text": "Which scale is GPA when recorded exactly (e.g., 3.27)?\n\n\nNominal\n\n\n\nOrdinal\n\n\n\nInterval\n\n\n\nRatio\nCorrect answer: D\n\n\nOn which scale does it not make sense to compute an average?\n\n\nNominal\n\n\n\nOrdinal\n\n\n\nInterval\n\n\n\nRatio\nCorrect answer: A\n\n\n“Freshman → Sophomore → Junior → Senior” is:\n\n\nNominal\n\n\n\nOrdinal\n\n\n\nInterval\n\n\n\nRatio\nCorrect answer: B\n\n\n\n\n\n\n\nGive an example of why treating nominal data as numeric can be misleading.\n\nExplain why Fahrenheit is an interval scale.\n\nDescribe a variable you use in real life and identify its scale."
+  },
+  {
+    "objectID": "week01/study/video2-study.html#aipowered-study-prompts",
+    "href": "week01/study/video2-study.html#aipowered-study-prompts",
+    "title": "Study Guide — Video 2",
+    "section": "",
+    "text": "“Explain each measurement scale using analogies from sports or gaming.”\n“Give me 10 examples of variables and ask me to classify their scale.”\n“Convert a ratio variable into an ordinal scale and explain what information is lost.”\n“Give me trick questions that test whether I understand when averages make sense.”"
+  },
+  {
+    "objectID": "week01/study/video1-study.html",
+    "href": "week01/study/video1-study.html",
+    "title": "Study Guide — Video 1",
+    "section": "",
+    "text": "Understand the purpose and sequence of the ETL process.\nDistinguish between raw, unstructured, and structured data.\nRecognize why transformation is central to analysis.\nIdentify common data sources and loading destinations.\n\n\n\n\n\n\nExtract = Getting the data from its source (database, website, sensor feed, file, etc.).\nTransform = Cleaning, formatting, reshaping, and standardizing so it’s consistent.\nLoad = Bringing the cleaned data into the tool where analysis happens (Excel, R, Tableau, DBs).\nMost analysis work happens in the Transform stage.\nData from third‑party sources often requires substantial cleanup.\nStructured vs. unstructured sources influence how much transformation is needed.\n\n\n\n\n\n\n\nMoving data from source → computer or tool. This could be downloads, APIs, database connections, or streaming sources.\n\n\n\nEnsuring variables are consistent: - date formats\n- numerical types\n- categorical codes\n- missingness\n- pivoting between tall/wide\nThis enables charts, summaries, and models to behave predictably.\n\n\n\nFinal storage in the analysis environment.\nSometimes data is loaded back to the original DB; sometimes directly into R, Excel, etc.\n\n\n\n\n\n\n\n\n\nA)  Extract\\\n\n\nTransform\n\n\n\nLoad\n\n\n\nArchive\nCorrect answer: B\n\n\n\nA)  Reformatting dates\\\n\n\nDownloading a CSV from the Census Bureau\n\n\n\nCreating new variables\n\n\n\nWriting a SQL summary\nCorrect answer: B\n\n\n\nA)  Cleaning and standardizing\\\n\n\nMoving data into the analysis tool\n\n\n\nGenerating summaries\n\n\n\nInterpreting charts\nCorrect answer: B\n\n\n\n\n\n\n\nGive an example of unstructured data and why it’s difficult to work with.\n\nWhy is the Transform step essential before analysis?\n\nDescribe a real-world example of ETL from your job or daily life.\n\n\n\n\n\n\nCopy/paste into ChatGPT or Copilot:\n\n“Explain ETL to me like I’m brand new to data analytics, using only everyday examples.”\n“Give me 3 messy data scenarios and ask me how I would transform each one.”\n“Quiz me with 5 increasingly challenging questions about ETL and explain why each answer is right or wrong.”\n“Show me a before/after example of transforming poorly formatted data into tidy data ready for analysis.”"
+  },
+  {
+    "objectID": "week01/transcripts/video3.html",
+    "href": "week01/transcripts/video3.html",
+    "title": "Transcript — Video 3 (Tidy Data & Structure)",
+    "section": "",
+    "text": "Transcript — Video 3 (Tidy Data & Structure)\nSo we’ve talked a little bit about how to get the data that we need into our hands onto your computer to do our analysis. Once we have our data ready to go, It’s always good to open up that dataset, take a look at it and get a sense of what is this data actually going to be telling us? How is the houses data stored? Is it in a format that’s gonna be, it’s gonna be useful for analysis. Or do we need to do some additional work in that transform space where we’re getting that data set up and organized just how we want it.\nFirst thing to think about is, how is this, these variables, this data is measuring. How is that data being stored or represented in our spreadsheet or in the database that we’re looking at. It’s usually going to break into two main categories. Categories as a category here. So this would be if our data has discrete things that it’s measuring.\nSimple example would be like a true‑false variable. Does this person live on‑campus true or false? It’s going to be a one or a zero. Logical yes or no, sort of a thing.\n(… transcript continues …)"
+  },
+  {
+    "objectID": "week01/test.html#what-is-statistics",
+    "href": "week01/test.html#what-is-statistics",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "What is Statistics?",
+    "text": "What is Statistics?\n\n\n\n\n\n\nWhat is statistics?\n\n\nAnalytics is the art of finding out what is in your data.\n\n\nIf you can (with some effort) find the answer with certainty you are using analytics.\n\n\nAnalytics deals with what you know.\nStatistics deals with what you do not know.\n\n\nAnalytics helps you make good questions.\nStatistics helps you get good answers.\n\n\nStatistics is the science of making decisions under uncertainty."
+  },
+  {
+    "objectID": "week01/test.html#analytics-vs-statisics",
+    "href": "week01/test.html#analytics-vs-statisics",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Analytics vs Statisics",
+    "text": "Analytics vs Statisics\n\n\n\n\n\n\nWhat is statistics?\n\n\nAnalytics is the art of finding out what is in your data.\n\n\nIf you can (with some effort) find the answer with certainty you are using analytics.\n\n\nAnalytics deals with what you know.\nStatistics deals with what you do not know.\n\n\nAnalytics helps you make good questions.\nStatistics helps you get good answers.\n\n\nStatistics is the science of making decisions under uncertainty.\n\n\n\n\n\nOpen with intuition: students already do analytics informally.\nEmphasize uncertainty as the key dividing line.\nPause after the third fragment and ask for examples."
+  }
+]

@@ -1,0 +1,74 @@
+---
+title: "ECO 230 – Week 1 Lecture"
+author: "Mike Boland, MBA"
+format:
+  revealjs:
+    theme: simple
+    css: ../shared/styles/accessibility.css
+    slide-number: true
+    hash: true
+    controls: true
+    transition: fade
+    pdf-export: true
+    toc: false
+    self-contained: false
+    center: false
+    margin: 0
+execute:
+  echo: false
+---
+
+## [Analytics vs Statisics]{.sr-only}
+
+:::: {.columns}
+
+::: {.column width="40%" .bleed-top}
+
+![](media/images/w01_s03_image.png){fig-alt="Photo of several dogs lying on a blanket; playful opener for the topic." width="100%"}
+
+
+:::
+
+::: {.column width="60%" .text-col}
+
+
+::: {.r-stack}
+::: {.fragment}
+What is **statistics**?
+:::
+::: {.fragment}
+**Analytics** is the **art** of finding out what is in your data.
+:::
+::: {.fragment}
+If you can (with some effort) find the answer with certainty you are using **analytics**.
+:::
+::: {.fragment}
+**Analytics** deals with what you know.
+
+**Statistics** deals with what you do not know.
+:::
+::: {.fragment}
+**Analytics** helps you make good questions.
+
+**Statistics** helps you get good answers.
+:::
+::: {.fragment}
+**Statistics** is the **science** of making decisions under uncertainty.
+:::
+:::
+
+
+
+:::
+
+::::
+
+
+::: notes
+- Open with intuition: students already *do* analytics informally.
+- Emphasize uncertainty as the key dividing line.
+- Pause after the third fragment and ask for examples.
+:::
+
+
+

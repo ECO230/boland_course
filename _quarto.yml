@@ -1,0 +1,29 @@
+
+project:
+  type: website    # allows multi-page course structure if you add more lectures later
+
+website:
+  title: "ECO 230"
+  navbar:
+    left:
+      - href: lecture-01/lecture-01.qmd
+        text: "Week 1 Lecture"
+
+format:
+  revealjs:
+    theme: simple
+    css: styles/accessibility.css
+    slide-number: true
+    hash: true
+    controls: true
+    progress: true
+    transition: fade
+    pdf-export: true
+    self-contained: false     # critical: Canvas compatibility
+    toc: false
+
+execute:
+  echo: false
+  warning: false
+
+editor: visual
