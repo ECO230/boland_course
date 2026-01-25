@@ -24,7 +24,7 @@ execute:
 
 Airbnb Owners should enable **Instant Booking** in Fall — it's the unequivocally best season for superior ratings and returns.
 
-``` {r echo: false}
+```{r name:airbnb echo:false}
 
 #install.packages(c("readr","dplyr","tidyr","lubridate","stringr","glue","here"))  # if needed
 library(readr)
@@ -37,10 +37,10 @@ library(here)
 
 
 # --- Adjust the path to where your file lives ---
-data_path <- "../shared/data/airbnb_chicago.csv"  # <-- your uploaded file name  (same columns as your dataset)  # [1](blob:https://m365.cloud.microsoft/64654bcd-b374-425e-846c-62fb20cdff3c)
+data_path <- here("shared", "data", "airbnb_chicago.csv")
 
 # 1) Load data --------------------------------------------------------------
-abnb <- read_csv(here("shared", "data", "airbnb_chicago.csv"), show_col_types = FALSE)
+abnb <- read_csv(data_path, show_col_types = FALSE)
 
 
 # 2) Coerce instant_bookable into logical (t/f/TRUE/FALSE variants) --------
@@ -119,7 +119,6 @@ best_season <- season_summary %>% slice(1) %>% pull(Season)
 
 
 ```
-
 
 ```{r}
 
@@ -326,7 +325,28 @@ If you can (with some effort) find the answer with certainty you are using **ana
 :::
 
 ## [Jump to Conclusions 2]{.sr-only}
+
 two datasets rows = customers rows = purchases
+
+
+## [Rows vs Columns]{.sr-only}
+
+::: {.columns}
+
+::: {.column width="50%"}
+### Columns
+![](media/images/w01_s19_image.png){fig-alt="Icon emphasizing the concept of columns—variables—in a dataset." width="100%"}
+:::
+
+::: {.column width="50%"}
+<br><br><br><br><br>
+
+### Rows
+![](media/images/w01_s19_image.jpg){fig-alt="Icon emphasizing the concept of rows—observations—in a dataset." width="100%"}
+:::
+
+:::
+
 
 
 ## Unit of Analysis 
@@ -362,59 +382,285 @@ Population of a planet
 
 
 ## [Jump to Conclusions 2]{.sr-only}
-Rows vs Columns
 
-## [Jump to Conclusions 2]{.sr-only}
 Two similar datasets
 
-## [Jump to Conclusions 2]{.sr-only}
-cross sectional
+## Data Grouping: Cross-Sectional {background-image="media/images/w01_s15_image.jpeg" background-size="cover" background-opacity="0.95" fig-alt="Freeze‑frame droplet illustrating a cross‑sectional snapshot at a single point in time."}
+
+## Data Grouping: Time-Series
+
+![](media/images/w01_s16_image.jpeg){fig-alt="Growth sequence image suggesting change over time in a time‑series." height="85%"}
+
+## Data Grouping: Panel
+
+![](media/images/w01_s17_image.jpeg){.r-stretch fig-alt="Grid‑style visual suggesting repeated measures on multiple units across time (panel data)." fig-align="right"}
 
 ## [Jump to Conclusions 2]{.sr-only}
-time series
 
-## [Jump to Conclusions 2]{.sr-only}
-panel
-
-## [Jump to Conclusions 2]{.sr-only}
 sleep quality by month and lodging type
 
 ## [Jump to Conclusions 2]{.sr-only}
+
 tall vs wide
 
 ## [Jump to Conclusions 2]{.sr-only}
+
 variable types
 
 ## [Jump to Conclusions 2]{.sr-only}
+
 NOIR
 
-## [Jump to Conclusions 2]{.sr-only}
-Atomic Data
+## Observations - Atomic Data
+
+```{r name:sleepnumber echo:False}
+library(readr)
+library(dplyr)
+library(lubridate)
+library(stringr)
+library(gt)
+
+# ---- 1) Load with explicit column types ----
+# Adjust the path as needed (from your project root):
+csv_path <- here("week01", "data", "sleep_tracking_Jan-Jun_2025_with_zip.csv")
+
+# 1) Load data --------------------------------------------------------------
+
+
+sleep <- read_csv(
+  file = csv_path,
+  col_types = cols(
+    Date          = col_character(),   # force character so we control parsing
+    DayOfWeek     = col_character(),
+    Month         = col_character(),
+    PersonName    = col_character(),
+    Gender        = col_character(),
+    Location      = col_character(),
+    SleepEventType= col_character(),
+    StartTime     = col_character(),   # force character
+    EndTime       = col_character(),   # force character
+    TotalMinutes  = col_integer(),
+    REMMinutes    = col_integer(),
+    DeepMinutes   = col_integer(),
+    LightMinutes  = col_integer(),
+    SleepQuality  = col_double(),
+    ZipCode       = col_character()
+  ),
+  show_col_types = FALSE
+)
+
+# ---- 2) Fix Date if it came in as an Excel serial ----
+# If Date looks like a 5-digit integer (e.g., "45295"), convert from Excel origin.
+is_excel_serial <- function(x_chr) {
+  all(str_detect(x_chr, "^\\d{4,5}$"), na.rm = TRUE)
+}
+
+if (is_excel_serial(sleep$Date)) {
+  # Excel's typical origin is 1899-12-30 for most exports
+  sleep$Date <- as.Date(as.numeric(sleep$Date), origin = "1899-12-30")
+} else {
+  # Otherwise, parse as ISO or m/d/Y
+  # Try YYYY-MM-DD first, then m/d/Y fallback
+  parsed1 <- suppressWarnings(ymd(sleep$Date, quiet = TRUE))
+  parsed2 <- ifelse(is.na(parsed1),
+                    suppressWarnings(mdy(sleep$Date, quiet = TRUE)),
+                    parsed1)
+  sleep$Date <- as.Date(parsed2)
+}
+
+# ---- 3) Robust parsers for StartTime/EndTime ----
+# These can be "2025-01-03 22:10", or "9/7/2023 10:53 PM", etc.
+parse_start_end <- function(x_chr) {
+  x_chr <- str_trim(x_chr)
+  # Try multiple common orders:
+  # - "YYYY-MM-DD HH:MM"
+  # - "m/d/Y H:M p"
+  # - "Y-m-d H:M:S" (if seconds exist)
+  # - "m/d/Y I:M:S p" etc.
+  parse_date_time(
+    x_chr,
+    orders = c(
+      "Y-m-d H:M",
+      "Y-m-d H:M:S",
+      "m/d/Y I:M p",
+      "m/d/Y I:M:S p",
+      "m/d/y I:M p",
+      "m/d/y I:M:S p"
+    ),
+    tz = "UTC"   # keep neutral; display only time-of-day
+  )
+}
+
+sleep$StartTime_dt <- parse_start_end(sleep$StartTime)
+sleep$EndTime_dt   <- parse_start_end(sleep$EndTime)
+
+# If you KNOW StartTime/EndTime are already ISO strings (e.g., "2025-01-03 22:10"),
+# you could also use:
+# sleep$StartTime_dt <- ymd_hm(sleep$StartTime, quiet = TRUE)
+# sleep$EndTime_dt   <- ymd_hm(sleep$EndTime, quiet = TRUE)
+
+# ---- 4) Formatters ----
+fmt_time_12h <- function(dt) {
+  # Handle NA gracefully:
+  ifelse(
+    is.na(dt), 
+    NA_character_,
+    str_to_upper(format(dt, "%I:%M %p")) |>
+      str_replace("^0", "") |>
+      str_replace_all("AM", "A.M.") |>
+      str_replace_all("PM", "P.M.")
+  )
+}
+
+fmt_pct <- function(x) paste0(round(100 * x), "%")
+
+# ---- 5) Function to build the two tables for a chosen person & date ----
+make_sleep_tables <- function(data, person = "Mike", date_input = "2025-01-03") {
+  # Accept either character date or Date class
+  date_val <- if (inherits(date_input, "Date")) date_input else as.Date(date_input)
+  
+  row <- data %>%
+    filter(
+      PersonName == person,
+      Date == date_val,
+      SleepEventType == "Main"
+    ) %>%
+    arrange(StartTime_dt) %>%
+    slice(1)
+  
+  if (nrow(row) == 0) {
+    stop("No 'Main' sleep row found for that person/date.")
+  }
+  
+  categories_df <- tibble::tibble(
+    Label = c("Name", "Date", "Gender", "Location", "ZipCode"),
+    Value = c(
+      row$PersonName,
+      format(row$Date, "%m/%d/%Y"),
+      row$Gender,
+      row$Location,
+      row$ZipCode
+    )
+  )
+  
+  numbers_df <- tibble::tibble(
+    Label = c(
+      "Start Time",
+      "End Time",
+      "R.E.M.",
+      "Deep Sleep",
+      "Light Sleep",
+      "Total Sleep",
+      "Quality"
+    ),
+    Value = c(
+      fmt_time_12h(row$StartTime_dt),
+      fmt_time_12h(row$EndTime_dt),
+      paste0(row$REMMinutes, " Minutes"),
+      paste0(row$DeepMinutes, " Minutes"),
+      paste0(row$LightMinutes, " Minutes"),
+      as.character(row$TotalMinutes),
+      fmt_pct(row$SleepQuality)
+    )
+  )
+  
+  list(categories = categories_df, numbers = numbers_df)
+}
+
+# ---- 6) Example: reproduce your case (adjust date/person to a known row) ----
+tables <- make_sleep_tables(sleep, person = "Mike", date_input = "2025-01-03")
+categories_df <- tables$categories
+numbers_df    <- tables$numbers
+```
+
+:::::: columns
+::: {.column width="30%"}
+```{r}
+
+
+categories_df |>
+  gt() |>
+  tab_header(title = md("**Categories**")) |>
+  cols_label(Label = "", Value = "") |>
+  tab_options(
+    table.width = pct(90),
+    table.border.top.width = px(0),          # line above the title
+    heading.border.bottom.width = px(0),     # line directly under the title
+    column_labels.border.top.width = px(0)   # <-- line you still see (top of labels row)
+  )
+
+
+```
+
+:::
+
+::: {.column width="40%"}
+![](media/images/w01_s21_image.jpeg){fig-alt="Single cube emphasizing an atomic unit of observation in the data." width="100%"}
+:::
+
+::: {.column width="30%"}
+```{r}
+numbers_df |>
+  gt() |>
+  tab_header(title = md("**Numbers**")) |>
+  cols_label(Label = "", Value = "") |>
+  tab_options(
+    table.width = pct(90),
+    table.border.top.width = px(0),          # line above the title
+    heading.border.bottom.width = px(0),     # line directly under the title
+    column_labels.border.top.width = px(0)   # <-- line you still see (top of labels row)
+  )
+```
+
+:::
+::::::
+
+## [Summarized Data]{.sr-only}
+
+:::::: columns
+::: {.column width="30%"}
+
+
+:::
+
+::: {.column width="40%"}
+![](media/images/w01_s21_image.jpeg){fig-alt="Single cube emphasizing an atomic unit of observation in the data." width="100%"}
+:::
+
+::: {.column width="30%"}
+
+
+:::
+::::::
 
 ## [Jump to Conclusions 2]{.sr-only}
-Summarized data
 
-## [Jump to Conclusions 2]{.sr-only}
 Tall vs wide
 
 ## [Jump to Conclusions 2]{.sr-only}
+
 Extract
 
 ## [Jump to Conclusions 2]{.sr-only}
+
 Extract
 
 ## [Jump to Conclusions 2]{.sr-only}
+
 Transform
 
 ## [Jump to Conclusions 2]{.sr-only}
+
 Load
 
 ## [Jump to Conclusions 2]{.sr-only}
+
 Tableau
 
 ## [Jump to Conclusions 2]{.sr-only}
+
 Posit
 
 ## [Jump to Conclusions 2]{.sr-only}
-Scary R
 
+Scary R

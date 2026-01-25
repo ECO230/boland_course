@@ -1,0 +1,33 @@
+
+/* ============================================================
+   Accessibility utilities ONLY
+   - No layout
+   - No typography
+   - No reveal theme overrides
+   ============================================================ */
+
+/* Screen-reader-only utility
+   Keeps content in the DOM and accessible to AT,
+   but hidden visually and non-interactive.
+*/
+.sr-only {
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+
+  white-space: nowrap !important;
+  border: 0 !important;
+
+  /* Legacy + modern clipping for AT compatibility */
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+
+  /* Prevent interaction/focus */
+  pointer-events: none !important;
+}
