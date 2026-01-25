@@ -34,5 +34,8 @@
   },
   "week01/transcripts/video2.md": {
     "video2.html": "074e8dfa"
+  },
+  "week01/example.qmd": {
+    "example.html": "e46e2ca3"
   }
 }

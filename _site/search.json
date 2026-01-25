@@ -760,6 +760,69 @@
     "href": "week01/test.html#unit-of-analysis",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Unit of Analysis",
-    "text": "Unit of Analysis\n\nWhat does each thingie (row, observation, grain) of this data represent?\n\n\n\n\n\nEveryone in a zipcode\nIndividual consumers\nIndividual purchases\nGDP of an economy\nPopulation of a planet"
+    "text": "Unit of Analysis\n\n\nWhat does each thingie (row, observation, grain) of this data represent?\n\n\nEveryone in a zipcode\nIndividual consumers\nIndividual purchases\nGDP of an economy\nPopulation of a planet"
+  },
+  {
+    "objectID": "week01/example.html#week-1",
+    "href": "week01/example.html#week-1",
+    "title": "Sample using Boland theme",
+    "section": "Week 1",
+    "text": "Week 1\nThis deck uses a SCSS theme pulled from your PPT template. Bold callouts and tables should look familiar."
+  },
+  {
+    "objectID": "week01/example.html#a-slide-with-a-list",
+    "href": "week01/example.html#a-slide-with-a-list",
+    "title": "Sample using Boland theme",
+    "section": "A slide with a list",
+    "text": "A slide with a list\n\nNominal scale\nOrdinal scale\nInterval scale\nRatio scale"
+  },
+  {
+    "objectID": "week01/example.html#a-table",
+    "href": "week01/example.html#a-table",
+    "title": "Sample using Boland theme",
+    "section": "A table",
+    "text": "A table\n\n\n\nGroup\nValue\n\n\n\n\nA\n10\n\n\nB\n25"
+  },
+  {
+    "objectID": "week01/example.html#a-chart-placeholder",
+    "href": "week01/example.html#a-chart-placeholder",
+    "title": "Sample using Boland theme",
+    "section": "A chart placeholder",
+    "text": "A chart placeholder"
+  },
+  {
+    "objectID": "week01/example.html#test",
+    "href": "week01/example.html#test",
+    "title": "Sample using Boland theme",
+    "section": "Test",
+    "text": "Test\n\n\nThis content is in the left column of a two-column layout.\n\nThis content is in the right column of a two-column layout.\n\n\nThis entire section spans the full width of the page, breaking out of the two-column layout above."
+  },
+  {
+    "objectID": "week01/example.html#this-slides-title-will-be-hidden",
+    "href": "week01/example.html#this-slides-title-will-be-hidden",
+    "title": "Sample using Boland theme",
+    "section": "This slide’s title will be hidden",
+    "text": "This slide’s title will be hidden\n\nContent remains fully visible\nScreen readers will still announce the H2"
+  },
+  {
+    "objectID": "week01/example.html#visible-title",
+    "href": "week01/example.html#visible-title",
+    "title": "Sample using Boland theme",
+    "section": "Visible title",
+    "text": "Visible title\n\nShould show bullets"
+  },
+  {
+    "objectID": "week01/example.html#hidden-title",
+    "href": "week01/example.html#hidden-title",
+    "title": "Sample using Boland theme",
+    "section": "Hidden title",
+    "text": "Hidden title\n\nShould show bullets while the heading is hidden"
+  },
+  {
+    "objectID": "week01/example.html#a-different-slide",
+    "href": "week01/example.html#a-different-slide",
+    "title": "Sample using Boland theme",
+    "section": "A different slide",
+    "text": "A different slide\nFU"
   }
 ]
