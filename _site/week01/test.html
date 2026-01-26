@@ -28,8 +28,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-199108d00ff10c81c3cfaa6e963beaf0.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-d35d25eb2bd8b2df9986405c4948de16.css">
   <link rel="stylesheet" href="styles/accessibility.css">
   <link rel="stylesheet" href="../shared/styles/accessibility.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -145,23 +211,23 @@ Mike Boland, MBA
 <p>Airbnb Owners should enable <strong>Instant Booking</strong> in Fall — it’s the unequivocally best season for superior ratings and returns.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="hrqrgcfhdd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hrqrgcfhdd table {
+<div id="kktapxdmgp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kktapxdmgp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hrqrgcfhdd thead, #hrqrgcfhdd tbody, #hrqrgcfhdd tfoot, #hrqrgcfhdd tr, #hrqrgcfhdd td, #hrqrgcfhdd th {
+#kktapxdmgp thead, #kktapxdmgp tbody, #kktapxdmgp tfoot, #kktapxdmgp tr, #kktapxdmgp td, #kktapxdmgp th {
   border-style: none;
 }
 
-#hrqrgcfhdd p {
+#kktapxdmgp p {
   margin: 0;
   padding: 0;
 }
 
-#hrqrgcfhdd .gt_table {
+#kktapxdmgp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -187,12 +253,12 @@ Mike Boland, MBA
   border-left-color: #D3D3D3;
 }
 
-#hrqrgcfhdd .gt_caption {
+#kktapxdmgp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hrqrgcfhdd .gt_title {
+#kktapxdmgp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -204,7 +270,7 @@ Mike Boland, MBA
   border-bottom-width: 0;
 }
 
-#hrqrgcfhdd .gt_subtitle {
+#kktapxdmgp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -216,7 +282,7 @@ Mike Boland, MBA
   border-top-width: 0;
 }
 
-#hrqrgcfhdd .gt_heading {
+#kktapxdmgp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -228,13 +294,13 @@ Mike Boland, MBA
   border-right-color: #D3D3D3;
 }
 
-#hrqrgcfhdd .gt_bottom_border {
+#kktapxdmgp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hrqrgcfhdd .gt_col_headings {
+#kktapxdmgp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 0px;
   border-top-color: #D3D3D3;
@@ -249,7 +315,7 @@ Mike Boland, MBA
   border-right-color: #D3D3D3;
 }
 
-#hrqrgcfhdd .gt_col_heading {
+#kktapxdmgp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -269,7 +335,7 @@ Mike Boland, MBA
   overflow-x: hidden;
 }
 
-#hrqrgcfhdd .gt_column_spanner_outer {
+#kktapxdmgp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -281,15 +347,15 @@ Mike Boland, MBA
   padding-right: 4px;
 }
 
-#hrqrgcfhdd .gt_column_spanner_outer:first-child {
+#kktapxdmgp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hrqrgcfhdd .gt_column_spanner_outer:last-child {
+#kktapxdmgp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hrqrgcfhdd .gt_column_spanner {
+#kktapxdmgp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 0px;
   border-bottom-color: #D3D3D3;
@@ -301,11 +367,11 @@ Mike Boland, MBA
   width: 100%;
 }
 
-#hrqrgcfhdd .gt_spanner_row {
+#kktapxdmgp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hrqrgcfhdd .gt_group_heading {
+#kktapxdmgp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -331,7 +397,7 @@ Mike Boland, MBA
   text-align: left;
 }
 
-#hrqrgcfhdd .gt_empty_group_heading {
+#kktapxdmgp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -346,15 +412,15 @@ Mike Boland, MBA
   vertical-align: middle;
 }
 
-#hrqrgcfhdd .gt_from_md > :first-child {
+#kktapxdmgp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hrqrgcfhdd .gt_from_md > :last-child {
+#kktapxdmgp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hrqrgcfhdd .gt_row {
+#kktapxdmgp .gt_row {
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
@@ -373,7 +439,7 @@ Mike Boland, MBA
   overflow-x: hidden;
 }
 
-#hrqrgcfhdd .gt_stub {
+#kktapxdmgp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -386,7 +452,7 @@ Mike Boland, MBA
   padding-right: 5px;
 }
 
-#hrqrgcfhdd .gt_stub_row_group {
+#kktapxdmgp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -400,15 +466,15 @@ Mike Boland, MBA
   vertical-align: top;
 }
 
-#hrqrgcfhdd .gt_row_group_first td {
+#kktapxdmgp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hrqrgcfhdd .gt_row_group_first th {
+#kktapxdmgp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hrqrgcfhdd .gt_summary_row {
+#kktapxdmgp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -418,16 +484,16 @@ Mike Boland, MBA
   padding-right: 5px;
 }
 
-#hrqrgcfhdd .gt_first_summary_row {
+#kktapxdmgp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hrqrgcfhdd .gt_first_summary_row.thick {
+#kktapxdmgp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hrqrgcfhdd .gt_last_summary_row {
+#kktapxdmgp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -437,7 +503,7 @@ Mike Boland, MBA
   border-bottom-color: #D3D3D3;
 }
 
-#hrqrgcfhdd .gt_grand_summary_row {
+#kktapxdmgp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -447,7 +513,7 @@ Mike Boland, MBA
   padding-right: 5px;
 }
 
-#hrqrgcfhdd .gt_first_grand_summary_row {
+#kktapxdmgp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -457,7 +523,7 @@ Mike Boland, MBA
   border-top-color: #D3D3D3;
 }
 
-#hrqrgcfhdd .gt_last_grand_summary_row_top {
+#kktapxdmgp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -467,11 +533,11 @@ Mike Boland, MBA
   border-bottom-color: #D3D3D3;
 }
 
-#hrqrgcfhdd .gt_striped {
+#kktapxdmgp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hrqrgcfhdd .gt_table_body {
+#kktapxdmgp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -480,7 +546,7 @@ Mike Boland, MBA
   border-bottom-color: #D3D3D3;
 }
 
-#hrqrgcfhdd .gt_footnotes {
+#kktapxdmgp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -494,7 +560,7 @@ Mike Boland, MBA
   border-right-color: #D3D3D3;
 }
 
-#hrqrgcfhdd .gt_footnote {
+#kktapxdmgp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -503,7 +569,7 @@ Mike Boland, MBA
   padding-right: 5px;
 }
 
-#hrqrgcfhdd .gt_sourcenotes {
+#kktapxdmgp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -517,7 +583,7 @@ Mike Boland, MBA
   border-right-color: #D3D3D3;
 }
 
-#hrqrgcfhdd .gt_sourcenote {
+#kktapxdmgp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -525,72 +591,72 @@ Mike Boland, MBA
   padding-right: 5px;
 }
 
-#hrqrgcfhdd .gt_left {
+#kktapxdmgp .gt_left {
   text-align: left;
 }
 
-#hrqrgcfhdd .gt_center {
+#kktapxdmgp .gt_center {
   text-align: center;
 }
 
-#hrqrgcfhdd .gt_right {
+#kktapxdmgp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hrqrgcfhdd .gt_font_normal {
+#kktapxdmgp .gt_font_normal {
   font-weight: normal;
 }
 
-#hrqrgcfhdd .gt_font_bold {
+#kktapxdmgp .gt_font_bold {
   font-weight: bold;
 }
 
-#hrqrgcfhdd .gt_font_italic {
+#kktapxdmgp .gt_font_italic {
   font-style: italic;
 }
 
-#hrqrgcfhdd .gt_super {
+#kktapxdmgp .gt_super {
   font-size: 65%;
 }
 
-#hrqrgcfhdd .gt_footnote_marks {
+#kktapxdmgp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hrqrgcfhdd .gt_asterisk {
+#kktapxdmgp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hrqrgcfhdd .gt_indent_1 {
+#kktapxdmgp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hrqrgcfhdd .gt_indent_2 {
+#kktapxdmgp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hrqrgcfhdd .gt_indent_3 {
+#kktapxdmgp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hrqrgcfhdd .gt_indent_4 {
+#kktapxdmgp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hrqrgcfhdd .gt_indent_5 {
+#kktapxdmgp .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hrqrgcfhdd .katex-display {
+#kktapxdmgp .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hrqrgcfhdd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kktapxdmgp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -650,23 +716,23 @@ Mike Boland, MBA
 <h2><span class="sr-only">Jump to Conclusions 2</span></h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="ytyfaphied" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ytyfaphied table {
+<div id="ugikownaoj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ugikownaoj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ytyfaphied thead, #ytyfaphied tbody, #ytyfaphied tfoot, #ytyfaphied tr, #ytyfaphied td, #ytyfaphied th {
+#ugikownaoj thead, #ugikownaoj tbody, #ugikownaoj tfoot, #ugikownaoj tr, #ugikownaoj td, #ugikownaoj th {
   border-style: none;
 }
 
-#ytyfaphied p {
+#ugikownaoj p {
   margin: 0;
   padding: 0;
 }
 
-#ytyfaphied .gt_table {
+#ugikownaoj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -692,12 +758,12 @@ Mike Boland, MBA
   border-left-color: #D3D3D3;
 }
 
-#ytyfaphied .gt_caption {
+#ugikownaoj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ytyfaphied .gt_title {
+#ugikownaoj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -709,7 +775,7 @@ Mike Boland, MBA
   border-bottom-width: 0;
 }
 
-#ytyfaphied .gt_subtitle {
+#ugikownaoj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -721,7 +787,7 @@ Mike Boland, MBA
   border-top-width: 0;
 }
 
-#ytyfaphied .gt_heading {
+#ugikownaoj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -733,13 +799,13 @@ Mike Boland, MBA
   border-right-color: #D3D3D3;
 }
 
-#ytyfaphied .gt_bottom_border {
+#ugikownaoj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ytyfaphied .gt_col_headings {
+#ugikownaoj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 0px;
   border-top-color: #D3D3D3;
@@ -754,7 +820,7 @@ Mike Boland, MBA
   border-right-color: #D3D3D3;
 }
 
-#ytyfaphied .gt_col_heading {
+#ugikownaoj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -774,7 +840,7 @@ Mike Boland, MBA
   overflow-x: hidden;
 }
 
-#ytyfaphied .gt_column_spanner_outer {
+#ugikownaoj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -786,15 +852,15 @@ Mike Boland, MBA
   padding-right: 4px;
 }
 
-#ytyfaphied .gt_column_spanner_outer:first-child {
+#ugikownaoj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ytyfaphied .gt_column_spanner_outer:last-child {
+#ugikownaoj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ytyfaphied .gt_column_spanner {
+#ugikownaoj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 0px;
   border-bottom-color: #D3D3D3;
@@ -806,11 +872,11 @@ Mike Boland, MBA
   width: 100%;
 }
 
-#ytyfaphied .gt_spanner_row {
+#ugikownaoj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ytyfaphied .gt_group_heading {
+#ugikownaoj .gt_group_heading {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 4.5px;
@@ -836,7 +902,7 @@ Mike Boland, MBA
   text-align: left;
 }
 
-#ytyfaphied .gt_empty_group_heading {
+#ugikownaoj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -851,15 +917,15 @@ Mike Boland, MBA
   vertical-align: middle;
 }
 
-#ytyfaphied .gt_from_md > :first-child {
+#ugikownaoj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ytyfaphied .gt_from_md > :last-child {
+#ugikownaoj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ytyfaphied .gt_row {
+#ugikownaoj .gt_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 4.5px;
@@ -878,7 +944,7 @@ Mike Boland, MBA
   overflow-x: hidden;
 }
 
-#ytyfaphied .gt_stub {
+#ugikownaoj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -891,7 +957,7 @@ Mike Boland, MBA
   padding-right: 4.5px;
 }
 
-#ytyfaphied .gt_stub_row_group {
+#ugikownaoj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -905,15 +971,15 @@ Mike Boland, MBA
   vertical-align: top;
 }
 
-#ytyfaphied .gt_row_group_first td {
+#ugikownaoj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ytyfaphied .gt_row_group_first th {
+#ugikownaoj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ytyfaphied .gt_summary_row {
+#ugikownaoj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -923,16 +989,16 @@ Mike Boland, MBA
   padding-right: 4.5px;
 }
 
-#ytyfaphied .gt_first_summary_row {
+#ugikownaoj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ytyfaphied .gt_first_summary_row.thick {
+#ugikownaoj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ytyfaphied .gt_last_summary_row {
+#ugikownaoj .gt_last_summary_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 4.5px;
@@ -942,7 +1008,7 @@ Mike Boland, MBA
   border-bottom-color: #D3D3D3;
 }
 
-#ytyfaphied .gt_grand_summary_row {
+#ugikownaoj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -952,7 +1018,7 @@ Mike Boland, MBA
   padding-right: 4.5px;
 }
 
-#ytyfaphied .gt_first_grand_summary_row {
+#ugikownaoj .gt_first_grand_summary_row {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 4.5px;
@@ -962,7 +1028,7 @@ Mike Boland, MBA
   border-top-color: #D3D3D3;
 }
 
-#ytyfaphied .gt_last_grand_summary_row_top {
+#ugikownaoj .gt_last_grand_summary_row_top {
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 4.5px;
@@ -972,11 +1038,11 @@ Mike Boland, MBA
   border-bottom-color: #D3D3D3;
 }
 
-#ytyfaphied .gt_striped {
+#ugikownaoj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ytyfaphied .gt_table_body {
+#ugikownaoj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -985,7 +1051,7 @@ Mike Boland, MBA
   border-bottom-color: #D3D3D3;
 }
 
-#ytyfaphied .gt_footnotes {
+#ugikownaoj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -999,7 +1065,7 @@ Mike Boland, MBA
   border-right-color: #D3D3D3;
 }
 
-#ytyfaphied .gt_footnote {
+#ugikownaoj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 3px;
@@ -1008,7 +1074,7 @@ Mike Boland, MBA
   padding-right: 4.5px;
 }
 
-#ytyfaphied .gt_sourcenotes {
+#ugikownaoj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1022,7 +1088,7 @@ Mike Boland, MBA
   border-right-color: #D3D3D3;
 }
 
-#ytyfaphied .gt_sourcenote {
+#ugikownaoj .gt_sourcenote {
   font-size: 90%;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -1030,72 +1096,72 @@ Mike Boland, MBA
   padding-right: 4.5px;
 }
 
-#ytyfaphied .gt_left {
+#ugikownaoj .gt_left {
   text-align: left;
 }
 
-#ytyfaphied .gt_center {
+#ugikownaoj .gt_center {
   text-align: center;
 }
 
-#ytyfaphied .gt_right {
+#ugikownaoj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ytyfaphied .gt_font_normal {
+#ugikownaoj .gt_font_normal {
   font-weight: normal;
 }
 
-#ytyfaphied .gt_font_bold {
+#ugikownaoj .gt_font_bold {
   font-weight: bold;
 }
 
-#ytyfaphied .gt_font_italic {
+#ugikownaoj .gt_font_italic {
   font-style: italic;
 }
 
-#ytyfaphied .gt_super {
+#ugikownaoj .gt_super {
   font-size: 65%;
 }
 
-#ytyfaphied .gt_footnote_marks {
+#ugikownaoj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ytyfaphied .gt_asterisk {
+#ugikownaoj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ytyfaphied .gt_indent_1 {
+#ugikownaoj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ytyfaphied .gt_indent_2 {
+#ugikownaoj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ytyfaphied .gt_indent_3 {
+#ugikownaoj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ytyfaphied .gt_indent_4 {
+#ugikownaoj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ytyfaphied .gt_indent_5 {
+#ugikownaoj .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ytyfaphied .katex-display {
+#ugikownaoj .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ytyfaphied div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ugikownaoj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1540,6 +1606,18 @@ Mike Boland, MBA
 <h2><span class="sr-only">Jump to Conclusions 2</span></h2>
 <p>two datasets rows = customers rows = purchases</p>
 </section>
+<section id="rows-vs-columns" class="slide level2">
+<h2><span class="sr-only">Rows vs Columns</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="columns">Columns</h3>
+<p><img data-src="media/images/w01_s19_image.png" style="width:100.0%" alt="Icon emphasizing the concept of columns—variables—in a dataset."></p>
+</div><div class="column" style="width:50%;">
+<p><br><br><br><br><br></p>
+<h3 id="rows">Rows</h3>
+<p><img data-src="media/images/w01_s19_image.jpg" style="width:100.0%" alt="Icon emphasizing the concept of rows—observations—in a dataset."></p>
+</div></div>
+</section>
 <section id="unit-of-analysis" class="slide level2">
 <h2>Unit of Analysis</h2>
 <div class="columns">
@@ -1547,11 +1625,13 @@ Mike Boland, MBA
 <p><strong>What does each <em>thingie</em> (row, observation, grain) of this data represent?</strong></p>
 </div><div class="column" style="width:58%;">
 <div class="tight-list">
-<p>Everyone in a <em>zipcode</em></p>
-<p>Individual consumers</p>
-<p>Individual purchases</p>
-<p>GDP of an economy</p>
-<p>Population of a planet</p>
+<ul>
+<li>Everyone in a <em>zipcode</em></li>
+<li>Individual consumers</li>
+<li>Individual purchases</li>
+<li>GDP of an economy</li>
+<li>Population of a planet</li>
+</ul>
 </div>
 </div><div class="column" style="width:42%;">
 <p><img data-src="media/images/w01_s14_image.png" style="height:65.0%" alt="Photo of several dogs lying on a blanket; playful opener for the topic."></p>
@@ -1559,79 +1639,2379 @@ Mike Boland, MBA
 </section>
 <section id="jump-to-conclusions-2-2" class="slide level2">
 <h2><span class="sr-only">Jump to Conclusions 2</span></h2>
-<p>Rows vs Columns</p>
-</section>
-<section id="jump-to-conclusions-2-3" class="slide level2">
-<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
 <p>Two similar datasets</p>
 </section>
-<section id="jump-to-conclusions-2-4" class="slide level2">
-<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
-<p>cross sectional</p>
+<section id="data-grouping-cross-sectional" class="slide level2" data-background-image="media/images/w01_s15_image.jpeg" data-background-size="cover" data-background-opacity="0.95" data-fig-alt="Freeze‑frame droplet illustrating a cross‑sectional snapshot at a single point in time.">
+<h2>Data Grouping: Cross-Sectional</h2>
 </section>
-<section id="jump-to-conclusions-2-5" class="slide level2">
-<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
-<p>time series</p>
+<section id="data-grouping-time-series" class="slide level2">
+<h2>Data Grouping: Time-Series</h2>
+<p><img data-src="media/images/w01_s16_image.jpeg" style="height:85.0%" alt="Growth sequence image suggesting change over time in a time‑series."></p>
 </section>
-<section id="jump-to-conclusions-2-6" class="slide level2">
-<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
-<p>panel</p>
-</section>
-<section id="jump-to-conclusions-2-7" class="slide level2">
+<section id="data-grouping-panel" class="slide level2">
+<h2>Data Grouping: Panel</h2>
+
+<img data-src="media/images/w01_s17_image.jpeg" class="r-stretch quarto-figure quarto-figure-right" alt="Grid‑style visual suggesting repeated measures on multiple units across time (panel data)."></section>
+<section id="jump-to-conclusions-2-3" class="slide level2">
 <h2><span class="sr-only">Jump to Conclusions 2</span></h2>
 <p>sleep quality by month and lodging type</p>
 </section>
-<section id="jump-to-conclusions-2-8" class="slide level2">
+<section id="jump-to-conclusions-2-4" class="slide level2">
 <h2><span class="sr-only">Jump to Conclusions 2</span></h2>
 <p>tall vs wide</p>
 </section>
-<section id="jump-to-conclusions-2-9" class="slide level2">
+<section id="jump-to-conclusions-2-5" class="slide level2">
 <h2><span class="sr-only">Jump to Conclusions 2</span></h2>
 <p>variable types</p>
 </section>
-<section id="jump-to-conclusions-2-10" class="slide level2">
+<section id="jump-to-conclusions-2-6" class="slide level2">
 <h2><span class="sr-only">Jump to Conclusions 2</span></h2>
 <p>NOIR</p>
 </section>
-<section id="jump-to-conclusions-2-11" class="slide level2">
-<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
-<p>Atomic Data</p>
+<section id="observations---atomic-data" class="slide level2">
+<h2>Observations - Atomic Data</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="guahpawoxl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#guahpawoxl table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#guahpawoxl thead, #guahpawoxl tbody, #guahpawoxl tfoot, #guahpawoxl tr, #guahpawoxl td, #guahpawoxl th {
+  border-style: none;
+}
+
+#guahpawoxl p {
+  margin: 0;
+  padding: 0;
+}
+
+#guahpawoxl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 90%;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#guahpawoxl .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#guahpawoxl .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#guahpawoxl .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#guahpawoxl .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#guahpawoxl .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+}
+
+#guahpawoxl .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#guahpawoxl .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#guahpawoxl .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#guahpawoxl .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#guahpawoxl .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#guahpawoxl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#guahpawoxl .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#guahpawoxl .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#guahpawoxl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#guahpawoxl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#guahpawoxl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#guahpawoxl .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#guahpawoxl .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#guahpawoxl .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#guahpawoxl .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#guahpawoxl .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#guahpawoxl .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#guahpawoxl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#guahpawoxl .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#guahpawoxl .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#guahpawoxl .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#guahpawoxl .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#guahpawoxl .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#guahpawoxl .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#guahpawoxl .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#guahpawoxl .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#guahpawoxl .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#guahpawoxl .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#guahpawoxl .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#guahpawoxl .gt_left {
+  text-align: left;
+}
+
+#guahpawoxl .gt_center {
+  text-align: center;
+}
+
+#guahpawoxl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#guahpawoxl .gt_font_normal {
+  font-weight: normal;
+}
+
+#guahpawoxl .gt_font_bold {
+  font-weight: bold;
+}
+
+#guahpawoxl .gt_font_italic {
+  font-style: italic;
+}
+
+#guahpawoxl .gt_super {
+  font-size: 65%;
+}
+
+#guahpawoxl .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#guahpawoxl .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#guahpawoxl .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#guahpawoxl .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#guahpawoxl .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#guahpawoxl .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#guahpawoxl .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#guahpawoxl .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#guahpawoxl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border"><strong>Categories</strong></td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Value" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">Name</td>
+<td class="gt_row gt_left" headers="Value">Mike</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Label">Date</td>
+<td class="gt_row gt_left" headers="Value">01/03/2025</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">Gender</td>
+<td class="gt_row gt_left" headers="Value">Male</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Label">Location</td>
+<td class="gt_row gt_left" headers="Value">Home</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">ZipCode</td>
+<td class="gt_row gt_left" headers="Value">54601</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="media/images/w01_s21_image.jpeg" style="width:100.0%" alt="Single cube emphasizing an atomic unit of observation in the data."></p>
+</div><div class="column" style="width:30%;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="qornfnzrjm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qornfnzrjm table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#qornfnzrjm thead, #qornfnzrjm tbody, #qornfnzrjm tfoot, #qornfnzrjm tr, #qornfnzrjm td, #qornfnzrjm th {
+  border-style: none;
+}
+
+#qornfnzrjm p {
+  margin: 0;
+  padding: 0;
+}
+
+#qornfnzrjm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 90%;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#qornfnzrjm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#qornfnzrjm .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#qornfnzrjm .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#qornfnzrjm .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qornfnzrjm .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qornfnzrjm .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qornfnzrjm .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#qornfnzrjm .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#qornfnzrjm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#qornfnzrjm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#qornfnzrjm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#qornfnzrjm .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#qornfnzrjm .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#qornfnzrjm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#qornfnzrjm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#qornfnzrjm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#qornfnzrjm .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#qornfnzrjm .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qornfnzrjm .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#qornfnzrjm .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#qornfnzrjm .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#qornfnzrjm .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qornfnzrjm .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#qornfnzrjm .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#qornfnzrjm .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qornfnzrjm .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qornfnzrjm .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#qornfnzrjm .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qornfnzrjm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#qornfnzrjm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qornfnzrjm .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qornfnzrjm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qornfnzrjm .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qornfnzrjm .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qornfnzrjm .gt_left {
+  text-align: left;
+}
+
+#qornfnzrjm .gt_center {
+  text-align: center;
+}
+
+#qornfnzrjm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#qornfnzrjm .gt_font_normal {
+  font-weight: normal;
+}
+
+#qornfnzrjm .gt_font_bold {
+  font-weight: bold;
+}
+
+#qornfnzrjm .gt_font_italic {
+  font-style: italic;
+}
+
+#qornfnzrjm .gt_super {
+  font-size: 65%;
+}
+
+#qornfnzrjm .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#qornfnzrjm .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#qornfnzrjm .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#qornfnzrjm .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#qornfnzrjm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#qornfnzrjm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#qornfnzrjm .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#qornfnzrjm .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#qornfnzrjm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border"><strong>Numbers</strong></td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Value" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">Start Time</td>
+<td class="gt_row gt_left" headers="Value">10:30 P.M.</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Label">End Time</td>
+<td class="gt_row gt_left" headers="Value">6:59 A.M.</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">R.E.M.</td>
+<td class="gt_row gt_left" headers="Value">109 Minutes</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Label">Deep Sleep</td>
+<td class="gt_row gt_left" headers="Value">151 Minutes</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">Light Sleep</td>
+<td class="gt_row gt_left" headers="Value">249 Minutes</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Label">Total Sleep</td>
+<td class="gt_row gt_left" headers="Value">509</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">Quality</td>
+<td class="gt_row gt_left" headers="Value">51%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
 </section>
-<section id="jump-to-conclusions-2-12" class="slide level2">
-<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
-<p>Summarized data</p>
+<section id="summarized-data" class="slide level2">
+<h2><span class="sr-only">Summarized Data</span></h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="dimensions">Dimensions</h3>
+<div class="tight-list">
+<ul>
+<li>Categories</li>
+<li>Filters</li>
+<li>Axis Labels</li>
+</ul>
+</div>
+</div><div class="column" style="width:40%;">
+<p><br> <br> <br> <br> <img data-src="media/images/w01_s22_stack.png" style="width:100.0%" alt="An ordered stack of multiple atomic units making it possible to summarize the data with measures and summary statistics."></p>
+</div><div class="column" style="width:30%;">
+<h3 id="measures">Measures</h3>
+<div class="tight-list">
+<ul>
+<li>Averages</li>
+<li>Standard Deviation</li>
+<li>Counts</li>
+<li>Sums</li>
+</ul>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="bcrawvymia" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bcrawvymia table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bcrawvymia thead, #bcrawvymia tbody, #bcrawvymia tfoot, #bcrawvymia tr, #bcrawvymia td, #bcrawvymia th {
+  border-style: none;
+}
+
+#bcrawvymia p {
+  margin: 0;
+  padding: 0;
+}
+
+#bcrawvymia .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 90%;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bcrawvymia .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bcrawvymia .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bcrawvymia .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bcrawvymia .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bcrawvymia .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bcrawvymia .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bcrawvymia .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bcrawvymia .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bcrawvymia .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bcrawvymia .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bcrawvymia .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bcrawvymia .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bcrawvymia .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bcrawvymia .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bcrawvymia .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bcrawvymia .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bcrawvymia .gt_row {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bcrawvymia .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bcrawvymia .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bcrawvymia .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bcrawvymia .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bcrawvymia .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bcrawvymia .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bcrawvymia .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bcrawvymia .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bcrawvymia .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bcrawvymia .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bcrawvymia .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bcrawvymia .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bcrawvymia .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bcrawvymia .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bcrawvymia .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bcrawvymia .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bcrawvymia .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bcrawvymia .gt_left {
+  text-align: left;
+}
+
+#bcrawvymia .gt_center {
+  text-align: center;
+}
+
+#bcrawvymia .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bcrawvymia .gt_font_normal {
+  font-weight: normal;
+}
+
+#bcrawvymia .gt_font_bold {
+  font-weight: bold;
+}
+
+#bcrawvymia .gt_font_italic {
+  font-style: italic;
+}
+
+#bcrawvymia .gt_super {
+  font-size: 65%;
+}
+
+#bcrawvymia .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bcrawvymia .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bcrawvymia .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bcrawvymia .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bcrawvymia .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bcrawvymia .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bcrawvymia .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#bcrawvymia .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#bcrawvymia div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td class="gt_heading gt_title gt_font_normal gt_bottom_border"><strong>June Camping</strong></td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Summary" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Summary">Mean = 426.50 Minutes</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Summary">Median = 440 Minutes</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Summary">Quality = 41.87%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Summary">N Records = 6</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
 </section>
-<section id="jump-to-conclusions-2-13" class="slide level2">
-<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
-<p>Tall vs wide</p>
+<section id="tall-vs-wide" class="slide level2">
+<h2>Tall vs Wide</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="qyhawnugsz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qyhawnugsz table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#qyhawnugsz thead, #qyhawnugsz tbody, #qyhawnugsz tfoot, #qyhawnugsz tr, #qyhawnugsz td, #qyhawnugsz th {
+  border-style: none;
+}
+
+#qyhawnugsz p {
+  margin: 0;
+  padding: 0;
+}
+
+#qyhawnugsz .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#qyhawnugsz .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#qyhawnugsz .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#qyhawnugsz .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#qyhawnugsz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qyhawnugsz .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qyhawnugsz .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qyhawnugsz .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#qyhawnugsz .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#qyhawnugsz .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#qyhawnugsz .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#qyhawnugsz .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#qyhawnugsz .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#qyhawnugsz .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#qyhawnugsz .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#qyhawnugsz .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#qyhawnugsz .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#qyhawnugsz .gt_row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#qyhawnugsz .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qyhawnugsz .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#qyhawnugsz .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#qyhawnugsz .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#qyhawnugsz .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qyhawnugsz .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#qyhawnugsz .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#qyhawnugsz .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qyhawnugsz .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qyhawnugsz .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#qyhawnugsz .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qyhawnugsz .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#qyhawnugsz .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qyhawnugsz .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qyhawnugsz .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qyhawnugsz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qyhawnugsz .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qyhawnugsz .gt_left {
+  text-align: left;
+}
+
+#qyhawnugsz .gt_center {
+  text-align: center;
+}
+
+#qyhawnugsz .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#qyhawnugsz .gt_font_normal {
+  font-weight: normal;
+}
+
+#qyhawnugsz .gt_font_bold {
+  font-weight: bold;
+}
+
+#qyhawnugsz .gt_font_italic {
+  font-style: italic;
+}
+
+#qyhawnugsz .gt_super {
+  font-size: 65%;
+}
+
+#qyhawnugsz .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#qyhawnugsz .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#qyhawnugsz .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#qyhawnugsz .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#qyhawnugsz .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#qyhawnugsz .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#qyhawnugsz .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#qyhawnugsz .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#qyhawnugsz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" style="width:100%;" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings gt_spanner_row header">
+<th colspan="7" id="Dimensions" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" style="background-color: #4E79A7; color: #FFFFFF" scope="colgroup"><div class="gt_column_spanner">
+Dimensions
+</div></th>
+<th colspan="7" id="Measures" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" style="background-color: #59A14F; color: #FFFFFF" scope="colgroup"><div class="gt_column_spanner">
+Measures
+</div></th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Date" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Date</th>
+<th id="DayOfWeek" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">DayOfWeek</th>
+<th id="Month" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Month</th>
+<th id="PersonName" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">PersonName</th>
+<th id="Gender" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Gender</th>
+<th id="Location" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Location</th>
+<th id="SleepEventType" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">EventType</th>
+<th id="StartTime" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">StartTime</th>
+<th id="EndTime" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">EndTime</th>
+<th id="TotalMinutes" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">TotalMinutes</th>
+<th id="REMMinutes" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">REMMinutes</th>
+<th id="DeepMinutes" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">DeepMinutes</th>
+<th id="LightMinutes" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">LightMinutes</th>
+<th id="SleepQuality" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">SleepQuality</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-01</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Wednesday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Cam</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-01 22:25</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 05:26</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">421</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">113</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">123</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">185</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">56.10%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-01</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Wednesday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">John</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-01 00:30</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-01 07:28</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">418</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">84</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">104</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">230</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">45.00%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-01</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Wednesday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Lucas</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-01 22:25</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 05:44</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">439</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">70</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">183</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">186</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">57.60%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-01</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Wednesday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Lydia</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-01 23:15</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 07:34</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">499</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">79</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">184</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">236</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">52.70%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-01</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Wednesday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Mike</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-01 23:10</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 07:24</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">494</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">151</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">85</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">258</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">47.80%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-01</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Wednesday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Sloane</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-01 22:00</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 05:36</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">456</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">94</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">164</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">198</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">56.60%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Cam</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Nap</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 13:40</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 14:24</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">44</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">9</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">10</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">25</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">43.20%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Cam</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 22:10</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-03 05:00</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">410</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">132</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">97</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">181</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">55.90%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">John</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 23:50</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-03 06:47</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">417</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">93</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">128</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">196</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">53.00%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Lucas</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Nap</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 16:00</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 17:06</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">66</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">3</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">27</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">36</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">45.50%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Lucas</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 22:00</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-03 05:41</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">461</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">95</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">145</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">221</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">52.10%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Lydia</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 22:45</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-03 06:28</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">463</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">121</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">121</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">221</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">52.30%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Mike</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 22:05</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-03 05:50</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">465</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">116</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">110</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">239</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">48.60%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Sloane</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 21:40</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-03 04:56</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">436</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">71</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">172</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">193</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">55.70%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-03</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Friday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Cam</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-03 22:10</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-04 05:27</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">437</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">96</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">165</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">176</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">59.70%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 </section>
-<section id="jump-to-conclusions-2-14" class="slide level2">
+<section id="principles-of-tidy-data" class="slide level2">
+<h2>Principles of Tidy Data</h2>
+<ul>
+<li><em>Each variable you measure should be in one column</em></li>
+<li><em>Each observation of that variable should be in a different row</em></li>
+<li><em>There should be one table for each type of observational unit</em></li>
+<li><em>If you have multiple tables you need a key to link them</em></li>
+</ul>
+</section>
+<section id="jump-to-conclusions-2-7" class="slide level2">
 <h2><span class="sr-only">Jump to Conclusions 2</span></h2>
 <p>Extract</p>
 </section>
-<section id="jump-to-conclusions-2-15" class="slide level2">
+<section id="jump-to-conclusions-2-8" class="slide level2">
 <h2><span class="sr-only">Jump to Conclusions 2</span></h2>
 <p>Extract</p>
 </section>
-<section id="jump-to-conclusions-2-16" class="slide level2">
+<section id="jump-to-conclusions-2-9" class="slide level2">
 <h2><span class="sr-only">Jump to Conclusions 2</span></h2>
 <p>Transform</p>
 </section>
-<section id="jump-to-conclusions-2-17" class="slide level2">
+<section id="jump-to-conclusions-2-10" class="slide level2">
 <h2><span class="sr-only">Jump to Conclusions 2</span></h2>
 <p>Load</p>
 </section>
-<section id="jump-to-conclusions-2-18" class="slide level2">
-<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
-<p>Tableau</p>
-</section>
-<section id="jump-to-conclusions-2-19" class="slide level2">
-<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
-<p>Posit</p>
-</section>
-<section id="jump-to-conclusions-2-20" class="slide level2">
+<section id="tableau" class="slide level2">
+<h2>Tableau</h2>
+
+<img data-src="media/images/w01_s26_image.png" style="width:100.0%" alt="Tableau branding indicating the visualization tool introduced in this course." class="r-stretch"></section>
+<section id="posit.cloud" class="slide level2">
+<h2>Posit.cloud</h2>
+
+<img data-src="media/images/w01_s27_image.png" style="width:100.0%" alt="Posit Cloud branding indicating a browser‑based RStudio environment for analysis." class="r-stretch"></section>
+<section id="jump-to-conclusions-2-11" class="slide level2">
 <h2><span class="sr-only">Jump to Conclusions 2</span></h2>
 <p>Scary R</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(eco230r)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a>abnb <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a></a>  <span class="fu">idt</span>(listed_price<span class="sc">~</span>instant_bookable)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Independent variable converted to a factor using as.factor()"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$analysis_type
+[1] "Independent t-Test, Two Tailed test"
+
+$results
+[1] "t(2110.38) = 3.515, p = 0, r = 0.076, bf10 = 12.163"
+
+$descriptive_statistics
+  Group       N    Mean Standard_Error
+1 FALSE 2660.00  137.00           2.47
+2  TRUE 1060.00  122.00           3.59</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(eco230r)</span>
+<span id="cb4-2"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-3"><a></a></span>
+<span id="cb4-4"><a></a>abnb <span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a></a>  <span class="fu">ano</span>(listed_price<span class="sc">~</span>room_type)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Independent variable converted to a factor using as.factor()"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$analysis_type
+[1] "Homogeneity of Variance is not assumed, Robust One Way ANOVA for medians,  0.1  trimmed means, Post Hocs using linear equality constraints"
+
+$results
+[1] "F(2,224.33) = 905.491, p = 0, w = 0.836, bf10 = 4.60906366003435e+142"
+
+$descriptive_statistics
+            Group       N    Mean Standard_Error
+1 Entire home/apt 2220.00  174.00           2.97
+2    Private room 1400.00   72.00           1.43
+3     Shared room  101.00   56.00          10.30
+
+$post_hoc_analysis
+                             Difference  P.Value
+Entire home/apt-Private room   85.03443 0.00e+00
+Entire home/apt-Shared room   110.73338 0.00e+00
+Private room-Shared room       25.69895 7.33e-11</code></pre>
+</div>
+</div>
+</section>
+<section id="summary-and-prime-directive" class="slide level2">
+<h2><span class="sr-only">Summary and Prime Directive</span></h2>
+<p><br><br><br></p>
+<h3 id="before-running-any-statistics-what-are-the-three-questions-you-must-answer-about-a-dataset">Before running any statistics, what are the three questions you must answer about a dataset?</h3>
+<p><br></p>
+<ol type="1">
+<li>What does one row represent?</li>
+<li>What kind of variables do I have?</li>
+<li>What question can this data answer?</li>
+</ol>
 
 
 </section>

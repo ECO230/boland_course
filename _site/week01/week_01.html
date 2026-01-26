@@ -28,8 +28,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0fde88a82f0356838740f155f1088782.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-d35d25eb2bd8b2df9986405c4948de16.css">
   <link rel="stylesheet" href="styles/accessibility.css">
   <link rel="stylesheet" href="../shared/styles/accessibility.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -140,272 +206,3815 @@ Mike Boland, MBA
 </div>
 
 </section>
-<section class="slide level2">
-
-<!--
-This Quarto deck was generated from Week 1 PPT + three transcripts.
-Hidden titles are provided using the .sr-only class (defined in accessibility.css).
-Replace any media/* placeholder image paths with your actual files.
-If videos are hosted in Canvas, leave the external links as-is and keep the transcripts here.
--->
-</section>
-<section id="course-section" class="slide level2">
-<h2><span class="sr-only">Course &amp; Section</span></h2>
-<p><strong>ECO 230</strong><br>
-<strong>Section 005</strong></p>
-</section>
-<section id="instructor-contact" class="slide level2">
-<h2><span class="sr-only">Instructor &amp; Contact</span></h2>
-<p><strong>Mike Boland, MBA</strong><br>
-<strong>mboland@uwlax.edu</strong><br>
-<strong>Phone:</strong> 608-385-6497</p>
-</section>
-<section id="what-is-statistics" class="slide level2">
-<h2><span class="sr-only">What is Statistics?</span></h2>
-<p><strong>What is statistics?</strong></p>
-
-<img data-src="media/images/w01_s03_image.jpeg" style="width:70.0%" alt="Photo of several dogs lying on a blanket; playful opener for the topic." class="r-stretch"></section>
-<section id="analytics-definition" class="slide level2">
-<h2><span class="sr-only">Analytics Definition</span></h2>
-<p><strong>Analytics is the art of finding out what is in your data.</strong></p>
-
-<img data-src="media/images/decorative-blanket.jpg" style="width:65.0%" aria-hidden="true" alt="" class="r-stretch"></section>
-<section id="analytics-vs.-certainty" class="slide level2">
-<h2><span class="sr-only">Analytics vs.&nbsp;Certainty</span></h2>
-<p><strong>If you can (with some effort) find the answer with certainty you are using analytics.</strong></p>
-
-<img data-src="media/images/decorative-blanket-2.jpg" style="width:65.0%" aria-hidden="true" alt="" class="r-stretch"></section>
-<section id="analytics-vs.-statistics-1" class="slide level2">
-<h2><span class="sr-only">Analytics vs.&nbsp;Statistics (1)</span></h2>
-<p><strong>Analytics deals with what you know.</strong><br>
-<strong>Statistics deals with what you do not know.</strong></p>
-
-<img data-src="media/images/decorative-blanket-3.jpg" style="width:65.0%" aria-hidden="true" alt="" class="r-stretch"></section>
-<section id="analytics-vs.-statistics-2" class="slide level2">
-<h2><span class="sr-only">Analytics vs.&nbsp;Statistics (2)</span></h2>
-<p><strong>Analytics helps you get good questions.</strong><br>
-<strong>Statistics helps you get good answers.</strong></p>
-
-<img data-src="media/images/decorative-blanket-4.jpg" style="width:65.0%" aria-hidden="true" alt="" class="r-stretch"></section>
-<section id="statistics-as-decision-making" class="slide level2">
-<h2><span class="sr-only">Statistics as Decision-Making</span></h2>
-<p><strong>Statistics is the science of making decisions under uncertainty.</strong></p>
-
-<img data-src="media/images/decorative-blanket-5.jpg" style="width:65.0%" aria-hidden="true" alt="" class="r-stretch"></section>
-<section id="learning-curve" class="slide level2">
-<h2><span class="sr-only">Learning Curve</span></h2>
-<p><img data-src="media/images/learning-curve.png" style="width:75.0%" alt="Stylized learning curve chart with Time on the x-axis and Skill on the y-axis, labeled phases ‘This Sucks’, ‘This $ucks’, and ‘This Is Fun’."></p>
-<p><strong>Learning Curve</strong></p>
+<section id="jump-to-conclusions" class="slide level2">
+<h2><span class="sr-only">Jump to Conclusions</span></h2>
+<p>Airbnb Owners should enable <strong>Instant Booking</strong> in Fall — it’s the unequivocally best season for superior ratings and returns.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="week_01_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="center">
-<p>step1_blue.png</p>
-<p>step2_blue_orange.png</p>
-<p>step3_all.png</p>
-</div>
-</section>
-<section id="im-old-humor" class="slide level2">
-<h2><span class="sr-only">I’m Old (humor)</span></h2>
+<div id="leflokremn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#leflokremn table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-<img data-src="media/images/im-old.png" style="width:60.0%" alt="Lightweight humorous image labeled ‘I’m Old’." class="r-stretch"></section>
-<section id="etl-overview" class="slide level2">
-<h2><span class="sr-only">ETL Overview</span></h2>
-<p><strong>Extract – Transform – Load</strong></p>
-<ul>
-<li><strong>Extract:</strong> get data from its source to your working environment<br>
-</li>
-<li><strong>Transform:</strong> clean, standardize, reshape to a consistent structure<br>
-</li>
-<li><strong>Load:</strong> place the prepared data into the analysis tool (Excel, R, Tableau, DB)</li>
-</ul>
+#leflokremn thead, #leflokremn tbody, #leflokremn tfoot, #leflokremn tr, #leflokremn td, #leflokremn th {
+  border-style: none;
+}
 
-<img data-src="media/images/etl-icons.png" style="width:70.0%" alt="Icon trio depicting Extract, Transform, and Load steps." class="r-stretch"></section>
-<section id="transform-emphasis" class="slide level2">
-<h2><span class="sr-only">Transform Emphasis</span></h2>
-<p><strong>Extract – <em>Transform</em> – Load</strong><br>
-Edit data so it is stored in a <strong>consistent</strong> and <strong>efficient</strong> way.</p>
+#leflokremn p {
+  margin: 0;
+  padding: 0;
+}
 
-<img data-src="media/images/transform-focus.png" style="width:70.0%" alt="Diagram emphasizing the Transform phase: cleaning, reshaping, standardizing fields like dates, categories, and locations." class="r-stretch"></section>
-<section id="load-destinations" class="slide level2">
-<h2><span class="sr-only">Load Destinations</span></h2>
-<p><strong>Extract – Transform – <em>Load</em></strong></p>
-<p><strong>Destinations:</strong> Databases, Excel, R, Tableau, SPSS</p>
+#leflokremn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
 
-<img data-src="media/images/load-destinations.png" style="width:80.0%" alt="Row of logos/icons for common analysis tools: database cylinder, Excel, R, Tableau, SPSS." class="r-stretch"></section>
-<section id="video-etl-watch-on-canvas-transcript" class="slide level2">
-<h2><span class="sr-only">Video: ETL (watch on Canvas) + Transcript</span></h2>
-<blockquote>
-<p><strong>Watch on Canvas:</strong> <em>ETL overview video</em><br>
-(Replace <code>#</code> with your Canvas URL.)</p>
-</blockquote>
-<p><a href="#/">▶️ Open video in Canvas</a></p>
-<details>
-<summary>
-<strong>Transcript — ETL</strong> (click to expand)
-</summary>
-</details></section>
-<section>
-<section id="transcript-video-1-etl" class="title-slide slide level1 center">
-<h1>Transcript — Video 1 (ETL)</h1>
-<p>It’s usually one of our first task is figuring out how to get the data where we need it to be in order to use it and do our analysis on it. So generally when we’re getting data, it’s going to follow this type of a process, extract, transform load or ETL process. A lot of the data that we’re gonna be working with, especially for this course, is going to be data that other people have gathered what’s known as secondary data. Later on in the class, we will talk little bit about primary data, how to, how to gather data for a specific purpose. But the vast majority of the time we’re gonna be using data that’s already existing and whether it is from a third party source or internally within our company has sales database or something like that. We usually don’t have a lot of say in how their data is structured, how it’s set up. So we need to figure out how to get that data in the form that it’s in currently. And then get it into a form that we’re gonna be able to do. Our nails the sun.</p>
-<p>The first step in that process is to extract the data. And that is to get the data from wherever it is to our computer, to where we’re gonna be working with it at. That data can take on a number of different forms. Sometimes the data is relatively clean. If it is a something like this where we have a structured database where everything is set up just so you know, each point of data is in its own row, each specific variables in its own column. So sometimes it might be pretty much in the form that we need to use it, right where it is.</p>
-<p>Other times you might be grabbing it from a website or something like that. If you wanted to do some analysis looking at census data, you will go to the Census Bureau’s website and download data from there. It might just be unstructured data just pouring into, into a database, some sort of a sensor or something that is tracking data, looking at a motion sensor or something like that. Where, you know, every time that that sensor is triggered, it it changes from a truth or false yes or no sort of a thing. Measuring the brightness or measuring the voltage of a certain sensor. Measuring whether or not motion was detected on a video camera. That data might just be constantly pouring in. And then we have to figure out, okay, how we’re gonna deal with this L. We’re going to figure out what the timestamp was. What does this data, what is it telling us?</p>
-<p>That first step is to is to extract that data. So get it out of where it is right now. Get it to where we need it to be. Once we have that data downloaded or transferred over to where we’re gonna be using it or connected to, you know, sometimes we don’t actually need the data, we just make a connection to where it’s at. Next step is to transform that data to get it into a format that’s going to be convenient for us to use that we can do analysis on without a constantly having to go in and edit things and change things and recalculate. So that’s the T part of the ETL process transform to get the data from the form that it’s in when we get it, to change it to the form that we’re gonna be using it for our analysis.</p>
-<p>So a lot of times we’re editing this data, so it’s gonna be stored in a consistent way. It’s gonna be efficient for us to go and look at it. There’s certain rules that we’re going to follow that’s gonna make our lives much easier when it comes time to analyze that data or build a chart or do some analysis on it. There are some standard ways to keep that where any tool that we’re going to connect to that data width is going to be able to look at it in a similar way.</p>
-<p>The example on the top here, that a good before if we download data from the Census Bureau, It’s gonna look something like this. So this data is stored in a way where we have gigabytes of data on. However many million people live in the country. All that data is stored on a server somewhere in a way that’s going to be convenient for the Census Bureau. That’s not necessarily convenient for us. You can see we have a lot of empty space here. If category one, category to category three, you might not know what those things mean.</p>
-<p>A lot of times we need to transform that data to get it into something. It’s going to be a little bit more convenient for us to use consistent way to measure what was the time that his data was recorded? Consistent way to measure geographically, what was their zip code? What was the date of what was what were the different categories that it falls into? A lot of times we can store that in a much more efficient way. We do it as part of the transform process.</p>
-<p>Last step then is to load it into the program that we’re gonna be using to do our analysis. In this can be anything. Sometimes we go from a database, we transform it and put it right back into that same database. This doesn’t necessarily have to be different programs that we’re using.</p>
-<p>(… transcript continues …)</p>
+#leflokremn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
 
-</section>
-<section id="unit-of-analysis" class="slide level2">
-<h2><span class="sr-only">Unit of Analysis</span></h2>
-<p><strong>Unit of Analysis</strong><br>
-What does each <strong>row / observation / grain</strong> in this dataset represent?</p>
-<ul>
-<li>Everyone in a ZIP code<br>
-</li>
-<li>Individual consumers<br>
-</li>
-<li>Individual purchases<br>
-</li>
-<li>GDP of an economy<br>
-</li>
-<li>Population of a planet</li>
-</ul>
+#leflokremn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
 
-<img data-src="media/images/unit-of-analysis.png" style="width:70.0%" alt="Visual cue reminding that each dataset row should map to a clearly defined observational unit." class="r-stretch"></section>
-<section id="data-grouping-cross-sectional" class="slide level2">
-<h2><span class="sr-only">Data Grouping: Cross-Sectional</span></h2>
-<p><strong>Data Grouping: Cross‑Sectional</strong><br>
-A snapshot of different subjects at <strong>one point in time</strong>.</p>
+#leflokremn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
 
-<img data-src="media/images/cross-sectional.png" style="width:70.0%" alt="Photo of a water droplet frozen in time; metaphor for a single-time snapshot of data." class="r-stretch"></section>
-<section id="data-grouping-time-series" class="slide level2">
-<h2><span class="sr-only">Data Grouping: Time-Series</span></h2>
-<p><strong>Data Grouping: Time‑Series</strong><br>
-Track measurements of (often different) subjects <strong>over time</strong>.</p>
+#leflokremn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
 
-<img data-src="media/images/time-series.png" style="width:70.0%" alt="Illustration of growth over months; metaphor for changes tracked over time." class="r-stretch"></section>
-<section id="data-grouping-panel" class="slide level2">
-<h2><span class="sr-only">Data Grouping: Panel</span></h2>
-<p><strong>Data Grouping: Panel</strong><br>
-Track the <strong>same subjects</strong> repeatedly over time.</p>
+#leflokremn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
 
-<img data-src="media/images/panel-data.png" style="width:70.0%" alt="Illustration of multiple parallel timelines for the same subjects; metaphor for panel data." class="r-stretch"></section>
-<section id="tall-vs-wide-know-your-structure" class="slide level2">
-<h2><span class="sr-only">Tall vs Wide; Know Your Structure</span></h2>
-<p><strong>Understand the Structure of your data</strong></p>
-<ul>
-<li><strong>Tall</strong> — more rows, fewer columns<br>
-</li>
-<li><strong>Wide</strong> — more columns, fewer rows</li>
-</ul>
-<p><strong>Example (Tall):</strong></p>
-<table class="caption-top">
+#leflokremn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#leflokremn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#leflokremn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#leflokremn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#leflokremn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#leflokremn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#leflokremn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#leflokremn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#leflokremn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#leflokremn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#leflokremn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#leflokremn .gt_row {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#leflokremn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#leflokremn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#leflokremn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#leflokremn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#leflokremn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#leflokremn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#leflokremn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#leflokremn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#leflokremn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#leflokremn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#leflokremn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#leflokremn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#leflokremn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#leflokremn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#leflokremn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#leflokremn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#leflokremn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#leflokremn .gt_left {
+  text-align: left;
+}
+
+#leflokremn .gt_center {
+  text-align: center;
+}
+
+#leflokremn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#leflokremn .gt_font_normal {
+  font-weight: normal;
+}
+
+#leflokremn .gt_font_bold {
+  font-weight: bold;
+}
+
+#leflokremn .gt_font_italic {
+  font-style: italic;
+}
+
+#leflokremn .gt_super {
+  font-size: 65%;
+}
+
+#leflokremn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#leflokremn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#leflokremn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#leflokremn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#leflokremn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#leflokremn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#leflokremn .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#leflokremn .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#leflokremn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
 <thead>
-<tr class="header">
-<th>Name</th>
-<th>Variable</th>
-<th>Value</th>
+<tr class="gt_col_headings header">
+<th id="Season" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Season</th>
+<th id="Bookings" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Bookings</th>
+<th id="Avg-Price-(USD)" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Avg Price (USD)</th>
+<th id="Avg-Rating" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Avg Rating</th>
+<th id="Instant-Book-%" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Instant-Book %</th>
+<th id="Rating-×-Price" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Rating × Price</th>
 </tr>
 </thead>
-<tbody>
+<tbody class="gt_table_body">
 <tr class="odd">
-<td>Mike</td>
-<td>Gender</td>
-<td>Male</td>
+<td class="gt_row gt_left" headers="Season">Fall</td>
+<td class="gt_row gt_right" headers="Bookings">2,253</td>
+<td class="gt_row gt_right" headers="Avg Price (USD)">$134.63</td>
+<td class="gt_row gt_right" headers="Avg Rating">95.14</td>
+<td class="gt_row gt_right" headers="Instant-Book %">23.70%</td>
+<td class="gt_row gt_right" headers="Rating × Price">12,808.16</td>
 </tr>
 <tr class="even">
-<td>Mike</td>
-<td>Age</td>
-<td>43</td>
+<td class="gt_row gt_left" headers="Season">Winter</td>
+<td class="gt_row gt_right" headers="Bookings">1,521</td>
+<td class="gt_row gt_right" headers="Avg Price (USD)">$129.39</td>
+<td class="gt_row gt_right" headers="Avg Rating">95.08</td>
+<td class="gt_row gt_right" headers="Instant-Book %">31.56%</td>
+<td class="gt_row gt_right" headers="Rating × Price">12,302.72</td>
 </tr>
 <tr class="odd">
-<td>Mike</td>
-<td>Monday</td>
-<td>6.5</td>
+<td class="gt_row gt_left" headers="Season">Summer</td>
+<td class="gt_row gt_right" headers="Bookings">2,118</td>
+<td class="gt_row gt_right" headers="Avg Price (USD)">$128.85</td>
+<td class="gt_row gt_right" headers="Avg Rating">94.64</td>
+<td class="gt_row gt_right" headers="Instant-Book %">23.94%</td>
+<td class="gt_row gt_right" headers="Rating × Price">12,194.56</td>
 </tr>
 <tr class="even">
-<td>Mike</td>
-<td>Tuesday</td>
-<td>7.2</td>
+<td class="gt_row gt_left" headers="Season">Spring</td>
+<td class="gt_row gt_right" headers="Bookings">4,283</td>
+<td class="gt_row gt_right" headers="Avg Price (USD)">$122.11</td>
+<td class="gt_row gt_right" headers="Avg Rating">95.32</td>
+<td class="gt_row gt_right" headers="Instant-Book %">31.43%</td>
+<td class="gt_row gt_right" headers="Rating × Price">11,639.20</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Example (Wide):</strong></p>
-<table class="caption-top">
+
+</div>
+</div>
+</div>
+</section>
+<section id="jump-to-conclusions-2" class="slide level2">
+<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fumczxpzja" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fumczxpzja table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#fumczxpzja thead, #fumczxpzja tbody, #fumczxpzja tfoot, #fumczxpzja tr, #fumczxpzja td, #fumczxpzja th {
+  border-style: none;
+}
+
+#fumczxpzja p {
+  margin: 0;
+  padding: 0;
+}
+
+#fumczxpzja .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#fumczxpzja .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#fumczxpzja .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#fumczxpzja .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#fumczxpzja .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fumczxpzja .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fumczxpzja .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fumczxpzja .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 3.75px;
+  padding-bottom: 4.75px;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+  overflow-x: hidden;
+}
+
+#fumczxpzja .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#fumczxpzja .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#fumczxpzja .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#fumczxpzja .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 3.75px;
+  padding-bottom: 3.75px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#fumczxpzja .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#fumczxpzja .gt_group_heading {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#fumczxpzja .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#fumczxpzja .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#fumczxpzja .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#fumczxpzja .gt_row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#fumczxpzja .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+}
+
+#fumczxpzja .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+  vertical-align: top;
+}
+
+#fumczxpzja .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#fumczxpzja .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#fumczxpzja .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+}
+
+#fumczxpzja .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#fumczxpzja .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#fumczxpzja .gt_last_summary_row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fumczxpzja .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+}
+
+#fumczxpzja .gt_first_grand_summary_row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#fumczxpzja .gt_last_grand_summary_row_top {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fumczxpzja .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#fumczxpzja .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fumczxpzja .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fumczxpzja .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+}
+
+#fumczxpzja .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fumczxpzja .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 4.5px;
+  padding-right: 4.5px;
+}
+
+#fumczxpzja .gt_left {
+  text-align: left;
+}
+
+#fumczxpzja .gt_center {
+  text-align: center;
+}
+
+#fumczxpzja .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#fumczxpzja .gt_font_normal {
+  font-weight: normal;
+}
+
+#fumczxpzja .gt_font_bold {
+  font-weight: bold;
+}
+
+#fumczxpzja .gt_font_italic {
+  font-style: italic;
+}
+
+#fumczxpzja .gt_super {
+  font-size: 65%;
+}
+
+#fumczxpzja .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#fumczxpzja .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#fumczxpzja .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#fumczxpzja .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#fumczxpzja .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#fumczxpzja .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#fumczxpzja .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#fumczxpzja .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#fumczxpzja div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" style="table-layout:fixed;width:100%;" data-quarto-bootstrap="false">
 <thead>
-<tr class="header">
-<th>Name</th>
-<th>Gender</th>
-<th>Age</th>
-<th>Monday</th>
-<th>Tuesday</th>
+<tr class="gt_col_headings header">
+<th id="id" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ID</th>
+<th id="name" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Name</th>
+<th id="property_type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Property</th>
+<th id="room_type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Room</th>
+<th id="neighbourhood" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Neighborhood</th>
+<th id="zipcode" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ZIP</th>
+<th id="accommodates" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Sleeps</th>
+<th id="bedrooms" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">BR</th>
+<th id="beds" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Beds</th>
+<th id="host_since" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Host Since</th>
+<th id="first_review" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">First Review</th>
+<th id="last_review" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Last Review</th>
+<th id="number_of_reviews" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col"># Reviews</th>
+<th id="review_scores_rating" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Rating</th>
+<th id="listed_price" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Price</th>
+<th id="instant_bookable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">IB?</th>
 </tr>
 </thead>
-<tbody>
+<tbody class="gt_table_body">
 <tr class="odd">
-<td>Mike</td>
-<td>Male</td>
-<td>43</td>
-<td>6.5</td>
-<td>7.2</td>
+<td class="gt_row gt_right" headers="id">6226658</td>
+<td class="gt_row gt_left" headers="name">Sweet Home Chicago</td>
+<td class="gt_row gt_left" headers="property_type">Apartment</td>
+<td class="gt_row gt_left" headers="room_type">Private room</td>
+<td class="gt_row gt_left" headers="neighbourhood">Humboldt Park</td>
+<td class="gt_row gt_right" headers="zipcode">60622</td>
+<td class="gt_row gt_right" headers="accommodates">2</td>
+<td class="gt_row gt_right" headers="bedrooms">1</td>
+<td class="gt_row gt_right" headers="beds">1</td>
+<td class="gt_row gt_right" headers="host_since">2012-09-10</td>
+<td class="gt_row gt_right" headers="first_review">NA</td>
+<td class="gt_row gt_right" headers="last_review">NA</td>
+<td class="gt_row gt_right" headers="number_of_reviews">0</td>
+<td class="gt_row gt_right" headers="review_scores_rating">NA</td>
+<td class="gt_row gt_right" headers="listed_price">$60.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id">7499179</td>
+<td class="gt_row gt_left" headers="name">Private room in Wicker Park loft at...</td>
+<td class="gt_row gt_left" headers="property_type">Loft</td>
+<td class="gt_row gt_left" headers="room_type">Private room</td>
+<td class="gt_row gt_left" headers="neighbourhood">Wicker Park</td>
+<td class="gt_row gt_right" headers="zipcode">60622</td>
+<td class="gt_row gt_right" headers="accommodates">2</td>
+<td class="gt_row gt_right" headers="bedrooms">1</td>
+<td class="gt_row gt_right" headers="beds">1</td>
+<td class="gt_row gt_right" headers="host_since">2016-07-29</td>
+<td class="gt_row gt_right" headers="first_review">2016-08-14</td>
+<td class="gt_row gt_right" headers="last_review">2016-10-16</td>
+<td class="gt_row gt_right" headers="number_of_reviews">15</td>
+<td class="gt_row gt_right" headers="review_scores_rating">91.00</td>
+<td class="gt_row gt_right" headers="listed_price">$75.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id">19813606</td>
+<td class="gt_row gt_left" headers="name">Modern condo close to parks and mus...</td>
+<td class="gt_row gt_left" headers="property_type">Condominium</td>
+<td class="gt_row gt_left" headers="room_type">Entire home/apt</td>
+<td class="gt_row gt_left" headers="neighbourhood">South Loop/Prin...</td>
+<td class="gt_row gt_right" headers="zipcode">60605</td>
+<td class="gt_row gt_right" headers="accommodates">5</td>
+<td class="gt_row gt_right" headers="bedrooms">2</td>
+<td class="gt_row gt_right" headers="beds">2</td>
+<td class="gt_row gt_right" headers="host_since">2016-07-17</td>
+<td class="gt_row gt_right" headers="first_review">NA</td>
+<td class="gt_row gt_right" headers="last_review">NA</td>
+<td class="gt_row gt_right" headers="number_of_reviews">0</td>
+<td class="gt_row gt_right" headers="review_scores_rating">NA</td>
+<td class="gt_row gt_right" headers="listed_price">$250.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">Yes</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id">13435559</td>
+<td class="gt_row gt_left" headers="name">Art studio + house in one</td>
+<td class="gt_row gt_left" headers="property_type">House</td>
+<td class="gt_row gt_left" headers="room_type">Private room</td>
+<td class="gt_row gt_left" headers="neighbourhood">Pilsen</td>
+<td class="gt_row gt_right" headers="zipcode">60608</td>
+<td class="gt_row gt_right" headers="accommodates">2</td>
+<td class="gt_row gt_right" headers="bedrooms">1</td>
+<td class="gt_row gt_right" headers="beds">1</td>
+<td class="gt_row gt_right" headers="host_since">2014-02-27</td>
+<td class="gt_row gt_right" headers="first_review">2014-03-19</td>
+<td class="gt_row gt_right" headers="last_review">2017-04-30</td>
+<td class="gt_row gt_right" headers="number_of_reviews">85</td>
+<td class="gt_row gt_right" headers="review_scores_rating">96.00</td>
+<td class="gt_row gt_right" headers="listed_price">$64.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id">19692298</td>
+<td class="gt_row gt_left" headers="name">Charming bohemian duplex w King bed</td>
+<td class="gt_row gt_left" headers="property_type">House</td>
+<td class="gt_row gt_left" headers="room_type">Entire home/apt</td>
+<td class="gt_row gt_left" headers="neighbourhood">NA</td>
+<td class="gt_row gt_right" headers="zipcode">60647</td>
+<td class="gt_row gt_right" headers="accommodates">3</td>
+<td class="gt_row gt_right" headers="bedrooms">1</td>
+<td class="gt_row gt_right" headers="beds">1</td>
+<td class="gt_row gt_right" headers="host_since">2015-03-15</td>
+<td class="gt_row gt_right" headers="first_review">2015-11-23</td>
+<td class="gt_row gt_right" headers="last_review">2016-11-21</td>
+<td class="gt_row gt_right" headers="number_of_reviews">18</td>
+<td class="gt_row gt_right" headers="review_scores_rating">97.00</td>
+<td class="gt_row gt_right" headers="listed_price">$110.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id">235281</td>
+<td class="gt_row gt_left" headers="name">5 QUEEN BEDS / 2 FULL BATHS / SLEEP...</td>
+<td class="gt_row gt_left" headers="property_type">Apartment</td>
+<td class="gt_row gt_left" headers="room_type">Entire home/apt</td>
+<td class="gt_row gt_left" headers="neighbourhood">Lakeview</td>
+<td class="gt_row gt_right" headers="zipcode">60614</td>
+<td class="gt_row gt_right" headers="accommodates">9</td>
+<td class="gt_row gt_right" headers="bedrooms">2</td>
+<td class="gt_row gt_right" headers="beds">5</td>
+<td class="gt_row gt_right" headers="host_since">2015-12-13</td>
+<td class="gt_row gt_right" headers="first_review">2016-06-10</td>
+<td class="gt_row gt_right" headers="last_review">2017-04-16</td>
+<td class="gt_row gt_right" headers="number_of_reviews">10</td>
+<td class="gt_row gt_right" headers="review_scores_rating">96.00</td>
+<td class="gt_row gt_right" headers="listed_price">$199.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id">783533</td>
+<td class="gt_row gt_left" headers="name">Chicago MostWanted LOCATION Mag Mil</td>
+<td class="gt_row gt_left" headers="property_type">Apartment</td>
+<td class="gt_row gt_left" headers="room_type">Entire home/apt</td>
+<td class="gt_row gt_left" headers="neighbourhood">Streeterville</td>
+<td class="gt_row gt_right" headers="zipcode">60611</td>
+<td class="gt_row gt_right" headers="accommodates">2</td>
+<td class="gt_row gt_right" headers="bedrooms">1</td>
+<td class="gt_row gt_right" headers="beds">1</td>
+<td class="gt_row gt_right" headers="host_since">2012-10-24</td>
+<td class="gt_row gt_right" headers="first_review">2014-04-13</td>
+<td class="gt_row gt_right" headers="last_review">2014-11-05</td>
+<td class="gt_row gt_right" headers="number_of_reviews">4</td>
+<td class="gt_row gt_right" headers="review_scores_rating">100.00</td>
+<td class="gt_row gt_right" headers="listed_price">$161.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id">11610316</td>
+<td class="gt_row gt_left" headers="name">Bedroom with bath and large family ...</td>
+<td class="gt_row gt_left" headers="property_type">Bungalow</td>
+<td class="gt_row gt_left" headers="room_type">Private room</td>
+<td class="gt_row gt_left" headers="neighbourhood">Belmont Cragin</td>
+<td class="gt_row gt_right" headers="zipcode">60639</td>
+<td class="gt_row gt_right" headers="accommodates">5</td>
+<td class="gt_row gt_right" headers="bedrooms">1</td>
+<td class="gt_row gt_right" headers="beds">3</td>
+<td class="gt_row gt_right" headers="host_since">2017-02-07</td>
+<td class="gt_row gt_right" headers="first_review">2017-03-02</td>
+<td class="gt_row gt_right" headers="last_review">2017-05-07</td>
+<td class="gt_row gt_right" headers="number_of_reviews">16</td>
+<td class="gt_row gt_right" headers="review_scores_rating">100.00</td>
+<td class="gt_row gt_right" headers="listed_price">$39.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">Yes</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id">16412763</td>
+<td class="gt_row gt_left" headers="name">Great 1 bedroom Luxury Location and...</td>
+<td class="gt_row gt_left" headers="property_type">Apartment</td>
+<td class="gt_row gt_left" headers="room_type">Entire home/apt</td>
+<td class="gt_row gt_left" headers="neighbourhood">NA</td>
+<td class="gt_row gt_right" headers="zipcode">60601</td>
+<td class="gt_row gt_right" headers="accommodates">3</td>
+<td class="gt_row gt_right" headers="bedrooms">1</td>
+<td class="gt_row gt_right" headers="beds">1</td>
+<td class="gt_row gt_right" headers="host_since">2012-10-24</td>
+<td class="gt_row gt_right" headers="first_review">2015-10-16</td>
+<td class="gt_row gt_right" headers="last_review">2015-10-16</td>
+<td class="gt_row gt_right" headers="number_of_reviews">1</td>
+<td class="gt_row gt_right" headers="review_scores_rating">100.00</td>
+<td class="gt_row gt_right" headers="listed_price">$175.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id">15636707</td>
+<td class="gt_row gt_left" headers="name">Fantastic River North Location!-s3</td>
+<td class="gt_row gt_left" headers="property_type">Apartment</td>
+<td class="gt_row gt_left" headers="room_type">Entire home/apt</td>
+<td class="gt_row gt_left" headers="neighbourhood">River North</td>
+<td class="gt_row gt_right" headers="zipcode">60654</td>
+<td class="gt_row gt_right" headers="accommodates">2</td>
+<td class="gt_row gt_right" headers="bedrooms">0</td>
+<td class="gt_row gt_right" headers="beds">1</td>
+<td class="gt_row gt_right" headers="host_since">2015-10-15</td>
+<td class="gt_row gt_right" headers="first_review">2016-10-23</td>
+<td class="gt_row gt_right" headers="last_review">2016-10-23</td>
+<td class="gt_row gt_right" headers="number_of_reviews">1</td>
+<td class="gt_row gt_right" headers="review_scores_rating">80.00</td>
+<td class="gt_row gt_right" headers="listed_price">$359.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id">18089318</td>
+<td class="gt_row gt_left" headers="name">ShortStayChicago#5: Michigan Avenue</td>
+<td class="gt_row gt_left" headers="property_type">Apartment</td>
+<td class="gt_row gt_left" headers="room_type">Entire home/apt</td>
+<td class="gt_row gt_left" headers="neighbourhood">River North</td>
+<td class="gt_row gt_right" headers="zipcode">60610</td>
+<td class="gt_row gt_right" headers="accommodates">2</td>
+<td class="gt_row gt_right" headers="bedrooms">0</td>
+<td class="gt_row gt_right" headers="beds">1</td>
+<td class="gt_row gt_right" headers="host_since">2014-12-20</td>
+<td class="gt_row gt_right" headers="first_review">2015-05-25</td>
+<td class="gt_row gt_right" headers="last_review">2017-03-04</td>
+<td class="gt_row gt_right" headers="number_of_reviews">14</td>
+<td class="gt_row gt_right" headers="review_scores_rating">89.00</td>
+<td class="gt_row gt_right" headers="listed_price">$85.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id">17587897</td>
+<td class="gt_row gt_left" headers="name">CITY CENTER, SPACIOUS COZY STUDIO &amp;...</td>
+<td class="gt_row gt_left" headers="property_type">Apartment</td>
+<td class="gt_row gt_left" headers="room_type">Entire home/apt</td>
+<td class="gt_row gt_left" headers="neighbourhood">Gold Coast</td>
+<td class="gt_row gt_right" headers="zipcode">60610</td>
+<td class="gt_row gt_right" headers="accommodates">2</td>
+<td class="gt_row gt_right" headers="bedrooms">0</td>
+<td class="gt_row gt_right" headers="beds">1</td>
+<td class="gt_row gt_right" headers="host_since">2016-01-24</td>
+<td class="gt_row gt_right" headers="first_review">NA</td>
+<td class="gt_row gt_right" headers="last_review">NA</td>
+<td class="gt_row gt_right" headers="number_of_reviews">0</td>
+<td class="gt_row gt_right" headers="review_scores_rating">NA</td>
+<td class="gt_row gt_right" headers="listed_price">$29.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">Yes</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id">9379983</td>
+<td class="gt_row gt_left" headers="name">Cozy Garden Unit In Edgewater</td>
+<td class="gt_row gt_left" headers="property_type">Apartment</td>
+<td class="gt_row gt_left" headers="room_type">Entire home/apt</td>
+<td class="gt_row gt_left" headers="neighbourhood">Edgewater</td>
+<td class="gt_row gt_right" headers="zipcode">60660</td>
+<td class="gt_row gt_right" headers="accommodates">4</td>
+<td class="gt_row gt_right" headers="bedrooms">1</td>
+<td class="gt_row gt_right" headers="beds">1</td>
+<td class="gt_row gt_right" headers="host_since">2011-08-28</td>
+<td class="gt_row gt_right" headers="first_review">2016-01-16</td>
+<td class="gt_row gt_right" headers="last_review">2017-05-08</td>
+<td class="gt_row gt_right" headers="number_of_reviews">55</td>
+<td class="gt_row gt_right" headers="review_scores_rating">95.00</td>
+<td class="gt_row gt_right" headers="listed_price">$85.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">Yes</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id">1602772</td>
+<td class="gt_row gt_left" headers="name">Split-Level Artist Loft</td>
+<td class="gt_row gt_left" headers="property_type">Loft</td>
+<td class="gt_row gt_left" headers="room_type">Entire home/apt</td>
+<td class="gt_row gt_left" headers="neighbourhood">West Town/Noble...</td>
+<td class="gt_row gt_right" headers="zipcode">60642</td>
+<td class="gt_row gt_right" headers="accommodates">4</td>
+<td class="gt_row gt_right" headers="bedrooms">2</td>
+<td class="gt_row gt_right" headers="beds">2</td>
+<td class="gt_row gt_right" headers="host_since">2015-06-16</td>
+<td class="gt_row gt_right" headers="first_review">2015-09-14</td>
+<td class="gt_row gt_right" headers="last_review">2017-04-17</td>
+<td class="gt_row gt_right" headers="number_of_reviews">18</td>
+<td class="gt_row gt_right" headers="review_scores_rating">95.00</td>
+<td class="gt_row gt_right" headers="listed_price">$200.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id">18341150</td>
+<td class="gt_row gt_left" headers="name">Large beautiful old apartment, with...</td>
+<td class="gt_row gt_left" headers="property_type">Apartment</td>
+<td class="gt_row gt_left" headers="room_type">Private room</td>
+<td class="gt_row gt_left" headers="neighbourhood">Uptown</td>
+<td class="gt_row gt_right" headers="zipcode">60613</td>
+<td class="gt_row gt_right" headers="accommodates">2</td>
+<td class="gt_row gt_right" headers="bedrooms">1</td>
+<td class="gt_row gt_right" headers="beds">1</td>
+<td class="gt_row gt_right" headers="host_since">2016-11-09</td>
+<td class="gt_row gt_right" headers="first_review">NA</td>
+<td class="gt_row gt_right" headers="last_review">NA</td>
+<td class="gt_row gt_right" headers="number_of_reviews">0</td>
+<td class="gt_row gt_right" headers="review_scores_rating">NA</td>
+<td class="gt_row gt_right" headers="listed_price">$56.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">Yes</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id">19564384</td>
+<td class="gt_row gt_left" headers="name">Art-Filled Vintage Ukrainian Villag...</td>
+<td class="gt_row gt_left" headers="property_type">Apartment</td>
+<td class="gt_row gt_left" headers="room_type">Private room</td>
+<td class="gt_row gt_left" headers="neighbourhood">Ukrainian Village</td>
+<td class="gt_row gt_right" headers="zipcode">60622</td>
+<td class="gt_row gt_right" headers="accommodates">1</td>
+<td class="gt_row gt_right" headers="bedrooms">1</td>
+<td class="gt_row gt_right" headers="beds">1</td>
+<td class="gt_row gt_right" headers="host_since">2015-04-21</td>
+<td class="gt_row gt_right" headers="first_review">2016-08-21</td>
+<td class="gt_row gt_right" headers="last_review">2017-04-24</td>
+<td class="gt_row gt_right" headers="number_of_reviews">18</td>
+<td class="gt_row gt_right" headers="review_scores_rating">99.00</td>
+<td class="gt_row gt_right" headers="listed_price">$68.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id">10253271</td>
+<td class="gt_row gt_left" headers="name">Gorgeous South Loop / Downtown Loft...</td>
+<td class="gt_row gt_left" headers="property_type">Condominium</td>
+<td class="gt_row gt_left" headers="room_type">Entire home/apt</td>
+<td class="gt_row gt_left" headers="neighbourhood">South Loop/Prin...</td>
+<td class="gt_row gt_right" headers="zipcode">60605</td>
+<td class="gt_row gt_right" headers="accommodates">6</td>
+<td class="gt_row gt_right" headers="bedrooms">2</td>
+<td class="gt_row gt_right" headers="beds">4</td>
+<td class="gt_row gt_right" headers="host_since">2016-08-13</td>
+<td class="gt_row gt_right" headers="first_review">2016-09-16</td>
+<td class="gt_row gt_right" headers="last_review">2017-05-05</td>
+<td class="gt_row gt_right" headers="number_of_reviews">29</td>
+<td class="gt_row gt_right" headers="review_scores_rating">96.00</td>
+<td class="gt_row gt_right" headers="listed_price">$129.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">Yes</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id">11750272</td>
+<td class="gt_row gt_left" headers="name">Two Bedroom Suite in Lincoln Park</td>
+<td class="gt_row gt_left" headers="property_type">Apartment</td>
+<td class="gt_row gt_left" headers="room_type">Entire home/apt</td>
+<td class="gt_row gt_left" headers="neighbourhood">Lincoln Park</td>
+<td class="gt_row gt_right" headers="zipcode">60614</td>
+<td class="gt_row gt_right" headers="accommodates">4</td>
+<td class="gt_row gt_right" headers="bedrooms">2</td>
+<td class="gt_row gt_right" headers="beds">2</td>
+<td class="gt_row gt_right" headers="host_since">2009-08-24</td>
+<td class="gt_row gt_right" headers="first_review">NA</td>
+<td class="gt_row gt_right" headers="last_review">NA</td>
+<td class="gt_row gt_right" headers="number_of_reviews">0</td>
+<td class="gt_row gt_right" headers="review_scores_rating">NA</td>
+<td class="gt_row gt_right" headers="listed_price">$155.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id">708802</td>
+<td class="gt_row gt_left" headers="name">Logan Square- Steps from the train!</td>
+<td class="gt_row gt_left" headers="property_type">House</td>
+<td class="gt_row gt_left" headers="room_type">Entire home/apt</td>
+<td class="gt_row gt_left" headers="neighbourhood">NA</td>
+<td class="gt_row gt_right" headers="zipcode">60647</td>
+<td class="gt_row gt_right" headers="accommodates">8</td>
+<td class="gt_row gt_right" headers="bedrooms">1</td>
+<td class="gt_row gt_right" headers="beds">2</td>
+<td class="gt_row gt_right" headers="host_since">2013-05-03</td>
+<td class="gt_row gt_right" headers="first_review">2016-11-20</td>
+<td class="gt_row gt_right" headers="last_review">2016-11-20</td>
+<td class="gt_row gt_right" headers="number_of_reviews">1</td>
+<td class="gt_row gt_right" headers="review_scores_rating">100.00</td>
+<td class="gt_row gt_right" headers="listed_price">$300.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id">4281241</td>
+<td class="gt_row gt_left" headers="name">West Loop/Greek Town Loft With Free...</td>
+<td class="gt_row gt_left" headers="property_type">Loft</td>
+<td class="gt_row gt_left" headers="room_type">Private room</td>
+<td class="gt_row gt_left" headers="neighbourhood">West Loop/Greek...</td>
+<td class="gt_row gt_right" headers="zipcode">60661</td>
+<td class="gt_row gt_right" headers="accommodates">4</td>
+<td class="gt_row gt_right" headers="bedrooms">1</td>
+<td class="gt_row gt_right" headers="beds">1</td>
+<td class="gt_row gt_right" headers="host_since">2016-06-17</td>
+<td class="gt_row gt_right" headers="first_review">2016-09-13</td>
+<td class="gt_row gt_right" headers="last_review">2017-04-09</td>
+<td class="gt_row gt_right" headers="number_of_reviews">14</td>
+<td class="gt_row gt_right" headers="review_scores_rating">94.00</td>
+<td class="gt_row gt_right" headers="listed_price">$85.00</td>
+<td class="gt_row gt_left" headers="instant_bookable">No</td>
 </tr>
 </tbody>
 </table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="analytics-vs-statisics" class="slide level2">
+<h2><span class="sr-only">Analytics vs Statisics</span></h2>
+<div class="columns">
+<div class="column bleed-top" style="width:40%;">
+<p><img data-src="media/images/w01_s03_image.png" style="width:100.0%" alt="Photo of several dogs lying on a blanket; playful opener for the topic."></p>
+</div><div class="column text-col" style="width:60%;">
+<div class="r-stack">
+<div class="fragment">
+<p>What is <strong>statistics</strong>?</p>
+</div>
+<div class="fragment">
+<p><strong>Analytics</strong> is the <strong>art</strong> of finding out what is in your data.</p>
+</div>
+<div class="fragment">
+<p>If you can (with some effort) find the answer with certainty you are using <strong>analytics</strong>.</p>
+</div>
+<div class="fragment">
+<p><strong>Analytics</strong> deals with what you know.</p>
+<p><strong>Statistics</strong> deals with what you do not know.</p>
+</div>
+<div class="fragment">
+<p><strong>Analytics</strong> helps you make good questions.</p>
+<p><strong>Statistics</strong> helps you get good answers.</p>
+</div>
+<div class="fragment">
+<p><strong>Statistics</strong> is the <strong>science</strong> of making decisions under uncertainty.</p>
+</div>
+</div>
+</div></div>
+<aside class="notes">
+<ul>
+<li>Open with intuition: students already <em>do</em> analytics informally.</li>
+<li>Emphasize uncertainty as the key dividing line.</li>
+<li>Pause after the third fragment and ask for examples.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="jump-to-conclusions-2-1" class="slide level2">
+<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
+<p>two datasets rows = customers rows = purchases</p>
 </section>
 <section id="rows-vs-columns" class="slide level2">
 <h2><span class="sr-only">Rows vs Columns</span></h2>
-<p><strong>Rows</strong> stack <strong>observations</strong>.<br>
-<strong>Columns</strong> hold <strong>variables</strong>.</p>
-
-<img data-src="media/images/rows-columns.png" style="width:70.0%" alt="Simple grid with arrows: rows for observations (left-to-right), columns for variables (top-to-bottom)." class="r-stretch"></section>
-<section id="data-types-overview" class="slide level2">
-<h2><span class="sr-only">Data Types Overview</span></h2>
-<p><strong>Categories</strong> • <strong>Numbers</strong><br>
-<strong>Continuous</strong> • <strong>Discrete</strong><br>
-<strong>Categorical</strong> (<strong>logical/true–false</strong>, <strong>ordinal</strong>, <strong>factor</strong>)<br>
-<strong>Numeric</strong> (<strong>integer</strong>, <strong>double/real</strong>)</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="columns">Columns</h3>
+<p><img data-src="media/images/w01_s19_image.png" style="width:100.0%" alt="Icon emphasizing the concept of columns—variables—in a dataset."></p>
+</div><div class="column" style="width:50%;">
+<p><br><br><br><br><br></p>
+<h3 id="rows">Rows</h3>
+<p><img data-src="media/images/w01_s19_image.jpg" style="width:100.0%" alt="Icon emphasizing the concept of rows—observations—in a dataset."></p>
+</div></div>
 </section>
-<section id="observations-atomic-data-example" class="slide level2">
-<h2><span class="sr-only">Observations — Atomic Data Example</span></h2>
-<p><strong>Observations (Atomic Data)</strong> — sleep tracking example</p>
+<section id="unit-of-analysis" class="slide level2">
+<h2>Unit of Analysis</h2>
+<div class="columns">
+<div class="column-page">
+<p><strong>What does each <em>thingie</em> (row, observation, grain) of this data represent?</strong></p>
+</div><div class="column" style="width:58%;">
+<div class="tight-list">
 <ul>
-<li>Start Time: 10:53 PM<br>
-</li>
-<li>End Time: 6:18 AM<br>
-</li>
-<li>REM: 87 minutes; Deep: 231; Light: 127<br>
-</li>
-<li>Total Sleep: 445; Quality: 92%<br>
-</li>
-<li>Name: Mike; Date: 9/7/2023; Gender: Male; Location: Bed</li>
+<li>Everyone in a <em>zipcode</em></li>
+<li>Individual consumers</li>
+<li>Individual purchases</li>
+<li>GDP of an economy</li>
+<li>Population of a planet</li>
 </ul>
+</div>
+</div><div class="column" style="width:42%;">
+<p><img data-src="media/images/w01_s14_image.png" style="height:65.0%" alt="Photo of several dogs lying on a blanket; playful opener for the topic."></p>
+</div></div>
+</section>
+<section id="jump-to-conclusions-2-2" class="slide level2">
+<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
+<p>Two similar datasets</p>
+</section>
+<section id="data-grouping-cross-sectional" class="slide level2" data-background-image="media/images/w01_s15_image.jpeg" data-background-size="cover" data-background-opacity="0.95" data-fig-alt="Freeze‑frame droplet illustrating a cross‑sectional snapshot at a single point in time.">
+<h2>Data Grouping: Cross-Sectional</h2>
+</section>
+<section id="data-grouping-time-series" class="slide level2">
+<h2>Data Grouping: Time-Series</h2>
+<p><img data-src="media/images/w01_s16_image.jpeg" style="height:85.0%" alt="Growth sequence image suggesting change over time in a time‑series."></p>
+</section>
+<section id="data-grouping-panel" class="slide level2">
+<h2>Data Grouping: Panel</h2>
 
-<img data-src="media/images/atomic-data.png" style="width:60.0%" alt="Cube metaphor for an atomic observation; each row represents one measured event with associated variables." class="r-stretch"></section>
-<section id="dimensions-measures" class="slide level2">
-<h2><span class="sr-only">Dimensions &amp; Measures</span></h2>
-<p><strong>Dimensions</strong> <em>(categories, filters, axis labels)</em>: Month, Location, Person<br>
-<strong>Measures</strong> <em>(aggregations)</em>: Averages, Standard Deviations, Counts, Sums</p>
-<p><strong>Example (June, Glamping):</strong><br>
-Mean = 523.12 minutes · Median = 600 minutes · Quality = 82.35% · N = 2,345</p>
+<img data-src="media/images/w01_s17_image.jpeg" class="r-stretch quarto-figure quarto-figure-right" alt="Grid‑style visual suggesting repeated measures on multiple units across time (panel data)."></section>
+<section id="jump-to-conclusions-2-3" class="slide level2">
+<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
+<p>sleep quality by month and lodging type</p>
+</section>
+<section id="jump-to-conclusions-2-4" class="slide level2">
+<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
+<p>tall vs wide</p>
+</section>
+<section id="jump-to-conclusions-2-5" class="slide level2">
+<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
+<p>variable types</p>
+</section>
+<section id="jump-to-conclusions-2-6" class="slide level2">
+<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
+<p>NOIR</p>
+</section>
+<section id="observations---atomic-data" class="slide level2">
+<h2>Observations - Atomic Data</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="apxtwtndtb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#apxtwtndtb table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-<img data-src="media/images/dimensions-measures.png" style="width:70.0%" alt="Schematic showing dimensions (Month, Location, Person) and measures (Average, STD, Count)." class="r-stretch"></section>
-<section id="example-table" class="slide level2">
-<h2><span class="sr-only">Example Table</span></h2>
-<p><strong>Measures vs.&nbsp;Dimensions; Tall vs.&nbsp;Wide</strong></p>
-<p>`<code>{.markdown} Name,Gender,Location,Month,Day,Start,End,REM,Deep,Light,Total Cam,M,Glamping,Jan,Mon,10:17 PM,8:21 AM,10,80,28,118 Cam,M,Home,Jul,Mon,8:20 PM,9:32 AM,100,179,234,513 John,M,Home,Aug,Mon,8:32 PM,11:32 AM,86,359,233,677 Lydia,F,Home,Aug,Mon,8:34 AM,4:45 AM,98,299,219,616</code></p>
+#apxtwtndtb thead, #apxtwtndtb tbody, #apxtwtndtb tfoot, #apxtwtndtb tr, #apxtwtndtb td, #apxtwtndtb th {
+  border-style: none;
+}
+
+#apxtwtndtb p {
+  margin: 0;
+  padding: 0;
+}
+
+#apxtwtndtb .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 90%;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#apxtwtndtb .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#apxtwtndtb .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#apxtwtndtb .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#apxtwtndtb .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#apxtwtndtb .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+}
+
+#apxtwtndtb .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#apxtwtndtb .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#apxtwtndtb .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#apxtwtndtb .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#apxtwtndtb .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#apxtwtndtb .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#apxtwtndtb .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#apxtwtndtb .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#apxtwtndtb .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#apxtwtndtb .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#apxtwtndtb .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#apxtwtndtb .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#apxtwtndtb .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#apxtwtndtb .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#apxtwtndtb .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#apxtwtndtb .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#apxtwtndtb .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#apxtwtndtb .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#apxtwtndtb .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#apxtwtndtb .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#apxtwtndtb .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#apxtwtndtb .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#apxtwtndtb .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#apxtwtndtb .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#apxtwtndtb .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#apxtwtndtb .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#apxtwtndtb .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#apxtwtndtb .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#apxtwtndtb .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#apxtwtndtb .gt_left {
+  text-align: left;
+}
+
+#apxtwtndtb .gt_center {
+  text-align: center;
+}
+
+#apxtwtndtb .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#apxtwtndtb .gt_font_normal {
+  font-weight: normal;
+}
+
+#apxtwtndtb .gt_font_bold {
+  font-weight: bold;
+}
+
+#apxtwtndtb .gt_font_italic {
+  font-style: italic;
+}
+
+#apxtwtndtb .gt_super {
+  font-size: 65%;
+}
+
+#apxtwtndtb .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#apxtwtndtb .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#apxtwtndtb .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#apxtwtndtb .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#apxtwtndtb .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#apxtwtndtb .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#apxtwtndtb .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#apxtwtndtb .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#apxtwtndtb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border"><strong>Categories</strong></td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Value" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">Name</td>
+<td class="gt_row gt_left" headers="Value">Mike</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Label">Date</td>
+<td class="gt_row gt_left" headers="Value">01/03/2025</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">Gender</td>
+<td class="gt_row gt_left" headers="Value">Male</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Label">Location</td>
+<td class="gt_row gt_left" headers="Value">Home</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">ZipCode</td>
+<td class="gt_row gt_left" headers="Value">54601</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="media/images/w01_s21_image.jpeg" style="width:100.0%" alt="Single cube emphasizing an atomic unit of observation in the data."></p>
+</div><div class="column" style="width:30%;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="hcrldlhuul" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hcrldlhuul table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#hcrldlhuul thead, #hcrldlhuul tbody, #hcrldlhuul tfoot, #hcrldlhuul tr, #hcrldlhuul td, #hcrldlhuul th {
+  border-style: none;
+}
+
+#hcrldlhuul p {
+  margin: 0;
+  padding: 0;
+}
+
+#hcrldlhuul .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 90%;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#hcrldlhuul .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hcrldlhuul .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hcrldlhuul .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hcrldlhuul .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hcrldlhuul .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hcrldlhuul .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hcrldlhuul .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#hcrldlhuul .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hcrldlhuul .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#hcrldlhuul .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#hcrldlhuul .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#hcrldlhuul .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#hcrldlhuul .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#hcrldlhuul .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hcrldlhuul .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hcrldlhuul .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hcrldlhuul .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hcrldlhuul .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hcrldlhuul .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#hcrldlhuul .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#hcrldlhuul .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#hcrldlhuul .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hcrldlhuul .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#hcrldlhuul .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#hcrldlhuul .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hcrldlhuul .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hcrldlhuul .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hcrldlhuul .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hcrldlhuul .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#hcrldlhuul .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hcrldlhuul .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hcrldlhuul .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hcrldlhuul .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hcrldlhuul .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hcrldlhuul .gt_left {
+  text-align: left;
+}
+
+#hcrldlhuul .gt_center {
+  text-align: center;
+}
+
+#hcrldlhuul .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hcrldlhuul .gt_font_normal {
+  font-weight: normal;
+}
+
+#hcrldlhuul .gt_font_bold {
+  font-weight: bold;
+}
+
+#hcrldlhuul .gt_font_italic {
+  font-style: italic;
+}
+
+#hcrldlhuul .gt_super {
+  font-size: 65%;
+}
+
+#hcrldlhuul .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#hcrldlhuul .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#hcrldlhuul .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#hcrldlhuul .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#hcrldlhuul .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#hcrldlhuul .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#hcrldlhuul .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#hcrldlhuul .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#hcrldlhuul div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border"><strong>Numbers</strong></td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Value" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">Start Time</td>
+<td class="gt_row gt_left" headers="Value">10:30 P.M.</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Label">End Time</td>
+<td class="gt_row gt_left" headers="Value">6:59 A.M.</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">R.E.M.</td>
+<td class="gt_row gt_left" headers="Value">109 Minutes</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Label">Deep Sleep</td>
+<td class="gt_row gt_left" headers="Value">151 Minutes</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">Light Sleep</td>
+<td class="gt_row gt_left" headers="Value">249 Minutes</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Label">Total Sleep</td>
+<td class="gt_row gt_left" headers="Value">509</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Label">Quality</td>
+<td class="gt_row gt_left" headers="Value">51%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="summarized-data" class="slide level2">
+<h2><span class="sr-only">Summarized Data</span></h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="dimensions">Dimensions</h3>
+<div class="tight-list">
+<ul>
+<li>Categories</li>
+<li>Filters</li>
+<li>Axis Labels</li>
+</ul>
+</div>
+</div><div class="column" style="width:40%;">
+<p><br> <br> <br> <br> <img data-src="media/images/w01_s22_stack.png" style="width:100.0%" alt="An ordered stack of multiple atomic units making it possible to summarize the data with measures and summary statistics."></p>
+</div><div class="column" style="width:30%;">
+<h3 id="measures">Measures</h3>
+<div class="tight-list">
+<ul>
+<li>Averages</li>
+<li>Standard Deviation</li>
+<li>Counts</li>
+<li>Sums</li>
+</ul>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="hblhtbrmqz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hblhtbrmqz table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#hblhtbrmqz thead, #hblhtbrmqz tbody, #hblhtbrmqz tfoot, #hblhtbrmqz tr, #hblhtbrmqz td, #hblhtbrmqz th {
+  border-style: none;
+}
+
+#hblhtbrmqz p {
+  margin: 0;
+  padding: 0;
+}
+
+#hblhtbrmqz .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 90%;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#hblhtbrmqz .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hblhtbrmqz .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hblhtbrmqz .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hblhtbrmqz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hblhtbrmqz .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hblhtbrmqz .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hblhtbrmqz .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#hblhtbrmqz .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hblhtbrmqz .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#hblhtbrmqz .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#hblhtbrmqz .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#hblhtbrmqz .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#hblhtbrmqz .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#hblhtbrmqz .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hblhtbrmqz .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hblhtbrmqz .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hblhtbrmqz .gt_row {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hblhtbrmqz .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hblhtbrmqz .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#hblhtbrmqz .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#hblhtbrmqz .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#hblhtbrmqz .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hblhtbrmqz .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#hblhtbrmqz .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#hblhtbrmqz .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hblhtbrmqz .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hblhtbrmqz .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hblhtbrmqz .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hblhtbrmqz .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#hblhtbrmqz .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hblhtbrmqz .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hblhtbrmqz .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hblhtbrmqz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hblhtbrmqz .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hblhtbrmqz .gt_left {
+  text-align: left;
+}
+
+#hblhtbrmqz .gt_center {
+  text-align: center;
+}
+
+#hblhtbrmqz .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hblhtbrmqz .gt_font_normal {
+  font-weight: normal;
+}
+
+#hblhtbrmqz .gt_font_bold {
+  font-weight: bold;
+}
+
+#hblhtbrmqz .gt_font_italic {
+  font-style: italic;
+}
+
+#hblhtbrmqz .gt_super {
+  font-size: 65%;
+}
+
+#hblhtbrmqz .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#hblhtbrmqz .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#hblhtbrmqz .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#hblhtbrmqz .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#hblhtbrmqz .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#hblhtbrmqz .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#hblhtbrmqz .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#hblhtbrmqz .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#hblhtbrmqz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td class="gt_heading gt_title gt_font_normal gt_bottom_border"><strong>June Camping</strong></td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Summary" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Summary">Mean = 426.50 Minutes</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Summary">Median = 440 Minutes</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Summary">Quality = 41.87%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Summary">N Records = 6</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="tall-vs-wide" class="slide level2">
+<h2>Tall vs Wide</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="xjnopljzpn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xjnopljzpn table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xjnopljzpn thead, #xjnopljzpn tbody, #xjnopljzpn tfoot, #xjnopljzpn tr, #xjnopljzpn td, #xjnopljzpn th {
+  border-style: none;
+}
+
+#xjnopljzpn p {
+  margin: 0;
+  padding: 0;
+}
+
+#xjnopljzpn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xjnopljzpn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xjnopljzpn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xjnopljzpn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xjnopljzpn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xjnopljzpn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xjnopljzpn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xjnopljzpn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xjnopljzpn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xjnopljzpn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xjnopljzpn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xjnopljzpn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xjnopljzpn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xjnopljzpn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xjnopljzpn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xjnopljzpn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xjnopljzpn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xjnopljzpn .gt_row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xjnopljzpn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xjnopljzpn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xjnopljzpn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xjnopljzpn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xjnopljzpn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xjnopljzpn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xjnopljzpn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xjnopljzpn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xjnopljzpn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xjnopljzpn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xjnopljzpn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xjnopljzpn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xjnopljzpn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xjnopljzpn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xjnopljzpn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xjnopljzpn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xjnopljzpn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xjnopljzpn .gt_left {
+  text-align: left;
+}
+
+#xjnopljzpn .gt_center {
+  text-align: center;
+}
+
+#xjnopljzpn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xjnopljzpn .gt_font_normal {
+  font-weight: normal;
+}
+
+#xjnopljzpn .gt_font_bold {
+  font-weight: bold;
+}
+
+#xjnopljzpn .gt_font_italic {
+  font-style: italic;
+}
+
+#xjnopljzpn .gt_super {
+  font-size: 65%;
+}
+
+#xjnopljzpn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xjnopljzpn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xjnopljzpn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xjnopljzpn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xjnopljzpn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xjnopljzpn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xjnopljzpn .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#xjnopljzpn .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xjnopljzpn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top" style="width:100%;" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings gt_spanner_row header">
+<th colspan="7" id="Dimensions" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" style="background-color: #4E79A7; color: #FFFFFF" scope="colgroup"><div class="gt_column_spanner">
+Dimensions
+</div></th>
+<th colspan="7" id="Measures" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" style="background-color: #59A14F; color: #FFFFFF" scope="colgroup"><div class="gt_column_spanner">
+Measures
+</div></th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Date" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Date</th>
+<th id="DayOfWeek" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">DayOfWeek</th>
+<th id="Month" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Month</th>
+<th id="PersonName" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">PersonName</th>
+<th id="Gender" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Gender</th>
+<th id="Location" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Location</th>
+<th id="SleepEventType" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">EventType</th>
+<th id="StartTime" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">StartTime</th>
+<th id="EndTime" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">EndTime</th>
+<th id="TotalMinutes" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">TotalMinutes</th>
+<th id="REMMinutes" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">REMMinutes</th>
+<th id="DeepMinutes" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">DeepMinutes</th>
+<th id="LightMinutes" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">LightMinutes</th>
+<th id="SleepQuality" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">SleepQuality</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-01</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Wednesday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Cam</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-01 22:25</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 05:26</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">421</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">113</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">123</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">185</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">56.10%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-01</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Wednesday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">John</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-01 00:30</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-01 07:28</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">418</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">84</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">104</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">230</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">45.00%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-01</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Wednesday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Lucas</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-01 22:25</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 05:44</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">439</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">70</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">183</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">186</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">57.60%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-01</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Wednesday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Lydia</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-01 23:15</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 07:34</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">499</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">79</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">184</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">236</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">52.70%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-01</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Wednesday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Mike</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-01 23:10</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 07:24</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">494</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">151</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">85</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">258</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">47.80%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-01</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Wednesday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Sloane</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-01 22:00</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 05:36</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">456</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">94</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">164</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">198</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">56.60%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Cam</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Nap</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 13:40</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 14:24</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">44</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">9</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">10</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">25</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">43.20%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Cam</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 22:10</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-03 05:00</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">410</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">132</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">97</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">181</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">55.90%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">John</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 23:50</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-03 06:47</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">417</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">93</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">128</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">196</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">53.00%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Lucas</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Nap</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 16:00</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-02 17:06</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">66</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">3</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">27</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">36</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">45.50%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Lucas</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 22:00</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-03 05:41</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">461</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">95</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">145</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">221</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">52.10%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Lydia</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 22:45</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-03 06:28</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">463</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">121</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">121</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">221</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">52.30%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Mike</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Male</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 22:05</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-03 05:50</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">465</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">116</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">110</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">239</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">48.60%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-02</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Thursday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Sloane</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-02 21:40</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-03 04:56</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">436</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">71</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">172</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">193</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">55.70%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Date" style="background-color: #EAF2FB">2025-01-03</td>
+<td class="gt_row gt_left" headers="DayOfWeek" style="background-color: #EAF2FB">Friday</td>
+<td class="gt_row gt_left" headers="Month" style="background-color: #EAF2FB">January</td>
+<td class="gt_row gt_left" headers="PersonName" style="background-color: #EAF2FB">Cam</td>
+<td class="gt_row gt_left" headers="Gender" style="background-color: #EAF2FB">Female</td>
+<td class="gt_row gt_left" headers="Location" style="background-color: #EAF2FB">Home</td>
+<td class="gt_row gt_left" headers="SleepEventType" style="background-color: #EAF2FB">Main</td>
+<td class="gt_row gt_right" headers="StartTime" style="background-color: #EAF6EA">2025-01-03 22:10</td>
+<td class="gt_row gt_right" headers="EndTime" style="background-color: #EAF6EA">2025-01-04 05:27</td>
+<td class="gt_row gt_right" headers="TotalMinutes" style="background-color: #EAF6EA">437</td>
+<td class="gt_row gt_right" headers="REMMinutes" style="background-color: #EAF6EA">96</td>
+<td class="gt_row gt_right" headers="DeepMinutes" style="background-color: #EAF6EA">165</td>
+<td class="gt_row gt_right" headers="LightMinutes" style="background-color: #EAF6EA">176</td>
+<td class="gt_row gt_right" headers="SleepQuality" style="background-color: #EAF6EA">59.70%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="principles-of-tidy-data" class="slide level2">
+<h2>Principles of Tidy Data</h2>
+<ul>
+<li><em>Each variable you measure should be in one column</em></li>
+<li><em>Each observation of that variable should be in a different row</em></li>
+<li><em>There should be one table for each type of observational unit</em></li>
+<li><em>If you have multiple tables you need a key to link them</em></li>
+</ul>
+</section>
+<section id="jump-to-conclusions-2-7" class="slide level2">
+<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
+<p>Extract</p>
+</section>
+<section id="jump-to-conclusions-2-8" class="slide level2">
+<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
+<p>Extract</p>
+</section>
+<section id="jump-to-conclusions-2-9" class="slide level2">
+<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
+<p>Transform</p>
+</section>
+<section id="jump-to-conclusions-2-10" class="slide level2">
+<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
+<p>Load</p>
+</section>
+<section id="tableau" class="slide level2">
+<h2>Tableau</h2>
+
+<img data-src="media/images/w01_s26_image.png" style="width:100.0%" alt="Tableau branding indicating the visualization tool introduced in this course." class="r-stretch"></section>
+<section id="posit.cloud" class="slide level2">
+<h2>Posit.cloud</h2>
+
+<img data-src="media/images/w01_s27_image.png" style="width:100.0%" alt="Posit Cloud branding indicating a browser‑based RStudio environment for analysis." class="r-stretch"></section>
+<section id="jump-to-conclusions-2-11" class="slide level2">
+<h2><span class="sr-only">Jump to Conclusions 2</span></h2>
+<p>Scary R</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(eco230r)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a>abnb <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a></a>  <span class="fu">idt</span>(listed_price<span class="sc">~</span>instant_bookable)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Independent variable converted to a factor using as.factor()"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$analysis_type
+[1] "Independent t-Test, Two Tailed test"
+
+$results
+[1] "t(2110.38) = 3.515, p = 0, r = 0.076, bf10 = 12.163"
+
+$descriptive_statistics
+  Group       N    Mean Standard_Error
+1 FALSE 2660.00  137.00           2.47
+2  TRUE 1060.00  122.00           3.59</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(eco230r)</span>
+<span id="cb4-2"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-3"><a></a></span>
+<span id="cb4-4"><a></a>abnb <span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a></a>  <span class="fu">ano</span>(listed_price<span class="sc">~</span>room_type)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Independent variable converted to a factor using as.factor()"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$analysis_type
+[1] "Homogeneity of Variance is not assumed, Robust One Way ANOVA for medians,  0.1  trimmed means, Post Hocs using linear equality constraints"
+
+$results
+[1] "F(2,224.33) = 905.491, p = 0, w = 0.846, bf10 = 4.60906366003435e+142"
+
+$descriptive_statistics
+            Group       N    Mean Standard_Error
+1 Entire home/apt 2220.00  174.00           2.97
+2    Private room 1400.00   72.00           1.43
+3     Shared room  101.00   56.00          10.30
+
+$post_hoc_analysis
+                             Difference  P.Value
+Entire home/apt-Private room   85.03443 0.00e+00
+Entire home/apt-Shared room   110.73338 0.00e+00
+Private room-Shared room       25.69895 7.33e-11</code></pre>
+</div>
+</div>
+</section>
+<section id="summary-and-prime-directive" class="slide level2">
+<h2><span class="sr-only">Summary and Prime Directive</span></h2>
+<p><br><br><br></p>
+<h3 id="before-running-any-statistics-what-are-the-three-questions-you-must-answer-about-a-dataset">Before running any statistics, what are the three questions you must answer about a dataset?</h3>
+<p><br></p>
+<ol type="1">
+<li>What does one row represent?</li>
+<li>What kind of variables do I have?</li>
+<li>What question can this data answer?</li>
+</ol>
 
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -592,7 +4201,7 @@ Mean = 523.12 minutes · Median = 600 minutes · Quality = 82.35% · N = 2,345</
         height: 700,
 
         // Factor of the display size that should remain empty around the content
-        margin: 0.1,
+        margin: 0,
 
         math: {
           mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',

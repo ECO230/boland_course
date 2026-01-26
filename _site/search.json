@@ -3,8 +3,8 @@
     "objectID": "week01/week_01.html#course-section",
     "href": "week01/week_01.html#course-section",
     "title": "ECO 230 – Week 1 Lecture",
-    "section": "Course & Section",
-    "text": "Course & Section\nECO 230\nSection 005"
+    "section": "",
+    "text": "ECO 230\nSection 005"
   },
   {
     "objectID": "week01/week_01.html#instructor-contact",
@@ -102,28 +102,28 @@
     "href": "week01/week_01.html#unit-of-analysis",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Unit of Analysis",
-    "text": "Unit of Analysis\nUnit of Analysis\nWhat does each row / observation / grain in this dataset represent?\n\nEveryone in a ZIP code\n\nIndividual consumers\n\nIndividual purchases\n\nGDP of an economy\n\nPopulation of a planet"
+    "text": "Unit of Analysis\n\n\nWhat does each thingie (row, observation, grain) of this data represent?\n\n\n\nEveryone in a zipcode\nIndividual consumers\nIndividual purchases\nGDP of an economy\nPopulation of a planet"
   },
   {
     "objectID": "week01/week_01.html#data-grouping-cross-sectional",
     "href": "week01/week_01.html#data-grouping-cross-sectional",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Data Grouping: Cross-Sectional",
-    "text": "Data Grouping: Cross-Sectional\nData Grouping: Cross‑Sectional\nA snapshot of different subjects at one point in time."
+    "text": "Data Grouping: Cross-Sectional"
   },
   {
     "objectID": "week01/week_01.html#data-grouping-time-series",
     "href": "week01/week_01.html#data-grouping-time-series",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Data Grouping: Time-Series",
-    "text": "Data Grouping: Time-Series\nData Grouping: Time‑Series\nTrack measurements of (often different) subjects over time."
+    "text": "Data Grouping: Time-Series"
   },
   {
     "objectID": "week01/week_01.html#data-grouping-panel",
     "href": "week01/week_01.html#data-grouping-panel",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Data Grouping: Panel",
-    "text": "Data Grouping: Panel\nData Grouping: Panel\nTrack the same subjects repeatedly over time."
+    "text": "Data Grouping: Panel"
   },
   {
     "objectID": "week01/week_01.html#tall-vs-wide-know-your-structure",
@@ -137,7 +137,7 @@
     "href": "week01/week_01.html#rows-vs-columns",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Rows vs Columns",
-    "text": "Rows vs Columns\nRows stack observations.\nColumns hold variables."
+    "text": "Rows vs Columns\n\n\nColumns\n\n\n\nRows"
   },
   {
     "objectID": "week01/week_01.html#data-types-overview",
@@ -212,9 +212,9 @@
   {
     "objectID": "week01/test.html",
     "href": "week01/test.html",
-    "title": "test",
+    "title": "ECO 230 – Week 1 Lecture",
     "section": "",
-    "text": "What is statistics?"
+    "text": "Airbnb Owners should enable Instant Booking in Fall — it’s the unequivocally best season for superior ratings and returns.\n\n\n\n\n\n\n\n\nSeason\nBookings\nAvg Price (USD)\nAvg Rating\nInstant-Book %\nRating × Price\n\n\n\n\nFall\n2,253\n$134.63\n95.14\n23.70%\n12,808.16\n\n\nWinter\n1,521\n$129.39\n95.08\n31.56%\n12,302.72\n\n\nSummer\n2,118\n$128.85\n94.64\n23.94%\n12,194.56\n\n\nSpring\n4,283\n$122.11\n95.32\n31.43%\n11,639.20"
   },
   {
     "objectID": "week01/test.html#test",
@@ -620,126 +620,126 @@
     "href": "week01/test.html#jump-to-conclusions-2-2",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nRows vs Columns"
+    "text": "Jump to Conclusions 2\nTwo similar datasets"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-3",
     "href": "week01/test.html#jump-to-conclusions-2-3",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nTwo similar datasets"
+    "text": "Jump to Conclusions 2\nsleep quality by month and lodging type"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-4",
     "href": "week01/test.html#jump-to-conclusions-2-4",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\ncross sectional"
+    "text": "Jump to Conclusions 2\ntall vs wide"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-5",
     "href": "week01/test.html#jump-to-conclusions-2-5",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\ntime series"
+    "text": "Jump to Conclusions 2\nvariable types"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-6",
     "href": "week01/test.html#jump-to-conclusions-2-6",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\npanel"
+    "text": "Jump to Conclusions 2\nNOIR"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-7",
     "href": "week01/test.html#jump-to-conclusions-2-7",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nsleep quality by month and lodging type"
+    "text": "Jump to Conclusions 2\nExtract"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-8",
     "href": "week01/test.html#jump-to-conclusions-2-8",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\ntall vs wide"
+    "text": "Jump to Conclusions 2\nExtract"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-9",
     "href": "week01/test.html#jump-to-conclusions-2-9",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nvariable types"
+    "text": "Jump to Conclusions 2\nTransform"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-10",
     "href": "week01/test.html#jump-to-conclusions-2-10",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nNOIR"
+    "text": "Jump to Conclusions 2\nLoad"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-11",
     "href": "week01/test.html#jump-to-conclusions-2-11",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nAtomic Data"
+    "text": "Jump to Conclusions 2\nScary R\n\nlibrary(eco230r)\nlibrary(dplyr)\n\nabnb |&gt;\n  idt(listed_price~instant_bookable)\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\n\n$analysis_type\n[1] \"Independent t-Test, Two Tailed test\"\n\n$results\n[1] \"t(2110.38) = 3.515, p = 0, r = 0.076, bf10 = 12.163\"\n\n$descriptive_statistics\n  Group       N    Mean Standard_Error\n1 FALSE 2660.00  137.00           2.47\n2  TRUE 1060.00  122.00           3.59\n\n\n\nlibrary(eco230r)\nlibrary(dplyr)\n\nabnb |&gt;\n  ano(listed_price~room_type)\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\n\n$analysis_type\n[1] \"Homogeneity of Variance is not assumed, Robust One Way ANOVA for medians,  0.1  trimmed means, Post Hocs using linear equality constraints\"\n\n$results\n[1] \"F(2,224.33) = 905.491, p = 0, w = 0.836, bf10 = 4.60906366003435e+142\"\n\n$descriptive_statistics\n            Group       N    Mean Standard_Error\n1 Entire home/apt 2220.00  174.00           2.97\n2    Private room 1400.00   72.00           1.43\n3     Shared room  101.00   56.00          10.30\n\n$post_hoc_analysis\n                             Difference  P.Value\nEntire home/apt-Private room   85.03443 0.00e+00\nEntire home/apt-Shared room   110.73338 0.00e+00\nPrivate room-Shared room       25.69895 7.33e-11"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-12",
     "href": "week01/test.html#jump-to-conclusions-2-12",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nSummarized data"
+    "text": "Jump to Conclusions 2\nPosit"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-13",
     "href": "week01/test.html#jump-to-conclusions-2-13",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nTall vs wide"
+    "text": "Jump to Conclusions 2\nScary R"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-14",
     "href": "week01/test.html#jump-to-conclusions-2-14",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nExtract"
+    "text": "Jump to Conclusions 2\nScary R"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-15",
     "href": "week01/test.html#jump-to-conclusions-2-15",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nExtract"
+    "text": "Jump to Conclusions 2\nScary R"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-16",
     "href": "week01/test.html#jump-to-conclusions-2-16",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nTransform"
+    "text": "Jump to Conclusions 2\nScary R"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-17",
     "href": "week01/test.html#jump-to-conclusions-2-17",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nLoad"
+    "text": "Jump to Conclusions 2\nScary R"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-18",
     "href": "week01/test.html#jump-to-conclusions-2-18",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nTableau"
+    "text": "Jump to Conclusions 2\nPosit"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-19",
     "href": "week01/test.html#jump-to-conclusions-2-19",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Jump to Conclusions 2",
-    "text": "Jump to Conclusions 2\nPosit"
+    "text": "Jump to Conclusions 2\nScary R"
   },
   {
     "objectID": "week01/test.html#jump-to-conclusions-2-20",
@@ -760,7 +760,7 @@
     "href": "week01/test.html#unit-of-analysis",
     "title": "ECO 230 – Week 1 Lecture",
     "section": "Unit of Analysis",
-    "text": "Unit of Analysis\n\n\nWhat does each thingie (row, observation, grain) of this data represent?\n\n\nEveryone in a zipcode\nIndividual consumers\nIndividual purchases\nGDP of an economy\nPopulation of a planet"
+    "text": "Unit of Analysis\n\n\nWhat does each thingie (row, observation, grain) of this data represent?\n\n\n\nEveryone in a zipcode\nIndividual consumers\nIndividual purchases\nGDP of an economy\nPopulation of a planet"
   },
   {
     "objectID": "week01/example.html#week-1",
@@ -824,5 +824,348 @@
     "title": "Sample using Boland theme",
     "section": "A different slide",
     "text": "A different slide\nFU"
+  },
+  {
+    "objectID": "week01/test.html#data-grouping-cross-sectional",
+    "href": "week01/test.html#data-grouping-cross-sectional",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Data Grouping: Cross-Sectional",
+    "text": "Data Grouping: Cross-Sectional"
+  },
+  {
+    "objectID": "week01/test.html#data-grouping-cross-sectional-background-imagemediaimagesw01_s15_image.jpeg-background-sizecover-background-opacity0.950-.sr-only",
+    "href": "week01/test.html#data-grouping-cross-sectional-background-imagemediaimagesw01_s15_image.jpeg-background-sizecover-background-opacity0.950-.sr-only",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Data Grouping: Cross-Sectional {background-image=“media/images/w01_s15_image.jpeg” background-size=“cover” background-opacity=“0.95”0 .sr-only}",
+    "text": "Data Grouping: Cross-Sectional {background-image=“media/images/w01_s15_image.jpeg” background-size=“cover” background-opacity=“0.95”0 .sr-only}"
+  },
+  {
+    "objectID": "week01/test.html#data-grouping-cross-sectional-background-imagemediaimagesw01_s15_image.jpeg-background-sizecover-background-opacity0.950",
+    "href": "week01/test.html#data-grouping-cross-sectional-background-imagemediaimagesw01_s15_image.jpeg-background-sizecover-background-opacity0.950",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Data Grouping: Cross-Sectional {background-image=“media/images/w01_s15_image.jpeg” background-size=“cover” background-opacity=“0.95”0}",
+    "text": "Data Grouping: Cross-Sectional {background-image=“media/images/w01_s15_image.jpeg” background-size=“cover” background-opacity=“0.95”0}"
+  },
+  {
+    "objectID": "week01/test.html#data-grouping-cross-sectional-1",
+    "href": "week01/test.html#data-grouping-cross-sectional-1",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Data Grouping: Cross-Sectional",
+    "text": "Data Grouping: Cross-Sectional"
+  },
+  {
+    "objectID": "week01/test.html#data-grouping-time-series",
+    "href": "week01/test.html#data-grouping-time-series",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Data Grouping: Time-Series",
+    "text": "Data Grouping: Time-Series"
+  },
+  {
+    "objectID": "week01/test.html#data-grouping-panel",
+    "href": "week01/test.html#data-grouping-panel",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Data Grouping: Panel",
+    "text": "Data Grouping: Panel"
+  },
+  {
+    "objectID": "week01/test.html#rows-vs-columns",
+    "href": "week01/test.html#rows-vs-columns",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Rows vs Columns",
+    "text": "Rows vs Columns\n\n\nColumns\n\n\n\nRows"
+  },
+  {
+    "objectID": "week01/test.html#observations---atomic-data",
+    "href": "week01/test.html#observations---atomic-data",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Observations - Atomic Data",
+    "text": "Observations - Atomic Data\n\n\n\n\n\n\n\n\n\n\nCategories\n\n\n\n\n\n\n\n\nName\nMike\n\n\nDate\n01/03/2025\n\n\nGender\nMale\n\n\nLocation\nHome\n\n\nZipCode\n54601\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumbers\n\n\n\n\n\n\n\n\nStart Time\n10:30 P.M.\n\n\nEnd Time\n6:59 A.M.\n\n\nR.E.M.\n109 Minutes\n\n\nDeep Sleep\n151 Minutes\n\n\nLight Sleep\n249 Minutes\n\n\nTotal Sleep\n509\n\n\nQuality\n51%"
+  },
+  {
+    "objectID": "week01/test.html#summarized-data",
+    "href": "week01/test.html#summarized-data",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Summarized Data",
+    "text": "Summarized Data\n\n\nDimensions\n\n\nCategories\nFilters\nAxis Labels\n\n\n\n    \n\nMeasures\n\n\nAverages\nStandard Deviation\nCounts\nSums\n\n\n\n\n\n\n\n\n\n\nJune Camping\n\n\n\n\n\n\n\nMean = 426.50 Minutes\n\n\nMedian = 440 Minutes\n\n\nQuality = 41.87%\n\n\nN Records = 6"
+  },
+  {
+    "objectID": "week01/test.html#tall-vs-wide",
+    "href": "week01/test.html#tall-vs-wide",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Tall vs Wide",
+    "text": "Tall vs Wide\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDimensions\n\n\nMeasures\n\n\n\nDate\nDayOfWeek\nMonth\nPersonName\nGender\nLocation\nEventType\nStartTime\nEndTime\nTotalMinutes\nREMMinutes\nDeepMinutes\nLightMinutes\nSleepQuality\n\n\n\n\n2025-01-01\nWednesday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-01 22:25\n2025-01-02 05:26\n421\n113\n123\n185\n56.10%\n\n\n2025-01-01\nWednesday\nJanuary\nJohn\nMale\nHome\nMain\n2025-01-01 00:30\n2025-01-01 07:28\n418\n84\n104\n230\n45.00%\n\n\n2025-01-01\nWednesday\nJanuary\nLucas\nMale\nHome\nMain\n2025-01-01 22:25\n2025-01-02 05:44\n439\n70\n183\n186\n57.60%\n\n\n2025-01-01\nWednesday\nJanuary\nLydia\nFemale\nHome\nMain\n2025-01-01 23:15\n2025-01-02 07:34\n499\n79\n184\n236\n52.70%\n\n\n2025-01-01\nWednesday\nJanuary\nMike\nMale\nHome\nMain\n2025-01-01 23:10\n2025-01-02 07:24\n494\n151\n85\n258\n47.80%\n\n\n2025-01-01\nWednesday\nJanuary\nSloane\nFemale\nHome\nMain\n2025-01-01 22:00\n2025-01-02 05:36\n456\n94\n164\n198\n56.60%\n\n\n2025-01-02\nThursday\nJanuary\nCam\nFemale\nHome\nNap\n2025-01-02 13:40\n2025-01-02 14:24\n44\n9\n10\n25\n43.20%\n\n\n2025-01-02\nThursday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-02 22:10\n2025-01-03 05:00\n410\n132\n97\n181\n55.90%\n\n\n2025-01-02\nThursday\nJanuary\nJohn\nMale\nHome\nMain\n2025-01-02 23:50\n2025-01-03 06:47\n417\n93\n128\n196\n53.00%\n\n\n2025-01-02\nThursday\nJanuary\nLucas\nMale\nHome\nNap\n2025-01-02 16:00\n2025-01-02 17:06\n66\n3\n27\n36\n45.50%\n\n\n2025-01-02\nThursday\nJanuary\nLucas\nMale\nHome\nMain\n2025-01-02 22:00\n2025-01-03 05:41\n461\n95\n145\n221\n52.10%\n\n\n2025-01-02\nThursday\nJanuary\nLydia\nFemale\nHome\nMain\n2025-01-02 22:45\n2025-01-03 06:28\n463\n121\n121\n221\n52.30%\n\n\n2025-01-02\nThursday\nJanuary\nMike\nMale\nHome\nMain\n2025-01-02 22:05\n2025-01-03 05:50\n465\n116\n110\n239\n48.60%\n\n\n2025-01-02\nThursday\nJanuary\nSloane\nFemale\nHome\nMain\n2025-01-02 21:40\n2025-01-03 04:56\n436\n71\n172\n193\n55.70%\n\n\n2025-01-03\nFriday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-03 22:10\n2025-01-04 05:27\n437\n96\n165\n176\n59.70%"
+  },
+  {
+    "objectID": "week01/test.html#principles-of-tidy-data",
+    "href": "week01/test.html#principles-of-tidy-data",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Principles of Tidy Data",
+    "text": "Principles of Tidy Data\n\nEach variable you measure should be in one column\nEach observation of that variable should be in a different row\nThere should be one table for each type of observational unit\nIf you have multiple tables you need a key to link them"
+  },
+  {
+    "objectID": "week01/test.html#tableau",
+    "href": "week01/test.html#tableau",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Tableau",
+    "text": "Tableau"
+  },
+  {
+    "objectID": "week01/test.html#posit.cloud",
+    "href": "week01/test.html#posit.cloud",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Posit.cloud",
+    "text": "Posit.cloud"
+  },
+  {
+    "objectID": "week01/test.html#summary-and-prime-directive",
+    "href": "week01/test.html#summary-and-prime-directive",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Summary and Prime Directive",
+    "text": "Summary and Prime Directive\n\nBefore running any statistics, what are the three questions you must answer about a dataset?\n\n\nWhat does one row represent?\nWhat kind of variables do I have?\nWhat question can this data answer?"
+  },
+  {
+    "objectID": "syllabus/syllabus.html",
+    "href": "syllabus/syllabus.html",
+    "title": "ECO 230",
+    "section": "",
+    "text": "title: “ECO 230 Business and Economic Research & Communication” subtitle: “Spring 2026 · Section 12 · 3 Credits”\nexecute: echo: false warning: false message: false freeze: auto params: semester_name: “Spring” full_year: 2026 class_section: 12 classroom: “Wittich 112” class_dow: “Tuesday” class_start: “5:30 pm” class_end: “8:15 pm” final_dow: “Friday” final_date: “May 12th” final_start: “7:00 pm” final_end: “9:00 pm” office_location: “Non Extant” office_hours: “Mon.–Fri. Noon–1pm in Zoom or by appointment” —"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#course-information",
+    "href": "syllabus/syllabus.html#course-information",
+    "title": "ECO 230",
+    "section": "Course information",
+    "text": "Course information\nECO 230 Business and Economic Research & Communication\nSpring 2026 | Section 12 | Credits: 3\nMeets in Wittich 112 Tuesday 5:30 pm to 8:15 pm.\nInstructor information\n\nMike Boland, MBA\n\nOffice Location: Non Extant\n\nStudent Hours: Mon.–Fri. Noon–1pm in Zoom or by appointment\n\nClass Webpage: https://www.uwlax.edu/canvas\n\nEmail: mboland@uwlax.edu\n\nCell Phone: 608-385-6497\n\nFinal exam\nFriday May 12th 7:00 pm – 9:00 pm in Wittich 112"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#course-description",
+    "href": "syllabus/syllabus.html#course-description",
+    "title": "ECO 230",
+    "section": "Course description",
+    "text": "Course description\nBuilding on the foundation in statistics acquired in STAT 145, students will continue to develop and will apply skills in data analysis to aid in business decision making. These skills include data collection, data summarization, data visualization, statistical inference, and communication of data in business contexts. Students will learn and apply best practices for research design and analysis to address authentic business cases. Students will build these skills in collaboration with each other and through engagement with business and community leaders. The course also discusses effective survey design and current privacy and ethical issues in collecting and using data. Prerequisite: ENG 110 or ENG 112; STAT 145; CBA major, CASSH economics major, or healthcare analytics management minor. Offered Fall, Spring.\nPrerequisites\nPrerequisite: ENG 110 or ENG 112; STAT 145; CBA major, CLS economics major, or Healthcare Analytics Management Minor."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#learning-outcomes",
+    "href": "syllabus/syllabus.html#learning-outcomes",
+    "title": "ECO 230",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\nMapped to CBA Undergraduate Curriculum Goals and Objectives\n\nDevelop the ability to articulate a business problem or opportunity using qualitative and quantitative evidence and propose an analysis plan to identify potential solutions, including collection of primary data via surveys. (CT-1)\nDescribe, summarize, and interpret data using descriptive statistics, inferential statistics, and data visualization.\nDevelop foundational skills related to spreadsheets, interactive data visualization software, and scripting languages used for data analysis and visualization.\nCommunicate the purpose, methods, and results of analysis to authentic audiences in appropriate written and oral formats. (CS-1, CS-2)\nApply research design and data analysis best practices to complete case-based projects and to critique others’ analyses. (CT-1)\nDescribe current debates in research ethics and data privacy and the implications for business research. (SR-1)\n\nCBA Undergraduate Curriculum Goals and Objectives referenced above\n\nCommunication Goal: Our students will be able to convey information and ideas effectively.\n\n(CS-1) Learning Objective: Students will convey information and ideas in professional business reports\n\n(CS-2) Learning Objective: Students will convey information and ideas in oral presentations.\n\nDecision Making and Critical Thinking Goal: Our students will be able to think critically when evaluating decisions.\n\n(CT-1) Learning Objective: Students will evaluate alternatives and understand the ramifications of those alternatives within a given business context.\n\nSocial Responsibility Goal: Students will demonstrate the role of social responsibility in business decisions.\n\n(SR-1) Learning Objective: Students will be able to identify and apply different frameworks of social responsibility to business problems and recognize the short- and long-term effects on stakeholders and society.\n\n\nRemaining CBA Goals and Objectives along with rubrics for each can be found here:\nhttps://www.uwlax.edu/cba/undergraduate-curriculum-learning-goals-and-objectives2/#tmcommunication-goals"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#materials-tools",
+    "href": "syllabus/syllabus.html#materials-tools",
+    "title": "ECO 230",
+    "section": "Materials & tools",
+    "text": "Materials & tools\nThere is no official textbook for this course. All readings will be provided electronically via Canvas. We will also use the following software and instructional tools which are free of charge to you due to your enrollment in this course. Instructions for use will be provided in class and on Canvas as needed.\n\nExcel\n\nTableau Desktop\n\nPosit Cloud\n\nQualtrics\n\nCATME"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#format",
+    "href": "syllabus/syllabus.html#format",
+    "title": "ECO 230",
+    "section": "Format",
+    "text": "Format\nThis is a face-to-face course. You may be asked to reference materials or participate online through the learning management system, Canvas. If that is the case, you will need your UWL NetID to login to the course from the Canvas homepage http://www.uwlax.edu/canvas."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#grading",
+    "href": "syllabus/syllabus.html#grading",
+    "title": "ECO 230",
+    "section": "Grading",
+    "text": "Grading\nCalculations\nYour overall grade consists of the following assessments, arranged by type and value. Your final grade can be computed by multiplying the scores received by the percentages reported below to arrive at a weighted average. Team assignments are denoted by (T) but please note grades received for team project deliverables will be adjusted by your Peer Evaluation score.\n\n\n\n\nAssignment\n\n\n#\n\n\nTotal % Final Grade\n\n\n\n\n\n\nHomework, Lab Prep & In Class Labs\n\n\n~10\n\n\n25%\n\n\n\n\nQuizzes\n\n\n~5\n\n\n15%\n\n\n\n\nFinal Exam & Practicum\n\n\n1\n\n\n20%\n\n\n\n\nCase Projects (T)\n\n\n2\n\n\n30%\n\n\n\n\nParticipation / Discussion\n\n\n\n\n10%\n\n\n\n\nTotal\n\n\n\n\n100%\n\n\n\n\nCalculation of individual grades for team project work\nAll work for the assignments denoted as Team Projects by (T) above will be scored out of 100 points to assign a Team Grade. Individual grades will be computed by multiplying the Team Grade by the CATME peer evaluation score you receive for that work. The CATME peer evaluation is a psychometrically validated and behaviorally anchored rating scale developed under a National Science Foundation Grant and used by universities throughout the country. Through a secure web-based platform, you will rate your own and your teammate’s performance on each project. This information will be reported in the aggregate to your teammates (they cannot see who gave them what scores) and will produce a Peer Evaluation Score. Most students receive a score of 1, those that exhibit exceptional performance receive scores above 1 with a maximum of 1.05. Underperforming teammates receive scores below 1, and as low as 0.4.\n\n\n\n\n\n\nNote\n\n\nNote: This is not a “zero sum game”. It is possible for team members to get scores above 1 without others getting scores below. The algorithm flags evaluations that appear to manipulate ratings to inflate their own scores. Your score will automatically be reduced by 0.05 if you fail to complete the Peer Evaluation on or before the due date.\n\n\n\nGrievance procedure for peer evaluation scores\nPoor peer evaluations can lead an individual grade to fall substantially below the Team Grade. For example, a project that received a score of 95/100 would produce an individual grade of 38/100 if you receive a peer evaluation score of 0.4. If you feel the score you received does not accurately reflect your contributions to Team Project work, you have the option to file a grievance. To do so you must follow this procedure:\n\nWithin 2 business days of the official notification that grades have been posted, communicate to your instructor via email your intent to file a grievance. Official notifications of grade posting will appear on Canvas notifications.\nWithin 1 business day of notifying your intent, prepare and email a one page formal letter addressed to your teammates and including the following information:\n\nYour understanding of the work you had agreed to do for the deliverable. Be sure to refer to any documentation that is relevant (Meeting Minutes, emails or group chats, revision histories in documents etc.). Be prepared to provide any documentation you mention in the letter if requested.\nA summary of the work you actually did. Refer to documentation as above.\nJustification for any discrepancies between (a) and (b). If this documentation includes any confidential health or personal matters you do not wish to disclose to your team, please raise this with me or contact Student Life Office for council. Note: In these cases it is best to reach out to me or Student Life before you are at the point of receiving a bad peer evaluation.\nA statement of the peer evaluation score you believe you have earned.\n\nIf after reviewing your letter I believe the case has merit, I will send it on to your teammates and schedule an arbitration. If I determine no arbitration is warranted, I will schedule a one-on-one meeting with you to discuss.\nIf arbitration is warranted, it must be conducted in-person with all team members present. The only exception to this requirement would be a case where the timeline in the procedure would place the earliest possible arbitration date after the final exam date. In those cases, a virtual meeting may be agreed upon or incomplete grades may be assigned until an in-person meeting can be scheduled. I will serve as the arbitrator. You and your teammates will have the opportunity to present your case and reconcile evidence referenced in your letter. At the end of the meeting, all team members (including yourself) will submit the score they believe you have earned to me via secret ballot. I will use this information in making my final determination, but the final determination is mine alone.\n\nLate assignments, missed quizzes\nIndividual assignments\n\n\n\n\n\n\nWarning\n\n\nIndividual assignments are due on the dates indicated on the Canvas Weekly Agendas. Late or missing assignments will not be graded. All assignments in a module must be completed before the Module Quiz. If extenuating circumstances impact your ability to meet deadlines or participate in class activities, you are responsible for alerting me as soon as possible. When conflicts are known ahead of the deadline you must notify me ahead of the deadline. All communication regarding missed or late individual work should be confirmed by email – even if we speak in person or during student hours, you must follow up via email to confirm so that we both have a record of the agreement.\n\n\n\nTeam assignments\nDeadlines for Team Assignments may be extended for the entire class if there are extenuating circumstances or granted to teams if requested with appropriate justification and all team members agree to the request. Presentations cannot be delayed unless there is a major emergency or complication. For other deliverables, extensions must be requested at least 1 business day before the due date. Be prepared to show appropriate documentation of work to date and to provide an explanation for the value you will add to the final product if the extension is granted. Unless a request is made and granted, late assignments will receive a grade of 0.\nMissed quizzes\nQuizzes may be rescheduled only in the case of serious illness, injury, or significant academic or professional development opportunity. Personal travel or family vacations will not be accommodated unless they are associated with a significant life event (birth, death, marriage, graduation). In all cases, documentation is required. Contact me via email as soon as you know you have a conflict. Local or phone/Skype job interviews are not considered significant professional development opportunities.\nAttendance and participation\nAlthough attendance will not be formally recorded for all class meetings, your Team can and should reduce your peer evaluation score if you miss meetings or are absent during in class Work Days. To avoid this consequence, you should:\n\nCommunicate clearly with your team any time you will be absent from a Team Meeting or class on a day that includes Case Work Time.\n\nDocument that communication (e.g. save emails or post to team message board).\n\nParticipate actively in scheduling Team Meetings outside of class.\n\nLay out policies on scheduling team meetings and missed meetings and follow them.\n\nRespect others’ time and reserve absences for only when absolutely unavoidable.\n\nCommunicate with me (your instructor) or the Office of Student Life if any situation arises that will dramatically impact your attendance in class and at team meetings (e.g. serious illness, injury or personal emergency).\n\nIf you are absent from class, it is your responsibility to obtain notes and other materials from colleagues. While you are welcome to book student hours, you should not view them as a substitute for coming to class. If you are absent regularly without a documented extenuating circumstance, requests for student hours meetings may be denied.\nExpectations for graded work\nIndividual assignments\nI provide students feedback and/or scores on assignments that require individualized grading before a further assignment of a similar format is due or within 21 days of submission, whichever is shorter. This includes quizzes. I will notify you if I am unable to complete grading within the 21-day timeframe, and will identify a revised return date. If you submit work after the due date, it may not be returned within 21 days, and depending on the justification for late submission, it may not be accepted at all. Your graded coursework will be returned in compliance with FERPA regulations, such as in class, during my student hours, or via the course management system through which only you will have access to your grades.\nGrading scale\n\n\n\n\nLetter Grade\n\n\nPercentage Equivalent\n\n\n\n\n\n\nA\n\n\n93-100%\n\n\n\n\nAB\n\n\n89-92%\n\n\n\n\nB\n\n\n83-88%\n\n\n\n\nBC\n\n\n79-82%\n\n\n\n\nC\n\n\n70-78%\n\n\n\n\nD\n\n\n60-69%\n\n\n\n\nF\n\n\n59% - below"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#ai-usage-limitations",
+    "href": "syllabus/syllabus.html#ai-usage-limitations",
+    "title": "ECO 230",
+    "section": "AI usage limitations",
+    "text": "AI usage limitations\nArtificial intelligence (AI) tools and resources used for creating text, images, computer code, audio, or other media, may be used in certain circumstances in this class. The specifics of when, where, and how these tools are permitted will be included with each assignment. Guidance for attribution/citation will be provided by your instructor. Any use of these tools other than where/how indicated is a violation of course expectations and is subject to UW-La Crosse’s Academic Misconduct Policy. Students are responsible for verifying the accuracy and appropriateness of content composed by AI. If you are in doubt as to whether you are using a tool inappropriately in this course, you are encouraged to discuss your situation with your instructor."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#regular-and-substantive-interaction",
+    "href": "syllabus/syllabus.html#regular-and-substantive-interaction",
+    "title": "ECO 230",
+    "section": "Regular and substantive interaction",
+    "text": "Regular and substantive interaction\nIn this course, regular and substantive interaction between the instructor and students plays a crucial role in student achievement. I will be incorporating various forms of interaction that not only meet the requirements set by the US Department of Education and the UWL Faculty Senate policy, but also aid in student achievement. Your active participation and contributions are also essential to your learning. In partnership with your efforts, I will…\n\nbe available during scheduled student hours as stated in the syllabus\n\nshare information about the course materials including key information, explanations, examples, and resources via in-person, and/or recorded lectures\n\nengage in online discussions about course content\n\nprovide group or individual feedback on assignments\n\npromptly respond to questions about the course sent via email\n\nregularly post announcements pertaining to the course content and activities\n\nmonitor your academic progress and communicate concerns, as needed"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#uwl-syllabus-policy-information-statements",
+    "href": "syllabus/syllabus.html#uwl-syllabus-policy-information-statements",
+    "title": "ECO 230",
+    "section": "UWL syllabus policy information & statements",
+    "text": "UWL syllabus policy information & statements\nUWL encourages students to know the campus’ important policies and statements which can be found on the Syllabus Information website.\n\nClasses during inclement weather\nReligious accommodations\nSexual misconduct\nStudent course and faculty-related concerns, complaints, and grievances\nStudent survey on instruction (LENS)\nStudents with accommodation needs\nUniversity class attendance policy\nVeterans, active military, and military-connected\n\nUWL encourages students to know the campus’ important policies and statements which can be found on the UWL Syllabus Policy Information & Statements."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#uwl-policies-supports",
+    "href": "syllabus/syllabus.html#uwl-policies-supports",
+    "title": "ECO 230",
+    "section": "UWL policies & supports",
+    "text": "UWL policies & supports\nCourse access\nAccess to course materials in Canvas may cease after the term ends. If you wish to archive materials for your personal records or portfolio you should do so as you progress through the course. As a general rule, you should always save local copies of course-related work. To avoid disasters, you should also save important files to external media or cloud storage.\nInclusive excellence\nMission “Diversity, equity, and the inclusion and engagement of all people in a safe campus climate that embraces and respects the innumerable different perspectives found within an increasingly integrated and culturally diverse global community”. If you are not experiencing my class in this manner, please come talk to me about your experiences so I can try to adjust the course if possible.\nName/pronouns\nI will do my best to address you by a preferred name or gender pronoun that you have identified. Please advise me of this preference early in the semester so that I may make appropriate changes to my records. UWL has name in use resources and the Pride Center is available for additional assistance.\nAcademic success and overall health\nAt UWL, we support your academic success and overall health. We know that students often experience a range of stressors that can impact learning and well-being. If you or someone you know is experiencing mental health concerns, or could benefit from effective academic strategies, there are free and confidential resources available to enrolled students through the Counseling & Testing Center (CTC). To learn more, visit the CTC Website or call 608-785-8073.\nTechnical support\nFor tips and information about Canvas visit the (canvas website)[https://www.uwlax.edu/info/canvas/students/]; this site also links to the 24/7 Canvas support. If you are having Canvas login issues or need general computer assistance, contact the (Eagle Help Desk)[https://www.uwlax.edu/its/client-services-and-support/eagle-help-desk/].\nStudent success resources\nUWL also encourages students to take advantage of the campus’ many and varied (Campus Life Resources)[https://www.uwlax.edu/info/campus-life/]."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#course-outline",
+    "href": "syllabus/syllabus.html#course-outline",
+    "title": "ECO 230",
+    "section": "Course outline",
+    "text": "Course outline\n\n\n\n\nModule Name\n\n\nModule Learning Outcomes\n\n\n\n\n\n\nBaseline Data Literacy\n\n\nDescribe the anatomy of a data set including type (primary process generated or administrative, primary purpose generated, secondary), grouping, and unit of analysis.\n\n\n\n\nBaseline Data Literacy\n\n\nDistinguish between discrete and continuous variables, and between nominal, ordinal and ratio scale variables.\n\n\n\n\nBaseline Data Literacy\n\n\nCompute and interpret descriptive statistics relevant to the purpose of the analysis and appropriate for the level of measurement of the variables.\n\n\n\n\nBaseline Data Literacy\n\n\nInterpret common visual representations of data including bar charts, histograms, and scatter plots.\n\n\n\n\nBaseline Data Literacy\n\n\nOrganize data in a spreadsheet following best practices.\n\n\n\n\nBaseline Data Literacy\n\n\nCreate common visual representations of data including bar charts, histograms, and scatter plots.\n\n\n\n\nBaseline Data Literacy\n\n\nDemonstrate basic software competencies in spreadsheet software.\n\n\n\n\nBaseline Data Literacy\n\n\nDefine and appropriately use common terms in data analysis including correlation, causation, generalizability, validity, and reliability.\n\n\n\n\nFoundations of Data Analysis (Course LO)\n\n\nApply appropriate univariate and bivariate inferential statistics and correctly interpret the results of statistical tests.\n\n\n\n\nFoundations of Data Analysis (Course LO)\n\n\nDemonstrate basic software competencies in scripting software.\n\n\n\n\nCommunication of Results\n\n\nCurate results generated to identify the most relevant insights and supporting analyses.\n\n\n\n\nCommunication of Results\n\n\nCreate clear and compelling visualizations with necessary annotation to achieve stand alone effectiveness.\n\n\n\n\nCommunication of Results\n\n\nSummarize the problem addressed, methods used, results, and implications clearly and concisely in written and oral communication formats intended for non-technical audiences.\n\n\n\n\nCommunication of Results\n\n\nQuantify the implications of alternative solutions or proposed recommendations that follow from analysis.\n\n\n\n\nCommunication of Results\n\n\nDocument methods and detailed results of analysis in appendices intended for technical audiences.\n\n\n\n\nCommunication of Results\n\n\nCompose succinct professional emails communicating progress on a project.\n\n\n\n\nProblem Definition\n\n\nGather insights from existing reports or others’ analyses to demonstrate and articulate the existence of a business problem or opportunity.\n\n\n\n\nProblem Definition\n\n\nDefine research objectives that are feasible and hypothesis that can be tested using the chosen study methods and data sources.\n\n\n\n\nProblem Definition\n\n\nSelect relevant variables and sources of data needed to analyze an identified business problem or opportunity and propose survey measures when required data do not exist.\n\n\n\n\nProblem Definition\n\n\nDefine key metrics.\n\n\n\n\nProblem Definition\n\n\nChoose appropriate analysis methods, data, and variables for analyzing the identified problem or opportunity.\n\n\n\n\nIntro to Advanced Topics\n\n\nDistinguish between observational, quasi-experimental, and observational study designs and select the appropriate design for research objectives and desired use of findings.\n\n\n\n\nIntro to Advanced Topics\n\n\nDefine advanced analysis methods such as regression, forecasting, quasi-experimental and experimental study designs, optimization, machine learning, and text mining, and identify appropriate use cases.\n\n\n\n\nIntro to Advanced Topics\n\n\nPrepare clear, appropriate, and appealing visual summaries of data in graphs and tables with informative use of color and text.\n\n\n\n\nIntro to Advanced Topics\n\n\nPrepare data for analysis using sorting, filtering, merging, and additional functions as appropriate.\n\n\n\n\nIntro to Advanced Topics\n\n\nDesign a survey instrument to collect data needed to address a research question, identify potential sources of bias and articulate approach to avoiding bias in the design.\n\n\n\n\nBecoming an Informed Consumer of Data\n\n\nSuggest relevant alternative explanations for results.\n\n\n\n\nBecoming an Informed Consumer of Data\n\n\nCorrect errors in analysis and interpretation of analysis.\n\n\n\n\nBecoming an Informed Consumer of Data\n\n\nDescribe current debates in research ethics and data privacy and the implications for business research."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#important-dates",
+    "href": "syllabus/syllabus.html#important-dates",
+    "title": "ECO 230",
+    "section": "Important dates",
+    "text": "Important dates\n\n\n\n\nName\n\n\nDate\n\n\nEvent\n\n\n\n\n\n\nWeek 3\n\n\n2/10/2026\n\n\nGraded Quiz: Descriptive Stats & Data Literacy\n\n\n\n\nWeek 5\n\n\n2/24/2026\n\n\nGraded Quiz: Data Visualization\n\n\n\n\nWeek 7\n\n\n3/10/2026\n\n\nGraded Quiz: R Basics\n\n\n\n\nWeek 9\n\n\n3/31/2026\n\n\nPresentation Coaching\n\n\n\n\nWeek 11\n\n\n4/7/2026\n\n\nGraded Quiz: Inferential Stats & Data Literacy\n\n\n\n\nWeek 12\n\n\n4/14/2026\n\n\nAnalysis Project Final Presentations\n\n\n\n\nWeek 13\n\n\n4/28/2026\n\n\nGraded Quiz: Survey Research Methods\n\n\n\n\nWeek 14\n\n\n5/5/2026\n\n\nResearch Proposal Presentations\n\n\n\n\nFinal Exam\n\n\nTuesday 05/12 07:00-09:00PM\n\n\nFinal Exam & Practicum"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#anticipated-schedule",
+    "href": "syllabus/syllabus.html#anticipated-schedule",
+    "title": "ECO 230",
+    "section": "Anticipated schedule",
+    "text": "Anticipated schedule\nWhen discrepancies between Canvas and the Anticipated Schedule exist, the information on Canvas supersedes this schedule. Official class agendas are posted under This Week in Canvas.\n\n\n\n\nClass\n\n\nDate\n\n\nPart 1\n\n\nPart 2\n\n\nPart 3\n\n\n\n\n\n\nWeek 1\n\n\n1/27/2026\n\n\nCourse Overview\n\n\nAnatomy, Grouping & Unit of Analysis\n\n\nData Explore in 3 softwares\n\n\n\n\nWeek 2\n\n\n2/3/2026\n\n\nLevel of Measurement Descriptive Statistics\n\n\nMeasures of Variablity and Association\n\n\nData Explore in 3 softwares\n\n\n\n\nWeek 3\n\n\n2/10/2026\n\n\nData Visualization\n\n\nData Visualization in Tableau\n\n\nData Visualization in Tableau\n\n\n\n\nWeek 4\n\n\n2/17/2026\n\n\nCommunicating with Data in Writing\n\n\nCommunicating with Data Orally\n\n\nWork Time\n\n\n\n\nWeek 5\n\n\n2/24/2026\n\n\nProblem Definition\n\n\nLaunch Analysis Project\n\n\nWork Time\n\n\n\n\nWeek 6\n\n\n3/3/2026\n\n\nInference\n\n\nRstudio Descriptive Statistics\n\n\nWork Time\n\n\n\n\nWeek 7\n\n\n3/10/2026\n\n\nHypothesis Testing\n\n\nRstudio Inferential Statistics\n\n\nWork Time\n\n\n\n\nWeek 8\n\n\n3/24/2026\n\n\nPre-Coaching Work\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 9\n\n\n3/31/2026\n\n\nCoaching Sessions\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 10\n\n\n4/7/2026\n\n\nCommunicating with Data Documenting Work\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 11\n\n\n4/14/2026\n\n\nAnalysis Project Final Presentations\n\n\nAnalysis Project Final Presentations\n\n\nThe Research Proposal\n\n\n\n\nWeek 12\n\n\n4/21/2026\n\n\nAdvanced Analytics: Sample Design\n\n\nAdvanced Analytics: Survey Design\n\n\n\n\n\n\nWeek 13\n\n\n4/28/2026\n\n\nAdvanced Analytics: Machine Learning\n\n\nAdvanced Analytics: Experiment Design\n\n\nEthics\n\n\n\n\nWeek 14\n\n\n5/5/2026\n\n\nResearch Proposal Presentations\n\n\nResearch Proposal Presentations\n\n\nFinal Exam Prep\n\n\n\n\nFinal Exam\n\n\n5/12/2026\n\n\nFinal Exam Tuesday 05/12 07:00-09:00PM"
+  },
+  {
+    "objectID": "week01/week_01.html#jump-to-conclusions",
+    "href": "week01/week_01.html#jump-to-conclusions",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Jump to Conclusions",
+    "text": "Jump to Conclusions\nAirbnb Owners should enable Instant Booking in Fall — it’s the unequivocally best season for superior ratings and returns.\n\n\n\n\n\n\n\n\nSeason\nBookings\nAvg Price (USD)\nAvg Rating\nInstant-Book %\nRating × Price\n\n\n\n\nFall\n2,253\n$134.63\n95.14\n23.70%\n12,808.16\n\n\nWinter\n1,521\n$129.39\n95.08\n31.56%\n12,302.72\n\n\nSummer\n2,118\n$128.85\n94.64\n23.94%\n12,194.56\n\n\nSpring\n4,283\n$122.11\n95.32\n31.43%\n11,639.20"
+  },
+  {
+    "objectID": "week01/week_01.html#jump-to-conclusions-2",
+    "href": "week01/week_01.html#jump-to-conclusions-2",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Jump to Conclusions 2",
+    "text": "Jump to Conclusions 2\n\n\n\n\n\n\n\n\nID\nName\nProperty\nRoom\nNeighborhood\nZIP\nSleeps\nBR\nBeds\nHost Since\nFirst Review\nLast Review\n# Reviews\nRating\nPrice\nIB?\n\n\n\n\n6226658\nSweet Home Chicago\nApartment\nPrivate room\nHumboldt Park\n60622\n2\n1\n1\n2012-09-10\nNA\nNA\n0\nNA\n$60.00\nNo\n\n\n7499179\nPrivate room in Wicker Park loft at...\nLoft\nPrivate room\nWicker Park\n60622\n2\n1\n1\n2016-07-29\n2016-08-14\n2016-10-16\n15\n91.00\n$75.00\nNo\n\n\n19813606\nModern condo close to parks and mus...\nCondominium\nEntire home/apt\nSouth Loop/Prin...\n60605\n5\n2\n2\n2016-07-17\nNA\nNA\n0\nNA\n$250.00\nYes\n\n\n13435559\nArt studio + house in one\nHouse\nPrivate room\nPilsen\n60608\n2\n1\n1\n2014-02-27\n2014-03-19\n2017-04-30\n85\n96.00\n$64.00\nNo\n\n\n19692298\nCharming bohemian duplex w King bed\nHouse\nEntire home/apt\nNA\n60647\n3\n1\n1\n2015-03-15\n2015-11-23\n2016-11-21\n18\n97.00\n$110.00\nNo\n\n\n235281\n5 QUEEN BEDS / 2 FULL BATHS / SLEEP...\nApartment\nEntire home/apt\nLakeview\n60614\n9\n2\n5\n2015-12-13\n2016-06-10\n2017-04-16\n10\n96.00\n$199.00\nNo\n\n\n783533\nChicago MostWanted LOCATION Mag Mil\nApartment\nEntire home/apt\nStreeterville\n60611\n2\n1\n1\n2012-10-24\n2014-04-13\n2014-11-05\n4\n100.00\n$161.00\nNo\n\n\n11610316\nBedroom with bath and large family ...\nBungalow\nPrivate room\nBelmont Cragin\n60639\n5\n1\n3\n2017-02-07\n2017-03-02\n2017-05-07\n16\n100.00\n$39.00\nYes\n\n\n16412763\nGreat 1 bedroom Luxury Location and...\nApartment\nEntire home/apt\nNA\n60601\n3\n1\n1\n2012-10-24\n2015-10-16\n2015-10-16\n1\n100.00\n$175.00\nNo\n\n\n15636707\nFantastic River North Location!-s3\nApartment\nEntire home/apt\nRiver North\n60654\n2\n0\n1\n2015-10-15\n2016-10-23\n2016-10-23\n1\n80.00\n$359.00\nNo\n\n\n18089318\nShortStayChicago#5: Michigan Avenue\nApartment\nEntire home/apt\nRiver North\n60610\n2\n0\n1\n2014-12-20\n2015-05-25\n2017-03-04\n14\n89.00\n$85.00\nNo\n\n\n17587897\nCITY CENTER, SPACIOUS COZY STUDIO &...\nApartment\nEntire home/apt\nGold Coast\n60610\n2\n0\n1\n2016-01-24\nNA\nNA\n0\nNA\n$29.00\nYes\n\n\n9379983\nCozy Garden Unit In Edgewater\nApartment\nEntire home/apt\nEdgewater\n60660\n4\n1\n1\n2011-08-28\n2016-01-16\n2017-05-08\n55\n95.00\n$85.00\nYes\n\n\n1602772\nSplit-Level Artist Loft\nLoft\nEntire home/apt\nWest Town/Noble...\n60642\n4\n2\n2\n2015-06-16\n2015-09-14\n2017-04-17\n18\n95.00\n$200.00\nNo\n\n\n18341150\nLarge beautiful old apartment, with...\nApartment\nPrivate room\nUptown\n60613\n2\n1\n1\n2016-11-09\nNA\nNA\n0\nNA\n$56.00\nYes\n\n\n19564384\nArt-Filled Vintage Ukrainian Villag...\nApartment\nPrivate room\nUkrainian Village\n60622\n1\n1\n1\n2015-04-21\n2016-08-21\n2017-04-24\n18\n99.00\n$68.00\nNo\n\n\n10253271\nGorgeous South Loop / Downtown Loft...\nCondominium\nEntire home/apt\nSouth Loop/Prin...\n60605\n6\n2\n4\n2016-08-13\n2016-09-16\n2017-05-05\n29\n96.00\n$129.00\nYes\n\n\n11750272\nTwo Bedroom Suite in Lincoln Park\nApartment\nEntire home/apt\nLincoln Park\n60614\n4\n2\n2\n2009-08-24\nNA\nNA\n0\nNA\n$155.00\nNo\n\n\n708802\nLogan Square- Steps from the train!\nHouse\nEntire home/apt\nNA\n60647\n8\n1\n2\n2013-05-03\n2016-11-20\n2016-11-20\n1\n100.00\n$300.00\nNo\n\n\n4281241\nWest Loop/Greek Town Loft With Free...\nLoft\nPrivate room\nWest Loop/Greek...\n60661\n4\n1\n1\n2016-06-17\n2016-09-13\n2017-04-09\n14\n94.00\n$85.00\nNo"
+  },
+  {
+    "objectID": "week01/week_01.html#analytics-vs-statisics",
+    "href": "week01/week_01.html#analytics-vs-statisics",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Analytics vs Statisics",
+    "text": "Analytics vs Statisics\n\n\n\n\n\n\nWhat is statistics?\n\n\nAnalytics is the art of finding out what is in your data.\n\n\nIf you can (with some effort) find the answer with certainty you are using analytics.\n\n\nAnalytics deals with what you know.\nStatistics deals with what you do not know.\n\n\nAnalytics helps you make good questions.\nStatistics helps you get good answers.\n\n\nStatistics is the science of making decisions under uncertainty.\n\n\n\n\n\nOpen with intuition: students already do analytics informally.\nEmphasize uncertainty as the key dividing line.\nPause after the third fragment and ask for examples."
+  },
+  {
+    "objectID": "week01/week_01.html#jump-to-conclusions-2-1",
+    "href": "week01/week_01.html#jump-to-conclusions-2-1",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Jump to Conclusions 2",
+    "text": "Jump to Conclusions 2\ntwo datasets rows = customers rows = purchases"
+  },
+  {
+    "objectID": "week01/week_01.html#jump-to-conclusions-2-2",
+    "href": "week01/week_01.html#jump-to-conclusions-2-2",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Jump to Conclusions 2",
+    "text": "Jump to Conclusions 2\nTwo similar datasets"
+  },
+  {
+    "objectID": "week01/week_01.html#jump-to-conclusions-2-3",
+    "href": "week01/week_01.html#jump-to-conclusions-2-3",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Jump to Conclusions 2",
+    "text": "Jump to Conclusions 2\nsleep quality by month and lodging type"
+  },
+  {
+    "objectID": "week01/week_01.html#jump-to-conclusions-2-4",
+    "href": "week01/week_01.html#jump-to-conclusions-2-4",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Jump to Conclusions 2",
+    "text": "Jump to Conclusions 2\ntall vs wide"
+  },
+  {
+    "objectID": "week01/week_01.html#jump-to-conclusions-2-5",
+    "href": "week01/week_01.html#jump-to-conclusions-2-5",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Jump to Conclusions 2",
+    "text": "Jump to Conclusions 2\nvariable types"
+  },
+  {
+    "objectID": "week01/week_01.html#jump-to-conclusions-2-6",
+    "href": "week01/week_01.html#jump-to-conclusions-2-6",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Jump to Conclusions 2",
+    "text": "Jump to Conclusions 2\nNOIR"
+  },
+  {
+    "objectID": "week01/week_01.html#observations---atomic-data",
+    "href": "week01/week_01.html#observations---atomic-data",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Observations - Atomic Data",
+    "text": "Observations - Atomic Data\n\n\n\n\n\n\n\n\n\n\nCategories\n\n\n\n\n\n\n\n\nName\nMike\n\n\nDate\n01/03/2025\n\n\nGender\nMale\n\n\nLocation\nHome\n\n\nZipCode\n54601\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumbers\n\n\n\n\n\n\n\n\nStart Time\n10:30 P.M.\n\n\nEnd Time\n6:59 A.M.\n\n\nR.E.M.\n109 Minutes\n\n\nDeep Sleep\n151 Minutes\n\n\nLight Sleep\n249 Minutes\n\n\nTotal Sleep\n509\n\n\nQuality\n51%"
+  },
+  {
+    "objectID": "week01/week_01.html#summarized-data",
+    "href": "week01/week_01.html#summarized-data",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Summarized Data",
+    "text": "Summarized Data\n\n\nDimensions\n\n\nCategories\nFilters\nAxis Labels\n\n\n\n    \n\nMeasures\n\n\nAverages\nStandard Deviation\nCounts\nSums\n\n\n\n\n\n\n\n\n\n\nJune Camping\n\n\n\n\n\n\n\nMean = 426.50 Minutes\n\n\nMedian = 440 Minutes\n\n\nQuality = 41.87%\n\n\nN Records = 6"
+  },
+  {
+    "objectID": "week01/week_01.html#tall-vs-wide",
+    "href": "week01/week_01.html#tall-vs-wide",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Tall vs Wide",
+    "text": "Tall vs Wide\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDimensions\n\n\nMeasures\n\n\n\nDate\nDayOfWeek\nMonth\nPersonName\nGender\nLocation\nEventType\nStartTime\nEndTime\nTotalMinutes\nREMMinutes\nDeepMinutes\nLightMinutes\nSleepQuality\n\n\n\n\n2025-01-01\nWednesday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-01 22:25\n2025-01-02 05:26\n421\n113\n123\n185\n56.10%\n\n\n2025-01-01\nWednesday\nJanuary\nJohn\nMale\nHome\nMain\n2025-01-01 00:30\n2025-01-01 07:28\n418\n84\n104\n230\n45.00%\n\n\n2025-01-01\nWednesday\nJanuary\nLucas\nMale\nHome\nMain\n2025-01-01 22:25\n2025-01-02 05:44\n439\n70\n183\n186\n57.60%\n\n\n2025-01-01\nWednesday\nJanuary\nLydia\nFemale\nHome\nMain\n2025-01-01 23:15\n2025-01-02 07:34\n499\n79\n184\n236\n52.70%\n\n\n2025-01-01\nWednesday\nJanuary\nMike\nMale\nHome\nMain\n2025-01-01 23:10\n2025-01-02 07:24\n494\n151\n85\n258\n47.80%\n\n\n2025-01-01\nWednesday\nJanuary\nSloane\nFemale\nHome\nMain\n2025-01-01 22:00\n2025-01-02 05:36\n456\n94\n164\n198\n56.60%\n\n\n2025-01-02\nThursday\nJanuary\nCam\nFemale\nHome\nNap\n2025-01-02 13:40\n2025-01-02 14:24\n44\n9\n10\n25\n43.20%\n\n\n2025-01-02\nThursday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-02 22:10\n2025-01-03 05:00\n410\n132\n97\n181\n55.90%\n\n\n2025-01-02\nThursday\nJanuary\nJohn\nMale\nHome\nMain\n2025-01-02 23:50\n2025-01-03 06:47\n417\n93\n128\n196\n53.00%\n\n\n2025-01-02\nThursday\nJanuary\nLucas\nMale\nHome\nNap\n2025-01-02 16:00\n2025-01-02 17:06\n66\n3\n27\n36\n45.50%\n\n\n2025-01-02\nThursday\nJanuary\nLucas\nMale\nHome\nMain\n2025-01-02 22:00\n2025-01-03 05:41\n461\n95\n145\n221\n52.10%\n\n\n2025-01-02\nThursday\nJanuary\nLydia\nFemale\nHome\nMain\n2025-01-02 22:45\n2025-01-03 06:28\n463\n121\n121\n221\n52.30%\n\n\n2025-01-02\nThursday\nJanuary\nMike\nMale\nHome\nMain\n2025-01-02 22:05\n2025-01-03 05:50\n465\n116\n110\n239\n48.60%\n\n\n2025-01-02\nThursday\nJanuary\nSloane\nFemale\nHome\nMain\n2025-01-02 21:40\n2025-01-03 04:56\n436\n71\n172\n193\n55.70%\n\n\n2025-01-03\nFriday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-03 22:10\n2025-01-04 05:27\n437\n96\n165\n176\n59.70%"
+  },
+  {
+    "objectID": "week01/week_01.html#principles-of-tidy-data",
+    "href": "week01/week_01.html#principles-of-tidy-data",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Principles of Tidy Data",
+    "text": "Principles of Tidy Data\n\nEach variable you measure should be in one column\nEach observation of that variable should be in a different row\nThere should be one table for each type of observational unit\nIf you have multiple tables you need a key to link them"
+  },
+  {
+    "objectID": "week01/week_01.html#jump-to-conclusions-2-7",
+    "href": "week01/week_01.html#jump-to-conclusions-2-7",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Jump to Conclusions 2",
+    "text": "Jump to Conclusions 2\nExtract"
+  },
+  {
+    "objectID": "week01/week_01.html#jump-to-conclusions-2-8",
+    "href": "week01/week_01.html#jump-to-conclusions-2-8",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Jump to Conclusions 2",
+    "text": "Jump to Conclusions 2\nExtract"
+  },
+  {
+    "objectID": "week01/week_01.html#jump-to-conclusions-2-9",
+    "href": "week01/week_01.html#jump-to-conclusions-2-9",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Jump to Conclusions 2",
+    "text": "Jump to Conclusions 2\nTransform"
+  },
+  {
+    "objectID": "week01/week_01.html#jump-to-conclusions-2-10",
+    "href": "week01/week_01.html#jump-to-conclusions-2-10",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Jump to Conclusions 2",
+    "text": "Jump to Conclusions 2\nLoad"
+  },
+  {
+    "objectID": "week01/week_01.html#tableau",
+    "href": "week01/week_01.html#tableau",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Tableau",
+    "text": "Tableau"
+  },
+  {
+    "objectID": "week01/week_01.html#posit.cloud",
+    "href": "week01/week_01.html#posit.cloud",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Posit.cloud",
+    "text": "Posit.cloud"
+  },
+  {
+    "objectID": "week01/week_01.html#jump-to-conclusions-2-11",
+    "href": "week01/week_01.html#jump-to-conclusions-2-11",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Jump to Conclusions 2",
+    "text": "Jump to Conclusions 2\nScary R\n\nlibrary(eco230r)\nlibrary(dplyr)\n\nabnb |&gt;\n  idt(listed_price~instant_bookable)\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\n\n$analysis_type\n[1] \"Independent t-Test, Two Tailed test\"\n\n$results\n[1] \"t(2110.38) = 3.515, p = 0, r = 0.076, bf10 = 12.163\"\n\n$descriptive_statistics\n  Group       N    Mean Standard_Error\n1 FALSE 2660.00  137.00           2.47\n2  TRUE 1060.00  122.00           3.59\n\n\n\nlibrary(eco230r)\nlibrary(dplyr)\n\nabnb |&gt;\n  ano(listed_price~room_type)\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\n\n$analysis_type\n[1] \"Homogeneity of Variance is not assumed, Robust One Way ANOVA for medians,  0.1  trimmed means, Post Hocs using linear equality constraints\"\n\n$results\n[1] \"F(2,224.33) = 905.491, p = 0, w = 0.846, bf10 = 4.60906366003435e+142\"\n\n$descriptive_statistics\n            Group       N    Mean Standard_Error\n1 Entire home/apt 2220.00  174.00           2.97\n2    Private room 1400.00   72.00           1.43\n3     Shared room  101.00   56.00          10.30\n\n$post_hoc_analysis\n                             Difference  P.Value\nEntire home/apt-Private room   85.03443 0.00e+00\nEntire home/apt-Shared room   110.73338 0.00e+00\nPrivate room-Shared room       25.69895 7.33e-11"
+  },
+  {
+    "objectID": "week01/week_01.html#summary-and-prime-directive",
+    "href": "week01/week_01.html#summary-and-prime-directive",
+    "title": "ECO 230 – Week 1 Lecture",
+    "section": "Summary and Prime Directive",
+    "text": "Summary and Prime Directive\n\nBefore running any statistics, what are the three questions you must answer about a dataset?\n\n\nWhat does one row represent?\nWhat kind of variables do I have?\nWhat question can this data answer?"
   }
 ]
