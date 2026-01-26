@@ -34,6 +34,7 @@ library(lubridate)
 library(stringr)
 library(glue)
 library(here)
+library(eco230r)
 
 
 # --- Adjust the path to where your file lives ---
@@ -362,15 +363,11 @@ two datasets rows = customers rows = purchases
 ::: {.column width="58%"}
 
 ::: {.tight-list }
-Everyone in a *zipcode*
-
-Individual consumers
-
-Individual purchases
-
-GDP of an economy
-
-Population of a planet
+- Everyone in a *zipcode*
+- Individual consumers
+- Individual purchases
+- GDP of an economy
+- Population of a planet
 :::
 :::
 
@@ -619,23 +616,187 @@ numbers_df |>
 
 :::::: columns
 ::: {.column width="30%"}
+### Dimensions
 
+::: {.tight-list }
+- Categories
+- Filters
+- Axis Labels
+:::
 
 :::
 
 ::: {.column width="40%"}
-![](media/images/w01_s21_image.jpeg){fig-alt="Single cube emphasizing an atomic unit of observation in the data." width="100%"}
+<br> <br> <br> <br>
+![](media/images/w01_s22_stack.png){fig-alt="An ordered stack of multiple atomic units making it possible to summarize the data with measures and summary statistics." width="100%"}
 :::
 
 ::: {.column width="30%"}
+### Measures
+
+::: {.tight-list }
+- Averages
+- Standard Deviation
+- Counts
+- Sums
+:::
+
+```{r}
+june_glamping <- sleep %>%
+  filter(Month == "June", Location == "Camping")
+# If you want only main sleeps, uncomment:
+# june_glamping <- june_glamping %>% filter(SleepEventType == "Main")
+
+mean_minutes   <- mean(june_glamping$TotalMinutes, na.rm = TRUE)
+median_minutes <- median(june_glamping$TotalMinutes, na.rm = TRUE)
+avg_quality    <- mean(june_glamping$SleepQuality, na.rm = TRUE)
+n_records      <- nrow(june_glamping)
+
+summary_vertical <- tibble::tibble(
+  Summary = c(
+    glue("Mean = {sprintf('%.2f', mean_minutes)} Minutes"),
+    glue("Median = {round(median_minutes)} Minutes"),
+    glue("Quality = {percent(avg_quality, accuracy = 0.01)}"),
+    glue("N Records = {comma(n_records)}")
+  )
+)
+
+
+summary_tbl <-
+  summary_vertical |>
+  gt() |>
+  tab_header(title = md("**June Camping**")) |>
+  cols_label(Summary = "") |>
+  # Minimal, readable sizing for slides
+  tab_options(
+    table.width = pct(90),
+    table.font.size = px(18),
+    data_row.padding = px(4),
+
+    # Remove lines around the title/header and table edges
+    table.border.top.width = px(0),
+    table.border.bottom.width = px(0),
+    heading.border.bottom.width = px(0),
+    column_labels.border.top.width = px(0),
+    column_labels.border.bottom.width = px(0),
+
+    # Optional: remove row separators for a “no-chrome” card look
+    table_body.hlines.width = px(0)
+  )
+summary_tbl
+
+```
 
 
 :::
 ::::::
 
-## [Jump to Conclusions 2]{.sr-only}
+## Tall vs Wide
 
-Tall vs wide
+```{r}
+
+library(readr)
+library(dplyr)
+library(gt)
+library(scales)
+
+# --- Load data (uncomment if needed) ---
+# sleep <- read_csv("week01/data/sleep_tracking_Jan-Jun_2025_with_zip.csv",
+#                   show_col_types = FALSE)
+
+# --- Define columns ---
+# Dimensions (categorical / discrete identifiers)
+dims <- c(
+  "Date", "DayOfWeek", "Month",
+  "PersonName", "Gender",
+  "Location", "SleepEventType"
+)
+
+# Measures (numeric)
+meas <- c(
+  "StartTime", "EndTime","TotalMinutes", "REMMinutes", "DeepMinutes",
+  "LightMinutes", "SleepQuality"
+)
+
+# --- Take head(20) and select columns in desired order ---
+tbl20 <- sleep %>%
+  select(all_of(dims), all_of(meas)) %>%
+  slice_head(n = 15)
+
+# --- Format SleepQuality as a percentage for display ---
+# (We’ll use gt::fmt_percent to keep the underlying numeric values numeric.)
+# If SleepQuality is not numeric, coerce it first:
+# tbl20 <- tbl20 %>% mutate(SleepQuality = as.numeric(SleepQuality))
+
+# --- Tableau-like colors (approx) ---
+tableau_blue  <- "#4E79A7"  # spanner/header for dimensions (Tableau-like blue)
+tableau_green <- "#59A14F"  # spanner/header for measures  (Tableau-like green)
+blue_fill     <- "#EAF2FB"  # light blue fill for dimension columns
+green_fill    <- "#EAF6EA"  # light green fill for measure columns
+header_text   <- "white"
+
+# --- Build gt table with styling ---
+gt_tbl <- tbl20 |>
+  gt() |>
+  # Spanners over the dimension and measure blocks
+  tab_spanner(
+    label = "Dimensions",
+    columns = all_of(dims)
+  ) |>
+  tab_spanner(
+    label = "Measures",
+    columns = all_of(meas)
+  ) |>
+  # Format SleepQuality as percent with 2 decimals (e.g., 82.35%)
+  fmt_percent(
+    columns = "SleepQuality", decimals = 2
+  ) |>
+  # Shade dimension columns (light blue)
+  tab_style(
+    style = cell_fill(color = blue_fill),
+    locations = cells_body(columns = all_of(dims))
+  ) |>
+  # Shade measure columns (light green)
+  tab_style(
+    style = cell_fill(color = green_fill),
+    locations = cells_body(columns = all_of(meas))
+  ) |>
+  # Color the spanner headers to match Tableau-like pills
+  tab_style(
+    style = list(cell_fill(color = tableau_blue), cell_text(color = header_text)),
+    locations = cells_column_spanners(spanners = "Dimensions")
+  ) |>
+  tab_style(
+    style = list(cell_fill(color = tableau_green), cell_text(color = header_text)),
+    locations = cells_column_spanners(spanners = "Measures")
+  ) |>
+  # Optional: make it a bit tighter and readable
+  tab_options(
+    table.font.size = px(12),
+    data_row.padding = px(6),
+    column_labels.background.color = "white",
+    column_labels.font.weight = "bold"
+  ) |>
+  cols_label(
+    SleepEventType = "EventType",
+    REMMinutes = "REMMinutes",
+    DeepMinutes = "DeepMinutes",
+    LightMinutes = "LightMinutes",
+    TotalMinutes = "TotalMinutes",
+    SleepQuality = "SleepQuality"
+  )
+
+gt_tbl
+
+
+```
+## Principles of Tidy Data
+
+- *Each variable you measure should be in one column*
+- *Each observation of that variable should be in a different row*
+- *There should be one table for each type of observational unit*
+- *If you have multiple tables you need a key to link them*
+
 
 ## [Jump to Conclusions 2]{.sr-only}
 
@@ -653,14 +814,31 @@ Transform
 
 Load
 
-## [Jump to Conclusions 2]{.sr-only}
+## Tableau
 
-Tableau
+![](media/images/w01_s26_image.png){fig-alt="Tableau branding indicating the visualization tool introduced in this course." width="100%"}
 
-## [Jump to Conclusions 2]{.sr-only}
+## Posit.cloud
 
-Posit
+![](media/images/w01_s27_image.png){fig-alt="Posit Cloud branding indicating a browser‑based RStudio environment for analysis." width="100%"}
 
 ## [Jump to Conclusions 2]{.sr-only}
 
 Scary R
+```{r echo=TRUE }
+library(eco230r)
+library(dplyr)
+
+abnb |>
+  idt(listed_price~instant_bookable)
+
+```
+
+```{r echo=TRUE }
+library(eco230r)
+library(dplyr)
+
+abnb |>
+  ano(listed_price~room_type)
+
+```
