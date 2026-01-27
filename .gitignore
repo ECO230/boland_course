@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+_freeze
+.quarto
+_quarto.yml
+_site
