@@ -1,0 +1,276 @@
+
+/*-- scss:defaults --*/
+/*
+  Boland Clean — Minimalist reveal.js theme
+  - Office palette
+  - Cross-platform, Calibri-like font stack
+  - Analyzer-safe: block comments only, no @use, no mixins
+*/
+
+/* Colors (from your PPT Office theme) */
+$body-bg:               #ffffff !default;
+$body-color:            #333333 !default;
+$link-color:            #4f81bd !default;  /* accent1 */
+$link-color-hover:      #c0504d !default;  /* accent2 */
+$selection-bg:          #9bbb59 !default;  /* accent3 */
+$selection-color:       #ffffff !default;
+
+$heading-color:         #000000 !default;
+
+/* Cross-platform Calibri-like stacks */
+$font-family-sans-serif:
+  system-ui, -apple-system, "Segoe UI",
+  Roboto, "Open Sans", Arial, sans-serif !default;
+
+$presentation-heading-font:
+  system-ui, -apple-system, "Segoe UI",
+  Roboto, "Open Sans", Arial, sans-serif !default;
+
+/* Sizing tuned for lecture rooms */
+$presentation-font-size-root: 24px !default;
+$code-block-font-size:        0.92em !default;
+$h1-font-size:                1.50em !default;
+$h2-font-size:                1.30em !default;
+$h3-font-size:                1.10em !default;
+
+/* Muted neutrals */
+$muted-fg: #1f497d !default;
+$muted-bg: #eeece1 !default;
+
+/* Layout rhythm & subtle chrome */
+$content-max-width:   1000px !default;
+$line-height-body:    1.45 !default;
+$slide-vpad:          1.6rem !default;
+$list-indent:         1.0em !default;
+$hr-color:            rgba(0,0,0,.08) !default;
+
+/* Tables & code */
+$table-header-bg:     #f7f7f7 !default;
+$table-border:        rgba(0,0,0,.12) !default;
+$code-bg:             #f6f8fa !default;
+$code-border:         rgba(0,0,0,.10) !default;
+
+
+/*-- scss:rules --*/
+
+/* Base reveal adjustments */
+.reveal {
+  line-height: $line-height-body;
+  letter-spacing: 0.2px;
+  color: $body-color;
+  background-color: $body-bg;
+}
+
+/* Slide padding */
+.reveal .slides {
+  padding: $slide-vpad 0;
+}
+
+/* Content column: left-aligned, constrained width
+   NOTE: EXCLUDE .columns so Quarto column layout is not clamped.
+*/
+.reveal .slides section .slide-content,
+.reveal .slides section > *:not(.r-stack):not(.r-fit-text):not(.columns) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $content-max-width;
+  text-align: left;
+}
+
+/* Title slide */
+.reveal .slides > section:first-child h1 {
+  text-align: center;
+  margin-bottom: 0.25em;
+  color: $heading-color;
+}
+.reveal .slides > section:first-child p,
+.reveal .slides > section:first-child .quarto-title-author,
+.reveal .slides > section:first-child .quarto-title-date {
+  color: rgba(0,0,0,.65);
+  font-weight: 400;
+  font-size: 0.9em;
+  text-align: center;
+  margin: 0.15em 0;
+}
+
+/* Headings */
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: $presentation-heading-font;
+  font-weight: 700;
+  color: $heading-color;
+  margin-top: 0.1em;
+  margin-bottom: 0.35em;
+  line-height: 1.15;
+  text-align: left;
+}
+
+/* Paragraphs */
+.reveal p {
+  margin: 0.35em 0 0.7em;
+}
+
+/* Lists: compact bullets, modest indent (general) */
+.reveal ul, .reveal ol {
+  line-height: $line-height-body;
+  margin-left: $list-indent;
+}
+.reveal li { margin: 0.2em 0; }
+
+/* Horizontal rule */
+.reveal hr {
+  border: none;
+  height: 1px;
+  background: $hr-color;
+}
+
+/* Links */
+.reveal a { color: $link-color; text-decoration: none; }
+.reveal a:hover { color: $link-color-hover; text-decoration: underline; }
+
+/* Images */
+.reveal section img {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0.25rem 0;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Blockquotes */
+.reveal blockquote {
+  border-left: 3px solid $hr-color;
+  padding: 0.2em 0 0.2em 0.8em;
+  margin: 0.8em 0;
+  color: rgba(0,0,0,.8);
+  background: transparent;
+}
+
+/* Tables */
+.reveal table {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $content-max-width;
+  border-collapse: collapse;
+  font-size: 0.92em;
+  width: 100%;
+}
+.reveal table th,
+.reveal table td {
+  border-bottom: 1px solid $table-border;
+  padding: 0.45em 0.6em;
+  vertical-align: top;
+}
+.reveal table th {
+  background: $table-header-bg;
+  color: rgba(0,0,0,.85);
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Code blocks */
+.reveal pre code {
+  display: block;
+  background: $code-bg;
+  border: 1px solid $code-border;
+  padding: 0.7em 0.9em;
+  border-radius: 4px;
+  font-size: $code-block-font-size;
+  line-height: 1.35;
+  overflow-x: auto;
+}
+
+/* Inline code */
+.reveal :not(pre) > code {
+  background: rgba(0,0,0,.04);
+  padding: 0.05em 0.3em;
+  border-radius: 3px;
+}
+
+/* Callouts */
+.reveal .callout {
+  border: 1px solid $table-border;
+  background: rgba(0,0,0,.02);
+}
+
+/* Slide numbers */
+.reveal .slide-number {
+  background: transparent;
+  color: rgba(0,0,0,.5);
+}
+
+/* Figures/captions */
+.reveal figcaption {
+  color: rgba(0,0,0,.65);
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+/* Footnotes */
+.reveal .aside-footnotes, .reveal .footnotes {
+  font-size: 0.85em;
+  color: rgba(0,0,0,.7);
+}
+
+/* Selection */
+::selection {
+  background: $selection-bg;
+  color: $selection-color;
+}
+
+
+/* ------------------------------------------------------------
+   Slide title breakout
+   ------------------------------------------------------------ */
+
+/* Break titles out of the centered content column */
+.reveal .slides section > h1:first-child,
+.reveal .slides section > h2:first-child,
+.reveal .slides section > h3:first-child {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  max-width: none !important;
+  padding-left: 0.5rem; /* subtle left gutter */
+}
+
+/* Global fine‑tune for title position */
+:root { --boland-title-left-nudge: -1.00rem; }
+.reveal .slides section > h1:first-child,
+.reveal .slides section > h2:first-child,
+.reveal .slides section > h3:first-child {
+  transform: translateX(var(--boland-title-left-nudge));
+}
+
+
+/* ------------------------------------------------------------
+   Tight, no-marker lists for taxonomy/enum slides
+   ------------------------------------------------------------ */
+
+/* Works whether class is on wrapper or the list itself */
+.tight-list,
+.tight-list ul,
+.tight-list ol {
+  margin: 0;
+  padding-left: 1.25rem;   /* visual indent */
+  font-size: 1.00em;
+  line-height: 1.25;
+}
+.tight-list li { margin: 0.15em 0; }
+
+/* No visible bullets, preserve list semantics */
+.tight-list { list-style: none; }
+.tight-list li::marker { content: ""; }
+
+/* If you want bullets visible on a specific list, use {.tight-list markers} */
+.tight-list.markers { list-style: disc inside; }
+.tight-list.markers li::marker { content: initial; }
+
+
+.text-center { text-align: center !important; }
+.text-right  { text-align: right  !important; }
+.text-left   { text-align: left   !important; }
+
+
+
+
