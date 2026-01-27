@@ -265,3 +265,9 @@ $code-border:         rgba(0,0,0,.10) !default;
 /* If you want bullets visible on a specific list, use {.tight-list markers} */
 .tight-list.markers { list-style: disc inside; }
 .tight-list.markers li::marker { content: initial; }
+
+
+.text-center { text-align: center !important; }
+.text-right  { text-align: right  !important; }
+.text-left   { text-align: left   !important; }
+
