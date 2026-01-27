@@ -1,5 +1,5 @@
 ---
-title: "ECO 230 – Week 1 Lecture"
+title: "ECO 230 Section 012"
 author: "Mike Boland, MBA"
 format:
   revealjs:
@@ -20,9 +20,10 @@ execute:
   echo: false
 ---
 
+
 # Can you trust this conclusion?
 
-## [Jump to Conclusions]{.sr-only}
+## Use Instant Booking Wisely
 
 Airbnb Owners should enable **Instant Booking** in Fall — it's the unequivocally best season for superior ratings and returns.
 
@@ -164,7 +165,7 @@ season_summary %>%
 
 ```
 
-## [Jump to Conclusions 2]{.sr-only}
+## [Sample Airbnb Data]{.sr-only}
 
 ```{r ab_detail}
 
@@ -283,45 +284,130 @@ gt_tbl
 
 ```
 
-## [Analytics vs Statisics]{.sr-only}
+# What is Statistics?
 
-:::::::::::: columns
-::: {.column .bleed-top width="40%"}
-![](media/images/w01_s03_image.png){fig-alt="Photo of several dogs lying on a blanket; playful opener for the topic." width="100%"}
+## {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="Photo of several dogs lying on a blanket; playful opener for the topic."}
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+
 :::
 
-:::::::::: {.column .text-col width="60%"}
-::::::::: r-stack
-::: fragment
-What is **statistics**?
+::: {.column width="50%"}
+
+What is **Statistics**?
+
+What is **Analytics**?
+
 :::
 
-::: fragment
+::::
+
+## {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="There are three dogs in this picture. One has black fur, one has brown, one is an idiot."}
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+
+:::
+
+::: {.column width="50%"}
+
 **Analytics** is the **art** of finding out what is in your data.
+
 :::
 
-::: fragment
-If you can (with some effort) find the answer with certainty you are using **analytics**.
+::::
+
+
+## {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="We don't need to see every dog in the world to know that most dogs have fur, they generally have 4 paws etc..."}
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+
 :::
 
-::: fragment
+::: {.column width="50%"}
+
+If you can (with some effort) find the answer with certainty you are using **Analytics**.
+
+:::
+
+::::
+
+## {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="When we need to get specific we need to go beyond analytics. E.g. how much food does the average dog eat?"}
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+
+:::
+
+::: {.column width="50%"}
+
 **Analytics** deals with what you know.
 
 **Statistics** deals with what you do not know.
+
 :::
 
-::: fragment
-**Analytics** helps you make good questions.
+::::
 
-**Statistics** helps you get good answers.
+## {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="Analytics helps us frame what questions we need clarity on and which questions we need the discipline of statistics to answer."}
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+
 :::
 
-::: fragment
+::: {.column width="50%"}
+
+**Analytics** turns curiosity into questions.
+
+**Statistics** turns data into answers.
+
+:::
+
+::::
+
+## {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="This picture, a spreadsheet a database, sensor information it is all data in which we can perform analytics and statistics."}
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+
+:::
+
+::: {.column width="50%"}
+
+**Analytics** is the **art** of finding out what is in your data.
+
 **Statistics** is the **science** of making decisions under uncertainty.
+
 :::
-:::::::::
-::::::::::
-::::::::::::
+
+::::
 
 ::: notes
 -   Open with intuition: students already *do* analytics informally.
@@ -329,7 +415,7 @@ If you can (with some effort) find the answer with certainty you are using **ana
 -   Pause after the third fragment and ask for examples.
 :::
 
-# Gently down the stream...
+# What does one row represent?
 
 ## [Jump to Conclusions 2]{.sr-only}
 
@@ -577,9 +663,9 @@ tbl_abnb_sim_vt
 
 ![](media/images/w01_s17_image.jpeg){.r-stretch fig-alt="Grid‑style visual suggesting repeated measures on multiple units across time (panel data)." fig-align="right"}
 
-# Tidy up
+# What kind of variables do I have?
 
-## [Jump to Conclusions 2]{.sr-only}
+## [Tall vs Wide Data]{.sr-only}
 
 ### Summarize total minutes of sleep by month and location
 ```{r sleep_data echo:FALSE}
@@ -1450,27 +1536,36 @@ Extract | Transform | **Load**
 
 ![](media/images/w01_s27_image.png){fig-alt="Posit Cloud branding indicating a browser‑based RStudio environment for analysis." width="100%"}
 
-## [Jump to Conclusions 2]{.sr-only}
-
-Scary R
-
-```{r echo=TRUE }
+## [Coding in R]{.sr-only}
+```{r setup_eco }
 library(eco230r)
 library(dplyr)
+```
 
-abnb |>
+::::: columns
+
+::: {.column width="10%"}
+
+![](../shared/images/logo_R.png){width="100%" fig-alt="R Language Logo"}
+
+:::
+
+::: {.column width="90%"}
+<br><br><br>
+```{r idt, echo=TRUE, results="hide"}
+abnb %>%
   idt(listed_price~instant_bookable)
-
 ```
-
-```{r echo=TRUE }
-library(eco230r)
-library(dplyr)
-
-abnb |>
+<br>
+```{r ano, echo=TRUE, results="hide" }
+abnb %>%
   ano(listed_price~room_type)
-
 ```
+:::
+
+
+:::::
+
 
 ## [Summary and Prime Directive]{.sr-only}
 
@@ -1479,7 +1574,8 @@ abnb |>
 ### Before running any statistics, what are the three questions you must answer about a dataset?
 
 <br>
-
 1.  What does one row represent?
+<br>
 2.  What kind of variables do I have?
+<br>
 3.  What question can this data answer?
