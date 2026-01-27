@@ -1,57 +1,59 @@
 
 /*-- scss:defaults --*/
 /*
-  Boland Clean — Minimalist reveal.js theme (Patched)
-  • Stable selectors
-  • gt-table safe
-  • Accessible colors
-  • Calibri‑like stack
-  • Designed for classroom projection
+  Boland Clean — Minimalist reveal.js theme
+  - Office palette
+  - Cross-platform, Calibri-like font stack
+  - Analyzer-safe: block comments only, no @use, no mixins
 */
 
-/* Color palette */
+/* Colors (from your PPT Office theme) */
 $body-bg:               #ffffff !default;
-$body-color:            #222222 !default;
-$link-color:            #4f81bd !default;
-$link-color-hover:      #c0504d !default;
-$selection-bg:          #9bbb59 !default;
+$body-color:            #333333 !default;
+$link-color:            #4f81bd !default;  /* accent1 */
+$link-color-hover:      #c0504d !default;  /* accent2 */
+$selection-bg:          #9bbb59 !default;  /* accent3 */
 $selection-color:       #ffffff !default;
 
 $heading-color:         #000000 !default;
 
-/* Accessible neutrals */
-$muted-fg: #1f497d !default;
-$muted-bg: #e6e3d8 !default; 
-
-/* Font stack */
+/* Cross-platform Calibri-like stacks */
 $font-family-sans-serif:
   system-ui, -apple-system, "Segoe UI",
   Roboto, "Open Sans", Arial, sans-serif !default;
 
-$presentation-heading-font: $font-family-sans-serif !default;
+$presentation-heading-font:
+  system-ui, -apple-system, "Segoe UI",
+  Roboto, "Open Sans", Arial, sans-serif !default;
 
-/* Sizing */
+/* Sizing tuned for lecture rooms */
 $presentation-font-size-root: 24px !default;
+$code-block-font-size:        0.92em !default;
 $h1-font-size:                1.50em !default;
 $h2-font-size:                1.30em !default;
 $h3-font-size:                1.10em !default;
-$line-height-body:            1.45 !default;
 
-/* Layout */
+/* Muted neutrals */
+$muted-fg: #1f497d !default;
+$muted-bg: #eeece1 !default;
+
+/* Layout rhythm & subtle chrome */
 $content-max-width:   1000px !default;
+$line-height-body:    1.45 !default;
 $slide-vpad:          1.6rem !default;
 $list-indent:         1.0em !default;
+$hr-color:            rgba(0,0,0,.08) !default;
 
 /* Tables & code */
 $table-header-bg:     #f7f7f7 !default;
 $table-border:        rgba(0,0,0,.12) !default;
-$code-bg:             #f3f4f6 !default;
-$code-border:         rgba(0,0,0,.08) !default;
+$code-bg:             #f6f8fa !default;
+$code-border:         rgba(0,0,0,.10) !default;
 
 
 /*-- scss:rules --*/
 
-/* Base reveal container */
+/* Base reveal adjustments */
 .reveal {
   line-height: $line-height-body;
   letter-spacing: 0.2px;
@@ -64,13 +66,11 @@ $code-border:         rgba(0,0,0,.08) !default;
   padding: $slide-vpad 0;
 }
 
-/* Non-fragile content clamping */
-.reveal .slides section > p,
-.reveal .slides section > ul,
-.reveal .slides section > ol,
-.reveal .slides section > blockquote,
-.reveal .slides section > pre,
-.reveal .slides section > table:not(.gt_table) {
+/* Content column: left-aligned, constrained width
+   NOTE: EXCLUDE .columns so Quarto column layout is not clamped.
+*/
+.reveal .slides section .slide-content,
+.reveal .slides section > *:not(.r-stack):not(.r-fit-text):not(.columns) {
   margin-left: auto;
   margin-right: auto;
   max-width: $content-max-width;
@@ -104,48 +104,23 @@ $code-border:         rgba(0,0,0,.08) !default;
   text-align: left;
 }
 
-/* Safe heading offset (padding, not transform) */
-.reveal .slides section > h1:first-child,
-.reveal .slides section > h2:first-child,
-.reveal .slides section > h3:first-child {
-  padding-left: 0.75rem;
-  max-width: none !important;
-}
-
 /* Paragraphs */
 .reveal p {
   margin: 0.35em 0 0.7em;
 }
 
-/* Lists */
+/* Lists: compact bullets, modest indent (general) */
 .reveal ul, .reveal ol {
+  line-height: $line-height-body;
   margin-left: $list-indent;
 }
 .reveal li { margin: 0.2em 0; }
-
-/* Tight-list utility */
-.tight-list,
-.tight-list ul,
-.tight-list ol {
-  margin: 0;
-  padding-left: 1.25rem;
-  font-size: 1.00em;
-  line-height: 1.25;
-}
-.tight-list li { margin: 0.15em 0; }
-
-.tight-list { list-style: none; }
-.tight-list li::marker { content: ""; }
-
-/* Restore markers when .markers is added */
-.tight-list.markers { list-style: disc inside !important; }
-.tight-list.markers li::marker { content: initial !important; }
 
 /* Horizontal rule */
 .reveal hr {
   border: none;
   height: 1px;
-  background: rgba(0,0,0,.10);
+  background: $hr-color;
 }
 
 /* Links */
@@ -164,14 +139,15 @@ $code-border:         rgba(0,0,0,.08) !default;
 
 /* Blockquotes */
 .reveal blockquote {
-  border-left: 3px solid rgba(0,0,0,.08);
+  border-left: 3px solid $hr-color;
   padding: 0.2em 0 0.2em 0.8em;
   margin: 0.8em 0;
+  color: rgba(0,0,0,.8);
   background: transparent;
 }
 
-/* Tables — avoid overriding gt tables */
-.reveal table:not(.gt_table) {
+/* Tables */
+.reveal table {
   margin-left: auto;
   margin-right: auto;
   max-width: $content-max-width;
@@ -179,14 +155,15 @@ $code-border:         rgba(0,0,0,.08) !default;
   font-size: 0.92em;
   width: 100%;
 }
-.reveal table:not(.gt_table) th,
-.reveal table:not(.gt_table) td {
+.reveal table th,
+.reveal table td {
   border-bottom: 1px solid $table-border;
   padding: 0.45em 0.6em;
   vertical-align: top;
 }
-.reveal table:not(.gt_table) th {
+.reveal table th {
   background: $table-header-bg;
+  color: rgba(0,0,0,.85);
   font-weight: 600;
   text-align: left;
 }
@@ -198,14 +175,14 @@ $code-border:         rgba(0,0,0,.08) !default;
   border: 1px solid $code-border;
   padding: 0.7em 0.9em;
   border-radius: 4px;
-  font-size: 0.92em;
+  font-size: $code-block-font-size;
   line-height: 1.35;
   overflow-x: auto;
 }
 
 /* Inline code */
 .reveal :not(pre) > code {
-  background: rgba(0,0,0,.05);
+  background: rgba(0,0,0,.04);
   padding: 0.05em 0.3em;
   border-radius: 3px;
 }
@@ -222,7 +199,7 @@ $code-border:         rgba(0,0,0,.08) !default;
   color: rgba(0,0,0,.5);
 }
 
-/* Captions */
+/* Figures/captions */
 .reveal figcaption {
   color: rgba(0,0,0,.65);
   font-style: italic;
@@ -241,7 +218,59 @@ $code-border:         rgba(0,0,0,.08) !default;
   color: $selection-color;
 }
 
-/* Alignment helpers */
+
+/* ------------------------------------------------------------
+   Slide title breakout
+   ------------------------------------------------------------ */
+
+/* Break titles out of the centered content column */
+.reveal .slides section > h1:first-child,
+.reveal .slides section > h2:first-child,
+.reveal .slides section > h3:first-child {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  max-width: none !important;
+  padding-left: 0.5rem; /* subtle left gutter */
+}
+
+/* Global fine‑tune for title position */
+:root { --boland-title-left-nudge: -1.00rem; }
+.reveal .slides section > h1:first-child,
+.reveal .slides section > h2:first-child,
+.reveal .slides section > h3:first-child {
+  transform: translateX(var(--boland-title-left-nudge));
+}
+
+
+/* ------------------------------------------------------------
+   Tight, no-marker lists for taxonomy/enum slides
+   ------------------------------------------------------------ */
+
+/* Works whether class is on wrapper or the list itself */
+.tight-list,
+.tight-list ul,
+.tight-list ol {
+  margin: 0;
+  padding-left: 1.25rem;   /* visual indent */
+  font-size: 1.00em;
+  line-height: 1.25;
+}
+.tight-list li { margin: 0.15em 0; }
+
+/* No visible bullets, preserve list semantics */
+.tight-list { list-style: none; }
+.tight-list li::marker { content: ""; }
+
+/* If you want bullets visible on a specific list, use {.tight-list markers} */
+.tight-list.markers { list-style: disc inside; }
+.tight-list.markers li::marker { content: initial; }
+
+
 .text-center { text-align: center !important; }
 .text-right  { text-align: right  !important; }
 .text-left   { text-align: left   !important; }
+
+
+
+

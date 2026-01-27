@@ -1,0 +1,176 @@
+---
+title: "Homework 1: Data Anatomy & Responsible AI Use"
+format:
+  html:
+    toc: false
+    number-sections: false
+execute:
+  echo: false
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+# Libraries used in this course
+library(tidyverse)
+library(tidyr)
+library(eco230r)
+library(ggplot2)
+library(knitr)
+library(Hmisc)
+
+# Turn off scientific notation for readability
+options(scipen = 999)
+```
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+This assignment helps you practice the three essential questions from Week 1:
+
+1.  **What does one row represent?** (unit of analysis / grain)\
+2.  **What kinds of variables do I have?** (types + NOIR measurement scales)\
+3.  **What can this data actually answer?** (analytical frame)
+
+You will work with real microdata, evaluate its structure, and reflect on how to use AI responsibly to **accelerate—not replace—your thinking**.
+:::
+
+## Objectives
+
+-   Open and inspect raw `.csv` data\
+-   Save and format data as `.xlsx`\
+-   Determine whether a dataset is **tidy**\
+-   Contrast **microdata** vs **summary data**\
+-   Build a pivot table using **Dimensions** and **Measures**\
+-   Describe **unit of analysis** and **grain**\
+-   Identify variable types\
+-   Reflect on **ethical AI use** in data work
+
+## Resources
+
+-   Datasets in Posit Cloud\
+-   Data Description files on Canvas\
+-   Week 1 slides (Unit of Analysis, Tidy Data, Dimensions vs Measures)
+
+::: {.callout-tip appearance="minimal" icon="false" title="Important"}
+This assignment is graded for **sincere completion**, not perfection.\
+Try every step. Bring questions to class. We will review solutions together.
+:::
+
+------------------------------------------------------------------------
+
+## 1) Choose and Download Your Dataset
+
+1.  Select **one** dataset from your Posit Cloud project.\
+2.  Download it as a `.csv`.\
+3.  Save a working copy as `.xlsx`.
+
+*(No written response required.)*
+
+------------------------------------------------------------------------
+
+## 2) Is Your Data Tidy? Why or Why Not?
+
+Using the Week 1 tidy data principles:
+
+-   Each **variable** in its own column\
+-   Each **observation** in its own row\
+-   One table per **type of observational unit**\
+-   Keys required if multiple tables link
+
+**Write 3–5 sentences** answering:
+
+-   Is your dataset tidy? Why or why not?\
+-   If it’s not tidy, identify the issue (e.g., wide layout, mixed grains, repeated headers, embedded units).
+
+------------------------------------------------------------------------
+
+## 3) Format as a Table (Excel)
+
+In Excel, convert your data into an official **Table** (`Ctrl/Cmd + T`) to enable consistent filters and references.
+
+*(No written response required.)*
+
+------------------------------------------------------------------------
+
+## 4) Build a Pivot Table (Dimensions + Measures)
+
+Create an Excel pivot table using:
+
+-   ≥ **1 Dimension** (categorical descriptor: ZIP, Gender, Date, Location, Category)\
+-   ≥ **1 Measure** (numeric summary: Count, Average, Total, Min/Max)
+
+If you encounter errors, **briefly describe what happened** and what you tried.
+
+*(Optional: include a screenshot.)*
+
+------------------------------------------------------------------------
+
+## 5) What Is the Unit of Analysis?
+
+In **3–5 sentences**, explain:
+
+-   What **one row represents** in your dataset (the grain)\
+-   Why this grain matters for answerable questions\
+-   What information would appear if the grain were **more detailed**
+
+Remember your training:
+
+> “Rows are never *just rows*. If you misunderstand the unit of analysis, every result is wrong—even with perfect code.”
+
+------------------------------------------------------------------------
+
+## 6) Identify Variable Types
+
+List at least **one** variable for each type.\
+If a type is missing, describe the **additional data** you would need.
+
+-   **Categorical (Nominal):**\
+-   **Ordinal:**\
+-   **True/False (Logical):**\
+-   **Discrete Numeric:**\
+-   **Continuous Numeric:**\
+-   **Date/Time:**\
+-   **Geographic/Spatial:**
+
+*(You may list more than one variable for a given type.)*
+
+------------------------------------------------------------------------
+
+## 7) Responsible Use of AI (Required)
+
+AI can accelerate learning, but it **must not** interpret results or make analytical decisions for you.\
+Use AI only for clarification, rewriting, or troubleshooting.
+
+Write **5–7 sentences** responding to:
+
+**A.** How did you use AI on this assignment?\
+*(If not at all, state that and why.)*
+
+**B.** What did AI help with? *(Be specific.)*
+
+**C.** What did AI get wrong, miss, or oversimplify?
+
+**D.** Include **one AI prompt you used** and note:\
+- How the response helped\
+- Where it fell short
+
+Remember our goal with AI:
+
+> “Can you use AI responsibly to **accelerate—not replace—your thinking**?”
+
+------------------------------------------------------------------------
+
+## 8) Submission
+
+Upload to Canvas:
+
+1.  Your completed **Excel workbook (.xlsx)**\
+2.  A document (Word/PDF or Canvas text entry) with your responses, including the AI reflection
+
+Please bring your `.xlsx` file to class for in‑class demonstrations.
+
+------------------------------------------------------------------------
+
+## Alignment to Course Outcomes
+
+-   **Choose the right analysis:** You identify grain, tidy structure, and variable types to determine valid analyses.\
+-   **Interpret results in context:** Your pivot and explanations tie summaries to what the data can and cannot answer.\
+-   **Explain limitations, assumptions, and uncertainty:** Your AI reflection and grain discussion surface constraints *before* statistics.

@@ -1,26 +1,30 @@
 
 project:
-  type: website    # allows multi-page course structure if you add more lectures later
+  type: website
+  output-dir: _site
 
 website:
-  title: "ECO 230"
+  title: "ECO 230 — Section 12"
   navbar:
     left:
-      - href: lecture-01/lecture-01.qmd
-        text: "Week 1 Lecture"
+      - text: "Home"
+        file: index.qmd
+      - text: "Syllabus"
+        file: syllabus/syllabus.qmd
+      - text: "Slides"
+        menu:
+          - text: "Week 1"
+            file: week01/week_01.qmd
+      - text: "Homework"
+        menu:
+          - text: "Homework 1"
+            file: week01/Homework_01.qmd
 
 format:
-  revealjs:
-    theme: simple
+  html:
+    toc: false            # default for normal pages (we'll turn on ToC in syllabus.qmd only)
+    number-sections: false
     css: styles/accessibility.css
-    slide-number: true
-    hash: true
-    controls: true
-    progress: true
-    transition: fade
-    pdf-export: true
-    self-contained: false     # critical: Canvas compatibility
-    toc: false
 
 execute:
   echo: false

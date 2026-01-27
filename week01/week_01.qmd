@@ -20,42 +20,41 @@ execute:
   echo: false
 ---
 
-
 # Can you trust this conclusion?
 
-## Use Instant Booking Wisely
-
-Airbnb Owners should enable **Instant Booking** in Fall — it's the unequivocally best season for superior ratings and returns.
-
-```{r airbnb echo:false}
-
-#install.packages(c("readr","dplyr","tidyr","lubridate","stringr","glue","here"))  # if needed
-library(readr)
-library(dplyr)
-library(tidyr)
-library(lubridate)
-library(stringr)
-library(glue)
-library(here)
+```{r setup, include=FALSE}
+# Global libraries and helpers (loaded once)
+library(readr);  library(dplyr);  library(tidyr);  library(lubridate)
+library(stringr); library(glue);  library(here);   library(scales); library(gt)
 library(eco230r)
 
+set.seed(20260126)
 
+# Reusable GT slide theme
+source(here("shared","scripts","gt_boland.R"), local = TRUE)
+
+# Small util for truncation used in multiple chunks
+.trunc <- function(x, width) ifelse(is.na(x), x, stringr::str_trunc(x, width = width, side = "right", ellipsis = "…"))
+```
+
+
+## Use Instant Booking Wisely
+<br>
+Airbnb Owners should enable **Instant Booking** in Fall — it's the unequivocally best season for superior ratings and returns.
+<br><br>
+```{r airbnb}
 # --- Adjust the path to where your file lives ---
-data_path <- here("shared", "data", "airbnb_chicago.csv")
-data_path_sim <- here("week01","data","airbnb_chicago_two_properties_bookings_sim.csv"
-)
+data_path     <- here("shared", "data", "airbnb_chicago.csv")
+data_path_sim <- here("week01","data","airbnb_chicago_two_properties_bookings_sim.csv")
 
 # 1) Load data --------------------------------------------------------------
-abnb <- read_csv(data_path, show_col_types = FALSE)
+abnb     <- read_csv(data_path, show_col_types = FALSE)
 abnb_sim <- read_csv(data_path_sim, show_col_types = FALSE)
 
-
 # 2) Coerce instant_bookable into logical (t/f/TRUE/FALSE variants) --------
-abnb <- abnb %>%
-  mutate(instant_bookable = tolower(as.character(instant_bookable)) %in% c("t","true"))
+abnb <- abnb %>% mutate(instant_bookable = tolower(as.character(instant_bookable)) %in% c("t","true"))
 
-# 3) Parse the three date-like columns (WRONG: we will treat these as bookings)
-#    These are listing/host timeline fields, NOT actual stay dates. (That’s the point!)
+# 3) Parse the three date-like columns (WRONG on purpose for teaching) ------
 abnb <- abnb %>%
   mutate(
     first_review = suppressWarnings(mdy(first_review)),
@@ -63,8 +62,7 @@ abnb <- abnb %>%
     last_review  = suppressWarnings(mdy(last_review))
   )
 
-# 4) Stack the three columns into one fake "booking date" -------------------
-#    🚩 WRONG: we’re pretending each row *is a booking*, and each of these dates is a booking timestamp.
+# 4) Stack the three columns into one fake "booking date" ------------------
 long_wrong <- abnb %>%
   select(
     id, listed_price, review_scores_rating, instant_bookable,
@@ -78,14 +76,6 @@ long_wrong <- abnb %>%
   filter(!is.na(fake_booking_date))
 
 # 5) Derive a naive season from the calendar month -------------------------
-to_season <- function(m) {
-  if (m %in% c(12, 1, 2))  return("Winter")
-  if (m %in% c(3, 4, 5))   return("Spring")
-  if (m %in% c(6, 7, 8))   return("Summer")
-  return("Fall")
-}
-
-
 long_wrong <- long_wrong %>%
   mutate(
     Season = case_when(
@@ -96,10 +86,7 @@ long_wrong <- long_wrong %>%
     )
   )
 
-
 # 6) Build the gloriously wrong seasonal summary ---------------------------
-#    - "bookings" = count of stacked rows
-#    - "rating_dollars" = rating * price  (🚩 unit mashup)
 season_summary <- long_wrong %>%
   group_by(Season) %>%
   summarise(
@@ -114,27 +101,10 @@ season_summary <- long_wrong %>%
   ) %>%
   arrange(desc(rating_dollars))
 
-# 7) Print the confidently wrong conclusion --------------------------------
 best_season <- season_summary %>% slice(1) %>% pull(Season)
-
-#cat(glue("
-#CONFIDENT (but wrong) Conclusion:
-#Enable Instant Book in {best_season} — it's the unequivocally best season for superior ratings and returns.\n
-#"))
-
-
-
-
 ```
 
 ```{r ab_flawed}
-
-library(dplyr)
-library(gt)
-library(scales)
-
-
-
 season_summary %>%
   mutate(
     `Avg Price (USD)` = dollar(avg_price, accuracy = 0.01),
@@ -148,36 +118,13 @@ season_summary %>%
     `Avg Price (USD)`, `Avg Rating`, `Instant-Book %`, `Rating × Price`
   ) %>%
   gt() %>%
-  # Minimal typography—no header, notes, or shading
-  fmt_number(columns = "Bookings", decimals = 0, sep_mark = ",") %>%
-  tab_options(
-    table.width = pct(100),
-    table.font.size = px(24),
-    data_row.padding = px(4),
-    column_labels.font.weight = "bold",
-    table.border.top.width = px(0),
-    table.border.bottom.width = px(0),
-    column_labels.border.top.width = px(0),
-    column_labels.border.bottom.width = px(0)
-  )
-
-
-
+  gt_boland(base_size = 20, tight = FALSE) %>%
+  fmt_number(columns = "Bookings", decimals = 0, sep_mark = ",")
 ```
 
 ## [Sample Airbnb Data]{.sr-only}
 
 ```{r ab_detail}
-
-
-# Minimalist, slide-friendly gt table for head_20_flags
-library(dplyr)
-library(gt)
-library(stringr)
-library(scales)
-library(lubridate)
-
-
 # 20 rows that should raise eyebrows: these are properties/listings, not bookings.
 head_20_flags <- abnb %>%
   select(
@@ -190,35 +137,29 @@ head_20_flags <- abnb %>%
     # Aggregated stats at the listing level (🚩 not a single-stay field)
     number_of_reviews, review_scores_rating,
     # Price & toggles
-    listed_price, instant_bookable,
-    
+    listed_price, instant_bookable
   ) %>%
   slice_head(n = 20)
 
-
-# OPTIONAL: if you want to (slightly) shorten long listing names before gt
+# Present & format for slides
 head_20_print <- head_20_flags %>%
   mutate(
-    # Present booleans compactly
-    instant_bookable = ifelse(instant_bookable, "Yes", "No"),
-    # Nicely formatted numbers
-    listed_price = dollar(listed_price, accuracy = 0.01),
-    number_of_reviews = number(number_of_reviews, big.mark = ",", accuracy = 1),
+    instant_bookable   = ifelse(instant_bookable, "Yes", "No"),
+    listed_price       = dollar(listed_price, accuracy = 0.01),
+    number_of_reviews  = number(number_of_reviews, big.mark = ",", accuracy = 1),
     review_scores_rating = number(review_scores_rating, accuracy = 0.01),
-    # Format dates (use what fits your class better)
     host_since   = format(as.Date(host_since),   "%Y-%m-%d"),
     first_review = format(as.Date(first_review), "%Y-%m-%d"),
     last_review  = format(as.Date(last_review),  "%Y-%m-%d"),
-    # Light truncation to avoid column blowout on slides
-    name           = str_trunc(name,           38),
-    property_type  = str_trunc(property_type,  18),
-    room_type      = str_trunc(room_type,      18),
-    neighbourhood  = str_trunc(neighbourhood,  18),
-    zipcode        = str_trunc(as.character(zipcode), 10)
+    name           = .trunc(name,          38),
+    property_type  = .trunc(property_type, 18),
+    room_type      = .trunc(room_type,     18),
+    neighbourhood  = .trunc(neighbourhood, 18),
+    zipcode        = .trunc(as.character(zipcode), 10)
   )
 
 # Render with strict widths + tight spacing to fit 20 rows on a slide
-gt_tbl <- head_20_print %>%
+ab_listings_tbl <- head_20_print %>%
   select(
     id, name, property_type, room_type, neighbourhood, zipcode,
     accommodates, bedrooms, beds,
@@ -227,187 +168,136 @@ gt_tbl <- head_20_print %>%
     listed_price, instant_bookable
   ) %>%
   gt() %>%
-  # Column labels: short & readable (keeps header height small)
   cols_label(
-    id = "ID",
-    name = "Name",
-    property_type = "Property",
-    room_type = "Room",
-    neighbourhood = "Neighborhood",
-    zipcode = "ZIP",
-    accommodates = "Sleeps",
-    bedrooms = "BR",
-    beds = "Beds",
-    host_since = "Host Since",
-    first_review = "First Review",
-    last_review = "Last Review",
-    number_of_reviews = "# Reviews",
-    review_scores_rating = "Rating",
-    listed_price = "Price",
-    instant_bookable = "IB?"
+    id = "ID", name = "Name", property_type = "Property", room_type = "Room",
+    neighbourhood = "Neighborhood", zipcode = "ZIP",
+    accommodates = "Sleeps", bedrooms = "BR", beds = "Beds",
+    host_since = "Host Since", first_review = "First Review", last_review = "Last Review",
+    number_of_reviews = "# Reviews", review_scores_rating = "Rating",
+    listed_price = "Price", instant_bookable = "IB?"
   ) %>%
-  # Force compact widths: adjust as needed for your slide theme
   cols_width(
-    id ~ px(68),
-    name ~ px(220),
-    property_type ~ px(120),
-    room_type ~ px(110),
-    neighbourhood ~ px(120),
-    zipcode ~ px(78),
-    accommodates ~ px(70),
-    bedrooms ~ px(60),
-    beds ~ px(60),
-    host_since ~ px(100),
-    first_review ~ px(100),
-    last_review ~ px(100),
-    number_of_reviews ~ px(90),
-    review_scores_rating ~ px(80),
-    listed_price ~ px(90),
-    instant_bookable ~ px(50)
+    id ~ px(68), name ~ px(220), property_type ~ px(120), room_type ~ px(110),
+    neighbourhood ~ px(120), zipcode ~ px(78), accommodates ~ px(70),
+    bedrooms ~ px(60), beds ~ px(60), host_since ~ px(100), first_review ~ px(100),
+    last_review ~ px(100), number_of_reviews ~ px(90), review_scores_rating ~ px(80),
+    listed_price ~ px(90), instant_bookable ~ px(50)
   ) %>%
-  # Minimal borders, tight padding, small font to fit 20 rows
-  tab_options(
-    table.width = pct(100),
-    table.font.size = px(10),    # try px(11) if still tight
-    data_row.padding = px(2),    # tighter rows
-    column_labels.padding = px(2),
-    table.border.top.width = px(0),
-    table.border.bottom.width = px(0),
-    column_labels.border.top.width = px(0),
-    column_labels.border.bottom.width = px(0)
-  ) %>%
-  # Prevent long strings from expanding columns further
-  opt_vertical_padding(scale = 0.75) %>%
-  opt_horizontal_padding(scale = 0.9)
+  gt_boland(base_size = 8, tight = TRUE)
 
-gt_tbl
 
+ab_listings_tbl
 ```
+
+
+## Before we run any statistics…
+
+<br>
+
+::: {.callout-important title="Guiding Question"}
+What can go wrong **before** you ever run a statistical test?
+:::
+
 
 # What is Statistics?
 
-## {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="Photo of several dogs lying on a blanket; playful opener for the topic."}
+<br>
+
+::: {.callout-note title="What can go wrong..."}
+**How could a wrong question lead to a wrong conclusion?**
+:::
 
 
-:::: {.columns}
 
+##  {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="Photo of several dogs lying on a blanket; playful opener for the topic."}
+
+::::: columns
 ::: {.column width="50%"}
-
-
-
 :::
 
 ::: {.column width="50%"}
-
 What is **Statistics**?
 
 What is **Analytics**?
-
 :::
+:::::
 
-::::
+##  {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="Three dogs on a blanket: one black, one brown, one with white markings; objective description."}
 
-## {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="There are three dogs in this picture. One has black fur, one has brown, one is an idiot."}
-
-
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
-
-
 :::
 
 ::: {.column width="50%"}
-
 **Analytics** is the **art** of finding out what is in your data.
-
 :::
+:::::
 
-::::
+##  {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="We don't need to see every dog in the world to know that most dogs have fur; analogy for inference."}
 
-
-## {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="We don't need to see every dog in the world to know that most dogs have fur, they generally have 4 paws etc..."}
-
-
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
-
-
 :::
 
 ::: {.column width="50%"}
-
 If you can (with some effort) find the answer with certainty you are using **Analytics**.
-
 :::
+:::::
 
-::::
+##  {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="When we need to get specific we need to go beyond analytics. E.g., how much food does the average dog eat?"}
 
-## {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="When we need to get specific we need to go beyond analytics. E.g. how much food does the average dog eat?"}
-
-
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
-
-
 :::
 
 ::: {.column width="50%"}
-
 **Analytics** deals with what you know.
 
 **Statistics** deals with what you do not know.
-
 :::
+:::::
 
-::::
+##  {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="Analytics frames the questions; statistics turns data into answers."}
 
-## {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="Analytics helps us frame what questions we need clarity on and which questions we need the discipline of statistics to answer."}
-
-
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
-
-
 :::
 
 ::: {.column width="50%"}
-
 **Analytics** turns curiosity into questions.
 
 **Statistics** turns data into answers.
-
 :::
+:::::
 
-::::
+##  {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="A picture, a spreadsheet, or a database — all are data sources for analytics and statistics."}
 
-## {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="This picture, a spreadsheet a database, sensor information it is all data in which we can perform analytics and statistics."}
-
-
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
-
-
-
 :::
 
 ::: {.column width="50%"}
-
 **Analytics** is the **art** of finding out what is in your data.
 
 **Statistics** is the **science** of making decisions under uncertainty.
+:::
+:::::
 
+##  {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="A picture, a spreadsheet, or a database — all are data sources for analytics and statistics."}
+
+::::: columns
+::: {.column width="50%"}
 :::
 
-::::
+::: {.column width="50%"}
+**Analytics** or **Statistics** 
+
+- Count the number of airbnb properties within 1 mile of Wrigley Field
+- Predict how many bookings an airbnb property will have next year
+- Testing whether changing cancellation policy *caused* higher satisfaction
+
+:::
+:::::
 
 ::: notes
 -   Open with intuition: students already *do* analytics informally.
@@ -417,45 +307,29 @@ If you can (with some effort) find the answer with certainty you are using **Ana
 
 # What does one row represent?
 
-## [Jump to Conclusions 2]{.sr-only}
+<br>
+
+::: {.callout-note title="What can go wrong..."}
+**Could the Airbnb mistake come from using the wrong unit of analysis?**
+:::
+
+## [Data at different grain levels]{.sr-only}
 
 ### Calculate the Total Yearly Revenue for Each Property
-
+:::: fragment
+::: {.callout-important title="Gotcha! - Wrong Unit of Analysis"}
+:::
+::::
 ```{r ab_grain}
+# Helper (for truncation) already defined in setup chunk
 
+# 1) Identify properties to show -------------------------------------------------
+sim_ids <- abnb_sim %>% distinct(property_id) %>% pull(property_id) %>% sort()
+show_ids <- head(sim_ids, 2)   # pick two properties for display
 
-# --- Packages ---
-library(dplyr)
-library(tidyr)
-library(lubridate)
-library(gt)
-library(stringr)
-library(scales)
-
-set.seed(20260126)  # reproducible sampling for the slide
-
-# Helper: truncation for long text so columns stay narrow on slide
-.trunc <- function(x, width) ifelse(is.na(x), x, str_trunc(x, width = width, side = "right", ellipsis = "…"))
-
-# -----------------------------------------------------------------------------------
-# 1) Identify properties to show
-#    - Use properties that actually have simulated bookings in `abnb_sim`
-#    - Keep exactly TWO for the booking table, and ensure they also appear in listing table
-# -----------------------------------------------------------------------------------
-sim_ids <- abnb_sim %>%
-  distinct(property_id) %>%
-  pull(property_id) %>%
-  sort()
-
-# Use the first two (or pin explicit IDs if you prefer)
-show_ids <- head(sim_ids, 2)
-# show_ids <- c(12854553, 743217)  # <- example: pin explicit property IDs
-
-# -----------------------------------------------------------------------------------
-# 2) LISTING-LEVEL TABLE (abnb): 10 total properties including the two with bookings
-# -----------------------------------------------------------------------------------
-# Sample additional properties to reach 10 total (but keep show_ids)
-num_needed <- max(0, 6 - length(show_ids))
+# 2) LISTING-LEVEL TABLE (abnb): 10 total properties including the two ----------
+desired_total <- 10
+num_needed    <- max(0, desired_total - length(show_ids))
 extra_ids <- abnb %>%
   filter(!id %in% show_ids) %>%
   distinct(id) %>%
@@ -464,153 +338,83 @@ extra_ids <- abnb %>%
 
 ids_for_abnb_table <- c(show_ids, extra_ids)
 
-# Select columns (include overlap + a few property-only attributes)
 abnb_tbl_data <- abnb %>%
   filter(id %in% ids_for_abnb_table) %>%
   select(
     id, name, room_type, listed_price, accommodates, neighbourhood,
-    bedrooms, bathrooms, beds, cancellation_policy
+    bedrooms, bathrooms, beds, cancellation_policy,host_since
   ) %>%
   arrange(name)
 
-# Render listing-level GT table (compact VT styling, KaTeX-safe headers)
-tbl_abnb_vt <-
-  abnb_tbl_data %>%
+tbl_abnb_vt <- abnb_tbl_data %>%
   gt() %>%
   cols_label(
-    id = "ID",
-    name = "Name",
-    room_type = "Room",
-    listed_price = "List",
-    accommodates = "Sleeps",
-    neighbourhood = "N’hood",
-    bedrooms = "BR",
-    bathrooms = "BA",
-    beds = "Beds",
-    cancellation_policy = "Cancel"
+    id = "ID", name = "Name", room_type = "Room", listed_price = "List",
+    accommodates = "Sleeps", neighbourhood = "N’hood", bedrooms = "BR",
+    bathrooms = "BA", beds = "Beds", cancellation_policy = "Cancel",host_since = "Host Since"
   ) %>%
-  # Truncate long strings so fixed widths don't wrap
   text_transform(
     locations = cells_body(columns = c(name, neighbourhood, room_type, cancellation_policy)),
     fn = function(x) .trunc(x, width = 28)
   ) %>%
-  # Currency in cells is fine; KaTeX only cares about headers
   fmt_currency(columns = listed_price, currency = "USD", decimals = 0) %>%
-  # Narrow, predictable column widths for slides
   cols_width(
-    id ~ px(70),
-    name ~ px(230),
-    room_type ~ px(110),
-    listed_price ~ px(80),
-    accommodates ~ px(75),
-    neighbourhood ~ px(130),
-    bedrooms ~ px(55),
-    bathrooms ~ px(55),
-    beds ~ px(55),
-    cancellation_policy ~ px(110)
+    id ~ px(70), name ~ px(230), room_type ~ px(110), listed_price ~ px(80),
+    accommodates ~ px(75), neighbourhood ~ px(130), bedrooms ~ px(55),
+    bathrooms ~ px(55), beds ~ px(55), cancellation_policy ~ px(110), host_since ~ px(80)
   ) %>%
-  # Minimal borders / tight padding / small font — your VT style
-  tab_options(
-    table.width = pct(100),
-    table.font.size = px(9),
-    data_row.padding = px(1),
-    column_labels.padding = px(1),
-    table.border.top.width = px(0),
-    table.border.bottom.width = px(0),
-    column_labels.border.top.width = px(0),
-    column_labels.border.bottom.width = px(0)
-  ) %>%
-  opt_vertical_padding(scale = 0.6) %>%
-  opt_horizontal_padding(scale = 0.8) %>%
+  gt_boland(base_size = 6, tight = TRUE) %>%
   tab_caption(md("**Dataset A** — Airbnb Rental Data"))
 
-# -----------------------------------------------------------------------------------
-# 3) BOOKING-LEVEL TABLE (abnb_sim): 5 random rows per property (for the two selected)
-# -----------------------------------------------------------------------------------
+# 3) BOOKING-LEVEL TABLE (abnb_sim): sample 5 per property ---------------------
 abnb_sim_tbl_data <- abnb_sim %>%
   filter(property_id %in% show_ids) %>%
   transmute(
-    id = property_id,
-    name,
-    room_type,
-    accommodates,
-    neighbourhood,
-    checkin_date = as_date(checkin_date),
-    nights,
-    guest_count,
-    status,
-    price_per_night,
-    total_price = tidyr::replace_na(total_price, 0)
+    id = property_id, name, room_type, accommodates, neighbourhood,
+    checkin_date = as_date(checkin_date), nights, guest_count, status,
+    price_per_night, total_price = tidyr::replace_na(total_price, 0)
   ) %>%
   arrange(name, checkin_date) %>%
   group_by(id) %>%
-  # Sample exactly 5 random bookings per property (or all if <5)
-  filter(row_number() %in% sample.int(n(), size = min(3, n()), replace = FALSE)) %>%
+  filter(row_number() %in% sample.int(n(), size = min(5, n()), replace = FALSE)) %>%
   ungroup() %>%
   arrange(name, checkin_date)
 
-# Render booking-level GT table (compact VT styling, KaTeX-safe headers)
-tbl_abnb_sim_vt <-
-  abnb_sim_tbl_data %>%
+tbl_abnb_sim_vt <- abnb_sim_tbl_data %>%
   gt() %>%
   cols_label(
-    id = "ID",
-    name = "Name",
-    room_type = "Room",
-    accommodates = "Sleeps",
-    neighbourhood = "N’hood",
-    checkin_date = "Check‑in",
-    nights = "Nts",
-    guest_count = "Guests",
-    status = "Status",
-    price_per_night = "Price/Nt",  # no $ in header → avoids KaTeX
-    total_price = "Total"           # no $ in header → avoids KaTeX
+    id = "ID", name = "Name", room_type = "Room", accommodates = "Sleeps",
+    neighbourhood = "N’hood", checkin_date = "Check‑in", nights = "Nts",
+    guest_count = "Guests", status = "Status", price_per_night = "Price/Nt",
+    total_price = "Total"
   ) %>%
-  # Truncate long strings to stay within widths
   text_transform(
     locations = cells_body(columns = c(name, neighbourhood, room_type, status)),
     fn = function(x) .trunc(x, width = 24)
   ) %>%
   fmt_currency(columns = c(price_per_night, total_price), currency = "USD", decimals = 0) %>%
   cols_width(
-    id ~ px(70),
-    name ~ px(220),
-    room_type ~ px(100),
-    accommodates ~ px(75),
-    neighbourhood ~ px(120),
-    checkin_date ~ px(90),
-    nights ~ px(45),
-    guest_count ~ px(60),
-    status ~ px(90),
-    price_per_night ~ px(90),
+    id ~ px(70), name ~ px(220), room_type ~ px(100), accommodates ~ px(75),
+    neighbourhood ~ px(120), checkin_date ~ px(90), nights ~ px(45),
+    guest_count ~ px(60), status ~ px(90), price_per_night ~ px(90),
     total_price ~ px(100)
   ) %>%
-  tab_options(
-    table.width = pct(100),
-    table.font.size = px(9),
-    data_row.padding = px(1),
-    column_labels.padding = px(1),
-    table.border.top.width = px(0),
-    table.border.bottom.width = px(0),
-    column_labels.border.top.width = px(0),
-    column_labels.border.bottom.width = px(0)
-  ) %>%
-  opt_vertical_padding(scale = 0.6) %>%
-  opt_horizontal_padding(scale = 0.8) %>%
+  gt_boland(base_size = 6.25, tight = TRUE) %>%
   tab_caption(md("**Dataset B** — Airbnb Rental Data"))
-
-
-
 ```
+
 
 ```{r ab_property}
+# Listing-level snapshot (fragment 1)
 tbl_abnb_vt
-```
-
-```{r ab_bookings}
 tbl_abnb_sim_vt
 ```
 
+
+```{r ab_bookings}
+# Booking-level snapshot (fragment 2)
+
+```
 
 
 ## [Rows vs Columns]{.sr-only}
@@ -648,10 +452,22 @@ tbl_abnb_sim_vt
 :::
 ::::
 
-::: {.column width="42%"}
+:::: {.column width="42%"}
 ![](media/images/w01_s14_image.png){fig-alt="Photo of several dogs lying on a blanket; playful opener for the topic." height="65%"}
-:::
+::::
 :::::::
+
+## Unit of Analysis
+
+<br><br>
+
+### Rows are never 'just rows'
+
+<br><br>
+
+::: {.callout-important title="Critical Insight"}
+If you misunderstand the unit of analysis, **every result is wrong**, even with perfect code.
+:::
 
 ## Data Grouping: Cross-Sectional {background-image="media/images/w01_s15_image.jpeg" background-size="cover" background-opacity="0.95" fig-alt="Freeze‑frame droplet illustrating a cross‑sectional snapshot at a single point in time."}
 
@@ -661,42 +477,46 @@ tbl_abnb_sim_vt
 
 ## Data Grouping: Panel
 
-![](media/images/w01_s17_image.jpeg){.r-stretch fig-alt="Grid‑style visual suggesting repeated measures on multiple units across time (panel data)." fig-align="right"}
+![](media/images/w01_s17_image.jpeg){.r-stretch fig-alt="Grid‑style visual suggesting repeated measures on multiple units across time (panel data)." fig-align="right" height="100%"}
 
-# What kind of variables do I have?
+
+# Data Structure
+
+<br>
+
+::: {.callout-note title="What can go wrong..."}
+**Could shape of my data change what answers are even possible?**
+:::
 
 ## [Tall vs Wide Data]{.sr-only}
 
 ### Summarize total minutes of sleep by month and location
-```{r sleep_data echo:FALSE}
-library(readr)
-library(dplyr)
-library(lubridate)
-library(stringr)
-library(gt)
+:::: fragment
+::: {.callout-important title="Gotcha! - Wrong Data Structure"}
+:::
+::::
+```{r sleep_data}
 library(here)
 
 # ---- 1) Load with explicit column types ----
-# Adjust the path as needed (from your project root):
-csv_path <- here("week01", "data", "sleep_tracking_Jan-Jun_2025_with_zip.csv")
+csv_path      <- here("week01", "data", "sleep_tracking_Jan-Jun_2025_with_zip.csv")
 csv_path_zips <- here("week01", "data", "simulated_zip_profiles.csv")
 
 # 1) Load data --------------------------------------------------------------
-
 sleep_zips <- read_csv(csv_path_zips)
 
 sleep <- read_csv(
   file = csv_path,
   col_types = cols(
-    Date          = col_character(),   # force character so we control parsing
+    Date          = col_character(),
     DayOfWeek     = col_character(),
     Month         = col_character(),
     PersonName    = col_character(),
     Gender        = col_character(),
     Location      = col_character(),
     SleepEventType= col_character(),
-    StartTime     = col_character(),   # force character
-    EndTime       = col_character(),   # force character
+    StartTime     = col_character(),
+    EndTime       = col_character(),
     TotalMinutes  = col_integer(),
     REMMinutes    = col_integer(),
     DeepMinutes   = col_integer(),
@@ -708,61 +528,38 @@ sleep <- read_csv(
 )
 
 # ---- 2) Fix Date if it came in as an Excel serial ----
-# If Date looks like a 5-digit integer (e.g., "45295"), convert from Excel origin.
 is_excel_serial <- function(x_chr) {
   all(str_detect(x_chr, "^\\d{4,5}$"), na.rm = TRUE)
 }
 
 if (is_excel_serial(sleep$Date)) {
-  # Excel's typical origin is 1899-12-30 for most exports
   sleep$Date <- as.Date(as.numeric(sleep$Date), origin = "1899-12-30")
 } else {
-  # Otherwise, parse as ISO or m/d/Y
-  # Try YYYY-MM-DD first, then m/d/Y fallback
   parsed1 <- suppressWarnings(ymd(sleep$Date, quiet = TRUE))
-  parsed2 <- ifelse(is.na(parsed1),
-                    suppressWarnings(mdy(sleep$Date, quiet = TRUE)),
-                    parsed1)
+  parsed2 <- ifelse(is.na(parsed1), suppressWarnings(mdy(sleep$Date, quiet = TRUE)), parsed1)
   sleep$Date <- as.Date(parsed2)
 }
 
 # ---- 3) Robust parsers for StartTime/EndTime ----
-# These can be "2025-01-03 22:10", or "9/7/2023 10:53 PM", etc.
 parse_start_end <- function(x_chr) {
   x_chr <- str_trim(x_chr)
-  # Try multiple common orders:
-  # - "YYYY-MM-DD HH:MM"
-  # - "m/d/Y H:M p"
-  # - "Y-m-d H:M:S" (if seconds exist)
-  # - "m/d/Y I:M:S p" etc.
   parse_date_time(
     x_chr,
     orders = c(
-      "Y-m-d H:M",
-      "Y-m-d H:M:S",
-      "m/d/Y I:M p",
-      "m/d/Y I:M:S p",
-      "m/d/y I:M p",
-      "m/d/y I:M:S p"
+      "Y-m-d H:M", "Y-m-d H:M:S",
+      "m/d/Y I:M p", "m/d/Y I:M:S p",
+      "m/d/y I:M p", "m/d/y I:M:S p"
     ),
-    tz = "UTC"   # keep neutral; display only time-of-day
+    tz = "UTC"
   )
 }
 
 sleep$StartTime_dt <- parse_start_end(sleep$StartTime)
 sleep$EndTime_dt   <- parse_start_end(sleep$EndTime)
 
-# If you KNOW StartTime/EndTime are already ISO strings (e.g., "2025-01-03 22:10"),
-# you could also use:
-# sleep$StartTime_dt <- ymd_hm(sleep$StartTime, quiet = TRUE)
-# sleep$EndTime_dt   <- ymd_hm(sleep$EndTime, quiet = TRUE)
-
-# ---- 4) Formatters ----
 fmt_time_12h <- function(dt) {
-  # Handle NA gracefully:
   ifelse(
-    is.na(dt), 
-    NA_character_,
+    is.na(dt), NA_character_,
     str_to_upper(format(dt, "%I:%M %p")) |>
       str_replace("^0", "") |>
       str_replace_all("AM", "A.M.") |>
@@ -773,13 +570,7 @@ fmt_time_12h <- function(dt) {
 fmt_pct <- function(x) paste0(round(100 * x), "%")
 ```
 
-```{r sleep_filter echo:FALSE}
-
-
-library(dplyr)
-library(tidyr)
-library(readr)
-
+```{r sleep_filter}
 week_data <- sleep %>%
   filter(
     Date >= "2025-01-05",
@@ -788,24 +579,14 @@ week_data <- sleep %>%
     SleepEventType == "Main"
   ) %>%
   select(
-    Name        = PersonName,
-    Gender,
-    Location,
-    Date,
-    DayOfWeek,
-    TotalMinutes
+    Name = PersonName, Gender, Location, Date, DayOfWeek, TotalMinutes
   ) %>%
-  # safety: in case of multiple entries per person/day
   group_by(Name, Gender, Location, Date, DayOfWeek) %>%
   summarise(TotalMinutes = sum(TotalMinutes), .groups = "drop")
-
-
 ```
 
-::::::: columns
-
-:::: {.column width="30%"}
-
+::::: columns
+::: {.column width="30%"}
 ```{r sleep_tall}
 
 
@@ -818,187 +599,94 @@ tall_week <- sleep %>%
     SleepEventType == "Main"
   ) %>%
   select(
-    Name        = PersonName,
-    Gender,
-    Location,
-    Date,
-    DayOfWeek,
-    TotalMinutes
+    Name = PersonName, Gender, Location, Date, DayOfWeek, TotalMinutes
   ) %>%
-  # guard against multiple rows per person/day
   group_by(Name, Gender, Location, Date, DayOfWeek) %>%
   summarise(TotalMinutes = sum(TotalMinutes), .groups = "drop") %>%
-  # 🔑 CRITICAL FIX: coerce BEFORE pivot_longer
   mutate(across(-Name, as.character)) %>%
-  # now pivot safely
-  pivot_longer(
-    cols = -Name,
-    names_to = "Variable",
-    values_to = "Value"
-  ) %>%
+  pivot_longer(cols = -Name, names_to = "Variable", values_to = "Value") %>%
   arrange(Name, Variable)
 
 
-tall_gt <- tall_week %>%
+tall_week %>%
   gt(rowname_col = "Name") %>%
-  tab_header(
-    title = md("**Tall — More rows, fewer columns**")
-  ) %>%
-  cols_label(
-    Variable = "Variable",
-    Value    = "Value"
-  ) %>%
+  tab_header(title = md("**Tall — More rows, fewer columns**")) %>%
+  cols_label(Variable = "Variable", Value = "Value") %>%
   fmt_missing(everything(), missing_text = "") %>%
+  gt_boland(base_size = 12, tight = FALSE) %>%
   tab_options(
     container.height = px(420),
-    container.overflow.y = TRUE,
-    table.font.size = px(12),
-    data_row.padding = px(4),
-
-    # Remove lines around the title/header and table edges
-    table.border.top.width = px(0),
-    table.border.bottom.width = px(0),
-    heading.border.bottom.width = px(0),
-    column_labels.border.top.width = px(0),
-    column_labels.border.bottom.width = px(0),
-
-    # Optional: remove row separators for a “no-chrome” card look
-    table_body.hlines.width = px(0)
+    container.overflow.y = TRUE
   )
-
-tall_gt
-
 ```
+:::
 
-::::
-
-:::: {.column width="70%"}
-
+::: {.column width="70%"}
 ```{r sleep_wide}
-
 wide_week <- week_data %>%
   select(Name, Gender, Location, Date, TotalMinutes) %>%
-  pivot_wider(
-    names_from  = Date,
-    values_from = TotalMinutes
-  ) %>%
+  pivot_wider(names_from = Date, values_from = TotalMinutes) %>%
   arrange(Name)
 
-
-
-wide_gt <- wide_week %>%
+wide_week %>%
   gt() %>%
-  tab_header(
-    title = md("**Wide — More columns, fewer rows**")
-  ) %>%
+  tab_header(title = md("**Wide — More columns, fewer rows**")) %>%
   fmt_missing(everything(), missing_text = "") %>%
-  tab_options(
-    container.overflow.x = TRUE,
-    table.width = pct(120),
-    table.font.size = px(12),
-    data_row.padding = px(4),
-
-    # Remove lines around the title/header and table edges
-    table.border.top.width = px(0),
-    table.border.bottom.width = px(0),
-    heading.border.bottom.width = px(0),
-    column_labels.border.top.width = px(0),
-    column_labels.border.bottom.width = px(0),
-
-    # Optional: remove row separators for a “no-chrome” card look
-    table_body.hlines.width = px(0)
-  )
-
-wide_gt
-
+  gt_boland(base_size = 12, tight = FALSE) %>%
+  tab_options(container.overflow.x = TRUE, table.width = pct(120))
 ```
-::::
-
-:::::::
-
+:::
+:::::
 
 ## Data Types
 
 <br>
 
 ### Categories
-True/False → `logical`  
-Categorical → `factor`  
+
+True/False → `logical`\
+Categorical → `factor`\
 Ordinal → `factor`
 
 <br>
 
 ### Numbers
-Discrete → `integer`  
+
+Discrete → `integer`\
 Continuous → `double`
 
+------------------------------------------------------------------------
 
-
----
 ## Measurement Scales
 
-![](../shared/images/NOIR.svg){width=100% height=700px fig-alt="Visual representing Measurement scales Nominal,Ordinal,Interval, Ratio and their common uses. Nominal is more discrete Ratio is more continuous. Nominal is more appropriate for grouping Ratio is more appropriate for Summary statistics like averages and standard deviation. These uses are all on a continuum as the same variable may be used for different purposes."}
-
+![](../shared/images/NOIR.svg){width="100%" height="700px" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 
 ## Observations - Atomic Data
 
-```{r name:sleep_desc echo:False}
-
-
+```{r name:sleep_desc}
 # ---- 5) Function to build the two tables for a chosen person & date ----
 make_sleep_tables <- function(data, person = "Mike", date_input = "2025-01-03") {
-  # Accept either character date or Date class
   date_val <- if (inherits(date_input, "Date")) date_input else as.Date(date_input)
-  
   row <- data %>%
-    filter(
-      PersonName == person,
-      Date == date_val,
-      SleepEventType == "Main"
-    ) %>%
-    arrange(StartTime_dt) %>%
-    slice(1)
-  
-  if (nrow(row) == 0) {
-    stop("No 'Main' sleep row found for that person/date.")
-  }
-  
+    filter(PersonName == person, Date == date_val, SleepEventType == "Main") %>%
+    arrange(StartTime_dt) %>% slice(1)
+  if (nrow(row) == 0) stop("No 'Main' sleep row found for that person/date.")
+
   categories_df <- tibble::tibble(
     Label = c("Name", "Date", "Gender", "Location", "ZipCode"),
-    Value = c(
-      row$PersonName,
-      format(row$Date, "%m/%d/%Y"),
-      row$Gender,
-      row$Location,
-      row$ZipCode
-    )
+    Value = c(row$PersonName, format(row$Date, "%m/%d/%Y"), row$Gender, row$Location, row$ZipCode)
   )
-  
   numbers_df <- tibble::tibble(
-    Label = c(
-      "Start Time",
-      "End Time",
-      "R.E.M.",
-      "Deep Sleep",
-      "Light Sleep",
-      "Total Sleep",
-      "Quality"
-    ),
+    Label = c("Start Time", "End Time", "R.E.M.", "Deep Sleep", "Light Sleep", "Total Sleep", "Quality"),
     Value = c(
-      fmt_time_12h(row$StartTime_dt),
-      fmt_time_12h(row$EndTime_dt),
-      paste0(row$REMMinutes, " Minutes"),
-      paste0(row$DeepMinutes, " Minutes"),
-      paste0(row$LightMinutes, " Minutes"),
-      as.character(row$TotalMinutes),
-      fmt_pct(row$SleepQuality)
+      fmt_time_12h(row$StartTime_dt), fmt_time_12h(row$EndTime_dt),
+      paste0(row$REMMinutes, " Minutes"), paste0(row$DeepMinutes, " Minutes"),
+      paste0(row$LightMinutes, " Minutes"), as.character(row$TotalMinutes), fmt_pct(row$SleepQuality)
     )
   )
-  
   list(categories = categories_df, numbers = numbers_df)
 }
 
-# ---- 6) Example: reproduce your case (adjust date/person to a known row) ----
 tables <- make_sleep_tables(sleep, person = "Mike", date_input = "2025-01-03")
 categories_df <- tables$categories
 numbers_df    <- tables$numbers
@@ -1006,21 +694,13 @@ numbers_df    <- tables$numbers
 
 :::::: columns
 ::: {.column width="30%"}
-```{r sleep_categories }
-
+```{r sleep_categories}
 
 categories_df |>
   gt() |>
   tab_header(title = md("**Categories**")) |>
   cols_label(Label = "", Value = "") |>
-  tab_options(
-    table.width = pct(90),
-    table.border.top.width = px(0),          # line above the title
-    heading.border.bottom.width = px(0),     # line directly under the title
-    column_labels.border.top.width = px(0)   # <-- line you still see (top of labels row)
-  )
-
-
+  gt_boland(base_size = 12, tight = FALSE)
 ```
 :::
 
@@ -1030,16 +710,12 @@ categories_df |>
 
 ::: {.column width="30%"}
 ```{r sleep_numbers}
+
 numbers_df |>
   gt() |>
   tab_header(title = md("**Numbers**")) |>
   cols_label(Label = "", Value = "") |>
-  tab_options(
-    table.width = pct(90),
-    table.border.top.width = px(0),          # line above the title
-    heading.border.bottom.width = px(0),     # line directly under the title
-    column_labels.border.top.width = px(0)   # <-- line you still see (top of labels row)
-  )
+  gt_boland(base_size = 12, tight = FALSE)
 ```
 :::
 ::::::
@@ -1071,10 +747,10 @@ numbers_df |>
 -   Sums
 :::
 
+
+::: fragment
 ```{r sleep_summary}
-june_glamping <- sleep %>%
-  filter(Month == "June", Location == "Camping")
-# If you want only main sleeps, uncomment:
+june_glamping <- sleep %>% filter(Month == "June", Location == "Camping")
 # june_glamping <- june_glamping %>% filter(SleepEventType == "Main")
 
 mean_minutes   <- mean(june_glamping$TotalMinutes, na.rm = TRUE)
@@ -1091,258 +767,168 @@ summary_vertical <- tibble::tibble(
   )
 )
 
-
-summary_tbl <-
-  summary_vertical |>
+summary_vertical |>
   gt() |>
   tab_header(title = md("**June Camping**")) |>
   cols_label(Summary = "") |>
-  # Minimal, readable sizing for slides
-  tab_options(
-    table.width = pct(90),
-    table.font.size = px(18),
-    data_row.padding = px(4),
-
-    # Remove lines around the title/header and table edges
-    table.border.top.width = px(0),
-    table.border.bottom.width = px(0),
-    heading.border.bottom.width = px(0),
-    column_labels.border.top.width = px(0),
-    column_labels.border.bottom.width = px(0),
-
-    # Optional: remove row separators for a “no-chrome” card look
-    table_body.hlines.width = px(0)
-  )
-summary_tbl
-
+  gt_boland(base_size = 16, tight = FALSE)
 ```
+:::
+::: fragment
+```{r sleep_summary_jan}
+jan_home <- sleep %>% filter(Month == "January", Location == "Home")
+# june_glamping <- june_glamping %>% filter(SleepEventType == "Main")
+
+mean_minutes_JH   <- mean(jan_home$TotalMinutes, na.rm = TRUE)
+median_minutes_JH <- median(jan_home$TotalMinutes, na.rm = TRUE)
+avg_quality_JH    <- mean(jan_home$SleepQuality, na.rm = TRUE)
+n_records_JH     <- nrow(jan_home)
+
+summary_vertical <- tibble::tibble(
+  Summary = c(
+    glue("Mean = {sprintf('%.2f', mean_minutes_JH)} Minutes"),
+    glue("Median = {round(median_minutes_JH)} Minutes"),
+    glue("Quality = {percent(avg_quality_JH, accuracy = 0.01)}"),
+    glue("N Records = {comma(n_records_JH)}")
+  )
+)
+
+summary_vertical |>
+  gt() |>
+  tab_header(title = md("**January Home**")) |>
+  cols_label(Summary = "") |>
+  gt_boland(base_size = 16, tight = FALSE)
+```
+:::
 ::::
 ::::::::
 
 ## Tall vs Wide
 
 ```{r sleep_dims_cats}
-
-library(readr)
-library(dplyr)
-library(gt)
-library(scales)
-
-# --- Load data (uncomment if needed) ---
-# sleep <- read_csv("week01/data/sleep_tracking_Jan-Jun_2025_with_zip.csv",
-#                   show_col_types = FALSE)
-
 # --- Define columns ---
-# Dimensions (categorical / discrete identifiers)
-dims <- c(
-  "Date", "DayOfWeek", "Month",
-  "PersonName", "Gender",
-  "Location", "SleepEventType"
-)
+dims <- c("Date","DayOfWeek","Month","PersonName","Gender","Location","SleepEventType")
+meas <- c("StartTime","EndTime","TotalMinutes","REMMinutes","DeepMinutes","LightMinutes","SleepQuality")
 
-# Measures (numeric)
-meas <- c(
-  "StartTime", "EndTime","TotalMinutes", "REMMinutes", "DeepMinutes",
-  "LightMinutes", "SleepQuality"
-)
+tbl20 <- sleep %>% select(all_of(dims), all_of(meas)) %>% slice_head(n = 15)
 
-# --- Take head(20) and select columns in desired order ---
-tbl20 <- sleep %>%
-  select(all_of(dims), all_of(meas)) %>%
-  slice_head(n = 15)
-
-# --- Format SleepQuality as a percentage for display ---
-# (We’ll use gt::fmt_percent to keep the underlying numeric values numeric.)
-# If SleepQuality is not numeric, coerce it first:
-# tbl20 <- tbl20 %>% mutate(SleepQuality = as.numeric(SleepQuality))
-
-# --- Tableau-like colors (approx) ---
-tableau_blue  <- "#4E79A7"  # spanner/header for dimensions (Tableau-like blue)
-tableau_green <- "#59A14F"  # spanner/header for measures  (Tableau-like green)
-blue_fill     <- "#EAF2FB"  # light blue fill for dimension columns
-green_fill    <- "#EAF6EA"  # light green fill for measure columns
+# Tableau-like colors (approx)
+tableau_blue  <- "#4E79A7"
+tableau_green <- "#59A14F"
+blue_fill     <- "#EAF2FB"
+green_fill    <- "#EAF6EA"
 header_text   <- "white"
 
-# --- Build gt table with styling ---
-gt_tbl <- tbl20 |>
+
+tbl20 |>
   gt() |>
-  # Spanners over the dimension and measure blocks
-  tab_spanner(
-    label = "Dimensions",
-    columns = all_of(dims)
-  ) |>
-  tab_spanner(
-    label = "Measures",
-    columns = all_of(meas)
-  ) |>
-  # Format SleepQuality as percent with 2 decimals (e.g., 82.35%)
-  fmt_percent(
-    columns = "SleepQuality", decimals = 2
-  ) |>
-  # Shade dimension columns (light blue)
-  tab_style(
-    style = cell_fill(color = blue_fill),
-    locations = cells_body(columns = all_of(dims))
-  ) |>
-  # Shade measure columns (light green)
-  tab_style(
-    style = cell_fill(color = green_fill),
-    locations = cells_body(columns = all_of(meas))
-  ) |>
-  # Color the spanner headers to match Tableau-like pills
-  tab_style(
-    style = list(cell_fill(color = tableau_blue), cell_text(color = header_text)),
-    locations = cells_column_spanners(spanners = "Dimensions")
-  ) |>
-  tab_style(
-    style = list(cell_fill(color = tableau_green), cell_text(color = header_text)),
-    locations = cells_column_spanners(spanners = "Measures")
-  ) |>
-  # Optional: make it a bit tighter and readable
-  tab_options(
-    table.font.size = px(12),
-    data_row.padding = px(6),
-    column_labels.background.color = "white",
-    column_labels.font.weight = "bold"
-  ) |>
+  tab_spanner(label = "Dimensions", columns = all_of(dims)) |>
+  tab_spanner(label = "Measures",   columns = all_of(meas)) |>
+  fmt_percent(columns = "SleepQuality", decimals = 2) |>
+  tab_style(style = cell_fill(color = blue_fill),  locations = cells_body(columns = all_of(dims))) |>
+  tab_style(style = cell_fill(color = green_fill), locations = cells_body(columns = all_of(meas))) |>
+  tab_style(style = list(cell_fill(color = tableau_blue),  cell_text(color = header_text)), locations = cells_column_spanners(spanners = "Dimensions")) |>
+  tab_style(style = list(cell_fill(color = tableau_green), cell_text(color = header_text)), locations = cells_column_spanners(spanners = "Measures")) |>
+  gt_boland(base_size = 12, tight = FALSE) |>
   cols_label(
     SleepEventType = "EventType",
-    REMMinutes = "REMMinutes",
-    DeepMinutes = "DeepMinutes",
-    LightMinutes = "LightMinutes",
-    TotalMinutes = "TotalMinutes",
+    REMMinutes = "REMMinutes", DeepMinutes = "DeepMinutes",
+    LightMinutes = "LightMinutes", TotalMinutes = "TotalMinutes",
     SleepQuality = "SleepQuality"
   )
-
-gt_tbl
-
-
 ```
 
 ## Principles of Tidy Data
+
+<br>
 
 -   *Each variable you measure should be in one column*
 -   *Each observation of that variable should be in a different row*
 -   *There should be one table for each type of observational unit*
 -   *If you have multiple tables you need a key to link them*
 
+<br><br><br>
+
+:::: fragment
+::: {.callout-important title="Nerd Alert."}
+Tidy Data principles are a **solution to a problem**, not rules that **must** be followed.
+:::
+::::
+
+
+
 ```{r tidy_tables}
-
-
-# Packages
-library(dplyr)
-library(gt)
-
 # ---------- TABLE A: sleep (first 10 rows with selected columns) ----------
-sleep_tbl_data <- sleep %>%
-  select(PersonName, Gender, Location, ZipCode, TotalMinutes, SleepQuality) %>%
-  head(10)
+sleep_tbl_data <- sleep %>% select(PersonName, Gender, Location, ZipCode, TotalMinutes, SleepQuality) %>% head(10)
 
-tbl_sleep_vt <-
-  sleep_tbl_data %>%
+		# Render A
+sleep_tbl <- sleep_tbl_data %>%
   gt() %>%
   cols_label(
-    PersonName   = "Name",
-    Gender       = "Gender",
-    Location     = "Location",
-    ZipCode      = "ZIP",
-    TotalMinutes = "Minutes",
-    SleepQuality = "Quality"
+    PersonName = "Name", Gender = "Gender", Location = "Location",
+    ZipCode = "ZIP", TotalMinutes = "Minutes", SleepQuality = "Quality"
   ) %>%
   cols_width(
-    PersonName   ~ px(180),
-    Gender       ~ px(90),
-    Location     ~ px(130),
-    ZipCode      ~ px(90),
-    TotalMinutes ~ px(90),
-    SleepQuality ~ px(90)
+    PersonName ~ px(180), Gender ~ px(90), Location ~ px(130), ZipCode ~ px(90),
+    TotalMinutes ~ px(90), SleepQuality ~ px(90)
   ) %>%
-  tab_options(
-    table.width = pct(100),
-    table.font.size = px(10),
-    data_row.padding = px(2),
-    column_labels.padding = px(2),
-    table.border.top.width = px(0),
-    table.border.bottom.width = px(0),
-    column_labels.border.top.width = px(0),
-    column_labels.border.bottom.width = px(0)
-  ) %>%
-  opt_vertical_padding(scale = 0.75) %>%
-  opt_horizontal_padding(scale = 0.9) %>%
+  gt_boland(base_size = 16, tight = TRUE) %>%
   tab_caption(md("**Sleep (first 10):** `PersonName, Gender, Location, ZipCode, TotalMinutes, SleepQuality`"))
 
 # ---------- TABLE B: sleep_zips (first 10 rows) ----------
 sleep_zips_tbl_data <- sleep_zips %>% head(10)
 
-tbl_sleep_zips_vt <-
-  sleep_zips_tbl_data %>%
+sleep_zips_tbl <- sleep_zips_tbl_data %>%
   gt() %>%
   cols_label(
-    zip                     = "ZIP",
-    city                    = "City",
-    state                   = "State",
-    population              = "Population",
-    crime_rate_per_100k     = "Crime per 100k",
-    avg_sunny_days_per_year = "Sunny Days"
+    zip = "ZIP", city = "City", state = "State", population = "Population",
+    crime_rate_per_100k = "Crime per 100k", avg_sunny_days_per_year = "Sunny Days"
   ) %>%
   fmt_number(columns = population,              decimals = 0, sep_mark = ",") %>%
   fmt_number(columns = crime_rate_per_100k,     decimals = 0, sep_mark = ",") %>%
   fmt_number(columns = avg_sunny_days_per_year, decimals = 0) %>%
   cols_width(
-    zip                     ~ px(90),
-    city                    ~ px(150),
-    state                   ~ px(70),
-    population              ~ px(110),
-    crime_rate_per_100k     ~ px(120),
-    avg_sunny_days_per_year ~ px(100)
+    zip ~ px(90), city ~ px(150), state ~ px(70), population ~ px(110),
+    crime_rate_per_100k ~ px(120), avg_sunny_days_per_year ~ px(100)
   ) %>%
-  tab_options(
-    table.width = pct(100),
-    table.font.size = px(10),
-    data_row.padding = px(2),
-    column_labels.padding = px(2),
-    table.border.top.width = px(0),
-    table.border.bottom.width = px(0),
-    column_labels.border.top.width = px(0),
-    column_labels.border.bottom.width = px(0)
-  ) %>%
-  opt_vertical_padding(scale = 0.75) %>%
-  opt_horizontal_padding(scale = 0.9) %>%
+  gt_boland(base_size = 16, tight = TRUE) %>%
   tab_caption(md("**Sleep ZIP Profiles (first 10):** `zip, city, state, population, crime_rate_per_100k, avg_sunny_days_per_year`"))
-
 ```
 
 ## Tidy Data - Principles 1-3
 
 ```{r tidy_base}
 # ---- Display both tables on the slide ----
-tbl_sleep_vt
+sleep_tbl
 ```
 
 ## Tidy Data - Principle 4
 
 ```{r tidy_join}
-tbl_sleep_zips_vt
+sleep_zips_tbl
 ```
 
+# Acronyms to the Rescue (ATTR)
 
-# ETL
+<br>
+
+::: {.callout-note title="What can go wrong..."}
+**Could messy or inconsistent data break every conclusion downstream?**
+:::
+
+
 
 ## [ETL Process - Extract]{.sr-only}
 
-::: {.text-center}
-
-**Extract** | Transform | Load
-
+::: text-center
+**Extract** \| Transform \| Load
 :::
 
-::::: columns
-
+:::::: columns
 ::: {.column width="33%"}
 Structured Data
 
-![](media/images/w01_s11_database.png){fig-alt="Icon illustrating extracting from a ordered database the ETL workflow." width="80%"}
-
+![](media/images/w01_s11_database.png){fig-alt="Icon illustrating extracting from an ordered database in the ETL workflow." width="80%"}
 :::
 
 ::: {.column width="34%"}
@@ -1354,98 +940,51 @@ Third Party
 ::: {.column width="33%"}
 Unstructured Data
 
-![](media/images/w01_s11_image.png){fig-alt="Terminal or connector graphic showing extracted data may be unstructured or streaming ETL operations." width="80%"}
+![](media/images/w01_s11_image.png){fig-alt="Terminal/connector graphic showing extracted data may be unstructured or streaming ETL operations." width="80%"}
 :::
-
-:::::
-
+::::::
 
 ## [ETL Process - Transform]{.sr-only}
 
-::: {.text-center}
+::::::: text-center
+Extract \| **Transform** \| Load
 
-Extract | **Transform** | Load
-
-::::: columns
-
+:::::: columns
 ::: {.column width="25%"}
+![](../shared/images/logo_Excel.png){width="100px" fig-alt="Microsoft Excel Logo"}
 
-![](../shared/images/logo_Excel.png){width=100px fig-alt="Microsoft Excel Logo"}
+![](media/images/w01_s11_census.png){width="100px" fig-alt="Icon illustrating extracting from a third party source of structured data in the ETL workflow."}
 
-![](media/images/w01_s11_census.png){width=100px fig-alt="Icon illustrating extracting from a third party source of structured data in the ETL workflow."}
+![](../shared/images/logo_R.png){width="100px" fig-alt="R Language Logo"}
 
-![](../shared/images/logo_R.png){width=100px fig-alt="R Language Logo"}
+![](../shared/images/logo_Database.png){width="100px" fig-alt="Generic Database Logo"}
 
-![](../shared/images/logo_Database.png){width=100px fig-alt="Generic Database Logo"}
-
-![](media/images/w01_s11_image.png){width=100px fig-alt="Terminal or connector graphic showing extracted data may be unstructured or streaming ETL operations."}
-
+![](media/images/w01_s11_image.png){width="100px" fig-alt="Terminal/connector graphic showing extracted data may be unstructured or streaming ETL operations."}
 :::
 
 ::: {.column width="50%"}
-
-![](media/images/w01_s20_grinder.png){width="100%" fig-alt="Microsoft Excel Logo"}
-
+![](media/images/w01_s20_grinder.png){width="100%" fig-alt="Transformation metaphor: grinder processing data."}
 :::
 
 ::: {.column width="25%"}
-
-
 :::
-
-:::::
-
-:::
+::::::
+:::::::
 
 ## [ETL Process - Transform Example]{.sr-only}
 
-::: {.text-center}
-
-Extract | **Transform** | Load
-
+::: text-center
+Extract \| **Transform** \| Load
 :::
 
-
 ```{r}
-
-# ---- Packages ----
-library(readr)
-library(dplyr)
-library(gt)
-library(stringr)
-
 # ---- 0) Where the file lives ----
-# If you've downloaded via the link, keep the path as-is.
-# Otherwise, set `path` to wherever you've stored the CSV.
 path <- here("week01", "data", "messy_zip_54601.csv")
-
 
 # ---- 1) Load the messy data (20 rows) ----
 messy_zip <- read_csv(path, show_col_types = FALSE)
 
-# (Optional) confirm row/col counts in your console:
-# dim(messy_zip)
-# names(messy_zip)
-
-# ---- 2) Small helper: VT styling used across your slides ----
-vt_style_gt <- function(g) {
-  g %>%
-    tab_options(
-      table.width = pct(100),
-      table.font.size = px(10),
-      data_row.padding = px(2),
-      column_labels.padding = px(2),
-      table.border.top.width = px(0),
-      table.border.bottom.width = px(0),
-      column_labels.border.top.width = px(0),
-      column_labels.border.bottom.width = px(0)
-    ) %>%
-    opt_vertical_padding(scale = 0.75) %>%
-    opt_horizontal_padding(scale = 0.9)
-}
-
-# ---- 3) Truncate the very long column so the table fits on a slide ----
-# (Adjust `TRUNC_WIDTH` if you want more/less)
+# ---- 2) Truncate the very long column so the table fits on a slide ----
 TRUNC_WIDTH <- 60
 messy_zip_trunc <- messy_zip %>%
   mutate(
@@ -1456,77 +995,53 @@ messy_zip_trunc <- messy_zip %>%
     )
   )
 
-# ---- 4) Render ALL 20 rows with VT styling ----
-tbl_messy_zip_vt <-
-  messy_zip_trunc %>%
+# ---- 3) Render ALL 20 rows with slide theme ----
+messy_zip_trunc %>%
   select(zip_value,state_value,county_value,population_value,fips_county,everything_raw) %>%
   gt() %>%
-  # Keep original column names so the "messiness" is apparent
-  # Give a little extra room to long text columns; others will auto-size.
   cols_width(
-    zip_value        ~ px(110),
-    state_value      ~ px(110),
-    county_value     ~ px(140),
-    population_value ~ px(130),
-    fips_county      ~ px(95),
-    everything_raw   ~ px(380)
+    zip_value ~ px(110), state_value ~ px(110), county_value ~ px(140),
+    population_value ~ px(130), fips_county ~ px(95), everything_raw ~ px(380)
   ) %>%
-  vt_style_gt() %>%
+  gt_boland(base_size = 10, tight = TRUE) %>%
   tab_caption(md("**Messy ZIP 54601**"))
-
-# ---- 5) Print the table (all 20 rows) ----
-tbl_messy_zip_vt
-
 ```
-
 
 ## [ETL Process - Load]{.sr-only}
 
-::: {.text-center}
+::::::: text-center
+Extract \| Transform \| **Load**
 
-Extract | Transform | **Load**
-
-::::: columns
-
+:::::: columns
 ::: {.column width="25%"}
+![](../shared/images/logo_Excel.png){width="100px" fig-alt="Microsoft Excel Logo"}
 
-![](../shared/images/logo_Excel.png){width=100px fig-alt="Microsoft Excel Logo"}
+![](media/images/w01_s11_census.png){width="100px" fig-alt="Icon illustrating extracting from a third party source of structured data in the ETL workflow."}
 
-![](media/images/w01_s11_census.png){width=100px fig-alt="Icon illustrating extracting from a third party source of structured data in the ETL workflow."}
+![](../shared/images/logo_R.png){width="100px" fig-alt="R Language Logo"}
 
-![](../shared/images/logo_R.png){width=100px fig-alt="R Language Logo"}
+![](../shared/images/logo_Database.png){width="100px" fig-alt="Generic Database Logo"}
 
-![](../shared/images/logo_Database.png){width=100px fig-alt="Generic Database Logo"}
-
-![](media/images/w01_s11_image.png){width=100px fig-alt="Terminal or connector graphic showing extracted data may be unstructured or streaming ETL operations."}
-
+![](media/images/w01_s11_image.png){width="100px" fig-alt="Terminal/connector graphic showing extracted data may be unstructured or streaming ETL operations."}
 :::
 
 ::: {.column width="50%"}
-
-![](media/images/w01_s20_grinder.png){width="100%" fig-alt="Microsoft Excel Logo"}
-
+![](media/images/w01_s20_grinder.png){width="100%" fig-alt="Transformation metaphor: grinder processing data."}
 :::
 
 ::: {.column width="25%"}
+![](../shared/images/logo_Tableau.jpeg){width="100px" fig-alt="Tableau Logo"}
 
-![](../shared/images/logo_Tableau.jpeg){width=100px fig-alt="Tableau Logo"}
+![](../shared/images/logo_Database.png){width="100px" fig-alt="Generic Database Logo"}
 
-![](../shared/images/logo_Database.png){width=100px fig-alt="Generic Database Logo"}
+![](../shared/images/logo_Excel.png){width="100px" fig-alt="Microsoft Excel Logo"}
 
-![](../shared/images/logo_Excel.png){width=100px fig-alt="Microsoft Excel Logo"}
+![](../shared/images/logo_R.png){width="100px" fig-alt="R Language Logo"}
 
-![](../shared/images/logo_R.png){width=100px fig-alt="R Language Logo"}
-
-![](../shared/images/logo_SPSS.png){width=100px fig-alt="SPSS Logo"}
-
+![](../shared/images/logo_SPSS.png){width="100px" fig-alt="SPSS Logo"}
 :::
-
-:::::
-
-:::
-
-
+::::::
+:::::::
 
 ## Tableau
 
@@ -1537,34 +1052,61 @@ Extract | Transform | **Load**
 ![](media/images/w01_s27_image.png){fig-alt="Posit Cloud branding indicating a browser‑based RStudio environment for analysis." width="100%"}
 
 ## [Coding in R]{.sr-only}
-```{r setup_eco }
+
+```{r setup_eco}
 library(eco230r)
 library(dplyr)
 ```
 
 ::::: columns
-
 ::: {.column width="10%"}
-
 ![](../shared/images/logo_R.png){width="100%" fig-alt="R Language Logo"}
-
 :::
 
 ::: {.column width="90%"}
-<br><br><br>
-```{r idt, echo=TRUE, results="hide"}
-abnb %>%
-  idt(listed_price~instant_bookable)
+:::: fragment
+```{r idt_code, echo=TRUE, results="hide"}
+abnb %>% idt(listed_price~instant_bookable)
 ```
+::::
+:::: fragment
+```{r idt_results, echo=FALSE, results="show"}
+abnb %>% idt(listed_price~instant_bookable)
+```
+::::
+:::: fragment
+```{r ano_code, echo=TRUE, results="hide" }
+abnb %>% ano(listed_price~room_type)
+```
+::::
+:::: fragment
+```{r ano_results, echo=FALSE, results="show" }
+abnb %>% ano(listed_price~room_type)
+```
+::::
+:::
+:::::
+
+
+## So… what actually went wrong with the Airbnb analysis?
+
 <br>
-```{r ano, echo=TRUE, results="hide" }
-abnb %>%
-  ano(listed_price~room_type)
-```
+
+::: tight-list
+- Wrong unit of analysis  
+- Wrong time fields  
+- Wrong data structure  
+- Wrong aggregation  
+- Wrong assumptions about what the data measures  
+:::
+
+<br>
+
+::: {.callout-tip title="What is your data?"}
+Everything broke *before* statistics.
 :::
 
 
-:::::
 
 
 ## [Summary and Prime Directive]{.sr-only}
@@ -1573,9 +1115,4 @@ abnb %>%
 
 ### Before running any statistics, what are the three questions you must answer about a dataset?
 
-<br>
-1.  What does one row represent?
-<br>
-2.  What kind of variables do I have?
-<br>
-3.  What question can this data answer?
+<br> 1. What does one row represent? <br> 2. What kind of variables do I have? <br> 3. What question can this data answer?
