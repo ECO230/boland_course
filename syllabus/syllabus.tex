@@ -1,0 +1,837 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={ECO 230 Business and Economic Research \& Communication},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{ECO 230 Business and Economic Research \& Communication}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Spring 2026 · Section 12 · 3 Credits}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\subsection{Course information}\label{course-information}
+
+\textbf{ECO 230 Business and Economic Research \& Communication}
+
+\textbf{Spring 2026 \textbar{} Section 12 \textbar{} Credits: 3}
+
+Meets in Wittich 112 Tuesday 5:30 pm to 8:15 pm.
+
+\subsubsection{Instructor information}\label{instructor-information}
+
+\begin{itemize}
+\tightlist
+\item
+  Mike Boland, MBA\\
+\item
+  Office Location: Non Extant\\
+\item
+  Student Hours: Mon.--Fri. Noon--1pm in Zoom or by appointment\\
+\item
+  Class Webpage: \url{https://www.uwlax.edu/canvas}\\
+\item
+  Email:
+  \href{mailto:mboland@uwlax.edu}{\nolinkurl{mboland@uwlax.edu}}\\
+\item
+  Cell Phone: 608-385-6497
+\end{itemize}
+
+\subsubsection{Final exam}\label{final-exam}
+
+\textbf{\emph{Friday May 12th 7:00 pm -- 9:00 pm in Wittich 112}}
+
+\subsection{Course description}\label{course-description}
+
+Building on the foundation in statistics acquired in STAT 145, students
+will continue to develop and will apply skills in data analysis to aid
+in business decision making. These skills include data collection, data
+summarization, data visualization, statistical inference, and
+communication of data in business contexts. Students will learn and
+apply best practices for research design and analysis to address
+authentic business cases. Students will build these skills in
+collaboration with each other and through engagement with business and
+community leaders. The course also discusses effective survey design and
+current privacy and ethical issues in collecting and using data.
+Prerequisite: ENG 110 or ENG 112; STAT 145; CBA major, CASSH economics
+major, or healthcare analytics management minor. Offered Fall, Spring.
+
+\subsubsection{Prerequisites}\label{prerequisites}
+
+Prerequisite: ENG 110 or ENG 112; STAT 145; CBA major, CLS economics
+major, or Healthcare Analytics Management Minor.
+
+\subsection{Learning outcomes}\label{learning-outcomes}
+
+\subsubsection{Mapped to CBA Undergraduate Curriculum Goals and
+Objectives}\label{mapped-to-cba-undergraduate-curriculum-goals-and-objectives}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Develop the ability to articulate a business problem or opportunity
+  using qualitative and quantitative evidence and propose an analysis
+  plan to identify potential solutions, including collection of primary
+  data via surveys. (CT-1)
+\item
+  Describe, summarize, and interpret data using descriptive statistics,
+  inferential statistics, and data visualization.
+\item
+  Develop foundational skills related to spreadsheets, interactive data
+  visualization software, and scripting languages used for data analysis
+  and visualization.
+\item
+  Communicate the purpose, methods, and results of analysis to authentic
+  audiences in appropriate written and oral formats. (CS-1, CS-2)
+\item
+  Apply research design and data analysis best practices to complete
+  case-based projects and to critique others' analyses. (CT-1)
+\item
+  Describe current debates in research ethics and data privacy and the
+  implications for business research. (SR-1)
+\end{enumerate}
+
+\subsubsection{CBA Undergraduate Curriculum Goals and Objectives
+referenced
+above}\label{cba-undergraduate-curriculum-goals-and-objectives-referenced-above}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Communication Goal}: Our students will be able to convey
+  information and ideas effectively.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (CS-1) Learning Objective: Students will convey information and
+    ideas in professional business reports\\
+  \item
+    (CS-2) Learning Objective: Students will convey information and
+    ideas in oral presentations.
+  \end{itemize}
+\item
+  \textbf{Decision Making and Critical Thinking Goal}: Our students will
+  be able to think critically when evaluating decisions.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (CT-1) Learning Objective: Students will evaluate alternatives and
+    understand the ramifications of those alternatives within a given
+    business context.
+  \end{itemize}
+\item
+  \textbf{Social Responsibility Goal}: Students will demonstrate the
+  role of social responsibility in business decisions.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (SR-1) Learning Objective: Students will be able to identify and
+    apply different frameworks of social responsibility to business
+    problems and recognize the short- and long-term effects on
+    stakeholders and society.
+  \end{itemize}
+\end{itemize}
+
+Remaining CBA Goals and Objectives along with rubrics for each can be
+found here:\\
+\url{https://www.uwlax.edu/cba/undergraduate-curriculum-learning-goals-and-objectives2/\#tmcommunication-goals}
+
+\subsection{Materials \& tools}\label{materials-tools}
+
+There is no official textbook for this course. All readings will be
+provided electronically via Canvas. We will also use the following
+software and instructional tools which are free of charge to you due to
+your enrollment in this course. Instructions for use will be provided in
+class and on Canvas as needed.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Excel}\\
+\item
+  \textbf{Tableau Desktop}\\
+\item
+  \textbf{Posit Cloud}\\
+\item
+  \textbf{Qualtrics}\\
+\item
+  \textbf{CATME}
+\end{itemize}
+
+\subsection{Format}\label{format}
+
+This is a face-to-face course. You may be asked to reference materials
+or participate online through the learning management system, Canvas. If
+that is the case, you will need your UWL NetID to login to the course
+from the Canvas homepage \url{http://www.uwlax.edu/canvas}.
+
+\subsection{Grading}\label{grading}
+
+\subsubsection{Calculations}\label{calculations}
+
+Your overall grade consists of the following assessments, arranged by
+type and value. Your final grade can be computed by multiplying the
+scores received by the percentages reported below to arrive at a
+weighted average. Team assignments are denoted by (T) but please note
+grades received for team project deliverables will be adjusted by your
+Peer Evaluation score.
+
+\begin{longtable*}[t]{lll}
+\toprule
+Assignment & \# & Total \% Final Grade\\
+\midrule
+Homework, Lab Prep \& In Class Labs & \textasciitilde{}10 & 25\%\\
+Quizzes & \textasciitilde{}5 & 15\%\\
+Final Exam \& Practicum & 1 & 20\%\\
+Case Projects (T) & 2 & 30\%\\
+Participation / Discussion &  & 10\%\\
+Total &  & 100\%\\
+\bottomrule
+\end{longtable*}
+
+\subsubsection{Calculation of individual grades for team project
+work}\label{calculation-of-individual-grades-for-team-project-work}
+
+All work for the assignments denoted as Team Projects by (T) above will
+be scored out of 100 points to assign a Team Grade. Individual grades
+will be computed by multiplying the Team Grade by the CATME peer
+evaluation score you receive for that work. The CATME peer evaluation is
+a psychometrically validated and behaviorally anchored rating scale
+developed under a National Science Foundation Grant and used by
+universities throughout the country. Through a secure web-based
+platform, you will rate your own and your teammate's performance on each
+project. This information will be reported in the aggregate to your
+teammates (they cannot see who gave them what scores) and will produce a
+Peer Evaluation Score. Most students receive a score of 1, those that
+exhibit exceptional performance receive scores above 1 with a maximum of
+1.05. Underperforming teammates receive scores below 1, and as low as
+0.4.
+
+\begin{tcolorbox}[enhanced jigsaw, breakable, coltitle=black, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, left=2mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, titlerule=0mm, opacityback=0, arc=.35mm, toprule=.15mm, colback=white, bottomtitle=1mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, toptitle=1mm]
+
+\textbf{Note:} This is not a ``zero sum game''. It is possible for team
+members to get scores above 1 without others getting scores below. The
+algorithm flags evaluations that appear to manipulate ratings to inflate
+their own scores. Your score will automatically be reduced by 0.05 if
+you fail to complete the Peer Evaluation on or before the due date.
+
+\end{tcolorbox}
+
+\subsubsection{Grievance procedure for peer evaluation
+scores}\label{grievance-procedure-for-peer-evaluation-scores}
+
+Poor peer evaluations can lead an individual grade to fall substantially
+below the Team Grade. For example, a project that received a score of
+95/100 would produce an individual grade of 38/100 if you receive a peer
+evaluation score of 0.4. If you feel the score you received does not
+accurately reflect your contributions to Team Project work, you have the
+option to file a grievance. To do so you must follow this procedure:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Within 2 business days of the official notification that grades have
+  been posted, communicate to your instructor via email your intent to
+  file a grievance. Official notifications of grade posting will appear
+  on Canvas notifications.
+\item
+  Within 1 business day of notifying your intent, prepare and email a
+  one page formal letter addressed to your teammates and including the
+  following information:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Your understanding of the work you had agreed to do} for the
+    deliverable. Be sure to refer to any documentation that is relevant
+    (Meeting Minutes, emails or group chats, revision histories in
+    documents etc.). Be prepared to provide any documentation you
+    mention in the letter if requested.
+  \item
+    \textbf{A summary of the work you actually did.} Refer to
+    documentation as above.
+  \item
+    \textbf{Justification for any discrepancies between (a) and (b).} If
+    this documentation includes any confidential health or personal
+    matters you do not wish to disclose to your team, please raise this
+    with me or contact Student Life Office for council. Note: In these
+    cases it is best to reach out to me or Student Life before you are
+    at the point of receiving a bad peer evaluation.
+  \item
+    \textbf{A statement of the peer evaluation score you believe you
+    have earned.}
+  \end{itemize}
+\item
+  If after reviewing your letter I believe the case has merit, I will
+  send it on to your teammates and schedule an arbitration. If I
+  determine no arbitration is warranted, I will schedule a one-on-one
+  meeting with you to discuss.
+\item
+  If arbitration is warranted, it must be conducted in-person with all
+  team members present. The only exception to this requirement would be
+  a case where the timeline in the procedure would place the earliest
+  possible arbitration date after the final exam date. In those cases, a
+  virtual meeting may be agreed upon or incomplete grades may be
+  assigned until an in-person meeting can be scheduled. I will serve as
+  the arbitrator. You and your teammates will have the opportunity to
+  present your case and reconcile evidence referenced in your letter. At
+  the end of the meeting, all team members (including yourself) will
+  submit the score they believe you have earned to me via secret ballot.
+  I will use this information in making my final determination, but the
+  final determination is mine alone.
+\end{enumerate}
+
+\subsubsection{Late assignments, missed
+quizzes}\label{late-assignments-missed-quizzes}
+
+\paragraph{Individual assignments}\label{individual-assignments}
+
+\begin{tcolorbox}[enhanced jigsaw, breakable, coltitle=black, opacitybacktitle=0.6, colframe=quarto-callout-warning-color-frame, left=2mm, leftrule=.75mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, rightrule=.15mm, titlerule=0mm, opacityback=0, arc=.35mm, toprule=.15mm, colback=white, bottomtitle=1mm, bottomrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm]
+
+Individual assignments are due on the dates indicated on the Canvas
+Weekly Agendas. Late or missing assignments will not be graded.
+\textbf{All assignments in a module must be completed before the Module
+Quiz.} If extenuating circumstances impact your ability to meet
+deadlines or participate in class activities, you are responsible for
+alerting me as soon as possible. When conflicts are known ahead of the
+deadline you must notify me ahead of the deadline. All communication
+regarding missed or late individual work should be confirmed by email --
+even if we speak in person or during student hours, you must follow up
+via email to confirm so that we both have a record of the agreement.
+
+\end{tcolorbox}
+
+\paragraph{Team assignments}\label{team-assignments}
+
+Deadlines for Team Assignments may be extended for the entire class if
+there are extenuating circumstances or granted to teams if requested
+with appropriate justification and all team members agree to the
+request. \textbf{Presentations cannot be delayed unless there is a major
+emergency or complication.} For other deliverables, extensions must be
+requested at least 1 business day before the due date. Be prepared to
+show appropriate documentation of work to date and to provide an
+explanation for the value you will add to the final product if the
+extension is granted. Unless a request is made and granted, late
+assignments will receive a grade of 0.
+
+\paragraph{Missed quizzes}\label{missed-quizzes}
+
+Quizzes may be rescheduled only in the case of serious illness, injury,
+or significant academic or professional development opportunity.
+Personal travel or family vacations will not be accommodated unless they
+are associated with a significant life event (birth, death, marriage,
+graduation). In all cases, documentation is required. Contact me via
+email as soon as you know you have a conflict. Local or phone/Skype job
+interviews are not considered significant professional development
+opportunities.
+
+\subsubsection{Attendance and
+participation}\label{attendance-and-participation}
+
+Although attendance will not be formally recorded for all class
+meetings, your Team can and should reduce your peer evaluation score if
+you miss meetings or are absent during in class Work Days. To avoid this
+consequence, you should:
+
+\begin{itemize}
+\tightlist
+\item
+  Communicate clearly with your team any time you will be absent from a
+  Team Meeting or class on a day that includes Case Work Time.\\
+\item
+  Document that communication (e.g.~save emails or post to team message
+  board).\\
+\item
+  Participate actively in scheduling Team Meetings outside of class.\\
+\item
+  Lay out policies on scheduling team meetings and missed meetings and
+  follow them.\\
+\item
+  Respect others' time and reserve absences for only when absolutely
+  unavoidable.\\
+\item
+  Communicate with me (your instructor) or the Office of Student Life if
+  any situation arises that will dramatically impact your attendance in
+  class and at team meetings (e.g.~serious illness, injury or personal
+  emergency).
+\end{itemize}
+
+If you are absent from class, it is your responsibility to obtain notes
+and other materials from colleagues. While you are welcome to book
+student hours, you should not view them as a substitute for coming to
+class. If you are absent regularly without a documented extenuating
+circumstance, requests for student hours meetings may be denied.
+
+\subsubsection{Expectations for graded
+work}\label{expectations-for-graded-work}
+
+\paragraph{Individual assignments}\label{individual-assignments-1}
+
+I provide students feedback and/or scores on assignments that require
+individualized grading before a further assignment of a similar format
+is due or within 21 days of submission, whichever is shorter. This
+includes quizzes. I will notify you if I am unable to complete grading
+within the 21-day timeframe, and will identify a revised return date. If
+you submit work after the due date, it may not be returned within 21
+days, and depending on the justification for late submission, it may not
+be accepted at all. Your graded coursework will be returned in
+compliance with FERPA regulations, such as in class, during my student
+hours, or via the course management system through which only you will
+have access to your grades.
+
+\subsubsection{Grading scale}\label{grading-scale}
+
+\begin{longtable*}[t]{ll}
+\toprule
+Letter Grade & Percentage Equivalent\\
+\midrule
+A & 93-100\%\\
+AB & 89-92\%\\
+B & 83-88\%\\
+BC & 79-82\%\\
+C & 70-78\%\\
+D & 60-69\%\\
+F & 59\% - below\\
+\bottomrule
+\end{longtable*}
+
+\subsection{AI usage limitations}\label{ai-usage-limitations}
+
+Artificial intelligence (AI) tools and resources used for creating text,
+images, computer code, audio, or other media, may be used in certain
+circumstances in this class. The specifics of when, where, and how these
+tools are permitted will be included with each assignment. Guidance for
+attribution/citation will be provided by your instructor. Any use of
+these tools other than where/how indicated is a violation of course
+expectations and is subject to UW-La Crosse's
+\href{https://www.uwlax.edu/student-life/our-services/student-conduct/academic-misconduct/}{Academic
+Misconduct Policy}. Students are responsible for verifying the accuracy
+and appropriateness of content composed by AI. If you are in doubt as to
+whether you are using a tool inappropriately in this course, you are
+encouraged to discuss your situation with your instructor.
+
+\subsection{Regular and substantive
+interaction}\label{regular-and-substantive-interaction}
+
+In this course, regular and substantive interaction between the
+instructor and students plays a crucial role in student achievement. I
+will be incorporating various forms of interaction that not only meet
+the requirements set by the US Department of Education and the UWL
+Faculty Senate policy, but also aid in student achievement. Your active
+participation and contributions are also essential to your learning. In
+partnership with your efforts, I will\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  be available during scheduled student hours as stated in the
+  syllabus\\
+\item
+  share information about the course materials including key
+  information, explanations, examples, and resources via in-person,
+  and/or recorded lectures\\
+\item
+  engage in online discussions about course content\\
+\item
+  provide group or individual feedback on assignments\\
+\item
+  promptly respond to questions about the course sent via email\\
+\item
+  regularly post announcements pertaining to the course content and
+  activities\\
+\item
+  monitor your academic progress and communicate concerns, as needed
+\end{itemize}
+
+\subsection{UWL syllabus policy information \&
+statements}\label{uwl-syllabus-policy-information-statements}
+
+UWL encourages students to know the campus' important policies and
+statements which can be found on the Syllabus Information website.
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.uwlax.edu/info/syllabus/\#tm-261340}{Classes during
+  inclement weather}
+\item
+  \href{https://www.uwlax.edu/info/syllabus/\#tm-111043}{Religious
+  accommodations}
+\item
+  \href{https://www.uwlax.edu/info/syllabus/\#tm-111041}{Sexual
+  misconduct}
+\item
+  \href{https://www.uwlax.edu/info/syllabus/\#tm-111060}{Student course
+  and faculty-related concerns, complaints, and grievances}
+\item
+  \href{https://www.uwlax.edu/info/syllabus/\#tm-264115}{Student survey
+  on instruction (LENS)}
+\item
+  \href{https://www.uwlax.edu/info/syllabus/\#tm-111053}{Students with
+  accommodation needs}
+\item
+  \href{https://www.uwlax.edu/info/syllabus/\#tm-264137}{University
+  class attendance policy}
+\item
+  \href{https://www.uwlax.edu/info/syllabus/\#tm-111056}{Veterans,
+  active military, and military-connected}
+\end{itemize}
+
+UWL encourages students to know the campus' important policies and
+statements which can be found on the
+\href{https://www.uwlax.edu/info/syllabus/}{UWL Syllabus Policy
+Information \& Statements}.
+
+\subsection{UWL policies \& supports}\label{uwl-policies-supports}
+
+\subsubsection{Course access}\label{course-access}
+
+Access to course materials in Canvas may cease after the term ends. If
+you wish to archive materials for your personal records or portfolio you
+should do so as you progress through the course. As a general rule, you
+should always save local copies of course-related work. To avoid
+disasters, you should also save important files to external media or
+cloud storage.
+
+\subsubsection{Inclusive excellence}\label{inclusive-excellence}
+
+\href{https://www.uwlax.edu/chancellor/mission/}{Mission} ``Diversity,
+equity, and the inclusion and engagement of all people in a safe campus
+climate that embraces and respects the innumerable different
+perspectives found within an increasingly integrated and culturally
+diverse global community''. If you are not experiencing my class in this
+manner, please come talk to me about your experiences so I can try to
+adjust the course if possible.
+
+\subsubsection{Name/pronouns}\label{namepronouns}
+
+I will do my best to address you by a preferred name or gender pronoun
+that you have identified. Please advise me of this preference early in
+the semester so that I may make appropriate changes to my records. UWL
+has \href{https://www.uwlax.edu/records/name-in-use/}{name in use
+resources} and the \href{https://www.uwlax.edu/pride-center/}{Pride
+Center} is available for additional assistance.
+
+\subsubsection{Academic success and overall
+health}\label{academic-success-and-overall-health}
+
+At UWL, we support your academic success and overall health. We know
+that students often experience a range of stressors that can impact
+learning and well-being. If you or someone you know is experiencing
+mental health concerns, or could benefit from effective academic
+strategies, there are free and confidential resources available to
+enrolled students through the Counseling \& Testing Center (CTC). To
+learn more, visit the
+\href{https://www.uwlax.edu/counseling-testing/}{CTC Website} or call
+608-785-8073.
+
+\subsubsection{Technical support}\label{technical-support}
+
+For tips and information about Canvas visit the (canvas
+website){[}https://www.uwlax.edu/info/canvas/students/{]}; this site
+also links to the 24/7 Canvas support. If you are having Canvas login
+issues or need general computer assistance, contact the (Eagle Help
+Desk){[}https://www.uwlax.edu/its/client-services-and-support/eagle-help-desk/{]}.
+
+\subsubsection{Student success
+resources}\label{student-success-resources}
+
+\textbf{UWL also encourages students to take advantage of the campus'
+many and varied (Campus Life
+Resources){[}https://www.uwlax.edu/info/campus-life/{]}.}
+
+\subsection{Course outline}\label{course-outline}
+
+\begin{longtable*}[t]{ll}
+\toprule
+Module Name & Module Learning Outcomes\\
+\midrule
+Baseline Data Literacy & Describe the anatomy of a data set including type (primary process generated or administrative, primary purpose generated, secondary), grouping, and unit of analysis.\\
+Baseline Data Literacy & Distinguish between discrete and continuous variables, and between nominal, ordinal and ratio scale variables.\\
+Baseline Data Literacy & Compute and interpret descriptive statistics relevant to the purpose of the analysis and appropriate for the level of measurement of the variables.\\
+Baseline Data Literacy & Interpret common visual representations of data including bar charts, histograms, and scatter plots.\\
+Baseline Data Literacy & Organize data in a spreadsheet following best practices.\\
+Baseline Data Literacy & Create common visual representations of data including bar charts, histograms, and scatter plots.\\
+Baseline Data Literacy & Demonstrate basic software competencies in spreadsheet software.\\
+Baseline Data Literacy & Define and appropriately use common terms in data analysis including correlation, causation, generalizability, validity, and reliability.\\
+Foundations of Data Analysis (Course LO) & Apply appropriate univariate and bivariate inferential statistics and correctly interpret the results of statistical tests.\\
+Foundations of Data Analysis (Course LO) & Demonstrate basic software competencies in scripting software.\\
+Communication of Results & Curate results generated to identify the most relevant insights and supporting analyses.\\
+Communication of Results & Create clear and compelling visualizations with necessary annotation to achieve stand alone effectiveness.\\
+Communication of Results & Summarize the problem addressed, methods used, results, and implications clearly and concisely in written and oral communication formats intended for non-technical audiences.\\
+Communication of Results & Quantify the implications of alternative solutions or proposed recommendations that follow from analysis.\\
+Communication of Results & Document methods and detailed results of analysis in appendices intended for technical audiences.\\
+Communication of Results & Compose succinct professional emails communicating progress on a project.\\
+Problem Definition & Gather insights from existing reports or others' analyses to demonstrate and articulate the existence of a business problem or opportunity.\\
+Problem Definition & Define research objectives that are feasible and hypothesis that can be tested using the chosen study methods and data sources.\\
+Problem Definition & Select relevant variables and sources of data needed to analyze an identified business problem or opportunity and propose survey measures when required data do not exist.\\
+Problem Definition & Define key metrics.\\
+Problem Definition & Choose appropriate analysis methods, data, and variables for analyzing the identified problem or opportunity.\\
+Intro to Advanced Topics & Distinguish between observational, quasi-experimental, and observational study designs and select the appropriate design for research objectives and desired use of findings.\\
+Intro to Advanced Topics & Define advanced analysis methods such as regression, forecasting, quasi-experimental and experimental study designs, optimization, machine learning, and text mining, and identify appropriate use cases.\\
+Intro to Advanced Topics & Prepare clear, appropriate, and appealing visual summaries of data in graphs and tables with informative use of color and text.\\
+Intro to Advanced Topics & Prepare data for analysis using sorting, filtering, merging, and additional functions as appropriate.\\
+Intro to Advanced Topics & Design a survey instrument to collect data needed to address a research question, identify potential sources of bias and articulate approach to avoiding bias in the design.\\
+Becoming an Informed Consumer of Data & Suggest relevant alternative explanations for results.\\
+Becoming an Informed Consumer of Data & Correct errors in analysis and interpretation of analysis.\\
+Becoming an Informed Consumer of Data & Describe current debates in research ethics and data privacy and the implications for business research.\\
+\bottomrule
+\end{longtable*}
+
+\subsection{Important dates}\label{important-dates}
+
+\begin{longtable*}[t]{lll}
+\toprule
+Name & Date & Event\\
+\midrule
+Week 3 & 2/10/2026 & Graded Quiz: Descriptive Stats \& Data Literacy\\
+Week 5 & 2/24/2026 & Graded Quiz: Data Visualization\\
+Week 7 & 3/10/2026 & Graded Quiz: R Basics\\
+Week 9 & 3/31/2026 & Presentation Coaching\\
+Week 11 & 4/7/2026 & Graded Quiz: Inferential Stats \& Data Literacy\\
+Week 12 & 4/14/2026 & Analysis Project Final Presentations\\
+Week 13 & 4/28/2026 & Graded Quiz: Survey Research Methods\\
+Week 14 & 5/5/2026 & Research Proposal Presentations\\
+Final Exam & Tuesday 05/12 07:00-09:00PM & Final Exam \& Practicum\\
+\bottomrule
+\end{longtable*}
+
+\subsection{Anticipated schedule}\label{anticipated-schedule}
+
+When discrepancies between Canvas and the Anticipated Schedule exist,
+the information on Canvas supersedes this schedule. Official class
+agendas are posted under This Week in Canvas.
+
+\begin{longtable*}[t]{lllll}
+\toprule
+Class & Date & Part 1 & Part 2 & Part 3\\
+\midrule
+Week 1 & 1/27/2026 & Course Overview & Anatomy, Grouping \& Unit of Analysis & Data Explore in 3 softwares\\
+Week 2 & 2/3/2026 & Level of Measurement Descriptive Statistics & Measures of Variablity and Association & Data Explore in 3 softwares\\
+Week 3 & 2/10/2026 & Data Visualization & Data Visualization in Tableau & Data Visualization in Tableau\\
+Week 4 & 2/17/2026 & Communicating with Data in Writing & Communicating with Data Orally & Work Time\\
+Week 5 & 2/24/2026 & Problem Definition & Launch Analysis Project & Work Time\\
+Week 6 & 3/3/2026 & Inference & Rstudio Descriptive Statistics & Work Time\\
+Week 7 & 3/10/2026 & Hypothesis Testing & Rstudio Inferential Statistics & Work Time\\
+Week 8 & 3/24/2026 & Pre-Coaching Work & Work Time & Work Time\\
+Week 9 & 3/31/2026 & Coaching Sessions & Work Time & Work Time\\
+Week 10 & 4/7/2026 & Communicating with Data Documenting Work & Work Time & Work Time\\
+Week 11 & 4/14/2026 & Analysis Project Final Presentations & Analysis Project Final Presentations & The Research Proposal\\
+Week 12 & 4/21/2026 & Advanced Analytics: Sample Design & Advanced Analytics: Survey Design & \\
+Week 13 & 4/28/2026 & Advanced Analytics: Machine Learning & Advanced Analytics: Experiment Design & Ethics\\
+Week 14 & 5/5/2026 & Research Proposal Presentations & Research Proposal Presentations & Final Exam Prep\\
+Final Exam & 5/12/2026 & Final Exam Tuesday 05/12 07:00-09:00PM &  & \\
+\bottomrule
+\end{longtable*}
+
+
+
+
+\end{document}

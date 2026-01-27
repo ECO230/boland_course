@@ -1,8 +1,13 @@
-.Rproj.user
+#R project state
+.Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
 
-/.quarto/
-**/*.quarto_ipynb
-/_site
+#Quarto build artifacts
+.quarto/
+_site/
+_freeze/
+
+#python/virtualenv
+__pycache__/
