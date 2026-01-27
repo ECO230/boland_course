@@ -1,36 +1,26 @@
----
 
+---
 title: "ECO 230 Business and Economic Research & Communication"
 subtitle: "Spring 2026 · Section 12 · 3 Credits"
 
+# Force correct format selection (prevents RevealJS interference)
 format:
   html:
-    css: style.css
     toc: true
     toc-depth: 3
+    toc-location: body
     number-sections: false
     anchor-sections: true
     smooth-scroll: true
-    title-block-style: none
-  pdf:
-    pdf-engine: xelatex
-    mainfont: "TeX Gyre Heros"
-    toc: true
-    toc-depth: 3
-    number-sections: false
-    geometry:
-      - margin=1in
-    include-in-header: 
-      text: |
-        % Better link colors
-        \usepackage[hidelinks]{hyperref}
 
-
+# Execution behavior
 execute:
   echo: false
   warning: false
   message: false
   freeze: auto
+
+# Term/section parameters (safe for inline R)
 params:
   semester_name: "Spring"
   full_year: 2026
@@ -89,7 +79,7 @@ kbl_syllabus <- function(df, full_width = FALSE) {
 
 **ECO 230 Business and Economic Research & Communication**
 
-**`r params$semester_name` `r params$full_year` | Section `r params$class_section` | Credits: 3**
+**`r params$semester_name` `r params$full_year` \| Section `r params$class_section` \| Credits: 3**
 
 Meets in `r params$classroom` `r params$class_dow` `r params$class_start` to `r params$class_end`.
 
@@ -271,11 +261,11 @@ At UWL, we support your academic success and overall health. We know that studen
 
 ### Technical support
 
-For tips and information about Canvas visit the (canvas website)[https://www.uwlax.edu/info/canvas/students/]; this site also links to the 24/7 Canvas support. If you are having Canvas login issues or need general computer assistance, contact the (Eagle Help Desk)[https://www.uwlax.edu/its/client-services-and-support/eagle-help-desk/].
+For tips and information about Canvas visit the (canvas website)\[https://www.uwlax.edu/info/canvas/students/\]; this site also links to the 24/7 Canvas support. If you are having Canvas login issues or need general computer assistance, contact the (Eagle Help Desk)\[https://www.uwlax.edu/its/client-services-and-support/eagle-help-desk/\].
 
 ### Student success resources
 
-**UWL also encourages students to take advantage of the campus' many and varied (Campus Life Resources)[https://www.uwlax.edu/info/campus-life/].**
+**UWL also encourages students to take advantage of the campus' many and varied (Campus Life Resources)\[https://www.uwlax.edu/info/campus-life/\].**
 
 ## Course outline
 
