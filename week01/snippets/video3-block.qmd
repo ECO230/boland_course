@@ -1,0 +1,18 @@
+
+## <span class="sr-only">Video: Tidy Data & Data Structure</span>
+
+### Tidy Data & Data Structure (Watch on Canvas)
+
+> **Watch on Canvas:** _Tidy Data & Structure Video_  
+> Replace `#` with your Canvas video link.
+
+[▶️ Open Video in Canvas](#)
+
+---
+
+<details>
+  <summary><strong>Transcript — Tidy Data & Structure (click to expand)</strong></summary>
+
+{{< include ../transcripts/video3.md >}}
+
+</details>

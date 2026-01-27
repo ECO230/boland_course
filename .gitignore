@@ -1,8 +1,14 @@
-.Rproj.user
+#R project state
+.Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
-_freeze
+
+#Quarto build artifacts
 .quarto
-_quarto.yml
 _site
+_freeze
+
+#python/virtualenv
+__pycache__/
+

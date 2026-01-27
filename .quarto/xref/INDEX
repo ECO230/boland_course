@@ -1,0 +1,41 @@
+{
+  "week01/quarto/Week1.qmd": {
+    "Week1.html": "5523f976"
+  },
+  "week01/transcripts/video3.md": {
+    "video3.html": "09cf33c6"
+  },
+  "week01/week_01.qmd": {
+    "week_01.html": "069c1329"
+  },
+  "week01/study/video1-study.md": {
+    "video1-study.html": "6516af9e"
+  },
+  "week01/test.qmd": {
+    "test.html": "5c25c75c"
+  },
+  "week01/snippets/video3-block.qmd": {
+    "video3-block.html": "ce648876"
+  },
+  "week01/snippets/video1-block.qmd": {
+    "video1-block.html": "ccabf6da"
+  },
+  "week01/snippets/video2-block.qmd": {
+    "video2-block.html": "c2ef7c5a"
+  },
+  "week01/study/video2-study.md": {
+    "video2-study.html": "c1275131"
+  },
+  "week01/study/video3-study.md": {
+    "video3-study.html": "992e6f8c"
+  },
+  "week01/transcripts/video1.md": {
+    "video1.html": "1c0c25cf"
+  },
+  "week01/transcripts/video2.md": {
+    "video2.html": "074e8dfa"
+  },
+  "week01/example.qmd": {
+    "example.html": "e46e2ca3"
+  }
+}

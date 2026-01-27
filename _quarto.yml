@@ -1,0 +1,33 @@
+
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "ECO 230 — Section 12"
+  navbar:
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "Syllabus"
+        file: syllabus/syllabus.qmd
+      - text: "Slides"
+        menu:
+          - text: "Week 1"
+            file: week01/week_01.qmd
+      - text: "Homework"
+        menu:
+          - text: "Homework 1"
+            file: week01/Homework_01.qmd
+
+format:
+  html:
+    toc: false            # default for normal pages (we'll turn on ToC in syllabus.qmd only)
+    number-sections: false
+    css: styles/accessibility.css
+
+execute:
+  echo: false
+  warning: false
+
+editor: visual

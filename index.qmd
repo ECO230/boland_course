@@ -1,0 +1,20 @@
+
+---
+title: "ECO 230 — Section 012"
+format:
+  html:
+    toc: false
+---
+
+# Welcome to ECO 230 (Section 012)
+
+This website hosts:
+
+- **Syllabus**  
+- **Weekly Slides (Reveal.js)**  
+- **Homework Assignments & Handouts**  
+- Additional course materials as the semester progresses.
+
+Use the navigation bar at the top to access each item.
+
+If you are viewing this inside Canvas, links will open in a new window or in an embedded iframe depending on your instructor setup.

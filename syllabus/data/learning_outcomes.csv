@@ -1,0 +1,30 @@
+Module Name,Module Learning Outcomes
+Baseline Data Literacy,"Describe the anatomy of a data set including type (primary process generated or administrative, primary purpose generated, secondary), grouping, and unit of analysis."
+Baseline Data Literacy,"Distinguish between discrete and continuous variables, and between nominal, ordinal and ratio scale variables."
+Baseline Data Literacy,Compute and interpret descriptive statistics relevant to the purpose of the analysis and appropriate for the level of measurement of the variables.
+Baseline Data Literacy,"Interpret common visual representations of data including bar charts, histograms, and scatter plots."
+Baseline Data Literacy,Organize data in a spreadsheet following best practices.
+Baseline Data Literacy,"Create common visual representations of data including bar charts, histograms, and scatter plots."
+Baseline Data Literacy,Demonstrate basic software competencies in spreadsheet software.
+Baseline Data Literacy,"Define and appropriately use common terms in data analysis including correlation, causation, generalizability, validity, and reliability."
+Foundations of Data Analysis (Course LO),Apply appropriate univariate and bivariate inferential statistics and correctly interpret the results of statistical tests.
+Foundations of Data Analysis (Course LO),Demonstrate basic software competencies in scripting software.
+Communication of Results,Curate results generated to identify the most relevant insights and supporting analyses.
+Communication of Results,Create clear and compelling visualizations with necessary annotation to achieve stand alone effectiveness.
+Communication of Results,"Summarize the problem addressed, methods used, results, and implications clearly and concisely in written and oral communication formats intended for non-technical audiences."
+Communication of Results,Quantify the implications of alternative solutions or proposed recommendations that follow from analysis.
+Communication of Results,Document methods and detailed results of analysis in appendices intended for technical audiences.
+Communication of Results,Compose succinct professional emails communicating progress on a project.
+Problem Definition,Gather insights from existing reports or others' analyses to demonstrate and articulate the existence of a business problem or opportunity.
+Problem Definition,Define research objectives that are feasible and hypothesis that can be tested using the chosen study methods and data sources.
+Problem Definition,Select relevant variables and sources of data needed to analyze an identified business problem or opportunity and propose survey measures when required data do not exist.
+Problem Definition,Define key metrics.
+Problem Definition,"Choose appropriate analysis methods, data, and variables for analyzing the identified problem or opportunity."
+Intro to Advanced Topics,"Distinguish between observational, quasi-experimental, and observational study designs and select the appropriate design for research objectives and desired use of findings."
+Intro to Advanced Topics,"Define advanced analysis methods such as regression, forecasting, quasi-experimental and experimental study designs, optimization, machine learning, and text mining, and identify appropriate use cases."
+Intro to Advanced Topics,"Prepare clear, appropriate, and appealing visual summaries of data in graphs and tables with informative use of color and text."
+Intro to Advanced Topics,"Prepare data for analysis using sorting, filtering, merging, and additional functions as appropriate."
+Intro to Advanced Topics,"Design a survey instrument to collect data needed to address a research question, identify potential sources of bias and articulate approach to avoiding bias in the design."
+Becoming an Informed Consumer of Data,Suggest relevant alternative explanations for results.
+Becoming an Informed Consumer of Data,Correct errors in analysis and interpretation of analysis.
+Becoming an Informed Consumer of Data,Describe current debates in research ethics and data privacy and the implications for business research.
