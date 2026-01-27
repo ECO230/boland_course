@@ -1,0 +1,842 @@
+[
+  {
+    "objectID": "week01/transcripts/video2.html",
+    "href": "week01/transcripts/video2.html",
+    "title": "Transcript — Video 2 (Measurement Scales)",
+    "section": "",
+    "text": "Transcript — Video 2 (Measurement Scales)\nSo once you have an idea of what data is in our dataset, how it’s tract, it’s good to take a look at those variables and think, Okay, how is this data is actually stored? Either How was it coded? How is it stored numerically? Is that gonna be useful for us? Is it going to be, is it going to tell us the information that we need? Or do we need to go look at data from a different source?\nSo textbook definition of how data is measured is as follows. As follows. Here, we talked a little bit about those categorical variables. There’s numeric variables. But this type of data and how it’s stored. It is also important to know what’s the scale that the date is on. So textbook definition, we have nominal ordinal, interval and ratio scale data. And this is getting into, once we have this data, numerically, what we do with it mathematically.\nNominal scale is the lowest level. This is a naming type verbal, so the categories that we have are just there for naming purposes just to keep track of. Okay. This person isn’t, this, isn’t this category or not. It’s usually a categorical type scale.\nOrdinal scale is the same sort of thing. We looked at this a little bit with categorical scales where there’s some order inherent to the, to the way the data is tracked.\n(… transcript continues …)"
+  },
+  {
+    "objectID": "week01/transcripts/video1.html",
+    "href": "week01/transcripts/video1.html",
+    "title": "Transcript — Video 1 (ETL)",
+    "section": "",
+    "text": "Transcript — Video 1 (ETL)\nIt’s usually one of our first task is figuring out how to get the data where we need it to be in order to use it and do our analysis on it. So generally when we’re getting data, it’s going to follow this type of a process, extract, transform load or ETL process. A lot of the data that we’re gonna be working with, especially for this course, is going to be data that other people have gathered what’s known as secondary data. Later on in the class, we will talk little bit about primary data, how to, how to gather data for a specific purpose. But the vast majority of the time we’re gonna be using data that’s already existing and whether it is from a third party source or internally within our company has sales database or something like that. We usually don’t have a lot of say in how their data is structured, how it’s set up. So we need to figure out how to get that data in the form that it’s in currently. And then get it into a form that we’re gonna be able to do. Our nails the sun.\nThe first step in that process is to extract the data. And that is to get the data from wherever it is to our computer, to where we’re gonna be working with it at. That data can take on a number of different forms. Sometimes the data is relatively clean. If it is a something like this where we have a structured database where everything is set up just so you know, each point of data is in its own row, each specific variables in its own column. So sometimes it might be pretty much in the form that we need to use it, right where it is.\nOther times you might be grabbing it from a website or something like that. If you wanted to do some analysis looking at census data, you will go to the Census Bureau’s website and download data from there. It might just be unstructured data just pouring into, into a database, some sort of a sensor or something that is tracking data, looking at a motion sensor or something like that. Where, you know, every time that that sensor is triggered, it it changes from a truth or false yes or no sort of a thing. Measuring the brightness or measuring the voltage of a certain sensor. Measuring whether or not motion was detected on a video camera. That data might just be constantly pouring in. And then we have to figure out, okay, how we’re gonna deal with this L. We’re going to figure out what the timestamp was. What does this data, what is it telling us?\nThat first step is to is to extract that data. So get it out of where it is right now. Get it to where we need it to be. Once we have that data downloaded or transferred over to where we’re gonna be using it or connected to, you know, sometimes we don’t actually need the data, we just make a connection to where it’s at. Next step is to transform that data to get it into a format that’s going to be convenient for us to use that we can do analysis on without a constantly having to go in and edit things and change things and recalculate. So that’s the T part of the ETL process transform to get the data from the form that it’s in when we get it, to change it to the form that we’re gonna be using it for our analysis.\nSo a lot of times we’re editing this data, so it’s gonna be stored in a consistent way. It’s gonna be efficient for us to go and look at it. There’s certain rules that we’re going to follow that’s gonna make our lives much easier when it comes time to analyze that data or build a chart or do some analysis on it. There are some standard ways to keep that where any tool that we’re going to connect to that data width is going to be able to look at it in a similar way.\nThe example on the top here, that a good before if we download data from the Census Bureau, It’s gonna look something like this. So this data is stored in a way where we have gigabytes of data on. However many million people live in the country. All that data is stored on a server somewhere in a way that’s going to be convenient for the Census Bureau. That’s not necessarily convenient for us. You can see we have a lot of empty space here. If category one, category to category three, you might not know what those things mean.\nA lot of times we need to transform that data to get it into something. It’s going to be a little bit more convenient for us to use consistent way to measure what was the time that his data was recorded? Consistent way to measure geographically, what was their zip code? What was the date of what was what were the different categories that it falls into? A lot of times we can store that in a much more efficient way. We do it as part of the transform process.\nLast step then is to load it into the program that we’re gonna be using to do our analysis. In this can be anything. Sometimes we go from a database, we transform it and put it right back into that same database. This doesn’t necessarily have to be different programs that we’re using.\n(… transcript continues …)"
+  },
+  {
+    "objectID": "week01/study/video3-study.html",
+    "href": "week01/study/video3-study.html",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "Identify the unit of analysis in any dataset.\nDistinguish cross‑sectional, time‑series, and panel data.\nUnderstand dimensions vs. measures.\nRecognize tall vs. wide data structures.\nApply the four principles of tidy data.\n\n\n\n\n\n\nUnit of analysis = what each row represents.\nCross‑sectional = different subjects at one time.\nTime‑series = measurements over time (subjects may differ).\nPanel = same subjects over time.\nTall data = many rows; good for grouping, pivoting, combining.\nWide data = many columns; good for fast lookups.\nDimensions = categories for slicing/filtering (e.g., person, month, location).\nMeasures = numeric values to summarize (e.g., mean sleep minutes).\nTidy data principles:\n\nVariables in columns\n\nObservations in rows\n\nOne table per observational unit\n\nKeys connect tables\n\n\n\n\n\n\n\n\nThe entity described by each row (person, transaction, date, etc.).\n\n\n\nCategorical descriptors used for slicing or grouping.\n\n\n\nNumerical values used for summaries like average, count, standard deviation.\n\n\n\nTwo orientations of the same underlying information.\n\n\n\n\n\n\n\n\nWhich dataset structure is ideal for pivoting between categories?\n\n\nWide\n\n\n\nTall\nCorrect answer: B\n\n\nA dataset tracking the same individuals every month is:\n\n\nCross‑sectional\n\n\n\nTime‑series\n\n\n\nPanel\nCorrect answer: C\n\n\n“Month, Location, Person” in a sleep‑tracking dataset are:\n\n\nMeasures\n\n\n\nDimensions\nCorrect answer: B\n\n\n\n\n\n\n\nDescribe a dataset from real life and identify its unit of analysis.\n\nExplain why tall datasets are usually easier to join and aggregate.\n\nDescribe when you would prefer a wide dataset.\n\n\n\n\n\n\n\n“Convert a wide dataset to tall format and explain the impact on analysis.”\n“Give me examples of cross‑sectional, time‑series, and panel data from everyday life.”\n“Ask me 5 questions that require identifying unit of analysis errors.”\n“Give me messy untidy data and ask me to reorganize it into valid tidy format.”"
+  },
+  {
+    "objectID": "week01/study/video3-study.html#learning-objectives",
+    "href": "week01/study/video3-study.html#learning-objectives",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "Identify the unit of analysis in any dataset.\nDistinguish cross‑sectional, time‑series, and panel data.\nUnderstand dimensions vs. measures.\nRecognize tall vs. wide data structures.\nApply the four principles of tidy data."
+  },
+  {
+    "objectID": "week01/study/video3-study.html#key-takeaways",
+    "href": "week01/study/video3-study.html#key-takeaways",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "Unit of analysis = what each row represents.\nCross‑sectional = different subjects at one time.\nTime‑series = measurements over time (subjects may differ).\nPanel = same subjects over time.\nTall data = many rows; good for grouping, pivoting, combining.\nWide data = many columns; good for fast lookups.\nDimensions = categories for slicing/filtering (e.g., person, month, location).\nMeasures = numeric values to summarize (e.g., mean sleep minutes).\nTidy data principles:\n\nVariables in columns\n\nObservations in rows\n\nOne table per observational unit\n\nKeys connect tables"
+  },
+  {
+    "objectID": "week01/study/video3-study.html#concept-definitions",
+    "href": "week01/study/video3-study.html#concept-definitions",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "The entity described by each row (person, transaction, date, etc.).\n\n\n\nCategorical descriptors used for slicing or grouping.\n\n\n\nNumerical values used for summaries like average, count, standard deviation.\n\n\n\nTwo orientations of the same underlying information."
+  },
+  {
+    "objectID": "week01/study/video3-study.html#practice-questions",
+    "href": "week01/study/video3-study.html#practice-questions",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "Which dataset structure is ideal for pivoting between categories?\n\n\nWide\n\n\n\nTall\nCorrect answer: B\n\n\nA dataset tracking the same individuals every month is:\n\n\nCross‑sectional\n\n\n\nTime‑series\n\n\n\nPanel\nCorrect answer: C\n\n\n“Month, Location, Person” in a sleep‑tracking dataset are:\n\n\nMeasures\n\n\n\nDimensions\nCorrect answer: B\n\n\n\n\n\n\n\nDescribe a dataset from real life and identify its unit of analysis.\n\nExplain why tall datasets are usually easier to join and aggregate.\n\nDescribe when you would prefer a wide dataset."
+  },
+  {
+    "objectID": "week01/study/video3-study.html#aipowered-study-prompts",
+    "href": "week01/study/video3-study.html#aipowered-study-prompts",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "“Convert a wide dataset to tall format and explain the impact on analysis.”\n“Give me examples of cross‑sectional, time‑series, and panel data from everyday life.”\n“Ask me 5 questions that require identifying unit of analysis errors.”\n“Give me messy untidy data and ask me to reorganize it into valid tidy format.”"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#use-instant-booking-wisely",
+    "href": "week01/week_01_DEP.html#use-instant-booking-wisely",
+    "title": "ECO 230 Section 012",
+    "section": "Use Instant Booking Wisely",
+    "text": "Use Instant Booking Wisely\nAirbnb Owners should enable Instant Booking in Fall — it’s the unequivocally best season for superior ratings and returns.\n\n\n\n\n\n\n\n\nSeason\nBookings\nAvg Price (USD)\nAvg Rating\nInstant-Book %\nRating × Price\n\n\n\n\nFall\n2,253\n$134.63\n95.14\n23.70%\n12,808.16\n\n\nWinter\n1,521\n$129.39\n95.08\n31.56%\n12,302.72\n\n\nSummer\n2,118\n$128.85\n94.64\n23.94%\n12,194.56\n\n\nSpring\n4,283\n$122.11\n95.32\n31.43%\n11,639.20"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#sample-airbnb-data",
+    "href": "week01/week_01_DEP.html#sample-airbnb-data",
+    "title": "ECO 230 Section 012",
+    "section": "Sample Airbnb Data",
+    "text": "Sample Airbnb Data\n\n\n\n\n\n\n\n\nID\nName\nProperty\nRoom\nNeighborhood\nZIP\nSleeps\nBR\nBeds\nHost Since\nFirst Review\nLast Review\n# Reviews\nRating\nPrice\nIB?\n\n\n\n\n6226658\nSweet Home Chicago\nApartment\nPrivate room\nHumboldt Park\n60622\n2\n1\n1\n2012-09-10\nNA\nNA\n0\nNA\n$60.00\nNo\n\n\n7499179\nPrivate room in Wicker Park loft at...\nLoft\nPrivate room\nWicker Park\n60622\n2\n1\n1\n2016-07-29\n2016-08-14\n2016-10-16\n15\n91.00\n$75.00\nNo\n\n\n19813606\nModern condo close to parks and mus...\nCondominium\nEntire home/apt\nSouth Loop/Prin...\n60605\n5\n2\n2\n2016-07-17\nNA\nNA\n0\nNA\n$250.00\nYes\n\n\n13435559\nArt studio + house in one\nHouse\nPrivate room\nPilsen\n60608\n2\n1\n1\n2014-02-27\n2014-03-19\n2017-04-30\n85\n96.00\n$64.00\nNo\n\n\n19692298\nCharming bohemian duplex w King bed\nHouse\nEntire home/apt\nNA\n60647\n3\n1\n1\n2015-03-15\n2015-11-23\n2016-11-21\n18\n97.00\n$110.00\nNo\n\n\n235281\n5 QUEEN BEDS / 2 FULL BATHS / SLEEP...\nApartment\nEntire home/apt\nLakeview\n60614\n9\n2\n5\n2015-12-13\n2016-06-10\n2017-04-16\n10\n96.00\n$199.00\nNo\n\n\n783533\nChicago MostWanted LOCATION Mag Mil\nApartment\nEntire home/apt\nStreeterville\n60611\n2\n1\n1\n2012-10-24\n2014-04-13\n2014-11-05\n4\n100.00\n$161.00\nNo\n\n\n11610316\nBedroom with bath and large family ...\nBungalow\nPrivate room\nBelmont Cragin\n60639\n5\n1\n3\n2017-02-07\n2017-03-02\n2017-05-07\n16\n100.00\n$39.00\nYes\n\n\n16412763\nGreat 1 bedroom Luxury Location and...\nApartment\nEntire home/apt\nNA\n60601\n3\n1\n1\n2012-10-24\n2015-10-16\n2015-10-16\n1\n100.00\n$175.00\nNo\n\n\n15636707\nFantastic River North Location!-s3\nApartment\nEntire home/apt\nRiver North\n60654\n2\n0\n1\n2015-10-15\n2016-10-23\n2016-10-23\n1\n80.00\n$359.00\nNo\n\n\n18089318\nShortStayChicago#5: Michigan Avenue\nApartment\nEntire home/apt\nRiver North\n60610\n2\n0\n1\n2014-12-20\n2015-05-25\n2017-03-04\n14\n89.00\n$85.00\nNo\n\n\n17587897\nCITY CENTER, SPACIOUS COZY STUDIO &...\nApartment\nEntire home/apt\nGold Coast\n60610\n2\n0\n1\n2016-01-24\nNA\nNA\n0\nNA\n$29.00\nYes\n\n\n9379983\nCozy Garden Unit In Edgewater\nApartment\nEntire home/apt\nEdgewater\n60660\n4\n1\n1\n2011-08-28\n2016-01-16\n2017-05-08\n55\n95.00\n$85.00\nYes\n\n\n1602772\nSplit-Level Artist Loft\nLoft\nEntire home/apt\nWest Town/Noble...\n60642\n4\n2\n2\n2015-06-16\n2015-09-14\n2017-04-17\n18\n95.00\n$200.00\nNo\n\n\n18341150\nLarge beautiful old apartment, with...\nApartment\nPrivate room\nUptown\n60613\n2\n1\n1\n2016-11-09\nNA\nNA\n0\nNA\n$56.00\nYes\n\n\n19564384\nArt-Filled Vintage Ukrainian Villag...\nApartment\nPrivate room\nUkrainian Village\n60622\n1\n1\n1\n2015-04-21\n2016-08-21\n2017-04-24\n18\n99.00\n$68.00\nNo\n\n\n10253271\nGorgeous South Loop / Downtown Loft...\nCondominium\nEntire home/apt\nSouth Loop/Prin...\n60605\n6\n2\n4\n2016-08-13\n2016-09-16\n2017-05-05\n29\n96.00\n$129.00\nYes\n\n\n11750272\nTwo Bedroom Suite in Lincoln Park\nApartment\nEntire home/apt\nLincoln Park\n60614\n4\n2\n2\n2009-08-24\nNA\nNA\n0\nNA\n$155.00\nNo\n\n\n708802\nLogan Square- Steps from the train!\nHouse\nEntire home/apt\nNA\n60647\n8\n1\n2\n2013-05-03\n2016-11-20\n2016-11-20\n1\n100.00\n$300.00\nNo\n\n\n4281241\nWest Loop/Greek Town Loft With Free...\nLoft\nPrivate room\nWest Loop/Greek...\n60661\n4\n1\n1\n2016-06-17\n2016-09-13\n2017-04-09\n14\n94.00\n$85.00\nNo"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#section",
+    "href": "week01/week_01_DEP.html#section",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "What is Statistics?\nWhat is Analytics?"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#section-1",
+    "href": "week01/week_01_DEP.html#section-1",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics is the art of finding out what is in your data."
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#section-2",
+    "href": "week01/week_01_DEP.html#section-2",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "If you can (with some effort) find the answer with certainty you are using Analytics."
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#section-3",
+    "href": "week01/week_01_DEP.html#section-3",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics deals with what you know.\nStatistics deals with what you do not know."
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#section-4",
+    "href": "week01/week_01_DEP.html#section-4",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics turns curiosity into questions.\nStatistics turns data into answers."
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#section-5",
+    "href": "week01/week_01_DEP.html#section-5",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics is the art of finding out what is in your data.\nStatistics is the science of making decisions under uncertainty.\n\n\n\nOpen with intuition: students already do analytics informally.\nEmphasize uncertainty as the key dividing line.\nPause after the third fragment and ask for examples."
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#jump-to-conclusions-2",
+    "href": "week01/week_01_DEP.html#jump-to-conclusions-2",
+    "title": "ECO 230 Section 012",
+    "section": "Jump to Conclusions 2",
+    "text": "Jump to Conclusions 2\nCalculate the Total Yearly Revenue for Each Property\n\n\n\n\n\n\nDataset A — Airbnb Rental Data\n\n\nID\nName\nRoom\nList\nSleeps\nN’hood\nBR\nBA\nBeds\nCancel\n\n\n\n\n18739123\nAmazing Views / Walk to McC…\nEntire home/apt\n$165\n2\nSouth Loop/Printers Row\n1\n1.0\n1\nmoderate\n\n\n13018453\nBEST LOCATION Michigan Ave&…\nEntire home/apt\n$150\n4\nLoop\n2\n2.0\n2\nmoderate\n\n\n20800994\nDowntown Condo! The Best Lo…\nEntire home/apt\n$249\n16\nNA\n2\n2.5\n4\nstrict\n\n\n12854553\nLogan Square gem! Parking i…\nEntire home/apt\n$100\n6\nLogan Square\n2\n1.0\n3\nstrict\n\n\n743217\nLux Downtown River North La…\nPrivate room\n$118\n2\nLoop\n1\n1.0\n1\nmoderate\n\n\n4872152\nThe Firehouse B&B - The…\nPrivate room\n$95\n2\nIrving Park\n1\n1.0\n1\nflexible\n\n\n\n\n\n\n\n\n\n\n\n\n\nDataset B — Airbnb Rental Data\n\n\nID\nName\nRoom\nSleeps\nN’hood\nCheck‑in\nNts\nGuests\nStatus\nPrice/Nt\nTotal\n\n\n\n\n12854553\nLogan Square gem! Parki…\nEntire home/apt\n6\nLogan Square\n2025-03-03\n5\n4\ncompleted\n$140\n$800\n\n\n12854553\nLogan Square gem! Parki…\nEntire home/apt\n6\nLogan Square\n2025-04-17\n5\n5\ncompleted\n$125\n$726\n\n\n12854553\nLogan Square gem! Parki…\nEntire home/apt\n6\nLogan Square\n2025-07-10\n7\n2\ncompleted\n$61\n$524\n\n\n743217\nLux Downtown River Nort…\nPrivate room\n2\nLoop\n2025-09-07\n6\n1\ncompleted\n$80\n$480\n\n\n743217\nLux Downtown River Nort…\nPrivate room\n2\nLoop\n2025-09-21\n2\n2\ncompleted\n$126\n$251\n\n\n743217\nLux Downtown River Nort…\nPrivate room\n2\nLoop\n2025-10-15\n4\n1\ncompleted\n$110\n$441"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#rows-vs-columns",
+    "href": "week01/week_01_DEP.html#rows-vs-columns",
+    "title": "ECO 230 Section 012",
+    "section": "Rows vs Columns",
+    "text": "Rows vs Columns\n\n\nColumns\n\n\n\nRows"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#unit-of-analysis",
+    "href": "week01/week_01_DEP.html#unit-of-analysis",
+    "title": "ECO 230 Section 012",
+    "section": "Unit of Analysis",
+    "text": "Unit of Analysis\n\n\nWhat does each thingie (row, observation, grain) of this data represent?\n\n\n\nEveryone in a zipcode\nIndividual consumers\nIndividual purchases\nGDP of an economy\nPopulation of a planet"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#data-grouping-cross-sectional",
+    "href": "week01/week_01_DEP.html#data-grouping-cross-sectional",
+    "title": "ECO 230 Section 012",
+    "section": "Data Grouping: Cross-Sectional",
+    "text": "Data Grouping: Cross-Sectional"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#data-grouping-time-series",
+    "href": "week01/week_01_DEP.html#data-grouping-time-series",
+    "title": "ECO 230 Section 012",
+    "section": "Data Grouping: Time-Series",
+    "text": "Data Grouping: Time-Series"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#data-grouping-panel",
+    "href": "week01/week_01_DEP.html#data-grouping-panel",
+    "title": "ECO 230 Section 012",
+    "section": "Data Grouping: Panel",
+    "text": "Data Grouping: Panel"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#tall-vs-wide-data",
+    "href": "week01/week_01_DEP.html#tall-vs-wide-data",
+    "title": "ECO 230 Section 012",
+    "section": "Tall vs Wide Data",
+    "text": "Tall vs Wide Data\nSummarize total minutes of sleep by month and location\n\n\n\n\n\n\n\n\n\n\nTall — More rows, fewer columns\n\n\n\nVariable\nValue\n\n\n\n\nCam\nDate\n2025-01-05\n\n\nCam\nDate\n2025-01-06\n\n\nCam\nDate\n2025-01-07\n\n\nCam\nDate\n2025-01-08\n\n\nCam\nDate\n2025-01-09\n\n\nCam\nDate\n2025-01-10\n\n\nCam\nDate\n2025-01-11\n\n\nCam\nDayOfWeek\nSunday\n\n\nCam\nDayOfWeek\nMonday\n\n\nCam\nDayOfWeek\nTuesday\n\n\nCam\nDayOfWeek\nWednesday\n\n\nCam\nDayOfWeek\nThursday\n\n\nCam\nDayOfWeek\nFriday\n\n\nCam\nDayOfWeek\nSaturday\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nTotalMinutes\n411\n\n\nCam\nTotalMinutes\n386\n\n\nCam\nTotalMinutes\n387\n\n\nCam\nTotalMinutes\n442\n\n\nCam\nTotalMinutes\n440\n\n\nCam\nTotalMinutes\n472\n\n\nCam\nTotalMinutes\n407\n\n\nMike\nDate\n2025-01-05\n\n\nMike\nDate\n2025-01-06\n\n\nMike\nDate\n2025-01-07\n\n\nMike\nDate\n2025-01-08\n\n\nMike\nDate\n2025-01-09\n\n\nMike\nDate\n2025-01-10\n\n\nMike\nDate\n2025-01-11\n\n\nMike\nDayOfWeek\nSunday\n\n\nMike\nDayOfWeek\nMonday\n\n\nMike\nDayOfWeek\nTuesday\n\n\nMike\nDayOfWeek\nWednesday\n\n\nMike\nDayOfWeek\nThursday\n\n\nMike\nDayOfWeek\nFriday\n\n\nMike\nDayOfWeek\nSaturday\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nTotalMinutes\n462\n\n\nMike\nTotalMinutes\n496\n\n\nMike\nTotalMinutes\n514\n\n\nMike\nTotalMinutes\n442\n\n\nMike\nTotalMinutes\n532\n\n\nMike\nTotalMinutes\n533\n\n\nMike\nTotalMinutes\n497\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWide — More columns, fewer rows\n\n\nName\nGender\nLocation\n2025-01-05\n2025-01-06\n2025-01-07\n2025-01-08\n2025-01-09\n2025-01-10\n2025-01-11\n\n\n\n\nCam\nFemale\nHome\n411\n386\n387\n442\n440\n472\n407\n\n\nMike\nMale\nHome\n462\n496\n514\n442\n532\n533\n497"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#data-types",
+    "href": "week01/week_01_DEP.html#data-types",
+    "title": "ECO 230 Section 012",
+    "section": "Data Types",
+    "text": "Data Types\n\nCategories\nTrue/False → logical\nCategorical → factor\nOrdinal → factor\n\nNumbers\nDiscrete → integer\nContinuous → double"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#measurement-scales",
+    "href": "week01/week_01_DEP.html#measurement-scales",
+    "title": "ECO 230 Section 012",
+    "section": "Measurement Scales",
+    "text": "Measurement Scales"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#observations---atomic-data",
+    "href": "week01/week_01_DEP.html#observations---atomic-data",
+    "title": "ECO 230 Section 012",
+    "section": "Observations - Atomic Data",
+    "text": "Observations - Atomic Data\n\n\n\n\n\n\n\n\n\n\nCategories\n\n\n\n\n\n\n\n\nName\nMike\n\n\nDate\n01/03/2025\n\n\nGender\nMale\n\n\nLocation\nHome\n\n\nZipCode\n54601\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumbers\n\n\n\n\n\n\n\n\nStart Time\n10:30 P.M.\n\n\nEnd Time\n6:59 A.M.\n\n\nR.E.M.\n109 Minutes\n\n\nDeep Sleep\n151 Minutes\n\n\nLight Sleep\n249 Minutes\n\n\nTotal Sleep\n509\n\n\nQuality\n51%"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#summarized-data",
+    "href": "week01/week_01_DEP.html#summarized-data",
+    "title": "ECO 230 Section 012",
+    "section": "Summarized Data",
+    "text": "Summarized Data\n\n\nDimensions\n\n\nCategories\nFilters\nAxis Labels\n\n\n\n    \n\nMeasures\n\n\nAverages\nStandard Deviation\nCounts\nSums\n\n\n\n\n\n\n\n\n\n\nJune Camping\n\n\n\n\n\n\n\nMean = 426.50 Minutes\n\n\nMedian = 440 Minutes\n\n\nQuality = 41.87%\n\n\nN Records = 6"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#tall-vs-wide",
+    "href": "week01/week_01_DEP.html#tall-vs-wide",
+    "title": "ECO 230 Section 012",
+    "section": "Tall vs Wide",
+    "text": "Tall vs Wide\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDimensions\n\n\nMeasures\n\n\n\nDate\nDayOfWeek\nMonth\nPersonName\nGender\nLocation\nEventType\nStartTime\nEndTime\nTotalMinutes\nREMMinutes\nDeepMinutes\nLightMinutes\nSleepQuality\n\n\n\n\n2025-01-01\nWednesday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-01 22:25\n2025-01-02 05:26\n421\n113\n123\n185\n56.10%\n\n\n2025-01-01\nWednesday\nJanuary\nJohn\nMale\nHome\nMain\n2025-01-01 00:30\n2025-01-01 07:28\n418\n84\n104\n230\n45.00%\n\n\n2025-01-01\nWednesday\nJanuary\nLucas\nMale\nHome\nMain\n2025-01-01 22:25\n2025-01-02 05:44\n439\n70\n183\n186\n57.60%\n\n\n2025-01-01\nWednesday\nJanuary\nLydia\nFemale\nHome\nMain\n2025-01-01 23:15\n2025-01-02 07:34\n499\n79\n184\n236\n52.70%\n\n\n2025-01-01\nWednesday\nJanuary\nMike\nMale\nHome\nMain\n2025-01-01 23:10\n2025-01-02 07:24\n494\n151\n85\n258\n47.80%\n\n\n2025-01-01\nWednesday\nJanuary\nSloane\nFemale\nHome\nMain\n2025-01-01 22:00\n2025-01-02 05:36\n456\n94\n164\n198\n56.60%\n\n\n2025-01-02\nThursday\nJanuary\nCam\nFemale\nHome\nNap\n2025-01-02 13:40\n2025-01-02 14:24\n44\n9\n10\n25\n43.20%\n\n\n2025-01-02\nThursday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-02 22:10\n2025-01-03 05:00\n410\n132\n97\n181\n55.90%\n\n\n2025-01-02\nThursday\nJanuary\nJohn\nMale\nHome\nMain\n2025-01-02 23:50\n2025-01-03 06:47\n417\n93\n128\n196\n53.00%\n\n\n2025-01-02\nThursday\nJanuary\nLucas\nMale\nHome\nNap\n2025-01-02 16:00\n2025-01-02 17:06\n66\n3\n27\n36\n45.50%\n\n\n2025-01-02\nThursday\nJanuary\nLucas\nMale\nHome\nMain\n2025-01-02 22:00\n2025-01-03 05:41\n461\n95\n145\n221\n52.10%\n\n\n2025-01-02\nThursday\nJanuary\nLydia\nFemale\nHome\nMain\n2025-01-02 22:45\n2025-01-03 06:28\n463\n121\n121\n221\n52.30%\n\n\n2025-01-02\nThursday\nJanuary\nMike\nMale\nHome\nMain\n2025-01-02 22:05\n2025-01-03 05:50\n465\n116\n110\n239\n48.60%\n\n\n2025-01-02\nThursday\nJanuary\nSloane\nFemale\nHome\nMain\n2025-01-02 21:40\n2025-01-03 04:56\n436\n71\n172\n193\n55.70%\n\n\n2025-01-03\nFriday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-03 22:10\n2025-01-04 05:27\n437\n96\n165\n176\n59.70%"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#principles-of-tidy-data",
+    "href": "week01/week_01_DEP.html#principles-of-tidy-data",
+    "title": "ECO 230 Section 012",
+    "section": "Principles of Tidy Data",
+    "text": "Principles of Tidy Data\n\nEach variable you measure should be in one column\nEach observation of that variable should be in a different row\nThere should be one table for each type of observational unit\nIf you have multiple tables you need a key to link them"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#tidy-data---principles-1-3",
+    "href": "week01/week_01_DEP.html#tidy-data---principles-1-3",
+    "title": "ECO 230 Section 012",
+    "section": "Tidy Data - Principles 1-3",
+    "text": "Tidy Data - Principles 1-3\n\n\n\n\n\n\nSleep (first 10): PersonName, Gender, Location, ZipCode, TotalMinutes, SleepQuality\n\n\nName\nGender\nLocation\nZIP\nMinutes\nQuality\n\n\n\n\nCam\nFemale\nHome\n54603\n421\n0.561\n\n\nJohn\nMale\nHome\n54636\n418\n0.450\n\n\nLucas\nMale\nHome\n54669\n439\n0.576\n\n\nLydia\nFemale\nHome\n54601\n499\n0.527\n\n\nMike\nMale\nHome\n54601\n494\n0.478\n\n\nSloane\nFemale\nHome\n54650\n456\n0.566\n\n\nCam\nFemale\nHome\n54603\n44\n0.432\n\n\nCam\nFemale\nHome\n54603\n410\n0.559\n\n\nJohn\nMale\nHome\n54636\n417\n0.530\n\n\nLucas\nMale\nHome\n54669\n66\n0.455"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#tidy-data---principle-4",
+    "href": "week01/week_01_DEP.html#tidy-data---principle-4",
+    "title": "ECO 230 Section 012",
+    "section": "Tidy Data - Principle 4",
+    "text": "Tidy Data - Principle 4\n\n\n\n\n\n\nSleep ZIP Profiles (first 10): zip, city, state, population, crime_rate_per_100k, avg_sunny_days_per_year\n\n\nZIP\nCity\nState\nPopulation\nCrime per 100k\nSunny Days\n\n\n\n\n54601\nLa Crosse\nWI\n51,300\n3,100\n190\n\n\n54603\nLa Crosse\nWI\n18,200\n3,300\n190\n\n\n54636\nHolmen\nWI\n10,100\n1,200\n190\n\n\n54650\nOnalaska\nWI\n18,800\n1,400\n190\n\n\n54669\nWest Salem\nWI\n5,100\n1,100\n190\n\n\n53202\nMilwaukee\nWI\n23,000\n5,000\n189\n\n\n54401\nWausau\nWI\n32,000\n2,000\n187\n\n\n54956\nNeenah\nWI\n26,000\n2,600\n187\n\n\n53562\nMiddleton\nWI\n21,000\n1,500\n190\n\n\n54212\nEphraim\nWI\n300\n800\n185"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#etl-process---extract",
+    "href": "week01/week_01_DEP.html#etl-process---extract",
+    "title": "ECO 230 Section 012",
+    "section": "ETL Process - Extract",
+    "text": "ETL Process - Extract\n\nExtract | Transform | Load\n\n\n\nStructured Data\n\n\nThird Party\n\n\nUnstructured Data"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#etl-process---transform",
+    "href": "week01/week_01_DEP.html#etl-process---transform",
+    "title": "ECO 230 Section 012",
+    "section": "ETL Process - Transform",
+    "text": "ETL Process - Transform\n\nExtract | Transform | Load"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#etl-process---transform-example",
+    "href": "week01/week_01_DEP.html#etl-process---transform-example",
+    "title": "ECO 230 Section 012",
+    "section": "ETL Process - Transform Example",
+    "text": "ETL Process - Transform Example\n\nExtract | Transform | Load\n\n\n\n\n\n\n\nMessy ZIP 54601\n\n\nzip_value\nstate_value\ncounty_value\npopulation_value\nfips_county\neverything_raw\n\n\n\n\n54601\nWI\nLa Crosse\n51320\n063\nNA\n\n\n54601-1234\nWIS\nLaCrosse\n51,000\n063\nNA\n\n\n54601\nWiscosin\nLaCrose\n51,000.75\n63\nNA\n\n\nZIP-54601\nWI\nLaCrosse County\nPop: 52,100\n063\nNA\n\n\n54601\nWI\nLa Crosse\nNA\n063\nNA\n\n\n54601\nWISCONSIN\nLacrosse\n53,200.00\n063\nNA\n\n\nZIP 54601\nwi\nLa Crosse\n50000\n063\nNA\n\n\n54601 - 0002\nWIS\nLa Crosse\n49 500\n63\nNA\n\n\n54601\nWI\nLaCrosse\n51,800\n063\nNA\n\n\n54601\nWisconsin\nLaCrosse\n60000.9\n063\nNA\n\n\n54601\nwisconsin\nla crosse\n61,000\n063\nNA\n\n\n54601\nWIS.\nLaCrosse\n62 000.1\n063\nNA\n\n\n54601\nWI\nLa Crosse\n~62k\n063\nNA\n\n\n54601\nWI\nNA\n63,000\n063\nNA\n\n\n54601\nNA\nLaCrosse\n64,000.25\nNA\nNA\n\n\nNA\nNA\nNA\nNA\nNA\n54601|WI|La Crosse|population=51,320|FIPS=55063|ZIP+4=54601…\n\n\nZIP:54601\nWISCONSIN\nLAX COUNTY\n65,000\n063\nNA\n\n\n54601\nWI\nLa Crosse\n66,000.50\n063\nNA\n\n\n(54601)\nWIS\nLa-Crosse\n67,000\n063\nNA\n\n\n54601\nWiscosin\nLa Cross\n68 000,00\n63\nNA"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#etl-process---load",
+    "href": "week01/week_01_DEP.html#etl-process---load",
+    "title": "ECO 230 Section 012",
+    "section": "ETL Process - Load",
+    "text": "ETL Process - Load\n\nExtract | Transform | Load"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#tableau",
+    "href": "week01/week_01_DEP.html#tableau",
+    "title": "ECO 230 Section 012",
+    "section": "Tableau",
+    "text": "Tableau"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#posit.cloud",
+    "href": "week01/week_01_DEP.html#posit.cloud",
+    "title": "ECO 230 Section 012",
+    "section": "Posit.cloud",
+    "text": "Posit.cloud"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#coding-in-r",
+    "href": "week01/week_01_DEP.html#coding-in-r",
+    "title": "ECO 230 Section 012",
+    "section": "Coding in R",
+    "text": "Coding in R\n\n\n\n\n\n\nabnb %&gt;%\n  idt(listed_price~instant_bookable)\n\n\n\nabnb %&gt;%\n  ano(listed_price~room_type)"
+  },
+  {
+    "objectID": "week01/week_01_DEP.html#summary-and-prime-directive",
+    "href": "week01/week_01_DEP.html#summary-and-prime-directive",
+    "title": "ECO 230 Section 012",
+    "section": "Summary and Prime Directive",
+    "text": "Summary and Prime Directive\n\nBefore running any statistics, what are the three questions you must answer about a dataset?\n 1. What does one row represent?  2. What kind of variables do I have?  3. What question can this data answer?"
+  },
+  {
+    "objectID": "week01/Homework_01.html",
+    "href": "week01/Homework_01.html",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "",
+    "text": "NotePurpose\n\n\n\nThis assignment helps you practice the three essential questions from Week 1:\n\nWhat does one row represent? (unit of analysis / grain)\n\nWhat kinds of variables do I have? (types + NOIR measurement scales)\n\nWhat can this data actually answer? (analytical frame)\n\nYou will work with real microdata, evaluate its structure, and reflect on how to use AI responsibly to accelerate—not replace—your thinking."
+  },
+  {
+    "objectID": "week01/Homework_01.html#objectives",
+    "href": "week01/Homework_01.html#objectives",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "Objectives",
+    "text": "Objectives\n\nOpen and inspect raw .csv data\n\nSave and format data as .xlsx\n\nDetermine whether a dataset is tidy\n\nContrast microdata vs summary data\n\nBuild a pivot table using Dimensions and Measures\n\nDescribe unit of analysis and grain\n\nIdentify variable types\n\nReflect on ethical AI use in data work"
+  },
+  {
+    "objectID": "week01/Homework_01.html#resources",
+    "href": "week01/Homework_01.html#resources",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "Resources",
+    "text": "Resources\n\nDatasets in Posit Cloud\n\nData Description files on Canvas\n\nWeek 1 slides (Unit of Analysis, Tidy Data, Dimensions vs Measures)\n\n\n\n\n\n\n\nTipImportant\n\n\n\nThis assignment is graded for sincere completion, not perfection.\nTry every step. Bring questions to class. We will review solutions together."
+  },
+  {
+    "objectID": "week01/Homework_01.html#choose-and-download-your-dataset",
+    "href": "week01/Homework_01.html#choose-and-download-your-dataset",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "1) Choose and Download Your Dataset",
+    "text": "1) Choose and Download Your Dataset\n\nSelect one dataset from your Posit Cloud project.\n\nDownload it as a .csv.\n\nSave a working copy as .xlsx.\n\n(No written response required.)"
+  },
+  {
+    "objectID": "week01/Homework_01.html#is-your-data-tidy-why-or-why-not",
+    "href": "week01/Homework_01.html#is-your-data-tidy-why-or-why-not",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "2) Is Your Data Tidy? Why or Why Not?",
+    "text": "2) Is Your Data Tidy? Why or Why Not?\nUsing the Week 1 tidy data principles:\n\nEach variable in its own column\n\nEach observation in its own row\n\nOne table per type of observational unit\n\nKeys required if multiple tables link\n\nWrite 3–5 sentences answering:\n\nIs your dataset tidy? Why or why not?\n\nIf it’s not tidy, identify the issue (e.g., wide layout, mixed grains, repeated headers, embedded units)."
+  },
+  {
+    "objectID": "week01/Homework_01.html#format-as-a-table-excel",
+    "href": "week01/Homework_01.html#format-as-a-table-excel",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "3) Format as a Table (Excel)",
+    "text": "3) Format as a Table (Excel)\nIn Excel, convert your data into an official Table (Ctrl/Cmd + T) to enable consistent filters and references.\n(No written response required.)"
+  },
+  {
+    "objectID": "week01/Homework_01.html#build-a-pivot-table-dimensions-measures",
+    "href": "week01/Homework_01.html#build-a-pivot-table-dimensions-measures",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "4) Build a Pivot Table (Dimensions + Measures)",
+    "text": "4) Build a Pivot Table (Dimensions + Measures)\nCreate an Excel pivot table using:\n\n≥ 1 Dimension (categorical descriptor: ZIP, Gender, Date, Location, Category)\n\n≥ 1 Measure (numeric summary: Count, Average, Total, Min/Max)\n\nIf you encounter errors, briefly describe what happened and what you tried.\n(Optional: include a screenshot.)"
+  },
+  {
+    "objectID": "week01/Homework_01.html#what-is-the-unit-of-analysis",
+    "href": "week01/Homework_01.html#what-is-the-unit-of-analysis",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "5) What Is the Unit of Analysis?",
+    "text": "5) What Is the Unit of Analysis?\nIn 3–5 sentences, explain:\n\nWhat one row represents in your dataset (the grain)\n\nWhy this grain matters for answerable questions\n\nWhat information would appear if the grain were more detailed\n\nRemember your training:\n\n“Rows are never just rows. If you misunderstand the unit of analysis, every result is wrong—even with perfect code.”"
+  },
+  {
+    "objectID": "week01/Homework_01.html#identify-variable-types",
+    "href": "week01/Homework_01.html#identify-variable-types",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "6) Identify Variable Types",
+    "text": "6) Identify Variable Types\nList at least one variable for each type.\nIf a type is missing, describe the additional data you would need.\n\nCategorical (Nominal):\n\nOrdinal:\n\nTrue/False (Logical):\n\nDiscrete Numeric:\n\nContinuous Numeric:\n\nDate/Time:\n\nGeographic/Spatial:\n\n(You may list more than one variable for a given type.)"
+  },
+  {
+    "objectID": "week01/Homework_01.html#responsible-use-of-ai-required",
+    "href": "week01/Homework_01.html#responsible-use-of-ai-required",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "7) Responsible Use of AI (Required)",
+    "text": "7) Responsible Use of AI (Required)\nAI can accelerate learning, but it must not interpret results or make analytical decisions for you.\nUse AI only for clarification, rewriting, or troubleshooting.\nWrite 5–7 sentences responding to:\nA. How did you use AI on this assignment?\n(If not at all, state that and why.)\nB. What did AI help with? (Be specific.)\nC. What did AI get wrong, miss, or oversimplify?\nD. Include one AI prompt you used and note:\n- How the response helped\n- Where it fell short\nRemember our goal with AI:\n\n“Can you use AI responsibly to accelerate—not replace—your thinking?”"
+  },
+  {
+    "objectID": "week01/Homework_01.html#submission",
+    "href": "week01/Homework_01.html#submission",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "8) Submission",
+    "text": "8) Submission\nUpload to Canvas:\n\nYour completed Excel workbook (.xlsx)\n\nA document (Word/PDF or Canvas text entry) with your responses, including the AI reflection\n\nPlease bring your .xlsx file to class for in‑class demonstrations."
+  },
+  {
+    "objectID": "week01/Homework_01.html#alignment-to-course-outcomes",
+    "href": "week01/Homework_01.html#alignment-to-course-outcomes",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "Alignment to Course Outcomes",
+    "text": "Alignment to Course Outcomes\n\nChoose the right analysis: You identify grain, tidy structure, and variable types to determine valid analyses.\n\nInterpret results in context: Your pivot and explanations tie summaries to what the data can and cannot answer.\n\nExplain limitations, assumptions, and uncertainty: Your AI reflection and grain discussion surface constraints before statistics."
+  },
+  {
+    "objectID": "week01/snippets/video1-block.html",
+    "href": "week01/snippets/video1-block.html",
+    "title": "Transcript — Video 1 (ETL)",
+    "section": "",
+    "text": "Watch on Canvas: ETL Overview Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — ETL (click to expand)"
+  },
+  {
+    "objectID": "week01/snippets/video1-block.html#video-etl-overview",
+    "href": "week01/snippets/video1-block.html#video-etl-overview",
+    "title": "Transcript — Video 1 (ETL)",
+    "section": "",
+    "text": "Watch on Canvas: ETL Overview Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — ETL (click to expand)"
+  },
+  {
+    "objectID": "syllabus/syllabus.html",
+    "href": "syllabus/syllabus.html",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "",
+    "text": "ECO 230 Business and Economic Research & Communication\nSpring 2026 | Section 12 | Credits: 3\nMeets in Wittich 112 Tuesday 5:30 pm to 8:15 pm.\n\n\n\nMike Boland, MBA\n\nOffice Location: Non Extant\n\nStudent Hours: Mon.–Fri. Noon–1pm in Zoom or by appointment\n\nClass Webpage: https://www.uwlax.edu/canvas\n\nEmail: mboland@uwlax.edu\n\nCell Phone: 608-385-6497\n\n\n\n\nFriday May 12th 7:00 pm – 9:00 pm in Wittich 112"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#course-information",
+    "href": "syllabus/syllabus.html#course-information",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "",
+    "text": "ECO 230 Business and Economic Research & Communication\nSpring 2026 | Section 12 | Credits: 3\nMeets in Wittich 112 Tuesday 5:30 pm to 8:15 pm.\n\n\n\nMike Boland, MBA\n\nOffice Location: Non Extant\n\nStudent Hours: Mon.–Fri. Noon–1pm in Zoom or by appointment\n\nClass Webpage: https://www.uwlax.edu/canvas\n\nEmail: mboland@uwlax.edu\n\nCell Phone: 608-385-6497\n\n\n\n\nFriday May 12th 7:00 pm – 9:00 pm in Wittich 112"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#course-description",
+    "href": "syllabus/syllabus.html#course-description",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Course description",
+    "text": "Course description\nBuilding on the foundation in statistics acquired in STAT 145, students will continue to develop and will apply skills in data analysis to aid in business decision making. These skills include data collection, data summarization, data visualization, statistical inference, and communication of data in business contexts. Students will learn and apply best practices for research design and analysis to address authentic business cases. Students will build these skills in collaboration with each other and through engagement with business and community leaders. The course also discusses effective survey design and current privacy and ethical issues in collecting and using data. Prerequisite: ENG 110 or ENG 112; STAT 145; CBA major, CASSH economics major, or healthcare analytics management minor. Offered Fall, Spring.\n\nPrerequisites\nPrerequisite: ENG 110 or ENG 112; STAT 145; CBA major, CLS economics major, or Healthcare Analytics Management Minor."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#learning-outcomes",
+    "href": "syllabus/syllabus.html#learning-outcomes",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\n\nMapped to CBA Undergraduate Curriculum Goals and Objectives\n\nDevelop the ability to articulate a business problem or opportunity using qualitative and quantitative evidence and propose an analysis plan to identify potential solutions, including collection of primary data via surveys. (CT-1)\nDescribe, summarize, and interpret data using descriptive statistics, inferential statistics, and data visualization.\nDevelop foundational skills related to spreadsheets, interactive data visualization software, and scripting languages used for data analysis and visualization.\nCommunicate the purpose, methods, and results of analysis to authentic audiences in appropriate written and oral formats. (CS-1, CS-2)\nApply research design and data analysis best practices to complete case-based projects and to critique others’ analyses. (CT-1)\nDescribe current debates in research ethics and data privacy and the implications for business research. (SR-1)\n\n\n\nCBA Undergraduate Curriculum Goals and Objectives referenced above\n\nCommunication Goal: Our students will be able to convey information and ideas effectively.\n\n(CS-1) Learning Objective: Students will convey information and ideas in professional business reports\n\n(CS-2) Learning Objective: Students will convey information and ideas in oral presentations.\n\nDecision Making and Critical Thinking Goal: Our students will be able to think critically when evaluating decisions.\n\n(CT-1) Learning Objective: Students will evaluate alternatives and understand the ramifications of those alternatives within a given business context.\n\nSocial Responsibility Goal: Students will demonstrate the role of social responsibility in business decisions.\n\n(SR-1) Learning Objective: Students will be able to identify and apply different frameworks of social responsibility to business problems and recognize the short- and long-term effects on stakeholders and society.\n\n\nRemaining CBA Goals and Objectives along with rubrics for each can be found here:\nhttps://www.uwlax.edu/cba/undergraduate-curriculum-learning-goals-and-objectives2/#tmcommunication-goals"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#materials-tools",
+    "href": "syllabus/syllabus.html#materials-tools",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Materials & tools",
+    "text": "Materials & tools\nThere is no official textbook for this course. All readings will be provided electronically via Canvas. We will also use the following software and instructional tools which are free of charge to you due to your enrollment in this course. Instructions for use will be provided in class and on Canvas as needed.\n\nExcel\n\nTableau Desktop\n\nPosit Cloud\n\nQualtrics\n\nCATME"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#format",
+    "href": "syllabus/syllabus.html#format",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Format",
+    "text": "Format\nThis is a face-to-face course. You may be asked to reference materials or participate online through the learning management system, Canvas. If that is the case, you will need your UWL NetID to login to the course from the Canvas homepage http://www.uwlax.edu/canvas."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#grading",
+    "href": "syllabus/syllabus.html#grading",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Grading",
+    "text": "Grading\n\nCalculations\nYour overall grade consists of the following assessments, arranged by type and value. Your final grade can be computed by multiplying the scores received by the percentages reported below to arrive at a weighted average. Team assignments are denoted by (T) but please note grades received for team project deliverables will be adjusted by your Peer Evaluation score.\n\n\n\n\nAssignment\n\n\n#\n\n\nTotal % Final Grade\n\n\n\n\n\n\nHomework, Lab Prep & In Class Labs\n\n\n~10\n\n\n25%\n\n\n\n\nQuizzes\n\n\n~5\n\n\n15%\n\n\n\n\nFinal Exam & Practicum\n\n\n1\n\n\n20%\n\n\n\n\nCase Projects (T)\n\n\n2\n\n\n30%\n\n\n\n\nParticipation / Discussion\n\n\n\n\n10%\n\n\n\n\nTotal\n\n\n\n\n100%\n\n\n\n\n\n\nCalculation of individual grades for team project work\nAll work for the assignments denoted as Team Projects by (T) above will be scored out of 100 points to assign a Team Grade. Individual grades will be computed by multiplying the Team Grade by the CATME peer evaluation score you receive for that work. The CATME peer evaluation is a psychometrically validated and behaviorally anchored rating scale developed under a National Science Foundation Grant and used by universities throughout the country. Through a secure web-based platform, you will rate your own and your teammate’s performance on each project. This information will be reported in the aggregate to your teammates (they cannot see who gave them what scores) and will produce a Peer Evaluation Score. Most students receive a score of 1, those that exhibit exceptional performance receive scores above 1 with a maximum of 1.05. Underperforming teammates receive scores below 1, and as low as 0.4.\n\n\n\n\n\n\nNote\n\n\n\nNote: This is not a “zero sum game”. It is possible for team members to get scores above 1 without others getting scores below. The algorithm flags evaluations that appear to manipulate ratings to inflate their own scores. Your score will automatically be reduced by 0.05 if you fail to complete the Peer Evaluation on or before the due date.\n\n\n\n\nGrievance procedure for peer evaluation scores\nPoor peer evaluations can lead an individual grade to fall substantially below the Team Grade. For example, a project that received a score of 95/100 would produce an individual grade of 38/100 if you receive a peer evaluation score of 0.4. If you feel the score you received does not accurately reflect your contributions to Team Project work, you have the option to file a grievance. To do so you must follow this procedure:\n\nWithin 2 business days of the official notification that grades have been posted, communicate to your instructor via email your intent to file a grievance. Official notifications of grade posting will appear on Canvas notifications.\nWithin 1 business day of notifying your intent, prepare and email a one page formal letter addressed to your teammates and including the following information:\n\nYour understanding of the work you had agreed to do for the deliverable. Be sure to refer to any documentation that is relevant (Meeting Minutes, emails or group chats, revision histories in documents etc.). Be prepared to provide any documentation you mention in the letter if requested.\nA summary of the work you actually did. Refer to documentation as above.\nJustification for any discrepancies between (a) and (b). If this documentation includes any confidential health or personal matters you do not wish to disclose to your team, please raise this with me or contact Student Life Office for council. Note: In these cases it is best to reach out to me or Student Life before you are at the point of receiving a bad peer evaluation.\nA statement of the peer evaluation score you believe you have earned.\n\nIf after reviewing your letter I believe the case has merit, I will send it on to your teammates and schedule an arbitration. If I determine no arbitration is warranted, I will schedule a one-on-one meeting with you to discuss.\nIf arbitration is warranted, it must be conducted in-person with all team members present. The only exception to this requirement would be a case where the timeline in the procedure would place the earliest possible arbitration date after the final exam date. In those cases, a virtual meeting may be agreed upon or incomplete grades may be assigned until an in-person meeting can be scheduled. I will serve as the arbitrator. You and your teammates will have the opportunity to present your case and reconcile evidence referenced in your letter. At the end of the meeting, all team members (including yourself) will submit the score they believe you have earned to me via secret ballot. I will use this information in making my final determination, but the final determination is mine alone.\n\n\n\nLate assignments, missed quizzes\n\nIndividual assignments\n\n\n\n\n\n\nWarning\n\n\n\nIndividual assignments are due on the dates indicated on the Canvas Weekly Agendas. Late or missing assignments will not be graded. All assignments in a module must be completed before the Module Quiz. If extenuating circumstances impact your ability to meet deadlines or participate in class activities, you are responsible for alerting me as soon as possible. When conflicts are known ahead of the deadline you must notify me ahead of the deadline. All communication regarding missed or late individual work should be confirmed by email – even if we speak in person or during student hours, you must follow up via email to confirm so that we both have a record of the agreement.\n\n\n\n\nTeam assignments\nDeadlines for Team Assignments may be extended for the entire class if there are extenuating circumstances or granted to teams if requested with appropriate justification and all team members agree to the request. Presentations cannot be delayed unless there is a major emergency or complication. For other deliverables, extensions must be requested at least 1 business day before the due date. Be prepared to show appropriate documentation of work to date and to provide an explanation for the value you will add to the final product if the extension is granted. Unless a request is made and granted, late assignments will receive a grade of 0.\n\n\nMissed quizzes\nQuizzes may be rescheduled only in the case of serious illness, injury, or significant academic or professional development opportunity. Personal travel or family vacations will not be accommodated unless they are associated with a significant life event (birth, death, marriage, graduation). In all cases, documentation is required. Contact me via email as soon as you know you have a conflict. Local or phone/Skype job interviews are not considered significant professional development opportunities.\n\n\n\nAttendance and participation\nAlthough attendance will not be formally recorded for all class meetings, your Team can and should reduce your peer evaluation score if you miss meetings or are absent during in class Work Days. To avoid this consequence, you should:\n\nCommunicate clearly with your team any time you will be absent from a Team Meeting or class on a day that includes Case Work Time.\n\nDocument that communication (e.g. save emails or post to team message board).\n\nParticipate actively in scheduling Team Meetings outside of class.\n\nLay out policies on scheduling team meetings and missed meetings and follow them.\n\nRespect others’ time and reserve absences for only when absolutely unavoidable.\n\nCommunicate with me (your instructor) or the Office of Student Life if any situation arises that will dramatically impact your attendance in class and at team meetings (e.g. serious illness, injury or personal emergency).\n\nIf you are absent from class, it is your responsibility to obtain notes and other materials from colleagues. While you are welcome to book student hours, you should not view them as a substitute for coming to class. If you are absent regularly without a documented extenuating circumstance, requests for student hours meetings may be denied.\n\n\nExpectations for graded work\n\nIndividual assignments\nI provide students feedback and/or scores on assignments that require individualized grading before a further assignment of a similar format is due or within 21 days of submission, whichever is shorter. This includes quizzes. I will notify you if I am unable to complete grading within the 21-day timeframe, and will identify a revised return date. If you submit work after the due date, it may not be returned within 21 days, and depending on the justification for late submission, it may not be accepted at all. Your graded coursework will be returned in compliance with FERPA regulations, such as in class, during my student hours, or via the course management system through which only you will have access to your grades.\n\n\n\nGrading scale\n\n\n\n\nLetter Grade\n\n\nPercentage Equivalent\n\n\n\n\n\n\nA\n\n\n93-100%\n\n\n\n\nAB\n\n\n89-92%\n\n\n\n\nB\n\n\n83-88%\n\n\n\n\nBC\n\n\n79-82%\n\n\n\n\nC\n\n\n70-78%\n\n\n\n\nD\n\n\n60-69%\n\n\n\n\nF\n\n\n59% - below"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#ai-usage-limitations",
+    "href": "syllabus/syllabus.html#ai-usage-limitations",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "AI usage limitations",
+    "text": "AI usage limitations\nArtificial intelligence (AI) tools and resources used for creating text, images, computer code, audio, or other media, may be used in certain circumstances in this class. The specifics of when, where, and how these tools are permitted will be included with each assignment. Guidance for attribution/citation will be provided by your instructor. Any use of these tools other than where/how indicated is a violation of course expectations and is subject to UW-La Crosse’s Academic Misconduct Policy. Students are responsible for verifying the accuracy and appropriateness of content composed by AI. If you are in doubt as to whether you are using a tool inappropriately in this course, you are encouraged to discuss your situation with your instructor."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#regular-and-substantive-interaction",
+    "href": "syllabus/syllabus.html#regular-and-substantive-interaction",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Regular and substantive interaction",
+    "text": "Regular and substantive interaction\nIn this course, regular and substantive interaction between the instructor and students plays a crucial role in student achievement. I will be incorporating various forms of interaction that not only meet the requirements set by the US Department of Education and the UWL Faculty Senate policy, but also aid in student achievement. Your active participation and contributions are also essential to your learning. In partnership with your efforts, I will…\n\nbe available during scheduled student hours as stated in the syllabus\n\nshare information about the course materials including key information, explanations, examples, and resources via in-person, and/or recorded lectures\n\nengage in online discussions about course content\n\nprovide group or individual feedback on assignments\n\npromptly respond to questions about the course sent via email\n\nregularly post announcements pertaining to the course content and activities\n\nmonitor your academic progress and communicate concerns, as needed"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#uwl-syllabus-policy-information-statements",
+    "href": "syllabus/syllabus.html#uwl-syllabus-policy-information-statements",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "UWL syllabus policy information & statements",
+    "text": "UWL syllabus policy information & statements\nUWL encourages students to know the campus’ important policies and statements which can be found on the Syllabus Information website.\n\nClasses during inclement weather\nReligious accommodations\nSexual misconduct\nStudent course and faculty-related concerns, complaints, and grievances\nStudent survey on instruction (LENS)\nStudents with accommodation needs\nUniversity class attendance policy\nVeterans, active military, and military-connected\n\nUWL encourages students to know the campus’ important policies and statements which can be found on the UWL Syllabus Policy Information & Statements."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#uwl-policies-supports",
+    "href": "syllabus/syllabus.html#uwl-policies-supports",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "UWL policies & supports",
+    "text": "UWL policies & supports\n\nCourse access\nAccess to course materials in Canvas may cease after the term ends. If you wish to archive materials for your personal records or portfolio you should do so as you progress through the course. As a general rule, you should always save local copies of course-related work. To avoid disasters, you should also save important files to external media or cloud storage.\n\n\nInclusive excellence\nMission “Diversity, equity, and the inclusion and engagement of all people in a safe campus climate that embraces and respects the innumerable different perspectives found within an increasingly integrated and culturally diverse global community”. If you are not experiencing my class in this manner, please come talk to me about your experiences so I can try to adjust the course if possible.\n\n\nName/pronouns\nI will do my best to address you by a preferred name or gender pronoun that you have identified. Please advise me of this preference early in the semester so that I may make appropriate changes to my records. UWL has name in use resources and the Pride Center is available for additional assistance.\n\n\nAcademic success and overall health\nAt UWL, we support your academic success and overall health. We know that students often experience a range of stressors that can impact learning and well-being. If you or someone you know is experiencing mental health concerns, or could benefit from effective academic strategies, there are free and confidential resources available to enrolled students through the Counseling & Testing Center (CTC). To learn more, visit the CTC Website or call 608-785-8073.\n\n\nTechnical support\nFor tips and information about Canvas visit the (canvas website)[https://www.uwlax.edu/info/canvas/students/]; this site also links to the 24/7 Canvas support. If you are having Canvas login issues or need general computer assistance, contact the (Eagle Help Desk)[https://www.uwlax.edu/its/client-services-and-support/eagle-help-desk/].\n\n\nStudent success resources\nUWL also encourages students to take advantage of the campus’ many and varied (Campus Life Resources)[https://www.uwlax.edu/info/campus-life/]."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#course-outline",
+    "href": "syllabus/syllabus.html#course-outline",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Course outline",
+    "text": "Course outline\n\n\n\n\nModule Name\n\n\nModule Learning Outcomes\n\n\n\n\n\n\nBaseline Data Literacy\n\n\nDescribe the anatomy of a data set including type (primary process generated or administrative, primary purpose generated, secondary), grouping, and unit of analysis.\n\n\n\n\nBaseline Data Literacy\n\n\nDistinguish between discrete and continuous variables, and between nominal, ordinal and ratio scale variables.\n\n\n\n\nBaseline Data Literacy\n\n\nCompute and interpret descriptive statistics relevant to the purpose of the analysis and appropriate for the level of measurement of the variables.\n\n\n\n\nBaseline Data Literacy\n\n\nInterpret common visual representations of data including bar charts, histograms, and scatter plots.\n\n\n\n\nBaseline Data Literacy\n\n\nOrganize data in a spreadsheet following best practices.\n\n\n\n\nBaseline Data Literacy\n\n\nCreate common visual representations of data including bar charts, histograms, and scatter plots.\n\n\n\n\nBaseline Data Literacy\n\n\nDemonstrate basic software competencies in spreadsheet software.\n\n\n\n\nBaseline Data Literacy\n\n\nDefine and appropriately use common terms in data analysis including correlation, causation, generalizability, validity, and reliability.\n\n\n\n\nFoundations of Data Analysis (Course LO)\n\n\nApply appropriate univariate and bivariate inferential statistics and correctly interpret the results of statistical tests.\n\n\n\n\nFoundations of Data Analysis (Course LO)\n\n\nDemonstrate basic software competencies in scripting software.\n\n\n\n\nCommunication of Results\n\n\nCurate results generated to identify the most relevant insights and supporting analyses.\n\n\n\n\nCommunication of Results\n\n\nCreate clear and compelling visualizations with necessary annotation to achieve stand alone effectiveness.\n\n\n\n\nCommunication of Results\n\n\nSummarize the problem addressed, methods used, results, and implications clearly and concisely in written and oral communication formats intended for non-technical audiences.\n\n\n\n\nCommunication of Results\n\n\nQuantify the implications of alternative solutions or proposed recommendations that follow from analysis.\n\n\n\n\nCommunication of Results\n\n\nDocument methods and detailed results of analysis in appendices intended for technical audiences.\n\n\n\n\nCommunication of Results\n\n\nCompose succinct professional emails communicating progress on a project.\n\n\n\n\nProblem Definition\n\n\nGather insights from existing reports or others’ analyses to demonstrate and articulate the existence of a business problem or opportunity.\n\n\n\n\nProblem Definition\n\n\nDefine research objectives that are feasible and hypothesis that can be tested using the chosen study methods and data sources.\n\n\n\n\nProblem Definition\n\n\nSelect relevant variables and sources of data needed to analyze an identified business problem or opportunity and propose survey measures when required data do not exist.\n\n\n\n\nProblem Definition\n\n\nDefine key metrics.\n\n\n\n\nProblem Definition\n\n\nChoose appropriate analysis methods, data, and variables for analyzing the identified problem or opportunity.\n\n\n\n\nIntro to Advanced Topics\n\n\nDistinguish between observational, quasi-experimental, and observational study designs and select the appropriate design for research objectives and desired use of findings.\n\n\n\n\nIntro to Advanced Topics\n\n\nDefine advanced analysis methods such as regression, forecasting, quasi-experimental and experimental study designs, optimization, machine learning, and text mining, and identify appropriate use cases.\n\n\n\n\nIntro to Advanced Topics\n\n\nPrepare clear, appropriate, and appealing visual summaries of data in graphs and tables with informative use of color and text.\n\n\n\n\nIntro to Advanced Topics\n\n\nPrepare data for analysis using sorting, filtering, merging, and additional functions as appropriate.\n\n\n\n\nIntro to Advanced Topics\n\n\nDesign a survey instrument to collect data needed to address a research question, identify potential sources of bias and articulate approach to avoiding bias in the design.\n\n\n\n\nBecoming an Informed Consumer of Data\n\n\nSuggest relevant alternative explanations for results.\n\n\n\n\nBecoming an Informed Consumer of Data\n\n\nCorrect errors in analysis and interpretation of analysis.\n\n\n\n\nBecoming an Informed Consumer of Data\n\n\nDescribe current debates in research ethics and data privacy and the implications for business research."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#important-dates",
+    "href": "syllabus/syllabus.html#important-dates",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Important dates",
+    "text": "Important dates\n\n\n\n\nName\n\n\nDate\n\n\nEvent\n\n\n\n\n\n\nWeek 3\n\n\n2/10/2026\n\n\nGraded Quiz: Descriptive Stats & Data Literacy\n\n\n\n\nWeek 5\n\n\n2/24/2026\n\n\nGraded Quiz: Data Visualization\n\n\n\n\nWeek 7\n\n\n3/10/2026\n\n\nGraded Quiz: R Basics\n\n\n\n\nWeek 9\n\n\n3/31/2026\n\n\nPresentation Coaching\n\n\n\n\nWeek 11\n\n\n4/7/2026\n\n\nGraded Quiz: Inferential Stats & Data Literacy\n\n\n\n\nWeek 12\n\n\n4/14/2026\n\n\nAnalysis Project Final Presentations\n\n\n\n\nWeek 13\n\n\n4/28/2026\n\n\nGraded Quiz: Survey Research Methods\n\n\n\n\nWeek 14\n\n\n5/5/2026\n\n\nResearch Proposal Presentations\n\n\n\n\nFinal Exam\n\n\nTuesday 05/12 07:00-09:00PM\n\n\nFinal Exam & Practicum"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#anticipated-schedule",
+    "href": "syllabus/syllabus.html#anticipated-schedule",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Anticipated schedule",
+    "text": "Anticipated schedule\nWhen discrepancies between Canvas and the Anticipated Schedule exist, the information on Canvas supersedes this schedule. Official class agendas are posted under This Week in Canvas.\n\n\n\n\nClass\n\n\nDate\n\n\nPart 1\n\n\nPart 2\n\n\nPart 3\n\n\n\n\n\n\nWeek 1\n\n\n1/27/2026\n\n\nCourse Overview\n\n\nAnatomy, Grouping & Unit of Analysis\n\n\nData Explore in 3 softwares\n\n\n\n\nWeek 2\n\n\n2/3/2026\n\n\nLevel of Measurement Descriptive Statistics\n\n\nMeasures of Variablity and Association\n\n\nData Explore in 3 softwares\n\n\n\n\nWeek 3\n\n\n2/10/2026\n\n\nData Visualization\n\n\nData Visualization in Tableau\n\n\nData Visualization in Tableau\n\n\n\n\nWeek 4\n\n\n2/17/2026\n\n\nCommunicating with Data in Writing\n\n\nCommunicating with Data Orally\n\n\nWork Time\n\n\n\n\nWeek 5\n\n\n2/24/2026\n\n\nProblem Definition\n\n\nLaunch Analysis Project\n\n\nWork Time\n\n\n\n\nWeek 6\n\n\n3/3/2026\n\n\nInference\n\n\nRstudio Descriptive Statistics\n\n\nWork Time\n\n\n\n\nWeek 7\n\n\n3/10/2026\n\n\nHypothesis Testing\n\n\nRstudio Inferential Statistics\n\n\nWork Time\n\n\n\n\nWeek 8\n\n\n3/24/2026\n\n\nPre-Coaching Work\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 9\n\n\n3/31/2026\n\n\nCoaching Sessions\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 10\n\n\n4/7/2026\n\n\nCommunicating with Data Documenting Work\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 11\n\n\n4/14/2026\n\n\nAnalysis Project Final Presentations\n\n\nAnalysis Project Final Presentations\n\n\nThe Research Proposal\n\n\n\n\nWeek 12\n\n\n4/21/2026\n\n\nAdvanced Analytics: Sample Design\n\n\nAdvanced Analytics: Survey Design\n\n\n\n\n\n\nWeek 13\n\n\n4/28/2026\n\n\nAdvanced Analytics: Machine Learning\n\n\nAdvanced Analytics: Experiment Design\n\n\nEthics\n\n\n\n\nWeek 14\n\n\n5/5/2026\n\n\nResearch Proposal Presentations\n\n\nResearch Proposal Presentations\n\n\nFinal Exam Prep\n\n\n\n\nFinal Exam\n\n\n5/12/2026\n\n\nFinal Exam Tuesday 05/12 07:00-09:00PM"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ECO 230 — Section 012",
+    "section": "",
+    "text": "Welcome to ECO 230 (Section 012)\nThis website hosts:\n\nSyllabus\n\nWeekly Slides (Reveal.js)\n\nHomework Assignments & Handouts\n\nAdditional course materials as the semester progresses.\n\nUse the navigation bar at the top to access each item.\nIf you are viewing this inside Canvas, links will open in a new window or in an embedded iframe depending on your instructor setup."
+  },
+  {
+    "objectID": "week01/snippets/video3-block.html",
+    "href": "week01/snippets/video3-block.html",
+    "title": "Transcript — Video 3 (Tidy Data & Structure)",
+    "section": "",
+    "text": "Watch on Canvas: Tidy Data & Structure Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Tidy Data & Structure (click to expand)"
+  },
+  {
+    "objectID": "week01/snippets/video3-block.html#video-tidy-data-data-structure",
+    "href": "week01/snippets/video3-block.html#video-tidy-data-data-structure",
+    "title": "Transcript — Video 3 (Tidy Data & Structure)",
+    "section": "",
+    "text": "Watch on Canvas: Tidy Data & Structure Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Tidy Data & Structure (click to expand)"
+  },
+  {
+    "objectID": "week01/snippets/video2-block.html",
+    "href": "week01/snippets/video2-block.html",
+    "title": "Transcript — Video 2 (Measurement Scales)",
+    "section": "",
+    "text": "Watch on Canvas: Measurement Scales Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Measurement Scales (click to expand)"
+  },
+  {
+    "objectID": "week01/snippets/video2-block.html#video-measurement-scales",
+    "href": "week01/snippets/video2-block.html#video-measurement-scales",
+    "title": "Transcript — Video 2 (Measurement Scales)",
+    "section": "",
+    "text": "Watch on Canvas: Measurement Scales Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Measurement Scales (click to expand)"
+  },
+  {
+    "objectID": "week01/week_01.html#use-instant-booking-wisely",
+    "href": "week01/week_01.html#use-instant-booking-wisely",
+    "title": "ECO 230 Section 012",
+    "section": "Use Instant Booking Wisely",
+    "text": "Use Instant Booking Wisely\n Airbnb Owners should enable Instant Booking in Fall — it’s the unequivocally best season for superior ratings and returns. \n\n\n\n\n\n\n\n\nSeason\nBookings\nAvg Price (USD)\nAvg Rating\nInstant-Book %\nRating × Price\n\n\n\n\nFall\n2,253\n$134.63\n95.14\n23.70%\n12,808.16\n\n\nWinter\n1,521\n$129.39\n95.08\n31.56%\n12,302.72\n\n\nSummer\n2,118\n$128.85\n94.64\n23.94%\n12,194.56\n\n\nSpring\n4,283\n$122.11\n95.32\n31.43%\n11,639.20"
+  },
+  {
+    "objectID": "week01/week_01.html#sample-airbnb-data",
+    "href": "week01/week_01.html#sample-airbnb-data",
+    "title": "ECO 230 Section 012",
+    "section": "Sample Airbnb Data",
+    "text": "Sample Airbnb Data\n\n\n\n\n\n\n\n\nID\nName\nProperty\nRoom\nNeighborhood\nZIP\nSleeps\nBR\nBeds\nHost Since\nFirst Review\nLast Review\n# Reviews\nRating\nPrice\nIB?\n\n\n\n\n6226658\nSweet Home Chicago\nApartment\nPrivate room\nHumboldt Park\n60622\n2\n1\n1\n2012-09-10\nNA\nNA\n0\nNA\n$60.00\nNo\n\n\n7499179\nPrivate room in Wicker Park loft at S…\nLoft\nPrivate room\nWicker Park\n60622\n2\n1\n1\n2016-07-29\n2016-08-14\n2016-10-16\n15\n91.00\n$75.00\nNo\n\n\n19813606\nModern condo close to parks and museu…\nCondominium\nEntire home/apt\nSouth Loop/Printe…\n60605\n5\n2\n2\n2016-07-17\nNA\nNA\n0\nNA\n$250.00\nYes\n\n\n13435559\nArt studio + house in one\nHouse\nPrivate room\nPilsen\n60608\n2\n1\n1\n2014-02-27\n2014-03-19\n2017-04-30\n85\n96.00\n$64.00\nNo\n\n\n19692298\nCharming bohemian duplex w King bed\nHouse\nEntire home/apt\nNA\n60647\n3\n1\n1\n2015-03-15\n2015-11-23\n2016-11-21\n18\n97.00\n$110.00\nNo\n\n\n235281\n5 QUEEN BEDS / 2 FULL BATHS / SLEEPS …\nApartment\nEntire home/apt\nLakeview\n60614\n9\n2\n5\n2015-12-13\n2016-06-10\n2017-04-16\n10\n96.00\n$199.00\nNo\n\n\n783533\nChicago MostWanted LOCATION Mag Mil\nApartment\nEntire home/apt\nStreeterville\n60611\n2\n1\n1\n2012-10-24\n2014-04-13\n2014-11-05\n4\n100.00\n$161.00\nNo\n\n\n11610316\nBedroom with bath and large family ro…\nBungalow\nPrivate room\nBelmont Cragin\n60639\n5\n1\n3\n2017-02-07\n2017-03-02\n2017-05-07\n16\n100.00\n$39.00\nYes\n\n\n16412763\nGreat 1 bedroom Luxury Location and A…\nApartment\nEntire home/apt\nNA\n60601\n3\n1\n1\n2012-10-24\n2015-10-16\n2015-10-16\n1\n100.00\n$175.00\nNo\n\n\n15636707\nFantastic River North Location!-s3\nApartment\nEntire home/apt\nRiver North\n60654\n2\n0\n1\n2015-10-15\n2016-10-23\n2016-10-23\n1\n80.00\n$359.00\nNo\n\n\n18089318\nShortStayChicago#5: Michigan Avenue\nApartment\nEntire home/apt\nRiver North\n60610\n2\n0\n1\n2014-12-20\n2015-05-25\n2017-03-04\n14\n89.00\n$85.00\nNo\n\n\n17587897\nCITY CENTER, SPACIOUS COZY STUDIO & F…\nApartment\nEntire home/apt\nGold Coast\n60610\n2\n0\n1\n2016-01-24\nNA\nNA\n0\nNA\n$29.00\nYes\n\n\n9379983\nCozy Garden Unit In Edgewater\nApartment\nEntire home/apt\nEdgewater\n60660\n4\n1\n1\n2011-08-28\n2016-01-16\n2017-05-08\n55\n95.00\n$85.00\nYes\n\n\n1602772\nSplit-Level Artist Loft\nLoft\nEntire home/apt\nWest Town/Noble S…\n60642\n4\n2\n2\n2015-06-16\n2015-09-14\n2017-04-17\n18\n95.00\n$200.00\nNo\n\n\n18341150\nLarge beautiful old apartment, with a…\nApartment\nPrivate room\nUptown\n60613\n2\n1\n1\n2016-11-09\nNA\nNA\n0\nNA\n$56.00\nYes\n\n\n19564384\nArt-Filled Vintage Ukrainian Village …\nApartment\nPrivate room\nUkrainian Village\n60622\n1\n1\n1\n2015-04-21\n2016-08-21\n2017-04-24\n18\n99.00\n$68.00\nNo\n\n\n10253271\nGorgeous South Loop / Downtown Loft! …\nCondominium\nEntire home/apt\nSouth Loop/Printe…\n60605\n6\n2\n4\n2016-08-13\n2016-09-16\n2017-05-05\n29\n96.00\n$129.00\nYes\n\n\n11750272\nTwo Bedroom Suite in Lincoln Park\nApartment\nEntire home/apt\nLincoln Park\n60614\n4\n2\n2\n2009-08-24\nNA\nNA\n0\nNA\n$155.00\nNo\n\n\n708802\nLogan Square- Steps from the train!\nHouse\nEntire home/apt\nNA\n60647\n8\n1\n2\n2013-05-03\n2016-11-20\n2016-11-20\n1\n100.00\n$300.00\nNo\n\n\n4281241\nWest Loop/Greek Town Loft With Free P…\nLoft\nPrivate room\nWest Loop/Greekto…\n60661\n4\n1\n1\n2016-06-17\n2016-09-13\n2017-04-09\n14\n94.00\n$85.00\nNo"
+  },
+  {
+    "objectID": "week01/week_01.html#before-we-run-any-statistics",
+    "href": "week01/week_01.html#before-we-run-any-statistics",
+    "title": "ECO 230 Section 012",
+    "section": "Before we run any statistics…",
+    "text": "Before we run any statistics…\n\n\n\n\n\n\n\n\nGuiding Question\n\n\nWhat can go wrong before you ever run a statistical test?"
+  },
+  {
+    "objectID": "week01/week_01.html#section",
+    "href": "week01/week_01.html#section",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "What is Statistics?\nWhat is Analytics?"
+  },
+  {
+    "objectID": "week01/week_01.html#section-1",
+    "href": "week01/week_01.html#section-1",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics is the art of finding out what is in your data."
+  },
+  {
+    "objectID": "week01/week_01.html#section-2",
+    "href": "week01/week_01.html#section-2",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "If you can (with some effort) find the answer with certainty you are using Analytics."
+  },
+  {
+    "objectID": "week01/week_01.html#section-3",
+    "href": "week01/week_01.html#section-3",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics deals with what you know.\nStatistics deals with what you do not know."
+  },
+  {
+    "objectID": "week01/week_01.html#section-4",
+    "href": "week01/week_01.html#section-4",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics turns curiosity into questions.\nStatistics turns data into answers."
+  },
+  {
+    "objectID": "week01/week_01.html#section-5",
+    "href": "week01/week_01.html#section-5",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics is the art of finding out what is in your data.\nStatistics is the science of making decisions under uncertainty."
+  },
+  {
+    "objectID": "week01/week_01.html#section-6",
+    "href": "week01/week_01.html#section-6",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics or Statistics\n\nCount the number of airbnb properties within 1 mile of Wrigley Field\nPredict how many bookings an airbnb property will have next year\nTesting whether changing cancellation policy caused higher satisfaction\n\n\n\n\nOpen with intuition: students already do analytics informally.\nEmphasize uncertainty as the key dividing line.\nPause after the third fragment and ask for examples."
+  },
+  {
+    "objectID": "week01/week_01.html#data-at-different-grain-levels",
+    "href": "week01/week_01.html#data-at-different-grain-levels",
+    "title": "ECO 230 Section 012",
+    "section": "Data at different grain levels",
+    "text": "Data at different grain levels\nCalculate the Total Yearly Revenue for Each Property\n\n\n\n\n\n\n\n\nGotcha! - Wrong Unit of Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDataset A — Airbnb Rental Data\n\n\nID\nName\nRoom\nList\nSleeps\nN’hood\nBR\nBA\nBeds\nCancel\nHost Since\n\n\n\n\n15041110\n2BD Suite @ The Guesthouse …\nEntire home/apt\n$199\n6\nUptown\n2\n2.0\n2\nstrict\n2014-12-10\n\n\n7176158\nAndersonville Living\nEntire home/apt\n$61\n6\nAndersonville\n2\n1.0\n4\nflexible\n2015-01-22\n\n\n10452737\nCharming European Back Deck\nEntire home/apt\n$119\n8\nWest Ridge\n3\n1.5\n4\nstrict\n2015-02-17\n\n\n12854553\nLogan Square gem! Parking i…\nEntire home/apt\n$100\n6\nLogan Square\n2\n1.0\n3\nstrict\n2016-02-02\n\n\n743217\nLux Downtown River North La…\nPrivate room\n$118\n2\nLoop\n1\n1.0\n1\nmoderate\n2015-01-18\n\n\n9845618\nModern & Spacious 1 Bed…\nEntire home/apt\n$95\n4\nHumboldt Park\n1\n1.0\n2\nmoderate\n2011-05-17\n\n\n2092905\nPerfect Pilsen place, skyli…\nEntire home/apt\n$160\n2\nPilsen\n1\n1.0\n1\nflexible\n2014-07-09\n\n\n18048473\nPrivate Room near Wicker Pa…\nPrivate room\n$70\n2\nUkrainian Village\n1\n1.0\n1\nflexible\n2012-05-10\n\n\n18549439\nWICKER PK /NOBLE SQUARE Coz…\nEntire home/apt\n$90\n2\nWicker Park\n1\n1.0\n1\nflexible\n2016-05-23\n\n\n10886628\nWells St Suites - Old Town …\nEntire home/apt\n$350\n8\nNA\n3\n2.0\n4\nstrict\n2009-08-21\n\n\n\n\n\n\n\n\n\n\n\nDataset B — Airbnb Rental Data\n\n\nID\nName\nRoom\nSleeps\nN’hood\nCheck‑in\nNts\nGuests\nStatus\nPrice/Nt\nTotal\n\n\n\n\n12854553\nLogan Square gem! Parki…\nEntire home/apt\n6\nLogan Square\n2025-02-12\n5\n2\ncompleted\n$110\n$651\n\n\n12854553\nLogan Square gem! Parki…\nEntire home/apt\n6\nLogan Square\n2025-06-27\n3\n1\ncompleted\n$124\n$471\n\n\n12854553\nLogan Square gem! Parki…\nEntire home/apt\n6\nLogan Square\n2025-07-05\n4\n4\ncancelled\n$95\n$0\n\n\n12854553\nLogan Square gem! Parki…\nEntire home/apt\n6\nLogan Square\n2025-07-21\n6\n3\ncompleted\n$117\n$800\n\n\n12854553\nLogan Square gem! Parki…\nEntire home/apt\n6\nLogan Square\n2025-08-17\n3\n1\ncompleted\n$105\n$414\n\n\n743217\nLux Downtown River Nort…\nPrivate room\n2\nLoop\n2025-04-12\n4\n2\ncompleted\n$139\n$556\n\n\n743217\nLux Downtown River Nort…\nPrivate room\n2\nLoop\n2025-04-24\n4\n1\ncompleted\n$164\n$655\n\n\n743217\nLux Downtown River Nort…\nPrivate room\n2\nLoop\n2025-06-28\n2\n1\ncompleted\n$139\n$279\n\n\n743217\nLux Downtown River Nort…\nPrivate room\n2\nLoop\n2025-09-17\n5\n2\ncompleted\n$139\n$697\n\n\n743217\nLux Downtown River Nort…\nPrivate room\n2\nLoop\n2025-10-19\n3\n2\ncancelled\n$99\n$0"
+  },
+  {
+    "objectID": "week01/week_01.html#rows-vs-columns",
+    "href": "week01/week_01.html#rows-vs-columns",
+    "title": "ECO 230 Section 012",
+    "section": "Rows vs Columns",
+    "text": "Rows vs Columns\n\n\nColumns\n\n\n\nRows"
+  },
+  {
+    "objectID": "week01/week_01.html#unit-of-analysis",
+    "href": "week01/week_01.html#unit-of-analysis",
+    "title": "ECO 230 Section 012",
+    "section": "Unit of Analysis",
+    "text": "Unit of Analysis\n\n\nWhat does each thingie (row, observation, grain) of this data represent?\n\n\n\nEveryone in a zipcode\nIndividual consumers\nIndividual purchases\nGDP of an economy\nPopulation of a planet"
+  },
+  {
+    "objectID": "week01/week_01.html#unit-of-analysis-1",
+    "href": "week01/week_01.html#unit-of-analysis-1",
+    "title": "ECO 230 Section 012",
+    "section": "Unit of Analysis",
+    "text": "Unit of Analysis\n\nRows are never ‘just rows’\n\n\n\n\n\n\n\n\nCritical Insight\n\n\nIf you misunderstand the unit of analysis, every result is wrong, even with perfect code."
+  },
+  {
+    "objectID": "week01/week_01.html#data-grouping-cross-sectional",
+    "href": "week01/week_01.html#data-grouping-cross-sectional",
+    "title": "ECO 230 Section 012",
+    "section": "Data Grouping: Cross-Sectional",
+    "text": "Data Grouping: Cross-Sectional"
+  },
+  {
+    "objectID": "week01/week_01.html#data-grouping-time-series",
+    "href": "week01/week_01.html#data-grouping-time-series",
+    "title": "ECO 230 Section 012",
+    "section": "Data Grouping: Time-Series",
+    "text": "Data Grouping: Time-Series"
+  },
+  {
+    "objectID": "week01/week_01.html#data-grouping-panel",
+    "href": "week01/week_01.html#data-grouping-panel",
+    "title": "ECO 230 Section 012",
+    "section": "Data Grouping: Panel",
+    "text": "Data Grouping: Panel"
+  },
+  {
+    "objectID": "week01/week_01.html#tall-vs-wide-data",
+    "href": "week01/week_01.html#tall-vs-wide-data",
+    "title": "ECO 230 Section 012",
+    "section": "Tall vs Wide Data",
+    "text": "Tall vs Wide Data\nSummarize total minutes of sleep by month and location\n\n\n\n\n\n\n\n\nGotcha! - Wrong Data Structure\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTall — More rows, fewer columns\n\n\n\nVariable\nValue\n\n\n\n\nCam\nDate\n2025-01-05\n\n\nCam\nDate\n2025-01-06\n\n\nCam\nDate\n2025-01-07\n\n\nCam\nDate\n2025-01-08\n\n\nCam\nDate\n2025-01-09\n\n\nCam\nDate\n2025-01-10\n\n\nCam\nDate\n2025-01-11\n\n\nCam\nDayOfWeek\nSunday\n\n\nCam\nDayOfWeek\nMonday\n\n\nCam\nDayOfWeek\nTuesday\n\n\nCam\nDayOfWeek\nWednesday\n\n\nCam\nDayOfWeek\nThursday\n\n\nCam\nDayOfWeek\nFriday\n\n\nCam\nDayOfWeek\nSaturday\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nTotalMinutes\n411\n\n\nCam\nTotalMinutes\n386\n\n\nCam\nTotalMinutes\n387\n\n\nCam\nTotalMinutes\n442\n\n\nCam\nTotalMinutes\n440\n\n\nCam\nTotalMinutes\n472\n\n\nCam\nTotalMinutes\n407\n\n\nMike\nDate\n2025-01-05\n\n\nMike\nDate\n2025-01-06\n\n\nMike\nDate\n2025-01-07\n\n\nMike\nDate\n2025-01-08\n\n\nMike\nDate\n2025-01-09\n\n\nMike\nDate\n2025-01-10\n\n\nMike\nDate\n2025-01-11\n\n\nMike\nDayOfWeek\nSunday\n\n\nMike\nDayOfWeek\nMonday\n\n\nMike\nDayOfWeek\nTuesday\n\n\nMike\nDayOfWeek\nWednesday\n\n\nMike\nDayOfWeek\nThursday\n\n\nMike\nDayOfWeek\nFriday\n\n\nMike\nDayOfWeek\nSaturday\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nTotalMinutes\n462\n\n\nMike\nTotalMinutes\n496\n\n\nMike\nTotalMinutes\n514\n\n\nMike\nTotalMinutes\n442\n\n\nMike\nTotalMinutes\n532\n\n\nMike\nTotalMinutes\n533\n\n\nMike\nTotalMinutes\n497\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWide — More columns, fewer rows\n\n\nName\nGender\nLocation\n2025-01-05\n2025-01-06\n2025-01-07\n2025-01-08\n2025-01-09\n2025-01-10\n2025-01-11\n\n\n\n\nCam\nFemale\nHome\n411\n386\n387\n442\n440\n472\n407\n\n\nMike\nMale\nHome\n462\n496\n514\n442\n532\n533\n497"
+  },
+  {
+    "objectID": "week01/week_01.html#data-types",
+    "href": "week01/week_01.html#data-types",
+    "title": "ECO 230 Section 012",
+    "section": "Data Types",
+    "text": "Data Types\n\nCategories\nTrue/False → logical\nCategorical → factor\nOrdinal → factor\n\nNumbers\nDiscrete → integer\nContinuous → double"
+  },
+  {
+    "objectID": "week01/week_01.html#measurement-scales",
+    "href": "week01/week_01.html#measurement-scales",
+    "title": "ECO 230 Section 012",
+    "section": "Measurement Scales",
+    "text": "Measurement Scales"
+  },
+  {
+    "objectID": "week01/week_01.html#observations---atomic-data",
+    "href": "week01/week_01.html#observations---atomic-data",
+    "title": "ECO 230 Section 012",
+    "section": "Observations - Atomic Data",
+    "text": "Observations - Atomic Data\n\n\n\n\n\n\n\n\n\n\nCategories\n\n\n\n\n\n\n\n\nName\nMike\n\n\nDate\n01/03/2025\n\n\nGender\nMale\n\n\nLocation\nHome\n\n\nZipCode\n54601\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumbers\n\n\n\n\n\n\n\n\nStart Time\n10:30 P.M.\n\n\nEnd Time\n6:59 A.M.\n\n\nR.E.M.\n109 Minutes\n\n\nDeep Sleep\n151 Minutes\n\n\nLight Sleep\n249 Minutes\n\n\nTotal Sleep\n509\n\n\nQuality\n51%"
+  },
+  {
+    "objectID": "week01/week_01.html#summarized-data",
+    "href": "week01/week_01.html#summarized-data",
+    "title": "ECO 230 Section 012",
+    "section": "Summarized Data",
+    "text": "Summarized Data\n\n\nDimensions\n\n\nCategories\nFilters\nAxis Labels\n\n\n\n    \n\nMeasures\n\n\nAverages\nStandard Deviation\nCounts\nSums\n\n\n\n\n\n\n\n\n\n\n\nJune Camping\n\n\n\n\n\n\n\nMean = 426.50 Minutes\n\n\nMedian = 440 Minutes\n\n\nQuality = 41.87%\n\n\nN Records = 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJanuary Home\n\n\n\n\n\n\n\nMean = 377.21 Minutes\n\n\nMedian = 443 Minutes\n\n\nQuality = 51.37%\n\n\nN Records = 208"
+  },
+  {
+    "objectID": "week01/week_01.html#tall-vs-wide",
+    "href": "week01/week_01.html#tall-vs-wide",
+    "title": "ECO 230 Section 012",
+    "section": "Tall vs Wide",
+    "text": "Tall vs Wide\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDimensions\n\n\nMeasures\n\n\n\nDate\nDayOfWeek\nMonth\nPersonName\nGender\nLocation\nEventType\nStartTime\nEndTime\nTotalMinutes\nREMMinutes\nDeepMinutes\nLightMinutes\nSleepQuality\n\n\n\n\n2025-01-01\nWednesday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-01 22:25\n2025-01-02 05:26\n421\n113\n123\n185\n56.10%\n\n\n2025-01-01\nWednesday\nJanuary\nJohn\nMale\nHome\nMain\n2025-01-01 00:30\n2025-01-01 07:28\n418\n84\n104\n230\n45.00%\n\n\n2025-01-01\nWednesday\nJanuary\nLucas\nMale\nHome\nMain\n2025-01-01 22:25\n2025-01-02 05:44\n439\n70\n183\n186\n57.60%\n\n\n2025-01-01\nWednesday\nJanuary\nLydia\nFemale\nHome\nMain\n2025-01-01 23:15\n2025-01-02 07:34\n499\n79\n184\n236\n52.70%\n\n\n2025-01-01\nWednesday\nJanuary\nMike\nMale\nHome\nMain\n2025-01-01 23:10\n2025-01-02 07:24\n494\n151\n85\n258\n47.80%\n\n\n2025-01-01\nWednesday\nJanuary\nSloane\nFemale\nHome\nMain\n2025-01-01 22:00\n2025-01-02 05:36\n456\n94\n164\n198\n56.60%\n\n\n2025-01-02\nThursday\nJanuary\nCam\nFemale\nHome\nNap\n2025-01-02 13:40\n2025-01-02 14:24\n44\n9\n10\n25\n43.20%\n\n\n2025-01-02\nThursday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-02 22:10\n2025-01-03 05:00\n410\n132\n97\n181\n55.90%\n\n\n2025-01-02\nThursday\nJanuary\nJohn\nMale\nHome\nMain\n2025-01-02 23:50\n2025-01-03 06:47\n417\n93\n128\n196\n53.00%\n\n\n2025-01-02\nThursday\nJanuary\nLucas\nMale\nHome\nNap\n2025-01-02 16:00\n2025-01-02 17:06\n66\n3\n27\n36\n45.50%\n\n\n2025-01-02\nThursday\nJanuary\nLucas\nMale\nHome\nMain\n2025-01-02 22:00\n2025-01-03 05:41\n461\n95\n145\n221\n52.10%\n\n\n2025-01-02\nThursday\nJanuary\nLydia\nFemale\nHome\nMain\n2025-01-02 22:45\n2025-01-03 06:28\n463\n121\n121\n221\n52.30%\n\n\n2025-01-02\nThursday\nJanuary\nMike\nMale\nHome\nMain\n2025-01-02 22:05\n2025-01-03 05:50\n465\n116\n110\n239\n48.60%\n\n\n2025-01-02\nThursday\nJanuary\nSloane\nFemale\nHome\nMain\n2025-01-02 21:40\n2025-01-03 04:56\n436\n71\n172\n193\n55.70%\n\n\n2025-01-03\nFriday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-03 22:10\n2025-01-04 05:27\n437\n96\n165\n176\n59.70%"
+  },
+  {
+    "objectID": "week01/week_01.html#principles-of-tidy-data",
+    "href": "week01/week_01.html#principles-of-tidy-data",
+    "title": "ECO 230 Section 012",
+    "section": "Principles of Tidy Data",
+    "text": "Principles of Tidy Data\n\n\nEach variable you measure should be in one column\nEach observation of that variable should be in a different row\nThere should be one table for each type of observational unit\nIf you have multiple tables you need a key to link them\n\n\n\n\n\n\n\n\n\n\nNerd Alert.\n\n\nTidy Data principles are a solution to a problem, not rules that must be followed."
+  },
+  {
+    "objectID": "week01/week_01.html#tidy-data---principles-1-3",
+    "href": "week01/week_01.html#tidy-data---principles-1-3",
+    "title": "ECO 230 Section 012",
+    "section": "Tidy Data - Principles 1-3",
+    "text": "Tidy Data - Principles 1-3\n\n\n\n\n\n\nSleep (first 10): PersonName, Gender, Location, ZipCode, TotalMinutes, SleepQuality\n\n\nName\nGender\nLocation\nZIP\nMinutes\nQuality\n\n\n\n\nCam\nFemale\nHome\n54603\n421\n0.561\n\n\nJohn\nMale\nHome\n54636\n418\n0.450\n\n\nLucas\nMale\nHome\n54669\n439\n0.576\n\n\nLydia\nFemale\nHome\n54601\n499\n0.527\n\n\nMike\nMale\nHome\n54601\n494\n0.478\n\n\nSloane\nFemale\nHome\n54650\n456\n0.566\n\n\nCam\nFemale\nHome\n54603\n44\n0.432\n\n\nCam\nFemale\nHome\n54603\n410\n0.559\n\n\nJohn\nMale\nHome\n54636\n417\n0.530\n\n\nLucas\nMale\nHome\n54669\n66\n0.455"
+  },
+  {
+    "objectID": "week01/week_01.html#tidy-data---principle-4",
+    "href": "week01/week_01.html#tidy-data---principle-4",
+    "title": "ECO 230 Section 012",
+    "section": "Tidy Data - Principle 4",
+    "text": "Tidy Data - Principle 4\n\n\n\n\n\n\nSleep ZIP Profiles (first 10): zip, city, state, population, crime_rate_per_100k, avg_sunny_days_per_year\n\n\nZIP\nCity\nState\nPopulation\nCrime per 100k\nSunny Days\n\n\n\n\n54601\nLa Crosse\nWI\n51,300\n3,100\n190\n\n\n54603\nLa Crosse\nWI\n18,200\n3,300\n190\n\n\n54636\nHolmen\nWI\n10,100\n1,200\n190\n\n\n54650\nOnalaska\nWI\n18,800\n1,400\n190\n\n\n54669\nWest Salem\nWI\n5,100\n1,100\n190\n\n\n53202\nMilwaukee\nWI\n23,000\n5,000\n189\n\n\n54401\nWausau\nWI\n32,000\n2,000\n187\n\n\n54956\nNeenah\nWI\n26,000\n2,600\n187\n\n\n53562\nMiddleton\nWI\n21,000\n1,500\n190\n\n\n54212\nEphraim\nWI\n300\n800\n185"
+  },
+  {
+    "objectID": "week01/week_01.html#etl-process---extract",
+    "href": "week01/week_01.html#etl-process---extract",
+    "title": "ECO 230 Section 012",
+    "section": "ETL Process - Extract",
+    "text": "ETL Process - Extract\n\nExtract | Transform | Load\n\n\n\nStructured Data\n\n\nThird Party\n\n\nUnstructured Data"
+  },
+  {
+    "objectID": "week01/week_01.html#etl-process---transform",
+    "href": "week01/week_01.html#etl-process---transform",
+    "title": "ECO 230 Section 012",
+    "section": "ETL Process - Transform",
+    "text": "ETL Process - Transform\n\nExtract | Transform | Load"
+  },
+  {
+    "objectID": "week01/week_01.html#etl-process---transform-example",
+    "href": "week01/week_01.html#etl-process---transform-example",
+    "title": "ECO 230 Section 012",
+    "section": "ETL Process - Transform Example",
+    "text": "ETL Process - Transform Example\n\nExtract | Transform | Load\n\n\n\n\n\n\n\nMessy ZIP 54601\n\n\nzip_value\nstate_value\ncounty_value\npopulation_value\nfips_county\neverything_raw\n\n\n\n\n54601\nWI\nLa Crosse\n51320\n063\nNA\n\n\n54601-1234\nWIS\nLaCrosse\n51,000\n063\nNA\n\n\n54601\nWiscosin\nLaCrose\n51,000.75\n63\nNA\n\n\nZIP-54601\nWI\nLaCrosse County\nPop: 52,100\n063\nNA\n\n\n54601\nWI\nLa Crosse\nNA\n063\nNA\n\n\n54601\nWISCONSIN\nLacrosse\n53,200.00\n063\nNA\n\n\nZIP 54601\nwi\nLa Crosse\n50000\n063\nNA\n\n\n54601 - 0002\nWIS\nLa Crosse\n49 500\n63\nNA\n\n\n54601\nWI\nLaCrosse\n51,800\n063\nNA\n\n\n54601\nWisconsin\nLaCrosse\n60000.9\n063\nNA\n\n\n54601\nwisconsin\nla crosse\n61,000\n063\nNA\n\n\n54601\nWIS.\nLaCrosse\n62 000.1\n063\nNA\n\n\n54601\nWI\nLa Crosse\n~62k\n063\nNA\n\n\n54601\nWI\nNA\n63,000\n063\nNA\n\n\n54601\nNA\nLaCrosse\n64,000.25\nNA\nNA\n\n\nNA\nNA\nNA\nNA\nNA\n54601|WI|La Crosse|population=51,320|FIPS=55063|ZIP+4=54601…\n\n\nZIP:54601\nWISCONSIN\nLAX COUNTY\n65,000\n063\nNA\n\n\n54601\nWI\nLa Crosse\n66,000.50\n063\nNA\n\n\n(54601)\nWIS\nLa-Crosse\n67,000\n063\nNA\n\n\n54601\nWiscosin\nLa Cross\n68 000,00\n63\nNA"
+  },
+  {
+    "objectID": "week01/week_01.html#etl-process---load",
+    "href": "week01/week_01.html#etl-process---load",
+    "title": "ECO 230 Section 012",
+    "section": "ETL Process - Load",
+    "text": "ETL Process - Load\n\nExtract | Transform | Load"
+  },
+  {
+    "objectID": "week01/week_01.html#tableau",
+    "href": "week01/week_01.html#tableau",
+    "title": "ECO 230 Section 012",
+    "section": "Tableau",
+    "text": "Tableau"
+  },
+  {
+    "objectID": "week01/week_01.html#posit.cloud",
+    "href": "week01/week_01.html#posit.cloud",
+    "title": "ECO 230 Section 012",
+    "section": "Posit.cloud",
+    "text": "Posit.cloud"
+  },
+  {
+    "objectID": "week01/week_01.html#coding-in-r",
+    "href": "week01/week_01.html#coding-in-r",
+    "title": "ECO 230 Section 012",
+    "section": "Coding in R",
+    "text": "Coding in R\n\n\n\n\n\n\nabnb %&gt;% idt(listed_price~instant_bookable)\n\n\n\n\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\n\n$analysis_type\n[1] \"Independent t-Test, Two Tailed test\"\n\n$results\n[1] \"t(2110.38) = 3.515, p = 0, r = 0.076, bf10 = 12.163\"\n\n$descriptive_statistics\n  Group       N    Mean Standard_Error\n1 FALSE 2660.00  137.00           2.47\n2  TRUE 1060.00  122.00           3.59\n\n\n\n\n\nabnb %&gt;% ano(listed_price~room_type)\n\n\n\n\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\n\n$analysis_type\n[1] \"Homogeneity of Variance is not assumed, Robust One Way ANOVA for medians,  0.1  trimmed means, Post Hocs using linear equality constraints\"\n\n$results\n[1] \"F(2,224.33) = 905.491, p = 0, w = 0.841, bf10 = 4.60906366003435e+142\"\n\n$descriptive_statistics\n            Group       N    Mean Standard_Error\n1 Entire home/apt 2220.00  174.00           2.97\n2    Private room 1400.00   72.00           1.43\n3     Shared room  101.00   56.00          10.30\n\n$post_hoc_analysis\n                             Difference  P.Value\nEntire home/apt-Private room   85.03443 0.00e+00\nEntire home/apt-Shared room   110.73338 0.00e+00\nPrivate room-Shared room       25.69895 7.33e-11"
+  },
+  {
+    "objectID": "week01/week_01.html#so-what-actually-went-wrong-with-the-airbnb-analysis",
+    "href": "week01/week_01.html#so-what-actually-went-wrong-with-the-airbnb-analysis",
+    "title": "ECO 230 Section 012",
+    "section": "So… what actually went wrong with the Airbnb analysis?",
+    "text": "So… what actually went wrong with the Airbnb analysis?\n\n\n\nWrong unit of analysis\n\nWrong time fields\n\nWrong data structure\n\nWrong aggregation\n\nWrong assumptions about what the data measures\n\n\n\n\n\n\n\n\n\n\n\nWhat is your data?\n\n\nEverything broke before statistics."
+  },
+  {
+    "objectID": "week01/week_01.html#summary-and-prime-directive",
+    "href": "week01/week_01.html#summary-and-prime-directive",
+    "title": "ECO 230 Section 012",
+    "section": "Summary and Prime Directive",
+    "text": "Summary and Prime Directive\n\nBefore running any statistics, what are the three questions you must answer about a dataset?\n 1. What does one row represent?  2. What kind of variables do I have?  3. What question can this data answer?"
+  },
+  {
+    "objectID": "week01/study/video2-study.html",
+    "href": "week01/study/video2-study.html",
+    "title": "Study Guide — Video 2",
+    "section": "",
+    "text": "Identify each measurement scale (nominal, ordinal, interval, ratio).\nRecognize when averages make sense and when they don’t.\nUnderstand discrete vs. continuous variables.\nKnow how variables are coded behind the scenes.\n\n\n\n\n\n\nNominal = categories without order (e.g., shirt color, ZIP code).\nOrdinal = categories with order (e.g., GPA brackets, class rank).\nInterval = numeric scale without a meaningful zero (e.g., Fahrenheit).\nRatio = numeric scale with a real zero (e.g., GPA as a continuous number, height, weight).\nDiscrete = whole units (e.g., number of people).\nContinuous = can take fractional values (e.g., weights, GPAs).\nAverages are meaningful for ratio data; sometimes meaningful for ordinal; rarely meaningful for nominal.\nComputers assign numeric codes to categories, but that doesn’t make them numerical.\n\n\n\n\n\n\n\nCategorical labels without inherent order.\n\n\n\nCategories with meaningful ranking, but distances between categories are unknown.\n\n\n\nNumeric scale where differences make sense but zero is arbitrary.\n\n\n\nTrue numeric scale with a real zero; ratios are meaningful.\n\n\n\n\n\n\n\n\nWhich scale is GPA when recorded exactly (e.g., 3.27)?\n\n\nNominal\n\n\n\nOrdinal\n\n\n\nInterval\n\n\n\nRatio\nCorrect answer: D\n\n\nOn which scale does it not make sense to compute an average?\n\n\nNominal\n\n\n\nOrdinal\n\n\n\nInterval\n\n\n\nRatio\nCorrect answer: A\n\n\n“Freshman → Sophomore → Junior → Senior” is:\n\n\nNominal\n\n\n\nOrdinal\n\n\n\nInterval\n\n\n\nRatio\nCorrect answer: B\n\n\n\n\n\n\n\nGive an example of why treating nominal data as numeric can be misleading.\n\nExplain why Fahrenheit is an interval scale.\n\nDescribe a variable you use in real life and identify its scale.\n\n\n\n\n\n\n\n“Explain each measurement scale using analogies from sports or gaming.”\n“Give me 10 examples of variables and ask me to classify their scale.”\n“Convert a ratio variable into an ordinal scale and explain what information is lost.”\n“Give me trick questions that test whether I understand when averages make sense.”"
+  },
+  {
+    "objectID": "week01/study/video2-study.html#learning-objectives",
+    "href": "week01/study/video2-study.html#learning-objectives",
+    "title": "Study Guide — Video 2",
+    "section": "",
+    "text": "Identify each measurement scale (nominal, ordinal, interval, ratio).\nRecognize when averages make sense and when they don’t.\nUnderstand discrete vs. continuous variables.\nKnow how variables are coded behind the scenes."
+  },
+  {
+    "objectID": "week01/study/video2-study.html#key-takeaways",
+    "href": "week01/study/video2-study.html#key-takeaways",
+    "title": "Study Guide — Video 2",
+    "section": "",
+    "text": "Nominal = categories without order (e.g., shirt color, ZIP code).\nOrdinal = categories with order (e.g., GPA brackets, class rank).\nInterval = numeric scale without a meaningful zero (e.g., Fahrenheit).\nRatio = numeric scale with a real zero (e.g., GPA as a continuous number, height, weight).\nDiscrete = whole units (e.g., number of people).\nContinuous = can take fractional values (e.g., weights, GPAs).\nAverages are meaningful for ratio data; sometimes meaningful for ordinal; rarely meaningful for nominal.\nComputers assign numeric codes to categories, but that doesn’t make them numerical."
+  },
+  {
+    "objectID": "week01/study/video2-study.html#concept-definitions",
+    "href": "week01/study/video2-study.html#concept-definitions",
+    "title": "Study Guide — Video 2",
+    "section": "",
+    "text": "Categorical labels without inherent order.\n\n\n\nCategories with meaningful ranking, but distances between categories are unknown.\n\n\n\nNumeric scale where differences make sense but zero is arbitrary.\n\n\n\nTrue numeric scale with a real zero; ratios are meaningful."
+  },
+  {
+    "objectID": "week01/study/video2-study.html#practice-questions",
+    "href": "week01/study/video2-study.html#practice-questions",
+    "title": "Study Guide — Video 2",
+    "section": "",
+    "text": "Which scale is GPA when recorded exactly (e.g., 3.27)?\n\n\nNominal\n\n\n\nOrdinal\n\n\n\nInterval\n\n\n\nRatio\nCorrect answer: D\n\n\nOn which scale does it not make sense to compute an average?\n\n\nNominal\n\n\n\nOrdinal\n\n\n\nInterval\n\n\n\nRatio\nCorrect answer: A\n\n\n“Freshman → Sophomore → Junior → Senior” is:\n\n\nNominal\n\n\n\nOrdinal\n\n\n\nInterval\n\n\n\nRatio\nCorrect answer: B\n\n\n\n\n\n\n\nGive an example of why treating nominal data as numeric can be misleading.\n\nExplain why Fahrenheit is an interval scale.\n\nDescribe a variable you use in real life and identify its scale."
+  },
+  {
+    "objectID": "week01/study/video2-study.html#aipowered-study-prompts",
+    "href": "week01/study/video2-study.html#aipowered-study-prompts",
+    "title": "Study Guide — Video 2",
+    "section": "",
+    "text": "“Explain each measurement scale using analogies from sports or gaming.”\n“Give me 10 examples of variables and ask me to classify their scale.”\n“Convert a ratio variable into an ordinal scale and explain what information is lost.”\n“Give me trick questions that test whether I understand when averages make sense.”"
+  },
+  {
+    "objectID": "week01/study/video1-study.html",
+    "href": "week01/study/video1-study.html",
+    "title": "Study Guide — Video 1",
+    "section": "",
+    "text": "Understand the purpose and sequence of the ETL process.\nDistinguish between raw, unstructured, and structured data.\nRecognize why transformation is central to analysis.\nIdentify common data sources and loading destinations.\n\n\n\n\n\n\nExtract = Getting the data from its source (database, website, sensor feed, file, etc.).\nTransform = Cleaning, formatting, reshaping, and standardizing so it’s consistent.\nLoad = Bringing the cleaned data into the tool where analysis happens (Excel, R, Tableau, DBs).\nMost analysis work happens in the Transform stage.\nData from third‑party sources often requires substantial cleanup.\nStructured vs. unstructured sources influence how much transformation is needed.\n\n\n\n\n\n\n\nMoving data from source → computer or tool. This could be downloads, APIs, database connections, or streaming sources.\n\n\n\nEnsuring variables are consistent: - date formats\n- numerical types\n- categorical codes\n- missingness\n- pivoting between tall/wide\nThis enables charts, summaries, and models to behave predictably.\n\n\n\nFinal storage in the analysis environment.\nSometimes data is loaded back to the original DB; sometimes directly into R, Excel, etc.\n\n\n\n\n\n\n\n\n\nA)  Extract\\\n\n\nTransform\n\n\n\nLoad\n\n\n\nArchive\nCorrect answer: B\n\n\n\nA)  Reformatting dates\\\n\n\nDownloading a CSV from the Census Bureau\n\n\n\nCreating new variables\n\n\n\nWriting a SQL summary\nCorrect answer: B\n\n\n\nA)  Cleaning and standardizing\\\n\n\nMoving data into the analysis tool\n\n\n\nGenerating summaries\n\n\n\nInterpreting charts\nCorrect answer: B\n\n\n\n\n\n\n\nGive an example of unstructured data and why it’s difficult to work with.\n\nWhy is the Transform step essential before analysis?\n\nDescribe a real-world example of ETL from your job or daily life.\n\n\n\n\n\n\nCopy/paste into ChatGPT or Copilot:\n\n“Explain ETL to me like I’m brand new to data analytics, using only everyday examples.”\n“Give me 3 messy data scenarios and ask me how I would transform each one.”\n“Quiz me with 5 increasingly challenging questions about ETL and explain why each answer is right or wrong.”\n“Show me a before/after example of transforming poorly formatted data into tidy data ready for analysis.”"
+  },
+  {
+    "objectID": "week01/study/video1-study.html#learning-objectives",
+    "href": "week01/study/video1-study.html#learning-objectives",
+    "title": "Study Guide — Video 1",
+    "section": "",
+    "text": "Understand the purpose and sequence of the ETL process.\nDistinguish between raw, unstructured, and structured data.\nRecognize why transformation is central to analysis.\nIdentify common data sources and loading destinations."
+  },
+  {
+    "objectID": "week01/study/video1-study.html#key-takeaways",
+    "href": "week01/study/video1-study.html#key-takeaways",
+    "title": "Study Guide — Video 1",
+    "section": "",
+    "text": "Extract = Getting the data from its source (database, website, sensor feed, file, etc.).\nTransform = Cleaning, formatting, reshaping, and standardizing so it’s consistent.\nLoad = Bringing the cleaned data into the tool where analysis happens (Excel, R, Tableau, DBs).\nMost analysis work happens in the Transform stage.\nData from third‑party sources often requires substantial cleanup.\nStructured vs. unstructured sources influence how much transformation is needed."
+  },
+  {
+    "objectID": "week01/study/video1-study.html#core-concepts",
+    "href": "week01/study/video1-study.html#core-concepts",
+    "title": "Study Guide — Video 1",
+    "section": "",
+    "text": "Moving data from source → computer or tool. This could be downloads, APIs, database connections, or streaming sources.\n\n\n\nEnsuring variables are consistent: - date formats\n- numerical types\n- categorical codes\n- missingness\n- pivoting between tall/wide\nThis enables charts, summaries, and models to behave predictably.\n\n\n\nFinal storage in the analysis environment.\nSometimes data is loaded back to the original DB; sometimes directly into R, Excel, etc."
+  },
+  {
+    "objectID": "week01/study/video1-study.html#practice-questions",
+    "href": "week01/study/video1-study.html#practice-questions",
+    "title": "Study Guide — Video 1",
+    "section": "",
+    "text": "A)  Extract\\\n\n\nTransform\n\n\n\nLoad\n\n\n\nArchive\nCorrect answer: B\n\n\n\nA)  Reformatting dates\\\n\n\nDownloading a CSV from the Census Bureau\n\n\n\nCreating new variables\n\n\n\nWriting a SQL summary\nCorrect answer: B\n\n\n\nA)  Cleaning and standardizing\\\n\n\nMoving data into the analysis tool\n\n\n\nGenerating summaries\n\n\n\nInterpreting charts\nCorrect answer: B\n\n\n\n\n\n\n\nGive an example of unstructured data and why it’s difficult to work with.\n\nWhy is the Transform step essential before analysis?\n\nDescribe a real-world example of ETL from your job or daily life."
+  },
+  {
+    "objectID": "week01/study/video1-study.html#aipowered-study-prompts",
+    "href": "week01/study/video1-study.html#aipowered-study-prompts",
+    "title": "Study Guide — Video 1",
+    "section": "",
+    "text": "Copy/paste into ChatGPT or Copilot:\n\n“Explain ETL to me like I’m brand new to data analytics, using only everyday examples.”\n“Give me 3 messy data scenarios and ask me how I would transform each one.”\n“Quiz me with 5 increasingly challenging questions about ETL and explain why each answer is right or wrong.”\n“Show me a before/after example of transforming poorly formatted data into tidy data ready for analysis.”"
+  },
+  {
+    "objectID": "week01/transcripts/video3.html",
+    "href": "week01/transcripts/video3.html",
+    "title": "Transcript — Video 3 (Tidy Data & Structure)",
+    "section": "",
+    "text": "Transcript — Video 3 (Tidy Data & Structure)\nSo we’ve talked a little bit about how to get the data that we need into our hands onto your computer to do our analysis. Once we have our data ready to go, It’s always good to open up that dataset, take a look at it and get a sense of what is this data actually going to be telling us? How is the houses data stored? Is it in a format that’s gonna be, it’s gonna be useful for analysis. Or do we need to do some additional work in that transform space where we’re getting that data set up and organized just how we want it.\nFirst thing to think about is, how is this, these variables, this data is measuring. How is that data being stored or represented in our spreadsheet or in the database that we’re looking at. It’s usually going to break into two main categories. Categories as a category here. So this would be if our data has discrete things that it’s measuring.\nSimple example would be like a true‑false variable. Does this person live on‑campus true or false? It’s going to be a one or a zero. Logical yes or no, sort of a thing.\n(… transcript continues …)"
+  }
+]
