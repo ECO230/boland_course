@@ -1,18 +1,42 @@
-#R project state
+
+# -----------------------------
+# R project / renv state
+# -----------------------------
 .Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
+.Renviron
+renv/library/
+renv/staging/
 
-#Quarto build artifacts
-.quarto
-_site
-_freeze
+# Do NOT ignore renv.lock or renv/activate.R
+# (these must remain version-controlled)
+
+# -----------------------------
+# Quarto build artifacts
+# -----------------------------
 .quarto/
-
-#python/virtualenv
-__pycache__/
-
-
 /.quarto/
+.quarto-cache/
+_site/
+_freeze/
+
+# -----------------------------
+# Python / Jupyter
+# -----------------------------
+__pycache__/
+*.ipynb_checkpoints/
+
+# Quarto's Jupyter conversion artifacts
 **/*.quarto_ipynb
+
+# -----------------------------
+# VS Code
+# -----------------------------
+.vscode/
+
+# -----------------------------
+# Miscellaneous
+# -----------------------------
+*.log
