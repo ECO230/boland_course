@@ -1,0 +1,247 @@
+[
+  {
+    "objectID": "week01/week_01.html#use-instant-booking-wisely",
+    "href": "week01/week_01.html#use-instant-booking-wisely",
+    "title": "ECO 230 Section 012",
+    "section": "Use Instant Booking Wisely",
+    "text": "Use Instant Booking Wisely\n Airbnb Owners should enable Instant Booking in Fall — it’s the unequivocally best season for superior ratings and returns. \n\n\n\n\n\n\n\n\nSeason\nBookings\nAvg Price (USD)\nAvg Rating\nInstant-Book %\nRating × Price\n\n\n\n\nFall\n2,253\n$134.63\n95.14\n23.70%\n12,808.16\n\n\nWinter\n1,521\n$129.39\n95.08\n31.56%\n12,302.72\n\n\nSummer\n2,118\n$128.85\n94.64\n23.94%\n12,194.56\n\n\nSpring\n4,283\n$122.11\n95.32\n31.43%\n11,639.20"
+  },
+  {
+    "objectID": "week01/week_01.html#sample-airbnb-data",
+    "href": "week01/week_01.html#sample-airbnb-data",
+    "title": "ECO 230 Section 012",
+    "section": "Sample Airbnb Data",
+    "text": "Sample Airbnb Data\n\n\n\n\n\n\n\n\nID\nName\nProperty\nRoom\nNeighborhood\nZIP\nSleeps\nBR\nBeds\nHost Since\nFirst Review\nLast Review\n# Reviews\nRating\nPrice\nIB?\n\n\n\n\n6226658\nSweet Home Chicago\nApartment\nPrivate room\nHumboldt Park\n60622\n2\n1\n1\n2012-09-10\nNA\nNA\n0\nNA\n$60.00\nNo\n\n\n7499179\nPrivate room in Wicker Park loft at S…\nLoft\nPrivate room\nWicker Park\n60622\n2\n1\n1\n2016-07-29\n2016-08-14\n2016-10-16\n15\n91.00\n$75.00\nNo\n\n\n19813606\nModern condo close to parks and museu…\nCondominium\nEntire home/apt\nSouth Loop/Printe…\n60605\n5\n2\n2\n2016-07-17\nNA\nNA\n0\nNA\n$250.00\nYes\n\n\n13435559\nArt studio + house in one\nHouse\nPrivate room\nPilsen\n60608\n2\n1\n1\n2014-02-27\n2014-03-19\n2017-04-30\n85\n96.00\n$64.00\nNo\n\n\n19692298\nCharming bohemian duplex w King bed\nHouse\nEntire home/apt\nNA\n60647\n3\n1\n1\n2015-03-15\n2015-11-23\n2016-11-21\n18\n97.00\n$110.00\nNo\n\n\n235281\n5 QUEEN BEDS / 2 FULL BATHS / SLEEPS …\nApartment\nEntire home/apt\nLakeview\n60614\n9\n2\n5\n2015-12-13\n2016-06-10\n2017-04-16\n10\n96.00\n$199.00\nNo\n\n\n783533\nChicago MostWanted LOCATION Mag Mil\nApartment\nEntire home/apt\nStreeterville\n60611\n2\n1\n1\n2012-10-24\n2014-04-13\n2014-11-05\n4\n100.00\n$161.00\nNo\n\n\n11610316\nBedroom with bath and large family ro…\nBungalow\nPrivate room\nBelmont Cragin\n60639\n5\n1\n3\n2017-02-07\n2017-03-02\n2017-05-07\n16\n100.00\n$39.00\nYes\n\n\n16412763\nGreat 1 bedroom Luxury Location and A…\nApartment\nEntire home/apt\nNA\n60601\n3\n1\n1\n2012-10-24\n2015-10-16\n2015-10-16\n1\n100.00\n$175.00\nNo\n\n\n15636707\nFantastic River North Location!-s3\nApartment\nEntire home/apt\nRiver North\n60654\n2\n0\n1\n2015-10-15\n2016-10-23\n2016-10-23\n1\n80.00\n$359.00\nNo\n\n\n18089318\nShortStayChicago#5: Michigan Avenue\nApartment\nEntire home/apt\nRiver North\n60610\n2\n0\n1\n2014-12-20\n2015-05-25\n2017-03-04\n14\n89.00\n$85.00\nNo\n\n\n17587897\nCITY CENTER, SPACIOUS COZY STUDIO & F…\nApartment\nEntire home/apt\nGold Coast\n60610\n2\n0\n1\n2016-01-24\nNA\nNA\n0\nNA\n$29.00\nYes\n\n\n9379983\nCozy Garden Unit In Edgewater\nApartment\nEntire home/apt\nEdgewater\n60660\n4\n1\n1\n2011-08-28\n2016-01-16\n2017-05-08\n55\n95.00\n$85.00\nYes\n\n\n1602772\nSplit-Level Artist Loft\nLoft\nEntire home/apt\nWest Town/Noble S…\n60642\n4\n2\n2\n2015-06-16\n2015-09-14\n2017-04-17\n18\n95.00\n$200.00\nNo\n\n\n18341150\nLarge beautiful old apartment, with a…\nApartment\nPrivate room\nUptown\n60613\n2\n1\n1\n2016-11-09\nNA\nNA\n0\nNA\n$56.00\nYes\n\n\n19564384\nArt-Filled Vintage Ukrainian Village …\nApartment\nPrivate room\nUkrainian Village\n60622\n1\n1\n1\n2015-04-21\n2016-08-21\n2017-04-24\n18\n99.00\n$68.00\nNo\n\n\n10253271\nGorgeous South Loop / Downtown Loft! …\nCondominium\nEntire home/apt\nSouth Loop/Printe…\n60605\n6\n2\n4\n2016-08-13\n2016-09-16\n2017-05-05\n29\n96.00\n$129.00\nYes\n\n\n11750272\nTwo Bedroom Suite in Lincoln Park\nApartment\nEntire home/apt\nLincoln Park\n60614\n4\n2\n2\n2009-08-24\nNA\nNA\n0\nNA\n$155.00\nNo\n\n\n708802\nLogan Square- Steps from the train!\nHouse\nEntire home/apt\nNA\n60647\n8\n1\n2\n2013-05-03\n2016-11-20\n2016-11-20\n1\n100.00\n$300.00\nNo\n\n\n4281241\nWest Loop/Greek Town Loft With Free P…\nLoft\nPrivate room\nWest Loop/Greekto…\n60661\n4\n1\n1\n2016-06-17\n2016-09-13\n2017-04-09\n14\n94.00\n$85.00\nNo"
+  },
+  {
+    "objectID": "week01/week_01.html#before-we-run-any-statistics",
+    "href": "week01/week_01.html#before-we-run-any-statistics",
+    "title": "ECO 230 Section 012",
+    "section": "Before we run any statistics…",
+    "text": "Before we run any statistics…\n\n\n\n\n\n\n\n\nGuiding Question\n\n\nWhat can go wrong before you ever run a statistical test?"
+  },
+  {
+    "objectID": "week01/week_01.html#section",
+    "href": "week01/week_01.html#section",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "What is Statistics?\nWhat is Analytics?"
+  },
+  {
+    "objectID": "week01/week_01.html#section-1",
+    "href": "week01/week_01.html#section-1",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics is the art of finding out what is in your data."
+  },
+  {
+    "objectID": "week01/week_01.html#section-2",
+    "href": "week01/week_01.html#section-2",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "If you can (with some effort) find the answer with certainty you are using Analytics."
+  },
+  {
+    "objectID": "week01/week_01.html#section-3",
+    "href": "week01/week_01.html#section-3",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics deals with what you know.\nStatistics deals with what you do not know."
+  },
+  {
+    "objectID": "week01/week_01.html#section-4",
+    "href": "week01/week_01.html#section-4",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics turns curiosity into questions.\nStatistics turns data into answers."
+  },
+  {
+    "objectID": "week01/week_01.html#section-5",
+    "href": "week01/week_01.html#section-5",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics is the art of finding out what is in your data.\nStatistics is the science of making decisions under uncertainty."
+  },
+  {
+    "objectID": "week01/week_01.html#section-6",
+    "href": "week01/week_01.html#section-6",
+    "title": "ECO 230 Section 012",
+    "section": "",
+    "text": "Analytics or Statistics\n\nCount the number of airbnb properties within 1 mile of Wrigley Field\nPredict how many bookings an airbnb property will have next year\nTesting whether changing cancellation policy caused higher satisfaction\n\n\n\n\nOpen with intuition: students already do analytics informally.\nEmphasize uncertainty as the key dividing line.\nPause after the third fragment and ask for examples."
+  },
+  {
+    "objectID": "week01/week_01.html#data-at-different-grain-levels",
+    "href": "week01/week_01.html#data-at-different-grain-levels",
+    "title": "ECO 230 Section 012",
+    "section": "Data at different grain levels",
+    "text": "Data at different grain levels\nCalculate the Total Yearly Revenue for Each Property\n\n\n\n\n\n\n\n\nGotcha! - Wrong Unit of Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDataset A — Airbnb Rental Data\n\n\nID\nName\nRoom\nList\nSleeps\nN’hood\nBR\nBA\nBeds\nCancel\nHost Since\n\n\n\n\n15041110\n2BD Suite @ The Guesthouse …\nEntire home/apt\n$199\n6\nUptown\n2\n2.0\n2\nstrict\n2014-12-10\n\n\n7176158\nAndersonville Living\nEntire home/apt\n$61\n6\nAndersonville\n2\n1.0\n4\nflexible\n2015-01-22\n\n\n10452737\nCharming European Back Deck\nEntire home/apt\n$119\n8\nWest Ridge\n3\n1.5\n4\nstrict\n2015-02-17\n\n\n12854553\nLogan Square gem! Parking i…\nEntire home/apt\n$100\n6\nLogan Square\n2\n1.0\n3\nstrict\n2016-02-02\n\n\n743217\nLux Downtown River North La…\nPrivate room\n$118\n2\nLoop\n1\n1.0\n1\nmoderate\n2015-01-18\n\n\n9845618\nModern & Spacious 1 Bed…\nEntire home/apt\n$95\n4\nHumboldt Park\n1\n1.0\n2\nmoderate\n2011-05-17\n\n\n2092905\nPerfect Pilsen place, skyli…\nEntire home/apt\n$160\n2\nPilsen\n1\n1.0\n1\nflexible\n2014-07-09\n\n\n18048473\nPrivate Room near Wicker Pa…\nPrivate room\n$70\n2\nUkrainian Village\n1\n1.0\n1\nflexible\n2012-05-10\n\n\n18549439\nWICKER PK /NOBLE SQUARE Coz…\nEntire home/apt\n$90\n2\nWicker Park\n1\n1.0\n1\nflexible\n2016-05-23\n\n\n10886628\nWells St Suites - Old Town …\nEntire home/apt\n$350\n8\nNA\n3\n2.0\n4\nstrict\n2009-08-21\n\n\n\n\n\n\n\n\n\n\n\nDataset B — Airbnb Rental Data\n\n\nID\nName\nRoom\nSleeps\nN’hood\nCheck‑in\nNts\nGuests\nStatus\nPrice/Nt\nTotal\n\n\n\n\n12854553\nLogan Square gem! Parki…\nEntire home/apt\n6\nLogan Square\n2025-02-12\n5\n2\ncompleted\n$110\n$651\n\n\n12854553\nLogan Square gem! Parki…\nEntire home/apt\n6\nLogan Square\n2025-06-27\n3\n1\ncompleted\n$124\n$471\n\n\n12854553\nLogan Square gem! Parki…\nEntire home/apt\n6\nLogan Square\n2025-07-05\n4\n4\ncancelled\n$95\n$0\n\n\n12854553\nLogan Square gem! Parki…\nEntire home/apt\n6\nLogan Square\n2025-07-21\n6\n3\ncompleted\n$117\n$800\n\n\n12854553\nLogan Square gem! Parki…\nEntire home/apt\n6\nLogan Square\n2025-08-17\n3\n1\ncompleted\n$105\n$414\n\n\n743217\nLux Downtown River Nort…\nPrivate room\n2\nLoop\n2025-04-12\n4\n2\ncompleted\n$139\n$556\n\n\n743217\nLux Downtown River Nort…\nPrivate room\n2\nLoop\n2025-04-24\n4\n1\ncompleted\n$164\n$655\n\n\n743217\nLux Downtown River Nort…\nPrivate room\n2\nLoop\n2025-06-28\n2\n1\ncompleted\n$139\n$279\n\n\n743217\nLux Downtown River Nort…\nPrivate room\n2\nLoop\n2025-09-17\n5\n2\ncompleted\n$139\n$697\n\n\n743217\nLux Downtown River Nort…\nPrivate room\n2\nLoop\n2025-10-19\n3\n2\ncancelled\n$99\n$0"
+  },
+  {
+    "objectID": "week01/week_01.html#rows-vs-columns",
+    "href": "week01/week_01.html#rows-vs-columns",
+    "title": "ECO 230 Section 012",
+    "section": "Rows vs Columns",
+    "text": "Rows vs Columns\n\n\nColumns\n\n\n\nRows"
+  },
+  {
+    "objectID": "week01/week_01.html#unit-of-analysis",
+    "href": "week01/week_01.html#unit-of-analysis",
+    "title": "ECO 230 Section 012",
+    "section": "Unit of Analysis",
+    "text": "Unit of Analysis\n\n\nWhat does each thingie (row, observation, grain) of this data represent?\n\n\n\nEveryone in a zipcode\nIndividual consumers\nIndividual purchases\nGDP of an economy\nPopulation of a planet"
+  },
+  {
+    "objectID": "week01/week_01.html#unit-of-analysis-1",
+    "href": "week01/week_01.html#unit-of-analysis-1",
+    "title": "ECO 230 Section 012",
+    "section": "Unit of Analysis",
+    "text": "Unit of Analysis\n\nRows are never ‘just rows’\n\n\n\n\n\n\n\n\nCritical Insight\n\n\nIf you misunderstand the unit of analysis, every result is wrong, even with perfect code."
+  },
+  {
+    "objectID": "week01/week_01.html#data-grouping-cross-sectional",
+    "href": "week01/week_01.html#data-grouping-cross-sectional",
+    "title": "ECO 230 Section 012",
+    "section": "Data Grouping: Cross-Sectional",
+    "text": "Data Grouping: Cross-Sectional"
+  },
+  {
+    "objectID": "week01/week_01.html#data-grouping-time-series",
+    "href": "week01/week_01.html#data-grouping-time-series",
+    "title": "ECO 230 Section 012",
+    "section": "Data Grouping: Time-Series",
+    "text": "Data Grouping: Time-Series"
+  },
+  {
+    "objectID": "week01/week_01.html#data-grouping-panel",
+    "href": "week01/week_01.html#data-grouping-panel",
+    "title": "ECO 230 Section 012",
+    "section": "Data Grouping: Panel",
+    "text": "Data Grouping: Panel"
+  },
+  {
+    "objectID": "week01/week_01.html#tall-vs-wide-data",
+    "href": "week01/week_01.html#tall-vs-wide-data",
+    "title": "ECO 230 Section 012",
+    "section": "Tall vs Wide Data",
+    "text": "Tall vs Wide Data\nSummarize total minutes of sleep by month and location\n\n\n\n\n\n\n\n\nGotcha! - Wrong Data Structure\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTall — More rows, fewer columns\n\n\n\nVariable\nValue\n\n\n\n\nCam\nDate\n2025-01-05\n\n\nCam\nDate\n2025-01-06\n\n\nCam\nDate\n2025-01-07\n\n\nCam\nDate\n2025-01-08\n\n\nCam\nDate\n2025-01-09\n\n\nCam\nDate\n2025-01-10\n\n\nCam\nDate\n2025-01-11\n\n\nCam\nDayOfWeek\nSunday\n\n\nCam\nDayOfWeek\nMonday\n\n\nCam\nDayOfWeek\nTuesday\n\n\nCam\nDayOfWeek\nWednesday\n\n\nCam\nDayOfWeek\nThursday\n\n\nCam\nDayOfWeek\nFriday\n\n\nCam\nDayOfWeek\nSaturday\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nGender\nFemale\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nLocation\nHome\n\n\nCam\nTotalMinutes\n411\n\n\nCam\nTotalMinutes\n386\n\n\nCam\nTotalMinutes\n387\n\n\nCam\nTotalMinutes\n442\n\n\nCam\nTotalMinutes\n440\n\n\nCam\nTotalMinutes\n472\n\n\nCam\nTotalMinutes\n407\n\n\nMike\nDate\n2025-01-05\n\n\nMike\nDate\n2025-01-06\n\n\nMike\nDate\n2025-01-07\n\n\nMike\nDate\n2025-01-08\n\n\nMike\nDate\n2025-01-09\n\n\nMike\nDate\n2025-01-10\n\n\nMike\nDate\n2025-01-11\n\n\nMike\nDayOfWeek\nSunday\n\n\nMike\nDayOfWeek\nMonday\n\n\nMike\nDayOfWeek\nTuesday\n\n\nMike\nDayOfWeek\nWednesday\n\n\nMike\nDayOfWeek\nThursday\n\n\nMike\nDayOfWeek\nFriday\n\n\nMike\nDayOfWeek\nSaturday\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nGender\nMale\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nLocation\nHome\n\n\nMike\nTotalMinutes\n462\n\n\nMike\nTotalMinutes\n496\n\n\nMike\nTotalMinutes\n514\n\n\nMike\nTotalMinutes\n442\n\n\nMike\nTotalMinutes\n532\n\n\nMike\nTotalMinutes\n533\n\n\nMike\nTotalMinutes\n497\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWide — More columns, fewer rows\n\n\nName\nGender\nLocation\n2025-01-05\n2025-01-06\n2025-01-07\n2025-01-08\n2025-01-09\n2025-01-10\n2025-01-11\n\n\n\n\nCam\nFemale\nHome\n411\n386\n387\n442\n440\n472\n407\n\n\nMike\nMale\nHome\n462\n496\n514\n442\n532\n533\n497"
+  },
+  {
+    "objectID": "week01/week_01.html#data-types",
+    "href": "week01/week_01.html#data-types",
+    "title": "ECO 230 Section 012",
+    "section": "Data Types",
+    "text": "Data Types\n\nCategories\nTrue/False → logical\nCategorical → factor\nOrdinal → factor\n\nNumbers\nDiscrete → integer\nContinuous → double"
+  },
+  {
+    "objectID": "week01/week_01.html#measurement-scales",
+    "href": "week01/week_01.html#measurement-scales",
+    "title": "ECO 230 Section 012",
+    "section": "Measurement Scales",
+    "text": "Measurement Scales"
+  },
+  {
+    "objectID": "week01/week_01.html#observations---atomic-data",
+    "href": "week01/week_01.html#observations---atomic-data",
+    "title": "ECO 230 Section 012",
+    "section": "Observations - Atomic Data",
+    "text": "Observations - Atomic Data\n\n\n\n\n\n\n\n\n\n\nCategories\n\n\n\n\n\n\n\n\nName\nMike\n\n\nDate\n01/03/2025\n\n\nGender\nMale\n\n\nLocation\nHome\n\n\nZipCode\n54601\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumbers\n\n\n\n\n\n\n\n\nStart Time\n10:30 P.M.\n\n\nEnd Time\n6:59 A.M.\n\n\nR.E.M.\n109 Minutes\n\n\nDeep Sleep\n151 Minutes\n\n\nLight Sleep\n249 Minutes\n\n\nTotal Sleep\n509\n\n\nQuality\n51%"
+  },
+  {
+    "objectID": "week01/week_01.html#summarized-data",
+    "href": "week01/week_01.html#summarized-data",
+    "title": "ECO 230 Section 012",
+    "section": "Summarized Data",
+    "text": "Summarized Data\n\n\nDimensions\n\n\nCategories\nFilters\nAxis Labels\n\n\n\n    \n\nMeasures\n\n\nAverages\nStandard Deviation\nCounts\nSums\n\n\n\n\n\n\n\n\n\n\n\nJune Camping\n\n\n\n\n\n\n\nMean = 426.50 Minutes\n\n\nMedian = 440 Minutes\n\n\nQuality = 41.87%\n\n\nN Records = 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJanuary Home\n\n\n\n\n\n\n\nMean = 377.21 Minutes\n\n\nMedian = 443 Minutes\n\n\nQuality = 51.37%\n\n\nN Records = 208"
+  },
+  {
+    "objectID": "week01/week_01.html#tall-vs-wide",
+    "href": "week01/week_01.html#tall-vs-wide",
+    "title": "ECO 230 Section 012",
+    "section": "Tall vs Wide",
+    "text": "Tall vs Wide\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDimensions\n\n\nMeasures\n\n\n\nDate\nDayOfWeek\nMonth\nPersonName\nGender\nLocation\nEventType\nStartTime\nEndTime\nTotalMinutes\nREMMinutes\nDeepMinutes\nLightMinutes\nSleepQuality\n\n\n\n\n2025-01-01\nWednesday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-01 22:25\n2025-01-02 05:26\n421\n113\n123\n185\n56.10%\n\n\n2025-01-01\nWednesday\nJanuary\nJohn\nMale\nHome\nMain\n2025-01-01 00:30\n2025-01-01 07:28\n418\n84\n104\n230\n45.00%\n\n\n2025-01-01\nWednesday\nJanuary\nLucas\nMale\nHome\nMain\n2025-01-01 22:25\n2025-01-02 05:44\n439\n70\n183\n186\n57.60%\n\n\n2025-01-01\nWednesday\nJanuary\nLydia\nFemale\nHome\nMain\n2025-01-01 23:15\n2025-01-02 07:34\n499\n79\n184\n236\n52.70%\n\n\n2025-01-01\nWednesday\nJanuary\nMike\nMale\nHome\nMain\n2025-01-01 23:10\n2025-01-02 07:24\n494\n151\n85\n258\n47.80%\n\n\n2025-01-01\nWednesday\nJanuary\nSloane\nFemale\nHome\nMain\n2025-01-01 22:00\n2025-01-02 05:36\n456\n94\n164\n198\n56.60%\n\n\n2025-01-02\nThursday\nJanuary\nCam\nFemale\nHome\nNap\n2025-01-02 13:40\n2025-01-02 14:24\n44\n9\n10\n25\n43.20%\n\n\n2025-01-02\nThursday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-02 22:10\n2025-01-03 05:00\n410\n132\n97\n181\n55.90%\n\n\n2025-01-02\nThursday\nJanuary\nJohn\nMale\nHome\nMain\n2025-01-02 23:50\n2025-01-03 06:47\n417\n93\n128\n196\n53.00%\n\n\n2025-01-02\nThursday\nJanuary\nLucas\nMale\nHome\nNap\n2025-01-02 16:00\n2025-01-02 17:06\n66\n3\n27\n36\n45.50%\n\n\n2025-01-02\nThursday\nJanuary\nLucas\nMale\nHome\nMain\n2025-01-02 22:00\n2025-01-03 05:41\n461\n95\n145\n221\n52.10%\n\n\n2025-01-02\nThursday\nJanuary\nLydia\nFemale\nHome\nMain\n2025-01-02 22:45\n2025-01-03 06:28\n463\n121\n121\n221\n52.30%\n\n\n2025-01-02\nThursday\nJanuary\nMike\nMale\nHome\nMain\n2025-01-02 22:05\n2025-01-03 05:50\n465\n116\n110\n239\n48.60%\n\n\n2025-01-02\nThursday\nJanuary\nSloane\nFemale\nHome\nMain\n2025-01-02 21:40\n2025-01-03 04:56\n436\n71\n172\n193\n55.70%\n\n\n2025-01-03\nFriday\nJanuary\nCam\nFemale\nHome\nMain\n2025-01-03 22:10\n2025-01-04 05:27\n437\n96\n165\n176\n59.70%"
+  },
+  {
+    "objectID": "week01/week_01.html#principles-of-tidy-data",
+    "href": "week01/week_01.html#principles-of-tidy-data",
+    "title": "ECO 230 Section 012",
+    "section": "Principles of Tidy Data",
+    "text": "Principles of Tidy Data\n\n\nEach variable you measure should be in one column\nEach observation of that variable should be in a different row\nThere should be one table for each type of observational unit\nIf you have multiple tables you need a key to link them\n\n\n\n\n\n\n\n\n\n\nNerd Alert.\n\n\nTidy Data principles are a solution to a problem, not rules that must be followed."
+  },
+  {
+    "objectID": "week01/week_01.html#tidy-data---principles-1-3",
+    "href": "week01/week_01.html#tidy-data---principles-1-3",
+    "title": "ECO 230 Section 012",
+    "section": "Tidy Data - Principles 1-3",
+    "text": "Tidy Data - Principles 1-3\n\n\n\n\n\n\nSleep (first 10): PersonName, Gender, Location, ZipCode, TotalMinutes, SleepQuality\n\n\nName\nGender\nLocation\nZIP\nMinutes\nQuality\n\n\n\n\nCam\nFemale\nHome\n54603\n421\n0.561\n\n\nJohn\nMale\nHome\n54636\n418\n0.450\n\n\nLucas\nMale\nHome\n54669\n439\n0.576\n\n\nLydia\nFemale\nHome\n54601\n499\n0.527\n\n\nMike\nMale\nHome\n54601\n494\n0.478\n\n\nSloane\nFemale\nHome\n54650\n456\n0.566\n\n\nCam\nFemale\nHome\n54603\n44\n0.432\n\n\nCam\nFemale\nHome\n54603\n410\n0.559\n\n\nJohn\nMale\nHome\n54636\n417\n0.530\n\n\nLucas\nMale\nHome\n54669\n66\n0.455"
+  },
+  {
+    "objectID": "week01/week_01.html#tidy-data---principle-4",
+    "href": "week01/week_01.html#tidy-data---principle-4",
+    "title": "ECO 230 Section 012",
+    "section": "Tidy Data - Principle 4",
+    "text": "Tidy Data - Principle 4\n\n\n\n\n\n\nSleep ZIP Profiles (first 10): zip, city, state, population, crime_rate_per_100k, avg_sunny_days_per_year\n\n\nZIP\nCity\nState\nPopulation\nCrime per 100k\nSunny Days\n\n\n\n\n54601\nLa Crosse\nWI\n51,300\n3,100\n190\n\n\n54603\nLa Crosse\nWI\n18,200\n3,300\n190\n\n\n54636\nHolmen\nWI\n10,100\n1,200\n190\n\n\n54650\nOnalaska\nWI\n18,800\n1,400\n190\n\n\n54669\nWest Salem\nWI\n5,100\n1,100\n190\n\n\n53202\nMilwaukee\nWI\n23,000\n5,000\n189\n\n\n54401\nWausau\nWI\n32,000\n2,000\n187\n\n\n54956\nNeenah\nWI\n26,000\n2,600\n187\n\n\n53562\nMiddleton\nWI\n21,000\n1,500\n190\n\n\n54212\nEphraim\nWI\n300\n800\n185"
+  },
+  {
+    "objectID": "week01/week_01.html#etl-process---extract",
+    "href": "week01/week_01.html#etl-process---extract",
+    "title": "ECO 230 Section 012",
+    "section": "ETL Process - Extract",
+    "text": "ETL Process - Extract\n\nExtract | Transform | Load\n\n\n\nStructured Data\n\n\nThird Party\n\n\nUnstructured Data"
+  },
+  {
+    "objectID": "week01/week_01.html#etl-process---transform",
+    "href": "week01/week_01.html#etl-process---transform",
+    "title": "ECO 230 Section 012",
+    "section": "ETL Process - Transform",
+    "text": "ETL Process - Transform\n\nExtract | Transform | Load"
+  },
+  {
+    "objectID": "week01/week_01.html#etl-process---transform-example",
+    "href": "week01/week_01.html#etl-process---transform-example",
+    "title": "ECO 230 Section 012",
+    "section": "ETL Process - Transform Example",
+    "text": "ETL Process - Transform Example\n\nExtract | Transform | Load\n\n\n\n\n\n\n\nMessy ZIP 54601\n\n\nzip_value\nstate_value\ncounty_value\npopulation_value\nfips_county\neverything_raw\n\n\n\n\n54601\nWI\nLa Crosse\n51320\n063\nNA\n\n\n54601-1234\nWIS\nLaCrosse\n51,000\n063\nNA\n\n\n54601\nWiscosin\nLaCrose\n51,000.75\n63\nNA\n\n\nZIP-54601\nWI\nLaCrosse County\nPop: 52,100\n063\nNA\n\n\n54601\nWI\nLa Crosse\nNA\n063\nNA\n\n\n54601\nWISCONSIN\nLacrosse\n53,200.00\n063\nNA\n\n\nZIP 54601\nwi\nLa Crosse\n50000\n063\nNA\n\n\n54601 - 0002\nWIS\nLa Crosse\n49 500\n63\nNA\n\n\n54601\nWI\nLaCrosse\n51,800\n063\nNA\n\n\n54601\nWisconsin\nLaCrosse\n60000.9\n063\nNA\n\n\n54601\nwisconsin\nla crosse\n61,000\n063\nNA\n\n\n54601\nWIS.\nLaCrosse\n62 000.1\n063\nNA\n\n\n54601\nWI\nLa Crosse\n~62k\n063\nNA\n\n\n54601\nWI\nNA\n63,000\n063\nNA\n\n\n54601\nNA\nLaCrosse\n64,000.25\nNA\nNA\n\n\nNA\nNA\nNA\nNA\nNA\n54601|WI|La Crosse|population=51,320|FIPS=55063|ZIP+4=54601…\n\n\nZIP:54601\nWISCONSIN\nLAX COUNTY\n65,000\n063\nNA\n\n\n54601\nWI\nLa Crosse\n66,000.50\n063\nNA\n\n\n(54601)\nWIS\nLa-Crosse\n67,000\n063\nNA\n\n\n54601\nWiscosin\nLa Cross\n68 000,00\n63\nNA"
+  },
+  {
+    "objectID": "week01/week_01.html#etl-process---load",
+    "href": "week01/week_01.html#etl-process---load",
+    "title": "ECO 230 Section 012",
+    "section": "ETL Process - Load",
+    "text": "ETL Process - Load\n\nExtract | Transform | Load"
+  },
+  {
+    "objectID": "week01/week_01.html#tableau",
+    "href": "week01/week_01.html#tableau",
+    "title": "ECO 230 Section 012",
+    "section": "Tableau",
+    "text": "Tableau"
+  },
+  {
+    "objectID": "week01/week_01.html#posit.cloud",
+    "href": "week01/week_01.html#posit.cloud",
+    "title": "ECO 230 Section 012",
+    "section": "Posit.cloud",
+    "text": "Posit.cloud"
+  },
+  {
+    "objectID": "week01/week_01.html#coding-in-r",
+    "href": "week01/week_01.html#coding-in-r",
+    "title": "ECO 230 Section 012",
+    "section": "Coding in R",
+    "text": "Coding in R\n\n\n\n\n\n\nabnb %&gt;% idt(listed_price~instant_bookable)\n\n\n\n\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\n\n$analysis_type\n[1] \"Independent t-Test, Two Tailed test\"\n\n$results\n[1] \"t(2110.38) = 3.515, p = 0, r = 0.076, bf10 = 12.163\"\n\n$descriptive_statistics\n  Group       N    Mean Standard_Error\n1 FALSE 2660.00  137.00           2.47\n2  TRUE 1060.00  122.00           3.59\n\n\n\n\n\nabnb %&gt;% ano(listed_price~room_type)\n\n\n\n\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\n\n$analysis_type\n[1] \"Homogeneity of Variance is not assumed, Robust One Way ANOVA for medians,  0.1  trimmed means, Post Hocs using linear equality constraints\"\n\n$results\n[1] \"F(2,224.33) = 905.491, p = 0, w = 0.841, bf10 = 4.60906366012814e+142\"\n\n$descriptive_statistics\n            Group       N    Mean Standard_Error\n1 Entire home/apt 2220.00  174.00           2.97\n2    Private room 1400.00   72.00           1.43\n3     Shared room  101.00   56.00          10.30\n\n$post_hoc_analysis\n                             Difference  P.Value\nEntire home/apt-Private room   85.03443 0.00e+00\nEntire home/apt-Shared room   110.73338 0.00e+00\nPrivate room-Shared room       25.69895 7.33e-11"
+  },
+  {
+    "objectID": "week01/week_01.html#so-what-actually-went-wrong-with-the-airbnb-analysis",
+    "href": "week01/week_01.html#so-what-actually-went-wrong-with-the-airbnb-analysis",
+    "title": "ECO 230 Section 012",
+    "section": "So… what actually went wrong with the Airbnb analysis?",
+    "text": "So… what actually went wrong with the Airbnb analysis?\n\n\n\nWrong unit of analysis\n\nWrong time fields\n\nWrong data structure\n\nWrong aggregation\n\nWrong assumptions about what the data measures\n\n\n\n\n\n\n\n\n\n\n\nWhat is your data?\n\n\nEverything broke before statistics."
+  },
+  {
+    "objectID": "week01/week_01.html#summary-and-prime-directive",
+    "href": "week01/week_01.html#summary-and-prime-directive",
+    "title": "ECO 230 Section 012",
+    "section": "Summary and Prime Directive",
+    "text": "Summary and Prime Directive\n\nBefore running any statistics, what are the three questions you must answer about a dataset?\n 1. What does one row represent?  2. What kind of variables do I have?  3. What question can this data answer?"
+  }
+]

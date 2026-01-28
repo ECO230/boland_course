@@ -2,6 +2,8 @@
 project:
   type: website
   output-dir: _site
+  preview:
+    browser: true
 
 website:
   title: "ECO 230 — Section 12"
