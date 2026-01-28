@@ -17,6 +17,7 @@ renv/staging/
 # Quarto build artifacts
 # -----------------------------
 .quarto/
+/.quarto/
 .quarto-cache/
 _site/
 _freeze/
