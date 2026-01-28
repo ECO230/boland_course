@@ -1,0 +1,45 @@
+/* ============================================================
+   ECO 230 — Global deck styling (PPT-optimized)
+   ============================================================ */
+:root {
+  --eco-accent: #1f4e79;
+  --eco-text: #202020;
+  --eco-muted: #4a4a4a;
+  --eco-base-size: 32px;
+  --eco-h1: 2.55rem;
+  --eco-h2: 2.05rem;
+  --eco-h3: 1.55rem;
+  --eco-body: 1.10rem;
+}
+.reveal, .reveal .slides { background:#fff; color:var(--eco-text); font-size:var(--eco-base-size); }
+.reveal, .reveal h1, .reveal h2, .reveal h3 { font-family: "Segoe UI", Calibri, Arial, sans-serif; }
+.reveal h1, .reveal h2, .reveal h3 { font-weight:700; letter-spacing:0; color:var(--eco-text); line-height:1.05; margin:0 0 .45rem 0; }
+.reveal h1{ font-size:var(--eco-h1);} .reveal h2{ font-size:var(--eco-h2);} .reveal h3{ font-size:var(--eco-h3);}
+.reveal p, .reveal li { font-size:var(--eco-body); line-height:1.40; }
+strong, b { color:var(--eco-accent); font-weight:700; }
+.reveal h1 + p::after, .reveal h2 + p::after { content:""; display:block; width:120px; height:3px; background:var(--eco-accent); margin-top:12px; border-radius:2px; }
+.reveal .slides section .slide-content, .reveal .slides section .columns { max-width:1300px; margin-left:auto !important; margin-right:auto !important; padding:0 1rem; }
+.reveal .columns { gap:2.3rem; align-items:start; }
+.reveal .column:first-child{ flex:0 1 65%; } .reveal .column:last-child{ flex:0 1 35%; }
+.reveal ul, .reveal ol { margin-top:.4rem; margin-bottom:.6rem; padding-left:1.1rem; }
+.reveal li { margin:.26rem 0; }
+.reveal section img { max-width:92%; height:auto; margin:.4rem auto .2rem auto; display:block; border-radius:2px; }
+.reveal img.full{ max-width:100%; width:100%; }
+.reveal .column:last-child img{ max-width:97%; width:97%; }
+.reveal table{ border-collapse:collapse; margin:.7rem auto; font-size:1.0rem; }
+.reveal th, .reveal td{ padding:7px 12px; border-bottom:1px solid #ddd; }
+.reveal th{ border-bottom:2px solid #333; font-weight:700; }
+.reveal pre code{ font-size:1.0rem; line-height:1.33; background:#f3f3f3; border-radius:6px; padding:12px 14px; display:block; border:1px solid #e1e1e1; }
+.reveal .slides section.title-slide h1{ font-size:3.0rem; color:var(--eco-accent); font-weight:800; margin-bottom:.5rem; }
+.reveal .slides section.title-slide h2{ font-size:1.40rem; color:#555; margin-top:.2rem; }
+.footer{ position:absolute; bottom:14px; left:24px; color:var(--eco-muted); font-size:.85rem; }
+.reveal .column:first-child{ position:relative; }
+.reveal .column:first-child::before{ content:""; position:absolute; left:-1rem; top:.15rem; bottom:-.15rem; width:0; border-left:0px solid #eaeaea; }
+.reveal em{ color:#262626; } a{ color:var(--eco-accent); text-decoration:underline; } a:hover, a:focus{ text-decoration:underline; }
+/* == Utilities for left-bleed image (slides 3-8) == */
+.reveal .columns.lock-layout { display:flex; }
+.reveal .column.left-bleed { flex:0 0 58vw; margin-left:-8vw; overflow:visible; }
+.reveal .column.right-text { flex:1 1 auto; padding-left:1.8rem; }
+.reveal img.bleed.leftfix { width:110%; max-width:none; margin-left:-6%; }
+/* Keep slide height stable */
+.reveal .slides section { min-height:700px; }

@@ -1,0 +1,282 @@
+
+---
+title: "ECO 230 Business and Economic Research & Communication"
+subtitle: "Spring 2026 · Section 12 · 3 Credits"
+
+# Force correct format selection (prevents RevealJS interference)
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    number-sections: false
+    anchor-sections: true
+    smooth-scroll: true
+
+# Execution behavior
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: auto
+
+# Term/section parameters (safe for inline R)
+params:
+  semester_name: "Spring"
+  full_year: 2026
+  class_section: 12
+  classroom: "Wittich 112"
+  class_dow: "Tuesday"
+  class_start: "5:30 pm"
+  class_end: "8:15 pm"
+  final_dow: "Friday"
+  final_date: "May 12th"
+  final_start: "7:00 pm"
+  final_end: "9:00 pm"
+  office_location: "Non Extant"
+  office_hours: "Mon.–Fri. Noon–1pm in Zoom or by appointment"
+---
+
+```{r setup}
+# Libraries
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+# Options
+options(scipen = 999)
+
+# Data (expects CSVs in the working directory; adjust paths if needed)
+cd  <- read.csv("data/class_dates.csv")
+ap  <- read.csv("data/assignment_percs.csv", check.names = FALSE)
+gs  <- read.csv("data/grading_scale.csv", check.names = FALSE)
+lo  <- read.csv("data/learning_outcomes.csv", check.names = FALSE)
+idf <- read.csv("data/important_dates_formatted.csv", check.names = FALSE)
+cs  <- read.csv("data/schedule_formatted.csv", check.names = FALSE)
+
+
+# Decide table format based on output
+kbl_fmt <- if (knitr::is_latex_output()) "latex" else "html"
+
+# Consistent helper for both HTML and PDF
+kbl_syllabus <- function(df, full_width = FALSE) {
+  if (knitr::is_latex_output()) {
+    kbl(
+      df, format = "latex", booktabs = TRUE, longtable = TRUE, linesep = ""
+    ) |>
+      kable_styling(latex_options = c("hold_position"))
+  } else {
+    kbl(
+      df, format = "html"
+    ) |>
+      kable_paper("striped", full_width = full_width)
+  }
+}
+
+```
+
+## Course information
+
+**ECO 230 Business and Economic Research & Communication**
+
+**`r params$semester_name` `r params$full_year` \| Section `r params$class_section` \| Credits: 3**
+
+Meets in `r params$classroom` `r params$class_dow` `r params$class_start` to `r params$class_end`.
+
+### Instructor information
+
+-   Mike Boland, MBA\
+-   Office Location: `r params$office_location`\
+-   Student Hours: `r params$office_hours`\
+-   Class Webpage: <https://www.uwlax.edu/canvas>\
+-   Email: [mboland\@uwlax.edu](mailto:mboland@uwlax.edu){.email}\
+-   Cell Phone: 608-385-6497
+
+### Final exam
+
+***`r params$final_dow` `r params$final_date` `r params$final_start` – `r params$final_end` in `r params$classroom`***
+
+## Course description
+
+Building on the foundation in statistics acquired in STAT 145, students will continue to develop and will apply skills in data analysis to aid in business decision making. These skills include data collection, data summarization, data visualization, statistical inference, and communication of data in business contexts. Students will learn and apply best practices for research design and analysis to address authentic business cases. Students will build these skills in collaboration with each other and through engagement with business and community leaders. The course also discusses effective survey design and current privacy and ethical issues in collecting and using data. Prerequisite: ENG 110 or ENG 112; STAT 145; CBA major, CASSH economics major, or healthcare analytics management minor. Offered Fall, Spring.
+
+### Prerequisites
+
+Prerequisite: ENG 110 or ENG 112; STAT 145; CBA major, CLS economics major, or Healthcare Analytics Management Minor.
+
+## Learning outcomes
+
+### Mapped to CBA Undergraduate Curriculum Goals and Objectives
+
+1.  Develop the ability to articulate a business problem or opportunity using qualitative and quantitative evidence and propose an analysis plan to identify potential solutions, including collection of primary data via surveys. (CT-1)
+2.  Describe, summarize, and interpret data using descriptive statistics, inferential statistics, and data visualization.
+3.  Develop foundational skills related to spreadsheets, interactive data visualization software, and scripting languages used for data analysis and visualization.
+4.  Communicate the purpose, methods, and results of analysis to authentic audiences in appropriate written and oral formats. (CS-1, CS-2)
+5.  Apply research design and data analysis best practices to complete case-based projects and to critique others’ analyses. (CT-1)
+6.  Describe current debates in research ethics and data privacy and the implications for business research. (SR-1)
+
+### CBA Undergraduate Curriculum Goals and Objectives referenced above
+
+-   **Communication Goal**: Our students will be able to convey information and ideas effectively.
+    -   (CS-1) Learning Objective: Students will convey information and ideas in professional business reports\
+    -   (CS-2) Learning Objective: Students will convey information and ideas in oral presentations.
+-   **Decision Making and Critical Thinking Goal**: Our students will be able to think critically when evaluating decisions.
+    -   (CT-1) Learning Objective: Students will evaluate alternatives and understand the ramifications of those alternatives within a given business context.
+-   **Social Responsibility Goal**: Students will demonstrate the role of social responsibility in business decisions.
+    -   (SR-1) Learning Objective: Students will be able to identify and apply different frameworks of social responsibility to business problems and recognize the short- and long-term effects on stakeholders and society.
+
+Remaining CBA Goals and Objectives along with rubrics for each can be found here:\
+<https://www.uwlax.edu/cba/undergraduate-curriculum-learning-goals-and-objectives2/#tmcommunication-goals>
+
+## Materials & tools
+
+There is no official textbook for this course. All readings will be provided electronically via Canvas. We will also use the following software and instructional tools which are free of charge to you due to your enrollment in this course. Instructions for use will be provided in class and on Canvas as needed.
+
+-   **Excel**\
+-   **Tableau Desktop**\
+-   **Posit Cloud**\
+-   **Qualtrics**\
+-   **CATME**
+
+## Format
+
+This is a face-to-face course. You may be asked to reference materials or participate online through the learning management system, Canvas. If that is the case, you will need your UWL NetID to login to the course from the Canvas homepage <http://www.uwlax.edu/canvas>.
+
+## Grading
+
+### Calculations
+
+Your overall grade consists of the following assessments, arranged by type and value. Your final grade can be computed by multiplying the scores received by the percentages reported below to arrive at a weighted average. Team assignments are denoted by (T) but please note grades received for team project deliverables will be adjusted by your Peer Evaluation score.
+
+`r kbl_syllabus(ap)`
+
+### Calculation of individual grades for team project work
+
+All work for the assignments denoted as Team Projects by (T) above will be scored out of 100 points to assign a Team Grade. Individual grades will be computed by multiplying the Team Grade by the CATME peer evaluation score you receive for that work. The CATME peer evaluation is a psychometrically validated and behaviorally anchored rating scale developed under a National Science Foundation Grant and used by universities throughout the country. Through a secure web-based platform, you will rate your own and your teammate’s performance on each project. This information will be reported in the aggregate to your teammates (they cannot see who gave them what scores) and will produce a Peer Evaluation Score. Most students receive a score of 1, those that exhibit exceptional performance receive scores above 1 with a maximum of 1.05. Underperforming teammates receive scores below 1, and as low as 0.4.
+
+::: callout-note
+**Note:** This is not a “zero sum game”. It is possible for team members to get scores above 1 without others getting scores below. The algorithm flags evaluations that appear to manipulate ratings to inflate their own scores. Your score will automatically be reduced by 0.05 if you fail to complete the Peer Evaluation on or before the due date.
+:::
+
+### Grievance procedure for peer evaluation scores
+
+Poor peer evaluations can lead an individual grade to fall substantially below the Team Grade. For example, a project that received a score of 95/100 would produce an individual grade of 38/100 if you receive a peer evaluation score of 0.4. If you feel the score you received does not accurately reflect your contributions to Team Project work, you have the option to file a grievance. To do so you must follow this procedure:
+
+1.  Within 2 business days of the official notification that grades have been posted, communicate to your instructor via email your intent to file a grievance. Official notifications of grade posting will appear on Canvas notifications.
+2.  Within 1 business day of notifying your intent, prepare and email a one page formal letter addressed to your teammates and including the following information:
+    -   **Your understanding of the work you had agreed to do** for the deliverable. Be sure to refer to any documentation that is relevant (Meeting Minutes, emails or group chats, revision histories in documents etc.). Be prepared to provide any documentation you mention in the letter if requested.
+    -   **A summary of the work you actually did.** Refer to documentation as above.
+    -   **Justification for any discrepancies between (a) and (b).** If this documentation includes any confidential health or personal matters you do not wish to disclose to your team, please raise this with me or contact Student Life Office for council. Note: In these cases it is best to reach out to me or Student Life before you are at the point of receiving a bad peer evaluation.
+    -   **A statement of the peer evaluation score you believe you have earned.**
+3.  If after reviewing your letter I believe the case has merit, I will send it on to your teammates and schedule an arbitration. If I determine no arbitration is warranted, I will schedule a one-on-one meeting with you to discuss.
+4.  If arbitration is warranted, it must be conducted in-person with all team members present. The only exception to this requirement would be a case where the timeline in the procedure would place the earliest possible arbitration date after the final exam date. In those cases, a virtual meeting may be agreed upon or incomplete grades may be assigned until an in-person meeting can be scheduled. I will serve as the arbitrator. You and your teammates will have the opportunity to present your case and reconcile evidence referenced in your letter. At the end of the meeting, all team members (including yourself) will submit the score they believe you have earned to me via secret ballot. I will use this information in making my final determination, but the final determination is mine alone.
+
+### Late assignments, missed quizzes
+
+#### Individual assignments
+
+::: callout-warning
+Individual assignments are due on the dates indicated on the Canvas Weekly Agendas. Late or missing assignments will not be graded. **All assignments in a module must be completed before the Module Quiz.** If extenuating circumstances impact your ability to meet deadlines or participate in class activities, you are responsible for alerting me as soon as possible. When conflicts are known ahead of the deadline you must notify me ahead of the deadline. All communication regarding missed or late individual work should be confirmed by email – even if we speak in person or during student hours, you must follow up via email to confirm so that we both have a record of the agreement.
+:::
+
+#### Team assignments
+
+Deadlines for Team Assignments may be extended for the entire class if there are extenuating circumstances or granted to teams if requested with appropriate justification and all team members agree to the request. **Presentations cannot be delayed unless there is a major emergency or complication.** For other deliverables, extensions must be requested at least 1 business day before the due date. Be prepared to show appropriate documentation of work to date and to provide an explanation for the value you will add to the final product if the extension is granted. Unless a request is made and granted, late assignments will receive a grade of 0.
+
+#### Missed quizzes
+
+Quizzes may be rescheduled only in the case of serious illness, injury, or significant academic or professional development opportunity. Personal travel or family vacations will not be accommodated unless they are associated with a significant life event (birth, death, marriage, graduation). In all cases, documentation is required. Contact me via email as soon as you know you have a conflict. Local or phone/Skype job interviews are not considered significant professional development opportunities.
+
+### Attendance and participation
+
+Although attendance will not be formally recorded for all class meetings, your Team can and should reduce your peer evaluation score if you miss meetings or are absent during in class Work Days. To avoid this consequence, you should:
+
+-   Communicate clearly with your team any time you will be absent from a Team Meeting or class on a day that includes Case Work Time.\
+-   Document that communication (e.g. save emails or post to team message board).\
+-   Participate actively in scheduling Team Meetings outside of class.\
+-   Lay out policies on scheduling team meetings and missed meetings and follow them.\
+-   Respect others’ time and reserve absences for only when absolutely unavoidable.\
+-   Communicate with me (your instructor) or the Office of Student Life if any situation arises that will dramatically impact your attendance in class and at team meetings (e.g. serious illness, injury or personal emergency).
+
+If you are absent from class, it is your responsibility to obtain notes and other materials from colleagues. While you are welcome to book student hours, you should not view them as a substitute for coming to class. If you are absent regularly without a documented extenuating circumstance, requests for student hours meetings may be denied.
+
+### Expectations for graded work
+
+#### Individual assignments
+
+I provide students feedback and/or scores on assignments that require individualized grading before a further assignment of a similar format is due or within 21 days of submission, whichever is shorter. This includes quizzes. I will notify you if I am unable to complete grading within the 21-day timeframe, and will identify a revised return date. If you submit work after the due date, it may not be returned within 21 days, and depending on the justification for late submission, it may not be accepted at all. Your graded coursework will be returned in compliance with FERPA regulations, such as in class, during my student hours, or via the course management system through which only you will have access to your grades.
+
+### Grading scale
+
+`r kbl_syllabus(gs)`
+
+## AI usage limitations
+
+Artificial intelligence (AI) tools and resources used for creating text, images, computer code, audio, or other media, may be used in certain circumstances in this class. The specifics of when, where, and how these tools are permitted will be included with each assignment. Guidance for attribution/citation will be provided by your instructor. Any use of these tools other than where/how indicated is a violation of course expectations and is subject to UW-La Crosse’s [Academic Misconduct Policy](https://www.uwlax.edu/student-life/our-services/student-conduct/academic-misconduct/). Students are responsible for verifying the accuracy and appropriateness of content composed by AI. If you are in doubt as to whether you are using a tool inappropriately in this course, you are encouraged to discuss your situation with your instructor.
+
+## Regular and substantive interaction
+
+In this course, regular and substantive interaction between the instructor and students plays a crucial role in student achievement. I will be incorporating various forms of interaction that not only meet the requirements set by the US Department of Education and the UWL Faculty Senate policy, but also aid in student achievement. Your active participation and contributions are also essential to your learning. In partnership with your efforts, I will...
+
+-   be available during scheduled student hours as stated in the syllabus\
+-   share information about the course materials including key information, explanations, examples, and resources via in-person, and/or recorded lectures\
+-   engage in online discussions about course content\
+-   provide group or individual feedback on assignments\
+-   promptly respond to questions about the course sent via email\
+-   regularly post announcements pertaining to the course content and activities\
+-   monitor your academic progress and communicate concerns, as needed
+
+## UWL syllabus policy information & statements
+
+UWL encourages students to know the campus’ important policies and statements which can be found on the Syllabus Information website.
+
+-   [Classes during inclement weather](https://www.uwlax.edu/info/syllabus/#tm-261340)
+-   [Religious accommodations](https://www.uwlax.edu/info/syllabus/#tm-111043)
+-   [Sexual misconduct](https://www.uwlax.edu/info/syllabus/#tm-111041)
+-   [Student course and faculty-related concerns, complaints, and grievances](https://www.uwlax.edu/info/syllabus/#tm-111060)
+-   [Student survey on instruction (LENS)](https://www.uwlax.edu/info/syllabus/#tm-264115)
+-   [Students with accommodation needs](https://www.uwlax.edu/info/syllabus/#tm-111053)
+-   [University class attendance policy](https://www.uwlax.edu/info/syllabus/#tm-264137)
+-   [Veterans, active military, and military-connected](https://www.uwlax.edu/info/syllabus/#tm-111056)
+
+UWL encourages students to know the campus' important policies and statements which can be found on the [UWL Syllabus Policy Information & Statements](https://www.uwlax.edu/info/syllabus/).
+
+## UWL policies & supports
+
+### Course access
+
+Access to course materials in Canvas may cease after the term ends. If you wish to archive materials for your personal records or portfolio you should do so as you progress through the course. As a general rule, you should always save local copies of course-related work. To avoid disasters, you should also save important files to external media or cloud storage.
+
+### Inclusive excellence
+
+[Mission](https://www.uwlax.edu/chancellor/mission/) “Diversity, equity, and the inclusion and engagement of all people in a safe campus climate that embraces and respects the innumerable different perspectives found within an increasingly integrated and culturally diverse global community". If you are not experiencing my class in this manner, please come talk to me about your experiences so I can try to adjust the course if possible.
+
+### Name/pronouns
+
+I will do my best to address you by a preferred name or gender pronoun that you have identified. Please advise me of this preference early in the semester so that I may make appropriate changes to my records. UWL has [name in use resources](https://www.uwlax.edu/records/name-in-use/) and the [Pride Center](https://www.uwlax.edu/pride-center/) is available for additional assistance.
+
+### Academic success and overall health
+
+At UWL, we support your academic success and overall health. We know that students often experience a range of stressors that can impact learning and well-being. If you or someone you know is experiencing mental health concerns, or could benefit from effective academic strategies, there are free and confidential resources available to enrolled students through the Counseling & Testing Center (CTC). To learn more, visit the [CTC Website](https://www.uwlax.edu/counseling-testing/) or call 608-785-8073.
+
+### Technical support
+
+For tips and information about Canvas visit the (canvas website)\[https://www.uwlax.edu/info/canvas/students/\]; this site also links to the 24/7 Canvas support. If you are having Canvas login issues or need general computer assistance, contact the (Eagle Help Desk)\[https://www.uwlax.edu/its/client-services-and-support/eagle-help-desk/\].
+
+### Student success resources
+
+**UWL also encourages students to take advantage of the campus' many and varied (Campus Life Resources)\[https://www.uwlax.edu/info/campus-life/\].**
+
+## Course outline
+
+`r kbl_syllabus(lo, full_width = TRUE)`
+
+## Important dates
+
+`r kbl_syllabus(idf)`
+
+## Anticipated schedule
+
+When discrepancies between Canvas and the Anticipated Schedule exist, the information on Canvas supersedes this schedule. Official class agendas are posted under This Week in Canvas.
+
+`r kbl_syllabus(cs, full_width = TRUE)`
