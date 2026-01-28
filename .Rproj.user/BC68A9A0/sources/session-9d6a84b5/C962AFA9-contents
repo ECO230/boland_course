@@ -1,0 +1,12 @@
+#install the packages needed to install directly from github
+install.packages("remotes")
+
+#install the eco230r package from github, ask = FALSE will install without propmts
+remotes::install_github('ECO230/eco230r', ask = FALSE)
+
+#load the eco230r library
+library(eco230r)
+
+#install tidyverse packages
+install.packages(c("tidyverse","knitr","Hmisc","lubridate"))
+
