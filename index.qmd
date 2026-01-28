@@ -1,4 +1,3 @@
-
 ---
 title: "ECO 230 — Section 012"
 format:
@@ -10,10 +9,10 @@ format:
 
 This website hosts:
 
-- **Syllabus**  
-- **Weekly Slides (Reveal.js)**  
-- **Homework Assignments & Handouts**  
-- Additional course materials as the semester progresses.
+-   **Syllabus**\
+-   **Weekly Slides (Reveal.js)**\
+-   **Homework Assignments & Handouts**\
+-   Additional course materials as the semester progresses.
 
 Use the navigation bar at the top to access each item.
 

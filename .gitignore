@@ -8,7 +8,11 @@
 .quarto
 _site
 _freeze
+.quarto/
 
 #python/virtualenv
 __pycache__/
 
+
+/.quarto/
+**/*.quarto_ipynb

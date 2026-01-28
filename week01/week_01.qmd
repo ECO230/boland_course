@@ -37,11 +37,10 @@ source(here("shared","scripts","gt_boland.R"), local = TRUE)
 .trunc <- function(x, width) ifelse(is.na(x), x, stringr::str_trunc(x, width = width, side = "right", ellipsis = "…"))
 ```
 
-
 ## Use Instant Booking Wisely
-<br>
-Airbnb Owners should enable **Instant Booking** in Fall — it's the unequivocally best season for superior ratings and returns.
-<br><br>
+
+<br> Airbnb Owners should enable **Instant Booking** in Fall — it's the unequivocally best season for superior ratings and returns. <br><br>
+
 ```{r airbnb}
 # --- Adjust the path to where your file lives ---
 data_path     <- here("shared", "data", "airbnb_chicago.csv")
@@ -189,7 +188,6 @@ ab_listings_tbl <- head_20_print %>%
 ab_listings_tbl
 ```
 
-
 ## Before we run any statistics…
 
 <br>
@@ -198,7 +196,6 @@ ab_listings_tbl
 What can go wrong **before** you ever run a statistical test?
 :::
 
-
 # What is Statistics?
 
 <br>
@@ -206,8 +203,6 @@ What can go wrong **before** you ever run a statistical test?
 ::: {.callout-note title="What can go wrong..."}
 **How could a wrong question lead to a wrong conclusion?**
 :::
-
-
 
 ##  {background-image="media/images/w01_s03_image.png" background-position="left center" background-size="auto 150%" background-repeat="no-repeat" fig-alt="Photo of several dogs lying on a blanket; playful opener for the topic."}
 
@@ -290,12 +285,11 @@ If you can (with some effort) find the answer with certainty you are using **Ana
 :::
 
 ::: {.column width="50%"}
-**Analytics** or **Statistics** 
+**Analytics** or **Statistics**
 
-- Count the number of airbnb properties within 1 mile of Wrigley Field
-- Predict how many bookings an airbnb property will have next year
-- Testing whether changing cancellation policy *caused* higher satisfaction
-
+-   Count the number of airbnb properties within 1 mile of Wrigley Field
+-   Predict how many bookings an airbnb property will have next year
+-   Testing whether changing cancellation policy *caused* higher satisfaction
 :::
 :::::
 
@@ -316,10 +310,12 @@ If you can (with some effort) find the answer with certainty you are using **Ana
 ## [Data at different grain levels]{.sr-only}
 
 ### Calculate the Total Yearly Revenue for Each Property
+
 :::: fragment
 ::: {.callout-important title="Gotcha! - Wrong Unit of Analysis"}
 :::
 ::::
+
 ```{r ab_grain}
 # Helper (for truncation) already defined in setup chunk
 
@@ -403,19 +399,16 @@ tbl_abnb_sim_vt <- abnb_sim_tbl_data %>%
   tab_caption(md("**Dataset B** — Airbnb Rental Data"))
 ```
 
-
 ```{r ab_property}
 # Listing-level snapshot (fragment 1)
 tbl_abnb_vt
 tbl_abnb_sim_vt
 ```
 
-
 ```{r ab_bookings}
 # Booking-level snapshot (fragment 2)
 
 ```
-
 
 ## [Rows vs Columns]{.sr-only}
 
@@ -452,9 +445,9 @@ tbl_abnb_sim_vt
 :::
 ::::
 
-:::: {.column width="42%"}
+::: {.column width="42%"}
 ![](media/images/w01_s14_image.png){fig-alt="Photo of several dogs lying on a blanket; playful opener for the topic." height="65%"}
-::::
+:::
 :::::::
 
 ## Unit of Analysis
@@ -479,7 +472,6 @@ If you misunderstand the unit of analysis, **every result is wrong**, even with 
 
 ![](media/images/w01_s17_image.jpeg){.r-stretch fig-alt="Grid‑style visual suggesting repeated measures on multiple units across time (panel data)." fig-align="right" height="100%"}
 
-
 # Data Structure
 
 <br>
@@ -491,10 +483,12 @@ If you misunderstand the unit of analysis, **every result is wrong**, even with 
 ## [Tall vs Wide Data]{.sr-only}
 
 ### Summarize total minutes of sleep by month and location
+
 :::: fragment
 ::: {.callout-important title="Gotcha! - Wrong Data Structure"}
 :::
 ::::
+
 ```{r sleep_data}
 library(here)
 
@@ -722,7 +716,7 @@ numbers_df |>
 
 ## [Summarized Data]{.sr-only}
 
-:::::::: columns
+:::::::::: columns
 :::: {.column width="30%"}
 ### Dimensions
 
@@ -737,7 +731,7 @@ numbers_df |>
 <br> <br> <br> <br> ![](media/images/w01_s22_stack.png){fig-alt="An ordered stack of multiple atomic units making it possible to summarize the data with measures and summary statistics." width="100%"}
 :::
 
-:::: {.column width="30%"}
+:::::: {.column width="30%"}
 ### Measures
 
 ::: tight-list
@@ -746,7 +740,6 @@ numbers_df |>
 -   Counts
 -   Sums
 :::
-
 
 ::: fragment
 ```{r sleep_summary}
@@ -774,6 +767,7 @@ summary_vertical |>
   gt_boland(base_size = 16, tight = FALSE)
 ```
 :::
+
 ::: fragment
 ```{r sleep_summary_jan}
 jan_home <- sleep %>% filter(Month == "January", Location == "Home")
@@ -800,8 +794,8 @@ summary_vertical |>
   gt_boland(base_size = 16, tight = FALSE)
 ```
 :::
-::::
-::::::::
+::::::
+::::::::::
 
 ## Tall vs Wide
 
@@ -854,8 +848,6 @@ tbl20 |>
 Tidy Data principles are a **solution to a problem**, not rules that **must** be followed.
 :::
 ::::
-
-
 
 ```{r tidy_tables}
 # ---------- TABLE A: sleep (first 10 rows with selected columns) ----------
@@ -915,8 +907,6 @@ sleep_zips_tbl
 ::: {.callout-note title="What can go wrong..."}
 **Could messy or inconsistent data break every conclusion downstream?**
 :::
-
-
 
 ## [ETL Process - Extract]{.sr-only}
 
@@ -1058,46 +1048,48 @@ library(eco230r)
 library(dplyr)
 ```
 
-::::: columns
+::::::::: columns
 ::: {.column width="10%"}
 ![](../shared/images/logo_R.png){width="100%" fig-alt="R Language Logo"}
 :::
 
-::: {.column width="90%"}
-:::: fragment
+::::::: {.column width="90%"}
+::: fragment
 ```{r idt_code, echo=TRUE, results="hide"}
 abnb %>% idt(listed_price~instant_bookable)
 ```
-::::
-:::: fragment
+:::
+
+::: fragment
 ```{r idt_results, echo=FALSE, results="show"}
 abnb %>% idt(listed_price~instant_bookable)
 ```
-::::
-:::: fragment
+:::
+
+::: fragment
 ```{r ano_code, echo=TRUE, results="hide" }
 abnb %>% ano(listed_price~room_type)
 ```
-::::
-:::: fragment
+:::
+
+::: fragment
 ```{r ano_results, echo=FALSE, results="show" }
 abnb %>% ano(listed_price~room_type)
 ```
-::::
 :::
-:::::
-
+:::::::
+:::::::::
 
 ## So… what actually went wrong with the Airbnb analysis?
 
 <br>
 
 ::: tight-list
-- Wrong unit of analysis  
-- Wrong time fields  
-- Wrong data structure  
-- Wrong aggregation  
-- Wrong assumptions about what the data measures  
+-   Wrong unit of analysis\
+-   Wrong time fields\
+-   Wrong data structure\
+-   Wrong aggregation\
+-   Wrong assumptions about what the data measures\
 :::
 
 <br>
@@ -1105,9 +1097,6 @@ abnb %>% ano(listed_price~room_type)
 ::: {.callout-tip title="What is your data?"}
 Everything broke *before* statistics.
 :::
-
-
-
 
 ## [Summary and Prime Directive]{.sr-only}
 
