@@ -2121,11 +2121,7 @@
       "RemoteRepo": "eco230r",
       "RemoteUsername": "ECO230",
       "RemoteRef": "HEAD",
-      "RemoteSha": "9f50eac928689cabc254de99faab67b93ed1fe97",
-      "NeedsCompilation": "no",
-      "Depends": [
-        "R (>= 3.5.0)"
-      ]
+      "RemoteSha": "9f50eac928689cabc254de99faab67b93ed1fe97"
     },
     "elliptic": {
       "Package": "elliptic",
