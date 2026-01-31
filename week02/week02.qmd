@@ -70,6 +70,134 @@ Which statistics are meaningful at each scale?\
 
 # Sample size (n) vs. Population size (N)
 
+## Measures of Size: what “n” really means {data-auto-animate=true}
+
+::: columns
+::: column{width="58%"}
+
+<div class="callout callout-style-simple callout-note" style="padding:1.0rem;">
+<strong>Key idea:</strong> <span style="font-size:1.15em;">sample size is “usable rows” for <em>this</em> calculation</span>
+</div>
+
+<div style="height:0.8rem;"></div>
+
+<div style="display:flex; flex-direction:column; gap:0.7rem;">
+
+<div class="fragment fade-up" style="border:2px solid #E6E6E6; border-radius:14px; padding:0.9rem 1.0rem;">
+<span style="opacity:.7;">1)</span> <strong>Total records</strong> <span style="opacity:.75;">(in the dataset)</span><br>
+<span style="font-size:1.6em;"><strong>N</strong></span>
+</div>
+
+<div class="fragment fade-up" style="border:2px solid #E6E6E6; border-radius:14px; padding:0.9rem 1.0rem;">
+<span style="opacity:.7;">2)</span> <strong>Eligible after filters</strong><br>
+<span style="font-size:1.6em;"><strong>n</strong><sub style="opacity:.75;">eligible</sub></span>
+<span style="opacity:.75;"> (date, severity, etc.)</span>
+</div>
+
+<div class="fragment fade-up" style="border:2px solid #E6E6E6; border-radius:14px; padding:0.9rem 1.0rem;">
+<span style="opacity:.7;">3)</span> <strong>Non-missing for selected variable</strong><br>
+<span style="font-size:1.6em;"><strong>n</strong><sub style="opacity:.75;">non-missing</sub></span>
+<span style="opacity:.75;"> (e.g., Duration_min ≠ NA)</span>
+</div>
+
+<div class="fragment fade-up" style="border:2px solid #22A06B; border-radius:14px; padding:0.9rem 1.0rem; background:rgba(34,160,107,.06);">
+<span style="opacity:.7;">4)</span> <strong>Used in the plot/stat</strong><br>
+<span style="font-size:1.85em;"><strong>n</strong></span>
+<span style="opacity:.75;"> (what your histogram/mean actually uses)</span>
+</div>
+
+</div>
+
+:::  <!-- column -->
+
+::: column{width="42%"}
+
+<div style="border-radius:18px; border:2px dashed #E6E6E6; padding:1.2rem; height:100%;">
+<div style="font-size:1.1em; opacity:.8; margin-bottom:0.8rem;"><strong>In Shiny:</strong></div>
+
+<div class="fragment fade-in" style="font-size:1.05em; line-height:1.35;">
+<ul style="margin-left:1.0rem;">
+  <li><strong>N</strong> = rows loaded</li>
+  <li><strong>n</strong><sub>eligible</sub> = rows after filters</li>
+  <li><strong>n</strong><sub>non-missing</sub> = rows with real values</li>
+  <li><strong>n</strong> = rows used in the stat/plot</li>
+</ul>
+</div>
+
+<div style="height:0.8rem;"></div>
+
+<div class="fragment fade-in" style="font-size:1.15em;">
+<strong>Takeaway:</strong><br>
+<span style="font-size:1.1em;">Same dataset → different variable → different usable <strong>n</strong>.</span>
+</div>
+
+</div>
+
+:::  <!-- column -->
+:::  <!-- columns -->
+
+
+## SUM: when it makes sense (and when it doesn’t)
+
+::: columns
+::: column{width="50%"}
+
+### ✅ SUM is meaningful when…
+- the variable is **additive**
+- units are “total-able” (minutes, dollars, people)
+- **0** means “none”
+
+<div style="height:0.7rem;"></div>
+
+**Examples**
+- total minutes delayed  
+- total injuries  
+- number of severity-3 accidents (sum of 1/0)
+
+::: column
+::: column{width="50%"}
+
+### ❌ SUM is nonsense when…
+- it’s an **ID** or label
+- it’s **ordinal** (1–4) not numeric magnitude
+- it’s already an **average/rate**
+
+<div style="height:0.7rem;"></div>
+
+**Examples**
+- sum of accident IDs ❌  
+- sum of severity codes ❌  
+- sum of “average speed” ❌ (unless weighted)
+
+::: column
+::: columns
+
+---
+
+**Fast test:** *Can you add two rows together and keep the same meaning + units?*
+
+
+## IQR: the middle 50% of the data
+
+<div style="font-size:1.1rem; opacity:.75;">
+IQR = P75 − P25  
+It measures **the width of the middle half** of the distribution.
+</div>
+
+<div style="height:.7rem;"></div>
+
+<div class="callout callout-style-simple callout-note" style="font-size:1rem;">
+When distributions are skewed or have outliers, **IQR is more stable than SD**.
+</div>
+
+<div style="height:.5rem;"></div>
+
+<div style="font-size:1rem;">
+- **P25 (Q1):** 25% of scores fall below this  
+- **P75 (Q3):** 75% fall below this  
+- The shaded region between Q1 and Q3 is the **IQR band**
+</div>
+
 **n** = number of usable observations in your sample.\
 **N** = size of the full population (often unknown).
 
