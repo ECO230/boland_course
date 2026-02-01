@@ -8,19 +8,76 @@ library(dplyr)
 library(readr)
 library(lubridate)
 library(ggplot2)
+library(stringr)
 
 `%||%` <- function(a, b) if (!is.null(a)) a else b
 
-# ---- Load data ONCE at startup ----
+# ---- Load data ONCE at startup (LIMITED + DERIVED FIELDS) ----
 COURSE_ROOT <- "/data/junior/boland_course"
 acc_path <- file.path(COURSE_ROOT, "shared", "data", "accident_wi.csv")
 
 acc <- read_csv(acc_path, show_col_types = FALSE) %>%
   mutate(
-    Start_Time = mdy_hm(Start_Time),
-    End_Time   = mdy_hm(End_Time),
-    Duration_min = as.numeric(difftime(End_Time, Start_Time, units = "mins"))
+    # Clean raw time strings (handle blanks + extra whitespace)
+    Start_Time_clean = na_if(str_squish(Start_Time), ""),
+    End_Time_clean   = na_if(str_squish(End_Time), ""),
+    
+    # Robust parse (handles "m/d/Y H:M" and "m/d/Y H:M:S")
+    start_time = parse_date_time(
+      Start_Time_clean,
+      orders = c("mdy HM", "mdy HMS"),
+      tz = "America/Chicago"
+    ),
+    end_time = parse_date_time(
+      End_Time_clean,
+      orders = c("mdy HM", "mdy HMS"),
+      tz = "America/Chicago"
+    ),
+    
+    # ---- Season from start_time ----
+    season = case_when(
+      month(start_time) %in% 3:5  ~ "spring",
+      month(start_time) %in% 6:8  ~ "summer",
+      month(start_time) %in% 9:11 ~ "fall",
+      TRUE                        ~ "winter"
+    ),
+    
+    # ---- Time-of-day bins from start_time ----
+    time_of_day = case_when(
+      hour(start_time) >= 6  & hour(start_time) < 12 ~ "morning",  # 06:00–11:59
+      hour(start_time) >= 12 & hour(start_time) < 18 ~ "daytime",  # 12:00–17:59
+      hour(start_time) >= 18 & hour(start_time) < 24 ~ "evening",  # 18:00–23:59
+      TRUE                                           ~ "night"     # 00:00–05:59
+    ),
+    
+    # ---- Duration (minutes) ----
+    duration = end_time - start_time,
+    duration_mins = as.numeric(duration, units = "mins"),
+    
+    # Optional: ordered factors for nicer plots
+    season = factor(season, levels = c("spring", "summer", "fall", "winter")),
+    time_of_day = factor(time_of_day, levels = c("night", "morning", "daytime", "evening"))
+  ) %>%
+  # Keep ONLY the limited set you specified (PLUS start_time for date filtering)
+  select(
+    ID, Severity,
+    start_time,
+    `Distance(mi)`,
+    `Temperature(F)`,
+    `Wind_Chill(F)`,
+    `Humidity(%)`,
+    `Pressure(in)`,
+    `Visibility(mi)`,
+    Wind_Direction,
+    `Wind_Speed(mph)`,
+    `Precipitation(in)`,
+    Weather_Condition,
+    Sunrise_Sunset,
+    season,
+    time_of_day,
+    duration_mins
   )
+
 
 # ---- Unique ID column ----
 ID_COL <- "ID"
@@ -28,16 +85,17 @@ if (!ID_COL %in% names(acc)) {
   stop(paste0("Expected a unique ID column named '", ID_COL, "' but it was not found in the dataset."))
 }
 
-# Candidate numeric variables
+# Candidate numeric variables (UPDATED for limited dataset)
 num_vars <- c(
   "Distance(mi)",
   "Temperature(F)",
+  "Wind_Chill(F)",
   "Humidity(%)",
   "Wind_Speed(mph)",
   "Visibility(mi)",
   "Pressure(in)",
   "Precipitation(in)",
-  "Duration_min"
+  "duration_mins"
 )
 num_vars <- intersect(num_vars, names(acc))
 
@@ -82,6 +140,19 @@ parse_percentiles <- function(txt) {
   sort(unique(vals))
 }
 
+# Safe min/max dates for UI bounds
+safe_min_date <- function(x) {
+  x <- x[!is.na(x)]
+  if (length(x) == 0) Sys.Date() else as.Date(min(x))
+}
+safe_max_date <- function(x) {
+  x <- x[!is.na(x)]
+  if (length(x) == 0) Sys.Date() else as.Date(max(x))
+}
+
+min_date <- safe_min_date(acc$start_time)
+max_date <- safe_max_date(acc$start_time)
+
 # ---- UI ----
 ui <- fluidPage(
   tags$style("
@@ -122,35 +193,44 @@ ui <- fluidPage(
         tags$summary("Parameters (click to expand)"),
         div(
           class = "content",
+          
           selectInput("var", "Numeric variable", choices = num_vars),
           
+          # NEW: Pick which categorical field to filter
           selectInput(
-            "sev", "Severity filter",
-            choices = c("All", sort(unique(acc$Severity))),
-            selected = "All"
+            "cat_var",
+            "Categorical filter field",
+            choices = c(
+              "None",
+              "Severity",
+              "Wind_Direction",
+              "Weather_Condition",
+              "Sunrise_Sunset",
+              "season",
+              "time_of_day"
+            ),
+            selected = "None"
           ),
           
+          # NEW: levels picker appears dynamically
+          uiOutput("cat_level_ui"),
+          
+          # Date filter (uses derived start_time)
           dateRangeInput(
             "dates", "Start date range",
-            start = as.Date(min(acc$Start_Time, na.rm = TRUE)),
-            end   = as.Date(max(acc$Start_Time, na.rm = TRUE)),
-            min   = as.Date(min(acc$Start_Time, na.rm = TRUE)),
-            max   = as.Date(max(acc$Start_Time, na.rm = TRUE))
+            start = min_date,
+            end   = max_date,
+            min   = min_date,
+            max   = max_date
           ),
           
           checkboxInput("drop_na", "Drop missing/invalid values for stats", TRUE),
           
           hr(),
           
-          # DEFAULT: ON
           checkboxInput("show_mean_median", "Show mean/median lines (where applicable)", TRUE),
-          
           textInput("pct_list", "Percentile lines (comma-separated)", value = "10,25,50,75,90"),
-          
-          # DEFAULT: OFF (already)
           checkboxInput("show_percentiles", "Show percentile lines", value = FALSE),
-          
-          # DEFAULT: OFF (changed from TRUE -> FALSE)
           checkboxInput("shade_iqr", "Shade IQR region (25th–75th)", value = FALSE),
           
           hr(),
@@ -165,7 +245,6 @@ ui <- fluidPage(
           
           hr(),
           
-          # DEFAULT: OFF (changed from TRUE -> FALSE)
           checkboxInput("show_box_dots", "Show dots on boxplot (outliers always shown)", value = FALSE)
         )
       ),
@@ -251,16 +330,67 @@ ui <- fluidPage(
 # ---- Server ----
 server <- function(input, output, session) {
   
+  # NEW: dynamic UI for level selection based on chosen categorical field
+  output$cat_level_ui <- renderUI({
+    req(input$cat_var)
+    
+    if (identical(input$cat_var, "None")) return(NULL)
+    
+    # Use date-filtered data for available levels (feels consistent)
+    dat0 <- acc
+    if (!is.null(input$dates)) {
+      dat0 <- dat0 %>%
+        filter(as.Date(start_time) >= input$dates[1],
+               as.Date(start_time) <= input$dates[2])
+    }
+    
+    vals <- dat0[[input$cat_var]]
+    vals <- vals[!is.na(vals)]
+    vals <- sort(unique(as.character(vals)))
+    
+    selectizeInput(
+      "cat_levels",
+      "Include levels (leave 'All' to disable filtering)",
+      choices = c("All", vals),
+      selected = "All",
+      multiple = TRUE,
+      options = list(
+        plugins = list("remove_button"),
+        placeholder = "Choose levels (or keep 'All')",
+        maxOptions = 2000
+      )
+    )
+  })
+  
+  # Optional nicety: if user selects specific levels, drop "All"
+  observeEvent(input$cat_levels, {
+    lvls <- input$cat_levels
+    if (is.null(lvls)) return()
+    
+    if ("All" %in% lvls && length(lvls) > 1) {
+      updateSelectizeInput(session, "cat_levels", selected = setdiff(lvls, "All"))
+    }
+  }, ignoreInit = TRUE)
+  
   filtered <- reactive({
     dat <- acc
-    if (!is.null(input$sev) && input$sev != "All") {
-      dat <- dat %>% filter(Severity == as.integer(input$sev))
-    }
+    
+    # Date filter
     if (!is.null(input$dates)) {
       dat <- dat %>%
-        filter(as.Date(Start_Time) >= input$dates[1],
-               as.Date(Start_Time) <= input$dates[2])
+        filter(as.Date(start_time) >= input$dates[1],
+               as.Date(start_time) <= input$dates[2])
     }
+    
+    # Categorical filter (optional)
+    if (!is.null(input$cat_var) && input$cat_var != "None") {
+      lvls <- input$cat_levels
+      if (!is.null(lvls) && !("All" %in% lvls)) {
+        dat <- dat %>%
+          filter(as.character(.data[[input$cat_var]]) %in% lvls)
+      }
+    }
+    
     dat
   })
   
@@ -598,7 +728,7 @@ server <- function(input, output, session) {
     g
   })
   
-  # ---- Boxplot tie-together: manual drawing + FIXED empty inlier/outlier data.frame creation ----
+  # ---- Boxplot tie-together: manual drawing ----
   output$boxplot_tie <- renderPlot({
     xi <- x_info()
     v  <- xi$v
@@ -632,20 +762,16 @@ server <- function(input, output, session) {
     x_out <- x[is_out]
     x_in  <- x[!is_out]
     
-    # Subsample inliers only
     set.seed(230)
     if (length(x_in) > 3500) x_in <- sample(x_in, 3500)
     
-    # FIX: y must match length (prevents 0 vs 1 data.frame error)
     df_in  <- data.frame(x = x_in,  y = rep(1, length(x_in)))
     df_out <- data.frame(x = x_out, y = rep(1, length(x_out)))
     
-    # Thin box + caps
     y0 <- 1
     box_w <- 0.10
     cap_w <- box_w * 0.80
     
-    # Adaptive jitter for inliers only
     n_in <- nrow(df_in)
     jitter_h <- min(0.22, 0.05 + 0.04 * log10(n_in + 1))
     
@@ -661,7 +787,6 @@ server <- function(input, output, session) {
       geom_segment(aes(x = lowW, xend = lowW, y = y0 - cap_w/2, yend = y0 + cap_w/2), color = "grey35") +
       geom_segment(aes(x = hiW,  xend = hiW,  y = y0 - cap_w/2, yend = y0 + cap_w/2), color = "grey35")
     
-    # Inliers: optional jittered points (only if any inliers exist)
     if (isTRUE(input$show_box_dots) && nrow(df_in) > 0) {
       p <- p +
         geom_jitter(data = df_in, aes(x = x, y = y),
@@ -669,14 +794,12 @@ server <- function(input, output, session) {
                     alpha = 0.25, size = 1.05, color = "#2b6cb0")
     }
     
-    # Outliers: always shown if present (never jittered)
     if (nrow(df_out) > 0) {
       p <- p +
         geom_point(data = df_out, aes(x = x, y = y),
                    alpha = 0.90, size = 1.35, color = "#2b6cb0")
     }
     
-    # Mean line only if toggle is on
     if (isTRUE(input$show_mean_median)) {
       p <- p + geom_vline(xintercept = m, color = "#22A06B", linewidth = 1.1, linetype = "dashed")
     }

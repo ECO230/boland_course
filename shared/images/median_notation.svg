@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="102.30556mm"
+   height="55.738888mm"
+   viewBox="0 0 102.30556 55.738888"
+   version="1.1"
+   id="svg11369"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="median_notation.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview11371"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.2102413"
+     inkscape:cx="1498.2784"
+     inkscape:cy="960.80075"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs11366" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(334.30956,105.89487)">
+    <g
+       transform="matrix(0.26458333,0,0,0.26458333,-344.67243,-190.34105)"
+       id="g1178-6">
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="200px"
+         id="text1168-8"
+         x="86.699501"
+         y="506">x̃</text>
+      <path
+         d="m 40.5001,331.835 c 0,-6.26 5.0746,-11.335 11.3344,-11.335 H 205.166 c 6.259,0 11.334,5.075 11.334,11.335 v 185.331 c 0,6.259 -5.075,11.334 -11.334,11.334 H 51.8345 c -6.2598,0 -11.3344,-5.075 -11.3344,-11.334 z"
+         stroke="#262626"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path1170-0" />
+      <path
+         d="m 40.5001,331.44 c 0,-6.042 4.8978,-10.94 10.9395,-10.94 H 205.56 c 6.042,0 10.94,4.898 10.94,10.94 v 18.12 c 0,6.042 -4.898,10.94 -10.94,10.94 H 51.4396 c -6.0417,0 -10.9395,-4.898 -10.9395,-10.94 z"
+         stroke="#262626"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#d9d9d9"
+         fill-rule="evenodd"
+         id="path1172-0"
+         style="fill:#2b6cb0" />
+      <text
+         fill="#595959"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(92.0833,348)"
+         id="text1174-2"><tspan
+           style="fill:#fafafa"
+           id="tspan4270">Sample</tspan></text>
+    </g>
+    <g
+       transform="matrix(0.26458333,0,0,0.26458333,-344.6724,-190.34105)"
+       id="g1200-1">
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="200px"
+         transform="translate(281.6,480)"
+         id="text1192-1">η</text>
+      <path
+         d="m 248.5,331.835 c 0,-6.26 5.075,-11.335 11.335,-11.335 h 153.331 c 6.259,0 11.334,5.075 11.334,11.335 v 185.331 c 0,6.259 -5.075,11.334 -11.334,11.334 H 259.835 c -6.26,0 -11.335,-5.075 -11.335,-11.334 z"
+         stroke="#262626"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path1194-7" />
+      <path
+         d="m 248.5,331.44 c 0,-6.042 4.898,-10.94 10.94,-10.94 h 154.12 c 6.042,0 10.94,4.898 10.94,10.94 v 18.12 c 0,6.042 -4.898,10.94 -10.94,10.94 H 259.44 c -6.042,0 -10.94,-4.898 -10.94,-10.94 z"
+         stroke="#262626"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#d9d9d9"
+         fill-rule="evenodd"
+         id="path1196-7" />
+      <text
+         fill="#595959"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(283.267,348)"
+         id="text1198-2">Population</text>
+    </g>
+  </g>
+</svg>
