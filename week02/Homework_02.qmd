@@ -1,5 +1,5 @@
 ---
-title: "Homework 2: Descriptive Measures (Tables Only) & Responsible AI Use"
+title: "Homework 2: Exploratory Analysis"
 format:
   html:
     toc: false
