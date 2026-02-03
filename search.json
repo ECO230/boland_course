@@ -1,59 +1,129 @@
 [
   {
-    "objectID": "week01/transcripts/video2.html",
-    "href": "week01/transcripts/video2.html",
-    "title": "Transcript — Video 2 (Measurement Scales)",
-    "section": "",
-    "text": "Transcript — Video 2 (Measurement Scales)\nSo once you have an idea of what data is in our dataset, how it’s tract, it’s good to take a look at those variables and think, Okay, how is this data is actually stored? Either How was it coded? How is it stored numerically? Is that gonna be useful for us? Is it going to be, is it going to tell us the information that we need? Or do we need to go look at data from a different source?\nSo textbook definition of how data is measured is as follows. As follows. Here, we talked a little bit about those categorical variables. There’s numeric variables. But this type of data and how it’s stored. It is also important to know what’s the scale that the date is on. So textbook definition, we have nominal ordinal, interval and ratio scale data. And this is getting into, once we have this data, numerically, what we do with it mathematically.\nNominal scale is the lowest level. This is a naming type verbal, so the categories that we have are just there for naming purposes just to keep track of. Okay. This person isn’t, this, isn’t this category or not. It’s usually a categorical type scale.\nOrdinal scale is the same sort of thing. We looked at this a little bit with categorical scales where there’s some order inherent to the, to the way the data is tracked.\n(… transcript continues …)"
+    "objectID": "week02/week_02.html#measurement-scales",
+    "href": "week02/week_02.html#measurement-scales",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "Measurement Scales",
+    "text": "Measurement Scales"
   },
   {
-    "objectID": "week01/transcripts/video1.html",
-    "href": "week01/transcripts/video1.html",
-    "title": "Transcript — Video 1 (ETL)",
-    "section": "",
-    "text": "Transcript — Video 1 (ETL)\nIt’s usually one of our first task is figuring out how to get the data where we need it to be in order to use it and do our analysis on it. So generally when we’re getting data, it’s going to follow this type of a process, extract, transform load or ETL process. A lot of the data that we’re gonna be working with, especially for this course, is going to be data that other people have gathered what’s known as secondary data. Later on in the class, we will talk little bit about primary data, how to, how to gather data for a specific purpose. But the vast majority of the time we’re gonna be using data that’s already existing and whether it is from a third party source or internally within our company has sales database or something like that. We usually don’t have a lot of say in how their data is structured, how it’s set up. So we need to figure out how to get that data in the form that it’s in currently. And then get it into a form that we’re gonna be able to do. Our nails the sun.\nThe first step in that process is to extract the data. And that is to get the data from wherever it is to our computer, to where we’re gonna be working with it at. That data can take on a number of different forms. Sometimes the data is relatively clean. If it is a something like this where we have a structured database where everything is set up just so you know, each point of data is in its own row, each specific variables in its own column. So sometimes it might be pretty much in the form that we need to use it, right where it is.\nOther times you might be grabbing it from a website or something like that. If you wanted to do some analysis looking at census data, you will go to the Census Bureau’s website and download data from there. It might just be unstructured data just pouring into, into a database, some sort of a sensor or something that is tracking data, looking at a motion sensor or something like that. Where, you know, every time that that sensor is triggered, it it changes from a truth or false yes or no sort of a thing. Measuring the brightness or measuring the voltage of a certain sensor. Measuring whether or not motion was detected on a video camera. That data might just be constantly pouring in. And then we have to figure out, okay, how we’re gonna deal with this L. We’re going to figure out what the timestamp was. What does this data, what is it telling us?\nThat first step is to is to extract that data. So get it out of where it is right now. Get it to where we need it to be. Once we have that data downloaded or transferred over to where we’re gonna be using it or connected to, you know, sometimes we don’t actually need the data, we just make a connection to where it’s at. Next step is to transform that data to get it into a format that’s going to be convenient for us to use that we can do analysis on without a constantly having to go in and edit things and change things and recalculate. So that’s the T part of the ETL process transform to get the data from the form that it’s in when we get it, to change it to the form that we’re gonna be using it for our analysis.\nSo a lot of times we’re editing this data, so it’s gonna be stored in a consistent way. It’s gonna be efficient for us to go and look at it. There’s certain rules that we’re going to follow that’s gonna make our lives much easier when it comes time to analyze that data or build a chart or do some analysis on it. There are some standard ways to keep that where any tool that we’re going to connect to that data width is going to be able to look at it in a similar way.\nThe example on the top here, that a good before if we download data from the Census Bureau, It’s gonna look something like this. So this data is stored in a way where we have gigabytes of data on. However many million people live in the country. All that data is stored on a server somewhere in a way that’s going to be convenient for the Census Bureau. That’s not necessarily convenient for us. You can see we have a lot of empty space here. If category one, category to category three, you might not know what those things mean.\nA lot of times we need to transform that data to get it into something. It’s going to be a little bit more convenient for us to use consistent way to measure what was the time that his data was recorded? Consistent way to measure geographically, what was their zip code? What was the date of what was what were the different categories that it falls into? A lot of times we can store that in a much more efficient way. We do it as part of the transform process.\nLast step then is to load it into the program that we’re gonna be using to do our analysis. In this can be anything. Sometimes we go from a database, we transform it and put it right back into that same database. This doesn’t necessarily have to be different programs that we’re using.\n(… transcript continues …)"
+    "objectID": "week02/week_02.html#measurement-scales-1",
+    "href": "week02/week_02.html#measurement-scales-1",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "Measurement Scales",
+    "text": "Measurement Scales\n\n\n\n\n\n\n\n\n\n\n\n\nWeather_Condition\ntime_of_day\nTemperature(F)\nDistance(mi)\nstart_time\n\n\n\n\nClear\nmorning\n69.8\n0.637\n2016-08-19 11:28:00\n\n\nScattered Clouds\nevening\n46.4\n0.111\n2016-11-13 21:13:00\n\n\nThunderstorms and Rain\ndaytime\n51.1\n0.000\n2018-10-01 12:51:00\n\n\nFog\nevening\n45.0\n0.000\n2020-04-28 19:50:00\n\n\nRain\ndaytime\n48.0\n1.731\n2016-10-26 12:36:00\n\n\nRain\nmorning\n51.0\n0.487\n2019-05-24 06:52:00\n\n\nPartly Cloudy\nmorning\n64.9\n0.212\n2016-06-30 07:15:00\n\n\nClear\ndaytime\n86.0\n0.646\n2018-07-11 14:06:00\n\n\nOvercast\nmorning\n46.9\n0.519\n2017-02-28 08:27:00\n\n\nPartly Cloudy\ndaytime\n10.9\n0.292\n2018-01-04 14:54:00\n\n\nOvercast\nmorning\n30.2\n0.682\n2017-02-16 09:38:00\n\n\nFair\nmorning\n73.0\n0.131\n2019-07-12 10:15:00\n\n\nMostly Cloudy\ndaytime\n80.1\n0.059\n2017-06-14 14:54:00\n\n\nCloudy\nmorning\n25.0\n0.429\n2020-01-29 07:56:00\n\n\nScattered Clouds\nmorning\n-2.2\n1.916\n2019-01-29 09:47:00\n\n\nLight Rain\nmorning\n69.0\n0.671\n2019-06-28 09:41:00\n\n\nCloudy\ndaytime\n66.0\n0.000\n2020-05-28 16:07:00\n\n\nFair\nevening\n45.0\n0.000\n2020-04-07 20:51:00\n\n\nCloudy\nmorning\n64.0\n3.044\n2019-08-26 08:43:00\n\n\nClear\ndaytime\n55.4\n0.428\n2017-04-14 16:47:00\n\n\nLight Freezing Drizzle\nmorning\n19.9\n0.413\n2019-01-22 11:04:00\n\n\nLight Snow\nevening\n21.2\n0.511\n2019-03-01 20:48:00\n\n\nLight Rain\nnight\n66.0\n0.007\n2017-06-17 05:01:00\n\n\nPartly Cloudy\ndaytime\n46.9\n0.685\n2016-11-29 17:56:00\n\n\nClear\nmorning\n35.1\n0.503\n2017-10-25 06:56:00\n\n\nScattered Clouds\nmorning\n73.9\n0.400\n2016-07-20 08:13:00\n\n\nClear\ndaytime\n79.7\n0.440\n2018-09-02 17:32:00\n\n\nScattered Clouds\ndaytime\n95.0\n0.655\n2016-07-21 15:16:00\n\n\nClear\nevening\n28.0\n0.631\n2016-12-22 19:58:00\n\n\nOvercast\nnight\n32.9\n0.328\n2017-01-17 05:17:00"
   },
   {
-    "objectID": "week01/study/video3-study.html",
-    "href": "week01/study/video3-study.html",
-    "title": "Study Guide — Video 3",
-    "section": "",
-    "text": "Identify the unit of analysis in any dataset.\nDistinguish cross‑sectional, time‑series, and panel data.\nUnderstand dimensions vs. measures.\nRecognize tall vs. wide data structures.\nApply the four principles of tidy data.\n\n\n\n\n\n\nUnit of analysis = what each row represents.\nCross‑sectional = different subjects at one time.\nTime‑series = measurements over time (subjects may differ).\nPanel = same subjects over time.\nTall data = many rows; good for grouping, pivoting, combining.\nWide data = many columns; good for fast lookups.\nDimensions = categories for slicing/filtering (e.g., person, month, location).\nMeasures = numeric values to summarize (e.g., mean sleep minutes).\nTidy data principles:\n\nVariables in columns\n\nObservations in rows\n\nOne table per observational unit\n\nKeys connect tables\n\n\n\n\n\n\n\n\nThe entity described by each row (person, transaction, date, etc.).\n\n\n\nCategorical descriptors used for slicing or grouping.\n\n\n\nNumerical values used for summaries like average, count, standard deviation.\n\n\n\nTwo orientations of the same underlying information.\n\n\n\n\n\n\n\n\nWhich dataset structure is ideal for pivoting between categories?\n\n\nWide\n\n\n\nTall\nCorrect answer: B\n\n\nA dataset tracking the same individuals every month is:\n\n\nCross‑sectional\n\n\n\nTime‑series\n\n\n\nPanel\nCorrect answer: C\n\n\n“Month, Location, Person” in a sleep‑tracking dataset are:\n\n\nMeasures\n\n\n\nDimensions\nCorrect answer: B\n\n\n\n\n\n\n\nDescribe a dataset from real life and identify its unit of analysis.\n\nExplain why tall datasets are usually easier to join and aggregate.\n\nDescribe when you would prefer a wide dataset.\n\n\n\n\n\n\n\n“Convert a wide dataset to tall format and explain the impact on analysis.”\n“Give me examples of cross‑sectional, time‑series, and panel data from everyday life.”\n“Ask me 5 questions that require identifying unit of analysis errors.”\n“Give me messy untidy data and ask me to reorganize it into valid tidy format.”"
+    "objectID": "week02/week_02.html#meaningful-summaries-by-scale-type",
+    "href": "week02/week_02.html#meaningful-summaries-by-scale-type",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "Meaningful Summaries by Scale Type",
+    "text": "Meaningful Summaries by Scale Type\n\n\n\n\n\n\n\n\nQuick check\n\n\nWhich statistics are meaningful at each scale?\n\n\n\n\n\n\nCount works best for Nominal / Ordinal\nMedian & Percentiles work best for Ordinal+.\nMean & Standard Deviation work best for Interval / Ratio.\n\n\n\n\n\n\n\n\n\n\nTextbook vs Real World\n\n\nThese rules are bent often; the real world is messy"
   },
   {
-    "objectID": "week01/study/video3-study.html#learning-objectives",
-    "href": "week01/study/video3-study.html#learning-objectives",
-    "title": "Study Guide — Video 3",
-    "section": "",
-    "text": "Identify the unit of analysis in any dataset.\nDistinguish cross‑sectional, time‑series, and panel data.\nUnderstand dimensions vs. measures.\nRecognize tall vs. wide data structures.\nApply the four principles of tidy data."
+    "objectID": "week02/week_02.html#when-sum-is-meaningful",
+    "href": "week02/week_02.html#when-sum-is-meaningful",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "When SUM is meaningful",
+    "text": "When SUM is meaningful\n\n\nThe variable is additive\n\nUnits can be totaled (minutes, dollars, people, rows)\n\n0 means ‘none’\n\n\n\n\nExamples\n\nTotal minutes delayed\nTotal injuries\nNumber of severity 3 accidents (sum of 1/0)\nTotal distance?"
   },
   {
-    "objectID": "week01/study/video3-study.html#key-takeaways",
-    "href": "week01/study/video3-study.html#key-takeaways",
-    "title": "Study Guide — Video 3",
-    "section": "",
-    "text": "Unit of analysis = what each row represents.\nCross‑sectional = different subjects at one time.\nTime‑series = measurements over time (subjects may differ).\nPanel = same subjects over time.\nTall data = many rows; good for grouping, pivoting, combining.\nWide data = many columns; good for fast lookups.\nDimensions = categories for slicing/filtering (e.g., person, month, location).\nMeasures = numeric values to summarize (e.g., mean sleep minutes).\nTidy data principles:\n\nVariables in columns\n\nObservations in rows\n\nOne table per observational unit\n\nKeys connect tables"
+    "objectID": "week02/week_02.html#when-sum-is-not-meaningful",
+    "href": "week02/week_02.html#when-sum-is-not-meaningful",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "When SUM is not meaningful",
+    "text": "When SUM is not meaningful\n\n\nIt’s an ID or label\n\nIt’s ordinal (e.g., severity 1–4)\n\nIt’s already an average/rate\n\n\n\nExamples\n\nSum of accident IDs\nSum of severity codes\nSum of ‘average speed’ (unless weighted)\nSum of temperature?\n\n\n\n\n\n\n\n\n\n\n\nFast Test\n\n\nCan you add two rows together and keep the same meaning + units?"
   },
   {
-    "objectID": "week01/study/video3-study.html#concept-definitions",
-    "href": "week01/study/video3-study.html#concept-definitions",
-    "title": "Study Guide — Video 3",
-    "section": "",
-    "text": "The entity described by each row (person, transaction, date, etc.).\n\n\n\nCategorical descriptors used for slicing or grouping.\n\n\n\nNumerical values used for summaries like average, count, standard deviation.\n\n\n\nTwo orientations of the same underlying information."
+    "objectID": "week02/week_02.html#sample-size-or-row-count",
+    "href": "week02/week_02.html#sample-size-or-row-count",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "Sample size or Row Count",
+    "text": "Sample size or Row Count\n\nFour counts to keep straight\n\n\nN — Total records in the dataset\n\nneligible — After filters (date, severity, etc.)\n\nnnon-missing — Non‑missing for the chosen variable\n\nn — Actual usable values for our analysis"
   },
   {
-    "objectID": "week01/study/video3-study.html#practice-questions",
-    "href": "week01/study/video3-study.html#practice-questions",
-    "title": "Study Guide — Video 3",
-    "section": "",
-    "text": "Which dataset structure is ideal for pivoting between categories?\n\n\nWide\n\n\n\nTall\nCorrect answer: B\n\n\nA dataset tracking the same individuals every month is:\n\n\nCross‑sectional\n\n\n\nTime‑series\n\n\n\nPanel\nCorrect answer: C\n\n\n“Month, Location, Person” in a sleep‑tracking dataset are:\n\n\nMeasures\n\n\n\nDimensions\nCorrect answer: B\n\n\n\n\n\n\n\nDescribe a dataset from real life and identify its unit of analysis.\n\nExplain why tall datasets are usually easier to join and aggregate.\n\nDescribe when you would prefer a wide dataset."
+    "objectID": "week02/week_02.html#central-tendency",
+    "href": "week02/week_02.html#central-tendency",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "Central Tendency",
+    "text": "Central Tendency\n\nWe have three common flavors—each answers a different question.\n\nMean: balancing point; sensitive to outliers.\nMedian: middle value; robust to skew/outliers.\nMode: most frequent value; useful for categorical data."
   },
   {
-    "objectID": "week01/study/video3-study.html#aipowered-study-prompts",
-    "href": "week01/study/video3-study.html#aipowered-study-prompts",
-    "title": "Study Guide — Video 3",
+    "objectID": "week02/week_02.html#standard-deviation",
+    "href": "week02/week_02.html#standard-deviation",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "Standard Deviation",
+    "text": "Standard Deviation\n\n\nVariance (s2 or σ2): average squared distance from the mean.\n\n\n\nStandard deviation (s or σ): typical distance in original units."
+  },
+  {
+    "objectID": "week02/week_02.html#percentiles-quartiles",
+    "href": "week02/week_02.html#percentiles-quartiles",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "Percentiles & Quartiles",
+    "text": "Percentiles & Quartiles\n\nThe Pth percentile is the value with P% of data at or below it.\n\nThe 10th percentile (P10) is the value where 10% of the distribution is lower and 90% is higher\nThe 82nd percentile (P82) is the value where 82% of the distribution is lower and 18% is higher\nQuartiles are P25 (Q1), P50 (Q2), P75 (Q3)\nThe 50th (P50) percentile, the 2nd Quartile (Q2) and the Median are all the same value"
+  },
+  {
+    "objectID": "week02/week_02.html#mean-and-sd",
+    "href": "week02/week_02.html#mean-and-sd",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "Mean and SD",
+    "text": "Mean and SD\nUnstandardized measures depend on the units being measured"
+  },
+  {
+    "objectID": "week02/week_02.html#percentiles",
+    "href": "week02/week_02.html#percentiles",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "Percentiles",
+    "text": "Percentiles\nStandardized measures do not depend on units being measured"
+  },
+  {
+    "objectID": "week02/week_02.html#iqr---inter-quartile-range",
+    "href": "week02/week_02.html#iqr---inter-quartile-range",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "IQR - Inter-Quartile Range",
+    "text": "IQR - Inter-Quartile Range"
+  },
+  {
+    "objectID": "week02/week_02.html#boxplots-or-box-whisker-plots",
+    "href": "week02/week_02.html#boxplots-or-box-whisker-plots",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "Boxplots or Box & Whisker Plots",
+    "text": "Boxplots or Box & Whisker Plots"
+  },
+  {
+    "objectID": "week02/week_02.html#cross-tabs-or-contingency-tables",
+    "href": "week02/week_02.html#cross-tabs-or-contingency-tables",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "Cross Tabs or Contingency Tables",
+    "text": "Cross Tabs or Contingency Tables\nStart with counts; then layer in percentages.\n\n\nFrequncy Table - *One Categorical Variable\nCross Tab - Two Categorical Variables\nCount how many rows n\nAdd marginal totals\n\n\n\nCompute Percentages\n\nrow % (conditional on row)\ncolumn % (conditional on column)\ntable % for overall share"
+  },
+  {
+    "objectID": "week02/week_02.html#what-can-go-wrong",
+    "href": "week02/week_02.html#what-can-go-wrong",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "What can go wrong?",
+    "text": "What can go wrong?\n\n\nConfusing similar-sounding percentages:\n\n\n\n% of incidents that happened in Spring and in the Morning?\n\n\n\n\n% of incidents in the Spring that happened in the Morning?\n\n\n\n\n% of incidents that happened in the Spring?\n\n\n\n\n\n\n\n\n\n\nPercentage Problems\n\n\nMake sure you are clear on what the numerator and denominator are and communicate clearly."
+  },
+  {
+    "objectID": "week02/week_02.html#correlation",
+    "href": "week02/week_02.html#correlation",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "Correlation",
+    "text": "Correlation\n\nCorrelation (r): standardized between -1 and +1\nShows strength of linear pattern.\n+1 means positive relationship, -1 means netagive relationship\nDoes not determine the slope of the line\nRegression analysis needed for full understanding\n\n\n\n\n\n\n\n\nCaution\n\n\nCorrelation ≠ Causation. Check for confounders, nonlinearity, and outliers. E.g. perform a full regression analysis."
+  },
+  {
+    "objectID": "week02/week_02.html#analytics-is-the-art-of-finding-out-what-is-in-your-data.",
+    "href": "week02/week_02.html#analytics-is-the-art-of-finding-out-what-is-in-your-data.",
+    "title": "Week 2 — Descriptive Measures",
+    "section": "Analytics is the art of finding out what is in your data.",
+    "text": "Analytics is the art of finding out what is in your data.\n\nacc_mast %&gt;%\n  select(`Distance(mi)`,season) %&gt;%\n  group_by(season) %&gt;%\n  summarise(mean_distance = mean(`Distance(mi)`), median_distance = median(`Distance(mi)`))\n\n\n\n\n\n\n\n\n\n\nseason\nmean_distance\nmedian_distance\n\n\n\n\nspring\n0.6144410\n0.2795\n\n\nsummer\n0.6719602\n0.3480\n\n\nfall\n0.7653729\n0.4335\n\n\nwinter\n0.7936441\n0.4420\n\n\n\n\n\n\n\n\n\n\nacc_mast %&gt;%\n  select(`Temperature(F)`,time_of_day) %&gt;%\n  filter(!is.na(`Temperature(F)`), !is.na(time_of_day)) %&gt;%\n  group_by(time_of_day) %&gt;%\n  summarise(mean_temp = mean(`Temperature(F)`), stdev_temp = sd(`Temperature(F)`))\n\n\n\n\n\n\n\n\n\n\n\ntime_of_day\nmean_temp\nstdev_temp\n\n\n\n\nnight\n41.92824\n18.76459\n\n\nmorning\n44.75208\n22.12563\n\n\ndaytime\n54.97994\n22.04990\n\n\nevening\n48.34827\n21.32532"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ECO 230 — Section 012",
     "section": "",
-    "text": "“Convert a wide dataset to tall format and explain the impact on analysis.”\n“Give me examples of cross‑sectional, time‑series, and panel data from everyday life.”\n“Ask me 5 questions that require identifying unit of analysis errors.”\n“Give me messy untidy data and ask me to reorganize it into valid tidy format.”"
+    "text": "Welcome to ECO 230 (Section 012)\nThis website hosts:\n\nSyllabus\n\nWeekly Slides (Reveal.js)\n\nHomework Assignments & Handouts\n\nAdditional course materials as the semester progresses.\n\nUse the navigation bar at the top to access each item.\nIf you are viewing this inside Canvas, links will open in a new window or in an embedded iframe depending on your instructor setup."
   },
   {
     "objectID": "week01/week_01_DEP.html#use-instant-booking-wisely",
@@ -271,237 +341,6 @@
     "title": "ECO 230 Section 012",
     "section": "Summary and Prime Directive",
     "text": "Summary and Prime Directive\n\nBefore running any statistics, what are the three questions you must answer about a dataset?\n 1. What does one row represent?  2. What kind of variables do I have?  3. What question can this data answer?"
-  },
-  {
-    "objectID": "week01/Homework_01.html",
-    "href": "week01/Homework_01.html",
-    "title": "Homework 1: Data Anatomy & Responsible AI Use",
-    "section": "",
-    "text": "NotePurpose\n\n\n\nThis assignment helps you practice the three essential questions from Week 1:\n\nWhat does one row represent? (unit of analysis / grain)\n\nWhat kinds of variables do I have? (types + NOIR measurement scales)\n\nWhat can this data actually answer? (analytical frame)\n\nYou will work with real microdata, evaluate its structure, and reflect on how to use AI responsibly to accelerate—not replace—your thinking."
-  },
-  {
-    "objectID": "week01/Homework_01.html#objectives",
-    "href": "week01/Homework_01.html#objectives",
-    "title": "Homework 1: Data Anatomy & Responsible AI Use",
-    "section": "Objectives",
-    "text": "Objectives\n\nOpen and inspect raw .csv data\n\nSave and format data as .xlsx\n\nDetermine whether a dataset is tidy\n\nContrast microdata vs summary data\n\nBuild a pivot table using Dimensions and Measures\n\nDescribe unit of analysis and grain\n\nIdentify variable types\n\nReflect on ethical AI use in data work"
-  },
-  {
-    "objectID": "week01/Homework_01.html#resources",
-    "href": "week01/Homework_01.html#resources",
-    "title": "Homework 1: Data Anatomy & Responsible AI Use",
-    "section": "Resources",
-    "text": "Resources\n\nDatasets in Posit Cloud\n\nData Description files on Canvas\n\nWeek 1 slides (Unit of Analysis, Tidy Data, Dimensions vs Measures)\n\n\n\n\n\n\n\nTipImportant\n\n\n\nThis assignment is graded for sincere completion, not perfection.\nTry every step. Bring questions to class. We will review solutions together."
-  },
-  {
-    "objectID": "week01/Homework_01.html#choose-and-download-your-dataset",
-    "href": "week01/Homework_01.html#choose-and-download-your-dataset",
-    "title": "Homework 1: Data Anatomy & Responsible AI Use",
-    "section": "1) Choose and Download Your Dataset",
-    "text": "1) Choose and Download Your Dataset\n\nSelect one dataset from your Posit Cloud project.\n\nDownload it as a .csv.\n\nSave a working copy as .xlsx.\n\n(No written response required.)"
-  },
-  {
-    "objectID": "week01/Homework_01.html#is-your-data-tidy-why-or-why-not",
-    "href": "week01/Homework_01.html#is-your-data-tidy-why-or-why-not",
-    "title": "Homework 1: Data Anatomy & Responsible AI Use",
-    "section": "2) Is Your Data Tidy? Why or Why Not?",
-    "text": "2) Is Your Data Tidy? Why or Why Not?\nUsing the Week 1 tidy data principles:\n\nEach variable in its own column\n\nEach observation in its own row\n\nOne table per type of observational unit\n\nKeys required if multiple tables link\n\nWrite 3–5 sentences answering:\n\nIs your dataset tidy? Why or why not?\n\nIf it’s not tidy, identify the issue (e.g., wide layout, mixed grains, repeated headers, embedded units)."
-  },
-  {
-    "objectID": "week01/Homework_01.html#format-as-a-table-excel",
-    "href": "week01/Homework_01.html#format-as-a-table-excel",
-    "title": "Homework 1: Data Anatomy & Responsible AI Use",
-    "section": "3) Format as a Table (Excel)",
-    "text": "3) Format as a Table (Excel)\nIn Excel, convert your data into an official Table (Ctrl/Cmd + T) to enable consistent filters and references.\n(No written response required.)"
-  },
-  {
-    "objectID": "week01/Homework_01.html#build-a-pivot-table-dimensions-measures",
-    "href": "week01/Homework_01.html#build-a-pivot-table-dimensions-measures",
-    "title": "Homework 1: Data Anatomy & Responsible AI Use",
-    "section": "4) Build a Pivot Table (Dimensions + Measures)",
-    "text": "4) Build a Pivot Table (Dimensions + Measures)\nCreate an Excel pivot table using:\n\n≥ 1 Dimension (categorical descriptor: ZIP, Gender, Date, Location, Category)\n\n≥ 1 Measure (numeric summary: Count, Average, Total, Min/Max)\n\nIf you encounter errors, briefly describe what happened and what you tried.\n(Optional: include a screenshot.)"
-  },
-  {
-    "objectID": "week01/Homework_01.html#what-is-the-unit-of-analysis",
-    "href": "week01/Homework_01.html#what-is-the-unit-of-analysis",
-    "title": "Homework 1: Data Anatomy & Responsible AI Use",
-    "section": "5) What Is the Unit of Analysis?",
-    "text": "5) What Is the Unit of Analysis?\nIn 3–5 sentences, explain:\n\nWhat one row represents in your dataset (the grain)\n\nWhy this grain matters for answerable questions\n\nWhat information would appear if the grain were more detailed\n\nRemember your training:\n\n“Rows are never just rows. If you misunderstand the unit of analysis, every result is wrong—even with perfect code.”"
-  },
-  {
-    "objectID": "week01/Homework_01.html#identify-variable-types",
-    "href": "week01/Homework_01.html#identify-variable-types",
-    "title": "Homework 1: Data Anatomy & Responsible AI Use",
-    "section": "6) Identify Variable Types",
-    "text": "6) Identify Variable Types\nList at least one variable for each type.\nIf a type is missing, describe the additional data you would need.\n\nCategorical (Nominal):\n\nOrdinal:\n\nTrue/False (Logical):\n\nDiscrete Numeric:\n\nContinuous Numeric:\n\nDate/Time:\n\nGeographic/Spatial:\n\n(You may list more than one variable for a given type.)"
-  },
-  {
-    "objectID": "week01/Homework_01.html#responsible-use-of-ai-required",
-    "href": "week01/Homework_01.html#responsible-use-of-ai-required",
-    "title": "Homework 1: Data Anatomy & Responsible AI Use",
-    "section": "7) Responsible Use of AI (Required)",
-    "text": "7) Responsible Use of AI (Required)\nAI can accelerate learning, but it must not interpret results or make analytical decisions for you.\nUse AI only for clarification, rewriting, or troubleshooting.\nWrite 5–7 sentences responding to:\nA. How did you use AI on this assignment?\n(If not at all, state that and why.)\nB. What did AI help with? (Be specific.)\nC. What did AI get wrong, miss, or oversimplify?\nD. Include one AI prompt you used and note:\n- How the response helped\n- Where it fell short\nRemember our goal with AI:\n\n“Can you use AI responsibly to accelerate—not replace—your thinking?”"
-  },
-  {
-    "objectID": "week01/Homework_01.html#submission",
-    "href": "week01/Homework_01.html#submission",
-    "title": "Homework 1: Data Anatomy & Responsible AI Use",
-    "section": "8) Submission",
-    "text": "8) Submission\nUpload to Canvas:\n\nYour completed Excel workbook (.xlsx)\n\nA document (Word/PDF or Canvas text entry) with your responses, including the AI reflection\n\nPlease bring your .xlsx file to class for in‑class demonstrations."
-  },
-  {
-    "objectID": "week01/Homework_01.html#alignment-to-course-outcomes",
-    "href": "week01/Homework_01.html#alignment-to-course-outcomes",
-    "title": "Homework 1: Data Anatomy & Responsible AI Use",
-    "section": "Alignment to Course Outcomes",
-    "text": "Alignment to Course Outcomes\n\nChoose the right analysis: You identify grain, tidy structure, and variable types to determine valid analyses.\n\nInterpret results in context: Your pivot and explanations tie summaries to what the data can and cannot answer.\n\nExplain limitations, assumptions, and uncertainty: Your AI reflection and grain discussion surface constraints before statistics."
-  },
-  {
-    "objectID": "week01/snippets/video1-block.html",
-    "href": "week01/snippets/video1-block.html",
-    "title": "Transcript — Video 1 (ETL)",
-    "section": "",
-    "text": "Watch on Canvas: ETL Overview Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — ETL (click to expand)"
-  },
-  {
-    "objectID": "week01/snippets/video1-block.html#video-etl-overview",
-    "href": "week01/snippets/video1-block.html#video-etl-overview",
-    "title": "Transcript — Video 1 (ETL)",
-    "section": "",
-    "text": "Watch on Canvas: ETL Overview Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — ETL (click to expand)"
-  },
-  {
-    "objectID": "syllabus/syllabus.html",
-    "href": "syllabus/syllabus.html",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "",
-    "text": "ECO 230 Business and Economic Research & Communication\nSpring 2026 | Section 12 | Credits: 3\nMeets in Wittich 112 Tuesday 5:30 pm to 8:15 pm.\n\n\n\nMike Boland, MBA\n\nOffice Location: Non Extant\n\nStudent Hours: Mon.–Fri. Noon–1pm in Zoom or by appointment\n\nClass Webpage: https://www.uwlax.edu/canvas\n\nEmail: mboland@uwlax.edu\n\nCell Phone: 608-385-6497\n\n\n\n\nFriday May 12th 7:00 pm – 9:00 pm in Wittich 112"
-  },
-  {
-    "objectID": "syllabus/syllabus.html#course-information",
-    "href": "syllabus/syllabus.html#course-information",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "",
-    "text": "ECO 230 Business and Economic Research & Communication\nSpring 2026 | Section 12 | Credits: 3\nMeets in Wittich 112 Tuesday 5:30 pm to 8:15 pm.\n\n\n\nMike Boland, MBA\n\nOffice Location: Non Extant\n\nStudent Hours: Mon.–Fri. Noon–1pm in Zoom or by appointment\n\nClass Webpage: https://www.uwlax.edu/canvas\n\nEmail: mboland@uwlax.edu\n\nCell Phone: 608-385-6497\n\n\n\n\nFriday May 12th 7:00 pm – 9:00 pm in Wittich 112"
-  },
-  {
-    "objectID": "syllabus/syllabus.html#course-description",
-    "href": "syllabus/syllabus.html#course-description",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "Course description",
-    "text": "Course description\nBuilding on the foundation in statistics acquired in STAT 145, students will continue to develop and will apply skills in data analysis to aid in business decision making. These skills include data collection, data summarization, data visualization, statistical inference, and communication of data in business contexts. Students will learn and apply best practices for research design and analysis to address authentic business cases. Students will build these skills in collaboration with each other and through engagement with business and community leaders. The course also discusses effective survey design and current privacy and ethical issues in collecting and using data. Prerequisite: ENG 110 or ENG 112; STAT 145; CBA major, CASSH economics major, or healthcare analytics management minor. Offered Fall, Spring.\n\nPrerequisites\nPrerequisite: ENG 110 or ENG 112; STAT 145; CBA major, CLS economics major, or Healthcare Analytics Management Minor."
-  },
-  {
-    "objectID": "syllabus/syllabus.html#learning-outcomes",
-    "href": "syllabus/syllabus.html#learning-outcomes",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "Learning outcomes",
-    "text": "Learning outcomes\n\nMapped to CBA Undergraduate Curriculum Goals and Objectives\n\nDevelop the ability to articulate a business problem or opportunity using qualitative and quantitative evidence and propose an analysis plan to identify potential solutions, including collection of primary data via surveys. (CT-1)\nDescribe, summarize, and interpret data using descriptive statistics, inferential statistics, and data visualization.\nDevelop foundational skills related to spreadsheets, interactive data visualization software, and scripting languages used for data analysis and visualization.\nCommunicate the purpose, methods, and results of analysis to authentic audiences in appropriate written and oral formats. (CS-1, CS-2)\nApply research design and data analysis best practices to complete case-based projects and to critique others’ analyses. (CT-1)\nDescribe current debates in research ethics and data privacy and the implications for business research. (SR-1)\n\n\n\nCBA Undergraduate Curriculum Goals and Objectives referenced above\n\nCommunication Goal: Our students will be able to convey information and ideas effectively.\n\n(CS-1) Learning Objective: Students will convey information and ideas in professional business reports\n\n(CS-2) Learning Objective: Students will convey information and ideas in oral presentations.\n\nDecision Making and Critical Thinking Goal: Our students will be able to think critically when evaluating decisions.\n\n(CT-1) Learning Objective: Students will evaluate alternatives and understand the ramifications of those alternatives within a given business context.\n\nSocial Responsibility Goal: Students will demonstrate the role of social responsibility in business decisions.\n\n(SR-1) Learning Objective: Students will be able to identify and apply different frameworks of social responsibility to business problems and recognize the short- and long-term effects on stakeholders and society.\n\n\nRemaining CBA Goals and Objectives along with rubrics for each can be found here:\nhttps://www.uwlax.edu/cba/undergraduate-curriculum-learning-goals-and-objectives2/#tmcommunication-goals"
-  },
-  {
-    "objectID": "syllabus/syllabus.html#materials-tools",
-    "href": "syllabus/syllabus.html#materials-tools",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "Materials & tools",
-    "text": "Materials & tools\nThere is no official textbook for this course. All readings will be provided electronically via Canvas. We will also use the following software and instructional tools which are free of charge to you due to your enrollment in this course. Instructions for use will be provided in class and on Canvas as needed.\n\nExcel\n\nTableau Desktop\n\nPosit Cloud\n\nQualtrics\n\nCATME"
-  },
-  {
-    "objectID": "syllabus/syllabus.html#format",
-    "href": "syllabus/syllabus.html#format",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "Format",
-    "text": "Format\nThis is a face-to-face course. You may be asked to reference materials or participate online through the learning management system, Canvas. If that is the case, you will need your UWL NetID to login to the course from the Canvas homepage http://www.uwlax.edu/canvas."
-  },
-  {
-    "objectID": "syllabus/syllabus.html#grading",
-    "href": "syllabus/syllabus.html#grading",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "Grading",
-    "text": "Grading\n\nCalculations\nYour overall grade consists of the following assessments, arranged by type and value. Your final grade can be computed by multiplying the scores received by the percentages reported below to arrive at a weighted average. Team assignments are denoted by (T) but please note grades received for team project deliverables will be adjusted by your Peer Evaluation score.\n\n\n\n\nAssignment\n\n\n#\n\n\nTotal % Final Grade\n\n\n\n\n\n\nHomework, Lab Prep & In Class Labs\n\n\n~10\n\n\n25%\n\n\n\n\nQuizzes\n\n\n~5\n\n\n15%\n\n\n\n\nFinal Exam & Practicum\n\n\n1\n\n\n20%\n\n\n\n\nCase Projects (T)\n\n\n2\n\n\n30%\n\n\n\n\nParticipation / Discussion\n\n\n\n\n10%\n\n\n\n\nTotal\n\n\n\n\n100%\n\n\n\n\n\n\nCalculation of individual grades for team project work\nAll work for the assignments denoted as Team Projects by (T) above will be scored out of 100 points to assign a Team Grade. Individual grades will be computed by multiplying the Team Grade by the CATME peer evaluation score you receive for that work. The CATME peer evaluation is a psychometrically validated and behaviorally anchored rating scale developed under a National Science Foundation Grant and used by universities throughout the country. Through a secure web-based platform, you will rate your own and your teammate’s performance on each project. This information will be reported in the aggregate to your teammates (they cannot see who gave them what scores) and will produce a Peer Evaluation Score. Most students receive a score of 1, those that exhibit exceptional performance receive scores above 1 with a maximum of 1.05. Underperforming teammates receive scores below 1, and as low as 0.4.\n\n\n\n\n\n\nNote\n\n\n\nNote: This is not a “zero sum game”. It is possible for team members to get scores above 1 without others getting scores below. The algorithm flags evaluations that appear to manipulate ratings to inflate their own scores. Your score will automatically be reduced by 0.05 if you fail to complete the Peer Evaluation on or before the due date.\n\n\n\n\nGrievance procedure for peer evaluation scores\nPoor peer evaluations can lead an individual grade to fall substantially below the Team Grade. For example, a project that received a score of 95/100 would produce an individual grade of 38/100 if you receive a peer evaluation score of 0.4. If you feel the score you received does not accurately reflect your contributions to Team Project work, you have the option to file a grievance. To do so you must follow this procedure:\n\nWithin 2 business days of the official notification that grades have been posted, communicate to your instructor via email your intent to file a grievance. Official notifications of grade posting will appear on Canvas notifications.\nWithin 1 business day of notifying your intent, prepare and email a one page formal letter addressed to your teammates and including the following information:\n\nYour understanding of the work you had agreed to do for the deliverable. Be sure to refer to any documentation that is relevant (Meeting Minutes, emails or group chats, revision histories in documents etc.). Be prepared to provide any documentation you mention in the letter if requested.\nA summary of the work you actually did. Refer to documentation as above.\nJustification for any discrepancies between (a) and (b). If this documentation includes any confidential health or personal matters you do not wish to disclose to your team, please raise this with me or contact Student Life Office for council. Note: In these cases it is best to reach out to me or Student Life before you are at the point of receiving a bad peer evaluation.\nA statement of the peer evaluation score you believe you have earned.\n\nIf after reviewing your letter I believe the case has merit, I will send it on to your teammates and schedule an arbitration. If I determine no arbitration is warranted, I will schedule a one-on-one meeting with you to discuss.\nIf arbitration is warranted, it must be conducted in-person with all team members present. The only exception to this requirement would be a case where the timeline in the procedure would place the earliest possible arbitration date after the final exam date. In those cases, a virtual meeting may be agreed upon or incomplete grades may be assigned until an in-person meeting can be scheduled. I will serve as the arbitrator. You and your teammates will have the opportunity to present your case and reconcile evidence referenced in your letter. At the end of the meeting, all team members (including yourself) will submit the score they believe you have earned to me via secret ballot. I will use this information in making my final determination, but the final determination is mine alone.\n\n\n\nLate assignments, missed quizzes\n\nIndividual assignments\n\n\n\n\n\n\nWarning\n\n\n\nIndividual assignments are due on the dates indicated on the Canvas Weekly Agendas. Late or missing assignments will not be graded. All assignments in a module must be completed before the Module Quiz. If extenuating circumstances impact your ability to meet deadlines or participate in class activities, you are responsible for alerting me as soon as possible. When conflicts are known ahead of the deadline you must notify me ahead of the deadline. All communication regarding missed or late individual work should be confirmed by email – even if we speak in person or during student hours, you must follow up via email to confirm so that we both have a record of the agreement.\n\n\n\n\nTeam assignments\nDeadlines for Team Assignments may be extended for the entire class if there are extenuating circumstances or granted to teams if requested with appropriate justification and all team members agree to the request. Presentations cannot be delayed unless there is a major emergency or complication. For other deliverables, extensions must be requested at least 1 business day before the due date. Be prepared to show appropriate documentation of work to date and to provide an explanation for the value you will add to the final product if the extension is granted. Unless a request is made and granted, late assignments will receive a grade of 0.\n\n\nMissed quizzes\nQuizzes may be rescheduled only in the case of serious illness, injury, or significant academic or professional development opportunity. Personal travel or family vacations will not be accommodated unless they are associated with a significant life event (birth, death, marriage, graduation). In all cases, documentation is required. Contact me via email as soon as you know you have a conflict. Local or phone/Skype job interviews are not considered significant professional development opportunities.\n\n\n\nAttendance and participation\nAlthough attendance will not be formally recorded for all class meetings, your Team can and should reduce your peer evaluation score if you miss meetings or are absent during in class Work Days. To avoid this consequence, you should:\n\nCommunicate clearly with your team any time you will be absent from a Team Meeting or class on a day that includes Case Work Time.\n\nDocument that communication (e.g. save emails or post to team message board).\n\nParticipate actively in scheduling Team Meetings outside of class.\n\nLay out policies on scheduling team meetings and missed meetings and follow them.\n\nRespect others’ time and reserve absences for only when absolutely unavoidable.\n\nCommunicate with me (your instructor) or the Office of Student Life if any situation arises that will dramatically impact your attendance in class and at team meetings (e.g. serious illness, injury or personal emergency).\n\nIf you are absent from class, it is your responsibility to obtain notes and other materials from colleagues. While you are welcome to book student hours, you should not view them as a substitute for coming to class. If you are absent regularly without a documented extenuating circumstance, requests for student hours meetings may be denied.\n\n\nExpectations for graded work\n\nIndividual assignments\nI provide students feedback and/or scores on assignments that require individualized grading before a further assignment of a similar format is due or within 21 days of submission, whichever is shorter. This includes quizzes. I will notify you if I am unable to complete grading within the 21-day timeframe, and will identify a revised return date. If you submit work after the due date, it may not be returned within 21 days, and depending on the justification for late submission, it may not be accepted at all. Your graded coursework will be returned in compliance with FERPA regulations, such as in class, during my student hours, or via the course management system through which only you will have access to your grades.\n\n\n\nGrading scale\n\n\n\n\nLetter Grade\n\n\nPercentage Equivalent\n\n\n\n\n\n\nA\n\n\n93-100%\n\n\n\n\nAB\n\n\n89-92%\n\n\n\n\nB\n\n\n83-88%\n\n\n\n\nBC\n\n\n79-82%\n\n\n\n\nC\n\n\n70-78%\n\n\n\n\nD\n\n\n60-69%\n\n\n\n\nF\n\n\n59% - below"
-  },
-  {
-    "objectID": "syllabus/syllabus.html#ai-usage-limitations",
-    "href": "syllabus/syllabus.html#ai-usage-limitations",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "AI usage limitations",
-    "text": "AI usage limitations\nArtificial intelligence (AI) tools and resources used for creating text, images, computer code, audio, or other media, may be used in certain circumstances in this class. The specifics of when, where, and how these tools are permitted will be included with each assignment. Guidance for attribution/citation will be provided by your instructor. Any use of these tools other than where/how indicated is a violation of course expectations and is subject to UW-La Crosse’s Academic Misconduct Policy. Students are responsible for verifying the accuracy and appropriateness of content composed by AI. If you are in doubt as to whether you are using a tool inappropriately in this course, you are encouraged to discuss your situation with your instructor."
-  },
-  {
-    "objectID": "syllabus/syllabus.html#regular-and-substantive-interaction",
-    "href": "syllabus/syllabus.html#regular-and-substantive-interaction",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "Regular and substantive interaction",
-    "text": "Regular and substantive interaction\nIn this course, regular and substantive interaction between the instructor and students plays a crucial role in student achievement. I will be incorporating various forms of interaction that not only meet the requirements set by the US Department of Education and the UWL Faculty Senate policy, but also aid in student achievement. Your active participation and contributions are also essential to your learning. In partnership with your efforts, I will…\n\nbe available during scheduled student hours as stated in the syllabus\n\nshare information about the course materials including key information, explanations, examples, and resources via in-person, and/or recorded lectures\n\nengage in online discussions about course content\n\nprovide group or individual feedback on assignments\n\npromptly respond to questions about the course sent via email\n\nregularly post announcements pertaining to the course content and activities\n\nmonitor your academic progress and communicate concerns, as needed"
-  },
-  {
-    "objectID": "syllabus/syllabus.html#uwl-syllabus-policy-information-statements",
-    "href": "syllabus/syllabus.html#uwl-syllabus-policy-information-statements",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "UWL syllabus policy information & statements",
-    "text": "UWL syllabus policy information & statements\nUWL encourages students to know the campus’ important policies and statements which can be found on the Syllabus Information website.\n\nClasses during inclement weather\nReligious accommodations\nSexual misconduct\nStudent course and faculty-related concerns, complaints, and grievances\nStudent survey on instruction (LENS)\nStudents with accommodation needs\nUniversity class attendance policy\nVeterans, active military, and military-connected\n\nUWL encourages students to know the campus’ important policies and statements which can be found on the UWL Syllabus Policy Information & Statements."
-  },
-  {
-    "objectID": "syllabus/syllabus.html#uwl-policies-supports",
-    "href": "syllabus/syllabus.html#uwl-policies-supports",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "UWL policies & supports",
-    "text": "UWL policies & supports\n\nCourse access\nAccess to course materials in Canvas may cease after the term ends. If you wish to archive materials for your personal records or portfolio you should do so as you progress through the course. As a general rule, you should always save local copies of course-related work. To avoid disasters, you should also save important files to external media or cloud storage.\n\n\nInclusive excellence\nMission “Diversity, equity, and the inclusion and engagement of all people in a safe campus climate that embraces and respects the innumerable different perspectives found within an increasingly integrated and culturally diverse global community”. If you are not experiencing my class in this manner, please come talk to me about your experiences so I can try to adjust the course if possible.\n\n\nName/pronouns\nI will do my best to address you by a preferred name or gender pronoun that you have identified. Please advise me of this preference early in the semester so that I may make appropriate changes to my records. UWL has name in use resources and the Pride Center is available for additional assistance.\n\n\nAcademic success and overall health\nAt UWL, we support your academic success and overall health. We know that students often experience a range of stressors that can impact learning and well-being. If you or someone you know is experiencing mental health concerns, or could benefit from effective academic strategies, there are free and confidential resources available to enrolled students through the Counseling & Testing Center (CTC). To learn more, visit the CTC Website or call 608-785-8073.\n\n\nTechnical support\nFor tips and information about Canvas visit the (canvas website)[https://www.uwlax.edu/info/canvas/students/]; this site also links to the 24/7 Canvas support. If you are having Canvas login issues or need general computer assistance, contact the (Eagle Help Desk)[https://www.uwlax.edu/its/client-services-and-support/eagle-help-desk/].\n\n\nStudent success resources\nUWL also encourages students to take advantage of the campus’ many and varied (Campus Life Resources)[https://www.uwlax.edu/info/campus-life/]."
-  },
-  {
-    "objectID": "syllabus/syllabus.html#course-outline",
-    "href": "syllabus/syllabus.html#course-outline",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "Course outline",
-    "text": "Course outline\n\n\n\n\nModule Name\n\n\nModule Learning Outcomes\n\n\n\n\n\n\nBaseline Data Literacy\n\n\nDescribe the anatomy of a data set including type (primary process generated or administrative, primary purpose generated, secondary), grouping, and unit of analysis.\n\n\n\n\nBaseline Data Literacy\n\n\nDistinguish between discrete and continuous variables, and between nominal, ordinal and ratio scale variables.\n\n\n\n\nBaseline Data Literacy\n\n\nCompute and interpret descriptive statistics relevant to the purpose of the analysis and appropriate for the level of measurement of the variables.\n\n\n\n\nBaseline Data Literacy\n\n\nInterpret common visual representations of data including bar charts, histograms, and scatter plots.\n\n\n\n\nBaseline Data Literacy\n\n\nOrganize data in a spreadsheet following best practices.\n\n\n\n\nBaseline Data Literacy\n\n\nCreate common visual representations of data including bar charts, histograms, and scatter plots.\n\n\n\n\nBaseline Data Literacy\n\n\nDemonstrate basic software competencies in spreadsheet software.\n\n\n\n\nBaseline Data Literacy\n\n\nDefine and appropriately use common terms in data analysis including correlation, causation, generalizability, validity, and reliability.\n\n\n\n\nFoundations of Data Analysis (Course LO)\n\n\nApply appropriate univariate and bivariate inferential statistics and correctly interpret the results of statistical tests.\n\n\n\n\nFoundations of Data Analysis (Course LO)\n\n\nDemonstrate basic software competencies in scripting software.\n\n\n\n\nCommunication of Results\n\n\nCurate results generated to identify the most relevant insights and supporting analyses.\n\n\n\n\nCommunication of Results\n\n\nCreate clear and compelling visualizations with necessary annotation to achieve stand alone effectiveness.\n\n\n\n\nCommunication of Results\n\n\nSummarize the problem addressed, methods used, results, and implications clearly and concisely in written and oral communication formats intended for non-technical audiences.\n\n\n\n\nCommunication of Results\n\n\nQuantify the implications of alternative solutions or proposed recommendations that follow from analysis.\n\n\n\n\nCommunication of Results\n\n\nDocument methods and detailed results of analysis in appendices intended for technical audiences.\n\n\n\n\nCommunication of Results\n\n\nCompose succinct professional emails communicating progress on a project.\n\n\n\n\nProblem Definition\n\n\nGather insights from existing reports or others’ analyses to demonstrate and articulate the existence of a business problem or opportunity.\n\n\n\n\nProblem Definition\n\n\nDefine research objectives that are feasible and hypothesis that can be tested using the chosen study methods and data sources.\n\n\n\n\nProblem Definition\n\n\nSelect relevant variables and sources of data needed to analyze an identified business problem or opportunity and propose survey measures when required data do not exist.\n\n\n\n\nProblem Definition\n\n\nDefine key metrics.\n\n\n\n\nProblem Definition\n\n\nChoose appropriate analysis methods, data, and variables for analyzing the identified problem or opportunity.\n\n\n\n\nIntro to Advanced Topics\n\n\nDistinguish between observational, quasi-experimental, and observational study designs and select the appropriate design for research objectives and desired use of findings.\n\n\n\n\nIntro to Advanced Topics\n\n\nDefine advanced analysis methods such as regression, forecasting, quasi-experimental and experimental study designs, optimization, machine learning, and text mining, and identify appropriate use cases.\n\n\n\n\nIntro to Advanced Topics\n\n\nPrepare clear, appropriate, and appealing visual summaries of data in graphs and tables with informative use of color and text.\n\n\n\n\nIntro to Advanced Topics\n\n\nPrepare data for analysis using sorting, filtering, merging, and additional functions as appropriate.\n\n\n\n\nIntro to Advanced Topics\n\n\nDesign a survey instrument to collect data needed to address a research question, identify potential sources of bias and articulate approach to avoiding bias in the design.\n\n\n\n\nBecoming an Informed Consumer of Data\n\n\nSuggest relevant alternative explanations for results.\n\n\n\n\nBecoming an Informed Consumer of Data\n\n\nCorrect errors in analysis and interpretation of analysis.\n\n\n\n\nBecoming an Informed Consumer of Data\n\n\nDescribe current debates in research ethics and data privacy and the implications for business research."
-  },
-  {
-    "objectID": "syllabus/syllabus.html#important-dates",
-    "href": "syllabus/syllabus.html#important-dates",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "Important dates",
-    "text": "Important dates\n\n\n\n\nName\n\n\nDate\n\n\nEvent\n\n\n\n\n\n\nWeek 3\n\n\n2/10/2026\n\n\nGraded Quiz: Descriptive Stats & Data Literacy\n\n\n\n\nWeek 5\n\n\n2/24/2026\n\n\nGraded Quiz: Data Visualization\n\n\n\n\nWeek 7\n\n\n3/10/2026\n\n\nGraded Quiz: R Basics\n\n\n\n\nWeek 9\n\n\n3/31/2026\n\n\nPresentation Coaching\n\n\n\n\nWeek 11\n\n\n4/7/2026\n\n\nGraded Quiz: Inferential Stats & Data Literacy\n\n\n\n\nWeek 12\n\n\n4/14/2026\n\n\nAnalysis Project Final Presentations\n\n\n\n\nWeek 13\n\n\n4/28/2026\n\n\nGraded Quiz: Survey Research Methods\n\n\n\n\nWeek 14\n\n\n5/5/2026\n\n\nResearch Proposal Presentations\n\n\n\n\nFinal Exam\n\n\nTuesday 05/12 07:00-09:00PM\n\n\nFinal Exam & Practicum"
-  },
-  {
-    "objectID": "syllabus/syllabus.html#anticipated-schedule",
-    "href": "syllabus/syllabus.html#anticipated-schedule",
-    "title": "ECO 230 Business and Economic Research & Communication",
-    "section": "Anticipated schedule",
-    "text": "Anticipated schedule\nWhen discrepancies between Canvas and the Anticipated Schedule exist, the information on Canvas supersedes this schedule. Official class agendas are posted under This Week in Canvas.\n\n\n\n\nClass\n\n\nDate\n\n\nPart 1\n\n\nPart 2\n\n\nPart 3\n\n\n\n\n\n\nWeek 1\n\n\n1/27/2026\n\n\nCourse Overview\n\n\nAnatomy, Grouping & Unit of Analysis\n\n\nData Explore in 3 softwares\n\n\n\n\nWeek 2\n\n\n2/3/2026\n\n\nLevel of Measurement Descriptive Statistics\n\n\nMeasures of Variablity and Association\n\n\nData Explore in 3 softwares\n\n\n\n\nWeek 3\n\n\n2/10/2026\n\n\nData Visualization\n\n\nData Visualization in Tableau\n\n\nData Visualization in Tableau\n\n\n\n\nWeek 4\n\n\n2/17/2026\n\n\nCommunicating with Data in Writing\n\n\nCommunicating with Data Orally\n\n\nWork Time\n\n\n\n\nWeek 5\n\n\n2/24/2026\n\n\nProblem Definition\n\n\nLaunch Analysis Project\n\n\nWork Time\n\n\n\n\nWeek 6\n\n\n3/3/2026\n\n\nInference\n\n\nRstudio Descriptive Statistics\n\n\nWork Time\n\n\n\n\nWeek 7\n\n\n3/10/2026\n\n\nHypothesis Testing\n\n\nRstudio Inferential Statistics\n\n\nWork Time\n\n\n\n\nWeek 8\n\n\n3/24/2026\n\n\nPre-Coaching Work\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 9\n\n\n3/31/2026\n\n\nCoaching Sessions\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 10\n\n\n4/7/2026\n\n\nCommunicating with Data Documenting Work\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 11\n\n\n4/14/2026\n\n\nAnalysis Project Final Presentations\n\n\nAnalysis Project Final Presentations\n\n\nThe Research Proposal\n\n\n\n\nWeek 12\n\n\n4/21/2026\n\n\nAdvanced Analytics: Sample Design\n\n\nAdvanced Analytics: Survey Design\n\n\n\n\n\n\nWeek 13\n\n\n4/28/2026\n\n\nAdvanced Analytics: Machine Learning\n\n\nAdvanced Analytics: Experiment Design\n\n\nEthics\n\n\n\n\nWeek 14\n\n\n5/5/2026\n\n\nResearch Proposal Presentations\n\n\nResearch Proposal Presentations\n\n\nFinal Exam Prep\n\n\n\n\nFinal Exam\n\n\n5/12/2026\n\n\nFinal Exam Tuesday 05/12 07:00-09:00PM"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "ECO 230 — Section 012",
-    "section": "",
-    "text": "Welcome to ECO 230 (Section 012)\nThis website hosts:\n\nSyllabus\n\nWeekly Slides (Reveal.js)\n\nHomework Assignments & Handouts\n\nAdditional course materials as the semester progresses.\n\nUse the navigation bar at the top to access each item.\nIf you are viewing this inside Canvas, links will open in a new window or in an embedded iframe depending on your instructor setup."
-  },
-  {
-    "objectID": "week01/snippets/video3-block.html",
-    "href": "week01/snippets/video3-block.html",
-    "title": "Transcript — Video 3 (Tidy Data & Structure)",
-    "section": "",
-    "text": "Watch on Canvas: Tidy Data & Structure Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Tidy Data & Structure (click to expand)"
-  },
-  {
-    "objectID": "week01/snippets/video3-block.html#video-tidy-data-data-structure",
-    "href": "week01/snippets/video3-block.html#video-tidy-data-data-structure",
-    "title": "Transcript — Video 3 (Tidy Data & Structure)",
-    "section": "",
-    "text": "Watch on Canvas: Tidy Data & Structure Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Tidy Data & Structure (click to expand)"
-  },
-  {
-    "objectID": "week01/snippets/video2-block.html",
-    "href": "week01/snippets/video2-block.html",
-    "title": "Transcript — Video 2 (Measurement Scales)",
-    "section": "",
-    "text": "Watch on Canvas: Measurement Scales Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Measurement Scales (click to expand)"
-  },
-  {
-    "objectID": "week01/snippets/video2-block.html#video-measurement-scales",
-    "href": "week01/snippets/video2-block.html#video-measurement-scales",
-    "title": "Transcript — Video 2 (Measurement Scales)",
-    "section": "",
-    "text": "Watch on Canvas: Measurement Scales Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Measurement Scales (click to expand)"
   },
   {
     "objectID": "week01/week_01.html#use-instant-booking-wisely",
@@ -732,7 +571,7 @@
     "href": "week01/week_01.html#coding-in-r",
     "title": "ECO 230 Section 012",
     "section": "Coding in R",
-    "text": "Coding in R\n\n\n\n\n\n\nabnb %&gt;% idt(listed_price~instant_bookable)\n\n\n\n\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\n\n$analysis_type\n[1] \"Independent t-Test, Two Tailed test\"\n\n$results\n[1] \"t(2110.38) = 3.515, p = 0, r = 0.076, bf10 = 12.163\"\n\n$descriptive_statistics\n  Group       N    Mean Standard_Error\n1 FALSE 2660.00  137.00           2.47\n2  TRUE 1060.00  122.00           3.59\n\n\n\n\n\nabnb %&gt;% ano(listed_price~room_type)\n\n\n\n\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\n\n$analysis_type\n[1] \"Homogeneity of Variance is not assumed, Robust One Way ANOVA for medians,  0.1  trimmed means, Post Hocs using linear equality constraints\"\n\n$results\n[1] \"F(2,224.33) = 905.491, p = 0, w = 0.841, bf10 = 4.60906366003435e+142\"\n\n$descriptive_statistics\n            Group       N    Mean Standard_Error\n1 Entire home/apt 2220.00  174.00           2.97\n2    Private room 1400.00   72.00           1.43\n3     Shared room  101.00   56.00          10.30\n\n$post_hoc_analysis\n                             Difference  P.Value\nEntire home/apt-Private room   85.03443 0.00e+00\nEntire home/apt-Shared room   110.73338 0.00e+00\nPrivate room-Shared room       25.69895 7.33e-11"
+    "text": "Coding in R\n\n\n\n\n\n\nabnb %&gt;% idt(listed_price~instant_bookable)\n\n\n\n\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\n\n$analysis_type\n[1] \"Independent t-Test, Two Tailed test\"\n\n$results\n[1] \"t(2110.38) = 3.515, p = 0, r = 0.076, bf10 = 12.163\"\n\n$descriptive_statistics\n  Group       N    Mean Standard_Error\n1 FALSE 2660.00  137.00           2.47\n2  TRUE 1060.00  122.00           3.59\n\n\n\n\n\nabnb %&gt;% ano(listed_price~room_type)\n\n\n\n\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\n\n$analysis_type\n[1] \"Homogeneity of Variance is not assumed, Robust One Way ANOVA for medians,  0.1  trimmed means, Post Hocs using linear equality constraints\"\n\n$results\n[1] \"F(2,224.33) = 905.491, p = 0, w = 0.841, bf10 = 4.60906366003723e+142\"\n\n$descriptive_statistics\n            Group       N    Mean Standard_Error\n1 Entire home/apt 2220.00  174.00           2.97\n2    Private room 1400.00   72.00           1.43\n3     Shared room  101.00   56.00          10.30\n\n$post_hoc_analysis\n                             Difference  P.Value\nEntire home/apt-Private room   85.03443 0.00e+00\nEntire home/apt-Shared room   110.73338 0.00e+00\nPrivate room-Shared room       25.69895 7.33e-11"
   },
   {
     "objectID": "week01/week_01.html#so-what-actually-went-wrong-with-the-airbnb-analysis",
@@ -747,6 +586,20 @@
     "title": "ECO 230 Section 012",
     "section": "Summary and Prime Directive",
     "text": "Summary and Prime Directive\n\nBefore running any statistics, what are the three questions you must answer about a dataset?\n 1. What does one row represent?  2. What kind of variables do I have?  3. What question can this data answer?"
+  },
+  {
+    "objectID": "week01/snippets/video3-block.html",
+    "href": "week01/snippets/video3-block.html",
+    "title": "Transcript — Video 3 (Tidy Data & Structure)",
+    "section": "",
+    "text": "Watch on Canvas: Tidy Data & Structure Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Tidy Data & Structure (click to expand)"
+  },
+  {
+    "objectID": "week01/snippets/video3-block.html#video-tidy-data-data-structure",
+    "href": "week01/snippets/video3-block.html#video-tidy-data-data-structure",
+    "title": "Transcript — Video 3 (Tidy Data & Structure)",
+    "section": "",
+    "text": "Watch on Canvas: Tidy Data & Structure Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Tidy Data & Structure (click to expand)"
   },
   {
     "objectID": "week01/study/video2-study.html",
@@ -833,10 +686,374 @@
     "text": "Copy/paste into ChatGPT or Copilot:\n\n“Explain ETL to me like I’m brand new to data analytics, using only everyday examples.”\n“Give me 3 messy data scenarios and ask me how I would transform each one.”\n“Quiz me with 5 increasingly challenging questions about ETL and explain why each answer is right or wrong.”\n“Show me a before/after example of transforming poorly formatted data into tidy data ready for analysis.”"
   },
   {
+    "objectID": "week01/transcripts/video2.html",
+    "href": "week01/transcripts/video2.html",
+    "title": "Transcript — Video 2 (Measurement Scales)",
+    "section": "",
+    "text": "Transcript — Video 2 (Measurement Scales)\nSo once you have an idea of what data is in our dataset, how it’s tract, it’s good to take a look at those variables and think, Okay, how is this data is actually stored? Either How was it coded? How is it stored numerically? Is that gonna be useful for us? Is it going to be, is it going to tell us the information that we need? Or do we need to go look at data from a different source?\nSo textbook definition of how data is measured is as follows. As follows. Here, we talked a little bit about those categorical variables. There’s numeric variables. But this type of data and how it’s stored. It is also important to know what’s the scale that the date is on. So textbook definition, we have nominal ordinal, interval and ratio scale data. And this is getting into, once we have this data, numerically, what we do with it mathematically.\nNominal scale is the lowest level. This is a naming type verbal, so the categories that we have are just there for naming purposes just to keep track of. Okay. This person isn’t, this, isn’t this category or not. It’s usually a categorical type scale.\nOrdinal scale is the same sort of thing. We looked at this a little bit with categorical scales where there’s some order inherent to the, to the way the data is tracked.\n(… transcript continues …)"
+  },
+  {
     "objectID": "week01/transcripts/video3.html",
     "href": "week01/transcripts/video3.html",
     "title": "Transcript — Video 3 (Tidy Data & Structure)",
     "section": "",
     "text": "Transcript — Video 3 (Tidy Data & Structure)\nSo we’ve talked a little bit about how to get the data that we need into our hands onto your computer to do our analysis. Once we have our data ready to go, It’s always good to open up that dataset, take a look at it and get a sense of what is this data actually going to be telling us? How is the houses data stored? Is it in a format that’s gonna be, it’s gonna be useful for analysis. Or do we need to do some additional work in that transform space where we’re getting that data set up and organized just how we want it.\nFirst thing to think about is, how is this, these variables, this data is measuring. How is that data being stored or represented in our spreadsheet or in the database that we’re looking at. It’s usually going to break into two main categories. Categories as a category here. So this would be if our data has discrete things that it’s measuring.\nSimple example would be like a true‑false variable. Does this person live on‑campus true or false? It’s going to be a one or a zero. Logical yes or no, sort of a thing.\n(… transcript continues …)"
+  },
+  {
+    "objectID": "week01/transcripts/video1.html",
+    "href": "week01/transcripts/video1.html",
+    "title": "Transcript — Video 1 (ETL)",
+    "section": "",
+    "text": "Transcript — Video 1 (ETL)\nIt’s usually one of our first task is figuring out how to get the data where we need it to be in order to use it and do our analysis on it. So generally when we’re getting data, it’s going to follow this type of a process, extract, transform load or ETL process. A lot of the data that we’re gonna be working with, especially for this course, is going to be data that other people have gathered what’s known as secondary data. Later on in the class, we will talk little bit about primary data, how to, how to gather data for a specific purpose. But the vast majority of the time we’re gonna be using data that’s already existing and whether it is from a third party source or internally within our company has sales database or something like that. We usually don’t have a lot of say in how their data is structured, how it’s set up. So we need to figure out how to get that data in the form that it’s in currently. And then get it into a form that we’re gonna be able to do. Our nails the sun.\nThe first step in that process is to extract the data. And that is to get the data from wherever it is to our computer, to where we’re gonna be working with it at. That data can take on a number of different forms. Sometimes the data is relatively clean. If it is a something like this where we have a structured database where everything is set up just so you know, each point of data is in its own row, each specific variables in its own column. So sometimes it might be pretty much in the form that we need to use it, right where it is.\nOther times you might be grabbing it from a website or something like that. If you wanted to do some analysis looking at census data, you will go to the Census Bureau’s website and download data from there. It might just be unstructured data just pouring into, into a database, some sort of a sensor or something that is tracking data, looking at a motion sensor or something like that. Where, you know, every time that that sensor is triggered, it it changes from a truth or false yes or no sort of a thing. Measuring the brightness or measuring the voltage of a certain sensor. Measuring whether or not motion was detected on a video camera. That data might just be constantly pouring in. And then we have to figure out, okay, how we’re gonna deal with this L. We’re going to figure out what the timestamp was. What does this data, what is it telling us?\nThat first step is to is to extract that data. So get it out of where it is right now. Get it to where we need it to be. Once we have that data downloaded or transferred over to where we’re gonna be using it or connected to, you know, sometimes we don’t actually need the data, we just make a connection to where it’s at. Next step is to transform that data to get it into a format that’s going to be convenient for us to use that we can do analysis on without a constantly having to go in and edit things and change things and recalculate. So that’s the T part of the ETL process transform to get the data from the form that it’s in when we get it, to change it to the form that we’re gonna be using it for our analysis.\nSo a lot of times we’re editing this data, so it’s gonna be stored in a consistent way. It’s gonna be efficient for us to go and look at it. There’s certain rules that we’re going to follow that’s gonna make our lives much easier when it comes time to analyze that data or build a chart or do some analysis on it. There are some standard ways to keep that where any tool that we’re going to connect to that data width is going to be able to look at it in a similar way.\nThe example on the top here, that a good before if we download data from the Census Bureau, It’s gonna look something like this. So this data is stored in a way where we have gigabytes of data on. However many million people live in the country. All that data is stored on a server somewhere in a way that’s going to be convenient for the Census Bureau. That’s not necessarily convenient for us. You can see we have a lot of empty space here. If category one, category to category three, you might not know what those things mean.\nA lot of times we need to transform that data to get it into something. It’s going to be a little bit more convenient for us to use consistent way to measure what was the time that his data was recorded? Consistent way to measure geographically, what was their zip code? What was the date of what was what were the different categories that it falls into? A lot of times we can store that in a much more efficient way. We do it as part of the transform process.\nLast step then is to load it into the program that we’re gonna be using to do our analysis. In this can be anything. Sometimes we go from a database, we transform it and put it right back into that same database. This doesn’t necessarily have to be different programs that we’re using.\n(… transcript continues …)"
+  },
+  {
+    "objectID": "week01/study/video3-study.html",
+    "href": "week01/study/video3-study.html",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "Identify the unit of analysis in any dataset.\nDistinguish cross‑sectional, time‑series, and panel data.\nUnderstand dimensions vs. measures.\nRecognize tall vs. wide data structures.\nApply the four principles of tidy data.\n\n\n\n\n\n\nUnit of analysis = what each row represents.\nCross‑sectional = different subjects at one time.\nTime‑series = measurements over time (subjects may differ).\nPanel = same subjects over time.\nTall data = many rows; good for grouping, pivoting, combining.\nWide data = many columns; good for fast lookups.\nDimensions = categories for slicing/filtering (e.g., person, month, location).\nMeasures = numeric values to summarize (e.g., mean sleep minutes).\nTidy data principles:\n\nVariables in columns\n\nObservations in rows\n\nOne table per observational unit\n\nKeys connect tables\n\n\n\n\n\n\n\n\nThe entity described by each row (person, transaction, date, etc.).\n\n\n\nCategorical descriptors used for slicing or grouping.\n\n\n\nNumerical values used for summaries like average, count, standard deviation.\n\n\n\nTwo orientations of the same underlying information.\n\n\n\n\n\n\n\n\nWhich dataset structure is ideal for pivoting between categories?\n\n\nWide\n\n\n\nTall\nCorrect answer: B\n\n\nA dataset tracking the same individuals every month is:\n\n\nCross‑sectional\n\n\n\nTime‑series\n\n\n\nPanel\nCorrect answer: C\n\n\n“Month, Location, Person” in a sleep‑tracking dataset are:\n\n\nMeasures\n\n\n\nDimensions\nCorrect answer: B\n\n\n\n\n\n\n\nDescribe a dataset from real life and identify its unit of analysis.\n\nExplain why tall datasets are usually easier to join and aggregate.\n\nDescribe when you would prefer a wide dataset.\n\n\n\n\n\n\n\n“Convert a wide dataset to tall format and explain the impact on analysis.”\n“Give me examples of cross‑sectional, time‑series, and panel data from everyday life.”\n“Ask me 5 questions that require identifying unit of analysis errors.”\n“Give me messy untidy data and ask me to reorganize it into valid tidy format.”"
+  },
+  {
+    "objectID": "week01/study/video3-study.html#learning-objectives",
+    "href": "week01/study/video3-study.html#learning-objectives",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "Identify the unit of analysis in any dataset.\nDistinguish cross‑sectional, time‑series, and panel data.\nUnderstand dimensions vs. measures.\nRecognize tall vs. wide data structures.\nApply the four principles of tidy data."
+  },
+  {
+    "objectID": "week01/study/video3-study.html#key-takeaways",
+    "href": "week01/study/video3-study.html#key-takeaways",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "Unit of analysis = what each row represents.\nCross‑sectional = different subjects at one time.\nTime‑series = measurements over time (subjects may differ).\nPanel = same subjects over time.\nTall data = many rows; good for grouping, pivoting, combining.\nWide data = many columns; good for fast lookups.\nDimensions = categories for slicing/filtering (e.g., person, month, location).\nMeasures = numeric values to summarize (e.g., mean sleep minutes).\nTidy data principles:\n\nVariables in columns\n\nObservations in rows\n\nOne table per observational unit\n\nKeys connect tables"
+  },
+  {
+    "objectID": "week01/study/video3-study.html#concept-definitions",
+    "href": "week01/study/video3-study.html#concept-definitions",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "The entity described by each row (person, transaction, date, etc.).\n\n\n\nCategorical descriptors used for slicing or grouping.\n\n\n\nNumerical values used for summaries like average, count, standard deviation.\n\n\n\nTwo orientations of the same underlying information."
+  },
+  {
+    "objectID": "week01/study/video3-study.html#practice-questions",
+    "href": "week01/study/video3-study.html#practice-questions",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "Which dataset structure is ideal for pivoting between categories?\n\n\nWide\n\n\n\nTall\nCorrect answer: B\n\n\nA dataset tracking the same individuals every month is:\n\n\nCross‑sectional\n\n\n\nTime‑series\n\n\n\nPanel\nCorrect answer: C\n\n\n“Month, Location, Person” in a sleep‑tracking dataset are:\n\n\nMeasures\n\n\n\nDimensions\nCorrect answer: B\n\n\n\n\n\n\n\nDescribe a dataset from real life and identify its unit of analysis.\n\nExplain why tall datasets are usually easier to join and aggregate.\n\nDescribe when you would prefer a wide dataset."
+  },
+  {
+    "objectID": "week01/study/video3-study.html#aipowered-study-prompts",
+    "href": "week01/study/video3-study.html#aipowered-study-prompts",
+    "title": "Study Guide — Video 3",
+    "section": "",
+    "text": "“Convert a wide dataset to tall format and explain the impact on analysis.”\n“Give me examples of cross‑sectional, time‑series, and panel data from everyday life.”\n“Ask me 5 questions that require identifying unit of analysis errors.”\n“Give me messy untidy data and ask me to reorganize it into valid tidy format.”"
+  },
+  {
+    "objectID": "week01/snippets/video1-block.html",
+    "href": "week01/snippets/video1-block.html",
+    "title": "Transcript — Video 1 (ETL)",
+    "section": "",
+    "text": "Watch on Canvas: ETL Overview Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — ETL (click to expand)"
+  },
+  {
+    "objectID": "week01/snippets/video1-block.html#video-etl-overview",
+    "href": "week01/snippets/video1-block.html#video-etl-overview",
+    "title": "Transcript — Video 1 (ETL)",
+    "section": "",
+    "text": "Watch on Canvas: ETL Overview Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — ETL (click to expand)"
+  },
+  {
+    "objectID": "week01/snippets/video2-block.html",
+    "href": "week01/snippets/video2-block.html",
+    "title": "Transcript — Video 2 (Measurement Scales)",
+    "section": "",
+    "text": "Watch on Canvas: Measurement Scales Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Measurement Scales (click to expand)"
+  },
+  {
+    "objectID": "week01/snippets/video2-block.html#video-measurement-scales",
+    "href": "week01/snippets/video2-block.html#video-measurement-scales",
+    "title": "Transcript — Video 2 (Measurement Scales)",
+    "section": "",
+    "text": "Watch on Canvas: Measurement Scales Video\nReplace # with your Canvas video link.\n\n▶️ Open Video in Canvas\n\n\n\nTranscript — Measurement Scales (click to expand)"
+  },
+  {
+    "objectID": "week01/Homework_01.html",
+    "href": "week01/Homework_01.html",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "",
+    "text": "NotePurpose\n\n\n\nThis assignment helps you practice the three essential questions from Week 1:\n\nWhat does one row represent? (unit of analysis / grain)\n\nWhat kinds of variables do I have? (types + NOIR measurement scales)\n\nWhat can this data actually answer? (analytical frame)\n\nYou will work with real microdata, evaluate its structure, and reflect on how to use AI responsibly to accelerate—not replace—your thinking."
+  },
+  {
+    "objectID": "week01/Homework_01.html#objectives",
+    "href": "week01/Homework_01.html#objectives",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "Objectives",
+    "text": "Objectives\n\nOpen and inspect raw .csv data\n\nSave and format data as .xlsx\n\nDetermine whether a dataset is tidy\n\nContrast microdata vs summary data\n\nBuild a pivot table using Dimensions and Measures\n\nDescribe unit of analysis and grain\n\nIdentify variable types\n\nReflect on ethical AI use in data work"
+  },
+  {
+    "objectID": "week01/Homework_01.html#resources",
+    "href": "week01/Homework_01.html#resources",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "Resources",
+    "text": "Resources\n\nDatasets in Posit Cloud\n\nData Description files on Canvas\n\nWeek 1 slides (Unit of Analysis, Tidy Data, Dimensions vs Measures)\n\n\n\n\n\n\n\nTipImportant\n\n\n\nThis assignment is graded for sincere completion, not perfection.\nTry every step. Bring questions to class. We will review solutions together."
+  },
+  {
+    "objectID": "week01/Homework_01.html#choose-and-download-your-dataset",
+    "href": "week01/Homework_01.html#choose-and-download-your-dataset",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "1) Choose and Download Your Dataset",
+    "text": "1) Choose and Download Your Dataset\n\nSelect one dataset from your Posit Cloud project.\n\nDownload it as a .csv.\n\nSave a working copy as .xlsx.\n\n(No written response required.)"
+  },
+  {
+    "objectID": "week01/Homework_01.html#is-your-data-tidy-why-or-why-not",
+    "href": "week01/Homework_01.html#is-your-data-tidy-why-or-why-not",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "2) Is Your Data Tidy? Why or Why Not?",
+    "text": "2) Is Your Data Tidy? Why or Why Not?\nUsing the Week 1 tidy data principles:\n\nEach variable in its own column\n\nEach observation in its own row\n\nOne table per type of observational unit\n\nKeys required if multiple tables link\n\nWrite 3–5 sentences answering:\n\nIs your dataset tidy? Why or why not?\n\nIf it’s not tidy, identify the issue (e.g., wide layout, mixed grains, repeated headers, embedded units)."
+  },
+  {
+    "objectID": "week01/Homework_01.html#format-as-a-table-excel",
+    "href": "week01/Homework_01.html#format-as-a-table-excel",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "3) Format as a Table (Excel)",
+    "text": "3) Format as a Table (Excel)\nIn Excel, convert your data into an official Table (Ctrl/Cmd + T) to enable consistent filters and references.\n(No written response required.)"
+  },
+  {
+    "objectID": "week01/Homework_01.html#build-a-pivot-table-dimensions-measures",
+    "href": "week01/Homework_01.html#build-a-pivot-table-dimensions-measures",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "4) Build a Pivot Table (Dimensions + Measures)",
+    "text": "4) Build a Pivot Table (Dimensions + Measures)\nCreate an Excel pivot table using:\n\n≥ 1 Dimension (categorical descriptor: ZIP, Gender, Date, Location, Category)\n\n≥ 1 Measure (numeric summary: Count, Average, Total, Min/Max)\n\nIf you encounter errors, briefly describe what happened and what you tried.\n(Optional: include a screenshot.)"
+  },
+  {
+    "objectID": "week01/Homework_01.html#what-is-the-unit-of-analysis",
+    "href": "week01/Homework_01.html#what-is-the-unit-of-analysis",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "5) What Is the Unit of Analysis?",
+    "text": "5) What Is the Unit of Analysis?\nIn 3–5 sentences, explain:\n\nWhat one row represents in your dataset (the grain)\n\nWhy this grain matters for answerable questions\n\nWhat information would appear if the grain were more detailed\n\nRemember your training:\n\n“Rows are never just rows. If you misunderstand the unit of analysis, every result is wrong—even with perfect code.”"
+  },
+  {
+    "objectID": "week01/Homework_01.html#identify-variable-types",
+    "href": "week01/Homework_01.html#identify-variable-types",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "6) Identify Variable Types",
+    "text": "6) Identify Variable Types\nList at least one variable for each type.\nIf a type is missing, describe the additional data you would need.\n\nCategorical (Nominal):\n\nOrdinal:\n\nTrue/False (Logical):\n\nDiscrete Numeric:\n\nContinuous Numeric:\n\nDate/Time:\n\nGeographic/Spatial:\n\n(You may list more than one variable for a given type.)"
+  },
+  {
+    "objectID": "week01/Homework_01.html#responsible-use-of-ai-required",
+    "href": "week01/Homework_01.html#responsible-use-of-ai-required",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "7) Responsible Use of AI (Required)",
+    "text": "7) Responsible Use of AI (Required)\nAI can accelerate learning, but it must not interpret results or make analytical decisions for you.\nUse AI only for clarification, rewriting, or troubleshooting.\nWrite 5–7 sentences responding to:\nA. How did you use AI on this assignment?\n(If not at all, state that and why.)\nB. What did AI help with? (Be specific.)\nC. What did AI get wrong, miss, or oversimplify?\nD. Include one AI prompt you used and note:\n- How the response helped\n- Where it fell short\nRemember our goal with AI:\n\n“Can you use AI responsibly to accelerate—not replace—your thinking?”"
+  },
+  {
+    "objectID": "week01/Homework_01.html#submission",
+    "href": "week01/Homework_01.html#submission",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "8) Submission",
+    "text": "8) Submission\nUpload to Canvas:\n\nYour completed Excel workbook (.xlsx)\n\nA document (Word/PDF or Canvas text entry) with your responses, including the AI reflection\n\nPlease bring your .xlsx file to class for in‑class demonstrations."
+  },
+  {
+    "objectID": "week01/Homework_01.html#alignment-to-course-outcomes",
+    "href": "week01/Homework_01.html#alignment-to-course-outcomes",
+    "title": "Homework 1: Data Anatomy & Responsible AI Use",
+    "section": "Alignment to Course Outcomes",
+    "text": "Alignment to Course Outcomes\n\nChoose the right analysis: You identify grain, tidy structure, and variable types to determine valid analyses.\n\nInterpret results in context: Your pivot and explanations tie summaries to what the data can and cannot answer.\n\nExplain limitations, assumptions, and uncertainty: Your AI reflection and grain discussion surface constraints before statistics."
+  },
+  {
+    "objectID": "syllabus/syllabus.html",
+    "href": "syllabus/syllabus.html",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "",
+    "text": "ECO 230 Business and Economic Research & Communication\nSpring 2026 | Section 12 | Credits: 3\nMeets in Wittich 112 Tuesday 5:30 pm to 8:15 pm.\n\n\n\nMike Boland, MBA\n\nOffice Location: Non Extant\n\nStudent Hours: Mon.–Fri. Noon–1pm in Zoom or by appointment\n\nClass Webpage: https://www.uwlax.edu/canvas\n\nEmail: mboland@uwlax.edu\n\nCell Phone: 608-385-6497\n\n\n\n\nFriday May 12th 7:00 pm – 9:00 pm in Wittich 112"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#course-information",
+    "href": "syllabus/syllabus.html#course-information",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "",
+    "text": "ECO 230 Business and Economic Research & Communication\nSpring 2026 | Section 12 | Credits: 3\nMeets in Wittich 112 Tuesday 5:30 pm to 8:15 pm.\n\n\n\nMike Boland, MBA\n\nOffice Location: Non Extant\n\nStudent Hours: Mon.–Fri. Noon–1pm in Zoom or by appointment\n\nClass Webpage: https://www.uwlax.edu/canvas\n\nEmail: mboland@uwlax.edu\n\nCell Phone: 608-385-6497\n\n\n\n\nFriday May 12th 7:00 pm – 9:00 pm in Wittich 112"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#course-description",
+    "href": "syllabus/syllabus.html#course-description",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Course description",
+    "text": "Course description\nBuilding on the foundation in statistics acquired in STAT 145, students will continue to develop and will apply skills in data analysis to aid in business decision making. These skills include data collection, data summarization, data visualization, statistical inference, and communication of data in business contexts. Students will learn and apply best practices for research design and analysis to address authentic business cases. Students will build these skills in collaboration with each other and through engagement with business and community leaders. The course also discusses effective survey design and current privacy and ethical issues in collecting and using data. Prerequisite: ENG 110 or ENG 112; STAT 145; CBA major, CASSH economics major, or healthcare analytics management minor. Offered Fall, Spring.\n\nPrerequisites\nPrerequisite: ENG 110 or ENG 112; STAT 145; CBA major, CLS economics major, or Healthcare Analytics Management Minor."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#learning-outcomes",
+    "href": "syllabus/syllabus.html#learning-outcomes",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Learning outcomes",
+    "text": "Learning outcomes\n\nMapped to CBA Undergraduate Curriculum Goals and Objectives\n\nDevelop the ability to articulate a business problem or opportunity using qualitative and quantitative evidence and propose an analysis plan to identify potential solutions, including collection of primary data via surveys. (CT-1)\nDescribe, summarize, and interpret data using descriptive statistics, inferential statistics, and data visualization.\nDevelop foundational skills related to spreadsheets, interactive data visualization software, and scripting languages used for data analysis and visualization.\nCommunicate the purpose, methods, and results of analysis to authentic audiences in appropriate written and oral formats. (CS-1, CS-2)\nApply research design and data analysis best practices to complete case-based projects and to critique others’ analyses. (CT-1)\nDescribe current debates in research ethics and data privacy and the implications for business research. (SR-1)\n\n\n\nCBA Undergraduate Curriculum Goals and Objectives referenced above\n\nCommunication Goal: Our students will be able to convey information and ideas effectively.\n\n(CS-1) Learning Objective: Students will convey information and ideas in professional business reports\n\n(CS-2) Learning Objective: Students will convey information and ideas in oral presentations.\n\nDecision Making and Critical Thinking Goal: Our students will be able to think critically when evaluating decisions.\n\n(CT-1) Learning Objective: Students will evaluate alternatives and understand the ramifications of those alternatives within a given business context.\n\nSocial Responsibility Goal: Students will demonstrate the role of social responsibility in business decisions.\n\n(SR-1) Learning Objective: Students will be able to identify and apply different frameworks of social responsibility to business problems and recognize the short- and long-term effects on stakeholders and society.\n\n\nRemaining CBA Goals and Objectives along with rubrics for each can be found here:\nhttps://www.uwlax.edu/cba/undergraduate-curriculum-learning-goals-and-objectives2/#tmcommunication-goals"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#materials-tools",
+    "href": "syllabus/syllabus.html#materials-tools",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Materials & tools",
+    "text": "Materials & tools\nThere is no official textbook for this course. All readings will be provided electronically via Canvas. We will also use the following software and instructional tools which are free of charge to you due to your enrollment in this course. Instructions for use will be provided in class and on Canvas as needed.\n\nExcel\n\nTableau Desktop\n\nPosit Cloud\n\nQualtrics\n\nCATME"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#format",
+    "href": "syllabus/syllabus.html#format",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Format",
+    "text": "Format\nThis is a face-to-face course. You may be asked to reference materials or participate online through the learning management system, Canvas. If that is the case, you will need your UWL NetID to login to the course from the Canvas homepage http://www.uwlax.edu/canvas."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#grading",
+    "href": "syllabus/syllabus.html#grading",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Grading",
+    "text": "Grading\n\nCalculations\nYour overall grade consists of the following assessments, arranged by type and value. Your final grade can be computed by multiplying the scores received by the percentages reported below to arrive at a weighted average. Team assignments are denoted by (T) but please note grades received for team project deliverables will be adjusted by your Peer Evaluation score.\n\n\n\n\nAssignment\n\n\n#\n\n\nTotal % Final Grade\n\n\n\n\n\n\nHomework, Lab Prep & In Class Labs\n\n\n~10\n\n\n25%\n\n\n\n\nQuizzes\n\n\n~5\n\n\n15%\n\n\n\n\nFinal Exam & Practicum\n\n\n1\n\n\n20%\n\n\n\n\nCase Projects (T)\n\n\n2\n\n\n30%\n\n\n\n\nParticipation / Discussion\n\n\n\n\n10%\n\n\n\n\nTotal\n\n\n\n\n100%\n\n\n\n\n\n\nCalculation of individual grades for team project work\nAll work for the assignments denoted as Team Projects by (T) above will be scored out of 100 points to assign a Team Grade. Individual grades will be computed by multiplying the Team Grade by the CATME peer evaluation score you receive for that work. The CATME peer evaluation is a psychometrically validated and behaviorally anchored rating scale developed under a National Science Foundation Grant and used by universities throughout the country. Through a secure web-based platform, you will rate your own and your teammate’s performance on each project. This information will be reported in the aggregate to your teammates (they cannot see who gave them what scores) and will produce a Peer Evaluation Score. Most students receive a score of 1, those that exhibit exceptional performance receive scores above 1 with a maximum of 1.05. Underperforming teammates receive scores below 1, and as low as 0.4.\n\n\n\n\n\n\nNote\n\n\n\nNote: This is not a “zero sum game”. It is possible for team members to get scores above 1 without others getting scores below. The algorithm flags evaluations that appear to manipulate ratings to inflate their own scores. Your score will automatically be reduced by 0.05 if you fail to complete the Peer Evaluation on or before the due date.\n\n\n\n\nGrievance procedure for peer evaluation scores\nPoor peer evaluations can lead an individual grade to fall substantially below the Team Grade. For example, a project that received a score of 95/100 would produce an individual grade of 38/100 if you receive a peer evaluation score of 0.4. If you feel the score you received does not accurately reflect your contributions to Team Project work, you have the option to file a grievance. To do so you must follow this procedure:\n\nWithin 2 business days of the official notification that grades have been posted, communicate to your instructor via email your intent to file a grievance. Official notifications of grade posting will appear on Canvas notifications.\nWithin 1 business day of notifying your intent, prepare and email a one page formal letter addressed to your teammates and including the following information:\n\nYour understanding of the work you had agreed to do for the deliverable. Be sure to refer to any documentation that is relevant (Meeting Minutes, emails or group chats, revision histories in documents etc.). Be prepared to provide any documentation you mention in the letter if requested.\nA summary of the work you actually did. Refer to documentation as above.\nJustification for any discrepancies between (a) and (b). If this documentation includes any confidential health or personal matters you do not wish to disclose to your team, please raise this with me or contact Student Life Office for council. Note: In these cases it is best to reach out to me or Student Life before you are at the point of receiving a bad peer evaluation.\nA statement of the peer evaluation score you believe you have earned.\n\nIf after reviewing your letter I believe the case has merit, I will send it on to your teammates and schedule an arbitration. If I determine no arbitration is warranted, I will schedule a one-on-one meeting with you to discuss.\nIf arbitration is warranted, it must be conducted in-person with all team members present. The only exception to this requirement would be a case where the timeline in the procedure would place the earliest possible arbitration date after the final exam date. In those cases, a virtual meeting may be agreed upon or incomplete grades may be assigned until an in-person meeting can be scheduled. I will serve as the arbitrator. You and your teammates will have the opportunity to present your case and reconcile evidence referenced in your letter. At the end of the meeting, all team members (including yourself) will submit the score they believe you have earned to me via secret ballot. I will use this information in making my final determination, but the final determination is mine alone.\n\n\n\nLate assignments, missed quizzes\n\nIndividual assignments\n\n\n\n\n\n\nWarning\n\n\n\nIndividual assignments are due on the dates indicated on the Canvas Weekly Agendas. Late or missing assignments will not be graded. All assignments in a module must be completed before the Module Quiz. If extenuating circumstances impact your ability to meet deadlines or participate in class activities, you are responsible for alerting me as soon as possible. When conflicts are known ahead of the deadline you must notify me ahead of the deadline. All communication regarding missed or late individual work should be confirmed by email – even if we speak in person or during student hours, you must follow up via email to confirm so that we both have a record of the agreement.\n\n\n\n\nTeam assignments\nDeadlines for Team Assignments may be extended for the entire class if there are extenuating circumstances or granted to teams if requested with appropriate justification and all team members agree to the request. Presentations cannot be delayed unless there is a major emergency or complication. For other deliverables, extensions must be requested at least 1 business day before the due date. Be prepared to show appropriate documentation of work to date and to provide an explanation for the value you will add to the final product if the extension is granted. Unless a request is made and granted, late assignments will receive a grade of 0.\n\n\nMissed quizzes\nQuizzes may be rescheduled only in the case of serious illness, injury, or significant academic or professional development opportunity. Personal travel or family vacations will not be accommodated unless they are associated with a significant life event (birth, death, marriage, graduation). In all cases, documentation is required. Contact me via email as soon as you know you have a conflict. Local or phone/Skype job interviews are not considered significant professional development opportunities.\n\n\n\nAttendance and participation\nAlthough attendance will not be formally recorded for all class meetings, your Team can and should reduce your peer evaluation score if you miss meetings or are absent during in class Work Days. To avoid this consequence, you should:\n\nCommunicate clearly with your team any time you will be absent from a Team Meeting or class on a day that includes Case Work Time.\n\nDocument that communication (e.g. save emails or post to team message board).\n\nParticipate actively in scheduling Team Meetings outside of class.\n\nLay out policies on scheduling team meetings and missed meetings and follow them.\n\nRespect others’ time and reserve absences for only when absolutely unavoidable.\n\nCommunicate with me (your instructor) or the Office of Student Life if any situation arises that will dramatically impact your attendance in class and at team meetings (e.g. serious illness, injury or personal emergency).\n\nIf you are absent from class, it is your responsibility to obtain notes and other materials from colleagues. While you are welcome to book student hours, you should not view them as a substitute for coming to class. If you are absent regularly without a documented extenuating circumstance, requests for student hours meetings may be denied.\n\n\nExpectations for graded work\n\nIndividual assignments\nI provide students feedback and/or scores on assignments that require individualized grading before a further assignment of a similar format is due or within 21 days of submission, whichever is shorter. This includes quizzes. I will notify you if I am unable to complete grading within the 21-day timeframe, and will identify a revised return date. If you submit work after the due date, it may not be returned within 21 days, and depending on the justification for late submission, it may not be accepted at all. Your graded coursework will be returned in compliance with FERPA regulations, such as in class, during my student hours, or via the course management system through which only you will have access to your grades.\n\n\n\nGrading scale\n\n\n\n\nLetter Grade\n\n\nPercentage Equivalent\n\n\n\n\n\n\nA\n\n\n93-100%\n\n\n\n\nAB\n\n\n89-92%\n\n\n\n\nB\n\n\n83-88%\n\n\n\n\nBC\n\n\n79-82%\n\n\n\n\nC\n\n\n70-78%\n\n\n\n\nD\n\n\n60-69%\n\n\n\n\nF\n\n\n59% - below"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#ai-usage-limitations",
+    "href": "syllabus/syllabus.html#ai-usage-limitations",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "AI usage limitations",
+    "text": "AI usage limitations\nArtificial intelligence (AI) tools and resources used for creating text, images, computer code, audio, or other media, may be used in certain circumstances in this class. The specifics of when, where, and how these tools are permitted will be included with each assignment. Guidance for attribution/citation will be provided by your instructor. Any use of these tools other than where/how indicated is a violation of course expectations and is subject to UW-La Crosse’s Academic Misconduct Policy. Students are responsible for verifying the accuracy and appropriateness of content composed by AI. If you are in doubt as to whether you are using a tool inappropriately in this course, you are encouraged to discuss your situation with your instructor."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#regular-and-substantive-interaction",
+    "href": "syllabus/syllabus.html#regular-and-substantive-interaction",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Regular and substantive interaction",
+    "text": "Regular and substantive interaction\nIn this course, regular and substantive interaction between the instructor and students plays a crucial role in student achievement. I will be incorporating various forms of interaction that not only meet the requirements set by the US Department of Education and the UWL Faculty Senate policy, but also aid in student achievement. Your active participation and contributions are also essential to your learning. In partnership with your efforts, I will…\n\nbe available during scheduled student hours as stated in the syllabus\n\nshare information about the course materials including key information, explanations, examples, and resources via in-person, and/or recorded lectures\n\nengage in online discussions about course content\n\nprovide group or individual feedback on assignments\n\npromptly respond to questions about the course sent via email\n\nregularly post announcements pertaining to the course content and activities\n\nmonitor your academic progress and communicate concerns, as needed"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#uwl-syllabus-policy-information-statements",
+    "href": "syllabus/syllabus.html#uwl-syllabus-policy-information-statements",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "UWL syllabus policy information & statements",
+    "text": "UWL syllabus policy information & statements\nUWL encourages students to know the campus’ important policies and statements which can be found on the Syllabus Information website.\n\nClasses during inclement weather\nReligious accommodations\nSexual misconduct\nStudent course and faculty-related concerns, complaints, and grievances\nStudent survey on instruction (LENS)\nStudents with accommodation needs\nUniversity class attendance policy\nVeterans, active military, and military-connected\n\nUWL encourages students to know the campus’ important policies and statements which can be found on the UWL Syllabus Policy Information & Statements."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#uwl-policies-supports",
+    "href": "syllabus/syllabus.html#uwl-policies-supports",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "UWL policies & supports",
+    "text": "UWL policies & supports\n\nCourse access\nAccess to course materials in Canvas may cease after the term ends. If you wish to archive materials for your personal records or portfolio you should do so as you progress through the course. As a general rule, you should always save local copies of course-related work. To avoid disasters, you should also save important files to external media or cloud storage.\n\n\nInclusive excellence\nMission “Diversity, equity, and the inclusion and engagement of all people in a safe campus climate that embraces and respects the innumerable different perspectives found within an increasingly integrated and culturally diverse global community”. If you are not experiencing my class in this manner, please come talk to me about your experiences so I can try to adjust the course if possible.\n\n\nName/pronouns\nI will do my best to address you by a preferred name or gender pronoun that you have identified. Please advise me of this preference early in the semester so that I may make appropriate changes to my records. UWL has name in use resources and the Pride Center is available for additional assistance.\n\n\nAcademic success and overall health\nAt UWL, we support your academic success and overall health. We know that students often experience a range of stressors that can impact learning and well-being. If you or someone you know is experiencing mental health concerns, or could benefit from effective academic strategies, there are free and confidential resources available to enrolled students through the Counseling & Testing Center (CTC). To learn more, visit the CTC Website or call 608-785-8073.\n\n\nTechnical support\nFor tips and information about Canvas visit the (canvas website)[https://www.uwlax.edu/info/canvas/students/]; this site also links to the 24/7 Canvas support. If you are having Canvas login issues or need general computer assistance, contact the (Eagle Help Desk)[https://www.uwlax.edu/its/client-services-and-support/eagle-help-desk/].\n\n\nStudent success resources\nUWL also encourages students to take advantage of the campus’ many and varied (Campus Life Resources)[https://www.uwlax.edu/info/campus-life/]."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#course-outline",
+    "href": "syllabus/syllabus.html#course-outline",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Course outline",
+    "text": "Course outline\n\n\n\n\nModule Name\n\n\nModule Learning Outcomes\n\n\n\n\n\n\nBaseline Data Literacy\n\n\nDescribe the anatomy of a data set including type (primary process generated or administrative, primary purpose generated, secondary), grouping, and unit of analysis.\n\n\n\n\nBaseline Data Literacy\n\n\nDistinguish between discrete and continuous variables, and between nominal, ordinal and ratio scale variables.\n\n\n\n\nBaseline Data Literacy\n\n\nCompute and interpret descriptive statistics relevant to the purpose of the analysis and appropriate for the level of measurement of the variables.\n\n\n\n\nBaseline Data Literacy\n\n\nInterpret common visual representations of data including bar charts, histograms, and scatter plots.\n\n\n\n\nBaseline Data Literacy\n\n\nOrganize data in a spreadsheet following best practices.\n\n\n\n\nBaseline Data Literacy\n\n\nCreate common visual representations of data including bar charts, histograms, and scatter plots.\n\n\n\n\nBaseline Data Literacy\n\n\nDemonstrate basic software competencies in spreadsheet software.\n\n\n\n\nBaseline Data Literacy\n\n\nDefine and appropriately use common terms in data analysis including correlation, causation, generalizability, validity, and reliability.\n\n\n\n\nFoundations of Data Analysis (Course LO)\n\n\nApply appropriate univariate and bivariate inferential statistics and correctly interpret the results of statistical tests.\n\n\n\n\nFoundations of Data Analysis (Course LO)\n\n\nDemonstrate basic software competencies in scripting software.\n\n\n\n\nCommunication of Results\n\n\nCurate results generated to identify the most relevant insights and supporting analyses.\n\n\n\n\nCommunication of Results\n\n\nCreate clear and compelling visualizations with necessary annotation to achieve stand alone effectiveness.\n\n\n\n\nCommunication of Results\n\n\nSummarize the problem addressed, methods used, results, and implications clearly and concisely in written and oral communication formats intended for non-technical audiences.\n\n\n\n\nCommunication of Results\n\n\nQuantify the implications of alternative solutions or proposed recommendations that follow from analysis.\n\n\n\n\nCommunication of Results\n\n\nDocument methods and detailed results of analysis in appendices intended for technical audiences.\n\n\n\n\nCommunication of Results\n\n\nCompose succinct professional emails communicating progress on a project.\n\n\n\n\nProblem Definition\n\n\nGather insights from existing reports or others’ analyses to demonstrate and articulate the existence of a business problem or opportunity.\n\n\n\n\nProblem Definition\n\n\nDefine research objectives that are feasible and hypothesis that can be tested using the chosen study methods and data sources.\n\n\n\n\nProblem Definition\n\n\nSelect relevant variables and sources of data needed to analyze an identified business problem or opportunity and propose survey measures when required data do not exist.\n\n\n\n\nProblem Definition\n\n\nDefine key metrics.\n\n\n\n\nProblem Definition\n\n\nChoose appropriate analysis methods, data, and variables for analyzing the identified problem or opportunity.\n\n\n\n\nIntro to Advanced Topics\n\n\nDistinguish between observational, quasi-experimental, and observational study designs and select the appropriate design for research objectives and desired use of findings.\n\n\n\n\nIntro to Advanced Topics\n\n\nDefine advanced analysis methods such as regression, forecasting, quasi-experimental and experimental study designs, optimization, machine learning, and text mining, and identify appropriate use cases.\n\n\n\n\nIntro to Advanced Topics\n\n\nPrepare clear, appropriate, and appealing visual summaries of data in graphs and tables with informative use of color and text.\n\n\n\n\nIntro to Advanced Topics\n\n\nPrepare data for analysis using sorting, filtering, merging, and additional functions as appropriate.\n\n\n\n\nIntro to Advanced Topics\n\n\nDesign a survey instrument to collect data needed to address a research question, identify potential sources of bias and articulate approach to avoiding bias in the design.\n\n\n\n\nBecoming an Informed Consumer of Data\n\n\nSuggest relevant alternative explanations for results.\n\n\n\n\nBecoming an Informed Consumer of Data\n\n\nCorrect errors in analysis and interpretation of analysis.\n\n\n\n\nBecoming an Informed Consumer of Data\n\n\nDescribe current debates in research ethics and data privacy and the implications for business research."
+  },
+  {
+    "objectID": "syllabus/syllabus.html#important-dates",
+    "href": "syllabus/syllabus.html#important-dates",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Important dates",
+    "text": "Important dates\n\n\n\n\nName\n\n\nDate\n\n\nEvent\n\n\n\n\n\n\nWeek 3\n\n\n2/10/2026\n\n\nGraded Quiz: Descriptive Stats & Data Literacy\n\n\n\n\nWeek 5\n\n\n2/24/2026\n\n\nGraded Quiz: Data Visualization\n\n\n\n\nWeek 7\n\n\n3/10/2026\n\n\nGraded Quiz: R Basics\n\n\n\n\nWeek 9\n\n\n3/31/2026\n\n\nPresentation Coaching\n\n\n\n\nWeek 11\n\n\n4/7/2026\n\n\nGraded Quiz: Inferential Stats & Data Literacy\n\n\n\n\nWeek 12\n\n\n4/14/2026\n\n\nAnalysis Project Final Presentations\n\n\n\n\nWeek 13\n\n\n4/28/2026\n\n\nGraded Quiz: Survey Research Methods\n\n\n\n\nWeek 14\n\n\n5/5/2026\n\n\nResearch Proposal Presentations\n\n\n\n\nFinal Exam\n\n\nTuesday 05/12 07:00-09:00PM\n\n\nFinal Exam & Practicum"
+  },
+  {
+    "objectID": "syllabus/syllabus.html#anticipated-schedule",
+    "href": "syllabus/syllabus.html#anticipated-schedule",
+    "title": "ECO 230 Business and Economic Research & Communication",
+    "section": "Anticipated schedule",
+    "text": "Anticipated schedule\nWhen discrepancies between Canvas and the Anticipated Schedule exist, the information on Canvas supersedes this schedule. Official class agendas are posted under This Week in Canvas.\n\n\n\n\nClass\n\n\nDate\n\n\nPart 1\n\n\nPart 2\n\n\nPart 3\n\n\n\n\n\n\nWeek 1\n\n\n1/27/2026\n\n\nCourse Overview\n\n\nAnatomy, Grouping & Unit of Analysis\n\n\nData Explore in 3 softwares\n\n\n\n\nWeek 2\n\n\n2/3/2026\n\n\nLevel of Measurement Descriptive Statistics\n\n\nMeasures of Variablity and Association\n\n\nData Explore in 3 softwares\n\n\n\n\nWeek 3\n\n\n2/10/2026\n\n\nData Visualization\n\n\nData Visualization in Tableau\n\n\nData Visualization in Tableau\n\n\n\n\nWeek 4\n\n\n2/17/2026\n\n\nCommunicating with Data in Writing\n\n\nCommunicating with Data Orally\n\n\nWork Time\n\n\n\n\nWeek 5\n\n\n2/24/2026\n\n\nProblem Definition\n\n\nLaunch Analysis Project\n\n\nWork Time\n\n\n\n\nWeek 6\n\n\n3/3/2026\n\n\nInference\n\n\nRstudio Descriptive Statistics\n\n\nWork Time\n\n\n\n\nWeek 7\n\n\n3/10/2026\n\n\nHypothesis Testing\n\n\nRstudio Inferential Statistics\n\n\nWork Time\n\n\n\n\nWeek 8\n\n\n3/24/2026\n\n\nPre-Coaching Work\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 9\n\n\n3/31/2026\n\n\nCoaching Sessions\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 10\n\n\n4/7/2026\n\n\nCommunicating with Data Documenting Work\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 11\n\n\n4/14/2026\n\n\nAnalysis Project Final Presentations\n\n\nAnalysis Project Final Presentations\n\n\nThe Research Proposal\n\n\n\n\nWeek 12\n\n\n4/21/2026\n\n\nAdvanced Analytics: Sample Design\n\n\nAdvanced Analytics: Survey Design\n\n\n\n\n\n\nWeek 13\n\n\n4/28/2026\n\n\nAdvanced Analytics: Machine Learning\n\n\nAdvanced Analytics: Experiment Design\n\n\nEthics\n\n\n\n\nWeek 14\n\n\n5/5/2026\n\n\nResearch Proposal Presentations\n\n\nResearch Proposal Presentations\n\n\nFinal Exam Prep\n\n\n\n\nFinal Exam\n\n\n5/12/2026\n\n\nFinal Exam Tuesday 05/12 07:00-09:00PM"
+  },
+  {
+    "objectID": "week02/Homework_02.html",
+    "href": "week02/Homework_02.html",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "",
+    "text": "NotePurpose\n\n\n\nThis assignment helps you practice the Week 2 question:\n\nHow do we clearly describe the data we have?\n\nYou will build summary tables only (no charts yet) to describe:\n\nSize (counts, missingness)\nCenter (mean or median)\nShape (spread: SD or IQR; optional percentiles)\nRelationships (categorical ↔︎ categorical; continuous ↔︎ categorical)\n\nYou will also reflect briefly on how to use AI responsibly to accelerate—not replace—your thinking."
+  },
+  {
+    "objectID": "week02/Homework_02.html#objectives",
+    "href": "week02/Homework_02.html#objectives",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "Objectives",
+    "text": "Objectives\n\nProduce clean summary tables (no charts)\nChoose statistics that match the measurement scale (NOIR)\nKeep denominators straight (N, n_eligible, n_non-missing)\nDescribe relationships using group summaries and cross-tabs\nCommunicate results clearly with labels, units, and stated assumptions\nReflect on responsible AI use in data work"
+  },
+  {
+    "objectID": "week02/Homework_02.html#resources",
+    "href": "week02/Homework_02.html#resources",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "Resources",
+    "text": "Resources\n\nWeek 2 slides (Size, Center, Shape, Relationships; Percentage Problems)\nWeek 1 slides (Unit of Analysis / Grain; Dimensions vs Measures; Tidy Data)\nDataset description files on Canvas\n\n\n\n\n\n\n\nTipImportant\n\n\n\nThis assignment is graded for clear, careful completion.\n\nNo charts this week.\nYour job is to be explicit and disciplined about what one row represents, what your denominators are, and which summaries are meaningful."
+  },
+  {
+    "objectID": "week02/Homework_02.html#choose-your-dataset-week-1",
+    "href": "week02/Homework_02.html#choose-your-dataset-week-1",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "1) Choose Your Dataset (Week 1)",
+    "text": "1) Choose Your Dataset (Week 1)\n\nSelect one of the four Week 1 datasets.\nYou may keep the same dataset from Homework 1 or switch.\nIn your submission, state:\n\n\nWhich dataset you used\nAny filters or cleaning steps (e.g., removing blanks, focusing on a date range)\n\n(No written response required beyond the brief notes above.)"
+  },
+  {
+    "objectID": "week02/Homework_02.html#tools-you-may-mix-and-match",
+    "href": "week02/Homework_02.html#tools-you-may-mix-and-match",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "2) Tools (You May Mix and Match)",
+    "text": "2) Tools (You May Mix and Match)\nComplete the tables using Excel, Tableau, posit.cloud, or any combination.\n\nThis does not all have to be in one tool.\nChoose the tool(s) that best support the table you are trying to build.\n\n(No written response required.)"
+  },
+  {
+    "objectID": "week02/Homework_02.html#table-1-frequency-table-one-categorical-variable",
+    "href": "week02/Homework_02.html#table-1-frequency-table-one-categorical-variable",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "3) Table 1 — Frequency Table (One Categorical Variable)",
+    "text": "3) Table 1 — Frequency Table (One Categorical Variable)\nCreate a frequency table for one categorical variable (≥ 3–4 categories recommended).\nYour table must include:\n\nCategory\nCount (n)\nPercent of total\nAny other information you feel is relevant.\n\nGoal: Describe the distribution. What shows up a lot? What is rare?"
+  },
+  {
+    "objectID": "week02/Homework_02.html#table-2-continuous-categorical-choose-the-right-summary",
+    "href": "week02/Homework_02.html#table-2-continuous-categorical-choose-the-right-summary",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "4) Table 2 — Continuous ↔︎ Categorical (Choose the Right Summary)",
+    "text": "4) Table 2 — Continuous ↔︎ Categorical (Choose the Right Summary)\nCreate a grouped summary table using:\n\nOne continuous measure (a numeric variable where arithmetic is meaningful)\nOne categorical dimension (≥ 3 categories)\n\nYour table must include:\n\nGroup name\nn_non-missing for the measure\nA measure of center and/or measure of spread that matches your choice\nAny other information you feel is relevant.\n\nBelow the table, write 1–2 sentences explaining why your choices are meaningful.\n\nTables 2–3 are intentionally flexible: your job is to decide what summary is most meaningful for your variables and explain why.\n\nHint from Week 2:\n\nMean/SD are most useful when the variable behaves like interval/ratio data with limited outliers.\nMedian/IQR are most useful when data are skewed, have outliers, or when “typical” is better captured by the middle."
+  },
+  {
+    "objectID": "week02/Homework_02.html#table-3-another-continuous-categorical-relationship-different-angle",
+    "href": "week02/Homework_02.html#table-3-another-continuous-categorical-relationship-different-angle",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "5) Table 3 — Another Continuous ↔︎ Categorical Relationship (Different Angle)",
+    "text": "5) Table 3 — Another Continuous ↔︎ Categorical Relationship (Different Angle)\nCreate a second grouped summary table, changing at least one of the following:\n\nA different continuous measure, or\nA different categorical grouping, or\nA different summary choice (mean/SD vs median/IQR), or\nA different filter or frame (e.g., weekday vs weekend, before vs after a date)\n\nRequirements are the same as Table 2:\n\nGroup name\nn_non-missing for the measure\nA measure of center and/or measure of spread that matches your choice\nAny other information you feel is relevant.\n\nGoal: Answer a different question than Table 2."
+  },
+  {
+    "objectID": "week02/Homework_02.html#table-4-cross-tab-categorical-categorical-percentages",
+    "href": "week02/Homework_02.html#table-4-cross-tab-categorical-categorical-percentages",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "6) Table 4 — Cross-Tab (Categorical ↔︎ Categorical) + Percentages",
+    "text": "6) Table 4 — Cross-Tab (Categorical ↔︎ Categorical) + Percentages\nCreate a cross-tab using two categorical variables, each with ≥ 3 categories.\nYour table must include:\n\nCell counts\nOne percentage type (choose one and label it clearly):\n\nRow % (conditional on row)\nColumn % (conditional on column)\nTable % (overall share)\n\nRow and column totals (margins)\n\nBelow the table, write one sentence that states the denominator clearly:\n\n“These percentages are calculated as ________, so each ______ totals to 100%.”\n\nRemember from Week 2:\n\nSimilar-sounding percentages can answer different questions. Make the numerator and denominator explicit."
+  },
+  {
+    "objectID": "week02/Homework_02.html#optional-continuous-continuous-correlation-table",
+    "href": "week02/Homework_02.html#optional-continuous-continuous-correlation-table",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "(Optional) Continuous ↔︎ Continuous (Correlation Table)",
+    "text": "(Optional) Continuous ↔︎ Continuous (Correlation Table)\nIf your dataset includes two continuous variables that might be related, you may include one small correlation table.\nThis is not required, but it is a strong way to explore whether two measures move together.\nIf you choose to include it, report:\n\nn_non-missing (pairs)\nCorrelation r\n1 sentence interpretation (direction + strength)\n\n(Still no charts.)"
+  },
+  {
+    "objectID": "week02/Homework_02.html#findings-summary-required",
+    "href": "week02/Homework_02.html#findings-summary-required",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "7) Findings Summary (Required)",
+    "text": "7) Findings Summary (Required)\nWrite 3 key takeaways (about 5–10 sentences total).\nEach takeaway must:\n\nReference a specific table and at least one number (value + category)\nInterpret what it implies (not just restate a statistic)\n\nStrong examples:\n\n“Group A has a higher median than Group B (Table 2), suggesting…”\n“Under row %, Category X is concentrated in Y (Table 4), meaning…”\n“Mean and median disagree (Table 3), which suggests skew/outliers…”"
+  },
+  {
+    "objectID": "week02/Homework_02.html#responsible-use-of-ai-brief-reflection-required",
+    "href": "week02/Homework_02.html#responsible-use-of-ai-brief-reflection-required",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "8) Responsible Use of AI (Brief Reflection — Required)",
+    "text": "8) Responsible Use of AI (Brief Reflection — Required)\nAI can help you move faster, but it must not make analytical decisions for you. Use AI only for clarification, rewriting, or troubleshooting.\nWrite 4–6 sentences responding to:\nA. How did you use AI on this assignment? (If not at all, say so.)\nB. What did AI help with (specific steps)?\nC. What did AI miss, oversimplify, or get wrong?\nD. Include one prompt you used and briefly note how it helped and where it fell short.\nRemember our goal:\n\n“Can you use AI responsibly to accelerate—not replace—your thinking?”"
+  },
+  {
+    "objectID": "week02/Homework_02.html#submission",
+    "href": "week02/Homework_02.html#submission",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "9) Submission",
+    "text": "9) Submission\nUpload to Canvas:\n\nA PDF or Word document containing:\n\nTables 1–4 (and the optional correlation table if included)\nYour 3 takeaways\nYour brief AI reflection\n\nYour supporting files (as applicable):\n\nExcel: .xlsx\nTableau: .twbx\nposit.cloud: knitted output (.html or .pdf) and your source file"
+  },
+  {
+    "objectID": "week02/Homework_02.html#alignment-to-course-outcomes",
+    "href": "week02/Homework_02.html#alignment-to-course-outcomes",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "Alignment to Course Outcomes",
+    "text": "Alignment to Course Outcomes\n\nChoose the right analysis: You match summaries to measurement scales (NOIR) and keep denominators explicit.\nInterpret results in context: Your takeaways connect tables to real questions the data can answer.\nExplain limitations, assumptions, and uncertainty: Your justifications and AI reflection surface constraints before conclusions."
   }
 ]
