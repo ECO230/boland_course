@@ -247,7 +247,7 @@ Can you add two rows together and keep the same meaning + units?
 
 <br>
 
-[![](media/images/shiny_size.png)](https://shiny.60land.com/_staging/week02/descriptives/){fig-alt="Link to Shiny app demonstrating different measures of size." width="75%"}
+[![](media/images/shiny_size.png)](https://shiny.60land.com/week02/descriptives/){fig-alt="Link to Shiny app demonstrating different measures of size." width="75%"}
 
 
 # Measures of Center {background-image="../shared/images/mean_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Average notation for population greek symbol mu, for sample x-bar, sometimes median notated with greek symbol eta."}
@@ -266,7 +266,7 @@ Can you add two rows together and keep the same meaning + units?
 
 <br>
 
-[![](media/images/shiny_central.png)](https://shiny.60land.com/_staging/week02/descriptives/){fig-alt="Link to Shiny app demonstrating different measures of center." width="75%"}
+[![](media/images/shiny_central.png)](https://shiny.60land.com/week02/descriptives/){fig-alt="Link to Shiny app demonstrating different measures of center." width="75%"}
 
 
 # Measures of Shape {background-image="../shared/images/stdev_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Standard deviation notation for population greek symbol sigma, for sample s."}
@@ -292,7 +292,7 @@ Can you add two rows together and keep the same meaning + units?
 - Quartiles are P25 (Q1), P50 (Q2), P75 (Q3)
 - The 50^th^ (P50) percentile, the 2^nd^ Quartile (Q2) and the Median are all the same value
 
-[![](media/images/shiny_shape.png)](https://shiny.60land.com/_staging/week02/descriptives/){fig-alt="Link to Shiny app demonstrating different measures of shape." width="75%"}
+[![](media/images/shiny_shape.png)](https://shiny.60land.com/week02/descriptives/){fig-alt="Link to Shiny app demonstrating different measures of shape." width="75%"}
 
 # Comparing Distributions
 
@@ -670,7 +670,7 @@ plot_box
 
 ## What can go wrong?
 
-[![](media/images/shiny_cross.png)](https://shiny.60land.com/_staging/week02/crosstab/){fig-alt="Link to Shiny app demonstrating cross tabs" width="75%"}
+[![](media/images/shiny_cross.png)](https://shiny.60land.com/week02/crosstabs/){fig-alt="Link to Shiny app demonstrating cross tabs" width="75%"}
 
 :::fragment
 
@@ -724,7 +724,7 @@ Make sure you are clear on what the numerator and denominator are and communicat
 
 ::: fragment
 
-[![](media/images/shiny_correlation.png)](https://shiny.60land.com/_staging/week02/correlation/){fig-alt="Link to Shiny app demonstrating coefficient of correlation" width="100%"}
+[![](media/images/shiny_correlation.png)](https://shiny.60land.com/week02/correlation/){fig-alt="Link to Shiny app demonstrating coefficient of correlation" width="100%"}
 
 :::
 
