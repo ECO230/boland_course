@@ -43,10 +43,10 @@ acc <- read_csv(acc_path, show_col_types = FALSE) %>%
     
     # ---- Time-of-day bins from start_time ----
     time_of_day = case_when(
-      hour(start_time) >= 6  & hour(start_time) < 12 ~ "morning",  # 06:00–11:59
-      hour(start_time) >= 12 & hour(start_time) < 18 ~ "daytime",  # 12:00–17:59
-      hour(start_time) >= 18 & hour(start_time) < 24 ~ "evening",  # 18:00–23:59
-      TRUE                                           ~ "night"     # 00:00–05:59
+      hour(start_time) >= 6  & hour(start_time) < 12 ~ "morning",
+      hour(start_time) >= 12 & hour(start_time) < 18 ~ "daytime",
+      hour(start_time) >= 18 & hour(start_time) < 24 ~ "evening",
+      TRUE                                           ~ "night"
     ),
     
     # ---- Duration (minutes) ----
@@ -109,6 +109,7 @@ collapse_top_n <- function(x, n = 12, other_label = "Other") {
   keep <- levs[seq_len(n)]
   x2 <- ifelse(x %in% keep, x, other_label)
   
+  # Re-order so most frequent appear first, "Other" last
   tab2 <- sort(table(x2), decreasing = TRUE)
   levs2 <- names(tab2)
   if (other_label %in% levs2) {
@@ -117,8 +118,8 @@ collapse_top_n <- function(x, n = 12, other_label = "Other") {
   factor(x2, levels = levs2)
 }
 
-# Frequency table with cumulative columns + sorting
-make_freq_df <- function(x, sort_mode = c("cat_asc", "freq_desc", "freq_asc")) {
+# Frequency table with cumulative columns + sorting + optional Total row
+make_freq_df <- function(x, sort_mode = c("cat_asc", "freq_desc", "freq_asc"), add_total = FALSE) {
   sort_mode <- match.arg(sort_mode)
   x <- as.character(x)
   n <- length(x)
@@ -135,13 +136,13 @@ make_freq_df <- function(x, sort_mode = c("cat_asc", "freq_desc", "freq_asc")) {
   }
   
   tab <- table(x)
-  
   df <- data.frame(
     Level = names(tab),
     Frequency = as.integer(tab),
     stringsAsFactors = FALSE
   )
   
+  # Sorting
   if (sort_mode == "cat_asc") {
     df <- df[order(df$Level), ]
   } else if (sort_mode == "freq_desc") {
@@ -150,34 +151,127 @@ make_freq_df <- function(x, sort_mode = c("cat_asc", "freq_desc", "freq_asc")) {
     df <- df[order(df$Frequency, df$Level), ]
   }
   
-  df$PercentNum <- 100 * df$Frequency / sum(df$Frequency)
-  df$CumFrequency <- cumsum(df$Frequency)
-  df$CumPercentNum <- cumsum(df$PercentNum)
+  total_n <- sum(df$Frequency)
+  pct_num <- 100 * df$Frequency / total_n
+  cum_freq <- cumsum(df$Frequency)
+  cum_pct  <- cumsum(pct_num)
   
-  df$Percent <- sprintf("%.1f%%", df$PercentNum)
-  df$CumPercent <- sprintf("%.1f%%", df$CumPercentNum)
+  df$Percent <- sprintf("%.1f%%", pct_num)
+  df$CumFrequency <- cum_freq
+  df$CumPercent <- sprintf("%.1f%%", cum_pct)
   
-  df$PercentNum <- NULL
-  df$CumPercentNum <- NULL
+  if (isTRUE(add_total)) {
+    df <- rbind(
+      df,
+      data.frame(
+        Level = "Total",
+        Frequency = total_n,
+        Percent = "100.0%",
+        CumFrequency = total_n,
+        CumPercent = "100.0%",
+        stringsAsFactors = FALSE
+      )
+    )
+  }
+  
   df
 }
 
-tab_to_df <- function(tab, add_margins = FALSE) {
+# Convert count table to display df (counts) with optional margins
+tab_to_df_counts <- function(tab, add_margins = FALSE) {
   if (add_margins) tab <- addmargins(tab)
-  as.data.frame.matrix(tab, stringsAsFactors = FALSE)
+  df <- as.data.frame.matrix(tab, stringsAsFactors = FALSE)
+  df <- cbind(Row = rownames(df), df, stringsAsFactors = FALSE)
+  rownames(df) <- NULL
+  df
 }
 
-percent_table <- function(tab, type = c("table", "row", "col")) {
+# Build percent table WITH meaningful total row/col based on counts (not sums of percents)
+percent_df_with_margins <- function(tab, type = c("table", "row", "col"), digits = 1, add_margins = FALSE) {
   type <- match.arg(type)
-  if (sum(tab) == 0) return(tab * 0)
+  if (is.null(tab) || sum(tab) == 0) return(NULL)
+  
+  rnames <- rownames(tab)
+  cnames <- colnames(tab)
+  r <- nrow(tab)
+  c <- ncol(tab)
+  
+  grand_total <- sum(tab)
+  row_sums <- rowSums(tab)
+  col_sums <- colSums(tab)
+  
+  # Base percent matrix (no margins)
+  p <- matrix(NA_real_, nrow = r, ncol = c, dimnames = list(rnames, cnames))
   
   if (type == "table") {
-    prop.table(tab) * 100
+    p[,] <- 100 * tab / grand_total
   } else if (type == "row") {
-    prop.table(tab, margin = 1) * 100
+    # row-conditional
+    for (i in seq_len(r)) {
+      denom <- row_sums[i]
+      p[i, ] <- if (denom > 0) 100 * tab[i, ] / denom else rep(NA_real_, c)
+    }
   } else {
-    prop.table(tab, margin = 2) * 100
+    # col-conditional
+    for (j in seq_len(c)) {
+      denom <- col_sums[j]
+      p[, j] <- if (denom > 0) 100 * tab[, j] / denom else rep(NA_real_, r)
+    }
   }
+  
+  # Add margins meaningfully
+  if (isTRUE(add_margins)) {
+    total_row_name <- "Total"
+    total_col_name <- "Total"
+    
+    p2 <- matrix(NA_real_, nrow = r + 1, ncol = c + 1,
+                 dimnames = list(c(rnames, total_row_name), c(cnames, total_col_name)))
+    
+    # Fill interior
+    p2[seq_len(r), seq_len(c)] <- p
+    
+    if (type == "table") {
+      # Row totals and col totals are % of grand total
+      p2[seq_len(r), total_col_name] <- 100 * row_sums / grand_total
+      p2[total_row_name, seq_len(c)] <- 100 * col_sums / grand_total
+      p2[total_row_name, total_col_name] <- 100
+    }
+    
+    if (type == "row") {
+      # For each row, total col is 100 (conditional distribution sums to 100)
+      p2[seq_len(r), total_col_name] <- ifelse(row_sums > 0, 100, NA_real_)
+      
+      # Total row: overall (based on grand total counts) so it sums to 100 across columns
+      p2[total_row_name, seq_len(c)] <- 100 * col_sums / grand_total
+      p2[total_row_name, total_col_name] <- 100
+    }
+    
+    if (type == "col") {
+      # For each column, total row is 100 (conditional distribution sums to 100)
+      p2[total_row_name, seq_len(c)] <- ifelse(col_sums > 0, 100, NA_real_)
+      
+      # Total col: overall (based on grand total counts) so it sums to 100 down rows
+      p2[seq_len(r), total_col_name] <- 100 * row_sums / grand_total
+      p2[total_row_name, total_col_name] <- 100
+    }
+    
+    p <- p2
+  }
+  
+  # Convert to df + format
+  df <- as.data.frame.matrix(p, stringsAsFactors = FALSE)
+  df <- cbind(Row = rownames(df), df, stringsAsFactors = FALSE)
+  rownames(df) <- NULL
+  
+  for (j in seq_along(df)) {
+    if (names(df)[j] == "Row") next
+    df[[j]] <- ifelse(
+      is.na(df[[j]]),
+      "",
+      sprintf(paste0("%.", digits, "f%%"), as.numeric(df[[j]]))
+    )
+  }
+  df
 }
 
 # ---- Variables (teaching-friendly categorical set) ----
@@ -192,11 +286,19 @@ cat_vars <- c(
 cat_vars <- intersect(cat_vars, names(acc))
 cat_vars <- unique(cat_vars)
 
+# ---- Safe date defaults ----
+start_min <- suppressWarnings(as.Date(min(acc$start_time, na.rm = TRUE)))
+start_max <- suppressWarnings(as.Date(max(acc$start_time, na.rm = TRUE)))
+if (!is.finite(as.numeric(start_min)) || !is.finite(as.numeric(start_max))) {
+  start_min <- Sys.Date() - 30
+  start_max <- Sys.Date()
+}
+
 # ---- UI ----
 ui <- fluidPage(
   tags$style("
     h2{margin-top:0.2rem;}
-    .small{opacity:0.75;font-size:1.0rem;}
+    .small{opacity:0.80;font-size:1.05rem;}
     .box{background:#f7f7f7;border-radius:12px;padding:12px;margin-bottom:10px;}
     .tbl-wrap{overflow-x:auto;}
 
@@ -204,7 +306,7 @@ ui <- fluidPage(
     table.simple {
       border-collapse: collapse;
       width: 100%;
-      font-size: 1.20rem;
+      font-size: 1.22rem;
       background: white;
       border-radius: 12px;
       overflow: hidden;
@@ -254,27 +356,18 @@ ui <- fluidPage(
         div(
           class = "content",
           
-          selectInput(
-            "sev_filter", "Severity filter (optional)",
-            choices = c("All", sort(unique(acc$Severity))),
-            selected = "All"
-          ),
-          
           dateRangeInput(
             "dates", "Start date range",
-            start = as.Date(min(acc$start_time, na.rm = TRUE)),
-            end   = as.Date(max(acc$start_time, na.rm = TRUE)),
-            min   = as.Date(min(acc$start_time, na.rm = TRUE)),
-            max   = as.Date(max(acc$start_time, na.rm = TRUE))
+            start = start_min,
+            end   = start_max,
+            min   = start_min,
+            max   = start_max
           ),
           
           hr(),
           
-          selectInput("row_var", "Cross-tab: Rows", choices = cat_vars, selected = "Severity"),
-          selectInput("col_var", "Cross-tab: Columns", choices = cat_vars, selected = {
-            pick <- setdiff(cat_vars, "Severity")
-            if (length(pick) > 0) pick[1] else cat_vars[1]
-          }),
+          selectInput("row_var", "Rows", choices = cat_vars, selected = if ("time_of_day" %in% cat_vars) "time_of_day" else cat_vars[1]),
+          selectInput("col_var", "Columns", choices = cat_vars, selected = if ("season" %in% cat_vars) "season" else cat_vars[min(2, length(cat_vars))]),
           
           hr(),
           
@@ -296,7 +389,7 @@ ui <- fluidPage(
           
           hr(),
           
-          checkboxInput("show_margins", "Show marginal counts (totals)", value = TRUE),
+          checkboxInput("show_margins", "Show totals (margins / total rows)", value = TRUE),
           
           radioButtons(
             "pct_type",
@@ -340,8 +433,8 @@ ui <- fluidPage(
           div(class="box",
               strong("Frequency tables for BOTH selected variables"),
               div(class="small",
-                  "These are computed from the same filtered dataset as the cross-tabs. ",
-                  "Notice how counts/percents carry through, but interpretation changes once you compare."),
+                  "Computed from the same filtered dataset as the cross-tabs. ",
+                  "Totals row appears when “Show totals” is on."),
               fluidRow(
                 column(width = 6, uiOutput("freq_row_ui")),
                 column(width = 6, uiOutput("freq_col_ui"))
@@ -355,7 +448,7 @@ ui <- fluidPage(
           "Cross-tab (Counts)",
           div(class="box",
               strong("Contingency table (counts)"),
-              div(class="small", "Rows × Columns. Toggle marginal totals to show row/column totals (shown in bold)."),
+              div(class="small", "Rows × Columns. Totals are bold when enabled."),
               uiOutput("ct_counts_ui")
           )
         ),
@@ -364,7 +457,8 @@ ui <- fluidPage(
           "Cross-tab (Percentages)",
           div(class="box",
               strong("Contingency table (percentages)"),
-              div(class="small", "Choose Table %, Row %, or Column % (conditional distributions). Margins optional (shown in bold)."),
+              div(class="small",
+                  "Totals are computed from counts so the grand total row/column is meaningful (and bold)."),
               uiOutput("ct_pct_ui")
           )
         ),
@@ -413,11 +507,6 @@ server <- function(input, output, session) {
   filtered <- reactive({
     dat <- acc
     
-    # optional severity filter
-    if (!is.null(input$sev_filter) && input$sev_filter != "All") {
-      dat <- dat %>% filter(Severity == as.integer(input$sev_filter))
-    }
-    
     # date range filter (based on parsed start_time)
     if (!is.null(input$dates)) {
       dat <- dat %>%
@@ -428,7 +517,32 @@ server <- function(input, output, session) {
     dat
   })
   
-  # Frequency df builder for any chosen variable
+  # helper: render HTML table with bold margin row/col if totals enabled
+  render_table_bold_margins <- function(df, bold_margins = FALSE) {
+    nR <- nrow(df)
+    nC <- ncol(df)
+    
+    tags$table(
+      class = "simple",
+      tags$thead(tags$tr(lapply(names(df), tags$th))),
+      tags$tbody(
+        lapply(seq_len(nR), function(i) {
+          tags$tr(
+            lapply(seq_len(nC), function(j) {
+              val <- df[i, j]
+              # Bold last row OR last column when margins are enabled
+              is_margin_cell <- bold_margins && (
+                (i == nR) || (j == nC && names(df)[j] != "Row")
+              )
+              if (is_margin_cell) tags$td(tags$strong(val)) else tags$td(val)
+            })
+          )
+        })
+      )
+    )
+  }
+  
+  # ---- Frequency tables (for BOTH selected vars) ----
   freq_df_for <- function(dat, varname) {
     if (is.null(varname) || !varname %in% names(dat)) {
       return(data.frame(
@@ -445,24 +559,26 @@ server <- function(input, output, session) {
     if (!isTRUE(input$missing_as_level)) x <- x[!is.na(x)]
     x <- collapse_top_n(x, n = input$top_n_levels %||% 12)
     
-    make_freq_df(x, sort_mode = input$freq_sort %||% "cat_asc")
+    make_freq_df(
+      x,
+      sort_mode = input$freq_sort %||% "cat_asc",
+      add_total = isTRUE(input$show_margins)
+    )
   }
   
-  freq_row_df <- reactive({
-    freq_df_for(filtered(), input$row_var)
-  })
-  
-  freq_col_df <- reactive({
-    freq_df_for(filtered(), input$col_var)
-  })
+  freq_row_df <- reactive(freq_df_for(filtered(), input$row_var))
+  freq_col_df <- reactive(freq_df_for(filtered(), input$col_var))
   
   render_freq_ui <- function(df, label, nrows_filtered) {
     if (nrows_filtered == 0) {
-      return(div(class="small", "No rows after filters. Try widening date range or removing the severity filter."))
+      return(div(class="small", "No rows after filters. Try widening the date range."))
     }
     if (nrow(df) == 0) {
       return(div(class="small", "No usable categories for this selection (possibly all missing)."))
     }
+    
+    # Bold the Total row if present
+    is_total_row <- df$Level == "Total"
     
     tagList(
       div(style="font-weight:800; margin-bottom:6px;", label),
@@ -480,13 +596,18 @@ server <- function(input, output, session) {
             ),
             tags$tbody(
               lapply(seq_len(nrow(df)), function(i) {
-                tags$tr(
+                row_cells <- list(
                   tags$td(df$Level[i]),
                   tags$td(df$Frequency[i]),
                   tags$td(df$Percent[i]),
                   tags$td(df$CumFrequency[i]),
                   tags$td(df$CumPercent[i])
                 )
+                if (is_total_row[i]) {
+                  tags$tr(lapply(row_cells, function(cell) tags$td(tags$strong(cell$children))))
+                } else {
+                  tags$tr(row_cells)
+                }
               })
             )
           )
@@ -504,7 +625,7 @@ server <- function(input, output, session) {
     render_freq_ui(freq_col_df(), paste0("Column variable: ", input$col_var), nrow(dat))
   })
   
-  # ---------- Cross-tab base table ----------
+  # ---- Cross-tab counts ----
   ctab_counts <- reactive({
     dat <- filtered()
     rv <- input$row_var
@@ -529,108 +650,66 @@ server <- function(input, output, session) {
     table(rowx, colx)
   })
   
-  # helper: render cross-tab with bold margins if shown
-  render_ctab_html <- function(df, bold_margins = FALSE) {
-    nR <- nrow(df)
-    nC <- ncol(df)
-    
-    tags$table(
-      class = "simple",
-      tags$thead(tags$tr(lapply(names(df), tags$th))),
-      tags$tbody(
-        lapply(seq_len(nR), function(i) {
-          tags$tr(
-            lapply(seq_len(nC), function(j) {
-              val <- df[i, j]
-              is_margin_cell <- bold_margins && (
-                (i == nR) || (j == nC && names(df)[j] != "Row")
-              )
-              if (is_margin_cell) tags$td(tags$strong(val)) else tags$td(val)
-            })
-          )
-        })
-      )
-    )
-  }
-  
   output$ct_counts_ui <- renderUI({
     tab <- ctab_counts()
     dat <- filtered()
     
     if (nrow(dat) == 0) {
-      return(div(class="small", "No rows after filters. Try widening date range or removing the severity filter."))
+      return(div(class="small", "No rows after filters. Try widening the date range."))
     }
     if (is.null(tab) || length(tab) == 0 || sum(tab) == 0) {
       return(div(class="small", "No usable data for this cross-tab (possibly all missing after settings)."))
     }
     
-    df <- tab_to_df(tab, add_margins = isTRUE(input$show_margins))
-    df <- cbind(Row = rownames(df), df, stringsAsFactors = FALSE)
-    rownames(df) <- NULL
+    df <- tab_to_df_counts(tab, add_margins = isTRUE(input$show_margins))
     
     tagList(
       div(class="tbl-wrap",
-          render_ctab_html(df, bold_margins = isTRUE(input$show_margins))
+          render_table_bold_margins(df, bold_margins = isTRUE(input$show_margins))
       ),
       div(class="small", style="margin-top:8px;",
-          paste0("Total (usable) in table: ", sum(tab)))
+          paste0("Total (usable) in base table: ", sum(tab)))
     )
   })
   
-  # ---------- Percent cross-tab ----------
-  ctab_pct_df <- reactive({
-    tab <- ctab_counts()
-    if (is.null(tab) || sum(tab) == 0) return(NULL)
-    
-    ptype <- input$pct_type %||% "table"
-    ptab <- percent_table(tab, type = ptype)
-    
-    if (isTRUE(input$show_margins)) {
-      ptab <- addmargins(ptab)
-    }
-    
-    df <- as.data.frame.matrix(ptab, stringsAsFactors = FALSE)
-    df <- cbind(Row = rownames(df), df, stringsAsFactors = FALSE)
-    rownames(df) <- NULL
-    
-    digits <- input$pct_digits %||% 1
-    out <- df
-    for (j in seq_along(out)) {
-      if (names(out)[j] == "Row") next
-      out[[j]] <- ifelse(
-        is.na(out[[j]]),
-        "",
-        sprintf(paste0("%.", digits, "f%%"), as.numeric(out[[j]]))
-      )
-    }
-    out
-  })
-  
+  # ---- Cross-tab percentages (meaningful totals based on counts) ----
   output$ct_pct_ui <- renderUI({
-    df <- ctab_pct_df()
-    dat <- filtered()
     tab <- ctab_counts()
+    dat <- filtered()
     
     if (nrow(dat) == 0) {
-      return(div(class="small", "No rows after filters. Try widening date range or removing the severity filter."))
+      return(div(class="small", "No rows after filters. Try widening the date range."))
     }
-    if (is.null(tab) || sum(tab) == 0 || is.null(df) || nrow(df) == 0) {
+    if (is.null(tab) || sum(tab) == 0) {
       return(div(class="small", "No usable data for percent table (possibly all missing after settings)."))
     }
     
     ptype <- input$pct_type %||% "table"
+    digits <- input$pct_digits %||% 1
+    
+    df <- percent_df_with_margins(
+      tab,
+      type = ptype,
+      digits = digits,
+      add_margins = isTRUE(input$show_margins)
+    )
+    
+    if (is.null(df) || nrow(df) == 0) {
+      return(div(class="small", "No usable percent table."))
+    }
+    
     expl <- if (ptype == "row") {
-      "Row %: each row sums to ~100% (conditional on row)."
+      "Row %: each row sums to ~100%. The Total row is based on overall counts (sums to ~100% across columns)."
     } else if (ptype == "col") {
-      "Column %: each column sums to ~100% (conditional on column)."
+      "Column %: each column sums to ~100%. The Total column is based on overall counts (sums to ~100% down rows)."
     } else {
-      "Table %: the whole table sums to ~100% (overall share)."
+      "Table %: each cell is a share of the grand total; totals reflect overall shares."
     }
     
     tagList(
       div(class="small", style="margin-bottom:8px;", expl),
       div(class="tbl-wrap",
-          render_ctab_html(df, bold_margins = isTRUE(input$show_margins))
+          render_table_bold_margins(df, bold_margins = isTRUE(input$show_margins))
       ),
       div(class="small", style="margin-top:8px;",
           paste0("Total (usable) in base count table: ", sum(tab)))

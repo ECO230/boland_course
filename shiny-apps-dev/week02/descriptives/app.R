@@ -78,7 +78,6 @@ acc <- read_csv(acc_path, show_col_types = FALSE) %>%
     duration_mins
   )
 
-
 # ---- Unique ID column ----
 ID_COL <- "ID"
 if (!ID_COL %in% names(acc)) {
@@ -196,7 +195,7 @@ ui <- fluidPage(
           
           selectInput("var", "Numeric variable", choices = num_vars),
           
-          # NEW: Pick which categorical field to filter
+          # Pick which categorical field to filter
           selectInput(
             "cat_var",
             "Categorical filter field",
@@ -212,7 +211,7 @@ ui <- fluidPage(
             selected = "None"
           ),
           
-          # NEW: levels picker appears dynamically
+          # levels picker appears dynamically
           uiOutput("cat_level_ui"),
           
           # Date filter (uses derived start_time)
@@ -229,6 +228,17 @@ ui <- fluidPage(
           hr(),
           
           checkboxInput("show_mean_median", "Show mean/median lines (where applicable)", TRUE),
+          
+          # NEW: SD whisker overlay
+          checkboxInput("show_sd_whisker", "Show ±k SD whisker (centered on mean)", value = FALSE),
+          radioButtons(
+            "sd_k",
+            "k (standard deviations)",
+            choices = c("1 SD" = 1, "2 SD" = 2, "3 SD" = 3),
+            selected = 1,
+            inline = TRUE
+          ),
+          
           textInput("pct_list", "Percentile lines (comma-separated)", value = "10,25,50,75,90"),
           checkboxInput("show_percentiles", "Show percentile lines", value = FALSE),
           checkboxInput("shade_iqr", "Shade IQR region (25th–75th)", value = FALSE),
@@ -330,13 +340,43 @@ ui <- fluidPage(
 # ---- Server ----
 server <- function(input, output, session) {
   
-  # NEW: dynamic UI for level selection based on chosen categorical field
+  # Helper: draw a ±k SD whisker bar at the top of a plot
+  add_sd_whisker_top <- function(p, m, s, k = 1, y_top,
+                                 cap_height = 0.06,
+                                 color = "#7C3AED",
+                                 linewidth = 1.25,
+                                 linetype = "solid") {
+    if (!is.finite(m) || !is.finite(s) || s <= 0 || !is.finite(y_top)) return(p)
+    
+    x0 <- m - k * s
+    x1 <- m + k * s
+    
+    p +
+      annotate("segment",
+               x = x0, xend = x1,
+               y = y_top, yend = y_top,
+               color = color, linewidth = linewidth, linetype = linetype) +
+      annotate("segment",
+               x = x0, xend = x0,
+               y = y_top - cap_height, yend = y_top + cap_height,
+               color = color, linewidth = linewidth) +
+      annotate("segment",
+               x = x1, xend = x1,
+               y = y_top - cap_height, yend = y_top + cap_height,
+               color = color, linewidth = linewidth) +
+      annotate("segment",
+               x = m, xend = m,
+               y = y_top - cap_height * 0.9, yend = y_top + cap_height * 0.9,
+               color = color, linewidth = linewidth)
+  }
+  
+  # Dynamic UI for level selection based on chosen categorical field
   output$cat_level_ui <- renderUI({
     req(input$cat_var)
     
     if (identical(input$cat_var, "None")) return(NULL)
     
-    # Use date-filtered data for available levels (feels consistent)
+    # Use date-filtered data for available levels
     dat0 <- acc
     if (!is.null(input$dates)) {
       dat0 <- dat0 %>%
@@ -362,7 +402,7 @@ server <- function(input, output, session) {
     )
   })
   
-  # Optional nicety: if user selects specific levels, drop "All"
+  # If user selects specific levels, drop "All"
   observeEvent(input$cat_levels, {
     lvls <- input$cat_levels
     if (is.null(lvls)) return()
@@ -508,7 +548,8 @@ server <- function(input, output, session) {
     paste0(
       "Notes\n",
       "Trim: ", if (tp > 0) paste0(round(tp * 100), "% each tail") else "off", "\n",
-      "Mean/median lines: ", if (isTRUE(input$show_mean_median)) "on" else "off"
+      "Mean/median lines: ", if (isTRUE(input$show_mean_median)) "on" else "off", "\n",
+      "±k SD whisker: ", if (isTRUE(input$show_sd_whisker)) paste0("on (k=", input$sd_k, ")") else "off"
     )
   })
   
@@ -555,6 +596,7 @@ server <- function(input, output, session) {
       "Notes\n",
       "Trim: ", if (tp > 0) paste0(round(tp * 100), "% each tail") else "off", "\n",
       "Mean/median lines: ", if (isTRUE(input$show_mean_median)) "on" else "off", "\n",
+      "±k SD whisker: ", if (isTRUE(input$show_sd_whisker)) paste0("on (k=", input$sd_k, ")") else "off", "\n",
       "IQR shading: ", if (isTRUE(input$shade_iqr)) "on" else "off", "\n",
       "Percentile lines: ", if (isTRUE(input$show_percentiles)) "on" else "off"
     )
@@ -677,6 +719,35 @@ server <- function(input, output, session) {
         geom_vline(xintercept = md, color = "#111111", linewidth = 1.1) +
         geom_vline(xintercept = m,  color = "#22A06B", linewidth = 1.1, linetype = "dashed")
     }
+    
+    # SD whisker at top (centered on mean)
+    if (isTRUE(input$show_sd_whisker) && length(x) > 1) {
+      k <- as.numeric(input$sd_k %||% 1)
+      s <- sd(x)
+      y_top <- max(df$y, na.rm = TRUE) + 1.5
+      
+      p <- p +
+        coord_cartesian(clip = "off") +
+        theme(plot.margin = margin(10, 10, 20, 10))
+      
+      p <- add_sd_whisker_top(
+        p, m = m, s = s, k = k, y_top = y_top,
+        cap_height = 0.8,
+        color = "#7C3AED",
+        linewidth = 1.35
+      ) +
+        annotate(
+          "label",
+          x = m, y = y_top + 2.2,
+          label = paste0("±", k, " SD"),
+          label.size = 0,
+          fill = "white",
+          color = "#7C3AED",
+          size = 4.0,
+          fontface = "bold"
+        )
+    }
+    
     p
   })
   
@@ -703,8 +774,10 @@ server <- function(input, output, session) {
     m <- mean(x)
     md <- median(x)
     
+    bins_used <- 35
+    
     g <- ggplot(df, aes(x)) +
-      geom_histogram(bins = 35, fill = "#2b6cb0", color = "white") +
+      geom_histogram(bins = bins_used, fill = "#2b6cb0", color = "white") +
       labs(x = v, y = "Count") +
       theme_minimal(base_size = 13)
     
@@ -725,6 +798,37 @@ server <- function(input, output, session) {
     if (isTRUE(input$show_percentiles) && !is.null(pv) && nrow(pv) > 0) {
       g <- g + geom_vline(xintercept = pv$value, color = "#C62828", linewidth = 1)
     }
+    
+    # SD whisker at top (centered on mean)
+    if (isTRUE(input$show_sd_whisker) && length(x) > 1) {
+      k <- as.numeric(input$sd_k %||% 1)
+      s <- sd(x)
+      
+      h <- hist(x, breaks = bins_used, plot = FALSE)
+      y_top <- max(h$counts, na.rm = TRUE) * 1.05
+      
+      g <- g +
+        coord_cartesian(clip = "off") +
+        theme(plot.margin = margin(10, 10, 20, 10))
+      
+      g <- add_sd_whisker_top(
+        g, m = m, s = s, k = k, y_top = y_top,
+        cap_height = max(1, y_top * 0.03),
+        color = "#7C3AED",
+        linewidth = 1.35
+      ) +
+        annotate(
+          "label",
+          x = m, y = y_top * 1.08,
+          label = paste0("±", k, " SD"),
+          label.size = 0,
+          fill = "white",
+          color = "#7C3AED",
+          size = 4.0,
+          fontface = "bold"
+        )
+    }
+    
     g
   })
   
@@ -804,8 +908,32 @@ server <- function(input, output, session) {
       p <- p + geom_vline(xintercept = m, color = "#22A06B", linewidth = 1.1, linetype = "dashed")
     }
     
+    # SD whisker at top (centered on mean)
+    if (isTRUE(input$show_sd_whisker) && length(x) > 1) {
+      k <- as.numeric(input$sd_k %||% 1)
+      s <- sd(x)
+      y_top <- 1 + 0.23
+      
+      p <- add_sd_whisker_top(
+        p, m = m, s = s, k = k, y_top = y_top,
+        cap_height = 0.03,
+        color = "#7C3AED",
+        linewidth = 1.35
+      ) +
+        annotate(
+          "label",
+          x = m, y = y_top + 0.05,
+          label = paste0("±", k, " SD"),
+          label.size = 0,
+          fill = "white",
+          color = "#7C3AED",
+          size = 4.0,
+          fontface = "bold"
+        )
+    }
+    
     p +
-      scale_y_continuous(NULL, breaks = NULL, limits = c(1 - 0.28, 1 + 0.28)) +
+      scale_y_continuous(NULL, breaks = NULL, limits = c(1 - 0.28, 1 + 0.33)) +
       labs(x = v, y = NULL) +
       theme_minimal(base_size = 13) +
       theme(panel.grid.major.y = element_blank(),
