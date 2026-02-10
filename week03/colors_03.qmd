@@ -1,0 +1,466 @@
+---
+title: "Week 2 — Descriptive Measures"
+author: "Michael Boland"
+format:
+  revealjs:
+    theme:
+      - default
+      - ../shared/styles/boland-reveal.scss
+    css: ../shared/styles/accessibility.css
+    slide-number: true
+    hash: true
+    center: false   # top-align content to match your minimalist style
+    transition: fade
+    toc: false
+execute:
+  echo: false
+  warning: false
+  message: false
+bibliography: []
+---
+
+
+
+
+## Visual Perception
+
+<!-- ============ COLORS (always visible first) ============ -->
+
+::: {.absolute top=90 left=360 width="180" style="text-align:center;"}
+<span style="font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial;
+             font-size:22px; font-style:italic;">
+Subtle Colors
+</span>
+:::
+
+::: {.absolute top=90 left=540 width="180" style="text-align:center;"}
+<span style="font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial;
+             font-size:22px; font-style:italic;">
+Vivid Colors
+</span>
+:::
+
+<!-- Subtle swatches (taller) -->
+::: {.absolute top=130 left=380 width="140" height="60"}
+<div style="width:140px; height:60px; background:#c7bf9b;"></div>
+:::
+
+::: {.absolute top=198 left=380 width="140" height="60"}
+<div style="width:140px; height:60px; background:#b9cbe3;"></div>
+:::
+
+::: {.absolute top=266 left=380 width="140" height="60"}
+<div style="width:140px; height:60px; background:#e7bcbc;"></div>
+:::
+
+::: {.absolute top=334 left=380 width="140" height="60"}
+<div style="width:140px; height:60px; background:#d6e3bd;"></div>
+:::
+
+::: {.absolute top=402 left=380 width="140" height="60"}
+<div style="width:140px; height:60px; background:#f3cfac;"></div>
+:::
+
+::: {.absolute top=470 left=380 width="140" height="60"}
+<div style="width:140px; height:60px; background:#cfc7df;"></div>
+:::
+
+
+<!-- Vivid swatches (taller) -->
+::: {.absolute top=130 left=560 width="140" height="60"}
+<div style="width:140px; height:60px; background:#f2f200;"></div>
+:::
+
+::: {.absolute top=198 left=560 width="140" height="60"}
+<div style="width:140px; height:60px; background:#0077cc;"></div>
+:::
+
+::: {.absolute top=266 left=560 width="140" height="60"}
+<div style="width:140px; height:60px; background:#e60000;"></div>
+:::
+
+::: {.absolute top=334 left=560 width="140" height="60"}
+<div style="width:140px; height:60px; background:#00a94f;"></div>
+:::
+
+::: {.absolute top=402 left=560 width="140" height="60"}
+<div style="width:140px; height:60px; background:#f28c28;"></div>
+:::
+
+::: {.absolute top=470 left=560 width="140" height="60"}
+<div style="width:140px; height:60px; background:#6a2ca0;"></div>
+:::
+
+
+<!-- ============ SAVANNAH + OATMEAL (appear next) ============ -->
+<!-- Quarto absolute positioning on images: ![](path){.absolute top=... left=...} [1](https://github.com/orgs/quarto-dev/discussions/1160)[2](https://quarto.org/docs/presentations/revealjs/advanced.html) -->
+<!-- Fragment ordering uses index (Reveal uses data-fragment-index) [3](https://revealjs.com/fragments/) -->
+
+![](media/images/w2_savannah1.jpeg){.absolute .fragment fragment-index=1 top=100 left=4 width="320"}
+
+![](media/images/w2_oatmeal.jpeg){.absolute .fragment fragment-index=1 top=300 left=50 width="240"}
+
+![](media/images/w2_savannah2.jpeg){.absolute .fragment fragment-index=1 top=480 left=4 width="340"}
+
+
+<!-- ============ DANGEROUS ITEMS (appear last) ============ -->
+
+![](media/images/w2_hornet.jpeg){.absolute .fragment fragment-index=2 top=60 right=70 width="180"}
+
+![](media/images/w2_snek.jpeg){.absolute .fragment fragment-index=2 top=200 right=5 width="165"}
+
+![](media/images/w2_frog.jpeg){.absolute .fragment fragment-index=2 top=245 right=155 width="165"}
+
+![](media/images/w2_blue_shell.jpeg){.absolute .fragment fragment-index=2 top=360 right=190 width="135"}
+
+![](media/images/w2_maimed.jpeg){.absolute .fragment fragment-index=2 top=400 right=5 width="165"}
+
+
+## Gestalt Principle { 
+  data-background-image="media/images/w2_gestault_plain.png"
+  data-background-size="contain"
+  data-background-position="center"
+  data-background-repeat="no-repeat"
+}
+
+
+
+## Slide Title { 
+  data-background-image="media/images/w2_gestault_context.png"
+  data-background-size="contain"
+  data-background-position="center"
+  data-background-repeat="no-repeat"
+}
+
+## wheep
+
+```{r}
+library(tidyverse)
+library(patchwork)
+
+# ---- Load (as requested) ----
+COURSE_ROOT <- "/data/junior/boland_course"
+nfl_path <- file.path(COURSE_ROOT, "shared", "data", "nfl_special_MasonCrosby.csv")
+df <- readr::read_csv(nfl_path, show_col_types = FALSE)  # [1](https://uwlax-my.sharepoint.com/personal/mboland_uwlax_edu/_layouts/15/Doc.aspx?sourcedoc=%7B9C535DD1-7535-401A-A565-7B8E2DD9C41D%7D&file=nfl_special_MasonCrosby.csv&action=default&mobileredirect=true)
+
+# ---- Prep: filter + summarise ----
+plot_df <- df %>%
+  filter(
+    specialTeamsPlayType == "Field Goal",
+    quarter %in% 1:4,
+    specialTeamsResult %in% c("Kick Attempt Good", "Kick Attempt No Good")
+  ) %>%
+  mutate(
+    quarter = factor(quarter, levels = 1:4, labels = paste0("Q", 1:4)),
+    specialTeamsResult = factor(
+      specialTeamsResult,
+      levels = c("Kick Attempt Good", "Kick Attempt No Good")
+    )
+  ) %>%
+  group_by(quarter, specialTeamsResult) %>%
+  summarise(
+    mean_yardline = mean(yardlineNumber, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# ---- Shared plot spec (data/encoding identical across all 3) ----
+# Key changes:
+#  - fixed y range 15-35
+#  - extra padding left/right via scale_x_discrete(expand=...)
+#  - shared title/legend/y-label handled later via patchwork
+base_plot <- ggplot(
+  plot_df,
+  aes(
+    x = quarter,
+    y = mean_yardline,
+    color = specialTeamsResult,
+    group = specialTeamsResult
+  )
+) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2.6) +
+  scale_color_manual(
+    values = c(
+      "Kick Attempt Good"   = "#2E7D32",  # green
+      "Kick Attempt No Good"= "#1565C0"   # blue
+    )
+  ) +
+  # --- axis tuning ---
+  scale_y_continuous(
+    limits = c(15, 35),
+    breaks = seq(15, 35, by = 5)
+  ) +
+  # Add buffer before Q1 and after Q4 (discrete expansion in "category steps")
+  scale_x_discrete(expand = expansion(add = 0.6)) +
+  labs(x = NULL, y = NULL, color = NULL) +
+  theme(
+    legend.position = "bottom",
+    plot.title.position = "plot"
+  )
+
+# ---- Panel 1: Full grid ----
+p_full_grid <- base_plot +
+  theme_bw(base_size = 12) +
+  theme(
+    panel.grid.major = element_line(color = "grey70", linewidth = 0.5),
+    panel.grid.minor = element_line(color = "grey85", linewidth = 0.35)
+  ) +
+  labs(subtitle = "Full grid")
+
+# ---- Panel 2: Bold axes ----
+p_bold_axes <- base_plot +
+  theme_classic(base_size = 12) +
+  theme(
+    axis.line = element_line(linewidth = 1.35, color = "black"),
+    axis.ticks = element_line(linewidth = 1.35, color = "black"),
+    axis.ticks.length = unit(6, "pt"),
+    panel.grid = element_blank()
+  ) +
+  labs(subtitle = "Bold axes")
+
+# ---- Panel 3: Minimal axes (no gridlines) ----
+p_minimal_axes <- base_plot +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid = element_blank(),
+    axis.line = element_blank(),
+    axis.ticks = element_line(color = "grey35", linewidth = 0.7),
+    axis.ticks.length = unit(4, "pt"),
+    axis.text = element_text(color = "grey20")
+  ) +
+  labs(subtitle = "Minimal axes")
+
+# ---- Shared title, shared y-label (left only), single legend (collected) ----
+# - Put title only on the first plot
+# - Put y-axis label only on the first plot
+# - Collect legend across all panels (one legend total)
+p_full_grid <- p_full_grid +
+  labs(
+    title = "Mean Field Goal Yardline by Quarter",
+    y = "Mean yardlineNumber"
+  ) +
+  theme(
+    axis.title.y = element_text(margin = margin(r = 8), face = "bold"),
+    plot.title = element_text(face = "bold", size = 14)
+  )
+
+(p_full_grid | p_bold_axes | p_minimal_axes) +
+  plot_layout(guides = "collect") &
+  theme(legend.position = "bottom")
+```
+
+## test 2
+
+```{r}
+
+library(tidyverse)
+
+if (!requireNamespace("patchwork", quietly = TRUE)) install.packages("patchwork")
+library(patchwork)
+
+if (!requireNamespace("ggplotify", quietly = TRUE)) install.packages("ggplotify")
+library(ggplotify)
+
+# ---- Load (your path) ----
+COURSE_ROOT <- "/data/junior/boland_course"
+nfl_path <- file.path(COURSE_ROOT, "shared", "data", "nfl_special_MasonCrosby.csv")
+df <- readr::read_csv(nfl_path, show_col_types = FALSE)  # columns exist in file [1](https://www.rdocumentation.org/packages/barplot3d/versions/1.0.1/topics/bar3d)
+
+# ---- Weeks: 1-6 and 8 (replace week 7 with week 8) ----
+weeks_keep <- c(1:6, 8)
+
+# ---- Data: mean yardlineNumber by week (Field Goal + Kick Attempt Good) ----
+week_df <- df %>%
+  filter(
+    specialTeamsPlayType == "Field Goal",
+    specialTeamsResult == "Kick Attempt Good",
+    week %in% weeks_keep,
+    !is.na(yardlineNumber)
+  ) %>%
+  group_by(week) %>%
+  summarise(mean_yardline = mean(yardlineNumber, na.rm = TRUE), .groups = "drop") %>%
+  tidyr::complete(week = weeks_keep) %>%
+  arrange(week) %>%
+  mutate(
+    week = factor(week, levels = weeks_keep, labels = paste0("W", weeks_keep))
+  )
+
+# ---- Color palettes ----
+# Top-left vivid palette to match your previous slide:
+# yellow, blue, red, green, orange, purple + magenta for the 7th category
+bar_vivid_cols <- c(
+  "W1" = "#F2F200",  # vivid yellow
+  "W2" = "#0077CC",  # vivid blue
+  "W3" = "#E60000",  # vivid red
+  "W4" = "#00A94F",  # vivid green
+  "W5" = "#F28C28",  # vivid orange
+  "W6" = "#6A2CA0",  # vivid purple
+  "W8" = "#FF3DB8"   # vivid magenta (extra category)
+)
+
+# Pie palette: like the example, but with THREE similar blues to confuse comparison
+pie_cols <- c(
+  "W1" = "#1f5a8a",  # deep blue
+  "W2" = "#2f6fa3",  # blue (close)
+  "W3" = "#4a90d9",  # light blue (close)
+  "W4" = "#f28c28",  # orange
+  "W5" = "#bdbdbd",  # gray
+  "W6" = "#f2c200",  # yellow/gold
+  "W8" = "#6aa84f"   # green
+)
+
+subtle_col <- "#c7bf9b"
+
+# Consistent margins so tiles feel equal-ish
+panel_margin <- theme(plot.margin = margin(10, 10, 10, 10))
+
+# A "classic axis" theme: no grid, show x/y axis lines
+theme_axes_clean <- theme_classic(base_size = 14) +
+  theme(
+    panel.grid = element_blank(),
+    axis.line  = element_line(linewidth = 0.9, color = "grey60"),
+    axis.ticks = element_line(linewidth = 0.8, color = "grey60"),
+    axis.text.x = element_text(color = "grey60"),
+    axis.text.y = element_text(color = "grey60"),
+    axis.title.x = element_text(color = "grey60"),
+    axis.title.y = element_text(color = "grey60")
+  )
+
+# =========================
+# TOP-LEFT: vivid bar chart (no grid, axis lines)
+# =========================
+p_bar_vivid <- ggplot(week_df, aes(x = week, y = mean_yardline, fill = week)) +
+  geom_col(width = 0.75, na.rm = TRUE) +
+  scale_fill_manual(values = bar_vivid_cols, drop = FALSE) +
+  labs(
+    title = "Same data, many charts",
+    subtitle = "Bar chart (vivid colors)",
+    x = NULL,
+    y = "Mean yardlineNumber"
+  ) +
+  theme_axes_clean +
+  theme(legend.position = "none", plot.title = element_text(face = "bold")) +
+  theme(
+    axis.text.x = element_text(color = "grey60",
+                               axis.text.y = element_text(color = 'grey60')
+                          )  # re-assert if needed
+  ) +
+  panel_margin
+
+# =========================
+# TOP-RIGHT: pie + in-tile key (with confusing similar blues)
+# =========================
+p_pie_only <- ggplot(week_df, aes(x = "", y = mean_yardline, fill = week)) +
+  geom_col(width = 1, color = "white", linewidth = 0.8, na.rm = TRUE) +
+  coord_polar(theta = "y") +
+  scale_fill_manual(values = pie_cols, drop = FALSE) +
+  labs(subtitle = "Pie chart (similar blues)") +
+  theme_void(base_size = 14) +
+  theme(
+    legend.position = "none",
+    plot.subtitle = element_text(hjust = 0.5)
+  ) +
+  panel_margin
+
+key_df <- tibble(
+  week  = factor(levels(week_df$week), levels = levels(week_df$week)),
+  y     = rev(seq_along(week)),
+  label = as.character(week)
+)
+
+p_key_in_tile <- ggplot(key_df, aes(x = 1, y = y, fill = week)) +
+  geom_tile(width = 0.65, height = 0.85) +
+  geom_text(aes(label = label), hjust = -0.15, size = 4) +
+  scale_fill_manual(values = pie_cols, drop = FALSE) +
+  coord_cartesian(xlim = c(0.7, 2.3), clip = "off") +
+  theme_void(base_size = 14) +
+  theme(legend.position = "none", plot.margin = margin(10, 10, 10, 10))
+
+p_pie_tile <- (p_pie_only | p_key_in_tile) + plot_layout(widths = c(3.2, 1.3))
+
+# =========================
+# BOTTOM-LEFT: fake 3D transparent bar chart (tilted, baseline at 0)
+# =========================
+p_bar_3d_bad <- ggplotify::as.ggplot(function() {
+
+  op <- par(no.readonly = TRUE)
+  on.exit(par(op), add = TRUE)
+
+  vals <- week_df$mean_yardline
+  labs <- as.character(week_df$week)
+  k <- length(labs)
+
+  vals0 <- ifelse(is.na(vals), 0, vals)
+
+  # perspective controls
+  dx <- 0.85
+  dy <- 4.75
+
+  y_max <- max(vals0) + dy + 6
+  x_min <- 0.4
+  x_max <- k + 1.6
+
+  par(mar = c(7, 4, 3, 1), las = 2, cex.axis = 0.9)
+
+  plot(NA, xlim = c(x_min, x_max), ylim = c(0, y_max),
+       xlab = "", ylab = "", axes = FALSE,
+       main = "3D bar (more junk, less clarity)")
+
+  polygon(
+    x = c(x_min, x_max - 0.2, x_max - 0.2 + dx, x_min + dx),
+    y = c(0,    0,           dy,              dy),
+    col = adjustcolor("grey60", alpha.f = 0.22),
+    border = adjustcolor("grey60", alpha.f = 0.12)
+  )
+
+  for (i in seq_len(k)) {
+    segments(i - 0.40, 0, i - 0.40 + dx, dy,
+             col = adjustcolor("grey60", alpha.f = 0.12), lty = 3)
+  }
+
+  axis(2, col = "grey60", lwd = 1.2)
+  axis(1, at = 1:k, labels = labs, tick = TRUE, lwd = 0.8)
+
+  for (i in seq_len(k)) {
+    x0 <- i - 0.30
+    x1 <- i + 0.30
+    h  <- vals0[i]
+
+    front_col <- adjustcolor("#2E8B57", alpha.f = 0.28)
+    side_col  <- adjustcolor("#145A32", alpha.f = 0.20)
+    top_col   <- adjustcolor("#7DCEA0", alpha.f = 0.42)
+    edge_col  <- adjustcolor("black", alpha.f = 0.12)
+
+    polygon(c(x0, x1, x1, x0), c(0, 0, h, h), col = front_col, border = edge_col)
+    polygon(c(x1, x1 + dx, x1 + dx, x1), c(0, dy, h + dy, h),
+            col = side_col, border = edge_col)
+    polygon(c(x0, x1, x1 + dx, x0 + dx), c(h, h, h + dy, h + dy),
+            col = top_col, border = edge_col)
+  }
+})
+
+# =========================
+# BOTTOM-RIGHT: subtle bar chart (no grid, axis lines)
+# =========================
+p_bar_subtle <- ggplot(week_df, aes(x = week, y = mean_yardline)) +
+  geom_col(width = 0.75, fill = subtle_col, na.rm = TRUE) +
+  labs(subtitle = "Bar chart (one subtle color)", x = NULL, y = NULL) +
+  theme_axes_clean +
+  theme(legend.position = "none") +
+  theme(
+    axis.text.x = element_text(color = "grey60",
+                               axis.text.y = element_text(color = 'grey60')
+                          )  # re-assert if needed
+  ) +
+  panel_margin
+
+# =========================
+# 2×2 layout
+# =========================
+final_plot <- (p_bar_vivid | p_pie_tile) / (p_bar_3d_bad | p_bar_subtle) +
+  plot_layout(widths = c(1, 1), heights = c(1, 1))
+
+final_plot
+
+```
+
