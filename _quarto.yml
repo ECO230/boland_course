@@ -19,12 +19,17 @@ website:
             file: week01/week_01.qmd
           - text: "Week 2"
             file: week02/week_02.qmd
+          - text: "Week 3"
+            file: week03/week_03.qmd
       - text: "Homework"
         menu:
           - text: "Homework 1"
             file: week01/Homework_01.qmd
           - text: "Homework 2"
             file: week02/Homework_02.qmd
+          - text: "Homework 3"
+            file: week03/Homework_03.qmd
+
 
 format:
   html:

@@ -29,10 +29,10 @@ This assignment helps you practice the Week 2 question:
 
 You will build **summary tables only** (no charts yet) to describe:
 
-- **Size** (counts, missingness)
-- **Center** (mean or median)
-- **Shape** (spread: SD or IQR; optional percentiles)
-- **Relationships** (categorical ↔ categorical; continuous ↔ categorical)
+-   **Size** (counts, missingness)
+-   **Center** (mean or median)
+-   **Shape** (spread: SD or IQR; optional percentiles)
+-   **Relationships** (categorical ↔ categorical; continuous ↔ categorical)
 
 You will also reflect briefly on how to use AI responsibly to **accelerate—not replace—your thinking**.
 :::
@@ -41,7 +41,7 @@ You will also reflect briefly on how to use AI responsibly to **accelerate—not
 
 -   Produce clean **summary tables** (no charts)
 -   Choose statistics that match the **measurement scale (NOIR)**
--   Keep denominators straight (**N**, *n\_eligible*, *n\_non-missing*)
+-   Keep denominators straight (**N**, *n_eligible*, *n_non-missing*)
 -   Describe relationships using **group summaries** and **cross-tabs**
 -   Communicate results clearly with labels, units, and stated assumptions
 -   Reflect on **responsible AI use** in data work
@@ -55,8 +55,8 @@ You will also reflect briefly on how to use AI responsibly to **accelerate—not
 ::: {.callout-tip appearance="minimal" icon="false" title="Important"}
 This assignment is graded for **clear, careful completion**.
 
-- **No charts** this week.
-- Your job is to be explicit and disciplined about **what one row represents**, **what your denominators are**, and **which summaries are meaningful**.
+-   **No charts** this week.
+-   Your job is to be explicit and disciplined about **what one row represents**, **what your denominators are**, and **which summaries are meaningful**.
 :::
 
 ------------------------------------------------------------------------
@@ -110,7 +110,7 @@ Create a grouped summary table using:
 Your table must include:
 
 -   Group name
--   **n\_non-missing** for the measure
+-   **n_non-missing** for the measure
 -   A measure of **center** and/or measure of **spread** that matches your choice
 -   Any other information you feel is relevant.
 
@@ -137,7 +137,7 @@ Create a second grouped summary table, changing **at least one** of the followin
 Requirements are the same as Table 2:
 
 -   Group name
--   **n\_non-missing** for the measure
+-   **n_non-missing** for the measure
 -   A measure of **center** and/or measure of **spread** that matches your choice
 -   Any other information you feel is relevant.
 
@@ -152,6 +152,7 @@ Create a cross-tab using **two categorical variables**, each with **≥ 3 catego
 Your table must include:
 
 -   Cell **counts**
+
 -   **One** percentage type (choose one and label it clearly):
 
     -   **Row %** (conditional on row)
@@ -162,7 +163,7 @@ Your table must include:
 
 Below the table, write **one sentence** that states the denominator clearly:
 
-> “These percentages are calculated as ________, so each ______ totals to 100%.”
+> “These percentages are calculated as \_\_\_\_\_\_\_\_, so each \_\_\_\_\_\_ totals to 100%.”
 
 Remember from Week 2:
 
@@ -178,7 +179,7 @@ This is **not required**, but it is a strong way to explore whether two measures
 
 If you choose to include it, report:
 
--   **n\_non-missing** (pairs)
+-   **n_non-missing** (pairs)
 -   Correlation **r**
 -   1 sentence interpretation (direction + strength)
 
@@ -205,14 +206,13 @@ Strong examples:
 
 ## 8) Responsible Use of AI (Brief Reflection — Required)
 
-AI can help you move faster, but it must not make analytical decisions for you.
-Use AI only for clarification, rewriting, or troubleshooting.
+AI can help you move faster, but it must not make analytical decisions for you. Use AI only for clarification, rewriting, or troubleshooting.
 
 Write **4–6 sentences** responding to:
 
-**A.** How did you use AI on this assignment? *(If not at all, say so.)*  
-**B.** What did AI help with (specific steps)?  
-**C.** What did AI miss, oversimplify, or get wrong?  
+**A.** How did you use AI on this assignment? *(If not at all, say so.)*\
+**B.** What did AI help with (specific steps)?\
+**C.** What did AI miss, oversimplify, or get wrong?\
 **D.** Include **one prompt you used** and briefly note how it helped and where it fell short.
 
 Remember our goal:
@@ -229,7 +229,7 @@ Upload to Canvas:
 
     -   Tables 1–4 (and the optional correlation table if included)
     -   Your 3 takeaways
-    - Your brief AI reflection
+    -   Your brief AI reflection
 
 2.  Your supporting files (as applicable):
 
