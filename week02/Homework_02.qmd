@@ -1,0 +1,246 @@
+---
+title: "Homework 2: Exploratory Analysis"
+format:
+  html:
+    toc: false
+    number-sections: false
+execute:
+  echo: false
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+# Libraries used in this course
+library(tidyverse)
+library(tidyr)
+library(eco230r)
+library(ggplot2)
+library(knitr)
+library(Hmisc)
+
+# Turn off scientific notation for readability
+options(scipen = 999)
+```
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+This assignment helps you practice the Week 2 question:
+
+> **How do we clearly describe the data we have?**
+
+You will build **summary tables only** (no charts yet) to describe:
+
+-   **Size** (counts, missingness)
+-   **Center** (mean or median)
+-   **Shape** (spread: SD or IQR; optional percentiles)
+-   **Relationships** (categorical ↔ categorical; continuous ↔ categorical)
+
+You will also reflect briefly on how to use AI responsibly to **accelerate—not replace—your thinking**.
+:::
+
+## Objectives
+
+-   Produce clean **summary tables** (no charts)
+-   Choose statistics that match the **measurement scale (NOIR)**
+-   Keep denominators straight (**N**, *n_eligible*, *n_non-missing*)
+-   Describe relationships using **group summaries** and **cross-tabs**
+-   Communicate results clearly with labels, units, and stated assumptions
+-   Reflect on **responsible AI use** in data work
+
+## Resources
+
+-   Week 2 slides (Size, Center, Shape, Relationships; Percentage Problems)
+-   Week 1 slides (Unit of Analysis / Grain; Dimensions vs Measures; Tidy Data)
+-   Dataset description files on Canvas
+
+::: {.callout-tip appearance="minimal" icon="false" title="Important"}
+This assignment is graded for **clear, careful completion**.
+
+-   **No charts** this week.
+-   Your job is to be explicit and disciplined about **what one row represents**, **what your denominators are**, and **which summaries are meaningful**.
+:::
+
+------------------------------------------------------------------------
+
+## 1) Choose Your Dataset (Week 1)
+
+1.  Select **one** of the **four Week 1 datasets**.
+2.  You may keep the same dataset from Homework 1 or switch.
+3.  In your submission, state:
+
+-   Which dataset you used
+-   Any filters or cleaning steps (e.g., removing blanks, focusing on a date range)
+
+*(No written response required beyond the brief notes above.)*
+
+------------------------------------------------------------------------
+
+## 2) Tools (You May Mix and Match)
+
+Complete the tables using **Excel**, **Tableau**, **posit.cloud**, or any combination.
+
+-   This does **not** all have to be in one tool.
+-   Choose the tool(s) that best support the table you are trying to build.
+
+*(No written response required.)*
+
+------------------------------------------------------------------------
+
+## 3) Table 1 — Frequency Table (One Categorical Variable)
+
+Create a frequency table for **one categorical variable** (≥ 3–4 categories recommended).
+
+Your table must include:
+
+-   Category
+-   **Count (n)**
+-   **Percent of total**
+-   Any other information you feel is relevant.
+
+**Goal:** Describe the distribution. What shows up a lot? What is rare?
+
+------------------------------------------------------------------------
+
+## 4) Table 2 — Continuous ↔ Categorical (Choose the Right Summary)
+
+Create a grouped summary table using:
+
+-   **One continuous measure** (a numeric variable where arithmetic is meaningful)
+-   **One categorical dimension** (≥ 3 categories)
+
+Your table must include:
+
+-   Group name
+-   **n_non-missing** for the measure
+-   A measure of **center** and/or measure of **spread** that matches your choice
+-   Any other information you feel is relevant.
+
+Below the table, write **1–2 sentences** explaining why your choices are meaningful.
+
+> **Tables 2–3 are intentionally flexible:** your job is to decide what summary is most meaningful for your variables and explain why.
+
+Hint from Week 2:
+
+-   Mean/SD are most useful when the variable behaves like interval/ratio data with limited outliers.
+-   Median/IQR are most useful when data are skewed, have outliers, or when “typical” is better captured by the middle.
+
+------------------------------------------------------------------------
+
+## 5) Table 3 — Another Continuous ↔ Categorical Relationship (Different Angle)
+
+Create a second grouped summary table, changing **at least one** of the following:
+
+-   A different continuous measure, **or**
+-   A different categorical grouping, **or**
+-   A different summary choice (mean/SD vs median/IQR), **or**
+-   A different filter or frame (e.g., weekday vs weekend, before vs after a date)
+
+Requirements are the same as Table 2:
+
+-   Group name
+-   **n_non-missing** for the measure
+-   A measure of **center** and/or measure of **spread** that matches your choice
+-   Any other information you feel is relevant.
+
+**Goal:** Answer a different question than Table 2.
+
+------------------------------------------------------------------------
+
+## 6) Table 4 — Cross-Tab (Categorical ↔ Categorical) + Percentages
+
+Create a cross-tab using **two categorical variables**, each with **≥ 3 categories**.
+
+Your table must include:
+
+-   Cell **counts**
+
+-   **One** percentage type (choose one and label it clearly):
+
+    -   **Row %** (conditional on row)
+    -   **Column %** (conditional on column)
+    -   **Table %** (overall share)
+
+-   Row and column **totals** (margins)
+
+Below the table, write **one sentence** that states the denominator clearly:
+
+> “These percentages are calculated as \_\_\_\_\_\_\_\_, so each \_\_\_\_\_\_ totals to 100%.”
+
+Remember from Week 2:
+
+> Similar-sounding percentages can answer *different questions*. Make the numerator and denominator explicit.
+
+------------------------------------------------------------------------
+
+## (Optional) Continuous ↔ Continuous (Correlation Table)
+
+If your dataset includes **two continuous variables that might be related**, you may include **one small correlation table**.
+
+This is **not required**, but it is a strong way to explore whether two measures move together.
+
+If you choose to include it, report:
+
+-   **n_non-missing** (pairs)
+-   Correlation **r**
+-   1 sentence interpretation (direction + strength)
+
+*(Still no charts.)*
+
+------------------------------------------------------------------------
+
+## 7) Findings Summary (Required)
+
+Write **3 key takeaways** (about 5–10 sentences total).
+
+Each takeaway must:
+
+-   Reference a **specific table** and at least **one number** (value + category)
+-   Interpret what it implies (not just restate a statistic)
+
+Strong examples:
+
+-   “Group A has a higher median than Group B (Table 2), suggesting…"
+-   “Under row %, Category X is concentrated in Y (Table 4), meaning…"
+-   “Mean and median disagree (Table 3), which suggests skew/outliers…"
+
+------------------------------------------------------------------------
+
+## 8) Responsible Use of AI (Brief Reflection — Required)
+
+AI can help you move faster, but it must not make analytical decisions for you. Use AI only for clarification, rewriting, or troubleshooting.
+
+Write **4–6 sentences** responding to:
+
+**A.** How did you use AI on this assignment? *(If not at all, say so.)*\
+**B.** What did AI help with (specific steps)?\
+**C.** What did AI miss, oversimplify, or get wrong?\
+**D.** Include **one prompt you used** and briefly note how it helped and where it fell short.
+
+Remember our goal:
+
+> “Can you use AI responsibly to **accelerate—not replace—your thinking**?”
+
+------------------------------------------------------------------------
+
+## 9) Submission
+
+Upload to Canvas:
+
+1.  A **PDF or Word** document containing:
+
+    -   Tables 1–4 (and the optional correlation table if included)
+    -   Your 3 takeaways
+    -   Your brief AI reflection
+
+2.  Your supporting files (as applicable):
+
+    -   Excel: `.xlsx`
+    -   Tableau: `.twbx`
+    -   posit.cloud: knitted output (`.html` or `.pdf`) and your source file
+
+------------------------------------------------------------------------
+
+## Alignment to Course Outcomes
+
+-   **Choose the right analysis:** You match summaries to measurement scales (NOIR) and keep denominators explicit.
+-   **Interpret results in context:** Your takeaways connect tables to real questions the data can answer.
+-   **Explain limitations, assumptions, and uncertainty:** Your justifications and AI reflection surface constraints *before* conclusions.

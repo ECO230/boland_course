@@ -1,0 +1,807 @@
+---
+title: "Week 2 — Descriptive Measures"
+author: "Michael Boland"
+format:
+  revealjs:
+    theme:
+      - default
+      - ../shared/styles/boland-reveal.scss
+    css: ../shared/styles/accessibility.css
+    slide-number: true
+    hash: true
+    center: false   # top-align content to match your minimalist style
+    transition: fade
+    toc: false
+execute:
+  echo: false
+  warning: false
+  message: false
+bibliography: []
+---
+
+
+# Descriptive Measures
+*How do we clearly describe the data we have?*
+
+<br>
+
+```{r acc_load, echo=FALSE}
+library(shiny)
+library(dplyr)
+library(readr)
+library(lubridate)
+library(ggplot2)
+library(stringr)
+library(gt)
+library(here)
+
+set.seed(20260126)
+
+# Reusable GT slide theme
+source(here("shared","scripts","gt_boland.R"), local = TRUE)
+
+`%||%` <- function(a, b) if (!is.null(a)) a else b
+
+# ---- Load data ONCE at startup (LIMITED + DERIVED FIELDS) ----
+COURSE_ROOT <- "/data/junior/boland_course"
+acc_path <- file.path(COURSE_ROOT, "shared", "data", "accident_wi.csv")
+
+acc_mast <- read_csv(acc_path, show_col_types = FALSE) %>%
+  mutate(
+    # Clean raw time strings (handle blanks + extra whitespace)
+    Start_Time_clean = na_if(str_squish(Start_Time), ""),
+    End_Time_clean   = na_if(str_squish(End_Time), ""),
+    
+    # Robust parse (handles "m/d/Y H:M" and "m/d/Y H:M:S")
+    start_time = parse_date_time(
+      Start_Time_clean,
+      orders = c("mdy HM", "mdy HMS"),
+      tz = "America/Chicago"
+    ),
+    end_time = parse_date_time(
+      End_Time_clean,
+      orders = c("mdy HM", "mdy HMS"),
+      tz = "America/Chicago"
+    ),
+    
+    # ---- Season from start_time ----
+    season = case_when(
+      month(start_time) %in% 3:5  ~ "spring",
+      month(start_time) %in% 6:8  ~ "summer",
+      month(start_time) %in% 9:11 ~ "fall",
+      TRUE                        ~ "winter"
+    ),
+    
+    # ---- Time-of-day bins from start_time ----
+    time_of_day = case_when(
+      hour(start_time) >= 6  & hour(start_time) < 12 ~ "morning",  # 06:00–11:59
+      hour(start_time) >= 12 & hour(start_time) < 18 ~ "daytime",  # 12:00–17:59
+      hour(start_time) >= 18 & hour(start_time) < 24 ~ "evening",  # 18:00–23:59
+      TRUE                                           ~ "night"     # 00:00–05:59
+    ),
+    
+    # ---- Duration (minutes) ----
+    duration = end_time - start_time,
+    duration_mins = as.numeric(duration, units = "mins"),
+    
+    # Optional: ordered factors for nicer plots
+    season = factor(season, levels = c("spring", "summer", "fall", "winter")),
+    time_of_day = factor(time_of_day, levels = c("night", "morning", "daytime", "evening"))
+  ) %>%
+  # Keep ONLY the limited set you specified (PLUS start_time for date filtering)
+  select(
+    ID, Severity,
+    start_time,
+    end_time,
+    `Distance(mi)`,
+    `Temperature(F)`,
+    `Wind_Chill(F)`,
+    `Humidity(%)`,
+    `Pressure(in)`,
+    `Visibility(mi)`,
+    Wind_Direction,
+    `Wind_Speed(mph)`,
+    `Precipitation(in)`,
+    Weather_Condition,
+    Sunrise_Sunset,
+    season,
+    time_of_day,
+    duration_mins
+  )
+
+```
+
+# Why summarize?
+
+**Prompt:** *If you had 7,900 observations, what would you report first?*
+
+```{r}
+acc_mast %>%
+  slice_sample(n = 30) %>%
+  gt() %>%
+  gt_boland(base_size = 7, tight = TRUE)
+```
+
+
+
+## Measurement Scales
+
+![](../shared/images/NOIR.svg){width="100%" height="700px" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+
+## Measurement Scales
+::: columns
+::: {.column width="30%"}
+![](../shared/images/NOIR.svg){width="100%" height="700px" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+:::
+
+::: {.column width="70%"}
+```{r}
+acc_mast %>%
+  slice_sample(n = 30) %>%
+  select(Weather_Condition,time_of_day,`Temperature(F)`,`Distance(mi)`,start_time,) %>%
+  gt() %>%
+  gt_boland(base_size = 14, tight = TRUE)
+```
+:::
+
+:::
+
+## [Meaningful Summaries by Scale Type]{.sr-only}
+
+<br>
+
+::: {.callout-tip title="Quick check"}
+Which statistics are meaningful at each scale?
+:::
+
+<br>
+
+- Count works best for **Nominal / Ordinal** 
+- Median & Percentiles work best for **Ordinal+**.
+- Mean & Standard Deviation work best for **Interval / Ratio**.
+
+<br>
+
+::: fragment
+
+::: {.callout-important title="Textbook vs Real World"}
+These rules are bent often; the real world is messy
+:::
+
+:::
+
+## When SUM is meaningful {background-image="../shared/images/sum_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="N"}
+
+<br>
+
+- The variable is **additive**  
+- Units can be **totaled** (minutes, dollars, people, rows)  
+- **0** means 'none'
+
+<br>
+
+::: fragment
+
+::: tight-list
+**Examples**
+
+- Total minutes delayed  
+
+- Total injuries  
+
+- Number of severity 3 accidents (sum of 1/0)
+
+- Total distance?
+
+:::
+:::
+
+## When SUM is **not** meaningful {background-image="../shared/images/sum_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="N"}
+
+<br>
+
+- It's an **ID** or label  
+- It's **ordinal** (e.g., severity 1–4)  
+- It's already an **average/rate**
+
+::: fragment
+
+::: tight-list
+
+**Examples**
+
+- Sum of accident IDs
+
+- Sum of severity codes
+
+- Sum of 'average speed' (unless weighted)
+
+- Sum of temperature?
+
+:::
+
+:::
+
+::: fragment
+
+::: {.callout-important title="Fast Test"}
+Can you add two rows together and keep the same meaning + units?
+:::
+
+:::
+
+# Measures of Size {background-image="../shared/images/sample_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Sample size notation for population N, for sample n."}
+
+## Sample size or Row Count {background-image="../shared/images/sample_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Sample size notation for population N, for sample n."}
+
+<br>
+
+### Four counts to keep straight
+
+<br>
+
+- **N — Total records** in the dataset  
+- **n~eligible~ — After filters** (date, severity, etc.)  
+- **n~non-missing~ — Non‑missing for the chosen variable**  
+- **n — Actual usable values** for our analysis 
+
+<br>
+
+[![](media/images/shiny_size.png)](https://shiny.60land.com/week02/descriptives/){fig-alt="Link to Shiny app demonstrating different measures of size." width="75%"}
+
+
+# Measures of Center {background-image="../shared/images/mean_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Average notation for population greek symbol mu, for sample x-bar, sometimes median notated with greek symbol eta."}
+
+## Central Tendency {background-image="../shared/images/mean_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Average notation for population greek symbol mu, for sample x-bar, sometimes median notated with greek symbol eta."}
+
+<br>
+
+### We have **three** common flavors—each answers a *different* question.
+
+-   **Mean**: balancing point; sensitive to outliers.
+
+-   **Median**: middle value; robust to skew/outliers.
+
+-   **Mode**: most frequent value; useful for categorical data.
+
+<br>
+
+[![](media/images/shiny_central.png)](https://shiny.60land.com/week02/descriptives/){fig-alt="Link to Shiny app demonstrating different measures of center." width="75%"}
+
+
+# Measures of Shape {background-image="../shared/images/stdev_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Standard deviation notation for population greek symbol sigma, for sample s."}
+
+## Standard Deviation {background-image="../shared/images/stdev_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Standard deviation notation for population greek symbol sigma, for sample s."}
+
+<br>
+
+-   **Variance (s^2^ or σ^2^):** average squared distance from the mean.
+
+<br>
+
+-   **Standard deviation (s or σ):** typical distance in original units.
+
+
+## Percentiles & Quartiles {background-image="../shared/images/quartile_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Quartile notation same for population and sample nth quartile or nth percentile"}
+<br>
+
+### The *P*^th^ percentile is the value with *P*% of data at or below it.
+
+- The 10^th^ percentile (P10) is the value where 10% of the distribution is lower and 90% is higher
+- The 82^nd^ percentile (P82) is the value where 82% of the distribution is lower and 18% is higher
+- Quartiles are P25 (Q1), P50 (Q2), P75 (Q3)
+- The 50^th^ (P50) percentile, the 2^nd^ Quartile (Q2) and the Median are all the same value
+
+[![](media/images/shiny_shape.png)](https://shiny.60land.com/week02/descriptives/){fig-alt="Link to Shiny app demonstrating different measures of shape." width="75%"}
+
+# Comparing Distributions
+
+```{r dist_comp_plots}
+# ============================================================
+# Accident dataset: 4 views for Distance & Temperature
+#   1) Base (hist + μ/σ)
+#   2) Percentiles (P10/P25/P75/P90)
+#   3) IQR shading (P25–P75)
+#   4) Box + whiskers + tail dots (Shiny-style manual drawing)
+# ============================================================
+
+library(tidyverse)
+library(ggplot2)
+library(patchwork)
+
+# ---- Load + trim outliers (your rule) ----
+COURSE_ROOT <- "/data/junior/boland_course"
+acc_path <- file.path(COURSE_ROOT, "shared", "data", "accident_wi.csv")
+
+acc <- read_csv(acc_path, show_col_types = FALSE) %>%
+  filter(`Distance(mi)` <= 4)
+
+# ---- Parameters ----
+bins    <- 12                 # consistent binning across histogram views
+pct_vec <- c(10, 47, 90)  # percentiles to display (Pxx)
+
+# Title/label spacing (more room for Pxx labels)
+TITLE_GAP_B <- 18             # whitespace between title and panel
+LABEL_VJUST <- -0.7           # label height above plot (more negative = higher)
+
+# Boxplot controls
+SHOW_INLIER_DOTS <- FALSE     # FALSE matches your screenshot (only tails/outliers)
+MAX_INLIERS      <- 3500      # subsample cap if inlier dots are on
+
+# Colors
+COL_DISTANCE <- "#59A14F"
+COL_TEMP     <- "#4C78A8"
+COL_LINE     <- "#D62728"
+COL_IQR_FILL <- "#E15759"
+ALPHA_IQR    <- 0.22
+
+# ------------------------------------------------------------
+# Shared theme fragment (title spacing applied everywhere)
+# ------------------------------------------------------------
+theme_title_spaced <- function(base_size = 13) {
+  theme_minimal(base_size = base_size) +
+    theme(
+      plot.title.position = "plot",
+      plot.title = element_text(
+        face = "bold",
+        hjust = 0.5,
+        margin = margin(b = TITLE_GAP_B)
+      ),
+      panel.grid.minor = element_blank(),
+      plot.margin = margin(10, 10, 10, 10)
+    )
+}
+
+# ------------------------------------------------------------
+# Helper 1: Base panel = histogram + stats underneath
+# ------------------------------------------------------------
+make_hist_with_stats <- function(data, var, title,
+                                 bins = 12,
+                                 fill = "#4C78A8",
+                                 mean_digits = 3,
+                                 sd_digits = 2) {
+
+  x <- suppressWarnings(as.numeric(data[[var]]))
+  x <- x[is.finite(x)]
+
+  mu  <- mean(x)
+  sig <- sd(x)
+
+  p_hist <- ggplot(tibble(x = x), aes(x)) +
+    geom_histogram(bins = bins, fill = fill, color = "white") +
+    labs(title = title, x = var, y = "Count") +
+    theme_title_spaced(base_size = 13) +
+    theme(plot.margin = margin(10, 10, 0, 10))  # tighter to stats block
+
+  p_stats <- ggplot() +
+    annotate(
+      "text", x = 0, y = 0,
+      label = paste0(
+        "μ = ", format(round(mu, mean_digits), nsmall = mean_digits), "\n",
+        "σ = ", format(round(sig, sd_digits),   nsmall = sd_digits)
+      ),
+      size = 7
+    ) +
+    xlim(-1, 1) + ylim(-1, 1) +
+    theme_void() +
+    theme(plot.margin = margin(0, 10, 10, 10))
+
+  p_hist / p_stats + plot_layout(heights = c(3, 1))
+}
+
+# ------------------------------------------------------------
+# Helper 2: Percentile panel = histogram + vlines + labels (Pxx)
+# ------------------------------------------------------------
+make_hist_percentiles <- function(data, var, title,
+                                  bins = 12,
+                                  fill = "#4C78A8",
+                                  pcts = c(10, 25, 75, 90),
+                                  line_col = "#D62728") {
+
+  x <- suppressWarnings(as.numeric(data[[var]]))
+  x <- x[is.finite(x)]
+
+  qs <- as.numeric(quantile(x, probs = pcts/100, na.rm = TRUE, type = 7))
+  df_q <- tibble(pct = pcts, q = qs)
+
+  ggplot(tibble(x = x), aes(x)) +
+    geom_histogram(bins = bins, fill = fill, color = "white") +
+    geom_vline(data = df_q, aes(xintercept = q),
+               color = line_col, linewidth = 1.0, alpha = 0.9) +
+    geom_text(
+      data = df_q,
+      aes(x = q, y = Inf, label = paste0("P", pct)),
+      vjust = LABEL_VJUST, size = 4, color = "black"
+    ) +
+    labs(title = title, x = var, y = "Count") +
+    theme_title_spaced(base_size = 13) +
+    coord_cartesian(clip = "off")
+}
+
+# ------------------------------------------------------------
+# Helper 3: IQR panel = shaded P25–P75 + vlines + labels
+# ------------------------------------------------------------
+make_hist_iqr <- function(data, var, title,
+                          bins = 12,
+                          fill = "#4C78A8",
+                          shade_fill = "#E15759",
+                          shade_alpha = 0.22,
+                          line_col = "#D62728") {
+
+  x <- suppressWarnings(as.numeric(data[[var]]))
+  x <- x[is.finite(x)]
+
+  q <- as.numeric(quantile(x, probs = c(.25, .75), na.rm = TRUE, type = 7))
+  q1 <- q[1]; q3 <- q[2]
+
+  ggplot(tibble(x = x), aes(x)) +
+    annotate("rect",
+             xmin = q1, xmax = q3,
+             ymin = -Inf, ymax = Inf,
+             fill = shade_fill, alpha = shade_alpha) +
+    geom_histogram(bins = bins, fill = fill, color = "white") +
+    geom_vline(xintercept = c(q1, q3),
+               color = line_col, linewidth = 1.1, alpha = 0.95) +
+    geom_text(
+      data = tibble(q = c(q1, q3), lab = c("P25", "P75")),
+      aes(x = q, y = Inf, label = lab),
+      vjust = LABEL_VJUST, size = 4, color = "black"
+    ) +
+    labs(title = title, x = var, y = "Count") +
+    theme_title_spaced(base_size = 13) +
+    coord_cartesian(clip = "off")
+}
+
+# ------------------------------------------------------------
+# Helper 4: Box + whiskers + tail dots (Shiny-style manual drawing)
+# ------------------------------------------------------------
+make_boxplot_shiny_style <- function(data, var, title,
+                                     color = "#4C78A8",
+                                     show_inlier_dots = FALSE,
+                                     max_inliers = 3500,
+                                     inlier_alpha = 0.25,
+                                     inlier_size  = 1.05,
+                                     outlier_alpha = 0.90,
+                                     outlier_size  = 1.35,
+                                     box_w = 0.10,
+                                     cap_w_mult = 0.80) {
+
+  x <- suppressWarnings(as.numeric(data[[var]]))
+  x <- x[is.finite(x)]
+
+  if (length(x) == 0) {
+    return(ggplot() + theme_void() + ggtitle(paste0(title, " (no data)")))
+  }
+  if (length(x) < 2) {
+    return(
+      ggplot(data.frame(x = x, y = 1), aes(x, y)) +
+        geom_point(color = color, size = 2) +
+        scale_y_continuous(NULL, breaks = NULL) +
+        labs(title = title, x = var, y = NULL) +
+        theme_title_spaced(base_size = 13)
+    )
+  }
+
+  # Tukey boxplot stats (1.5*IQR whiskers) and outliers
+  bp <- boxplot.stats(x)
+  s5 <- bp$stats
+  lowW <- s5[1]; q1 <- s5[2]; med <- s5[3]; q3 <- s5[4]; hiW <- s5[5]
+
+  is_out <- (x < lowW) | (x > hiW)
+  x_out <- x[is_out]
+  x_in  <- x[!is_out]
+
+  # Optional subsample inliers
+  set.seed(230)
+  if (length(x_in) > max_inliers) x_in <- sample(x_in, max_inliers)
+
+  y0 <- 1
+  df_in  <- data.frame(x = x_in,  y = rep(y0, length(x_in)))
+  df_out <- data.frame(x = x_out, y = rep(y0, length(x_out)))
+
+  cap_w <- box_w * cap_w_mult
+  n_in <- nrow(df_in)
+  jitter_h <- min(0.22, 0.05 + 0.04 * log10(n_in + 1))
+
+  p <- ggplot() +
+    # box
+    geom_rect(aes(xmin = q1, xmax = q3, ymin = y0 - box_w/2, ymax = y0 + box_w/2),
+              fill = "grey88", color = "grey35") +
+    # median
+    geom_segment(aes(x = med, xend = med, y = y0 - box_w/2, yend = y0 + box_w/2),
+                 color = "grey35", linewidth = 1.1) +
+    # whiskers
+    geom_segment(aes(x = lowW, xend = q1, y = y0, yend = y0), color = "grey35") +
+    geom_segment(aes(x = q3, xend = hiW, y = y0, yend = y0), color = "grey35") +
+    # caps
+    geom_segment(aes(x = lowW, xend = lowW, y = y0 - cap_w/2, yend = y0 + cap_w/2), color = "grey35") +
+    geom_segment(aes(x = hiW,  xend = hiW,  y = y0 - cap_w/2, yend = y0 + cap_w/2), color = "grey35")
+
+  # optional inlier dots
+  if (isTRUE(show_inlier_dots) && nrow(df_in) > 0) {
+    p <- p +
+      geom_jitter(data = df_in, aes(x = x, y = y),
+                  height = jitter_h, width = 0,
+                  alpha = inlier_alpha, size = inlier_size, color = color)
+  }
+
+  # outliers always visible
+  if (nrow(df_out) > 0) {
+    p <- p +
+      geom_point(data = df_out, aes(x = x, y = y),
+                 alpha = outlier_alpha, size = outlier_size, color = color)
+  }
+
+  p +
+    scale_y_continuous(NULL, breaks = NULL, limits = c(y0 - 0.28, y0 + 0.28)) +
+    labs(title = title, x = var, y = NULL) +
+    theme_title_spaced(base_size = 13) +
+    theme(panel.grid.major.y = element_blank(),
+          panel.grid.minor = element_blank())
+}
+
+# ============================================================
+# Build the 4 views (each is two-panel: Distance | Temperature)
+# ============================================================
+
+# --- 1) Base (μ/σ under each) ---
+p_distance_base <- make_hist_with_stats(
+  acc, "Distance(mi)", "Distance (mi)",
+  bins = bins, fill = COL_DISTANCE,
+  mean_digits = 3, sd_digits = 2
+)
+
+p_temp_base <- make_hist_with_stats(
+  acc, "Temperature(F)", "Temperature (F)",
+  bins = bins, fill = COL_TEMP,
+  mean_digits = 2, sd_digits = 2
+)
+
+plot_base <- p_distance_base | p_temp_base
+
+# --- 2) Percentiles ---
+p_distance_pct <- make_hist_percentiles(
+  acc, "Distance(mi)", "Distance (mi)",
+  bins = bins, fill = COL_DISTANCE,
+  pcts = pct_vec, line_col = COL_LINE
+)
+
+p_temp_pct <- make_hist_percentiles(
+  acc, "Temperature(F)", "Temperature (F)",
+  bins = bins, fill = COL_TEMP,
+  pcts = pct_vec, line_col = COL_LINE
+)
+
+plot_percentiles <- p_distance_pct | p_temp_pct
+
+# --- 3) IQR shading ---
+p_distance_iqr <- make_hist_iqr(
+  acc, "Distance(mi)", "Distance (mi)",
+  bins = bins, fill = COL_DISTANCE,
+  shade_fill = COL_IQR_FILL, shade_alpha = ALPHA_IQR,
+  line_col = COL_LINE
+)
+
+p_temp_iqr <- make_hist_iqr(
+  acc, "Temperature(F)", "Temperature (F)",
+  bins = bins, fill = COL_TEMP,
+  shade_fill = COL_IQR_FILL, shade_alpha = ALPHA_IQR,
+  line_col = COL_LINE
+)
+
+plot_iqr <- p_distance_iqr | p_temp_iqr
+
+# --- 4) Box + tails (Shiny-style) ---
+p_distance_box <- make_boxplot_shiny_style(
+  acc, "Distance(mi)", "Distance (mi)",
+  color = COL_DISTANCE,
+  show_inlier_dots = SHOW_INLIER_DOTS,
+  max_inliers = MAX_INLIERS
+)
+
+p_temp_box <- make_boxplot_shiny_style(
+  acc, "Temperature(F)", "Temperature (F)",
+  color = COL_TEMP,
+  show_inlier_dots = SHOW_INLIER_DOTS,
+  max_inliers = MAX_INLIERS
+)
+
+plot_box <- p_distance_box | p_temp_box
+
+
+```
+
+## Mean and SD
+
+#### *Unstandardized measures depend on the units being measured*
+
+```{r}
+plot_base
+```
+
+
+## Percentiles
+
+#### *Standardized measures do not depend on units being measured*
+
+```{r}
+plot_percentiles
+```
+
+
+## IQR - Inter-Quartile Range
+
+```{r}
+plot_iqr
+```
+
+## Boxplots or Box & Whisker Plots
+
+```{r}
+plot_box
+```
+
+# Relationships: Discrete to Discrete {background-image="../shared/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+
+## Cross Tabs or Contingency Tables
+
+### **Start with counts; then layer in percentages.**
+
+<br>
+
+- Frequncy Table - ***One** Categorical Variable
+- Cross Tab - **Two** Categorical Variables
+- Count how many rows **n**
+- Add **marginal totals**
+
+<br>
+
+::: tight-list
+
+**Compute Percentages**
+
+- **row %** (conditional on row)
+
+- **column %** (conditional on column)
+
+- **table %** for overall share
+
+:::
+
+## What can go wrong?
+
+[![](media/images/shiny_cross.png)](https://shiny.60land.com/week02/crosstabs/){fig-alt="Link to Shiny app demonstrating cross tabs" width="75%"}
+
+:::fragment
+
+**Confusing similar-sounding percentages**:
+
+:::
+:::fragment
+- \% of incidents that happened in Spring **and** in the Morning?
+
+:::
+:::fragment
+
+- \% of incidents in the Spring that happened in the Morning?
+
+:::
+:::fragment
+
+- \% of incidents that happened in the Spring?
+
+:::
+:::fragment
+
+::: {.callout-important title="Percentage Problems"}
+Make sure you are clear on what the numerator and denominator are and communicate clearly.
+:::
+
+:::
+
+# Relationships - Continuous to Continuous {background-image="../shared/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+
+
+## Correlation {background-image="../shared/images/correlation_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Coefficient of correlation notation for population greek symbol capital rho or r, for sample lower case rho or r"}
+
+- **Correlation (r):** standardized between -1 and +1
+- Shows strength of *linear* pattern.
+- +1 means positive relationship, -1 means netagive relationship
+- Does not determine the slope of the line
+- Regression analysis needed for full understanding
+
+::: fragment
+
+::: callout-caution
+**Correlation ≠ Causation.** Check for confounders, nonlinearity, and outliers. E.g. perform a full regression analysis.
+:::
+
+:::
+
+:::columns
+
+::: {.column width="70%"}
+
+::: fragment
+
+[![](media/images/shiny_correlation.png)](https://shiny.60land.com/week02/correlation/){fig-alt="Link to Shiny app demonstrating coefficient of correlation" width="100%"}
+
+:::
+
+:::
+
+:::
+
+
+# Relationships: Discrete to Continuous {background-image="../shared/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+
+## **Analytics** is the **art** of finding out what is in your data.
+
+```{r group_means, echo=TRUE, results="hide"}
+acc_mast %>%
+  select(`Distance(mi)`,season) %>%
+  group_by(season) %>%
+  summarise(mean_distance = mean(`Distance(mi)`), median_distance = median(`Distance(mi)`))
+```
+::: fragment
+```{r group_means_show, echo=FALSE, results="show"}
+acc_sum <- acc_mast %>%
+  select(`Distance(mi)`,season) %>%
+  group_by(season) %>%
+  summarise(mean_distance = mean(`Distance(mi)`), median_distance = median(`Distance(mi)`))
+
+
+  acc_sum %>%
+  gt() %>%
+  gt_boland(base_size = 10, tight = FALSE)
+```
+:::
+
+::: fragment
+
+```{r group_sd, echo=TRUE, results="hide"}
+acc_mast %>%
+  select(`Temperature(F)`,time_of_day) %>%
+  filter(!is.na(`Temperature(F)`), !is.na(time_of_day)) %>%
+  group_by(time_of_day) %>%
+  summarise(mean_temp = mean(`Temperature(F)`), stdev_temp = sd(`Temperature(F)`))
+```
+
+:::
+
+::: fragment
+
+```{r group_sd_show, echo=FALSE, results="show"}
+acc_sd <- acc_mast %>%
+  select(`Temperature(F)`,time_of_day) %>%
+  filter(!is.na(`Temperature(F)`), !is.na(time_of_day)) %>%
+  group_by(time_of_day) %>%
+  summarise(mean_temp = mean(`Temperature(F)`), stdev_temp = sd(`Temperature(F)`))
+
+
+  acc_sd %>%
+  gt() %>%
+  gt_boland(base_size = 10, tight = FALSE)
+```
+
+:::
+
+
+# Descriptive Measures
+*How do we clearly describe the data we have?*
+
+<br>
+
+- Size
+- Center
+- Shape
+- Relationships
+
+::: fragment
+
+::: {.callout-tip title="Story Time"}
+Think of your dataset. Which two descriptive measures would you lead with and why?
+:::
+
+:::
+

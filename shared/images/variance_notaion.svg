@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="102.30556mm"
+   height="55.738861mm"
+   viewBox="0 0 102.30556 55.738861"
+   version="1.1"
+   id="svg14213"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="variance_notaion.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview14215"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.2102413"
+     inkscape:cx="1193.8663"
+     inkscape:cy="884.69772"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs14210" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(253.76719,85.75926)">
+    <g
+       transform="matrix(0.26458333,0,0,0.26458333,-460.98003,-91.8888)"
+       id="g1613">
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="200px"
+         transform="translate(1009.6,200)"
+         id="text1593">σ</text>
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="85px"
+         transform="translate(1115.93,136)"
+         id="text1595">2</text>
+      <path
+         d="m 992.5,35.8345 c 0,-6.2598 5.075,-11.3344 11.33,-11.3344 h 153.34 c 6.26,0 11.33,5.0746 11.33,11.3344 V 221.166 c 0,6.259 -5.07,11.334 -11.33,11.334 h -153.34 c -6.255,0 -11.33,-5.075 -11.33,-11.334 z"
+         stroke="#262626"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path1597" />
+      <path
+         d="m 992.5,35.4396 c 0,-6.0417 4.898,-10.9395 10.94,-10.9395 h 154.12 c 6.04,0 10.94,4.8978 10.94,10.9395 v 18.1209 c 0,6.0417 -4.9,10.9396 -10.94,10.9396 h -154.12 c -6.042,0 -10.94,-4.8979 -10.94,-10.9396 z"
+         stroke="#262626"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#d9d9d9"
+         fill-rule="evenodd"
+         id="path1599" />
+      <text
+         fill="#595959"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(1027.27,52)"
+         id="text1601">Population</text>
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="200px"
+         transform="translate(825.6,200)"
+         id="text1603">s</text>
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="85px"
+         transform="translate(903.767,136)"
+         id="text1605">2</text>
+      <path
+         d="m 784.5,35.8345 c 0,-6.2598 5.075,-11.3344 11.335,-11.3344 h 153.331 c 6.259,0 11.334,5.0746 11.334,11.3344 V 221.166 c 0,6.259 -5.075,11.334 -11.334,11.334 H 795.835 c -6.26,0 -11.335,-5.075 -11.335,-11.334 z"
+         stroke="#262626"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path1607" />
+      <path
+         d="m 784.5,35.4396 c 0,-6.0417 4.898,-10.9395 10.94,-10.9395 h 154.12 c 6.042,0 10.94,4.8978 10.94,10.9395 v 18.1209 c 0,6.0417 -4.898,10.9396 -10.94,10.9396 H 795.44 c -6.042,0 -10.94,-4.8979 -10.94,-10.9396 z"
+         stroke="#262626"
+         stroke-width="2.66667"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#d9d9d9"
+         fill-rule="evenodd"
+         id="path1609"
+         style="fill:#2b6cb0" />
+      <text
+         fill="#595959"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(836.083,52)"
+         id="text1611"><tspan
+           style="fill:#fafafa"
+           id="tspan4266">Sample</tspan></text>
+    </g>
+  </g>
+</svg>

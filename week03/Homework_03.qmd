@@ -1,0 +1,149 @@
+---
+title: "Homework 3: Visualizing Data"
+format:
+  html:
+    toc: false
+    number-sections: false
+execute:
+  echo: false
+fontsize: 12pt
+---
+```{r setup, include=FALSE}
+# (Optional) Shared libraries if you demo inside Quarto
+# library(tidyverse)
+# options(scipen = 999)
+```
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+This assignment practices the Week 3 goal:
+
+> **Choose a visualization that matches the analytical frame** (the kind of comparison you want the audience to make) **and apply perception‑aware design.**
+
+You will produce **three small visuals** (from three different frames) and **brief written justifications** that explain:
+
+- the *story* you are trying to tell,
+- *why* this chart type is the right encoding for that story, and
+- *which* design principles you intentionally applied.
+:::
+
+## Objectives
+
+- Map a **data story** to the correct **analytical frame** and chart form
+- Apply **perceptual design** choices from lecture (lines, area, color, clutter)
+- Communicate with **succinct captions**, clear scales, and explicit denominators
+
+## Resources
+
+- **Week 3 slides** (visual perception; analytical frames)
+- Week 1–2 slides (grain, NOIR, size/center/shape/relationships)
+- Your **Week 1-2 dataset** (or any approved course dataset)
+- Tools: **Excel and/or Tableau** (you may mix; no code required)
+
+::: {.callout-tip appearance="minimal" icon="false" title="Important"}
+- Your grade emphasizes **fit‑for‑purpose** encodings + **clean design**.
+- Include a short **brief writeup (3–5 sentences)** for each chart.
+- A **Design Checklist** is **encouraged** for each chart (not required).
+:::
+
+---
+
+## 1) Choose Your Dataset (Week 1)
+
+1. Use one of the four Week 1 datasets (you may keep the same as HW1 & HW2 or change to a different dataset).
+2. Note any filters/cleaning (e.g., date window, excluding blanks).
+
+*(No extended writeup—just list what you did.)*
+
+---
+
+## 2) Tools (Excel/Tableau)
+
+- Build visuals in **Excel** and/or **Tableau** (mixing is fine).
+- Export images (PNG) at reasonable resolution for pasting into your document.
+- You may build visuals in **posit.cloud** if you choose, but that is hard mode.
+
+---
+
+## 3) Three Visuals — One From **Each** Module Below
+
+Produce exactly **three** visuals, selecting **one** from **each** module (A, B, C). Avoid repeating the same frame.
+
+### **A. Comparison (pick one)**
+- **Nominal comparison** (e.g., side‑by‑side bars) *or*
+- **Ranking** (sorted bars; horizontal recommended)
+
+**Design tips:** labeled axes, clear units, sorted categories when ranking.
+
+
+### **B. Composition or Difference (pick one)**
+- **Part‑to‑Whole** → Percentages as a bar graph *or*
+- **Time series** of a single metric (line, honest scale) *or*
+- **Deviation** vs a **benchmark** (bars around zero; clearly label/explain the benchmark)
+
+**Design tips:** Part to Whole needs to add to 100%, add a zero baseline for deviation, and annotate the benchmark.
+
+
+### **C. Distribution or Relationship (pick one)**
+- **Frequency distribution** (histogram with sensible binning; or boxplot) *or*
+- **Correlation** (scatter; add a simple regression line if appropriate)
+
+**Design tips:** show units, avoid overplotting marks(alpha if dense), call out outliers
+
+---
+
+## 4) Brief Writeup Under Each Visual (3–5 sentences)
+
+Provide a tight paragraph for each image that includes:
+
+1. **Story:** What story are you trying to tell?
+2. **Frame & Encoding:** Which analytical frame (e.g., *part‑to‑whole*) and which chart type did you choose—and *why is it a fit* for this story?
+3. **Data Scope:** Groupings/filters used; any important denominators or eligibility rules.
+4. **Design Principles Applied:** Name at least **two** (e.g., reduced non‑data‑ink; minimal axes; ordered categories; purposeful color; 100% normalization; honest baselines; avoided 3D; judicious regression line).
+
+---
+
+## 5) Design Checklist (Encouraged)
+
+- [ ] Chart type matches the **analytical frame**
+- [ ] Axes and units labeled; baselines honest; scales legible
+- [ ] Appropriate **ordering** (e.g., sorted bars for ranking)
+- [ ] Color used sparingly (subtle default; vivid only when meaningful)
+- [ ] **No 3D** or distortions; avoid unnecessary decoration
+- [ ] For composition: **100%** normalization, periods sum to 100%
+- [ ] For deviation: benchmark labeled; zero line shown
+- [ ] For correlation: considered trend line; noted limitations
+
+*(You are encouraged to follow these checks for each chart; not required to paste the list under every visual.)*
+
+---
+
+## 6) Summary (≤ 200 words)
+
+Write a concise summary that synthesizes what your three visuals reveal. Address whether the story aligns with expectations or surfaces something unexpected.
+
+---
+
+## 7) Submission
+
+Upload to Canvas:
+
+1. A **Word or PDF** document that includes:
+   - Your **three visuals** (A, B, C) and their **brief writeups** (3–5 sentences each)
+   - Your **Summary** (≤ 200 words)
+2. Supporting files as applicable:
+   - Excel: `.xlsx`
+   - Tableau: `.twbx`
+
+---
+
+## 8) Grading Focus (What I'm Look For)
+
+- **Fit‑for‑purpose** chart selection given the story & frame
+- **Perceptual clarity**: clean baselines, readable scales, sensible color
+- **Sound communication**: succinct captions, explicit denominators/assumptions
+- **Overall quality**: coherence across the three stories
+
+---
+
+
+
