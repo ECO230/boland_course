@@ -1,112 +1,112 @@
 [
   {
-    "objectID": "week04/homework_04.html",
-    "href": "week04/homework_04.html",
+    "objectID": "week04/Homework_04.html",
+    "href": "week04/Homework_04.html",
     "title": "Homework 4: Project Story Planning",
     "section": "",
     "text": "NotePurpose\n\n\n\nThis assignment practices the Week 4 goal:\n\nTurn descriptive statistics and visuals into a story someone can act on.\n\nYou will propose five candidate data stories and turn each into a short analysis-plan outline your group can combine next week."
   },
   {
-    "objectID": "week04/homework_04.html#objectives",
-    "href": "week04/homework_04.html#objectives",
+    "objectID": "week04/Homework_04.html#objectives",
+    "href": "week04/Homework_04.html#objectives",
     "title": "Homework 4: Project Story Planning",
     "section": "Objectives",
     "text": "Objectives\n\nWrite takeaway-first headlines (not topics)\nTranslate a story across writing / visuals / speaking\nIdentify variables, derived fields, and data gaps/joins\nDraft testable hypotheses and a feasible analysis outline"
   },
   {
-    "objectID": "week04/homework_04.html#resources",
-    "href": "week04/homework_04.html#resources",
+    "objectID": "week04/Homework_04.html#resources",
+    "href": "week04/Homework_04.html#resources",
     "title": "Homework 4: Project Story Planning",
     "section": "Resources",
     "text": "Resources\n\nYour project dataset in posit.cloud (the one you plan to use for the group project)\nWeek 4 readings on writing/presenting with data (Canvas → Week 4)\nWeek 4 slides: Telling Stories with Data\n\n\n\n\n\n\n\nTipImportant\n\n\n\n\nThis is planning, not execution. You are not running tests yet.\nBullets and notes are expected. Full paragraphs are not required.\nAim for clarity and feasibility: ideas should be testable (or clearly explain what data is missing)."
   },
   {
-    "objectID": "week04/homework_04.html#confirm-your-dataset-project",
-    "href": "week04/homework_04.html#confirm-your-dataset-project",
+    "objectID": "week04/Homework_04.html#confirm-your-dataset-project",
+    "href": "week04/Homework_04.html#confirm-your-dataset-project",
     "title": "Homework 4: Project Story Planning",
     "section": "1) Confirm Your Dataset (Project)",
     "text": "1) Confirm Your Dataset (Project)\n\nName the dataset you plan to use for the project.\nList any quick filters you expect to apply (e.g., date range, excluding blanks, limiting to U.S. only).\n\n(No long writeup—just bullets.)"
   },
   {
-    "objectID": "week04/homework_04.html#write-5-data-headlines-takeaways",
-    "href": "week04/homework_04.html#write-5-data-headlines-takeaways",
+    "objectID": "week04/Homework_04.html#write-5-data-headlines-takeaways",
+    "href": "week04/Homework_04.html#write-5-data-headlines-takeaways",
     "title": "Homework 4: Project Story Planning",
     "section": "2) Write 5 Data Headlines (Takeaways)",
     "text": "2) Write 5 Data Headlines (Takeaways)\nWrite five potential data headlines your dataset could support.\nEach headline should:\n\nbe a complete sentence\nstate a takeaway (a claim), not a topic\navoid numbers and test statistics\n\nGood headlines (claims)\n\nDrivers in northern states experience fewer accidents during freezing conditions than drivers in southern states.\nSan Francisco offers better Airbnb value (price relative to ratings) than other major U.S. cities.\nVisiting kickers miss field goals more often at Raymond James Stadium than at other stadiums.\n\nWeak headlines (topics)\n\nAccident severity and temperature\nAirbnb prices by city\nField goal analysis"
   },
   {
-    "objectID": "week04/homework_04.html#for-each-headline-3-relationships-variables",
-    "href": "week04/homework_04.html#for-each-headline-3-relationships-variables",
+    "objectID": "week04/Homework_04.html#for-each-headline-3-relationships-variables",
+    "href": "week04/Homework_04.html#for-each-headline-3-relationships-variables",
     "title": "Homework 4: Project Story Planning",
     "section": "3) For Each Headline: 3 Relationships + Variables",
     "text": "3) For Each Headline: 3 Relationships + Variables\nFor each of your 5 headlines, list:\n\nA) Three relationships you could investigate\nRelationships describe what you would compare/examine, not results.\nExample relationships (for the accident headline):\n\nAverage accident severity by region when temperature &lt; 32°F\nNumber of accidents before vs. after winter weather events by region\nAccident rate per capita by region during winter months\n\n\n\nB) Variables needed for each relationship\nFor each relationship:\n\nlist the variables involved\nlabel each variable as:\n\nExists (already in the dataset)\nDerived (you will calculate/recategorize it)\nExternal (you would need to join a new data source)\n\n\nExample:\n\nSeverity (Exists)\nState (Exists)\nRegion: North vs South (Derived)\nTemperature (Exists)\nPopulation by zip code (External)"
   },
   {
-    "objectID": "week04/homework_04.html#analysis-plan-outline-do-this-for-all-5-stories",
-    "href": "week04/homework_04.html#analysis-plan-outline-do-this-for-all-5-stories",
+    "objectID": "week04/Homework_04.html#analysis-plan-outline-do-this-for-all-5-stories",
+    "href": "week04/Homework_04.html#analysis-plan-outline-do-this-for-all-5-stories",
     "title": "Homework 4: Project Story Planning",
     "section": "4) Analysis Plan Outline (Do This for ALL 5 Stories)",
     "text": "4) Analysis Plan Outline (Do This for ALL 5 Stories)\nFor each of your 5 stories, complete the outline below.\nThese outlines are designed to be easy to combine into a group analysis plan next week.\n\nFor each story, include:\n\nA) 3-second version (≤ 7 words, no numbers)\nThis is your “headline headline.”\nExample: Low visibility increases crash severity.\n\n\nB) 30-second version (1–2 sentences)\nInclude:\n\nthe takeaway\nwho should care and why\n\n\n\nC) Hypotheses (at least 2)\nWrite as testable statements.\nExamples:\n\nAverage crash severity is higher when visibility &lt; 10 miles than when visibility ≥ 10 miles.\nThe proportion of severe crashes is higher during precipitation than clear conditions.\n\n\n\nD) Data requirements and gaps\n\nVariables already present\nDerived fields you will create (how?)\nExternal data you would need to join (what source? what key?)\nAny obvious data quality issues you anticipate (missingness, outliers, mis-coded categories)\n\n\n\nE) Planned analyses (bullets)\nExamples (choose what fits):\n\ngroup means / medians\nproportions and rate comparisons\ntime trends\nt-test / chi-square / ANOVA (later—just list what you might use)\nsimple regression (if appropriate)\n\n\n\nF) One visual you would use\nName a chart type and what it would compare. You are encouraged to recycle analysis from HW2 & HW3 here\nExamples:\n\nSorted bar chart of rates by group\nLine chart of a metric over time (consistent denominators)\nBoxplot comparing distributions across categories\nScatterplot with a trend line for relationships"
   },
   {
-    "objectID": "week04/homework_04.html#suggested-submission-format-copypaste-template",
-    "href": "week04/homework_04.html#suggested-submission-format-copypaste-template",
+    "objectID": "week04/Homework_04.html#suggested-submission-format-copypaste-template",
+    "href": "week04/Homework_04.html#suggested-submission-format-copypaste-template",
     "title": "Homework 4: Project Story Planning",
     "section": "Suggested Submission Format (Copy/Paste Template)",
     "text": "Suggested Submission Format (Copy/Paste Template)\n\nStory 1\nHeadline (sentence):"
   },
   {
-    "objectID": "week04/homework_04.html#relationships-3",
-    "href": "week04/homework_04.html#relationships-3",
+    "objectID": "week04/Homework_04.html#relationships-3",
+    "href": "week04/Homework_04.html#relationships-3",
     "title": "Homework 4: Project Story Planning",
     "section": "Relationships (3):",
     "text": "Relationships (3):"
   },
   {
-    "objectID": "week04/homework_04.html#variables-for-each-relationship-exists-derived-external",
-    "href": "week04/homework_04.html#variables-for-each-relationship-exists-derived-external",
+    "objectID": "week04/Homework_04.html#variables-for-each-relationship-exists-derived-external",
+    "href": "week04/Homework_04.html#variables-for-each-relationship-exists-derived-external",
     "title": "Homework 4: Project Story Planning",
     "section": "Variables for each relationship (Exists / Derived / External):",
     "text": "Variables for each relationship (Exists / Derived / External):\n3-second headline (≤7 words):\n30-second story (1–2 sentences):"
   },
   {
-    "objectID": "week04/homework_04.html#hypotheses-2",
-    "href": "week04/homework_04.html#hypotheses-2",
+    "objectID": "week04/Homework_04.html#hypotheses-2",
+    "href": "week04/Homework_04.html#hypotheses-2",
     "title": "Homework 4: Project Story Planning",
     "section": "Hypotheses (2+):",
     "text": "Hypotheses (2+):"
   },
   {
-    "objectID": "week04/homework_04.html#data-requirements-gaps",
-    "href": "week04/homework_04.html#data-requirements-gaps",
+    "objectID": "week04/Homework_04.html#data-requirements-gaps",
+    "href": "week04/Homework_04.html#data-requirements-gaps",
     "title": "Homework 4: Project Story Planning",
     "section": "Data requirements & gaps:",
     "text": "Data requirements & gaps:"
   },
   {
-    "objectID": "week04/homework_04.html#planned-analyses",
-    "href": "week04/homework_04.html#planned-analyses",
+    "objectID": "week04/Homework_04.html#planned-analyses",
+    "href": "week04/Homework_04.html#planned-analyses",
     "title": "Homework 4: Project Story Planning",
     "section": "Planned analyses:",
     "text": "Planned analyses:"
   },
   {
-    "objectID": "week04/homework_04.html#planned-visual",
-    "href": "week04/homework_04.html#planned-visual",
+    "objectID": "week04/Homework_04.html#planned-visual",
+    "href": "week04/Homework_04.html#planned-visual",
     "title": "Homework 4: Project Story Planning",
     "section": "Planned visual:",
     "text": "Planned visual:\n\n\nStory 2\n(repeat)\n\n\n\nStory 3\n(repeat)\n\n\n\nStory 4\n(repeat)\n\n\n\nStory 5\n(repeat)"
   },
   {
-    "objectID": "week04/homework_04.html#group-prep-next-week",
-    "href": "week04/homework_04.html#group-prep-next-week",
+    "objectID": "week04/Homework_04.html#group-prep-next-week",
+    "href": "week04/Homework_04.html#group-prep-next-week",
     "title": "Homework 4: Project Story Planning",
     "section": "Group Prep (Next Week)",
     "text": "Group Prep (Next Week)\nBe prepared to share at least one of your stories with your group:\n\n3 seconds: your ≤7-word headline\n30 seconds: your short story + why it matters\n1 visual idea: what you would show\n\nAlso: have a ranking in your head of your top three strongest stories (the ones your group should consider first)."
   },
   {
-    "objectID": "week04/homework_04.html#quick-checklist-before-submitting",
-    "href": "week04/homework_04.html#quick-checklist-before-submitting",
+    "objectID": "week04/Homework_04.html#quick-checklist-before-submitting",
+    "href": "week04/Homework_04.html#quick-checklist-before-submitting",
     "title": "Homework 4: Project Story Planning",
     "section": "Quick Checklist (Before Submitting)",
     "text": "Quick Checklist (Before Submitting)\n\nI included 5 headlines written as takeaways (not topics)\nEach headline has 3 relationships that actually support it\nI listed variables and labeled them Exists / Derived / External\nI outlined all 5 stories (3s, 30s, hypotheses, plan, visual)\nI identified at least one data gap/join if needed\nI can present at least one story clearly in 30 seconds\nI know my top 3 strongest story ideas"
