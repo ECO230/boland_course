@@ -1,192 +1,115 @@
 [
   {
-    "objectID": "week03/week_03_old.html#aquire-parse-filter-mine-represent-refine-interact",
-    "href": "week03/week_03_old.html#aquire-parse-filter-mine-represent-refine-interact",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "aquire > parse > filter > mine > represent > refine > interact",
-    "text": "aquire &gt; parse &gt; filter &gt; mine &gt; represent &gt; refine &gt; interact\nHow do we clearly describe the data we have?"
+    "objectID": "week04/homework_04.html",
+    "href": "week04/homework_04.html",
+    "title": "Homework 4: Project Story Planning",
+    "section": "",
+    "text": "NotePurpose\n\n\n\nThis assignment practices the Week 4 goal:\n\nTurn descriptive statistics and visuals into a story someone can act on.\n\nYou will propose five candidate data stories and turn each into a short analysis-plan outline your group can combine next week."
   },
   {
-    "objectID": "week03/week_03_old.html#sensory-bandwidth-picture-first",
-    "href": "week03/week_03_old.html#sensory-bandwidth-picture-first",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Sensory bandwidth — picture first",
-    "text": "Sensory bandwidth — picture first\n\n\n\nSight\n\n\n~10,000,000 bits/s\n\n\n\n\n\nTouch\n\n\n~1,000,000 bits/s\n\n\n\n\nHearing\n\n\n\n\nSmell\n\n\n\n\n\n\n\n\n\n\nPoint: When magnitudes differ by orders of magnitude, visual encoding beats text for attention + comprehension."
+    "objectID": "week04/homework_04.html#objectives",
+    "href": "week04/homework_04.html#objectives",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Objectives",
+    "text": "Objectives\n\nWrite takeaway-first headlines (not topics)\nTranslate a story across writing / visuals / speaking\nIdentify variables, derived fields, and data gaps/joins\nDraft testable hypotheses and a feasible analysis outline"
   },
   {
-    "objectID": "week03/week_03_old.html#sensory-bandwidth-same-blocks-separated",
-    "href": "week03/week_03_old.html#sensory-bandwidth-same-blocks-separated",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Sensory bandwidth — same blocks, separated",
-    "text": "Sensory bandwidth — same blocks, separated\n\n\n\n\nSight\n\n\n~10,000,000 bits/s\n\n\n\n\nTouch\n\n\n~1,000,000 bits/s\n\n\n\n\n\nHearing\n\n\n~100,000 bits/s\n\n\n\n\nSmell\n\n\n~100,000 bits/s"
+    "objectID": "week04/homework_04.html#resources",
+    "href": "week04/homework_04.html#resources",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Resources",
+    "text": "Resources\n\nYour project dataset in posit.cloud (the one you plan to use for the group project)\nWeek 4 readings on writing/presenting with data (Canvas → Week 4)\nWeek 4 slides: Telling Stories with Data\n\n\n\n\n\n\n\nTipImportant\n\n\n\n\nThis is planning, not execution. You are not running tests yet.\nBullets and notes are expected. Full paragraphs are not required.\nAim for clarity and feasibility: ideas should be testable (or clearly explain what data is missing)."
   },
   {
-    "objectID": "week03/week_03_old.html#sensory-bandwidth-bar-chart",
-    "href": "week03/week_03_old.html#sensory-bandwidth-bar-chart",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Sensory bandwidth — bar chart",
-    "text": "Sensory bandwidth — bar chart\n\n\n\nSight10,000,000\n\n\n\n\nTouch1,000,000\n\n\n\n\nHearing100,000\n\n\n\n\nSmell100,000\n\n\n\n\n\n\n\nTaste1,000\n\n\n\n\n\n\n\nConscious10–100\n\n\n\n\nLinear scale (raw bits/s). Tiny categories collapse — that’s the point: visuals reveal dominance instantly."
+    "objectID": "week04/homework_04.html#confirm-your-dataset-project",
+    "href": "week04/homework_04.html#confirm-your-dataset-project",
+    "title": "Homework 4: Project Story Planning",
+    "section": "1) Confirm Your Dataset (Project)",
+    "text": "1) Confirm Your Dataset (Project)\n\nName the dataset you plan to use for the project.\nList any quick filters you expect to apply (e.g., date range, excluding blanks, limiting to U.S. only).\n\n(No long writeup—just bullets.)"
   },
   {
-    "objectID": "week03/week_03_old.html#sensory-perception",
-    "href": "week03/week_03_old.html#sensory-perception",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Sensory Perception",
-    "text": "Sensory Perception"
+    "objectID": "week04/homework_04.html#write-5-data-headlines-takeaways",
+    "href": "week04/homework_04.html#write-5-data-headlines-takeaways",
+    "title": "Homework 4: Project Story Planning",
+    "section": "2) Write 5 Data Headlines (Takeaways)",
+    "text": "2) Write 5 Data Headlines (Takeaways)\nWrite five potential data headlines your dataset could support.\nEach headline should:\n\nbe a complete sentence\nstate a takeaway (a claim), not a topic\navoid numbers and test statistics\n\nGood headlines (claims)\n\nDrivers in northern states experience fewer accidents during freezing conditions than drivers in southern states.\nSan Francisco offers better Airbnb value (price relative to ratings) than other major U.S. cities.\nVisiting kickers miss field goals more often at Raymond James Stadium than at other stadiums.\n\nWeak headlines (topics)\n\nAccident severity and temperature\nAirbnb prices by city\nField goal analysis"
   },
   {
-    "objectID": "week03/week_03_old.html#visual-perception-numbers-1",
-    "href": "week03/week_03_old.html#visual-perception-numbers-1",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception Numbers 1",
-    "text": "Visual Perception Numbers 1\n\n\n\nMemorize the first 7 digits of the first line.\n\n\n\n\n  \n    88450962738635927503375196794306759962\n17315904016941344340076296835915743375\n16791197615733475195375920401694343151\n23962135318493267660580062159638071399\n50137145995438750765589253387561875035\n40299811528639507112076134474558675309"
+    "objectID": "week04/homework_04.html#for-each-headline-3-relationships-variables",
+    "href": "week04/homework_04.html#for-each-headline-3-relationships-variables",
+    "title": "Homework 4: Project Story Planning",
+    "section": "3) For Each Headline: 3 Relationships + Variables",
+    "text": "3) For Each Headline: 3 Relationships + Variables\nFor each of your 5 headlines, list:\n\nA) Three relationships you could investigate\nRelationships describe what you would compare/examine, not results.\nExample relationships (for the accident headline):\n\nAverage accident severity by region when temperature &lt; 32°F\nNumber of accidents before vs. after winter weather events by region\nAccident rate per capita by region during winter months\n\n\n\nB) Variables needed for each relationship\nFor each relationship:\n\nlist the variables involved\nlabel each variable as:\n\nExists (already in the dataset)\nDerived (you will calculate/recategorize it)\nExternal (you would need to join a new data source)\n\n\nExample:\n\nSeverity (Exists)\nState (Exists)\nRegion: North vs South (Derived)\nTemperature (Exists)\nPopulation by zip code (External)"
   },
   {
-    "objectID": "week03/week_03_old.html#visual-perception-numbers-2",
-    "href": "week03/week_03_old.html#visual-perception-numbers-2",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception Numbers 2",
-    "text": "Visual Perception Numbers 2\n\n\n\nWhat are the last 7 digits of the last line?"
+    "objectID": "week04/homework_04.html#analysis-plan-outline-do-this-for-all-5-stories",
+    "href": "week04/homework_04.html#analysis-plan-outline-do-this-for-all-5-stories",
+    "title": "Homework 4: Project Story Planning",
+    "section": "4) Analysis Plan Outline (Do This for ALL 5 Stories)",
+    "text": "4) Analysis Plan Outline (Do This for ALL 5 Stories)\nFor each of your 5 stories, complete the outline below.\nThese outlines are designed to be easy to combine into a group analysis plan next week.\n\nFor each story, include:\n\nA) 3-second version (≤ 7 words, no numbers)\nThis is your “headline headline.”\nExample: Low visibility increases crash severity.\n\n\nB) 30-second version (1–2 sentences)\nInclude:\n\nthe takeaway\nwho should care and why\n\n\n\nC) Hypotheses (at least 2)\nWrite as testable statements.\nExamples:\n\nAverage crash severity is higher when visibility &lt; 10 miles than when visibility ≥ 10 miles.\nThe proportion of severe crashes is higher during precipitation than clear conditions.\n\n\n\nD) Data requirements and gaps\n\nVariables already present\nDerived fields you will create (how?)\nExternal data you would need to join (what source? what key?)\nAny obvious data quality issues you anticipate (missingness, outliers, mis-coded categories)\n\n\n\nE) Planned analyses (bullets)\nExamples (choose what fits):\n\ngroup means / medians\nproportions and rate comparisons\ntime trends\nt-test / chi-square / ANOVA (later—just list what you might use)\nsimple regression (if appropriate)\n\n\n\nF) One visual you would use\nName a chart type and what it would compare. You are encouraged to recycle analysis from HW2 & HW3 here\nExamples:\n\nSorted bar chart of rates by group\nLine chart of a metric over time (consistent denominators)\nBoxplot comparing distributions across categories\nScatterplot with a trend line for relationships"
   },
   {
-    "objectID": "week03/week_03_old.html#visual-perception-numbers-3",
-    "href": "week03/week_03_old.html#visual-perception-numbers-3",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception Numbers 3",
-    "text": "Visual Perception Numbers 3\n\n\n\nHow many times does 5 appear in this dataset?\n\n\n\n\n  \n    88450962738635927503375196794306759962\n17315904016941344340076296835915743375\n16791197615733475195375920401694343151\n23962135318493267660580062159638071399\n50137145995438750765589253387561875035\n40299811528639507112076134474558675309"
+    "objectID": "week04/homework_04.html#suggested-submission-format-copypaste-template",
+    "href": "week04/homework_04.html#suggested-submission-format-copypaste-template",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Suggested Submission Format (Copy/Paste Template)",
+    "text": "Suggested Submission Format (Copy/Paste Template)\n\nStory 1\nHeadline (sentence):"
   },
   {
-    "objectID": "week03/week_03_old.html#visual-perception-numbers-3-1",
-    "href": "week03/week_03_old.html#visual-perception-numbers-3-1",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception Numbers 3",
-    "text": "Visual Perception Numbers 3\n\n\n\nHow many times does 5 appear in this dataset?\n\n\n\n\n  \n    88450962738635927503375196794306759962\n17315904016941344340076296835915743375\n16791197615733475195375920401694343151\n23962135318493267660580062159638071399\n50137145995438750765589253387561875035\n40299811528639507112076134474558675309"
+    "objectID": "week04/homework_04.html#relationships-3",
+    "href": "week04/homework_04.html#relationships-3",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Relationships (3):",
+    "text": "Relationships (3):"
   },
   {
-    "objectID": "week03/week_03_old.html#visual-perception-line-length-vs-thickness",
-    "href": "week03/week_03_old.html#visual-perception-line-length-vs-thickness",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception — Line Length vs Thickness",
-    "text": "Visual Perception — Line Length vs Thickness\n\n\n\nWhich line is longest?  Which line is thickest?"
+    "objectID": "week04/homework_04.html#variables-for-each-relationship-exists-derived-external",
+    "href": "week04/homework_04.html#variables-for-each-relationship-exists-derived-external",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Variables for each relationship (Exists / Derived / External):",
+    "text": "Variables for each relationship (Exists / Derived / External):\n3-second headline (≤7 words):\n30-second story (1–2 sentences):"
   },
   {
-    "objectID": "week03/week_03_old.html#visual-perception-line-length-vs-thickness-1",
-    "href": "week03/week_03_old.html#visual-perception-line-length-vs-thickness-1",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception — Line Length vs Thickness",
-    "text": "Visual Perception — Line Length vs Thickness\n\n\n\nWhich line is longest?  Which line is thickest?"
+    "objectID": "week04/homework_04.html#hypotheses-2",
+    "href": "week04/homework_04.html#hypotheses-2",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Hypotheses (2+):",
+    "text": "Hypotheses (2+):"
   },
   {
-    "objectID": "week03/week_03_old.html#visual-perception-line-length-vs-thickness-10-lines",
-    "href": "week03/week_03_old.html#visual-perception-line-length-vs-thickness-10-lines",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception — Line Length vs Thickness (10 lines)",
-    "text": "Visual Perception — Line Length vs Thickness (10 lines)\n\n\n\nWhich line is longest?  Which line is thickest?"
+    "objectID": "week04/homework_04.html#data-requirements-gaps",
+    "href": "week04/homework_04.html#data-requirements-gaps",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Data requirements & gaps:",
+    "text": "Data requirements & gaps:"
   },
   {
-    "objectID": "week03/week_03_old.html#visual-perception-line-length-vs-thickness-30-lines",
-    "href": "week03/week_03_old.html#visual-perception-line-length-vs-thickness-30-lines",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception — Line Length vs Thickness (30 lines)",
-    "text": "Visual Perception — Line Length vs Thickness (30 lines)\n\n\n\nWhich line is longest?  Which line is thickest?"
+    "objectID": "week04/homework_04.html#planned-analyses",
+    "href": "week04/homework_04.html#planned-analyses",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Planned analyses:",
+    "text": "Planned analyses:"
   },
   {
-    "objectID": "week03/week_03_old.html#visual-perception-area-is-hard",
-    "href": "week03/week_03_old.html#visual-perception-area-is-hard",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception — Area is hard",
-    "text": "Visual Perception — Area is hard\n\n\n\nSmall circle = 1. What are the values of the two large circles? (They differ by &lt; 5.)"
+    "objectID": "week04/homework_04.html#planned-visual",
+    "href": "week04/homework_04.html#planned-visual",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Planned visual:",
+    "text": "Planned visual:\n\n\nStory 2\n(repeat)\n\n\n\nStory 3\n(repeat)\n\n\n\nStory 4\n(repeat)\n\n\n\nStory 5\n(repeat)"
   },
   {
-    "objectID": "week03/week_03_old.html#visual-perception-areas",
-    "href": "week03/week_03_old.html#visual-perception-areas",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception Areas",
-    "text": "Visual Perception Areas"
+    "objectID": "week04/homework_04.html#group-prep-next-week",
+    "href": "week04/homework_04.html#group-prep-next-week",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Group Prep (Next Week)",
+    "text": "Group Prep (Next Week)\nBe prepared to share at least one of your stories with your group:\n\n3 seconds: your ≤7-word headline\n30 seconds: your short story + why it matters\n1 visual idea: what you would show\n\nAlso: have a ranking in your head of your top three strongest stories (the ones your group should consider first)."
   },
   {
-    "objectID": "week03/week_03_old.html#visual-perception",
-    "href": "week03/week_03_old.html#visual-perception",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception",
-    "text": "Visual Perception\n\n\n Subtle Colors \n\n\n Vivid Colors"
-  },
-  {
-    "objectID": "week03/week_03_old.html#gestault-principle",
-    "href": "week03/week_03_old.html#gestault-principle",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Gestault Principle",
-    "text": "Gestault Principle"
-  },
-  {
-    "objectID": "week03/week_03_old.html#gestault-principle-reveal",
-    "href": "week03/week_03_old.html#gestault-principle-reveal",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Gestault Principle Reveal",
-    "text": "Gestault Principle Reveal"
-  },
-  {
-    "objectID": "week03/week_03_old.html#non-data-ink",
-    "href": "week03/week_03_old.html#non-data-ink",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Non Data Ink",
-    "text": "Non Data Ink"
-  },
-  {
-    "objectID": "week03/week_03_old.html#chart-selection",
-    "href": "week03/week_03_old.html#chart-selection",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Chart Selection",
-    "text": "Chart Selection"
-  },
-  {
-    "objectID": "week03/week_03_old.html#nominal-comparison",
-    "href": "week03/week_03_old.html#nominal-comparison",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Nominal Comparison",
-    "text": "Nominal Comparison"
-  },
-  {
-    "objectID": "week03/week_03_old.html#time-series",
-    "href": "week03/week_03_old.html#time-series",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Time Series",
-    "text": "Time Series"
-  },
-  {
-    "objectID": "week03/week_03_old.html#ranking",
-    "href": "week03/week_03_old.html#ranking",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Ranking",
-    "text": "Ranking"
-  },
-  {
-    "objectID": "week03/week_03_old.html#part-to-whole",
-    "href": "week03/week_03_old.html#part-to-whole",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Part-to-Whole",
-    "text": "Part-to-Whole"
-  },
-  {
-    "objectID": "week03/week_03_old.html#distribution",
-    "href": "week03/week_03_old.html#distribution",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Distribution",
-    "text": "Distribution"
-  },
-  {
-    "objectID": "week03/week_03_old.html#frequency-distribution",
-    "href": "week03/week_03_old.html#frequency-distribution",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Frequency Distribution",
-    "text": "Frequency Distribution"
-  },
-  {
-    "objectID": "week03/week_03_old.html#correlation",
-    "href": "week03/week_03_old.html#correlation",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Correlation",
-    "text": "Correlation"
+    "objectID": "week04/homework_04.html#quick-checklist-before-submitting",
+    "href": "week04/homework_04.html#quick-checklist-before-submitting",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Quick Checklist (Before Submitting)",
+    "text": "Quick Checklist (Before Submitting)\n\nI included 5 headlines written as takeaways (not topics)\nEach headline has 3 relationships that actually support it\nI listed variables and labeled them Exists / Derived / External\nI outlined all 5 stories (3s, 30s, hypotheses, plan, visual)\nI identified at least one data gap/join if needed\nI can present at least one story clearly in 30 seconds\nI know my top 3 strongest story ideas"
   },
   {
     "objectID": "week03/week_03.html#sensory-bandwidth",
@@ -397,41 +320,6 @@
     "title": "Week 3 — Fun With Data",
     "section": "Who Wore it Best?",
     "text": "Who Wore it Best?\n\n\n\n\n\n\n\nStory Time\n\n\nHow do you best tell your story visually?"
-  },
-  {
-    "objectID": "week03/colors_03.html#visual-perception",
-    "href": "week03/colors_03.html#visual-perception",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception",
-    "text": "Visual Perception\n\n\n Subtle Colors \n\n\n Vivid Colors"
-  },
-  {
-    "objectID": "week03/colors_03.html#gestalt-principle",
-    "href": "week03/colors_03.html#gestalt-principle",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Gestalt Principle",
-    "text": "Gestalt Principle"
-  },
-  {
-    "objectID": "week03/colors_03.html#slide-title",
-    "href": "week03/colors_03.html#slide-title",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Slide Title",
-    "text": "Slide Title"
-  },
-  {
-    "objectID": "week03/colors_03.html#wheep",
-    "href": "week03/colors_03.html#wheep",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "wheep",
-    "text": "wheep"
-  },
-  {
-    "objectID": "week03/colors_03.html#test-2",
-    "href": "week03/colors_03.html#test-2",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "test 2",
-    "text": "test 2"
   },
   {
     "objectID": "week02/week_02.html#measurement-scales",
@@ -1568,227 +1456,94 @@
     "text": "8) Grading Focus (What I’m Look For)\n\nFit‑for‑purpose chart selection given the story & frame\nPerceptual clarity: clean baselines, readable scales, sensible color\nSound communication: succinct captions, explicit denominators/assumptions\nOverall quality: coherence across the three stories"
   },
   {
-    "objectID": "week03/CopyOfweek_03.html#section",
-    "href": "week03/CopyOfweek_03.html#section",
-    "title": "Week 2 — Descriptive Measures",
+    "objectID": "week04/week_04.html#one-set-of-principles",
+    "href": "week04/week_04.html#one-set-of-principles",
+    "title": "Week 4 — Telling Stories with Data",
+    "section": "One Set of Principles",
+    "text": "One Set of Principles\n\n\nWriting\n\nVisuals\n\nSpeaking\n\n\n\n\n\n\n\n\n\n\nSmall Medium Large\n\n\nThe same principles will apply across different media.\n\n\n\n\n\n\nThis frames everything that follows."
+  },
+  {
+    "objectID": "week04/week_04.html#principle-1-one-message",
+    "href": "week04/week_04.html#principle-1-one-message",
+    "title": "Week 4 — Telling Stories with Data",
+    "section": "Principle 1: One Message",
+    "text": "Principle 1: One Message\n Writing\nLead with the main conclusion.\n Visual\nOne message per chart.\n Speaking\nState the takeaway first.\n\nFew calls this salience. Writers call it a lead. Same idea."
+  },
+  {
+    "objectID": "week04/week_04.html#principle-2-reduce-cognitive-load",
+    "href": "week04/week_04.html#principle-2-reduce-cognitive-load",
+    "title": "Week 4 — Telling Stories with Data",
+    "section": "Principle 2: Reduce Cognitive Load",
+    "text": "Principle 2: Reduce Cognitive Load\n Writing\nShort sentences. Everyday words.\n Visual\nHigh contrast. No clutter.\n Speaking\nFewer points. Slower pace.\n\nThis ties Visage + accessibility + Few together."
+  },
+  {
+    "objectID": "week04/week_04.html#principle-3-make-differences-obvious",
+    "href": "week04/week_04.html#principle-3-make-differences-obvious",
+    "title": "Week 4 — Telling Stories with Data",
+    "section": "Principle 3: Make Differences Obvious",
+    "text": "Principle 3: Make Differences Obvious\n Writing\nName the comparison explicitly.\n Visual\nDirect labels &gt; legends.\n Speaking\nHigher / lower / changed after.\n\nStudents often imply differences instead of stating them."
+  },
+  {
+    "objectID": "week04/week_04.html#principle-4-context-creates-meaning",
+    "href": "week04/week_04.html#principle-4-context-creates-meaning",
+    "title": "Week 4 — Telling Stories with Data",
+    "section": "Principle 4: Context Creates Meaning",
+    "text": "Principle 4: Context Creates Meaning\n Writing\nWho is this for?\n Visual\nConsistent scales and denominators.\n Speaking\nWhy should this audience care?\n\nAudience awareness without jargon."
+  },
+  {
+    "objectID": "week04/week_04.html#example-a-clear-data-story",
+    "href": "week04/week_04.html#example-a-clear-data-story",
+    "title": "Week 4 — Telling Stories with Data",
+    "section": "🎥 Example: A Clear Data Story",
+    "text": "🎥 Example: A Clear Data Story\n\n\nOne way cognitive load was reduced\nHow is context provided to make the audience care\nOne visual choice that helps\n\n\n\nWhy this works: - Clear takeaway early\n- Simple visuals\n- Visuals support speech\n- Personal and Emotional but not Maudlin\n\n\nPrompt students before video:\nOne conclusion sentence\nOne data-supported sentence\nOne visual choice that helps"
+  },
+  {
+    "objectID": "week04/week_04.html#section",
+    "href": "week04/week_04.html#section",
+    "title": "Week 4 — Telling Stories with Data",
     "section": "",
-    "text": "Visual Perception\n\n\n1\n\n\n\n\n\n\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\nCircle 1\n\n\nEstimate A\n\n\nCircle A\n\n\nEstimate B\n\n\nCircle B"
+    "text": "How do we improve\n\n\n\nWhy does this connect with the audience?"
   },
   {
-    "objectID": "week03/CopyOfweek_03.html#section-1",
-    "href": "week03/CopyOfweek_03.html#section-1",
-    "title": "Week 2 — Descriptive Measures",
+    "objectID": "week04/week_04.html#section-1",
+    "href": "week04/week_04.html#section-1",
+    "title": "Week 4 — Telling Stories with Data",
     "section": "",
-    "text": "Visual Perception\n\n\n1\n\n\n\n\n\n\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\nCircle 1\n\n\nEstimate A\n\n\nCircle A\n\n\nEstimate B\n\n\nCircle B"
+    "text": "After visibility drops crash severity goes up.\n\n\n\nWhich is easier to understand?"
   },
   {
-    "objectID": "week03/CopyOfweek_03.html#section-2",
-    "href": "week03/CopyOfweek_03.html#section-2",
-    "title": "Week 2 — Descriptive Measures",
+    "objectID": "week04/week_04.html#section-2",
+    "href": "week04/week_04.html#section-2",
+    "title": "Week 4 — Telling Stories with Data",
     "section": "",
-    "text": "Visual Perception\n\n\n1\n\n\n\n\n\n\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\nCircle 1\n\n\nEstimate A - 13\n\n\nCircle A - 20\n\n\nEstimate B - 15\n\n\nCircle B - 25"
+    "text": "How do we improve\n\n\n\nRewrite the Title (Headline)"
   },
   {
-    "objectID": "week03/week_03_fixed.html#aquire-parse-filter-mine-represent-refine-interact",
-    "href": "week03/week_03_fixed.html#aquire-parse-filter-mine-represent-refine-interact",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "aquire > parse > filter > mine > represent > refine > interact",
-    "text": "aquire &gt; parse &gt; filter &gt; mine &gt; represent &gt; refine &gt; interact\nHow do we clearly describe the data we have?"
+    "objectID": "week04/week_04.html#activity-1-headline-sprint-5-min",
+    "href": "week04/week_04.html#activity-1-headline-sprint-5-min",
+    "title": "Week 4 — Telling Stories with Data",
+    "section": "Activity 1: Headline Sprint (5 min)",
+    "text": "Activity 1: Headline Sprint (5 min)\n 1. Start with your paragraph.\n 2. Write one sentence stating the conclusion\n 3. Cut it to 7 words or fewer\n\n\n\n\n\n\n\n\nWe love words\n\n\nDo not include any numbers.\n\n\n\n\n\nTimer. Call on 2–3 students."
   },
   {
-    "objectID": "week03/week_03_fixed.html#sensory-bandwidth-picture-first",
-    "href": "week03/week_03_fixed.html#sensory-bandwidth-picture-first",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Sensory bandwidth — picture first",
-    "text": "Sensory bandwidth — picture first\n\n\n\nSight\n\n\n~10,000,000 bits/s\n\n\n\n\n\nTouch\n\n\n~1,000,000 bits/s\n\n\n\n\nHearing\n\n\n\n\nSmell\n\n\n\n\n\n\n\n\n\n\nPoint: When magnitudes differ by orders of magnitude, visual encoding beats text for attention + comprehension."
+    "objectID": "week04/week_04.html#activity-2-data-sentence-sprint-5-min",
+    "href": "week04/week_04.html#activity-2-data-sentence-sprint-5-min",
+    "title": "Week 4 — Telling Stories with Data",
+    "section": "Activity 2: Data Sentence Sprint (5 min)",
+    "text": "Activity 2: Data Sentence Sprint (5 min)\n Use this template:\n\n\nAfter [change/action],\nY changed from A to B,\nespecially for group Z.\n\n\nRewrite one sentence from your paragraph.\n\nThis fixes rambling instantly."
   },
   {
-    "objectID": "week03/week_03_fixed.html#sensory-bandwidth-same-blocks-separated",
-    "href": "week03/week_03_fixed.html#sensory-bandwidth-same-blocks-separated",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Sensory bandwidth — same blocks, separated",
-    "text": "Sensory bandwidth — same blocks, separated\n\n\n\n\nSight\n\n\n~10,000,000 bits/s\n\n\n\n\nTouch\n\n\n~1,000,000 bits/s\n\n\n\n\n\nHearing\n\n\n~100,000 bits/s\n\n\n\n\nSmell\n\n\n~100,000 bits/s"
+    "objectID": "week04/week_04.html#section-4",
+    "href": "week04/week_04.html#section-4",
+    "title": "Week 4 — Telling Stories with Data",
+    "section": "",
+    "text": "Activity 3: Visual Message Check\n\n\n\nWhat is the one message of this chart?"
   },
   {
-    "objectID": "week03/week_03_fixed.html#sensory-bandwidth-bar-chart",
-    "href": "week03/week_03_fixed.html#sensory-bandwidth-bar-chart",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Sensory bandwidth — bar chart",
-    "text": "Sensory bandwidth — bar chart\n\n\n\nSight10,000,000\n\n\n\n\nTouch1,000,000\n\n\n\n\nHearing100,000\n\n\n\n\nSmell100,000\n\n\n\n\n\n\n\nTaste1,000\n\n\n\n\n\n\n\nConscious10–100\n\n\n\n\nLinear scale (raw bits/s). Tiny categories collapse — that’s the point: visuals reveal dominance instantly."
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#sensory-perception",
-    "href": "week03/week_03_fixed.html#sensory-perception",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Sensory Perception",
-    "text": "Sensory Perception"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#visual-perception-numbers-1",
-    "href": "week03/week_03_fixed.html#visual-perception-numbers-1",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception Numbers 1",
-    "text": "Visual Perception Numbers 1\n\n\n\nMemorize the first 7 digits of the first line.\n\n\n\n\n  \n    88450962738635927503375196794306759962\n17315904016941344340076296835915743375\n16791197615733475195375920401694343151\n23962135318493267660580062159638071399\n50137145995438750765589253387561875035\n40299811528639507112076134474558675309"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#visual-perception-numbers-2",
-    "href": "week03/week_03_fixed.html#visual-perception-numbers-2",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception Numbers 2",
-    "text": "Visual Perception Numbers 2\n\n\n\nWhat are the last 7 digits of the last line?"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#visual-perception-numbers-3",
-    "href": "week03/week_03_fixed.html#visual-perception-numbers-3",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception Numbers 3",
-    "text": "Visual Perception Numbers 3\n\n\n\nHow many times does 5 appear in this dataset?\n\n\n\n\n  \n    88450962738635927503375196794306759962\n17315904016941344340076296835915743375\n16791197615733475195375920401694343151\n23962135318493267660580062159638071399\n50137145995438750765589253387561875035\n40299811528639507112076134474558675309"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#visual-perception-numbers-3-1",
-    "href": "week03/week_03_fixed.html#visual-perception-numbers-3-1",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception Numbers 3",
-    "text": "Visual Perception Numbers 3\n\n\n\nHow many times does 5 appear in this dataset?\n\n\n\n\n  \n    88450962738635927503375196794306759962\n17315904016941344340076296835915743375\n16791197615733475195375920401694343151\n23962135318493267660580062159638071399\n50137145995438750765589253387561875035\n40299811528639507112076134474558675309"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#visual-perception-line-length-vs-thickness",
-    "href": "week03/week_03_fixed.html#visual-perception-line-length-vs-thickness",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception — Line Length vs Thickness",
-    "text": "Visual Perception — Line Length vs Thickness\n\n\n\nWhich line is longest?  Which line is thickest?"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#visual-perception-line-length-vs-thickness-1",
-    "href": "week03/week_03_fixed.html#visual-perception-line-length-vs-thickness-1",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception — Line Length vs Thickness",
-    "text": "Visual Perception — Line Length vs Thickness\n\n\n\nWhich line is longest?  Which line is thickest?"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#visual-perception-line-length-vs-thickness-10-lines",
-    "href": "week03/week_03_fixed.html#visual-perception-line-length-vs-thickness-10-lines",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception — Line Length vs Thickness (10 lines)",
-    "text": "Visual Perception — Line Length vs Thickness (10 lines)\n\n\n\nWhich line is longest?  Which line is thickest?"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#visual-perception-line-length-vs-thickness-30-lines",
-    "href": "week03/week_03_fixed.html#visual-perception-line-length-vs-thickness-30-lines",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception — Line Length vs Thickness (30 lines)",
-    "text": "Visual Perception — Line Length vs Thickness (30 lines)\n\n\n\nWhich line is longest?  Which line is thickest?"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#visual-perception-area-is-hard",
-    "href": "week03/week_03_fixed.html#visual-perception-area-is-hard",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception — Area is hard",
-    "text": "Visual Perception — Area is hard\n\n\n\nSmall circle = 1. What are the values of the two large circles? (They differ by &lt; 5.)\n\n\n\n\n\n\n1\n\n\nSmall\n\n\n\n\n\n\n\nEstimate\n\n\n\n\n?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLarge A\n\n\n\n\n?\n\n\nLarge B"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#visual-perception-area-is-hard-1",
-    "href": "week03/week_03_fixed.html#visual-perception-area-is-hard-1",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception — Area is hard",
-    "text": "Visual Perception — Area is hard\n\n\n\nFill Large A with 1 circles (no overlap). About how many fit?\n\n\n\n\n\n\n1\n\n\nSmall\n\n\n\n\n\n\n\nEstimate\n\n\n\n\n\n\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\n1\n\n\nLarge A\n\n\n\n\n?\n\n\nLarge B"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#visual-perception-area-is-hard-2",
-    "href": "week03/week_03_fixed.html#visual-perception-area-is-hard-2",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception — Area is hard",
-    "text": "Visual Perception — Area is hard\n\n\n\nBar view (unit scale): 1, 13, 21, 24 (notice how subtle 21 vs 24 is by eye as circles).\n\n\n\n\n\n\n\n\n\n\n\n\nSmall1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEstimate13\n\n\n\n\n\n\n\n\n\nTrue A21\n\n\n\n\n\n\n\n\n\nTrue B24"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#visual-perception-areas",
-    "href": "week03/week_03_fixed.html#visual-perception-areas",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visual Perception Areas",
-    "text": "Visual Perception Areas"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#visua-perception-colors",
-    "href": "week03/week_03_fixed.html#visua-perception-colors",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Visua Perception Colors",
-    "text": "Visua Perception Colors"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#gestault-principle",
-    "href": "week03/week_03_fixed.html#gestault-principle",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Gestault Principle",
-    "text": "Gestault Principle"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#gestault-principle-reveal",
-    "href": "week03/week_03_fixed.html#gestault-principle-reveal",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Gestault Principle Reveal",
-    "text": "Gestault Principle Reveal"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#non-data-ink",
-    "href": "week03/week_03_fixed.html#non-data-ink",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Non Data Ink",
-    "text": "Non Data Ink"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#chart-selection",
-    "href": "week03/week_03_fixed.html#chart-selection",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Chart Selection",
-    "text": "Chart Selection"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#nominal-comparison",
-    "href": "week03/week_03_fixed.html#nominal-comparison",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Nominal Comparison",
-    "text": "Nominal Comparison"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#time-series",
-    "href": "week03/week_03_fixed.html#time-series",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Time Series",
-    "text": "Time Series"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#ranking",
-    "href": "week03/week_03_fixed.html#ranking",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Ranking",
-    "text": "Ranking"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#part-to-whole",
-    "href": "week03/week_03_fixed.html#part-to-whole",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Part-to-Whole",
-    "text": "Part-to-Whole"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#distribution",
-    "href": "week03/week_03_fixed.html#distribution",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Distribution",
-    "text": "Distribution"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#frequency-distribution",
-    "href": "week03/week_03_fixed.html#frequency-distribution",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Frequency Distribution",
-    "text": "Frequency Distribution"
-  },
-  {
-    "objectID": "week03/week_03_fixed.html#correlation",
-    "href": "week03/week_03_fixed.html#correlation",
-    "title": "Week 2 — Descriptive Measures",
-    "section": "Correlation",
-    "text": "Correlation"
+    "objectID": "week04/week_04.html#section-5",
+    "href": "week04/week_04.html#section-5",
+    "title": "Week 4 — Telling Stories with Data",
+    "section": "",
+    "text": "3:30:3:30\n\n\n\nseconds\n\n\nseconds\n\n\nminutes\n\n\nminutes"
   }
 ]
