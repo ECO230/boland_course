@@ -2,19 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ECO230.github.io/boland_course/week04/Homework_04.html</loc>
-    <lastmod>2026-02-17T21:25:39.142Z</lastmod>
+    <lastmod>2026-02-21T20:37:38.619Z</lastmod>
   </url>
   <url>
     <loc>https://ECO230.github.io/boland_course/week03/week_03.html</loc>
-    <lastmod>2026-02-10T20:50:33.237Z</lastmod>
+    <lastmod>2026-02-21T20:37:38.162Z</lastmod>
   </url>
   <url>
     <loc>https://ECO230.github.io/boland_course/week02/week_02.html</loc>
-    <lastmod>2026-02-03T22:08:24.327Z</lastmod>
+    <lastmod>2026-02-21T20:37:38.267Z</lastmod>
   </url>
   <url>
     <loc>https://ECO230.github.io/boland_course/index.html</loc>
     <lastmod>2026-01-29T19:47:47.423Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/syllabus/syllabus.html</loc>
+    <lastmod>2026-02-03T22:40:34.642Z</lastmod>
   </url>
   <url>
     <loc>https://ECO230.github.io/boland_course/week01/week_01_DEP.html</loc>
@@ -65,8 +69,12 @@
     <lastmod>2026-01-29T19:47:47.503Z</lastmod>
   </url>
   <url>
-    <loc>https://ECO230.github.io/boland_course/syllabus/syllabus.html</loc>
-    <lastmod>2026-02-03T22:40:34.642Z</lastmod>
+    <loc>https://ECO230.github.io/boland_course/syllabus/project_1_timeline.html</loc>
+    <lastmod>2026-02-24T19:50:09.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/syllabus/project_1_prompt.html</loc>
+    <lastmod>2026-02-24T19:50:17.427Z</lastmod>
   </url>
   <url>
     <loc>https://ECO230.github.io/boland_course/week02/Homework_02.html</loc>

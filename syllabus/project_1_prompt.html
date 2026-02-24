@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>GROUP PROJECT – DATA ANALYSIS PROJECT – ECO 230 — Section 12</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-30e33b9170478032341da2de80696f6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles/accessibility.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ECO 230 — Section 12</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus/syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../week01/week_01.html">
+ <span class="dropdown-text">Week 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week02/week_02.html">
+ <span class="dropdown-text">Week 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week03/week_03.html">
+ <span class="dropdown-text">Week 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week04/week_04.html">
+ <span class="dropdown-text">Week 4</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-homework" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Homework</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-homework">    
+        <li>
+    <a class="dropdown-item" href="../week01/Homework_01.html">
+ <span class="dropdown-text">Homework 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week02/Homework_02.html">
+ <span class="dropdown-text">Homework 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week03/Homework_03.html">
+ <span class="dropdown-text">Homework 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week04/Homework_04.html">
+ <span class="dropdown-text">Homework 4</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project-1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project 1</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-project-1">    
+        <li>
+    <a class="dropdown-item" href="../syllabus/project_1_prompt.html">
+ <span class="dropdown-text">Project Prompt</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../syllabus/project_1_timeline.html">
+ <span class="dropdown-text">Project Timeline</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#assignment-learning-objectives" id="toc-assignment-learning-objectives" class="nav-link" data-scroll-target="#assignment-learning-objectives">Assignment learning objectives</a></li>
+  <li><a href="#key-deliverables" id="toc-key-deliverables" class="nav-link" data-scroll-target="#key-deliverables">Key deliverables</a></li>
+  <li><a href="#prompt" id="toc-prompt" class="nav-link" data-scroll-target="#prompt">Prompt</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#general-guidelines-for-deliverables" id="toc-general-guidelines-for-deliverables" class="nav-link" data-scroll-target="#general-guidelines-for-deliverables">General guidelines for deliverables</a></li>
+  <li><a href="#grading-criteria" id="toc-grading-criteria" class="nav-link" data-scroll-target="#grading-criteria">Grading criteria</a>
+  <ul class="collapse">
+  <li><a href="#oral-presentation-rubric" id="toc-oral-presentation-rubric" class="nav-link" data-scroll-target="#oral-presentation-rubric">Oral presentation rubric</a></li>
+  <li><a href="#presentation-materials-rubric" id="toc-presentation-materials-rubric" class="nav-link" data-scroll-target="#presentation-materials-rubric">Presentation materials rubric</a></li>
+  <li><a href="#formal-documentation-of-work" id="toc-formal-documentation-of-work" class="nav-link" data-scroll-target="#formal-documentation-of-work">Formal documentation of work</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">GROUP PROJECT – DATA ANALYSIS PROJECT</h1>
+<p class="subtitle lead">Project Prompt</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>OVERVIEW</strong></p>
+</div>
+</div>
+<p>The purpose of this project is to introduce you to analysis of organizational data using descriptive statistics, data visualization, and inferential statistics. While completing this project, you will develop and practice the skills necessary to communicate findings. Communication will occur through an oral presentation, professionally prepared presentation, and documentation of your work in RScripts, RMarkdown or other formats as required by your instructor.</p>
+</section>
+<section id="assignment-learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-learning-objectives">Assignment learning objectives</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>ASSIGNMENT LEARNING OBJECTIVES MAPPED TO COURSE LEARNING OBJECTIVES</strong></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="lightable-paper lightable-striped caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Assignment Learning Objective</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Course Learning Objectives</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1. Apply scripting skills (in RStudio) to prepare visual and descriptive summaries of workforce aging and use inferential statistics (where appropriate) to address the case prompt and inform conclusions.</td>
+<td style="text-align: left;">2. Describe, summarize, and interpret data using descriptive statistics, inferential statistics, and data visualization.&lt;br&gt;3. Develop foundational skills related to spreadsheets, interactive data visualization software, and scripting languages used for data analysis and visualization.&lt;br&gt;4. Apply research design and data analysis best practices to complete case-based projects and to critique others’ analyses.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2. Organize main findings, clearly support conclusions with analysis, and translate in a professional business presentation to a nontechnical audience.</td>
+<td style="text-align: left;">5. Communicate the purpose, methods, and results of analysis to authentic audiences in appropriate written and oral formats.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3. Prepare thorough documentation of work (e.g., in annotated RScripts or RMarkdown) for a technical audience following best practices for organizing and annotating code.</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="key-deliverables" class="level2">
+<h2 class="anchored" data-anchor-id="key-deliverables">Key deliverables</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>KEY DELIVERABLES</strong></p>
+</div>
+</div>
+<ol type="1">
+<li>Prep work<br>
+</li>
+<li>5–10 minute formal presentation<br>
+</li>
+<li>Presentation materials<br>
+</li>
+<li>Formal documentation of work in either RScripts or RMarkdown</li>
+</ol>
+</section>
+<section id="prompt" class="level2">
+<h2 class="anchored" data-anchor-id="prompt">Prompt</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>PROMPT</strong></p>
+</div>
+</div>
+<p>By this point you should have a pretty good understanding of what type of data is in your dataset and you should have some preliminary ideas of stories you might be able to tell with this data set. In this project you will come up with an analysis plan, develop hypotheses you want to test, clean up your data set and test your hypotheses statistically. You will also prepare descriptive and visual analysis of your data and prepare a formal presentation to summarize your key findings.</p>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>RESOURCES</strong></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>RECOMMENDATIONS FOR YOUR ANALYSIS</strong></p>
+</div>
+</div>
+<ol type="1">
+<li>Decide what stories you will be working on as soon as possible. Your story may evolve over time, but having an idea of what information you are trying to get out of your data set will assist in cleaning up your data set, defining and testing your hypotheses and developing your presentation.</li>
+<li>Have a discussion about how you want to divide work within your group. Are you each going to be working on one story, are some members going to specialize in data analysis while others specialize on developing the presentation.</li>
+<li>The backbone of your analysis will be performed and documented in R. This will include cleaning your data set to prepare it for analysis. Descriptive and inferential statistics and, if you prefer, visualizations. You can export data and perform analysis in Excel/Tableau, but the data set you are using for analysis should be prepared in R. This not only makes it easier to document how your data was prepared, but also helps to ensure that everyone in your group is working with the same data set.</li>
+<li>With the exception of the inferential statistics (which we will start using in Week 6) you have already performed some version of the analysis you are expected to do for this project in earlier assignments. This is the same type of work we have been doing so far in the class, just more of it. Feel free to recycle analysis that you did for previous assignments; if it supports your story or helps to address your hypothesis there is no need to start over from scratch.</li>
+<li>Make good use of the multiple weeks you have to work on this project; you do not want to wait until the last minute.</li>
+<li>Pick stories that you think are interesting. It will make your presentation more compelling if you are actually invested in the story you are telling. It will also make your analysis seem like less of a chore.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>DATA</strong></p>
+</div>
+</div>
+<p>Full data sets are provided in the project templates per topic. Some of these data sets are quite large so a good early step is to filter out data that is not needed to address your hypotheses. It will make your analysis run faster and make the sizes of your files easier to deal with if you are doing analyses in Excel or Tableau. Some examples of common data cleaning tasks are included in your posit.cloud project; feel free to adapt them to your needs.</p>
+</section>
+<section id="general-guidelines-for-deliverables" class="level2">
+<h2 class="anchored" data-anchor-id="general-guidelines-for-deliverables">General guidelines for deliverables</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>GENERAL GUIDELINES FOR DELIVERABLES</strong></p>
+</div>
+</div>
+<p><strong>Please follow specific guidance from your instructor as well as the guidance provided below.</strong></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>PREP WORK</strong></p>
+</div>
+</div>
+<p>Prep work will be due in weeks 6 through 9 to ensure you are keeping on track with the work needed to complete the project on time. Prep work is pass/fail and graded per-group. Attendance for coaching sessions is graded individually. Missing prep work will be subtracted from your final project score (e.g., if you do not have your clean data set prepared in time you will have 20 points subtracted from your final project score).</p>
+<ol type="1">
+<li>Week 6 — Analysis Plan<br>
+</li>
+<li>Week 7 — Clean Data Set<br>
+</li>
+<li>Week 8 — Pre-Coaching Presentation Draft<br>
+</li>
+<li>Week 9 — Coaching Session Attendance</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>PRESENTATION MATERIALS</strong></p>
+</div>
+</div>
+<p>Your presentation may be prepared in either Google Slides or PowerPoint. If using PowerPoint, you are encouraged to use Office Online to enable all team members to access the presentation and contribute. Effective slide design will be covered in class, and the principles of effective design are reflected in the rubric included under Grading Criteria. All team members are responsible for the content of all slides and the presentation should be cohesive, even if you have delegated the design of certain sections to separate team members.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>ORAL PRESENTATION</strong></p>
+</div>
+</div>
+<p>All teams will present their work in a formal business presentation. Ask your instructor about the presentation location, times, and venue (e.g., seated conference room style vs.&nbsp;standing). The following expectations apply to all sections:</p>
+<ol type="1">
+<li>No notecards<br>
+</li>
+<li>Dress is business casual or more formal<br>
+</li>
+<li>All team members must speak<br>
+</li>
+<li>The audience may interrupt to ask questions during the presentation. Plan for 8–10 minutes of content, not including questions.<br>
+</li>
+<li>Presentation content should be non-technical. Slides should not contain technical output of hypothesis tests and the oral delivery should not include detailed discussions of statistical tests. However, students should be prepared to answer technical questions if prompted and may choose to have supplemental content prepared at the end of the presentation materials in anticipation of technical questions.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>DOCUMENTING YOUR ANALYSIS</strong></p>
+</div>
+</div>
+<p>All teams must create RScripts or RMarkdown documents containing sufficient annotations to enable an outside reader to understand and replicate their work. Code should be “tidy”, meaning code following each pipe in a dplyr call begins on a new line. For ease of dividing work across team members, you may prepare separate RScripts or RMarkdown documents for each piece of your analysis. If you choose to do this, provide a single document that lists the file name of each RScript or RMarkdown with a brief description of contents. <strong>All team members are responsible for the content of all documents submitted. If one is unsatisfactory, the entire team’s grade will suffer.</strong></p>
+</section>
+<section id="grading-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="grading-criteria">Grading criteria</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>GRADING CRITERIA</strong></p>
+</div>
+</div>
+<p>The rubrics below will be used to evaluate each of the 4 deliverables for this project and assign team grades. However, grades may be adjusted up or down by up to two letter grades based on the team’s independence of work and ingenuity in addressing the prompt using tools taught in the class. Please do not assume traits in this rubric are all weighted equally. Grades are not necessarily a linear function of your scores. Any 1s or 0s will substantially reduce the project grade.<br>
+<strong>All team scores are multiplied by individual peer evaluation scores to achieve individual grades. See syllabus for details.</strong></p>
+<section id="oral-presentation-rubric" class="level3">
+<h3 class="anchored" data-anchor-id="oral-presentation-rubric">Oral presentation rubric</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>ORAL PRESENTATION RUBRIC</strong></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="lightable-paper lightable-striped caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Trait</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Capstone (4)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Milestone (3)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Milestone (2)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Benchmark (1)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Insufficient (0)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Organization</td>
+<td style="text-align: left;">Organizational pattern (specific introduction and conclusion, sequenced material within the body, and transitions) is clearly and consistently observable and makes the content of the presentation cohesive.</td>
+<td style="text-align: left;">Organizational pattern (specific introduction and conclusion, sequenced material within the body, and transitions) is clearly and consistently observable within the presentation.</td>
+<td style="text-align: left;">Organizational pattern (specific introduction and conclusion, sequenced material within the body, and transitions) is intermittently observable within the presentation.</td>
+<td style="text-align: left;">Organizational pattern (specific introduction and conclusion, sequenced material within the body, and transitions) is not observable within the presentation.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Verbal Delivery</td>
+<td style="text-align: left;">Speaker’s voice enhances the effectiveness of the presentation and pace of the presentation maintains the interest of the audience. Language in presentation is appropriate to audience.</td>
+<td style="text-align: left;">Speaker’s voice is always audible and appropriately expressive and pace of the presentation maintains the interest of the audience. Language in presentation is appropriate to audience.</td>
+<td style="text-align: left;">Speaker’s voice is generally audible with some expression and pace of the presentation is natural. Language in presentation is appropriate to audience.</td>
+<td style="text-align: left;">Speaker’s voice is inaudible or lacks expression and pace of the presentation is halting or too fast to understand. Language in presentation is not appropriate to audience.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Physical Delivery</td>
+<td style="text-align: left;">Delivery techniques (posture, gestures and eye contact) make the presentation compelling, and speaker appears polished and confident.</td>
+<td style="text-align: left;">Delivery techniques (posture, gestures and eye contact) make the presentation interesting, and speaker appears comfortable.</td>
+<td style="text-align: left;">Delivery techniques (posture, gestures and eye contact) make the presentation understandable, and speaker appears tentative.</td>
+<td style="text-align: left;">Delivery techniques (posture, gestures and eye contact) detract from the understandability of the presentation, and speaker appears uncomfortable.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Content and Supporting Material</td>
+<td style="text-align: left;">Supporting material (presentation content, slides, or handouts) is relevant, compelling and lends credibility to conclusions. Message is fully tailored to audience.</td>
+<td style="text-align: left;">Supporting material (presentation content, slides, or handouts) is relevant and generally sufficient to support the ideas. Message is tailored to audience.</td>
+<td style="text-align: left;">Supporting material (presentation content, slides, or handouts) partially supports the ideas and minimal irrelevant content is presented. Presentation reflects a recognition of the audience but message is not fully tailored to the audience.</td>
+<td style="text-align: left;">Insufficient supporting material (presentation content, slides, or handouts) to convey ideas or irrelevant content is presented. Message is not tailored to audience.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Central Message</td>
+<td style="text-align: left;">Central message is compelling (precisely stated, appropriately repeated, memorable, and strongly supported.)</td>
+<td style="text-align: left;">Central message is clear and consistent with the supporting material.</td>
+<td style="text-align: left;">Central message is basically understandable but is not often repeated and is not memorable.</td>
+<td style="text-align: left;">Central message can be deduced, but is not explicitly stated in the presentation.</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="presentation-materials-rubric" class="level3">
+<h3 class="anchored" data-anchor-id="presentation-materials-rubric">Presentation materials rubric</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>PRESENTATION MATERIALS RUBRIC</strong></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="lightable-paper lightable-striped caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Trait</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Professional Quality (4)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Minor Revision Required (3)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Major Revisions Required (2)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Unacceptable or Missing (1–0)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Design: Backgrounds, Layout, Theme and Images Enhance Understanding</td>
+<td style="text-align: left;">Design is effective and all best practices are followed. No revisions needed.</td>
+<td style="text-align: left;">Effective design is used; only a few slides need revisions in layout, font, or visual appeal to achieve professional quality.</td>
+<td style="text-align: left;">Effective design attempted but success varies across slides.</td>
+<td style="text-align: left;">Distracting, unprofessional, and/or entirely unrelated to content.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Design: Use of Text is Limited and Appropriate to Complement Oral Message, Not Compete With it</td>
+<td style="text-align: left;">Use of text is appropriately limited and effectively supports oral messages.</td>
+<td style="text-align: left;">Use of text is generally effective throughout all slides with few minor revisions needed to achieve professional quality.</td>
+<td style="text-align: left;">Effectiveness of text varies across slides—some may exhibit too much text or text is so limited that it is cryptic.</td>
+<td style="text-align: left;">Excessive use of text detracts from oral presentation, text is illegible, or text is wholly unrelated to oral message.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Design: Use of Color Conveys Meaning</td>
+<td style="text-align: left;">Color is used to convey meaning throughout and consistent across slides to enable reader to connect key points or understand similar visuals.</td>
+<td style="text-align: left;">Color is usually used to convey meaning and is consistent across most slides and generally helps reader connect key points or understand similar visuals across slides, but some slides still exhibit minor problems.</td>
+<td style="text-align: left;">Color is usually used to convey meaning and is consistent across most slides and generally helps reader connect key points or understand similar visuals across slides, but some slides still exhibit major problems.</td>
+<td style="text-align: left;">Color is not used to convey meaning or is inconsistent throughout the presentation materials to the point of obscuring understanding.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Organization: Is Natural and Contributes to Central Message</td>
+<td style="text-align: left;">Slides follow a clear organizational structure aided by headings and slide design that is natural and adds to logical and convincing support for key message.</td>
+<td style="text-align: left;">Slides follow a clear organizational structure aided by headings and slide design but minor problems in sequencing or ineffective repetition may remain that either detract from or belabor the key message.</td>
+<td style="text-align: left;">Organizational flow is clearly attempted but is ineffective or not consistently adhered to.</td>
+<td style="text-align: left;">Slide order is disjointed or obviously organized around presenters rather than content.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Content: Visual Displays of Results (Graphs and Tables) are appropriate for analysis and intuitive for audience</td>
+<td style="text-align: left;">Visual displays are appropriate for the data type and easily interpreted by a nontechnical audience and the key takeaway is clear from the visual alone.</td>
+<td style="text-align: left;">Visual displays are appropriate for the data type but minor revisions are needed to improve comprehension for nontechnical audience or to convey key takeaway.</td>
+<td style="text-align: left;">Visual displays may be technically correct but are very difficult for nontechnical audience to understand or attempt to convey too much information in one visual.</td>
+<td style="text-align: left;">Improper visual displays are used for the data type or question.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Content: Visual Displays of Results are Legible</td>
+<td style="text-align: left;">Graphs/tables and accompanying labels are all legible and all graph attributes are clearly rendered to enable comprehension.</td>
+<td style="text-align: left;">No graphs/tables exhibit major problems described in level (1) but some may require minor revisions to improve clarity (e.g., patterns, hue or contrast, or small problems with font).</td>
+<td style="text-align: left;">Some but not all graphs/tables exhibit major problems described in level (1).</td>
+<td style="text-align: left;">Graphs or tables are illegible or too poorly labeled or rendered to allow for comprehension. Problems may include small font, poor color contrast, or markers/lines that are too small.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Content: Relevant and Succinct</td>
+<td style="text-align: left;">Materials include no irrelevant content and conveys Key Takeaways and Recommendations effectively and succinctly.</td>
+<td style="text-align: left;">Materials include minimal irrelevant content but may use repetition ineffectively or leave out some key content that would strengthen Key Takeaways and Recommendations.</td>
+<td style="text-align: left;">Materials include some irrelevant content OR major omissions of relevant content exist but the audience can follow the Key Takeaways and Recommendations.</td>
+<td style="text-align: left;">Materials include substantial irrelevant content or content that is obviously inappropriate for the audience (e.g., R code, detailed output from statistical tests).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="formal-documentation-of-work" class="level3">
+<h3 class="anchored" data-anchor-id="formal-documentation-of-work">Formal documentation of work</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>FORMAL DOCUMENTATION OF WORK</strong></p>
+</div>
+</div>
+<p>The following simple rubric will be used to assign grades for documentation of work. Please refer to any supplemental guidelines provided by your instructor.</p>
+<ol type="1">
+<li>Is documentation sufficient to follow the analysis conducted? Can a data analyst follow your process from raw data to output/conclusions?</li>
+<li>Does code run without errors from start to finish when beginning with an empty environment?</li>
+<li>Does code reproduce all content included in the presentation materials without major omissions?</li>
+<li>Are analyses performed in Excel/Tableau sufficiently documented? Can a data analyst recreate your analysis with the documentation provided?</li>
+<li>Is organization across and within files effective for matching presented work to the code that produced it?</li>
+<li>Are there discrepancies between the actions the code performs and the way the output is presented in the slides or oral presentation? For example, does the code use filters appropriately to produce analysis for a subset of workers as reported in the slides?</li>
+<li>Does the code contain appropriate inferential statistics to accompany descriptive analysis presented in the presentation?</li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
