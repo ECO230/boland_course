@@ -546,6 +546,20 @@
     "text": "Anticipated schedule\nWhen discrepancies between Canvas and the Anticipated Schedule exist, the information on Canvas supersedes this schedule. Official class agendas are posted under This Week in Canvas.\n\n\n\n\nClass\n\n\nDate\n\n\nPart 1\n\n\nPart 2\n\n\nPart 3\n\n\n\n\n\n\nWeek 1\n\n\n1/27/2026\n\n\nCourse Overview\n\n\nAnatomy, Grouping & Unit of Analysis\n\n\nData Explore in 3 softwares\n\n\n\n\nWeek 2\n\n\n2/3/2026\n\n\nLevel of Measurement Descriptive Statistics\n\n\nMeasures of Variablity and Association\n\n\nData Explore in 3 softwares\n\n\n\n\nWeek 3\n\n\n2/10/2026\n\n\nData Visualization\n\n\nData Visualization in Tableau\n\n\nData Visualization in Tableau\n\n\n\n\nWeek 4\n\n\n2/17/2026\n\n\nCommunicating with Data in Writing\n\n\nCommunicating with Data Orally\n\n\nWork Time\n\n\n\n\nWeek 5\n\n\n2/24/2026\n\n\nProblem Definition\n\n\nLaunch Analysis Project\n\n\nWork Time\n\n\n\n\nWeek 6\n\n\n3/3/2026\n\n\nInference\n\n\nRstudio Descriptive Statistics\n\n\nWork Time\n\n\n\n\nWeek 7\n\n\n3/10/2026\n\n\nHypothesis Testing\n\n\nRstudio Inferential Statistics\n\n\nWork Time\n\n\n\n\nWeek 8\n\n\n3/24/2026\n\n\nPre-Coaching Work\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 9\n\n\n3/31/2026\n\n\nCoaching Sessions\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 10\n\n\n4/7/2026\n\n\nCommunicating with Data Documenting Work\n\n\nWork Time\n\n\nWork Time\n\n\n\n\nWeek 11\n\n\n4/14/2026\n\n\nAnalysis Project Final Presentations\n\n\nAnalysis Project Final Presentations\n\n\nThe Research Proposal\n\n\n\n\nWeek 12\n\n\n4/21/2026\n\n\nAdvanced Analytics: Sample Design\n\n\nAdvanced Analytics: Survey Design\n\n\n\n\n\n\nWeek 13\n\n\n4/28/2026\n\n\nAdvanced Analytics: Machine Learning\n\n\nAdvanced Analytics: Experiment Design\n\n\nEthics\n\n\n\n\nWeek 14\n\n\n5/5/2026\n\n\nResearch Proposal Presentations\n\n\nResearch Proposal Presentations\n\n\nFinal Exam Prep\n\n\n\n\nFinal Exam\n\n\n5/12/2026\n\n\nFinal Exam Tuesday 05/12 07:00-09:00PM"
   },
   {
+    "objectID": "week05/Homework_05.html",
+    "href": "week05/Homework_05.html",
+    "title": "Homework 5: Hypothesis Tests",
+    "section": "",
+    "text": "NoteObjectives\n\n\n\n\nComplete step 3 of the hypothesis testing process: Which test is appropriate and what is the null hypothesis?\nChoose an appropriate inferential test.\nTranslate your hypothesis to null (\\(H_0\\)) and alternate (\\(H_A\\)) form\n\n\n\n\n\n\n\n\n\nTipResources\n\n\n\n\nSample data sets are included (from HW1–4) if you want to try code on real data.\nWeek 6 resources and lectures.\nYou can use mathematical notation. If you do, copy the raw code from these examples. Do not copy/paste Greek symbols into your .qmd file; it may not render/knit properly.\n\n\\(H_0\\)\n\\(H_A\\)\n\\(\\mu\\)\n\\(\\neq\\)\n\n\n\n\n\n\n\n\n\n\nImportantInstructions\n\n\n\n\nHave your data set and any exploratory analysis you have performed so far handy.\n\n\n# Load data set if you want to try running code (OPTIONAL)\ndf &lt;- read.csv(\"airbnb_chicago.csv\") # or whatever sample set you want to use\n\n\nChoose 3 hypotheses from your Group Project.\nDetermine what inferential test to run:\n\ncsf() | Chi Squared Goodness of Fit\n\ncsi() | Chi Squared Test for Independence\n\nost() | One Sample t-Test\n\nidt() | Independent t-Test\n\nidw() | Wilcoxon Rank Sum Test\n\npst() | Paired Samples t-Test\n\npsw() | Wilcoxon Signed-Rank Test\n\nano() | Analysis of Variance\n\nslr() | Simple Linear Regression\n\n\nTranslate your hypothesis to null (\\(H_0\\)) and alternate (\\(H_A\\)) form.\nWrite pseudocode that you think will work to run your test in R.\n\n\n\n\n\n\n\n\n\nNoteExample: You will do something similar for the 3 hypotheses you choose\n\n\n\n\nWhat statistical story am I attempting to tell?\n(This can be copied from Analysis Plan) The average number of bedrooms is 2\nWhat have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?\n(Not necessary here, but you will eventually need analysis for your presentation.)\nWhich test is appropriate and what is the null hypothesis?\nOne Sample t-Test ost()\n\\(H_0\\): mean Bedrooms = 2\n\\(H_A\\): mean Bedrooms \\(\\neq\\) 2\nAlternatively you can spell out your hypotheses long form:\n\nNull Hypothesis: mean number of bedrooms equals 2\n\nAlternate Hypothesis: mean number of bedrooms does not equal 2\n\nPseudocode\n\n\n# Before code to comment out\n# df %&gt;%\n#   ost(~bedrooms)\n\n\nWhat is the statistical interpretation of the test result?\nNot needed at this time, we haven’t run a test yet.\nWhat is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?\nNot needed at this time, we haven’t run a test yet.\n\n\n\n\n\n\n\nWhat statistical story am I attempting to tell?\nHypothesis:\nWhich test is appropriate and what is the null hypothesis?\nTest Type:\n\\(H_0\\):\n\\(H_A\\):\nPseudocode\n\n\n# Before code to comment out\n\n\n\n\n\n\nWhat statistical story am I attempting to tell?\nHypothesis:\nWhich test is appropriate and what is the null hypothesis?\nTest Type:\n\\(H_0\\):\n\\(H_A\\):\nPseudocode\n\n\n# Before code to comment out\n\n\n\n\n\n\nWhat statistical story am I attempting to tell?\nHypothesis:\nWhich test is appropriate and what is the null hypothesis?\nTest Type:\n\\(H_0\\):\n\\(H_A\\):\nPseudocode\n\n\n# Before code to comment out"
+  },
+  {
+    "objectID": "week05/Homework_05.html#homework-5-hypothesis-tests",
+    "href": "week05/Homework_05.html#homework-5-hypothesis-tests",
+    "title": "Homework 5: Hypothesis Tests",
+    "section": "",
+    "text": "NoteObjectives\n\n\n\n\nComplete step 3 of the hypothesis testing process: Which test is appropriate and what is the null hypothesis?\nChoose an appropriate inferential test.\nTranslate your hypothesis to null (\\(H_0\\)) and alternate (\\(H_A\\)) form\n\n\n\n\n\n\n\n\n\nTipResources\n\n\n\n\nSample data sets are included (from HW1–4) if you want to try code on real data.\nWeek 6 resources and lectures.\nYou can use mathematical notation. If you do, copy the raw code from these examples. Do not copy/paste Greek symbols into your .qmd file; it may not render/knit properly.\n\n\\(H_0\\)\n\\(H_A\\)\n\\(\\mu\\)\n\\(\\neq\\)\n\n\n\n\n\n\n\n\n\n\nImportantInstructions\n\n\n\n\nHave your data set and any exploratory analysis you have performed so far handy.\n\n\n# Load data set if you want to try running code (OPTIONAL)\ndf &lt;- read.csv(\"airbnb_chicago.csv\") # or whatever sample set you want to use\n\n\nChoose 3 hypotheses from your Group Project.\nDetermine what inferential test to run:\n\ncsf() | Chi Squared Goodness of Fit\n\ncsi() | Chi Squared Test for Independence\n\nost() | One Sample t-Test\n\nidt() | Independent t-Test\n\nidw() | Wilcoxon Rank Sum Test\n\npst() | Paired Samples t-Test\n\npsw() | Wilcoxon Signed-Rank Test\n\nano() | Analysis of Variance\n\nslr() | Simple Linear Regression\n\n\nTranslate your hypothesis to null (\\(H_0\\)) and alternate (\\(H_A\\)) form.\nWrite pseudocode that you think will work to run your test in R.\n\n\n\n\n\n\n\n\n\nNoteExample: You will do something similar for the 3 hypotheses you choose\n\n\n\n\nWhat statistical story am I attempting to tell?\n(This can be copied from Analysis Plan) The average number of bedrooms is 2\nWhat have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?\n(Not necessary here, but you will eventually need analysis for your presentation.)\nWhich test is appropriate and what is the null hypothesis?\nOne Sample t-Test ost()\n\\(H_0\\): mean Bedrooms = 2\n\\(H_A\\): mean Bedrooms \\(\\neq\\) 2\nAlternatively you can spell out your hypotheses long form:\n\nNull Hypothesis: mean number of bedrooms equals 2\n\nAlternate Hypothesis: mean number of bedrooms does not equal 2\n\nPseudocode\n\n\n# Before code to comment out\n# df %&gt;%\n#   ost(~bedrooms)\n\n\nWhat is the statistical interpretation of the test result?\nNot needed at this time, we haven’t run a test yet.\nWhat is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?\nNot needed at this time, we haven’t run a test yet.\n\n\n\n\n\n\n\nWhat statistical story am I attempting to tell?\nHypothesis:\nWhich test is appropriate and what is the null hypothesis?\nTest Type:\n\\(H_0\\):\n\\(H_A\\):\nPseudocode\n\n\n# Before code to comment out\n\n\n\n\n\n\nWhat statistical story am I attempting to tell?\nHypothesis:\nWhich test is appropriate and what is the null hypothesis?\nTest Type:\n\\(H_0\\):\n\\(H_A\\):\nPseudocode\n\n\n# Before code to comment out\n\n\n\n\n\n\nWhat statistical story am I attempting to tell?\nHypothesis:\nWhich test is appropriate and what is the null hypothesis?\nTest Type:\n\\(H_0\\):\n\\(H_A\\):\nPseudocode\n\n\n# Before code to comment out"
+  },
+  {
     "objectID": "week01/week_01_DEP.html#use-instant-booking-wisely",
     "href": "week01/week_01_DEP.html#use-instant-booking-wisely",
     "title": "ECO 230 Section 012",
@@ -1279,6 +1293,111 @@
     "title": "Homework 1: Data Anatomy & Responsible AI Use",
     "section": "Alignment to Course Outcomes",
     "text": "Alignment to Course Outcomes\n\nChoose the right analysis: You identify grain, tidy structure, and variable types to determine valid analyses.\n\nInterpret results in context: Your pivot and explanations tie summaries to what the data can and cannot answer.\n\nExplain limitations, assumptions, and uncertainty: Your AI reflection and grain discussion surface constraints before statistics."
+  },
+  {
+    "objectID": "week05/week_05.html#section",
+    "href": "week05/week_05.html#section",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "",
+    "text": "“If it disagrees with experiment, it’s WRONG. In that simple statement is the key to science” \n\n—Richard Feynman"
+  },
+  {
+    "objectID": "week05/week_05.html#research-design",
+    "href": "week05/week_05.html#research-design",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "Research Design",
+    "text": "Research Design"
+  },
+  {
+    "objectID": "week05/week_05.html#what-is-a-hypothesis",
+    "href": "week05/week_05.html#what-is-a-hypothesis",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "What is a hypothesis",
+    "text": "What is a hypothesis\n\n\nWhat are we interested in?\n\n\nAt what level can we measure it practically?\n\n\nRigor of science vs. pragmatics of business\n\n\n\n\n\n\n\n\n\nHypothesis\n\n\nHow do the things we are measuring work together?"
+  },
+  {
+    "objectID": "week05/week_05.html#science",
+    "href": "week05/week_05.html#science",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "Science",
+    "text": "Science\n\n\n\nWhat just happened? (Observation)\n\n\n\n\n\n\nWhy? (Hypothesis)\n\n\nOh, that’s probably why. (Theory)\n\n\nThe Fundamental Rules (Law)"
+  },
+  {
+    "objectID": "week05/week_05.html#science-1",
+    "href": "week05/week_05.html#science-1",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "Science",
+    "text": "Science\n\n\nWhat just happened? (Observation)\n\n\n\n\n\nWhy? (Hypothesis)\n\n\nOh, that’s probably why. (Theory)\n\n\nThe Fundamental Rules (Law)"
+  },
+  {
+    "objectID": "week05/week_05.html#science-2",
+    "href": "week05/week_05.html#science-2",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "Science",
+    "text": "Science\n\n\nWhat just happened? (Observation)\n\n\n\n\n\nWhy? (Hypothesis)\n\n\nOh, that’s probably why. (Theory)\n\n\nThe Fundamental Rules (Law)"
+  },
+  {
+    "objectID": "week05/week_05.html#science-3",
+    "href": "week05/week_05.html#science-3",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "Science",
+    "text": "Science\n\n\nWhat just happened? (Observation)\n\n\n\n\n\nWhy? (Hypothesis)\n\n\nOh, that’s probably why. (Theory)\n\n\nThe Fundamental Rules (Law)"
+  },
+  {
+    "objectID": "week05/week_05.html#science-4",
+    "href": "week05/week_05.html#science-4",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "Science",
+    "text": "Science\n\n\nWhat just happened? (Observation)\n\n\n\n\n\nWhy? (Hypothesis)\n\n\nOh, that’s probably why. (Theory)\n\n\nThe Fundamental Rules (Law)"
+  },
+  {
+    "objectID": "week05/week_05.html#science-5",
+    "href": "week05/week_05.html#science-5",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "Science",
+    "text": "Science\n\n\nWhat just happened? (Observation)\n\n\n\n\n\nWhy? (Hypothesis)\n\n\nOh, that’s probably why. (Theory)\n\n\nThe Fundamental Rules (Law)\n\n\n\n\n\n\n\n\n\nRules (Laws) Don’t Change\n\n\nWhat we ‘know’ changes with our understanding"
+  },
+  {
+    "objectID": "week05/week_05.html#game-simulator",
+    "href": "week05/week_05.html#game-simulator",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "Game Simulator",
+    "text": "Game Simulator"
+  },
+  {
+    "objectID": "week05/week_05.html#relationships",
+    "href": "week05/week_05.html#relationships",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "Relationships",
+    "text": "Relationships\n\n\n\nIndependent Variable\n\nOn/Off Campus\nGPA\nExercise\nBMI\n\nKeep track of (control)\nInput\n\naffects\n\nDependent Variable\n\nGPA\nOn/Off Campus\nBMI\nExercise\n\nMeasure outcome\nPrediction\n\n\n\n\n\n\n\n\nHypothesis\n\n\nAn educated guess about how the independent variable affects the dependent variable."
+  },
+  {
+    "objectID": "week05/week_05.html#pseudo-code",
+    "href": "week05/week_05.html#pseudo-code",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "Pseudo Code",
+    "text": "Pseudo Code\n\n\n\n\n\n#load the raw data set\n#Add population information by zip code\n#Select Population, Duration, Temperature…\n#Create a measure that is a ratio between temp/duration\n#Test Hypothesis duration longer with higher population\n#I tried idt(duration~population) it didn’t work"
+  },
+  {
+    "objectID": "week05/week_05.html#pseudo-code-to-real-code",
+    "href": "week05/week_05.html#pseudo-code-to-real-code",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "Pseudo Code to Real Code",
+    "text": "Pseudo Code to Real Code\n\n\n\n\n\n#load the raw data set\ndf &lt;- read_csv(\"../shared/data/accident_wi.csv\")\n\n#Add population information by zip code\n\n#Select Population, Duration, Temperature…\n\n#Create a measure that is a ratio between temp/distance\n\ndf &lt;- df %&gt;%\n  mutate(temp_dist_ratio = `Temperature(F)`/`Distance(mi)`)\n\n#Test Hypothesis duration longer with higher population\n#I tried idt(duration~population) it didn’t work\n\ndf %&gt;%\n  idt(`Distance(mi)`~Sunrise_Sunset)\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\n\n$analysis_type\n[1] \"Independent t-Test, Two Tailed test\"\n\n$results\n[1] \"t(3071.33) = -6.532, p = 0, r = 0.117, bf10 = 50424766540.957\"\n\n$descriptive_statistics\n  Group        N     Mean Standard_Error\n1   Day 5.74e+03 6.41e-01       1.60e-02\n2 Night 2.17e+03 8.99e-01       3.61e-02"
+  },
+  {
+    "objectID": "week05/week_05.html#group-project-template",
+    "href": "week05/week_05.html#group-project-template",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "Group Project Template",
+    "text": "Group Project Template"
+  },
+  {
+    "objectID": "week05/week_05.html#procrastination",
+    "href": "week05/week_05.html#procrastination",
+    "title": "Week 5 — Converting Stories to Hypotheses",
+    "section": "Procrastination",
+    "text": "Procrastination\n\n \n\n\nMe planning to get my\nposit.cloud project to work\n\n\n\nStarting 15 minutes before\nit is due\n\n\n\n🔥🔥🔥"
   },
   {
     "objectID": "syllabus/project_1_timeline.html",

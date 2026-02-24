@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>video1-block – ECO 230 — Section 12</title>
+<title>Homework 5: Hypothesis Tests – ECO 230 — Section 12</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-30e33b9170478032341da2de80696f6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-30e33b9170478032341da2de80696f6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,20 +104,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles/accessibility.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">ECO 230 — Section 12</span>
     </a>
   </div>
@@ -93,11 +157,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../syllabus/syllabus.html"> 
+    <a class="nav-link" href="../syllabus/syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -106,23 +170,23 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
         <li>
-    <a class="dropdown-item" href="../../week01/week_01.html">
+    <a class="dropdown-item" href="../week01/week_01.html">
  <span class="dropdown-text">Week 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../week02/week_02.html">
+    <a class="dropdown-item" href="../week02/week_02.html">
  <span class="dropdown-text">Week 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../week03/week_03.html">
+    <a class="dropdown-item" href="../week03/week_03.html">
  <span class="dropdown-text">Week 3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../week04/week_04.html">
+    <a class="dropdown-item" href="../week04/week_04.html">
  <span class="dropdown-text">Week 4</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../week05/week_05.html">
+    <a class="dropdown-item" href="../week05/week_05.html">
  <span class="dropdown-text">Week 5</span></a>
   </li>  
     </ul>
@@ -133,23 +197,23 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-homework">    
         <li>
-    <a class="dropdown-item" href="../../week01/Homework_01.html">
+    <a class="dropdown-item" href="../week01/Homework_01.html">
  <span class="dropdown-text">Homework 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../week02/Homework_02.html">
+    <a class="dropdown-item" href="../week02/Homework_02.html">
  <span class="dropdown-text">Homework 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../week03/Homework_03.html">
+    <a class="dropdown-item" href="../week03/Homework_03.html">
  <span class="dropdown-text">Homework 3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../week04/Homework_04.html">
+    <a class="dropdown-item" href="../week04/Homework_04.html">
  <span class="dropdown-text">Homework 4</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../week04/Homework_05.qmd">
+    <a class="dropdown-item" href="../week04/Homework_05.qmd">
  <span class="dropdown-text">Homework 5</span></a>
   </li>  
     </ul>
@@ -160,11 +224,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-project-1">    
         <li>
-    <a class="dropdown-item" href="../../syllabus/project_1_prompt.html">
+    <a class="dropdown-item" href="../syllabus/project_1_prompt.html">
  <span class="dropdown-text">Project Prompt</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../syllabus/project_1_timeline.html">
+    <a class="dropdown-item" href="../syllabus/project_1_timeline.html">
  <span class="dropdown-text">Project Timeline</span></a>
   </li>  
     </ul>
@@ -180,43 +244,220 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#homework-5-hypothesis-tests" id="toc-homework-5-hypothesis-tests" class="nav-link active" data-scroll-target="#homework-5-hypothesis-tests"><span class="header-section-number">1</span> HOMEWORK 5: HYPOTHESIS TESTS</a>
+  <ul class="collapse">
+  <li><a href="#hypothesis-1" id="toc-hypothesis-1" class="nav-link" data-scroll-target="#hypothesis-1"><span class="header-section-number">1.1</span> Hypothesis 1</a></li>
+  <li><a href="#hypothesis-2" id="toc-hypothesis-2" class="nav-link" data-scroll-target="#hypothesis-2"><span class="header-section-number">1.2</span> Hypothesis 2</a></li>
+  <li><a href="#hypothesis-3" id="toc-hypothesis-3" class="nav-link" data-scroll-target="#hypothesis-3"><span class="header-section-number">1.3</span> Hypothesis 3</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Homework 5: Hypothesis Tests</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="video-etl-overview" class="level2">
-<h2 class="anchored" data-anchor-id="video-etl-overview"><span class="sr-only">Video: ETL Overview</span></h2>
-<section id="etl-overview-watch-on-canvas" class="level3">
-<h3 class="anchored" data-anchor-id="etl-overview-watch-on-canvas">ETL Overview (Watch on Canvas)</h3>
-<blockquote class="blockquote">
-<p><strong>Watch on Canvas:</strong> <em>ETL Overview Video</em><br>
-Replace <code>#</code> with your Canvas video link.</p>
-</blockquote>
-<p><a href="#">▶️ Open Video in Canvas</a></p>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="homework-5-hypothesis-tests" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="homework-5-hypothesis-tests"><span class="header-section-number">1</span> HOMEWORK 5: HYPOTHESIS TESTS</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Objectives">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Complete step 3 of the hypothesis testing process: Which test is appropriate and what is the null hypothesis?</li>
+<li>Choose an appropriate inferential test.</li>
+<li>Translate your hypothesis to null (<span class="math inline">\(H_0\)</span>) and alternate (<span class="math inline">\(H_A\)</span>) form</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Resources">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Resources
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Sample data sets are included (from HW1–4) if you want to try code on real data.</li>
+<li>Week 6 resources and lectures.</li>
+<li>You can use mathematical notation. If you do, copy the raw code from these examples. <strong>Do not</strong> copy/paste Greek symbols into your <code>.qmd</code> file; it may not render/knit properly.
+<ul>
+<li><span class="math inline">\(H_0\)</span></li>
+<li><span class="math inline">\(H_A\)</span></li>
+<li><span class="math inline">\(\mu\)</span></li>
+<li><span class="math inline">\(\neq\)</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Instructions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Instructions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Have your data set and any exploratory analysis you have performed so far handy.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data set if you want to try running code (OPTIONAL)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"airbnb_chicago.csv"</span>) <span class="co"># or whatever sample set you want to use</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Choose <strong>3 hypotheses</strong> from your Group Project.</li>
+<li>Determine what inferential test to run:
+<ul>
+<li><code>csf()</code> | Chi Squared Goodness of Fit<br>
+</li>
+<li><code>csi()</code> | Chi Squared Test for Independence<br>
+</li>
+<li><code>ost()</code> | One Sample t-Test<br>
+</li>
+<li><code>idt()</code> | Independent t-Test<br>
+</li>
+<li><code>idw()</code> | Wilcoxon Rank Sum Test<br>
+</li>
+<li><code>pst()</code> | Paired Samples t-Test<br>
+</li>
+<li><code>psw()</code> | Wilcoxon Signed-Rank Test<br>
+</li>
+<li><code>ano()</code> | Analysis of Variance<br>
+</li>
+<li><code>slr()</code> | Simple Linear Regression<br>
+</li>
+</ul></li>
+<li>Translate your hypothesis to null (<span class="math inline">\(H_0\)</span>) and alternate (<span class="math inline">\(H_A\)</span>) form.</li>
+<li>Write pseudocode that you think will work to run your test in R.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Example: You will do something similar for the 3 hypotheses you choose">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example: You will do something similar for the 3 hypotheses you choose
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>What statistical story am I attempting to tell?</strong></p>
+<p>(This can be copied from Analysis Plan) The average number of bedrooms is 2</p></li>
+<li><p><strong>What have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?</strong></p>
+<p>(Not necessary here, but you will eventually need analysis for your presentation.)</p></li>
+<li><p><strong>Which test is appropriate and what is the null hypothesis?</strong></p>
+<p>One Sample t-Test <code>ost()</code></p>
+<p><strong><span class="math inline">\(H_0\)</span>:</strong> mean Bedrooms = 2<br>
+<strong><span class="math inline">\(H_A\)</span>:</strong> mean Bedrooms <span class="math inline">\(\neq\)</span> 2</p>
+<p>Alternatively you can spell out your hypotheses long form:</p>
+<ul>
+<li>Null Hypothesis: mean number of bedrooms equals 2<br>
+</li>
+<li>Alternate Hypothesis: mean number of bedrooms does not equal 2</li>
+</ul>
+<p><strong>Pseudocode</strong></p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Before code to comment out</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df %&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   ost(~bedrooms)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="4" type="1">
+<li><p><strong>What is the statistical interpretation of the test result?</strong></p>
+<p><em>Not needed at this time, we haven’t run a test yet.</em></p></li>
+<li><p><strong>What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?</strong></p>
+<p><em>Not needed at this time, we haven’t run a test yet.</em></p></li>
+</ol>
+</div>
+</div>
 <hr>
-<details>
-<summary>
-<strong>Transcript — ETL (click to expand)</strong>
-</summary>
-</details></section>
+<section id="hypothesis-1" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="hypothesis-1"><span class="header-section-number">1.1</span> Hypothesis 1</h3>
+<ol type="1">
+<li><p><strong>What statistical story am I attempting to tell?</strong></p>
+<p>Hypothesis:</p></li>
+<li><p><strong>Which test is appropriate and what is the null hypothesis?</strong></p>
+<p>Test Type:</p>
+<p><strong><span class="math inline">\(H_0\)</span>:</strong></p>
+<p><strong><span class="math inline">\(H_A\)</span>:</strong></p>
+<p><strong>Pseudocode</strong></p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Before code to comment out</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
 </section>
-<section id="transcript-video-1-etl" class="level1">
-<h1>Transcript — Video 1 (ETL)</h1>
-<p>It’s usually one of our first task is figuring out how to get the data where we need it to be in order to use it and do our analysis on it. So generally when we’re getting data, it’s going to follow this type of a process, extract, transform load or ETL process. A lot of the data that we’re gonna be working with, especially for this course, is going to be data that other people have gathered what’s known as secondary data. Later on in the class, we will talk little bit about primary data, how to, how to gather data for a specific purpose. But the vast majority of the time we’re gonna be using data that’s already existing and whether it is from a third party source or internally within our company has sales database or something like that. We usually don’t have a lot of say in how their data is structured, how it’s set up. So we need to figure out how to get that data in the form that it’s in currently. And then get it into a form that we’re gonna be able to do. Our nails the sun.</p>
-<p>The first step in that process is to extract the data. And that is to get the data from wherever it is to our computer, to where we’re gonna be working with it at. That data can take on a number of different forms. Sometimes the data is relatively clean. If it is a something like this where we have a structured database where everything is set up just so you know, each point of data is in its own row, each specific variables in its own column. So sometimes it might be pretty much in the form that we need to use it, right where it is.</p>
-<p>Other times you might be grabbing it from a website or something like that. If you wanted to do some analysis looking at census data, you will go to the Census Bureau’s website and download data from there. It might just be unstructured data just pouring into, into a database, some sort of a sensor or something that is tracking data, looking at a motion sensor or something like that. Where, you know, every time that that sensor is triggered, it it changes from a truth or false yes or no sort of a thing. Measuring the brightness or measuring the voltage of a certain sensor. Measuring whether or not motion was detected on a video camera. That data might just be constantly pouring in. And then we have to figure out, okay, how we’re gonna deal with this L. We’re going to figure out what the timestamp was. What does this data, what is it telling us?</p>
-<p>That first step is to is to extract that data. So get it out of where it is right now. Get it to where we need it to be. Once we have that data downloaded or transferred over to where we’re gonna be using it or connected to, you know, sometimes we don’t actually need the data, we just make a connection to where it’s at. Next step is to transform that data to get it into a format that’s going to be convenient for us to use that we can do analysis on without a constantly having to go in and edit things and change things and recalculate. So that’s the T part of the ETL process transform to get the data from the form that it’s in when we get it, to change it to the form that we’re gonna be using it for our analysis.</p>
-<p>So a lot of times we’re editing this data, so it’s gonna be stored in a consistent way. It’s gonna be efficient for us to go and look at it. There’s certain rules that we’re going to follow that’s gonna make our lives much easier when it comes time to analyze that data or build a chart or do some analysis on it. There are some standard ways to keep that where any tool that we’re going to connect to that data width is going to be able to look at it in a similar way.</p>
-<p>The example on the top here, that a good before if we download data from the Census Bureau, It’s gonna look something like this. So this data is stored in a way where we have gigabytes of data on. However many million people live in the country. All that data is stored on a server somewhere in a way that’s going to be convenient for the Census Bureau. That’s not necessarily convenient for us. You can see we have a lot of empty space here. If category one, category to category three, you might not know what those things mean.</p>
-<p>A lot of times we need to transform that data to get it into something. It’s going to be a little bit more convenient for us to use consistent way to measure what was the time that his data was recorded? Consistent way to measure geographically, what was their zip code? What was the date of what was what were the different categories that it falls into? A lot of times we can store that in a much more efficient way. We do it as part of the transform process.</p>
-<p>Last step then is to load it into the program that we’re gonna be using to do our analysis. In this can be anything. Sometimes we go from a database, we transform it and put it right back into that same database. This doesn’t necessarily have to be different programs that we’re using.</p>
-<p>(… transcript continues …)</p>
+<section id="hypothesis-2" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="hypothesis-2"><span class="header-section-number">1.2</span> Hypothesis 2</h3>
+<ol type="1">
+<li><p><strong>What statistical story am I attempting to tell?</strong></p>
+<p>Hypothesis:</p></li>
+<li><p><strong>Which test is appropriate and what is the null hypothesis?</strong></p>
+<p>Test Type:</p>
+<p><strong><span class="math inline">\(H_0\)</span>:</strong></p>
+<p><strong><span class="math inline">\(H_A\)</span>:</strong></p>
+<p><strong>Pseudocode</strong></p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Before code to comment out</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="hypothesis-3" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="hypothesis-3"><span class="header-section-number">1.3</span> Hypothesis 3</h3>
+<ol type="1">
+<li><p><strong>What statistical story am I attempting to tell?</strong></p>
+<p>Hypothesis:</p></li>
+<li><p><strong>Which test is appropriate and what is the null hypothesis?</strong></p>
+<p>Test Type:</p>
+<p><strong><span class="math inline">\(H_0\)</span>:</strong></p>
+<p><strong><span class="math inline">\(H_A\)</span>:</strong></p>
+<p><strong>Pseudocode</strong></p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Before code to comment out</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
 
 
-
+</section>
 </section>
 
 </main> <!-- /main -->
