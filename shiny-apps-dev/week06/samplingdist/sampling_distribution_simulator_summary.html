@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>sampling_distribution_simulator_summary – ECO 230 — Section 12</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-30e33b9170478032341da2de80696f6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles/accessibility.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">ECO 230 — Section 12</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../syllabus/syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../../../week01/week_01.html">
+ <span class="dropdown-text">Week 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week02/week_02.html">
+ <span class="dropdown-text">Week 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week03/week_03.html">
+ <span class="dropdown-text">Week 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week04/week_04.html">
+ <span class="dropdown-text">Week 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week05/week_05.html">
+ <span class="dropdown-text">Week 5</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-homework" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Homework</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-homework">    
+        <li>
+    <a class="dropdown-item" href="../../../week01/Homework_01.html">
+ <span class="dropdown-text">Homework 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week02/Homework_02.html">
+ <span class="dropdown-text">Homework 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week03/Homework_03.html">
+ <span class="dropdown-text">Homework 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week04/Homework_04.html">
+ <span class="dropdown-text">Homework 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week05/Homework_05.qmd">
+ <span class="dropdown-text">Homework 5</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project-1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project 1</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-project-1">    
+        <li>
+    <a class="dropdown-item" href="../../../syllabus/project_1_prompt.html">
+ <span class="dropdown-text">Project Prompt</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../syllabus/project_1_timeline.html">
+ <span class="dropdown-text">Project Timeline</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="sampling-distribution-simulator-design-implementation-summary" class="level1">
+<h1>Sampling Distribution Simulator — Design &amp; Implementation Summary</h1>
+<section id="purpose" class="level2">
+<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
+<p>This Shiny application demonstrates:</p>
+<ul>
+<li>What a <strong>sampling distribution</strong> is</li>
+<li>How repeated sampling builds that distribution</li>
+<li>How <strong>confidence intervals</strong> behave across repeated samples</li>
+<li>Why approximately (1 − α)% of confidence intervals contain the true population mean</li>
+</ul>
+<p>The app is designed for instructional use in statistics and data analysis courses.</p>
+<hr>
+</section>
+</section>
+<section id="conceptual-model" class="level1">
+<h1>Conceptual Model</h1>
+<p>We assume:# Sampling Distribution Simulator – Context Summary</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This Shiny app is a teaching-focused sampling distribution simulator designed to:</p>
+<ul>
+<li>Demonstrate how sample means build a sampling distribution</li>
+<li>Visualize confidence intervals across repeated samples</li>
+<li>Show how standard error and t-based confidence intervals are calculated</li>
+<li>Separate symbolic formulas from numeric plug-in steps and final results</li>
+</ul>
+<p>The app is optimized for clarity and classroom pacing.</p>
+<hr>
+</section>
+<section id="current-behavioral-design" class="level2">
+<h2 class="anchored" data-anchor-id="current-behavioral-design">Current Behavioral Design</h2>
+<section id="add-1-sample" class="level3">
+<h3 class="anchored" data-anchor-id="add-1-sample">1. Add 1 Sample</h3>
+<ul>
+<li>Draws one bootstrap sample (with replacement) from the selected population</li>
+<li>Updates:
+<ul>
+<li>Current sample values</li>
+<li>Point estimate plot</li>
+<li>Confidence interval whisker</li>
+<li>Sampling distribution histogram</li>
+<li>CI plot</li>
+<li>Formula panel</li>
+</ul></li>
+</ul>
+<p>This is fully reactive and updates immediately.</p>
+<hr>
+</section>
+<section id="run-100-samples" class="level3">
+<h3 class="anchored" data-anchor-id="run-100-samples">2. Run 100 Samples</h3>
+<ul>
+<li>Clears existing samples</li>
+<li>Runs 100 samples quickly in the background</li>
+<li>Uses <code>withProgress()</code> for a progress bar</li>
+<li>Does <strong>not animate</strong></li>
+<li>Redraws once after all 100 samples are complete</li>
+</ul>
+<p>This avoids UI lag and rendering freezes.</p>
+<hr>
+</section>
+</section>
+<section id="default-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="default-dataset">Default Dataset</h2>
+<p>The default population is:</p>
+<pre><code>ChickWeight (weight)</code></pre>
+<p>This is set explicitly in the UI using:</p>
+<pre><code>selected = "chickweight"</code></pre>
+<hr>
+</section>
+<section id="formula-rendering-no-mathjax" class="level2">
+<h2 class="anchored" data-anchor-id="formula-rendering-no-mathjax">Formula Rendering (No MathJax)</h2>
+<p>MathJax has been completely removed.</p>
+<p>All formulas are rendered using <strong>base R plotmath</strong> inside <code>renderPlot()</code>.</p>
+<section id="why-plotmath" class="level3">
+<h3 class="anchored" data-anchor-id="why-plotmath">Why plotmath?</h3>
+<ul>
+<li>Avoids LaTeX parsing issues in Shiny</li>
+<li>Prevents dynamic typesetting failures</li>
+<li>Works reliably in server environments</li>
+<li>No external JavaScript dependency</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="formula-panel-layout-3-columns" class="level2">
+<h2 class="anchored" data-anchor-id="formula-panel-layout-3-columns">Formula Panel Layout (3 Columns)</h2>
+<p>The formula panel is now structured into three visual columns to prevent crowding:</p>
+<section id="left-column-generic-formulas" class="level3">
+<h3 class="anchored" data-anchor-id="left-column-generic-formulas">Left Column – Generic Formulas</h3>
+<ul>
+<li>SE = s / sqrt(n)</li>
+<li>x̄ ± t* · SE</li>
+</ul>
+</section>
+<section id="middle-column-plug-in-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="middle-column-plug-in-numbers">Middle Column – Plug In Numbers</h3>
+<ul>
+<li>SE = sd / sqrt(n)</li>
+<li>t* = t_{prob, df}</li>
+<li>CI = x̄ ± t* · SE (numeric substitution)</li>
+</ul>
+</section>
+<section id="right-column-final-results" class="level3">
+<h3 class="anchored" data-anchor-id="right-column-final-results">Right Column – Final Results</h3>
+<ul>
+<li>SE = computed numeric value</li>
+<li>t* = numeric critical value</li>
+<li>CI = [lower, upper]</li>
+</ul>
+<p>This separation improves readability and instructional clarity.</p>
+<hr>
+</section>
+</section>
+<section id="key-reactive-objects" class="level2">
+<h2 class="anchored" data-anchor-id="key-reactive-objects">Key Reactive Objects</h2>
+<p>The app uses a central <code>reactiveValues()</code> object:</p>
+<pre><code>rv$samples
+rv$current_sample
+rv$current_ci
+rv$sample_id</code></pre>
+<p>Each sample stores: - mean - sd - se - CI bounds - whether CI contains population mean</p>
+<hr>
+</section>
+<section id="sampling-distribution-logic" class="level2">
+<h2 class="anchored" data-anchor-id="sampling-distribution-logic">Sampling Distribution Logic</h2>
+<ul>
+<li><p>Histogram bins are fixed per dataset via <code>POP_CONFIG</code></p></li>
+<li><p>Theoretical curve uses:</p>
+<p>sd_mean = sigma / sqrt(n)</p></li>
+<li><p>Histogram auto-scales vertically</p></li>
+<li><p>Theoretical curve scales to 90% of the plot height</p></li>
+</ul>
+<hr>
+</section>
+<section id="ci-plot-behavior" class="level2">
+<h2 class="anchored" data-anchor-id="ci-plot-behavior">CI Plot Behavior</h2>
+<ul>
+<li>Displays up to the most recent 100 intervals</li>
+<li>Blue = interval contains true mean</li>
+<li>Red = interval misses true mean</li>
+<li>Vertical line = population mean</li>
+</ul>
+<hr>
+</section>
+<section id="architectural-principles" class="level2">
+<h2 class="anchored" data-anchor-id="architectural-principles">Architectural Principles</h2>
+<ol type="1">
+<li>Separate computation from rendering</li>
+<li>Avoid chained <code>==</code> expressions in plotmath</li>
+<li>Avoid dynamic MathJax</li>
+<li>Prevent animation-induced UI blocking</li>
+<li>Keep numeric results visually distinct from symbolic formulas</li>
+</ol>
+<hr>
+</section>
+<section id="if-modifying-this-app" class="level2">
+<h2 class="anchored" data-anchor-id="if-modifying-this-app">If Modifying This App</h2>
+<p>When updating:</p>
+<ul>
+<li>Do not reintroduce MathJax</li>
+<li>Keep Run 100 non-animated unless rearchitected with async tools</li>
+<li>Maintain 3-column formula separation</li>
+<li>Avoid chained equals inside <code>bquote()</code></li>
+<li>Preserve ChickWeight as default unless pedagogically necessary to change</li>
+</ul>
+<hr>
+<p>This file is intended to provide architectural context for future LLM-assisted modifications.</p>
+<ul>
+<li>A <strong>known finite population dataset</strong></li>
+<li>The true population mean (μ) and population standard deviation (σ) are known</li>
+<li>We repeatedly draw samples of size <em>n</em> with replacement</li>
+<li>For each sample we compute:
+<ul>
+<li>Sample mean (x̄)</li>
+<li>Sample standard deviation (s)</li>
+<li>Standard error (SE = s / √n)</li>
+<li>Confidence interval using a t critical value</li>
+</ul></li>
+</ul>
+<p>As samples accumulate:</p>
+<ul>
+<li>Sample means populate a histogram</li>
+<li>The histogram approximates the theoretical sampling distribution</li>
+<li>Confidence intervals are drawn and evaluated against μ</li>
+<li>CI “errors” (intervals not containing μ) are counted</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="architecture-overview" class="level1">
+<h1>Architecture Overview</h1>
+<p>The app is a single-file <code>app.R</code> Shiny application structured as:</p>
+<ul>
+<li><strong>UI (navbarPage)</strong>
+<ul>
+<li>Simulator tab</li>
+<li>Population Data tab</li>
+</ul></li>
+<li><strong>Server</strong>
+<ul>
+<li>Reactive population selection</li>
+<li>Sampling engine</li>
+<li>Sampling distribution renderer</li>
+<li>CI renderer</li>
+<li>MathJax formula renderer</li>
+<li>Animation controller</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="populations" class="level1">
+<h1>Populations</h1>
+<p>Three full datasets are embedded:</p>
+<ul>
+<li>Iris (Sepal Length)</li>
+<li>Airquality (Temperature)</li>
+<li>ChickWeight (Weight)</li>
+</ul>
+<p>Each population:</p>
+<ul>
+<li>Contains &gt;50 observations</li>
+<li>Is fully known (not simulated)</li>
+<li>Allows computing true μ and σ</li>
+</ul>
+<hr>
+</section>
+<section id="core-sampling-engine" class="level1">
+<h1>Core Sampling Engine</h1>
+<p>Each sample:</p>
+<ol type="1">
+<li>Draw n values with replacement from full population</li>
+<li>Compute statistics</li>
+<li>Store results in <code>reactiveValues$samples</code></li>
+<li>Append:
+<ul>
+<li>mean</li>
+<li>sd</li>
+<li>se</li>
+<li>CI bounds</li>
+<li>contains_mu flag</li>
+</ul></li>
+</ol>
+<p>Sampling results accumulate in memory and drive all plots.</p>
+<hr>
+</section>
+<section id="sampling-distribution-plot" class="level1">
+<h1>Sampling Distribution Plot</h1>
+<p>The histogram:</p>
+<ul>
+<li>Uses fixed bin width (configurable per dataset)</li>
+<li>X-axis locked per population</li>
+<li>Y-axis auto-scales as counts increase</li>
+<li>Theoretical normal curve is scaled to fixed relative height</li>
+</ul>
+<p>The curve represents:</p>
+<pre><code>Normal( μ , σ / √n )</code></pre>
+<p>It visually demonstrates convergence as sample count increases.</p>
+<hr>
+</section>
+<section id="confidence-interval-plot" class="level1">
+<h1>Confidence Interval Plot</h1>
+<p>For each sample:</p>
+<ul>
+<li>A horizontal line is drawn from CI low to CI high</li>
+<li>The sample mean is plotted as a point</li>
+<li>Color logic:
+<ul>
+<li>Blue = interval contains μ</li>
+<li>Muted red = interval misses μ</li>
+</ul></li>
+</ul>
+<p>The vertical red line represents μ.</p>
+<p>The number of CI failures is tracked and displayed.</p>
+<hr>
+</section>
+<section id="current-sample-visualization" class="level1">
+<h1>Current Sample Visualization</h1>
+<p>The simulator also displays:</p>
+<ul>
+<li>The current sample values (comma-separated)</li>
+<li>The sample mean plotted alone</li>
+<li>The confidence interval for the current sample</li>
+<li>Summary stats table</li>
+<li>Mathematical formulas</li>
+</ul>
+<hr>
+</section>
+<section id="formula-rendering" class="level1">
+<h1>Formula Rendering</h1>
+<p>MathJax is used for LaTeX-style rendering:</p>
+<p>Standard Error:</p>
+<pre><code>SE = s / √n</code></pre>
+<p>Confidence Interval:</p>
+<pre><code>x̄ ± t* · SE</code></pre>
+<p>Right-hand side dynamically substitutes actual computed values.</p>
+<p>MathJax re-typesetting is triggered after reactive updates.</p>
+<hr>
+</section>
+<section id="animation-model" class="level1">
+<h1>Animation Model</h1>
+<p>Two modes:</p>
+<ul>
+<li>Add 1 Sample (manual step)</li>
+<li>Run 100 Samples (animated)</li>
+</ul>
+<p>The animated version uses asynchronous scheduling (via later package) to avoid UI blocking and allow incremental rendering.</p>
+<p>Each sample is drawn with a short delay so the sampling distribution visibly builds over time.</p>
+<hr>
+</section>
+<section id="configuration-hooks" class="level1">
+<h1>Configuration Hooks</h1>
+<p>Per-dataset configuration supports:</p>
+<ul>
+<li>Fixed bin width</li>
+<li>Locked x-axis range</li>
+</ul>
+<p>These allow consistent visuals across repeated runs.</p>
+<hr>
+</section>
+<section id="key-reactive-objects-1" class="level1">
+<h1>Key Reactive Objects</h1>
+<p><code>rv$samples</code><br>
+Stores all historical sampling results.</p>
+<p><code>rv$current_sample</code><br>
+Stores most recent drawn sample.</p>
+<p><code>rv$current_ci</code><br>
+Stores most recent CI computation.</p>
+<hr>
+</section>
+<section id="extension-ideas" class="level1">
+<h1>Extension Ideas</h1>
+<ul>
+<li>Allow toggling between t and z intervals</li>
+<li>Show empirical CI coverage percentage</li>
+<li>Animate theoretical curve convergence</li>
+<li>Add skewed population option</li>
+<li>Show effect of increasing n on CI width dynamically</li>
+</ul>
+<hr>
+</section>
+<section id="summary" class="level1">
+<h1>Summary</h1>
+<p>This application is a teaching tool that:</p>
+<ul>
+<li>Bridges theory and visualization</li>
+<li>Demonstrates sampling variability</li>
+<li>Illustrates confidence interval coverage</li>
+<li>Makes abstract statistical concepts concrete through animation</li>
+</ul>
+<p>Designed as a clean, modular, single-file Shiny app for portability and modification.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
