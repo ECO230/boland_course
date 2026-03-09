@@ -1,0 +1,89 @@
+---
+title: "GROUP PROJECT – DATA ANALYSIS PROJECT"
+subtitle: "Timeline"
+
+format:
+  html:
+    toc: false
+    number-sections: false
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: auto
+---
+
+```{r setup}
+library(tidyverse)
+library(readr)
+library(lubridate)
+library(knitr)
+library(kableExtra)
+
+options(scipen = 999)
+
+# --- Load -------------------------------------------------------------------
+# Assumes this file is in /boland_course/syllabus/ and CSV is in /boland_course/syllabus/data/
+cd <- read_csv("data/class_dates.csv", show_col_types = FALSE) |>
+  mutate(
+    code = str_trim(code),
+    due_reg_dt = mdy(due_reg_dt)  # your CSV uses m/d/YYYY
+  )
+
+# --- Validate ---------------------------------------------------------------
+needed_codes <- c("C5","C6","C7","C8","C9","C11","C12")
+missing_codes <- setdiff(needed_codes, cd$code)
+if (length(missing_codes) > 0) {
+  stop(paste("class_dates.csv is missing these codes:", paste(missing_codes, collapse = ", ")))
+}
+
+# --- Helpers ----------------------------------------------------------------
+fmt_md <- function(d) format(d, "%B %d") |> str_replace(" 0", " ")
+
+kbl_course <- function(df) {
+  if (knitr::is_latex_output()) {
+    kbl(df, format = "latex", booktabs = TRUE) |>
+      kable_styling(latex_options = c("hold_position"))
+  } else {
+    kbl(df, format = "html") |>
+      kable_paper("striped", full_width = FALSE)
+  }
+}
+
+get_due <- function(code_val) {
+  cd |>
+    filter(code == code_val) |>
+    pull(due_reg_dt) |>
+    first() |>
+    fmt_md()
+}
+
+timeline <- tibble(
+  Task = c(
+    "Launch in Class",
+    "Analysis Plan Due",
+    "Clean Data Set Due",
+    "Pre-Coaching Presentation Due",
+    "Coaching Sessions",
+    "Final Presentations",
+    "Final R Documentation Due"
+  ),
+  #pulling due dates so start a week earlier
+  Date = c(
+    get_due("C4"),
+    get_due("C5"),
+    get_due("C6"),
+    get_due("C7"),
+    get_due("C8"),
+    get_due("C10"),
+    get_due("C11")
+  )
+)
+```
+
+## Timeline for Group Project
+
+```{r}
+kbl_course(timeline)
+```

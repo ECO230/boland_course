@@ -19,8 +19,8 @@ execute:
 bibliography: []
 ---
 
-
 # Descriptive Measures
+
 *How do we clearly describe the data we have?*
 
 <br>
@@ -122,14 +122,13 @@ acc_mast %>%
   gt_boland(base_size = 7, tight = TRUE)
 ```
 
-
-
 ## Measurement Scales
 
 ![](../shared/images/NOIR.svg){width="100%" height="700px" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 
 ## Measurement Scales
-::: columns
+
+::::: columns
 ::: {.column width="30%"}
 ![](../shared/images/NOIR.svg){width="100%" height="700px" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 :::
@@ -143,8 +142,7 @@ acc_mast %>%
   gt_boland(base_size = 14, tight = TRUE)
 ```
 :::
-
-:::
+:::::
 
 ## [Meaningful Summaries by Scale Type]{.sr-only}
 
@@ -156,79 +154,69 @@ Which statistics are meaningful at each scale?
 
 <br>
 
-- Count works best for **Nominal / Ordinal** 
-- Median & Percentiles work best for **Ordinal+**.
-- Mean & Standard Deviation work best for **Interval / Ratio**.
+-   Count works best for **Nominal / Ordinal**
+-   Median & Percentiles work best for **Ordinal+**.
+-   Mean & Standard Deviation work best for **Interval / Ratio**.
 
 <br>
 
-::: fragment
-
+:::: fragment
 ::: {.callout-important title="Textbook vs Real World"}
 These rules are bent often; the real world is messy
 :::
-
-:::
+::::
 
 ## When SUM is meaningful {background-image="../shared/images/sum_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="N"}
 
 <br>
 
-- The variable is **additive**  
-- Units can be **totaled** (minutes, dollars, people, rows)  
-- **0** means 'none'
+-   The variable is **additive**\
+-   Units can be **totaled** (minutes, dollars, people, rows)\
+-   **0** means 'none'
 
 <br>
 
-::: fragment
-
+:::: fragment
 ::: tight-list
 **Examples**
 
-- Total minutes delayed  
+-   Total minutes delayed
 
-- Total injuries  
+-   Total injuries
 
-- Number of severity 3 accidents (sum of 1/0)
+-   Number of severity 3 accidents (sum of 1/0)
 
-- Total distance?
-
+-   Total distance?
 :::
-:::
+::::
 
 ## When SUM is **not** meaningful {background-image="../shared/images/sum_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="N"}
 
 <br>
 
-- It's an **ID** or label  
-- It's **ordinal** (e.g., severity 1–4)  
-- It's already an **average/rate**
+-   It's an **ID** or label\
+-   It's **ordinal** (e.g., severity 1–4)\
+-   It's already an **average/rate**
 
-::: fragment
-
+:::: fragment
 ::: tight-list
-
 **Examples**
 
-- Sum of accident IDs
+-   Sum of accident IDs
 
-- Sum of severity codes
+-   Sum of severity codes
 
-- Sum of 'average speed' (unless weighted)
+-   Sum of 'average speed' (unless weighted)
 
-- Sum of temperature?
-
+-   Sum of temperature?
 :::
+::::
 
-:::
-
-::: fragment
-
+:::: fragment
 ::: {.callout-important title="Fast Test"}
 Can you add two rows together and keep the same meaning + units?
 :::
-
-:::
+::::
 
 # Measures of Size {background-image="../shared/images/sample_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Sample size notation for population N, for sample n."}
 
@@ -240,15 +228,14 @@ Can you add two rows together and keep the same meaning + units?
 
 <br>
 
-- **N — Total records** in the dataset  
-- **n~eligible~ — After filters** (date, severity, etc.)  
-- **n~non-missing~ — Non‑missing for the chosen variable**  
-- **n — Actual usable values** for our analysis 
+-   **N — Total records** in the dataset\
+-   **n~eligible~ — After filters** (date, severity, etc.)\
+-   **n~non-missing~ — Non‑missing for the chosen variable**\
+-   **n — Actual usable values** for our analysis
 
 <br>
 
-[![](media/images/shiny_size.png)](https://shiny.60land.com/week02/descriptives/){fig-alt="Link to Shiny app demonstrating different measures of size." width="75%"}
-
+[![](media/images/shiny_size.png)](https://shiny.60land.com/week02/descriptives/)
 
 # Measures of Center {background-image="../shared/images/mean_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Average notation for population greek symbol mu, for sample x-bar, sometimes median notated with greek symbol eta."}
 
@@ -266,8 +253,7 @@ Can you add two rows together and keep the same meaning + units?
 
 <br>
 
-[![](media/images/shiny_central.png)](https://shiny.60land.com/week02/descriptives/){fig-alt="Link to Shiny app demonstrating different measures of center." width="75%"}
-
+[![](media/images/shiny_central.png)](https://shiny.60land.com/week02/descriptives/)
 
 # Measures of Shape {background-image="../shared/images/stdev_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Standard deviation notation for population greek symbol sigma, for sample s."}
 
@@ -281,18 +267,18 @@ Can you add two rows together and keep the same meaning + units?
 
 -   **Standard deviation (s or σ):** typical distance in original units.
 
-
 ## Percentiles & Quartiles {background-image="../shared/images/quartile_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Quartile notation same for population and sample nth quartile or nth percentile"}
+
 <br>
 
 ### The *P*^th^ percentile is the value with *P*% of data at or below it.
 
-- The 10^th^ percentile (P10) is the value where 10% of the distribution is lower and 90% is higher
-- The 82^nd^ percentile (P82) is the value where 82% of the distribution is lower and 18% is higher
-- Quartiles are P25 (Q1), P50 (Q2), P75 (Q3)
-- The 50^th^ (P50) percentile, the 2^nd^ Quartile (Q2) and the Median are all the same value
+-   The 10^th^ percentile (P10) is the value where 10% of the distribution is lower and 90% is higher
+-   The 82^nd^ percentile (P82) is the value where 82% of the distribution is lower and 18% is higher
+-   Quartiles are P25 (Q1), P50 (Q2), P75 (Q3)
+-   The 50^th^ (P50) percentile, the 2^nd^ Quartile (Q2) and the Median are all the same value
 
-[![](media/images/shiny_shape.png)](https://shiny.60land.com/week02/descriptives/){fig-alt="Link to Shiny app demonstrating different measures of shape." width="75%"}
+[![](media/images/shiny_shape.png)](https://shiny.60land.com/week02/descriptives/)
 
 # Comparing Distributions
 
@@ -619,7 +605,6 @@ plot_box <- p_distance_box | p_temp_box
 plot_base
 ```
 
-
 ## Percentiles
 
 #### *Standardized measures do not depend on units being measured*
@@ -627,7 +612,6 @@ plot_base
 ```{r}
 plot_percentiles
 ```
-
 
 ## IQR - Inter-Quartile Range
 
@@ -649,89 +633,72 @@ plot_box
 
 <br>
 
-- Frequncy Table - ***One** Categorical Variable
-- Cross Tab - **Two** Categorical Variables
-- Count how many rows **n**
-- Add **marginal totals**
+-   Frequncy Table - \***One** Categorical Variable
+-   Cross Tab - **Two** Categorical Variables
+-   Count how many rows **n**
+-   Add **marginal totals**
 
 <br>
 
 ::: tight-list
-
 **Compute Percentages**
 
-- **row %** (conditional on row)
+-   **row %** (conditional on row)
 
-- **column %** (conditional on column)
+-   **column %** (conditional on column)
 
-- **table %** for overall share
-
+-   **table %** for overall share
 :::
 
 ## What can go wrong?
 
-[![](media/images/shiny_cross.png)](https://shiny.60land.com/week02/crosstabs/){fig-alt="Link to Shiny app demonstrating cross tabs" width="75%"}
+[![](media/images/shiny_cross.png)](https://shiny.60land.com/week02/crosstabs/)
 
-:::fragment
-
+::: fragment
 **Confusing similar-sounding percentages**:
-
 :::
-:::fragment
-- \% of incidents that happened in Spring **and** in the Morning?
 
+::: fragment
+-   \% of incidents that happened in Spring **and** in the Morning?
 :::
-:::fragment
 
-- \% of incidents in the Spring that happened in the Morning?
-
+::: fragment
+-   \% of incidents in the Spring that happened in the Morning?
 :::
-:::fragment
 
-- \% of incidents that happened in the Spring?
-
+::: fragment
+-   \% of incidents that happened in the Spring?
 :::
-:::fragment
 
+:::: fragment
 ::: {.callout-important title="Percentage Problems"}
 Make sure you are clear on what the numerator and denominator are and communicate clearly.
 :::
-
-:::
+::::
 
 # Relationships - Continuous to Continuous {background-image="../shared/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 
-
 ## Correlation {background-image="../shared/images/correlation_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Coefficient of correlation notation for population greek symbol capital rho or r, for sample lower case rho or r"}
 
-- **Correlation (r):** standardized between -1 and +1
-- Shows strength of *linear* pattern.
-- +1 means positive relationship, -1 means netagive relationship
-- Does not determine the slope of the line
-- Regression analysis needed for full understanding
+-   **Correlation (r):** standardized between -1 and +1
+-   Shows strength of *linear* pattern.
+-   +1 means positive relationship, -1 means netagive relationship
+-   Does not determine the slope of the line
+-   Regression analysis needed for full understanding
 
-::: fragment
-
+:::: fragment
 ::: callout-caution
 **Correlation ≠ Causation.** Check for confounders, nonlinearity, and outliers. E.g. perform a full regression analysis.
 :::
+::::
 
-:::
-
-:::columns
-
-::: {.column width="70%"}
-
+::::: columns
+:::: {.column width="70%"}
 ::: fragment
-
-[![](media/images/shiny_correlation.png)](https://shiny.60land.com/week02/correlation/){fig-alt="Link to Shiny app demonstrating coefficient of correlation" width="100%"}
-
+[![](media/images/shiny_correlation.png)](https://shiny.60land.com/week02/correlation/)
 :::
-
-:::
-
-:::
-
+::::
+:::::
 
 # Relationships: Discrete to Continuous {background-image="../shared/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 
@@ -743,6 +710,7 @@ acc_mast %>%
   group_by(season) %>%
   summarise(mean_distance = mean(`Distance(mi)`), median_distance = median(`Distance(mi)`))
 ```
+
 ::: fragment
 ```{r group_means_show, echo=FALSE, results="show"}
 acc_sum <- acc_mast %>%
@@ -758,7 +726,6 @@ acc_sum <- acc_mast %>%
 :::
 
 ::: fragment
-
 ```{r group_sd, echo=TRUE, results="hide"}
 acc_mast %>%
   select(`Temperature(F)`,time_of_day) %>%
@@ -766,11 +733,9 @@ acc_mast %>%
   group_by(time_of_day) %>%
   summarise(mean_temp = mean(`Temperature(F)`), stdev_temp = sd(`Temperature(F)`))
 ```
-
 :::
 
 ::: fragment
-
 ```{r group_sd_show, echo=FALSE, results="show"}
 acc_sd <- acc_mast %>%
   select(`Temperature(F)`,time_of_day) %>%
@@ -783,25 +748,21 @@ acc_sd <- acc_mast %>%
   gt() %>%
   gt_boland(base_size = 10, tight = FALSE)
 ```
-
 :::
 
-
 # Descriptive Measures
+
 *How do we clearly describe the data we have?*
 
 <br>
 
-- Size
-- Center
-- Shape
-- Relationships
+-   Size
+-   Center
+-   Shape
+-   Relationships
 
-::: fragment
-
+:::: fragment
 ::: {.callout-tip title="Story Time"}
 Think of your dataset. Which two descriptive measures would you lead with and why?
 :::
-
-:::
-
+::::

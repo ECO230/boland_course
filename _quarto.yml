@@ -21,6 +21,12 @@ website:
             file: week02/week_02.qmd
           - text: "Week 3"
             file: week03/week_03.qmd
+          - text: "Week 4"
+            file: week04/week_04.qmd
+          - text: "Week 5"
+            file: week05/week_05.qmd
+          - text: "Week 6"
+            file: week06/week_06.qmd
       - text: "Homework"
         menu:
           - text: "Homework 1"
@@ -29,7 +35,16 @@ website:
             file: week02/Homework_02.qmd
           - text: "Homework 3"
             file: week03/Homework_03.qmd
-
+          - text: "Homework 4"
+            file: week04/Homework_04.qmd
+          - text: "Homework 5"
+            file: week06/Homework_05.qmd
+      - text: "Project 1"
+        menu:
+          - text: "Project Prompt"
+            file: syllabus/project_1_prompt.qmd
+          - text: "Project Timeline"
+            file: syllabus/project_1_timeline.qmd
 
 format:
   html:

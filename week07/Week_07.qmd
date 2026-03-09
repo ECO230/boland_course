@@ -1,0 +1,876 @@
+---
+title: "Week 7 - Testing Hypotheses"
+author: "for BayeBayes"
+format:
+  revealjs:
+    theme:
+      - default
+      - ../shared/styles/boland-reveal.scss
+    slide-number: true
+    hash: true
+    center: false
+    transition: fade
+    controls: true
+    pdf-export: true
+execute:
+  echo: false
+---
+
+## Mike’s Dumb Casino {background-image="media/images/w7_dumb_casino.svg" background-position="center" background-size="85%" background-repeat="no-repeat" fig-alt="Ruin your grades for statistics"}
+
+*For Entertainment Purposes Only!!*
+
+## Steps in Hypothesis Testing
+
+1.  [*What statistical story am I attempting to tell?*]{.muted}
+
+<br>
+
+2.  [*What have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?*]{.muted}
+
+<br>
+
+3.  [*Which test is appropriate and what is the null hypothesis?*]{.muted}
+
+<br>
+
+4.  [*What is the statistical interpretation of the test result?*]{.muted}
+
+<br>
+
+5.  *What is the practical interpretation of this analysis for a business audience?\
+    Are my estimates precise enough to tell the story I outlined in part (2)?*
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(stringr)
+library(purrr)
+library(eco230r)
+library(here)
+library(readr)
+
+data_path <- here("week06","data","tonic_10_studies_data.csv") 
+data_hack <- here("week06","data","study10_sample_size_p_hacking.csv") 
+
+df <- read_csv(data_path, show_col_types = FALSE)
+nf <- read_csv(data_hack, show_col_types = FALSE)
+
+# helper to parse ost() $results string
+parse_ost_results <- function(res_string){
+  # res_string looks like: "t(99) = 1.895, p = 0.061, r = 0.187, bf10 = 0.617"
+  tibble(
+    T_crit_stat = as.numeric(str_match(res_string, "t\\([^\\)]+\\)\\s*=\\s*([-0-9\\.]+)")[,2]),
+    p           = as.numeric(str_match(res_string, "p\\s*=\\s*([-0-9\\.]+)")[,2]),
+    r           = as.numeric(str_match(res_string, "r\\s*=\\s*([-0-9\\.]+)")[,2]),
+    bf10        = as.numeric(str_match(res_string, "bf10\\s*=\\s*([-0-9\\.]+)")[,2])
+  )
+}
+
+ci_summary <- df %>%
+  group_by(study_index) %>%
+  group_modify(~{
+    dat <- .x
+
+    # descriptive stats
+    N  <- nrow(dat)
+    M  <- mean(dat$change_score, na.rm = TRUE)
+    SD <- sd(dat$change_score, na.rm = TRUE)
+    SE <- sd(dat$change_score, na.rm = TRUE) / sqrt(N)
+
+    # ost() stats
+    o <- ost(dat$change_score, mu = 0)
+    parsed <- parse_ost_results(o$results)
+
+    # your simple CI rule
+    x <- 1.96
+    margin <- x * SE
+    
+    tcrit <- qt(0.975, N-1)
+    margin <- tcrit * SE
+
+    tibble(
+      N = N,
+      Mean = M,
+      StDev = SD,
+      Standard_Error = SE,
+      tCrit = tcrit,
+      margin_of_error = margin,
+      lower_bound = M - margin,
+      upper_bound = M + margin
+    ) %>%
+      bind_cols(parsed)
+  }) %>%
+  ungroup() %>%
+  arrange(study_index)
+
+ci_summary
+
+n_summary <- nf %>%
+  group_by(study_index) %>%
+  group_modify(~{
+    dat <- .x
+
+    # descriptive stats
+    N  <- nrow(dat)
+    M  <- mean(dat$change_score, na.rm = TRUE)
+    SD <- sd(dat$change_score, na.rm = TRUE)
+    SE <- sd(dat$change_score, na.rm = TRUE) / sqrt(N)
+
+    # ost() stats
+    o <- ost(dat$change_score, mu = 0)
+    parsed <- parse_ost_results(o$results)
+
+    # your simple CI rule
+    x <- 1.96
+    margin <- x * SE
+    
+    tcrit <- qt(0.975, N-1)
+    margin <- tcrit * SE
+
+    tibble(
+      N = N,
+      Mean = M,
+      StDev = SD,
+      Standard_Error = SE,
+      tCrit = tcrit,
+      margin_of_error = margin,
+      lower_bound = M - margin,
+      upper_bound = M + margin
+    ) %>%
+      bind_cols(parsed)
+  }) %>%
+  ungroup() %>%
+  arrange(study_index)
+
+
+```
+
+## What effect does it have on test scores?
+
+::::: columns
+::: {.column width="95%"}
+```{r}
+library(ggplot2)
+library(dplyr)
+
+plot_df <- ci_summary %>%
+  mutate(
+    study_label = paste("Study", study_index),
+    study_f = factor(study_label, levels = rev(study_label))
+  )
+
+ggplot(plot_df, aes(y = study_f)) +
+  # put the advertised line in the background
+  geom_vline(xintercept = 10, linewidth = 1.1, color = "darkseagreen4", alpha = 0.7) +
+
+  # CI lines (use height, not width)
+  geom_errorbarh(
+    aes(xmin = lower_bound, xmax = upper_bound),
+    height = 0.18, linewidth = 1.2, color = "grey20"
+  ) +
+
+  # mean dots
+  geom_point(aes(x = Mean), size = 5, color = "grey20") +
+
+  # DON'T clip CIs: use coord_cartesian instead of limits=
+  coord_cartesian(xlim = c(-20, 35), clip = "off") +
+
+  scale_x_continuous(
+    breaks = c(-10, 0, 10, 20, 30),
+    labels = function(x){
+      ifelse(x == 0, "0",
+             paste0(ifelse(x > 0, "+", ""), x, " pts."))
+    }
+  ) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 16) +
+  theme(
+    plot.margin = margin(10, 20, 10, 60),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.x = element_text(size = 16)
+  )
+```
+:::
+
+::: {.column width="5%"}
+![](media/images/w6_snakeoil.jpeg){fig-alt="Vintage snake oil bottle" style="position:absolute; top:10%; transform:translate(-50%,-50%) rotate(12deg); width:12%; height:auto;"}
+:::
+:::::
+
+## Confidence Intervals
+
+Intervals that contain the ‘true’ population value of the parameter in 95% of samples.
+
+<br>
+
+::: {style="color:#b30000; text-decoration:line-through; text-decoration-thickness:3px;"}
+I’m 95% confident that the population value falls in this interval.
+:::
+
+<br>
+
+::: {style="color:#b30000; text-decoration:line-through; text-decoration-thickness:3px;"}
+An interval where there is a 95% probability that it contains the population value.
+:::
+
+<br><br>
+
+**Probability of containing the population value is 0 or 1 but you can’t know which.**
+
+::::: {.columns style="margin-top: 1.2rem;"}
+::: {.column width="40%"}
+![](media/images/w6_magicbox.jpeg){width="70%" fig-alt="Mystery box icon representing unknown truth."}
+:::
+
+::: {.column width="60%"}
+<br><br><br>
+![](media/images/w6_generic_ci.svg){width="80%" fig-alt="Generic confidence interval graphic with a point estimate and horizontal interval."}
+:::
+:::::
+
+## Type I vs Type II Errors
+
+::::::::::::::::: {style="position:relative; height:80vh;"}
+<!-- Left image (false positive) -->
+
+::: {style="position:absolute; left:1%; top:6%; width:46%; z-index:1;"}
+![](media/images/w6_pregnantfalse.jpeg){width="75%" fig-alt="Nurse giving a shot to a child; example of a false positive."}
+:::
+
+<!-- Left interrobang -->
+
+::: {style="position:absolute; left:8%; top:3%; z-index:5;             font-size:3.2rem; font-weight:700; color:#c00000; transform:rotate(-15deg);"}
+?!
+:::
+
+<!-- Left speech bubble -->
+
+::: {style="position:absolute; left:32%; top:7.5%; z-index:6;             background:white; border:3px solid #2f66d0; border-radius:18px;             padding:0.75rem 1.05rem; font-size:1.55rem; font-weight:700;             line-height:1.15; text-align:center;"}
+You’re<br>Pregnant!
+:::
+
+<!-- Bubble tail (approx) -->
+
+::: {style="position:absolute; left:30.9%; top:15.8%; z-index:6;             width:22px; height:22px; background:white;             border-left:3px solid #2f66d0; border-bottom:3px solid #2f66d0;             transform:rotate(45deg);"}
+:::
+
+<!-- Left labels -->
+
+::::: {style="position:absolute; left:11%; top:53%; z-index:7; text-align:center;"}
+::: {style="font-size:2.1rem; font-weight:600; color:#333;"}
+Type 1 error
+:::
+
+::: {style="font-size:2.0rem; font-weight:600; color:#8a8a8a;"}
+False Positive
+:::
+:::::
+
+<!-- Right image (false negative) -->
+
+::: {style="position:absolute; left:52%; top:38%; width:46%; z-index:1;"}
+![](media/images/w6_pregnanttrue.jpeg){width="115%" fig-alt="Doctor telling a pregnant person they are not pregnant; example of a false negative."}
+:::
+
+<!-- Right interrobang -->
+
+::: {style="position:absolute; left:93%; top:42%; z-index:5;             font-size:3.2rem; font-weight:700; color:#c00000; transform:rotate(18deg);"}
+?!
+:::
+
+<!-- Right speech bubble -->
+
+::: {style="position:absolute; left:51%; top:38%; z-index:6;             background:white; border:3px solid #2f66d0; border-radius:18px;             padding:0.75rem 1.05rem; font-size:1.55rem; font-weight:700;             line-height:1.15; text-align:center;"}
+You’re Not<br>Pregnant!
+:::
+
+<!-- Bubble tail (approx) -->
+
+::: {style="position:absolute; left:65.5%; top:45%; z-index:6;             width:22px; height:22px; background:white;             border-left:3px solid #2f66d0; border-bottom:3px solid #2f66d0;             transform:rotate(-135deg);"}
+:::
+
+<!-- Right labels -->
+
+::::: {style="position:absolute; left:70%; top:28%; z-index:7; text-align:center;"}
+::: {style="font-size:2.1rem; font-weight:600; color:#333;"}
+Type 2 error
+:::
+
+::: {style="font-size:2.0rem; font-weight:600; color:#8a8a8a;"}
+False Negative
+:::
+:::::
+:::::::::::::::::
+
+## p Value
+
+The probability of getting a test statistic at least as extreme as the one you observed\
+**given that** H<sub>0</sub> is true.
+
+<br>
+
+::: {style="color:#b30000; text-decoration:line-through; text-decoration-thickness:3px;"}
+The probability of a chance result.
+:::
+
+
+::: {style="color:#b30000; text-decoration:line-through; text-decoration-thickness:3px;"}
+The probability that H<sub>A</sub> is true.
+:::
+
+
+::: {style="color:#b30000; text-decoration:line-through; text-decoration-thickness:3px;"}
+The probability that H<sub>0</sub> is true.
+:::
+
+<br>
+
+**The Type I error in this study is 0 or 1 we can't know which.**
+
+<br>
+
+:::::: columns
+::: {.column width="40%"}
+![](media/images/w6_magicbox.jpeg){width="60%"}
+:::
+
+:::: {.column width="60%"}
+::: {style="font-size:2.4rem; font-weight:700; text-align:center; margin-top:1rem;"}
+p = 0.027
+:::
+::::
+::::::
+
+## p Value
+
+<br>
+
+Tells us nothing about importance because p depends on sample size
+
+Provides little evidence about the null hypothesis
+
+Encourages all-or-nothing thinking
+
+Based on long-run probabilities
+
+p is the relative frequency of our observed test statistic relative to all test statistics from an infinite number of experiments.
+
+<br>
+
+::::: columns
+::: {.column width="40%"}
+![](media/images/w6_D20.jpg){width="55%" fig-alt="Twenty-sided die representing randomness under the null hypothesis."}
+:::
+
+::: {.column width="60%"}
+:::
+:::::
+
+## What effect does it have on test scores?
+
+::::: columns
+::: {.column width="95%"}
+```{r}
+library(ggplot2)
+library(dplyr)
+
+plot_df <- ci_summary %>%
+  mutate(
+    study_f = factor(study_index, levels = rev(study_index)),
+    p_label = paste0("p = ", sprintf("%.3f", p))
+  )
+
+ggplot(plot_df, aes(y = study_f)) +
+
+  # Red reference line at 0 (null effect)
+  geom_vline(xintercept = 0, linewidth = 1.2,
+             color = "red3", alpha = 0.8) +
+
+  # Confidence intervals
+  geom_errorbarh(
+    aes(xmin = lower_bound, xmax = upper_bound),
+    height = 0.18, linewidth = 1.2, color = "grey20"
+  ) +
+
+  # Mean points
+  geom_point(aes(x = Mean),
+             size = 5, color = "grey20") +
+
+  # Left-side p-value labels
+  geom_text(
+    aes(x = -30
+        , label = p_label),
+    hjust = 0, size = 5,
+    color = "red3", fontface = "italic"
+  ) +
+
+  coord_cartesian(xlim = c(-20, 35), clip = "off") +
+
+  scale_x_continuous(
+    breaks = c(-20, -10, 0, 10, 20, 30),
+    labels = function(x){
+      ifelse(x == 0, "0",
+             paste0(ifelse(x > 0, "+", ""), x, " pts."))
+    }
+  ) +
+
+  labs(x = NULL, y = NULL) +
+
+  theme_minimal(base_size = 16) +
+  theme(
+    plot.margin = margin(10, 20, 10, 80),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.x = element_text(size = 16)
+  )
+```
+:::
+
+::: {.column width="5%"}
+![](media/images/w6_snakeoil.jpeg){fig-alt="Vintage snake oil bottle" style="position:absolute; top:10%; transform:translate(-50%,-50%) rotate(12deg); width:12%; height:auto;"}
+:::
+:::::
+
+## Effect Size as Group Separation
+
+Effect size asks:
+
+**How far apart are the groups relative to their natural variability?**
+
+<div style="height:330px; margin-top:1rem;">
+
+::: {.fragment .current-visible}
+<div style="text-align:center; font-size:0.95em; color:#555;">
+Small effect: groups overlap a lot
+</div>
+
+<svg width="900" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
+  <path d="M120 170 C180 170, 210 70, 300 70 C390 70, 420 170, 480 170"
+        fill="none" stroke="#4e79a7" stroke-width="6"/>
+  <path d="M240 170 C300 170, 330 70, 420 70 C510 70, 540 170, 600 170"
+        fill="none" stroke="#e15759" stroke-width="6"/>
+  <text x="300" y="205" text-anchor="middle" font-size="26" fill="#4e79a7" font-weight="700">Group A</text>
+  <text x="420" y="205" text-anchor="middle" font-size="26" fill="#e15759" font-weight="700">Group B</text>
+</svg>
+
+<div style="text-align:center;"><b>Very heavy overlap</b> → group membership tells you very little</div>
+:::
+
+::: {.fragment .current-visible}
+<div style="text-align:center; font-size:0.95em; color:#555;">
+Medium effect: groups are somewhat separated
+</div>
+
+<svg width="900" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
+  <path d="M90 170 C150 170, 190 70, 280 70 C370 70, 410 170, 470 170"
+        fill="none" stroke="#4e79a7" stroke-width="6"/>
+  <path d="M310 170 C370 170, 410 70, 500 70 C590 70, 630 170, 690 170"
+        fill="none" stroke="#e15759" stroke-width="6"/>
+  <text x="280" y="205" text-anchor="middle" font-size="26" fill="#4e79a7" font-weight="700">Group A</text>
+  <text x="500" y="205" text-anchor="middle" font-size="26" fill="#e15759" font-weight="700">Group B</text>
+</svg>
+
+<div style="text-align:center;"><b>Noticeable overlap</b> → group membership gives you some useful information</div>
+:::
+
+::: {.fragment .current-visible}
+<div style="text-align:center; font-size:0.95em; color:#555;">
+Large effect: groups are clearly separated
+</div>
+
+<svg width="900" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
+  <path d="M60 170 C120 170, 170 70, 260 70 C350 70, 400 170, 460 170"
+        fill="none" stroke="#4e79a7" stroke-width="6"/>
+  <path d="M430 170 C490 170, 540 70, 630 70 C720 70, 770 170, 830 170"
+        fill="none" stroke="#e15759" stroke-width="6"/>
+  <text x="260" y="205" text-anchor="middle" font-size="26" fill="#4e79a7" font-weight="700">Group A</text>
+  <text x="630" y="205" text-anchor="middle" font-size="26" fill="#e15759" font-weight="700">Group B</text>
+</svg>
+
+<div style="text-align:center;"><b>Little overlap</b> → group membership strongly helps predict the outcome</div>
+:::
+
+</div>
+
+::: {.fragment}
+**p-value asks:** is there evidence of a difference?  
+**Effect size asks:** how big is that difference?
+:::
+
+
+## {background-color="black"}
+
+<span style="color:white;">
+A participant is given a randomly scrambled cube. They solve the cube successfully. You want to reward them with 10 extra credit points, but only if they have practiced. What are the odds that the participant <u>actually practiced</u>?
+</span>
+
+<br>
+
+<span style="color:white;">
+Apart from the fact that they solved the cube, you know nothing about this participant.
+</span>
+
+<br><br>
+
+:::: {.columns}
+::: {.column width="45%"}
+
+### <span style="color:white;">How many Practiced: 1%</span>
+
+<br>
+
+### <span style="color:white;">True Positives: 90%</span>
+
+<br>
+
+### <span style="color:white;">True Negatives: 91%</span>
+
+:::
+
+::: {.column width="55%"}
+
+<div style="margin-left:80px;">
+
+### <span style="color:#f4c20d;">A) 9 in 10</span>
+
+<br>
+
+### <span style="color:#f4c20d;">B) 8 in 10</span>
+
+<br>
+
+### <span style="color:#f4c20d;">C) 1 in 10</span>
+
+<br>
+
+### <span style="color:#f4c20d;">D) 1 in 100</span>
+
+</div>
+
+:::
+::::
+
+
+## [Choosing and appropriate test]{.sr-only}
+
+<br>
+
+::::::::::::::::: columns
+:::::::::::: {.column width="62%"}
+::::: {style="margin-bottom:3.5rem;"}
+::: {style="font-size:1.5rem; font-weight:600;"}
+Report Hypothesis
+:::
+
+::: {style="font-size:2.3rem; font-weight:700; margin-top:0.4rem;"}
+Participants who have practiced will be able to solve a cube.
+:::
+:::::
+
+::::: {style="margin-bottom:3.5rem;"}
+::: {style="font-size:1.5rem; font-weight:600;"}
+Null Hypothesis
+:::
+
+::: {style="font-size:2.3rem; font-weight:700; margin-top:0.4rem;"}
+H<sub>0</sub>: Participant did not practice
+:::
+:::::
+
+<div>
+
+::: {style="font-size:1.5rem; font-weight:600;"}
+Alternate Hypothesis
+:::
+
+::: {style="font-size:2.3rem; font-weight:700; margin-top:0.4rem;"}
+H<sub>A</sub>: Participant practiced
+:::
+
+</div>
+::::::::::::
+
+:::::: {.column width="38%"}
+::::: {style="position: relative; height: 70vh;"}
+<!-- Unsolved cube: align with Null Hypothesis -->
+
+::: {style="position:absolute; left:50%; top:32%; transform:translateX(-50%);"}
+![](media/images/w6_cube_unsolved.png){width="80%" fig-alt="Unsolved Rubik's cube."}
+:::
+
+<!-- Solved cube: align with Alternate Hypothesis -->
+
+::: {style="position:absolute; left:50%; top:61%; transform:translateX(-50%);"}
+![](media/images/w6_cube_solved.png){width="80%" fig-alt="Solved Rubik's cube."}
+:::
+:::::
+::::::
+:::::::::::::::::
+
+## Confusion Matrix
+
+:::::::::::: {style="position: relative; height: 85vh;"}
+<!-- Vertical Divider -->
+
+::: {style="position:absolute; left:50%; top:0; bottom:0; width:2px; background:#777;"}
+:::
+
+<!-- LEFT SIDE (PASS) -->
+
+:::::: {style="position:absolute; left:0; width:50%; text-align:center;"}
+::: {style="font-size:2.2rem; font-weight:700; color:#4b7f2a; margin-top:1rem;"}
+Pass
+:::
+
+::: {style="margin-top:1.5rem;"}
+![](media/images/w6_cube_solved.png){width="38%" fig-alt="Solved Rubik's cube."}
+:::
+
+::: {style="margin-top:3rem;"}
++-------------------+----------------+
+| H~0~: No Practice | H~A~: Practice |
++===================+================+
+| **Type 1 Error**\ | **No Error**\  |
+| False Positive    | True Positive  |
++-------------------+----------------+
+:::
+::::::
+
+<!-- RIGHT SIDE (FAIL) -->
+
+:::::: {style="position:absolute; right:0; width:50%; text-align:center;"}
+::: {style="font-size:2.2rem; font-weight:700; color:#b30000; margin-top:1rem;"}
+Fail
+:::
+
+::: {style="margin-top:1.5rem;"}
+![](media/images/w6_cube_unsolved.png){width="38%" fig-alt="Unsolved Rubik's cube."}
+:::
+
+::: {style="margin-top:3rem;"}
++-------------------+-------------------+
+| H~0~: No Practice | H~A~: Practice    |
++===================+===================+
+| **No Error**\     | **Type 2 Error**\ |
+| True Negative     | False Negative    |
++-------------------+-------------------+
+:::
+::::::
+::::::::::::
+
+## 
+
+<div style="text-align:center; font-size:1.25em; line-height:1.6;">
+
+::: {.fragment .strike style="text-decoration-thickness:3px;"}
+Tests determine if you have a disease.
+:::
+
+<br>
+
+
+::: {.fragment .strike style="text-decoration-thickness:3px;"}
+Tests determine <span style="color:#2F5597;">your chances of having</span> a disease.
+:::
+
+<br>
+
+Tests <span style="color:#548235;">update</span> <span style="color:#2F5597;">your chances of having</span> a disease.
+
+<br><br>
+
+::: {.fragment}
+**Bayes Factor (bf10) quantifies relative probability of data given the null and alternate hypotheses.**
+:::
+
+</div>
+
+## Never Report p Value Alone
+
+<br>
+
+Bayes Factor helps assess plausibility of hypothesis
+
+Address more useful questions, less dependent on n, avoid all or nothing thinking
+
+Effect Sizes and Bayes Factors are on a continuum
+
+Bayes Factor gives you a sense of how you should update your beliefs based on the data
+
+<br>
+
+![](../shared/images/bayes_factor.svg){width="100%" fig-alt="Bayes Factor Interpretation rules of thumb"}
+
+## p Value hacking
+
+::::: columns
+::: {.column width="95%"}
+```{r}
+library(ggplot2)
+library(dplyr)
+
+plot_df <- n_summary %>%
+  arrange(N) %>%   # smallest to largest
+  mutate(
+    study_f = factor(paste0("n = ", N), levels = paste0("n = ", N)),
+    n_label = paste0("n = ", N),
+    p_label = paste0("p = ", sprintf("%.3f", p))
+  )
+
+ggplot(plot_df, aes(y = study_f)) +
+
+  # Red null line
+  geom_vline(xintercept = 0, linewidth = 1.2,
+             color = "red3", alpha = 0.8) +
+
+  # CIs
+  geom_errorbarh(
+    aes(xmin = lower_bound, xmax = upper_bound),
+    height = 0.18, linewidth = 1.2, color = "grey20"
+  ) +
+
+  # Means
+  geom_point(aes(x = Mean),
+             size = 5, color = "grey20") +
+
+  # n labels (further left)
+  geom_text(
+    aes(x = -50, label = n_label),
+    hjust = 0,
+    size = 5,
+    color = "grey30"
+  ) +
+
+  # p labels (closer to n)
+  geom_text(
+    aes(x = -29, label = p_label),
+    hjust = 1,
+    size = 5,
+    color = "red3",
+    fontface = "italic"
+  ) +
+
+  coord_cartesian(xlim = c(-40, 40), clip = "off") +
+
+  scale_x_continuous(
+    breaks = c(-20, -10, 0, 10, 20, 30, 40),
+    labels = function(x){
+      ifelse(x == 0, "0",
+             paste0(ifelse(x > 0, "+", ""), x, " pts."))
+    }
+  ) +
+
+  labs(x = NULL, y = NULL) +
+
+  theme_minimal(base_size = 16) +
+  theme(
+    plot.margin = margin(10, 20, 10, 130),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    axis.text.y = element_blank(),   # remove duplicated labels
+    axis.ticks.y = element_blank(),
+    axis.text.x = element_text(size = 16)
+  )
+```
+:::
+
+::: {.column width="5%"}
+![](media/images/w6_snakeoil.jpeg){fig-alt="Vintage snake oil bottle" style="position:absolute; top:10%; transform:translate(-50%,-50%) rotate(12deg); width:12%; height:auto;"}
+
+```{r}
+library(tidyverse)
+
+phack <- tibble(
+  study_index = c("10_100", "10_500", "10_1000", "10_10000"),
+  N = c(100, 500, 1000, 10000),
+  Mean = c(9.5, 9.5, 9.5, 9.5),
+  StDev = c(143.67, 143.67, 143.67, 143.67),
+  p = c(0.510, 0.140, 0.037, 0.000),
+  r = c(0.066, 0.066, 0.066, 0.066),
+  bf10 = c(0.137, 0.149, 0.313, 33364093.861)
+)
+
+ggplot(phack, aes(x = N, y = r)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 3) +
+  geom_text(aes(label = paste0("p = ", round(p, 3))),
+            nudge_y = 0.01, size = 4) +
+  scale_x_continuous(trans = "log10",
+                     breaks = c(100, 500, 1000, 10000)) +
+  labs(
+    title = "Effect Size Stays the Same as Sample Size Increases",
+    subtitle = "But p-values get smaller as N increases",
+    x = "Sample Size (log scale)",
+    y = "Effect Size (r)"
+  ) +
+  theme_minimal(base_size = 16)
+
+```
+
+```{r}
+library(tidyverse)
+library(patchwork)
+
+phack <- tibble(
+  study_index = c("10_100", "10_500", "10_1000", "10_10000"),
+  N = c(100, 500, 1000, 10000),
+  p = c(0.510, 0.140, 0.037, 0.0001),
+  r = c(0.066, 0.066, 0.066, 0.066)
+)
+
+p1 <- ggplot(phack, aes(x = N, y = r)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 3) +
+  scale_x_continuous(trans = "log10",
+                     breaks = c(100, 500, 1000, 10000)) +
+  labs(
+    title = "Effect Size",
+    x = NULL,
+    y = "r"
+  ) +
+  ylim(0, 0.10) +
+  theme_minimal(base_size = 16)
+
+p2 <- ggplot(phack, aes(x = N, y = p)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 3) +
+  geom_hline(yintercept = 0.05, linetype = 2) +
+  scale_x_continuous(trans = "log10",
+                     breaks = c(100, 500, 1000, 10000)) +
+  labs(
+    title = "p-value",
+    x = "Sample Size (log scale)",
+    y = "p"
+  ) +
+  theme_minimal(base_size = 16)
+
+p1 / p2
+```
+
+```{r}
+library(tidyverse)
+
+ggplot(ci_summary, aes(x = reorder(as.factor(study_index), r), y = r)) +
+  geom_hline(yintercept = c(0.1, 0.3, 0.5), linetype = "dashed", alpha = 0.5) +
+  geom_point(aes(shape = p < 0.05), size = 3) +
+  coord_flip() +
+  labs(
+    title = "Effect Size Across Studies",
+    subtitle = "Dashed lines mark common benchmarks: .10, .30, .50",
+    x = "Study",
+    y = "Effect Size (r)",
+    shape = "p < .05"
+  ) +
+  theme_minimal(base_size = 16)
+```
+
+
+

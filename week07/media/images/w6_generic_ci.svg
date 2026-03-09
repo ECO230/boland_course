@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="83.255554mm"
+   height="4.5861101mm"
+   viewBox="0 0 83.255554 4.5861101"
+   version="1.1"
+   id="svg20186"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="w6_generic_ci.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview20188"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.2102413"
+     inkscape:cx="-889.45416"
+     inkscape:cy="675.41439"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="3832"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs20183" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-296.90189,29.979492)">
+    <g
+       transform="matrix(0.26458333,0,0,0.26458333,124.34946,-182.07081)"
+       id="g20315">
+      <path
+         d="m 653.5,583.5 h 312"
+         stroke="#404040"
+         stroke-width="2.66667"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path20307" />
+      <path
+         d="m 653.5,575.5 v 16"
+         stroke="#404040"
+         stroke-width="2.66667"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path20309" />
+      <path
+         d="m 965.5,575.5 v 16"
+         stroke="#404040"
+         stroke-width="2.66667"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path20311" />
+      <path
+         d="m 797.5,583.5 c 0,-4.418 3.582,-8 8,-8 4.418,0 8,3.582 8,8 0,4.418 -3.582,8 -8,8 -4.418,0 -8,-3.582 -8,-8 z"
+         stroke="#404040"
+         stroke-width="1.33333"
+         stroke-miterlimit="8"
+         fill="#404040"
+         fill-rule="evenodd"
+         id="path20313" />
+    </g>
+  </g>
+</svg>

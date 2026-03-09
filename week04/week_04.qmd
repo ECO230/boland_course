@@ -1,0 +1,270 @@
+---
+title: "Week 4 — Telling Stories with Data"
+author: "Mike Boland"
+format:
+  revealjs:
+    theme:
+      - default
+      - ../shared/styles/boland-reveal.scss
+    css: ../shared/styles/accessibility.css
+    slide-number: true
+    hash: true
+    center: false
+    transition: fade
+execute:
+  echo: false
+---
+
+# Communicating Data
+
+*Turn descriptive statistics and visuals into a story someone can act on.*
+
+
+::: notes
+Week 1: what is your data  
+Week 2: summarizing  
+Week 3: visualizing  
+Week 4: interpretation and narrative
+:::
+
+## One Set of Principles  
+
+<br>
+
+- Writing  
+<br>
+
+- Visuals  
+<br>
+
+-  Speaking  
+<br>
+
+:::: fragment
+::: {.callout-note title="Small Medium Large"}
+The same principles will apply across different media.
+:::
+::::
+
+::: notes
+This frames everything that follows.
+:::
+
+## Principle 1: One Message
+
+<br>
+**Writing**  
+Lead with the main conclusion.
+
+<br>
+**Visual**  
+One message per chart.
+
+<br>
+**Speaking**  
+State the takeaway first.
+
+::: notes
+Few calls this salience. Writers call it a lead. Same idea.
+:::
+
+## Principle 2: Reduce Cognitive Load
+
+<br>
+**Writing**  
+Short sentences. Everyday words.
+
+<br>
+**Visual**  
+High contrast. No clutter.
+
+<br>
+**Speaking**  
+Fewer points. Slower pace.
+
+::: notes
+This ties Visage + accessibility + Few together.
+:::
+
+## Principle 3: Make Differences Obvious
+
+<br>
+**Writing**  
+Name the comparison explicitly.
+
+<br>
+**Visual**  
+Direct labels > legends.
+
+<br>
+**Speaking**  
+Higher / lower / changed after.
+
+::: notes
+Students often imply differences instead of stating them.
+:::
+
+## Principle 4: Context Creates Meaning
+
+<br>
+**Writing**  
+Who is this for?
+
+<br>
+**Visual**  
+Consistent scales and denominators.
+
+<br>
+**Speaking**  
+Why should this audience care?
+
+::: notes
+Audience awareness without jargon.
+:::
+
+# Working With Examples
+
+*Your first draft and final draft should be distant relatives.*
+
+
+## 🎥 Example: A Clear Data Story  
+
+<br><br>
+
+- One way cognitive load was reduced 
+- How is context provided to make the audience care 
+- One visual choice that helps
+
+<br><br>
+
+:::: fragment
+**Why this works:**
+- Clear takeaway early  
+- Simple visuals  
+- Visuals support speech  
+- Personal and Emotional but not Maudlin
+::::
+
+::: notes
+Prompt students before video:  
+One conclusion sentence  
+One data-supported sentence  
+One visual choice that helps
+:::
+
+## {data-background-image="media/images/w4_good_ex1.png" data-background-size="contain" data-background-position="center" data-background-repeat="no-repeat" }
+
+:::: fragment
+::: {.callout-tip title="How do we improve" }
+<div style="background-color: #f8f8f8; padding: 0.25rem; border-radius: 4px;">
+Why does this connect with the audience?
+</div>
+:::
+::::
+
+## {data-background-image="media/images/w4_bad_ex1.png" data-background-size="contain" data-background-position="center" data-background-repeat="no-repeat" }
+
+:::: fragment
+::: {.callout-tip title="After visibility drops crash severity goes up." }
+<div style="background-color: #f8f8f8; padding: 0.25rem; border-radius: 4px;">
+Which is easier to understand?
+</div>
+:::
+::::
+
+## {data-background-image="media/images/w4_bad_ex2.png" data-background-size="contain" data-background-position="center" data-background-repeat="no-repeat" }
+
+:::: fragment
+::: {.callout-tip title="How do we improve"}
+<div style="background-color: #f8f8f8; padding: 0.25rem; border-radius: 4px;">
+Rewrite the Title (Headline)
+</div>
+:::
+::::
+
+
+## {data-background-image="media/images/w4_like_subscribe.jpg" data-background-size="contain" data-background-position="center" data-background-repeat="no-repeat" data-background-color="black"}
+
+## Activity 1: Headline Sprint (5 min)
+
+<br>
+1. Start with your paragraph.
+
+<br>
+2. Write **one sentence** stating the conclusion  
+
+<br>
+3. Cut it to **7 words or fewer**
+
+<br>
+
+::: {.callout-important title="We love words"}
+Do not include any numbers.
+:::
+
+::: notes
+Timer. Call on 2–3 students.
+:::
+
+## Activity 2: Data Sentence Sprint (5 min)
+
+<br>
+Use this template:
+
+<br>
+
+> After **[change/action]**,  
+> **Y changed from A to B**,  
+> especially for **group Z**.
+
+<br>
+
+Rewrite **one sentence** from your paragraph.
+
+::: notes
+This fixes rambling instantly.
+:::
+
+## {data-background-image="media/images/w4_bad_ex2.png" data-background-size="contain" data-background-position="center" data-background-repeat="no-repeat" }
+
+::::: columns
+::: {.column width="70%"}
+:::: fragment
+::: {.callout-tip title="Activity 3: Visual Message Check"}
+<div style="background-color: #f8f8f8; padding: 0.25rem; border-radius: 4px;">
+What is the one message of this chart?
+</div>
+:::
+::::
+:::
+:::::
+
+
+## {data-background-color="black"}
+
+<div style="height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+
+<div style="font-size: 20rem; font-weight: 700; line-height: 1; color: #ffffff; margin: 2rem;">
+3:30:3:30
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 12rem; width: 96%;
+            margin-top: -10rem;
+            color: #bdbdbd; font-size: 2rem; font-weight: 600;">
+
+<div style="text-align:center;">seconds</div>
+<div style="text-align:center;">seconds</div>
+<div style="text-align:center;">minutes</div>
+<div style="text-align:center;">minutes</div>
+
+</div>
+</div>
+
+
+# Data doesn’t speak. You do.
+*You know how to identify, summarize, visualize and communicate the stories in your data.*
+
+::: notes
+Confidence-building close.
+:::
