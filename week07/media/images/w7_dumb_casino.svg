@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="308.68805mm"
+   height="110.735mm"
+   viewBox="0 0 308.68805 110.735"
+   version="1.1"
+   id="svg20678"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="w7_dumb_casino.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview20680"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.2102413"
+     inkscape:cx="585.04204"
+     inkscape:cy="209.28333"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs20675" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(92.678771,-93.132499)">
+    <g
+       transform="matrix(0.26458333,0,0,0.26458333,-98.143417,45.375208)"
+       id="g20829">
+      <path
+         d="M 699.5,180.5 V 599.026"
+         stroke="#bfbfbf"
+         stroke-width="0.666667"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path20799" />
+      <path
+         d="m 260.5,307.5 h 921.74"
+         stroke="#bfbfbf"
+         stroke-width="0.666667"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path20801" />
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="53px"
+         transform="translate(328.536,264)"
+         id="text20803">Hand Up</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="53px"
+         transform="translate(812.568,265)"
+         id="text20805">Hand Down</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="53px"
+         transform="translate(19.5171,402)"
+         id="text20807">Win ≥ 93</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="53px"
+         transform="translate(19.5171,536)"
+         id="text20809">Lose &lt; 93</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-style="italic"
+         font-weight="700"
+         font-size="32px"
+         transform="translate(272.878,392)"
+         id="text20811">Dice Roll = Final Grade</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-style="italic"
+         font-weight="700"
+         font-size="32px"
+         transform="translate(761.232,390)"
+         id="text20813">Can NOT use notes on Final</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-style="italic"
+         font-weight="700"
+         font-size="32px"
+         transform="translate(790.414,537)"
+         id="text20815">Can use notes on Final</text>
+      <text
+         fill="#70ad47"
+         font-family="'Segoe UI Symbol', 'Segoe UI Symbol_MSFontService', sans-serif"
+         font-weight="700"
+         font-size="53px"
+         transform="translate(599.325,402)"
+         id="text20817">✔</text>
+      <text
+         fill="#ff0000"
+         font-family="'Segoe UI Symbol', 'Segoe UI Symbol_MSFontService', sans-serif"
+         font-weight="700"
+         font-size="53px"
+         transform="translate(599.325,545)"
+         id="text20819">✘</text>
+      <path
+         d="m 260.5,455.5 h 921.74"
+         stroke="#bfbfbf"
+         stroke-width="0.666667"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path20821" />
+      <text
+         fill="#ff0000"
+         font-family="'Segoe UI Symbol', 'Segoe UI Symbol_MSFontService', sans-serif"
+         font-weight="700"
+         font-size="53px"
+         transform="translate(1147.78,396)"
+         id="text20823">✘</text>
+      <text
+         fill="#70ad47"
+         font-family="'Segoe UI Symbol', 'Segoe UI Symbol_MSFontService', sans-serif"
+         font-weight="700"
+         font-size="53px"
+         transform="translate(1147.34,544)"
+         id="text20825">✔</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-style="italic"
+         font-weight="700"
+         font-size="32px"
+         transform="translate(272.878,533)"
+         id="text20827">Dice Roll = Final Grade</text>
+    </g>
+  </g>
+</svg>

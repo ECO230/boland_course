@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>bayes_app_full_documentation – ECO 230 — Section 12</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-30e33b9170478032341da2de80696f6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles/accessibility.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">ECO 230 — Section 12</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../syllabus/syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../../../week01/week_01.html">
+ <span class="dropdown-text">Week 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week02/week_02.html">
+ <span class="dropdown-text">Week 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week03/week_03.html">
+ <span class="dropdown-text">Week 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week04/week_04.html">
+ <span class="dropdown-text">Week 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week05/week_05.html">
+ <span class="dropdown-text">Week 5</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week06/week_06.html">
+ <span class="dropdown-text">Week 6</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week07/week_07.html">
+ <span class="dropdown-text">Week 7</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-homework" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Homework</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-homework">    
+        <li>
+    <a class="dropdown-item" href="../../../week01/Homework_01.html">
+ <span class="dropdown-text">Homework 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week02/Homework_02.html">
+ <span class="dropdown-text">Homework 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week03/Homework_03.html">
+ <span class="dropdown-text">Homework 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week04/Homework_04.html">
+ <span class="dropdown-text">Homework 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week06/Homework_05.html">
+ <span class="dropdown-text">Homework 5</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../week07/Homework_06.html">
+ <span class="dropdown-text">Homework 6</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project-1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project 1</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-project-1">    
+        <li>
+    <a class="dropdown-item" href="../../../syllabus/project_1_prompt.html">
+ <span class="dropdown-text">Project Prompt</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../syllabus/project_1_timeline.html">
+ <span class="dropdown-text">Project Timeline</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="bayesian-reasoning-visualization-app-shiny-full-context-documentation" class="level1">
+<h1>Bayesian Reasoning Visualization App (Shiny) – Full Context Documentation</h1>
+<p>This document summarizes the <strong>purpose, pedagogy, structure, and implementation</strong> of the Bayesian visualization Shiny app.<br>
+It is designed to provide enough context for a <strong>new LLM session</strong> (or developer) to immediately understand the project and continue development.</p>
+<hr>
+</section>
+<section id="core-purpose" class="level1">
+<h1>Core Purpose</h1>
+<p>The Shiny app teaches <strong>Bayesian reasoning visually</strong> using a simulated population and a diagnostic-style test framework.</p>
+<p>Instead of presenting Bayes’ theorem abstractly, the app builds the reasoning <strong>step-by-step</strong> through interactive tabs.</p>
+<p>The key educational goals are:</p>
+<ul>
+<li>Demonstrate how <strong>posterior probability depends on prior prevalence</strong></li>
+<li>Show why <strong>false positives dominate when prevalence is low</strong></li>
+<li>Connect <strong>sensitivity and specificity</strong> to posterior probability</li>
+<li>Introduce the <strong>Bayes Factor as the clean way to express evidence</strong></li>
+<li>Show that <strong>the same Bayes Factor updates odds by the same amount regardless of prevalence</strong></li>
+</ul>
+<p>The interface is intentionally narrative: each tab introduces <strong>one new concept</strong> while keeping the layout fixed.</p>
+<hr>
+</section>
+<section id="conceptual-framing" class="level1">
+<h1>Conceptual Framing</h1>
+<p>The app uses a diagnostic‑test metaphor.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Statistical Concept</th>
+<th>App Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>H_A</td>
+<td>Practice</td>
+</tr>
+<tr class="even">
+<td>H_0</td>
+<td>No Practice</td>
+</tr>
+<tr class="odd">
+<td>Positive test</td>
+<td>Solved</td>
+</tr>
+<tr class="even">
+<td>Negative test</td>
+<td>Did Not Solve</td>
+</tr>
+</tbody>
+</table>
+<p>The key posterior of interest is:</p>
+<p>P(Practice | Positive)</p>
+<p>The left group label (e.g.&nbsp;<em>Practice</em>) is parameterized in the controls so it can be changed.</p>
+<hr>
+</section>
+<section id="simulation-model" class="level1">
+<h1>Simulation Model</h1>
+<p>The app simulates a population of size <strong>N</strong>.</p>
+<p>User inputs:</p>
+<p>Population size N<br>
+Prevalence = P(H_A)<br>
+Sensitivity = P(Positive | H_A)<br>
+Specificity = P(Negative | H_0)</p>
+<p>Derived counts:</p>
+<p>Practice = N × prevalence<br>
+No Practice = N − Practice</p>
+<p>True Positive = Practice × sensitivity<br>
+False Negative = Practice − True Positive</p>
+<p>True Negative = No Practice × specificity<br>
+False Positive = No Practice − True Negative</p>
+<p>Posterior probability:</p>
+<p>P(Practice | Positive) = TP / (TP + FP)</p>
+<hr>
+</section>
+<section id="visual-language" class="level1">
+<h1>Visual Language</h1>
+<p>Color is used consistently across the entire app.</p>
+<p>Muted colors represent <strong>population membership</strong>.</p>
+<p>Bright colors represent <strong>observed evidence</strong>.</p>
+<p>Practice population = muted green (#CFE8D6)<br>
+No Practice population = muted red (#F2D0D0)</p>
+<p>True Positive = bright green (#00C853)<br>
+False Positive = bright red (#FF1744)</p>
+<p>Bayes Factor calculations = blue</p>
+<p>Posterior values = orange</p>
+<p>This visual language remains consistent across all tabs.</p>
+<hr>
+</section>
+<section id="narrative-tab-structure" class="level1">
+<h1>Narrative Tab Structure</h1>
+<section id="tab-1-population-prior" class="level2">
+<h2 class="anchored" data-anchor-id="tab-1-population-prior">Tab 1 – Population (Prior)</h2>
+<p>Shows only priors.</p>
+<p>Displayed metrics:</p>
+<p>Practice population<br>
+No Practice population<br>
+Prevalence<br>
+Baseline rate</p>
+<p>Purpose:</p>
+<p>Establish the <strong>starting belief</strong>.</p>
+<hr>
+</section>
+<section id="tab-2-apply-test" class="level2">
+<h2 class="anchored" data-anchor-id="tab-2-apply-test">Tab 2 – Apply Test</h2>
+<p>Introduces test accuracy.</p>
+<p>New metrics appear:</p>
+<p>True Positive<br>
+True Negative<br>
+Sensitivity<br>
+Specificity<br>
+False Negative Rate<br>
+False Positive Rate</p>
+<p>Displayed as fractions:</p>
+<p>Sensitivity = TP / Practice<br>
+Specificity = TN / No Practice</p>
+<p>Purpose:</p>
+<p>Show how the <strong>test interacts with the population</strong>.</p>
+<hr>
+</section>
+<section id="tab-3-posterior" class="level2">
+<h2 class="anchored" data-anchor-id="tab-3-posterior">Tab 3 – Posterior</h2>
+<p>Everything except positives fades out.</p>
+<p>Highlighted:</p>
+<p>True Positives<br>
+False Positives</p>
+<p>Posterior shown as:</p>
+<p>P(<left group="" label=""> | Positive)</left></p>
+<p>Formula:</p>
+<p>TP / (TP + FP)</p>
+<p>Purpose:</p>
+<p>Students visually see the <strong>numerator and denominator</strong> of the posterior.</p>
+<hr>
+</section>
+<section id="tab-4-same-bayes-factor-different-prevalence" class="level2">
+<h2 class="anchored" data-anchor-id="tab-4-same-bayes-factor-different-prevalence">Tab 4 – Same Bayes Factor, Different Prevalence</h2>
+<p>This tab bridges posterior probability and Bayes Factors.</p>
+<p>Top container (probabilities):</p>
+<p>Prior Belief N% × Bayes Factor = New Belief N%</p>
+<p>Example rows:</p>
+<p>0.1% → 1%<br>
+1% → 9%<br>
+10% → 53%</p>
+<p>Second container (odds):</p>
+<p>Prior Odds × Bayes Factor = New Odds</p>
+<p>Examples:</p>
+<p>1:999 × 10 = 10:999<br>
+1:99 × 10 = 10:99<br>
+1:9 × 10 = 10:9</p>
+<p>Important rule:</p>
+<p>The <strong>denominator stays fixed</strong>.</p>
+<p>The Bayes Factor multiplies the <strong>odds</strong>, not the denominator.</p>
+<p>Purpose:</p>
+<p>Show that <strong>Bayes Factor is the consistent measure of evidence</strong>.</p>
+<hr>
+</section>
+<section id="tab-5-bayes-factor-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="tab-5-bayes-factor-interpretation">Tab 5 – Bayes Factor Interpretation</h2>
+<p>Displays a visual interpretation scale for Bayes Factors.</p>
+<p>Evidence scale:</p>
+<p>BF &lt; 1/10 → Strong evidence for H0<br>
+BF ≈ 1 → Anecdotal evidence<br>
+BF ≈ 3 → Some evidence for HA<br>
+BF ≈ 10 → Strong evidence for HA<br>
+BF ≈ 100 → Decisive evidence</p>
+<p>Displayed using an SVG interpretation scale centered in the panel.</p>
+<p>Title:</p>
+<p>Bayes Factor (bf10) – Interpretation</p>
+<hr>
+</section>
+</section>
+<section id="dynamic-labels" class="level1">
+<h1>Dynamic Labels</h1>
+<p>Several labels dynamically use the user‑defined group name.</p>
+<p>Examples:</p>
+<p>Tab 3 bottom label:</p>
+<p>Probability <left group="" label=""> Given Positive</left></p>
+<p>Tab 4 probability column:</p>
+<p>P(<left group="" label=""> | Positive)</left></p>
+<p>This ensures the app works with any label, not just “Practice”.</p>
+<hr>
+</section>
+<section id="shiny-architecture" class="level1">
+<h1>Shiny Architecture</h1>
+<p>Single‑file Shiny app:</p>
+<p>app.R</p>
+<p>Structure:</p>
+<p>sidebarLayout()</p>
+<p>sidebarPanel()</p>
+<p>controls for:</p>
+<p>population size<br>
+prevalence<br>
+sensitivity<br>
+specificity<br>
+group labels</p>
+<p>mainPanel()</p>
+<p>tabsetPanel()</p>
+<p>5 narrative tabs</p>
+<p>Each tab uses:</p>
+<p>fluidRow()<br>
+column()</p>
+<p>Left column = H_A metrics<br>
+Center column = visual explanation<br>
+Right column = H_0 metrics</p>
+<hr>
+</section>
+<section id="reactive-engine" class="level1">
+<h1>Reactive Engine</h1>
+<p>Core reactive object:</p>
+<p>met()</p>
+<p>Computes:</p>
+<p>TP<br>
+FP<br>
+TN<br>
+FN</p>
+<p>These values drive:</p>
+<p>posterior probability<br>
+visual grid<br>
+metric cards<br>
+Bayes factor calculations</p>
+<p>Outputs rendered with:</p>
+<p>renderUI()<br>
+renderPlot()</p>
+<hr>
+</section>
+<section id="visualization-strategy" class="level1">
+<h1>Visualization Strategy</h1>
+<p>A dataframe of N individuals is generated.</p>
+<p>Each observation is assigned a state:</p>
+<p>practice<br>
+true_positive<br>
+false_positive<br>
+true_negative<br>
+false_negative</p>
+<p>The dataframe feeds a tile grid visualization.</p>
+<hr>
+</section>
+<section id="teaching-design-principles" class="level1">
+<h1>Teaching Design Principles</h1>
+<p>Fixed layout across tabs</p>
+<p>Numbers stay in the same physical location so students can trace them across steps.</p>
+<p>Progressive disclosure</p>
+<p>Each tab introduces <strong>one concept only</strong>.</p>
+<p>Visual numerator/denominator</p>
+<p>Posterior probability is visually:</p>
+<p>green tiles<br>
+over<br>
+green + red tiles</p>
+<hr>
+</section>
+<section id="default-demonstration-example" class="level1">
+<h1>Default Demonstration Example</h1>
+<p>N = 1000<br>
+Prevalence = 1%<br>
+Sensitivity = 90%<br>
+Specificity = 91%</p>
+<p>Results:</p>
+<p>Practice = 10<br>
+True Positive = 9</p>
+<p>No Practice = 990<br>
+False Positive = 89</p>
+<p>Posterior:</p>
+<p>9 / (9 + 89) = 9%</p>
+<p>Key insight:</p>
+<p>Even with a good test, most positives can be false when prevalence is low.</p>
+<hr>
+</section>
+<section id="pedagogical-flow-in-class" class="level1">
+<h1>Pedagogical Flow in Class</h1>
+<p>Instructor sequence:</p>
+<ol type="1">
+<li>Start with Tab 1 discussing prevalence</li>
+<li>Move to Tab 2 explaining sensitivity and specificity</li>
+<li>Ask students to predict the posterior</li>
+<li>Reveal Tab 3</li>
+<li>Transition to Tab 4 to explain Bayes Factor</li>
+<li>Use Tab 5 to interpret strength of evidence</li>
+</ol>
+<p>Students experience the <strong>base rate fallacy</strong> firsthand.</p>
+<hr>
+</section>
+<section id="technology-stack" class="level1">
+<h1>Technology Stack</h1>
+<p>R<br>
+Shiny<br>
+Reactive expressions<br>
+HTML / CSS styling inside Shiny<br>
+SVG graphics for interpretation scale</p>
+<hr>
+</section>
+<section id="key-idea-of-the-entire-app" class="level1">
+<h1>Key Idea of the Entire App</h1>
+<p>Posterior probability depends on:</p>
+<p>prior belief<br>
+test accuracy<br>
+false positive rate</p>
+<p>The Bayes Factor provides the clean mathematical description of how evidence updates beliefs.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

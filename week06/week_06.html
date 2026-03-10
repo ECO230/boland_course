@@ -532,31 +532,24 @@ H<sub>0</sub>: Variable<sub>1</sub> is not associated with Variable<sub>2</sub><
 <p><img data-src="media/images/w6_pregnantfalse.jpeg" style="width:75.0%" alt="Nurse giving a shot to a child; example of a false positive."></p>
 </div>
 <!-- Left interrobang -->
-<div style="position:absolute; left:8%; top:3%; z-index:5;
-            font-size:3.2rem; font-weight:700; color:#c00000; transform:rotate(-15deg);">
+<div style="position:absolute; left:8%; top:3%; z-index:5;             font-size:3.2rem; font-weight:700; color:#c00000; transform:rotate(-15deg);">
 <p>?!</p>
 </div>
 <!-- Left speech bubble -->
-<div style="position:absolute; left:32%; top:7.5%; z-index:6;
-            background:white; border:3px solid #2f66d0; border-radius:18px;
-            padding:0.75rem 1.05rem; font-size:1.55rem; font-weight:700;
-            line-height:1.15; text-align:center;">
+<div style="position:absolute; left:32%; top:7.5%; z-index:6;             background:white; border:3px solid #2f66d0; border-radius:18px;             padding:0.75rem 1.05rem; font-size:1.55rem; font-weight:700;             line-height:1.15; text-align:center;">
 <p>You’re<br>Pregnant!</p>
 </div>
 <!-- Bubble tail (approx) -->
-<div style="position:absolute; left:30.9%; top:15.8%; z-index:6;
-            width:22px; height:22px; background:white;
-            border-left:3px solid #2f66d0; border-bottom:3px solid #2f66d0;
-            transform:rotate(45deg);">
+<div style="position:absolute; left:30.9%; top:15.8%; z-index:6;             width:22px; height:22px; background:white;             border-left:3px solid #2f66d0; border-bottom:3px solid #2f66d0;             transform:rotate(45deg);">
 
 </div>
 <!-- Left labels -->
 <div style="position:absolute; left:11%; top:53%; z-index:7; text-align:center;">
 <div style="font-size:2.1rem; font-weight:600; color:#333;">
-Type 1 error
+<p>Type 1 error</p>
 </div>
 <div style="font-size:2.0rem; font-weight:600; color:#8a8a8a;">
-False Positive
+<p>False Positive</p>
 </div>
 </div>
 <!-- Right image (false negative) -->
@@ -564,31 +557,24 @@ False Positive
 <p><img data-src="media/images/w6_pregnanttrue.jpeg" style="width:115.0%" alt="Doctor telling a pregnant person they are not pregnant; example of a false negative."></p>
 </div>
 <!-- Right interrobang -->
-<div style="position:absolute; left:93%; top:42%; z-index:5;
-            font-size:3.2rem; font-weight:700; color:#c00000; transform:rotate(18deg);">
+<div style="position:absolute; left:93%; top:42%; z-index:5;             font-size:3.2rem; font-weight:700; color:#c00000; transform:rotate(18deg);">
 <p>?!</p>
 </div>
 <!-- Right speech bubble -->
-<div style="position:absolute; left:51%; top:38%; z-index:6;
-            background:white; border:3px solid #2f66d0; border-radius:18px;
-            padding:0.75rem 1.05rem; font-size:1.55rem; font-weight:700;
-            line-height:1.15; text-align:center;">
+<div style="position:absolute; left:51%; top:38%; z-index:6;             background:white; border:3px solid #2f66d0; border-radius:18px;             padding:0.75rem 1.05rem; font-size:1.55rem; font-weight:700;             line-height:1.15; text-align:center;">
 <p>You’re Not<br>Pregnant!</p>
 </div>
 <!-- Bubble tail (approx) -->
-<div style="position:absolute; left:65.5%; top:45%; z-index:6;
-            width:22px; height:22px; background:white;
-            border-left:3px solid #2f66d0; border-bottom:3px solid #2f66d0;
-            transform:rotate(-135deg);">
+<div style="position:absolute; left:65.5%; top:45%; z-index:6;             width:22px; height:22px; background:white;             border-left:3px solid #2f66d0; border-bottom:3px solid #2f66d0;             transform:rotate(-135deg);">
 
 </div>
 <!-- Right labels -->
 <div style="position:absolute; left:70%; top:28%; z-index:7; text-align:center;">
 <div style="font-size:2.1rem; font-weight:600; color:#333;">
-Type 2 error
+<p>Type 2 error</p>
 </div>
 <div style="font-size:2.0rem; font-weight:600; color:#8a8a8a;">
-False Negative
+<p>False Negative</p>
 </div>
 </div>
 </div>
@@ -657,24 +643,26 @@ False Negative
 <p><img data-src="media/images/w6_cube_solved.png" style="width:38.0%" alt="Solved Rubik's cube."></p>
 </div>
 <div style="margin-top:3rem;">
-<table style="width:80%; margin:0 auto; border-collapse:collapse; font-size:1.4rem;">
-<tbody><tr>
-<th style="border-bottom:1px solid #999; border-right:1px solid #999; padding:0.6rem;">
-H<sub>0</sub>: No Practice
-</th>
-<th style="border-bottom:1px solid #999; padding:0.6rem;">
-H<sub>A</sub>: Practice
-</th>
+<table class="caption-top" style="width:51%;">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>H<sub>0</sub>: No Practice</th>
+<th>H<sub>A</sub>: Practice</th>
 </tr>
-<tr>
-<td style="padding:1.2rem; border-right:1px solid #999;">
-<strong>Type 1 Error</strong><br> <span style="color:#777;">False Positive</span>
-</td>
-<td style="padding:1.2rem;">
-<strong>No Error</strong><br> <span style="color:#777;">True Positive</span>
-</td>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Type 1 Error</strong><br>
+False Positive</td>
+<td><strong>No Error</strong><br>
+True Positive</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 </div>
 <!-- RIGHT SIDE (FAIL) -->
@@ -686,24 +674,26 @@ H<sub>A</sub>: Practice
 <p><img data-src="media/images/w6_cube_unsolved.png" style="width:38.0%" alt="Unsolved Rubik's cube."></p>
 </div>
 <div style="margin-top:3rem;">
-<table style="width:80%; margin:0 auto; border-collapse:collapse; font-size:1.4rem;">
-<tbody><tr>
-<th style="border-bottom:1px solid #999; border-right:1px solid #999; padding:0.6rem;">
-H<sub>0</sub>: No Practice
-</th>
-<th style="border-bottom:1px solid #999; padding:0.6rem;">
-H<sub>A</sub>: Practice
-</th>
+<table class="caption-top" style="width:56%;">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>H<sub>0</sub>: No Practice</th>
+<th>H<sub>A</sub>: Practice</th>
 </tr>
-<tr>
-<td style="padding:1.2rem; border-right:1px solid #999;">
-<strong>No Error</strong><br> <span style="color:#777;">True Negative</span>
-</td>
-<td style="padding:1.2rem;">
-<strong>Type 2 Error</strong><br> <span style="color:#777;">False Negative</span>
-</td>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>No Error</strong><br>
+True Negative</td>
+<td><strong>Type 2 Error</strong><br>
+False Negative</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -871,7 +861,7 @@ Likely</p>
 <section id="p-value-1" class="slide level2">
 <h2>p Value</h2>
 <p>The probability of getting a test statistic at least as extreme as the one you observed<br>
-<strong>given that H<sub>0</sub> is true.</strong></p>
+<strong>given that H</strong><sub>0</sub> is true.</p>
 <p><br></p>
 <div class="fragment strike" style="color:#b30000; text-decoration-thickness:3px;">
 <p>The probability of a chance result.</p>
@@ -916,7 +906,7 @@ Likely</p>
 <li><em>What is the statistical interpretation of the test result?</em></li>
 </ol>
 <div class="fragment">
-<p>t(99) = 1.895, p = 0.061, r = 0.187, bf10 = 0.617</p>
+<p>t(99) = 1.895, p = 0.061, d = 0.19, bf10 = 0.617</p>
 </div>
 <ol start="5" type="1">
 <li><em>What is the practical interpretation of this analysis for a business audience?</em><br>
