@@ -52,21 +52,22 @@ library(readr)
 data_path <- here("week06","data","tonic_10_studies_data.csv") 
 data_hack <- here("week06","data","study10_sample_size_p_hacking.csv") 
 
-df <- read_csv(data_path, show_col_types = FALSE)
+sf <- read_csv(data_path, show_col_types = FALSE)
 nf <- read_csv(data_hack, show_col_types = FALSE)
 
 # helper to parse ost() $results string
 parse_ost_results <- function(res_string){
-  # res_string looks like: "t(99) = 1.895, p = 0.061, r = 0.187, bf10 = 0.617"
+  # res_string looks like: "t(99) = 1.895, p = 0.061, d = 0.187, bf10 = 0.617"
   tibble(
     T_crit_stat = as.numeric(str_match(res_string, "t\\([^\\)]+\\)\\s*=\\s*([-0-9\\.]+)")[,2]),
     p           = as.numeric(str_match(res_string, "p\\s*=\\s*([-0-9\\.]+)")[,2]),
-    r           = as.numeric(str_match(res_string, "r\\s*=\\s*([-0-9\\.]+)")[,2]),
-    bf10        = as.numeric(str_match(res_string, "bf10\\s*=\\s*([-0-9\\.]+)")[,2])
+    d           = as.numeric(str_match(res_string, "d\\s*=\\s*([-0-9\\.]+)")[,2]),
+    bf10        = as.numeric(str_match(res_string, "bf10\\s*=\\s*([-0-9\\.]+)")[,2]),
+    res         = as.character(res_string)
   )
 }
 
-ci_summary <- df %>%
+ci_summary <- sf %>%
   group_by(study_index) %>%
   group_modify(~{
     dat <- .x
@@ -144,6 +145,8 @@ n_summary <- nf %>%
 
 
 ```
+
+# Inference Review
 
 ## What effect does it have on test scores?
 
@@ -227,8 +230,7 @@ An interval where there is a 95% probability that it contains the population val
 :::
 
 ::: {.column width="60%"}
-<br><br><br>
-![](media/images/w6_generic_ci.svg){width="80%" fig-alt="Generic confidence interval graphic with a point estimate and horizontal interval."}
+<br><br><br> ![](media/images/w6_generic_ci.svg){width="80%" fig-alt="Generic confidence interval graphic with a point estimate and horizontal interval."}
 :::
 :::::
 
@@ -317,11 +319,9 @@ The probability of getting a test statistic at least as extreme as the one you o
 The probability of a chance result.
 :::
 
-
 ::: {style="color:#b30000; text-decoration:line-through; text-decoration-thickness:3px;"}
 The probability that H<sub>A</sub> is true.
 :::
-
 
 ::: {style="color:#b30000; text-decoration:line-through; text-decoration-thickness:3px;"}
 The probability that H<sub>0</sub> is true.
@@ -438,125 +438,205 @@ ggplot(plot_df, aes(y = study_f)) +
 :::
 :::::
 
-## Effect Size as Group Separation
+# Providing Context
+Effect Size
 
-Effect size asks:
+## Effect Sizes
 
-**How far apart are the groups relative to their natural variability?**
+### Effect sizes describe the **size of a relationship or difference**.
 
-<div style="height:330px; margin-top:1rem;">
+- How big is the **effect?**
+- Is the difference **meaningful** in practice?
+- How much of the outcome is **explained?**
 
-::: {.fragment .current-visible}
-<div style="text-align:center; font-size:0.95em; color:#555;">
-Small effect: groups overlap a lot
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; font-weight:700; text-align:center; color:white; margin-top:.25em;">
+<div style="background:#cfe8cf; padding:.55em;">Small</div>
+<div style="background:#7fc97f; padding:.55em;">Medium</div>
+<div style="background:#2e8b57; padding:.55em;">Large</div>
 </div>
-
-<svg width="900" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
-  <path d="M120 170 C180 170, 210 70, 300 70 C390 70, 420 170, 480 170"
-        fill="none" stroke="#4e79a7" stroke-width="6"/>
-  <path d="M240 170 C300 170, 330 70, 420 70 C510 70, 540 170, 600 170"
-        fill="none" stroke="#e15759" stroke-width="6"/>
-  <text x="300" y="205" text-anchor="middle" font-size="26" fill="#4e79a7" font-weight="700">Group A</text>
-  <text x="420" y="205" text-anchor="middle" font-size="26" fill="#e15759" font-weight="700">Group B</text>
-</svg>
-
-<div style="text-align:center;"><b>Very heavy overlap</b> → group membership tells you very little</div>
-:::
-
-::: {.fragment .current-visible}
-<div style="text-align:center; font-size:0.95em; color:#555;">
-Medium effect: groups are somewhat separated
-</div>
-
-<svg width="900" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
-  <path d="M90 170 C150 170, 190 70, 280 70 C370 70, 410 170, 470 170"
-        fill="none" stroke="#4e79a7" stroke-width="6"/>
-  <path d="M310 170 C370 170, 410 70, 500 70 C590 70, 630 170, 690 170"
-        fill="none" stroke="#e15759" stroke-width="6"/>
-  <text x="280" y="205" text-anchor="middle" font-size="26" fill="#4e79a7" font-weight="700">Group A</text>
-  <text x="500" y="205" text-anchor="middle" font-size="26" fill="#e15759" font-weight="700">Group B</text>
-</svg>
-
-<div style="text-align:center;"><b>Noticeable overlap</b> → group membership gives you some useful information</div>
-:::
-
-::: {.fragment .current-visible}
-<div style="text-align:center; font-size:0.95em; color:#555;">
-Large effect: groups are clearly separated
-</div>
-
-<svg width="900" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
-  <path d="M60 170 C120 170, 170 70, 260 70 C350 70, 400 170, 460 170"
-        fill="none" stroke="#4e79a7" stroke-width="6"/>
-  <path d="M430 170 C490 170, 540 70, 630 70 C720 70, 770 170, 830 170"
-        fill="none" stroke="#e15759" stroke-width="6"/>
-  <text x="260" y="205" text-anchor="middle" font-size="26" fill="#4e79a7" font-weight="700">Group A</text>
-  <text x="630" y="205" text-anchor="middle" font-size="26" fill="#e15759" font-weight="700">Group B</text>
-</svg>
-
-<div style="text-align:center;"><b>Little overlap</b> → group membership strongly helps predict the outcome</div>
-:::
-
-</div>
-
-::: {.fragment}
-**p-value asks:** is there evidence of a difference?  
-**Effect size asks:** how big is that difference?
-:::
-
-
-## {background-color="black"}
-
-<span style="color:white;">
-A participant is given a randomly scrambled cube. They solve the cube successfully. You want to reward them with 10 extra credit points, but only if they have practiced. What are the odds that the participant <u>actually practiced</u>?
-</span>
 
 <br>
 
-<span style="color:white;">
-Apart from the fact that they solved the cube, you know nothing about this participant.
-</span>
+:::: fragment
+
+- Larger effect sizes mean a **stronger relationship, bigger difference,** or **more explained variation**.  
+- Smaller effect sizes mean the pattern is **weaker**, even if it is statistically significant.
+
+::::
+
+<br>
+
+:::: fragment
+
+::: {.callout-important title="p-Value vs Effect Size"}
+*p*-values answer **“Is it statistically detectable?”**, Effect sizes answer **“Is it practically meaningful?”**
+:::
+
+::::
+
+
+## Effect Size Reference
+
+::: {.columns}
+::: {.column width="50%"}
+
+### `csf()` / `csi()` / `idw()` / `psw()`
+
+**χ² tests and Wilcoxon tests**
+
+Cohen's ($w$), Cramer's ($V$), rank-biserial ($r_{rb}$)
+
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; font-weight:700; text-align:center; color:white; margin-top:.25em;">
+<div style="background:#cfe8cf; padding:.45em;">Small</div>
+<div style="background:#7fc97f; padding:.45em;">Medium</div>
+<div style="background:#2e8b57; padding:.45em;">Large</div>
+</div>
+
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; text-align:center; font-size:1.1rem; font-weight:700; margin-top:.08em;">
+<div>.10</div>
+<div>.30</div>
+<div>.50</div>
+</div>
+
+<div style="font-size:.68em; line-height:1.15; margin-top:.2em;">
+Negative values apply only to $r_{rb}$ where they show <strong>direction</strong>.
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+### `idt()` / `pst()` / `ost()`
+
+**t-tests**
+
+Cohen's ($d$)
+
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; font-weight:700; text-align:center; color:white; margin-top:.25em;">
+<div style="background:#cfe8cf; padding:.45em;">Small</div>
+<div style="background:#7fc97f; padding:.45em;">Medium</div>
+<div style="background:#2e8b57; padding:.45em;">Large</div>
+</div>
+
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; text-align:center; font-size:1.1rem; font-weight:700; margin-top:.08em;">
+<div>.20</div>
+<div>.50</div>
+<div>.80</div>
+</div>
+
+<div style="font-size:.68em; line-height:1.15; margin-top:.2em;">
+Negative values show <strong>direction of the mean difference</strong>, not magnitude.
+</div>
+
+:::
+:::
+
+\vspace{0.25em}
+
+::: {.columns}
+::: {.column width="50%"}
+
+### `ano()`
+
+**ANOVA**
+
+$\omega^2$, $\xi$
+
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; font-weight:700; text-align:center; color:white; margin-top:.25em;">
+<div style="background:#cfe8cf; padding:.45em;">Small</div>
+<div style="background:#7fc97f; padding:.45em;">Medium</div>
+<div style="background:#2e8b57; padding:.45em;">Large</div>
+</div>
+
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; text-align:center; font-size:1.1rem; font-weight:700; margin-top:.08em;">
+<div>.01</div>
+<div>.06</div>
+<div>.14</div>
+</div>
+
+<div style="font-size:.68em; line-height:1.15; margin-top:.2em;">
+Usually interpreted as <strong>size only</strong>.
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+### `slr()`
+
+**Linear regression**
+
+$R^2$
+
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; font-weight:700; text-align:center; color:white; margin-top:.25em;">
+<div style="background:#cfe8cf; padding:.45em;">Small</div>
+<div style="background:#7fc97f; padding:.45em;">Medium</div>
+<div style="background:#2e8b57; padding:.45em;">Large</div>
+</div>
+
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; text-align:center; font-size:1.1rem; font-weight:700; margin-top:.08em;">
+<div>.02</div>
+<div>.13</div>
+<div>.26</div>
+</div>
+
+<div style="font-size:.68em; line-height:1.15; margin-top:.2em;">
+Interpreted as <strong>proportion of variance explained</strong>.
+</div>
+
+:::
+:::
+
+<div style="font-size:.68em; line-height:1.15; margin-top:.35em;">
+<strong>Quick rule:</strong>
+Negative values matter for <strong>$d$</strong> and sometimes <strong>$r_{rb}$</strong> because they show <strong>direction</strong>.<br>
+For <strong>$w$, $V$, $\omega^2$, $\xi$, and $R^2$</strong>, values are interpreted as <strong>size only</strong>.
+</div>
+
+# Providing Context
+Bayes Factor
+
+##  {background-color="black"}
+
+[ A participant is given a randomly scrambled cube. They solve the cube successfully. You want to reward them with 10 extra credit points, but only if they have practiced. What are the odds that the participant <u>actually practiced</u>? ]{style="color:white;"}
+
+<br>
+
+[ Apart from the fact that they solved the cube, you know nothing about this participant. ]{style="color:white;"}
 
 <br><br>
 
-:::: {.columns}
+:::::: columns
 ::: {.column width="45%"}
-
-### <span style="color:white;">How many Practiced: 1%</span>
-
-<br>
-
-### <span style="color:white;">True Positives: 90%</span>
+### [How many Practiced: 1%]{style="color:white;"}
 
 <br>
 
-### <span style="color:white;">True Negatives: 91%</span>
+### [True Positives: 90%]{style="color:white;"}
 
+<br>
+
+### [True Negatives: 91%]{style="color:white;"}
 :::
 
-::: {.column width="55%"}
-
-<div style="margin-left:80px;">
-
-### <span style="color:#f4c20d;">A) 9 in 10</span>
+:::: {.column width="55%"}
+::: {style="margin-left:80px;"}
+### [A) 9 in 10]{style="color:#f4c20d;"}
 
 <br>
 
-### <span style="color:#f4c20d;">B) 8 in 10</span>
+### [B) 8 in 10]{style="color:#f4c20d;"}
 
 <br>
 
-### <span style="color:#f4c20d;">C) 1 in 10</span>
+### [C) 1 in 10]{style="color:#f4c20d;"}
 
 <br>
 
-### <span style="color:#f4c20d;">D) 1 in 100</span>
-
-</div>
-
+### [D) 1 in 100]{style="color:#f4c20d;"}
 :::
 ::::
-
+::::::
 
 ## [Choosing and appropriate test]{.sr-only}
 
@@ -630,7 +710,7 @@ Pass
 :::
 
 ::: {style="margin-top:1.5rem;"}
-![](media/images/w6_cube_solved.png){width="38%" fig-alt="Solved Rubik's cube."}
+[![](media/images/w6_cube_solved.png){width="38%" fig-alt="Solved Rubik's cube."}](https://shiny.60land.com/week07/bayes/){target="_blank"}
 :::
 
 ::: {style="margin-top:3rem;"}
@@ -651,8 +731,8 @@ Fail
 :::
 
 ::: {style="margin-top:1.5rem;"}
-![](media/images/w6_cube_unsolved.png){width="38%" fig-alt="Unsolved Rubik's cube."}
-:::
+[![](media/images/w6_cube_unsolved.png){width="38%" fig-alt="Solved Rubik's cube."}](https://shiny.60land.com/week07/bayes/){target="_blank"}
+::::
 
 ::: {style="margin-top:3rem;"}
 +-------------------+-------------------+
@@ -665,32 +745,83 @@ Fail
 ::::::
 ::::::::::::
 
+## {background-image="media/images/w7_bayes_1.png" background-position="center" background-size="80%" background-repeat="no-repeat" fig-alt="Bayes Factor"}
+
+## {background-image="media/images/w7_bayes_2.png" background-position="center" background-size="80%" background-repeat="no-repeat" fig-alt="Bayes Factor"}
+
+## {background-image="media/images/w7_bayes_3.png" background-position="center" background-size="80%" background-repeat="no-repeat" fig-alt="Bayes Factor"}
+
+## {background-image="media/images/w7_bayes_4.png" background-position="center" background-size="80%" background-repeat="no-repeat" fig-alt="Bayes Factor"}
+
+## {background-image="media/images/w7_bayes_5.png" background-position="center" background-size="80%" background-repeat="no-repeat" fig-alt="Bayes Factor"}
+
+## {background-image="media/images/w7_bayes_6.png" background-position="center" background-size="80%" background-repeat="no-repeat" fig-alt="Bayes Factor"}
+
 ## 
 
-<div style="text-align:center; font-size:1.25em; line-height:1.6;">
-
+:::::: {style="text-align:center; font-size:1.25em; line-height:1.6;"}
 ::: {.fragment .strike style="text-decoration-thickness:3px;"}
 Tests determine if you have a disease.
 :::
 
 <br>
 
-
 ::: {.fragment .strike style="text-decoration-thickness:3px;"}
-Tests determine <span style="color:#2F5597;">your chances of having</span> a disease.
+Tests determine [your chances of having]{style="color:#2F5597;"} a disease.
 :::
 
 <br>
 
-Tests <span style="color:#548235;">update</span> <span style="color:#2F5597;">your chances of having</span> a disease.
+Tests [update]{style="color:#548235;"} [your chances of having]{style="color:#2F5597;"} a disease.
 
 <br><br>
 
-::: {.fragment}
+::: fragment
 **Bayes Factor (bf10) quantifies relative probability of data given the null and alternate hypotheses.**
 :::
+::::::
 
-</div>
+##  {background-color="black"}
+
+[A patient participates in a routine cancer screening. They test positive and are alarmed, they want to know from you whether they have cancer for certain or what their chances are.]{style="color:white;"}
+
+<br>
+
+[Apart from the screening results you know nothing about this patient.]{style="color:white;"}
+
+<br><br>
+
+:::::: columns
+::: {.column width="45%"}
+### [Prevalence: 1%]{style="color:white;"}
+
+<br>
+
+### [Sensitivity: 90%]{style="color:white;"}
+
+<br>
+
+### [Specificity: 91%]{style="color:white;"}
+:::
+
+:::: {.column width="55%"}
+::: {style="margin-left:80px;"}
+### [A) 9 in 10]{style="color:#f4c20d;"}
+
+<br>
+
+### [B) 8 in 10]{style="color:#f4c20d;"}
+
+<br>
+
+### [C) 1 in 10]{style="color:#f4c20d;"}
+
+<br>
+
+### [D) 1 in 100]{style="color:#f4c20d;"}
+:::
+::::
+::::::
 
 ## Never Report p Value Alone
 
@@ -708,7 +839,190 @@ Bayes Factor gives you a sense of how you should update your beliefs based on th
 
 ![](../shared/images/bayes_factor.svg){width="100%" fig-alt="Bayes Factor Interpretation rules of thumb"}
 
-## p Value hacking
+## Mike's Dumb Casino
+
+:::::: columns
+::: {.column width="50%"}
+
+#### What happened?
+
+- Before seeing the tens die  
+  **Chance of winning = 7%**
+
+- After seeing **90 on the tens die**  
+  **Chance of winning = 70%**
+
+#### What evidence strength causes this update?
+
+Prior odds:
+
+$$
+\frac{0.07}{0.93} \approx 0.075
+$$
+
+Posterior odds:
+
+$$
+\frac{0.70}{0.30} \approx 2.33
+$$
+
+Evidence multiplier:
+
+$$
+BF_{10} \approx \frac{2.33}{0.075} \approx 31
+$$
+:::
+
+::: {.column width="50%"}
+![](media/images/w7_dumb_casino.svg){width="95%"}
+
+<br>
+<br>
+<br>
+
+![](../shared/images/bayes_factor.svg){width="95%"}
+
+**Seeing the tens die = 90 provides about 30:1 evidence for winning.**
+
+:::
+
+::::::
+
+# Providing Context
+Interpreting Results
+
+## 
+
+### What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?
+
+<div class="columns">
+
+::: {.column width="40%"}
+
+
+
+
+![](../week06/media/images/w6_magicbox.jpeg){width="55%"}
+
+:::
+
+::: {.column width="60%"}
+
+<div style="font-size:1.4rem; font-weight:600; margin-bottom:0.5rem;">
+**$\mu$ = 9.5, C.I. = [0.77, 17.8]**
+</div>
+
+<div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem;">
+
+![](../week06/media/images/w6_generic_ci.svg){width="70%"}
+
+</div>
+
+<div style="font-size:1.4rem; margin-bottom:0.8rem;">
+**p = 0.032**
+</div>
+
+<div style="font-size:1.2rem; margin-bottom:1.5rem;">
+*If p is low the H<sub>0</sub> (null) must go.*
+</div>
+
+<div style="font-size:1.3rem; margin-bottom:0.6rem;">
+**d = 0.281**
+</div>
+
+<!-- Effect size bar -->
+<div style="display:flex; width:80%; height:55px; font-weight:600; text-align:center; color:white; margin-bottom:1.8rem;">
+
+<div style="flex:1; background:#b8d2b8; display:flex; align-items:center; justify-content:center;">
+Small
+</div>
+
+<div style="flex:1; background:#7fbc7a; display:flex; align-items:center; justify-content:center;">
+Medium
+</div>
+
+<div style="flex:1; background:#2f8b57; display:flex; align-items:center; justify-content:center;">
+Large
+</div>
+
+</div>
+
+<div style="font-size:1.3rem; margin-bottom:0.6rem;">
+**bf10 = 3.770**
+</div>
+
+![](../shared//images/bayes_factor.svg){width="100%"}
+
+:::
+
+</div>
+
+
+## `library(eco230r)`
+
+::::: columns
+
+::: {.column width="10%"}
+
+![](../shared/images/logo_R.png){width="100%" fig-alt="R Language Logo"}
+
+:::
+
+
+
+::: {.column width="90%"}
+
+```{r setup_t echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
+abb_path <- here("shared","data","airbnb_chicago.csv") 
+df <- read_csv(abb_path, show_col_types = FALSE)
+
+h1 <- df %>%
+  csi(bed_type~room_type)
+
+h2 <- df %>%
+  idt(listed_price~cleaning_fee)
+
+h3 <- df %>%
+  ano(listed_price~bed_type)
+
+```
+
+```{r show_x, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
+h1 <- df %>%
+  csi(bed_type~room_type)
+```
+
+### h1$results
+
+**`r h1$results`**
+
+<br>
+
+```{r show_t, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
+h2 <- df %>%
+  idt(listed_price~cleaning_fee)
+```
+
+### h2$results
+
+**`r h2$results`**
+
+<br>
+
+```{r show_a, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
+h3 <- df %>%
+  ano(listed_price~bed_type)
+```
+
+### h3$results
+
+**`r h3$results`**
+
+:::
+
+:::::
+
+## What effect does it have on test scores?
 
 ::::: columns
 ::: {.column width="95%"}
@@ -716,51 +1030,50 @@ Bayes Factor gives you a sense of how you should update your beliefs based on th
 library(ggplot2)
 library(dplyr)
 
-plot_df <- n_summary %>%
-  arrange(N) %>%   # smallest to largest
+plot_df <- ci_summary %>%
   mutate(
-    study_f = factor(paste0("n = ", N), levels = paste0("n = ", N)),
-    n_label = paste0("n = ", N),
-    p_label = paste0("p = ", sprintf("%.3f", p))
+    study_f = factor(study_index, levels = rev(study_index))
   )
 
 ggplot(plot_df, aes(y = study_f)) +
 
-  # Red null line
-  geom_vline(xintercept = 0, linewidth = 1.2,
-             color = "red3", alpha = 0.8) +
+  # Null reference line
+  geom_vline(
+    xintercept = 0,
+    linewidth = 1.2,
+    color = "red3",
+    alpha = 0.8
+  ) +
 
-  # CIs
+  # Confidence intervals
   geom_errorbarh(
     aes(xmin = lower_bound, xmax = upper_bound),
-    height = 0.18, linewidth = 1.2, color = "grey20"
+    height = 0.18,
+    linewidth = 1.2,
+    color = "grey20"
   ) +
 
-  # Means
-  geom_point(aes(x = Mean),
-             size = 5, color = "grey20") +
+  # Mean points
+  geom_point(
+    aes(x = Mean),
+    size = 5,
+    color = "grey20"
+  ) +
 
-  # n labels (further left)
+  # Result labels
   geom_text(
-    aes(x = -50, label = n_label),
+    aes(x = -63, label = res),
     hjust = 0,
-    size = 5,
-    color = "grey30"
+    size = 5
   ) +
 
-  # p labels (closer to n)
-  geom_text(
-    aes(x = -29, label = p_label),
-    hjust = 1,
-    size = 5,
-    color = "red3",
-    fontface = "italic"
+  coord_cartesian(
+    xlim = c(-20, 35),
+    clip = "off"
   ) +
-
-  coord_cartesian(xlim = c(-40, 40), clip = "off") +
 
   scale_x_continuous(
-    breaks = c(-20, -10, 0, 10, 20, 30, 40),
+    breaks = c(-20, -10, 0, 10, 20, 30),
     labels = function(x){
       ifelse(x == 0, "0",
              paste0(ifelse(x > 0, "+", ""), x, " pts."))
@@ -771,11 +1084,90 @@ ggplot(plot_df, aes(y = study_f)) +
 
   theme_minimal(base_size = 16) +
   theme(
-    plot.margin = margin(10, 20, 10, 130),
+    plot.margin = margin(10, 20, 10, 290),
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(),
     panel.grid.major.x = element_blank(),
-    axis.text.y = element_blank(),   # remove duplicated labels
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.x = element_text(size = 16)
+  )
+```
+:::
+
+::: {.column width="5%"}
+![](media/images/w6_snakeoil.jpeg){fig-alt="Vintage snake oil bottle" style="position:absolute; top:10%; transform:translate(-50%,-50%) rotate(12deg); width:12%; height:auto;"}
+:::
+:::::
+
+## p Value hacking
+
+::::: columns
+::: {.column width="95%"}
+```{r}
+library(ggplot2)
+library(dplyr)
+
+plot_df <- n_summary %>%
+  arrange(N) %>%
+  mutate(
+    study_f = factor(study_index, levels = rev(study_index))
+  )
+
+ggplot(plot_df, aes(y = study_f)) +
+
+  # Null reference line
+  geom_vline(
+    xintercept = 0,
+    linewidth = 1.2,
+    color = "red3",
+    alpha = 0.8
+  ) +
+
+  # Confidence intervals
+  geom_errorbarh(
+    aes(xmin = lower_bound, xmax = upper_bound),
+    height = 0.18,
+    linewidth = 1.2,
+    color = "grey20"
+  ) +
+
+  # Mean points
+  geom_point(
+    aes(x = Mean),
+    size = 5,
+    color = "grey20"
+  ) +
+
+  # Result labels
+  geom_text(
+    aes(x = -64, label = res),
+    hjust = 0,
+    size = 5
+  ) +
+
+  coord_cartesian(
+    xlim = c(-20, 35),
+    clip = "off"
+  ) +
+
+  scale_x_continuous(
+    breaks = c(-20, -10, 0, 10, 20, 30),
+    labels = function(x){
+      ifelse(x == 0, "0",
+             paste0(ifelse(x > 0, "+", ""), x, " pts."))
+    }
+  ) +
+
+  labs(x = NULL, y = NULL) +
+
+  theme_minimal(base_size = 16) +
+  theme(
+    plot.margin = margin(10, 20, 10, 290),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
     axis.text.x = element_text(size = 16)
   )
@@ -785,92 +1177,12 @@ ggplot(plot_df, aes(y = study_f)) +
 ::: {.column width="5%"}
 ![](media/images/w6_snakeoil.jpeg){fig-alt="Vintage snake oil bottle" style="position:absolute; top:10%; transform:translate(-50%,-50%) rotate(12deg); width:12%; height:auto;"}
 
-```{r}
-library(tidyverse)
 
-phack <- tibble(
-  study_index = c("10_100", "10_500", "10_1000", "10_10000"),
-  N = c(100, 500, 1000, 10000),
-  Mean = c(9.5, 9.5, 9.5, 9.5),
-  StDev = c(143.67, 143.67, 143.67, 143.67),
-  p = c(0.510, 0.140, 0.037, 0.000),
-  r = c(0.066, 0.066, 0.066, 0.066),
-  bf10 = c(0.137, 0.149, 0.313, 33364093.861)
-)
 
-ggplot(phack, aes(x = N, y = r)) +
-  geom_line(linewidth = 1) +
-  geom_point(size = 3) +
-  geom_text(aes(label = paste0("p = ", round(p, 3))),
-            nudge_y = 0.01, size = 4) +
-  scale_x_continuous(trans = "log10",
-                     breaks = c(100, 500, 1000, 10000)) +
-  labs(
-    title = "Effect Size Stays the Same as Sample Size Increases",
-    subtitle = "But p-values get smaller as N increases",
-    x = "Sample Size (log scale)",
-    y = "Effect Size (r)"
-  ) +
-  theme_minimal(base_size = 16)
 
-```
 
-```{r}
-library(tidyverse)
-library(patchwork)
 
-phack <- tibble(
-  study_index = c("10_100", "10_500", "10_1000", "10_10000"),
-  N = c(100, 500, 1000, 10000),
-  p = c(0.510, 0.140, 0.037, 0.0001),
-  r = c(0.066, 0.066, 0.066, 0.066)
-)
-
-p1 <- ggplot(phack, aes(x = N, y = r)) +
-  geom_line(linewidth = 1) +
-  geom_point(size = 3) +
-  scale_x_continuous(trans = "log10",
-                     breaks = c(100, 500, 1000, 10000)) +
-  labs(
-    title = "Effect Size",
-    x = NULL,
-    y = "r"
-  ) +
-  ylim(0, 0.10) +
-  theme_minimal(base_size = 16)
-
-p2 <- ggplot(phack, aes(x = N, y = p)) +
-  geom_line(linewidth = 1) +
-  geom_point(size = 3) +
-  geom_hline(yintercept = 0.05, linetype = 2) +
-  scale_x_continuous(trans = "log10",
-                     breaks = c(100, 500, 1000, 10000)) +
-  labs(
-    title = "p-value",
-    x = "Sample Size (log scale)",
-    y = "p"
-  ) +
-  theme_minimal(base_size = 16)
-
-p1 / p2
-```
-
-```{r}
-library(tidyverse)
-
-ggplot(ci_summary, aes(x = reorder(as.factor(study_index), r), y = r)) +
-  geom_hline(yintercept = c(0.1, 0.3, 0.5), linetype = "dashed", alpha = 0.5) +
-  geom_point(aes(shape = p < 0.05), size = 3) +
-  coord_flip() +
-  labs(
-    title = "Effect Size Across Studies",
-    subtitle = "Dashed lines mark common benchmarks: .10, .30, .50",
-    x = "Study",
-    y = "Effect Size (r)",
-    shape = "p < .05"
-  ) +
-  theme_minimal(base_size = 16)
-```
-
+:::
+:::::
 
 

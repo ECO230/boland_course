@@ -27,6 +27,8 @@ website:
             file: week05/week_05.qmd
           - text: "Week 6"
             file: week06/week_06.qmd
+          - text: "Week 7"
+            file: week07/week_07.qmd
       - text: "Homework"
         menu:
           - text: "Homework 1"
@@ -39,6 +41,8 @@ website:
             file: week04/Homework_04.qmd
           - text: "Homework 5"
             file: week06/Homework_05.qmd
+          - text: "Homework 6"
+            file: week07/Homework_06.qmd
       - text: "Project 1"
         menu:
           - text: "Project Prompt"
