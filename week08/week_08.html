@@ -307,9 +307,9 @@
 <p><strong>Test:</strong> Independent Samples t-test<br>
 <strong>Function:</strong> <code>idt()</code></p>
 <p><br></p>
-<p><strong>H</strong><sub>0</sub>: μ<sub>Black</sub> = μ<sub>Green</sub><br>
-<strong>H</strong><sub>A</sub>: μ<sub>Black</sub> <span class="math inline">\(\neq\)</span> μ<sub>Green</sub><br>
-<strong>α = 0.05</strong></p>
+<p><strong>H<sub>0</sub>:</strong> <span class="math inline">\(\mu\)</span><sub>Black</sub> = <span class="math inline">\(\mu\)</span><sub>Green</sub><br>
+<strong>H<sub>A</sub>:</strong> <span class="math inline">\(\mu\)</span><sub>Black</sub> <span class="math inline">\(\neq\)</span> <span class="math inline">\(\mu\)</span><sub>Green</sub><br>
+<strong>α =</strong> 0.05</p>
 </div>
 <p><br></p>
 <div class="fragment">
@@ -338,7 +338,7 @@
 </div>
 <div class="fragment">
 <p><strong>Decision:</strong><br>
-p = 0.107 &gt; 0.05 → <strong>Fail to Reject H</strong><sub>0</sub></p>
+p = 0.107 &gt; 0.05 → <strong>Fail to Reject H<sub>0</sub></strong></p>
 </div>
 </div></div>
 </section>
@@ -505,9 +505,9 @@ Consistent, but not large</p>
 <p><strong>Test:</strong> Paired Samples t-test<br>
 <strong>Function:</strong> <code>pst()</code></p>
 <p><br></p>
-<p><strong>H</strong><sub>0</sub>: μ<sub>Black</sub> = μ<sub>Green</sub><br>
-<strong>H</strong><sub>A</sub>: μ<sub>Black</sub> <span class="math inline">\(\neq\)</span> μ<sub>Green</sub><br>
-<strong>α = 0.05</strong></p>
+<p><strong>H<sub>0</sub>:</strong> <span class="math inline">\(\mu\)</span><sub>Black</sub> = <span class="math inline">\(\mu\)</span><sub>Green</sub><br>
+<strong>H<sub>A</sub>:</strong> <span class="math inline">\(\mu\)</span><sub>Black</sub> <span class="math inline">\(\neq\)</span> <span class="math inline">\(\mu\)</span><sub>Green</sub><br>
+<strong>α =</strong> 0.05</p>
 </div>
 <p><br></p>
 <div class="fragment">
@@ -536,7 +536,7 @@ Consistent, but not large</p>
 </div>
 <div class="fragment">
 <p><strong>Decision:</strong><br>
-p = 0.031 &lt; 0.05 → <strong>Reject H</strong><sub>0</sub></p>
+p = 0.031 &lt; 0.05 → <strong>Reject H<sub>0</sub></strong></p>
 </div>
 </div></div>
 </section>
@@ -705,7 +705,7 @@ green_tea 12   47       3.183766</code></pre>
 <p><br></p>
 <p><strong>H<sub>0</sub></strong>: μ<sub>Scones</sub> = 45</p>
 <p><strong>H<sub>A</sub></strong>: μ<sub>Scones</sub> <span class="math inline">\(\neq\)</span> 45</p>
-<p><strong>α = 0.05</strong></p>
+<p><strong>α =</strong> 0.05</p>
 </div>
 <p><br></p>
 <div class="fragment">
@@ -734,7 +734,157 @@ green_tea 12   47       3.183766</code></pre>
 </div>
 <div class="fragment">
 <p><strong>Decision:</strong><br>
-p = 0.495 &gt; 0.05 → <strong>Fail to Reject H</strong><sub>0</sub></p>
+p = 0.495 &gt; 0.05 → <strong>Fail to Reject H<sub>0</sub></strong></p>
+</div>
+</div></div>
+</section>
+<section id="bayes-factor-vs.-effect-size-idt-pst-ost-2" class="slide level2">
+<h2>Bayes Factor vs.&nbsp;Effect Size <code>idt()</code> | <code>pst()</code> | <code>ost()</code></h2>
+<div style="display:grid; grid-template-columns: .9fr 1.1fr; column-gap:1.2rem; align-items:center; margin-bottom:.25rem;">
+<!-- LEFT: test output -->
+<div style="display:flex; justify-content:flex-start; align-items:center;">
+<div style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;">
+<p><strong>t(23) = -0.694, p = 0.495, d = -0.142, bf10 = 0.267</strong></p>
+</div>
+</div>
+<!-- RIGHT: Bayes factor anchor -->
+<div style="display:flex; justify-content:flex-end; align-items:center;">
+<p><img data-src="../shared/images/bayes_factor.svg" style="width:100%; max-width:1250px; display:block;" alt="Bayes factor scale showing evidence from strong evidence for H0 through anecdotal evidence to strong and decisive evidence for HA."></p>
+</div>
+</div>
+<div style="display:grid; grid-template-columns: 185px repeat(5, 1fr); gap:.28rem; align-items:stretch;">
+<!-- header row -->
+<div style="text-align:center; font-size:1.02rem; font-weight:700; padding:.45rem .3rem; background:#eef2f7; display:flex; align-items:center; justify-content:center;">
+<p>Cohen’s <span class="math inline">\(d\)</span></p>
+</div>
+<div style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;">
+<p><span class="math inline">\(BF_{10} &lt; 0.33\)</span></p>
+</div>
+<div style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;">
+<p><strong>0.33 – 1</strong></p>
+</div>
+<div style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;">
+<p><strong>1 – 3</strong></p>
+</div>
+<div style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#d6e2f6;">
+<p><strong>3 – 10</strong></p>
+</div>
+<div style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#ccd9f2;">
+<p><span class="math inline">\(&gt; 10\)</span></p>
+</div>
+<!-- Large -->
+<div style="background:#2e8b57; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;">
+<p>Large</p>
+<div style="font-size:.95rem; margin-top:.2rem;">
+<p><span class="math inline">\(d=.80\)</span></p>
+</div>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Looks large, but evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
+Possible noisy result or very small sample</p>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Large-looking difference, weak evidence</strong><br>
+Promising, but still uncertain</p>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Potentially important effect</strong><br>
+Need more evidence before being confident</p>
+</div>
+<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;">
+<p><strong>Likely real and practically meaningful</strong><br>
+A noticeable difference</p>
+</div>
+<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;">
+<p><strong>Big and well supported</strong><br>
+Strong evidence for a substantial effect</p>
+</div>
+<!-- Medium -->
+<div style="background:#7fc97f; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;">
+<p>Medium</p>
+<div style="font-size:.95rem; margin-top:.2rem;">
+<p><span class="math inline">\(d=.50\)</span></p>
+</div>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Moderate observed difference, but evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
+Could be unstable</p>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Moderate-looking effect, weak evidence</strong><br>
+Unclear whether it will replicate</p>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Some indication of a meaningful effect</strong><br>
+Not decisive yet</p>
+</div>
+<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;">
+<p><strong>Likely real and noticeable</strong><br>
+Worth taking seriously</p>
+</div>
+<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;">
+<p><strong>Meaningful effect with strong support</strong><br>
+Good evidence and practical relevance</p>
+</div>
+<!-- Small -->
+<div style="background:#cfe8cf; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;">
+<p>Small</p>
+<div style="font-size:.95rem; margin-top:.2rem;">
+<p><span class="math inline">\(d=.20\)</span></p>
+</div>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Little effect, evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
+Probably not much happening</p>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Small difference, weak evidence overall</strong><br>
+Not much to conclude</p>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Maybe real, but still small</strong><br>
+Even if true, impact is modest</p>
+</div>
+<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;">
+<p><strong>Likely real, but modest</strong><br>
+Useful distinction: real does not mean big</p>
+</div>
+<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;">
+<p><strong>Very strong evidence for a small effect</strong><br>
+Consistent, but not large</p>
+</div>
+</div>
+</section>
+<section id="step-5-does-it-matter-2" class="slide level2">
+<h2>Step 5: Does it matter?</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>Statistical:</strong></p>
+<ul>
+<li>Not significantly different than 45</li>
+</ul>
+<p><br></p>
+<p><strong>Practical:</strong></p>
+<ul>
+<li>Effect size: <span class="math inline">\(d\)</span> = -0.142 → <em>small effect</em><br>
+</li>
+<li>Bayes Factor: bf<sub>10</sub> = 0.267 → <em>Some evidence for H</em><sub>0</sub></li>
+</ul>
+<p><br></p>
+<p><strong>Takeaway:</strong></p>
+<ul>
+<li>Evidence is favor of <span class="math inline">\(H_0\)</span></li>
+<li>Mean is not very different from 45</li>
+<li>Interpretation depends on what test value 45 represents</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><br></p>
+<p><code>h5$descriptive_statistics</code></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>        N Mean Standard_Error
+scones 24 43.5       2.162761</code></pre>
+</div>
 </div>
 </div></div>
 </section></section>
@@ -762,8 +912,8 @@ p = 0.495 &gt; 0.05 → <strong>Fail to Reject H</strong><sub>0</sub></p>
 <div class="fragment">
 <h3 id="run-the-test-3">Run the Test</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>h6 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">idw</span>(scones<span class="sc">~</span>tea)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>h6 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a></a>  <span class="fu">idw</span>(scones<span class="sc">~</span>tea)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div><div class="column" style="width:5%;">
@@ -906,10 +1056,256 @@ Consistent, but not large</p>
 </div>
 </div>
 </section>
-<section id="what-belongs-in-a-presentation" class="slide level2">
-<h2>What belongs in a presentation?</h2>
-<p><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br></p>
+<section id="step-5-does-it-matter-3" class="slide level2">
+<h2>Step 5: Does it matter?</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><br></p>
+<p><strong>Statistical:</strong></p>
+<ul>
+<li>No statistically significant difference between groups</li>
+</ul>
+<p><strong>Practical:</strong></p>
+<ul>
+<li>Effect size: <span class="math inline">\(d\)</span> = -0.361 → <em>medium effect</em><br>
+</li>
+<li>Bayes Factor: bf<sub>10</sub> = 1.013 → <em>anecdotal evidence for H</em><sub>A</sub></li>
+</ul>
+<p><strong>Takeaway:</strong></p>
+<ul>
+<li>Evidence is weak<br>
+</li>
+<li>Data does not convincingly support a difference<br>
+</li>
+<li>Any observed difference may be noise</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><br></p>
+<p><code>h6$descriptive_statistics</code></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      Group  N Median
+1 Black Tea 12     40
+2 Green Tea 12     50</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="wilcoxon-signed-rank-test-psw" class="slide level2">
+<h2>Wilcoxon Signed-Rank Test <code>psw()</code></h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><br></p>
+<div class="fragment">
+<h3 id="steps-1-3-setup-4">Steps 1-3: Setup</h3>
+<p><br></p>
+<p><strong>Test:</strong> Wilcoxon Signed-Rank Test<br>
+<strong>Function:</strong> <code>psw()</code></p>
+<p><br></p>
+<p><strong>H</strong><sub>0</sub>: Median<sub>Black</sub> = Median<sub>Green</sub><br>
+<strong>H</strong><sub>A</sub>: Median<sub>Black</sub> <span class="math inline">\(\neq\)</span> Median<sub>Green</sub><br>
+<strong>α = 0.05</strong></p>
+</div>
+<p><br></p>
+<div class="fragment">
+<h3 id="run-the-test-4">Run the Test</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>h7 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a></a>  <span class="fu">psw</span>(<span class="sc">~</span>black_tea,<span class="sc">~</span>green_tea)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:55%;">
+<p><br></p>
+<div class="fragment">
+<h3 id="step-4-do-we-believe-it-4">Step 4: Do we believe it?</h3>
+<p><code>h7$results</code></p>
+<p>V = 8, p = 0.046, r_rb = -0.709, bf10 ≈ 2.401</p>
+<p><br></p>
+<p><strong>Decision Rule:</strong></p>
+<ul>
+<li>If p <span class="math inline">\(\leq \alpha\)</span> → Reject H<sub>0</sub><br>
+</li>
+<li>If p &gt; <span class="math inline">\(\alpha\)</span> → Fail to Reject H<sub>0</sub></li>
+</ul>
+<p><br></p>
+</div>
+<div class="fragment">
+<p><strong>Decision:</strong><br>
+p = 0.046 &lt; 0.05 → <strong>Reject H</strong><sub>0</sub></p>
+</div>
+</div></div>
+</section>
+<section id="bayes-factor-vs.-effect-size-idw-psw-1" class="slide level2">
+<h2>Bayes Factor vs.&nbsp;Effect Size <code>idw()</code> | <code>psw()</code></h2>
+<div style="display:grid; grid-template-columns: .9fr 1.1fr; column-gap:1.2rem; align-items:center; margin-bottom:.25rem;">
+<!-- LEFT: test output -->
+<div style="display:flex; justify-content:flex-start; align-items:center;">
+<div style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;">
+<p><strong>V = 8, p = 0.046, r_rb = -0.709, bf10 ≈ 2.401</strong></p>
+</div>
+</div>
+<!-- RIGHT: Bayes factor anchor -->
+<div style="display:flex; justify-content:flex-end; align-items:center;">
+<p><img data-src="../shared/images/bayes_factor.svg" style="width:100%; max-width:1250px; display:block;" alt="Bayes factor scale showing evidence from strong evidence for H0 through anecdotal evidence to strong and decisive evidence for HA."></p>
+</div>
+</div>
+<div style="display:grid; grid-template-columns: 185px repeat(5, 1fr); gap:.28rem; align-items:stretch;">
+<!-- header row -->
+<div style="text-align:center; font-size:1.02rem; font-weight:700; padding:.45rem .3rem; background:#eef2f7; display:flex; align-items:center; justify-content:center;">
+<p>Rank-biserial <span class="math inline">\(r_{rb}\)</span></p>
+</div>
+<div style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;">
+<p><span class="math inline">\(BF_{10} &lt; 0.33\)</span></p>
+</div>
+<div style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;">
+<p>0.33–1</p>
+</div>
+<div style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;">
+<p>1–3</p>
+</div>
+<div style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#d6e2f6;">
+<p>3–10</p>
+</div>
+<div style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#ccd9f2;">
+<p><span class="math inline">\(&gt; 10\)</span></p>
+</div>
+<!-- Large -->
+<div style="background:#2e8b57; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;">
+<p>Large</p>
+<div style="font-size:.95rem; margin-top:.2rem;">
+<p><span class="math inline">\(r_{rb}=.50\)</span></p>
+</div>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Strong rank separation, but evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
+Possible noisy result or very small sample</p>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Strong-looking separation, weak evidence</strong><br>
+Promising, but still uncertain</p>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Potentially important separation</strong><br>
+Need more evidence before being confident</p>
+</div>
+<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;">
+<p><strong>Likely real and practically meaningful</strong><br>
+Ranks are noticeably separated</p>
+</div>
+<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;">
+<p><strong>Strong and well supported</strong><br>
+Clear evidence of substantial separation</p>
+</div>
+<!-- Medium -->
+<div style="background:#7fc97f; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;">
+<p>Medium</p>
+<div style="font-size:.95rem; margin-top:.2rem;">
+<p><span class="math inline">\(r_{rb}=.30\)</span></p>
+</div>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Moderate rank separation, but evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
+Could be unstable</p>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Moderate-looking separation, weak evidence</strong><br>
+Unclear whether it will replicate</p>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Some indication of meaningful separation</strong><br>
+Not decisive yet</p>
+</div>
+<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;">
+<p><strong>Likely real and noticeable</strong><br>
+Worth taking seriously</p>
+</div>
+<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;">
+<p><strong>Meaningful and well supported</strong><br>
+Good evidence and practical relevance</p>
+</div>
+<!-- Small -->
+<div style="background:#cfe8cf; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;">
+<p>Small</p>
+<div style="font-size:.95rem; margin-top:.2rem;">
+<p><span class="math inline">\(r_{rb}=.10\)</span></p>
+</div>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Little rank separation, evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
+Probably not much happening</p>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Small separation, weak evidence overall</strong><br>
+Not much to conclude</p>
+</div>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
+<p><strong>Maybe real, but still small</strong><br>
+Even if true, impact is modest</p>
+</div>
+<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;">
+<p><strong>Likely real, but modest</strong><br>
+Useful distinction: real does not mean large</p>
+</div>
+<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;">
+<p><strong>Very strong evidence for a small effect</strong><br>
+Consistent, but not large</p>
+</div>
+</div>
+</section>
+<section id="step-5-does-it-matter-4" class="slide level2">
+<h2>Step 5: Does it matter?</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><br></p>
+<p><strong>Statistical:</strong></p>
+<ul>
+<li>Statistically significant difference between groups</li>
+</ul>
+<p><strong>Practical:</strong></p>
+<ul>
+<li>Effect size: <span class="math inline">\(d\)</span> = 0.709 → <em>Large effect</em><br>
+</li>
+<li>Bayes Factor: bf<sub>10</sub> = 2.401 → <em>anecdotal evidence for H</em><sub>A</sub></li>
+</ul>
+<p><strong>Takeaway:</strong></p>
+<ul>
+<li>Potentially important separation between groups</li>
+<li>Need more evidence before being confident</li>
+<li>Difference in medians, should be resistent to outliers</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><br></p>
+<p><code>h6$descriptive_statistics</code></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      Group  N Median
+1 Black Tea 12     40
+2 Green Tea 12     50</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="what-r-output-belongs-in-a-presentation" class="slide level2">
+<h2>What R output belongs in a presentation?</h2>
+<p><br></p>
+<div class="fragment">
+<h4 id="what-is-the-practical-interpretation-of-this-analysis-for-a-business-audience-are-my-estimates-precise-enough-to-tell-the-story-i-outlined-in-part-2">What is the practical interpretation of this analysis for a <strong><em>business audience</em></strong>? Are my estimates precise enough to tell the story I outlined in part (2)?</h4>
+</div>
+<p><br></p>
+<div class="fragment">
+<ul>
+<li>Takeaways</li>
+<li>Practical Interpretation (light on jargon &amp; stats)</li>
+<li>Limited Statistical Interpretation (don’t rely on p value)</li>
+<li>No mention of <span class="math inline">\(H_0\)</span>/<span class="math inline">\(H_A\)</span><br>
+</li>
+</ul>
+</div>
+<div style="position:absolute; bottom:40px; right:60px; font-size:.7em; color:#6b7280; text-align:right;">
 <p>t(23) = -0.694, p = 0.495, d = -0.142, bf10 = 0.267</p>
+</div>
 
 
 </section></section>
