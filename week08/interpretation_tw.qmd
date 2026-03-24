@@ -1,0 +1,1363 @@
+---
+title: "Week 8 - Comparing Two Groups"
+format:
+  revealjs:
+    theme:
+      - default
+      - ../shared/styles/boland-reveal.scss
+    slide-number: true
+    hash: true
+    center: false
+    transition: fade
+    controls: true
+    pdf-export: true
+execute:
+  echo: false
+---
+
+## Steps in Hypothesis Testing
+
+1.  [*What statistical story am I attempting to tell?*]{.muted}
+
+::: {.callout-tip title="What are we trying to find out?"}
+:::
+
+2.  [*What have I estimated or plotted... If no uncertainty, what should the business do?*]{.muted}
+
+::: {.callout-tip title="What do we expect to happen?"}
+:::
+
+3.  [*Which test is appropriate and what is the null hypothesis?*]{.muted}
+
+::: {.callout-tip title="How are we going to test it?"}
+:::
+
+4.  [*What is the statistical interpretation of the test result?*]{.muted}
+
+::: {.callout-tip title="Do we believe it?"}
+:::
+
+5.  [*What is the practical interpretation of this analysis for a business audience?*]{.muted}
+
+::: {.callout-tip title="Does it matter?"}
+:::
+
+# t-Tests
+
+Comparing Means between Two Categories
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(stringr)
+library(purrr)
+library(eco230r)
+library(here)
+library(readr)
+
+get("t_tall", envir = asNamespace("eco230r"))
+get("t_wide", envir = asNamespace("eco230r"))
+get("tea_tab", envir = asNamespace("eco230r"))
+get("napData", envir = asNamespace("eco230r"))
+
+```
+
+## Independent Samples t-Test `idt()`
+
+```{r run_idt echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
+df <- t_tall
+
+h3 <- df %>%
+  idt(scones ~ tea)
+```
+
+:::::::::: columns
+::::: {.column width="40%"}
+<br>
+
+::: fragment
+### Steps 1-3: Setup
+
+<br>
+
+**Test:** Independent Samples t-test\
+**Function:** `idt()`
+
+<br>
+
+**H**<sub>0</sub>: $\mu$<sub>Black</sub> = $\mu$<sub>Green</sub>\
+**H**<sub>A</sub>: $\mu$<sub>Black</sub> $\neq$ $\mu$<sub>Green</sub>\
+**α =** 0.05
+:::
+
+<br>
+
+::: fragment
+### Run the Test
+
+```{r show_idt, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
+h3 <- df %>%
+  idt(scones ~ tea)
+```
+:::
+:::::
+
+::: {.column width="5%"}
+:::
+
+::::: {.column width="55%"}
+<br>
+
+::: fragment
+### Step 4: Do we believe it?
+
+`h3$results`
+
+`r h3$results`
+
+<br>
+
+**Decision Rule:**
+
+-   If p $\leq \alpha$ → Reject H<sub>0</sub>\
+-   If p \> $\alpha$ → Fail to Reject H<sub>0</sub>
+
+<br>
+:::
+
+::: fragment
+**Decision:**\
+p = 0.107 \> 0.05 → **Fail to Reject H**<sub>0</sub>
+:::
+:::::
+::::::::::
+
+## Bayes Factor vs. Effect Size `idt()` \| `pst()` \| `ost()`
+
+:::::: {style="display:grid; grid-template-columns: .9fr 1.1fr; column-gap:1.2rem; align-items:center; margin-bottom:.25rem;"}
+<!-- LEFT: test output -->
+
+:::: {style="display:flex; justify-content:flex-start; align-items:center;"}
+::: {style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;"}
+**`r h3$results`**
+:::
+::::
+
+<!-- RIGHT: Bayes factor anchor -->
+
+::: {style="display:flex; justify-content:flex-end; align-items:center;"}
+![](../shared/images/bayes_factor.svg){fig-alt="Bayes factor scale showing evidence from strong evidence for H0 through anecdotal evidence to strong and decisive evidence for HA." style="width:100%; max-width:1250px; display:block;"}
+:::
+::::::
+
+:::::::::::::::::::::::::::::: {style="display:grid; grid-template-columns: 185px repeat(5, 1fr); gap:.28rem; align-items:stretch;"}
+<!-- header row -->
+
+::: {style="text-align:center; font-size:1.02rem; font-weight:700; padding:.45rem .3rem; background:#eef2f7; display:flex; align-items:center; justify-content:center;"}
+Cohen's $d$
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+$BF_{10} < 0.33$
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+**0.33 – 1**
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+**1 – 3**
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#d6e2f6;"}
+**3 – 10**
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#ccd9f2;"}
+$> 10$
+:::
+
+<!-- Large -->
+
+:::: {style="background:#2e8b57; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Large
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$d=.80$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Looks large, but evidence favors** $H_0$\
+Possible noisy result or very small sample
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Large-looking difference, weak evidence**\
+Promising, but still uncertain
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Potentially important effect**\
+Need more evidence before being confident
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real and practically meaningful**\
+A noticeable difference
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Big and well supported**\
+Strong evidence for a substantial effect
+:::
+
+<!-- Medium -->
+
+:::: {style="background:#7fc97f; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Medium
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$d=.50$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Moderate observed difference, but evidence favors** $H_0$\
+Could be unstable
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Moderate-looking effect, weak evidence**\
+Unclear whether it will replicate
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Some indication of a meaningful effect**\
+Not decisive yet
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real and noticeable**\
+Worth taking seriously
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Meaningful effect with strong support**\
+Good evidence and practical relevance
+:::
+
+<!-- Small -->
+
+:::: {style="background:#cfe8cf; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Small
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$d=.20$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Little effect, evidence favors** $H_0$\
+Probably not much happening
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Small difference, weak evidence overall**\
+Not much to conclude
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Maybe real, but still small**\
+Even if true, impact is modest
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real, but modest**\
+Useful distinction: real does not mean big
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Very strong evidence for a small effect**\
+Consistent, but not large
+:::
+::::::::::::::::::::::::::::::
+
+## Step 5: Does it matter?
+
+::::: columns
+::: {.column width="60%"}
+<br>
+
+**Statistical:**
+
+-   No statistically significant difference between groups
+
+**Practical:**
+
+-   Effect size: $d$ = -0.686 → *medium effect*\
+-   Bayes Factor: bf<sub>10</sub> = 1.013 → *anecdotal evidence for H*<sub>A</sub>
+
+**Takeaway:**
+
+-   Evidence is weak\
+-   Data does not convincingly support a difference\
+-   Any observed difference may be noise
+:::
+
+::: {.column width="40%"}
+<br>
+
+`h3$descriptive_statistics`
+
+```{r idt_desc echo:TRUE, include:TRUE}
+h3$descriptive_statistics
+```
+:::
+:::::
+
+## Paired Samples t-Test `pst()`
+
+```{r run_pst echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
+df <- t_wide
+
+h4 <- df %>%
+  pst(~black_tea,~green_tea)
+```
+
+:::::::::: columns
+::::: {.column width="40%"}
+<br>
+
+::: fragment
+### Steps 1-3: Setup
+
+<br>
+
+**Test:** Paired Samples t-test\
+**Function:** `pst()`
+
+<br>
+
+**H**<sub>0</sub>: $\mu$<sub>Black</sub> = $\mu$<sub>Green</sub>\
+**H**<sub>A</sub>: $\mu$<sub>Black</sub> $\neq$ $\mu$<sub>Green</sub>\
+**α =** 0.05
+:::
+
+<br>
+
+::: fragment
+### Run the Test
+
+```{r show_pst, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
+h4 <- df %>%
+  pst(~black_tea,~green_tea)
+```
+:::
+:::::
+
+::: {.column width="5%"}
+:::
+
+::::: {.column width="55%"}
+<br>
+
+::: fragment
+### Step 4: Do we believe it?
+
+`h4$results`
+
+`r h4$results`
+
+<br>
+
+**Decision Rule:**
+
+-   If p $\leq \alpha$ → Reject H<sub>0</sub>\
+-   If p \> $\alpha$ → Fail to Reject H<sub>0</sub>
+
+<br>
+:::
+
+::: fragment
+**Decision:**\
+p = 0.031 \< 0.05 → **Reject H**<sub>0</sub>
+:::
+:::::
+::::::::::
+
+## Bayes Factor vs. Effect Size `idt()` \| `pst()` \| `ost()`
+
+:::::: {style="display:grid; grid-template-columns: .9fr 1.1fr; column-gap:1.2rem; align-items:center; margin-bottom:.25rem;"}
+<!-- LEFT: test output -->
+
+:::: {style="display:flex; justify-content:flex-start; align-items:center;"}
+::: {style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;"}
+**`r h4$results`**
+:::
+::::
+
+<!-- RIGHT: Bayes factor anchor -->
+
+::: {style="display:flex; justify-content:flex-end; align-items:center;"}
+![](../shared/images/bayes_factor.svg){fig-alt="Bayes factor scale showing evidence from strong evidence for H0 through anecdotal evidence to strong and decisive evidence for HA." style="width:100%; max-width:1250px; display:block;"}
+:::
+::::::
+
+:::::::::::::::::::::::::::::: {style="display:grid; grid-template-columns: 185px repeat(5, 1fr); gap:.28rem; align-items:stretch;"}
+<!-- header row -->
+
+::: {style="text-align:center; font-size:1.02rem; font-weight:700; padding:.45rem .3rem; background:#eef2f7; display:flex; align-items:center; justify-content:center;"}
+Cohen's $d$
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+$BF_{10} < 0.33$
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+**0.33 – 1**
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+**1 – 3**
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#d6e2f6;"}
+**3 – 10**
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#ccd9f2;"}
+$> 10$
+:::
+
+<!-- Large -->
+
+:::: {style="background:#2e8b57; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Large
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$d=.80$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Looks large, but evidence favors** $H_0$\
+Possible noisy result or very small sample
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Large-looking difference, weak evidence**\
+Promising, but still uncertain
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Potentially important effect**\
+Need more evidence before being confident
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real and practically meaningful**\
+A noticeable difference
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Big and well supported**\
+Strong evidence for a substantial effect
+:::
+
+<!-- Medium -->
+
+:::: {style="background:#7fc97f; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Medium
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$d=.50$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Moderate observed difference, but evidence favors** $H_0$\
+Could be unstable
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Moderate-looking effect, weak evidence**\
+Unclear whether it will replicate
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Some indication of a meaningful effect**\
+Not decisive yet
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real and noticeable**\
+Worth taking seriously
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Meaningful effect with strong support**\
+Good evidence and practical relevance
+:::
+
+<!-- Small -->
+
+:::: {style="background:#cfe8cf; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Small
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$d=.20$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Little effect, evidence favors** $H_0$\
+Probably not much happening
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Small difference, weak evidence overall**\
+Not much to conclude
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Maybe real, but still small**\
+Even if true, impact is modest
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real, but modest**\
+Useful distinction: real does not mean big
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Very strong evidence for a small effect**\
+Consistent, but not large
+:::
+::::::::::::::::::::::::::::::
+
+## Step 5: Does it matter?
+
+::::: columns
+::: {.column width="60%"}
+**Statistical:**
+
+-   Statistically significant difference between groups
+
+<br>
+
+**Practical:**
+
+-   Effect size: $d$ = -0.714 → *medium to large effect*\
+-   Bayes Factor: bf<sub>10</sub> = 1.013 → *anecdotal evidence for H*<sub>A</sub>
+
+<br>
+
+**Takeaway:**
+
+-   Evidence is weak\
+-   Some indication of a meaningful effect
+-   Need more evidence before being confident
+:::
+
+::: {.column width="40%"}
+<br>
+
+`h4$descriptive_statistics`
+
+```{r pst_desc echo:TRUE, include:TRUE}
+h4$descriptive_statistics
+```
+:::
+:::::
+
+## One Sample t-Test `ost()`
+
+```{r run_ost echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
+df <- t_tall
+
+h5 <- df %>%
+  ost(~scones, mu=45.0)
+```
+
+:::::::::: columns
+::::: {.column width="40%"}
+<br>
+
+::: fragment
+### Steps 1-3: Setup
+
+<br>
+
+**Test:** One Sample t-test\
+**Function:** `ost()`
+
+<br>
+
+**H**<sub>0</sub>: μ<sub>Scones</sub> = 45
+
+**H**<sub>A</sub>: μ<sub>Scones</sub> $\neq$ 45
+
+**α =** 0.05
+:::
+
+<br>
+
+::: fragment
+### Run the Test
+
+```{r show_ost, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
+h5 <- df %>%
+  ost(~scones, mu=45.0)
+```
+:::
+:::::
+
+::: {.column width="5%"}
+:::
+
+::::: {.column width="55%"}
+<br>
+
+::: fragment
+### Step 4: Do we believe it?
+
+`h5$results`
+
+`r h5$results`
+
+<br>
+
+**Decision Rule:**
+
+-   If p $\leq \alpha$ → Reject H<sub>0</sub>\
+-   If p \> $\alpha$ → Fail to Reject H<sub>0</sub>
+
+<br>
+:::
+
+::: fragment
+**Decision:**\
+p = 0.495 \> 0.05 → **Fail to Reject H**<sub>0</sub>
+:::
+:::::
+::::::::::
+
+## Bayes Factor vs. Effect Size `idt()` \| `pst()` \| `ost()`
+
+:::::: {style="display:grid; grid-template-columns: .9fr 1.1fr; column-gap:1.2rem; align-items:center; margin-bottom:.25rem;"}
+<!-- LEFT: test output -->
+
+:::: {style="display:flex; justify-content:flex-start; align-items:center;"}
+::: {style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;"}
+**`r h5$results`**
+:::
+::::
+
+<!-- RIGHT: Bayes factor anchor -->
+
+::: {style="display:flex; justify-content:flex-end; align-items:center;"}
+![](../shared/images/bayes_factor.svg){fig-alt="Bayes factor scale showing evidence from strong evidence for H0 through anecdotal evidence to strong and decisive evidence for HA." style="width:100%; max-width:1250px; display:block;"}
+:::
+::::::
+
+:::::::::::::::::::::::::::::: {style="display:grid; grid-template-columns: 185px repeat(5, 1fr); gap:.28rem; align-items:stretch;"}
+<!-- header row -->
+
+::: {style="text-align:center; font-size:1.02rem; font-weight:700; padding:.45rem .3rem; background:#eef2f7; display:flex; align-items:center; justify-content:center;"}
+Cohen's $d$
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+$BF_{10} < 0.33$
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+**0.33 – 1**
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+**1 – 3**
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#d6e2f6;"}
+**3 – 10**
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#ccd9f2;"}
+$> 10$
+:::
+
+<!-- Large -->
+
+:::: {style="background:#2e8b57; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Large
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$d=.80$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Looks large, but evidence favors** $H_0$\
+Possible noisy result or very small sample
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Large-looking difference, weak evidence**\
+Promising, but still uncertain
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Potentially important effect**\
+Need more evidence before being confident
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real and practically meaningful**\
+A noticeable difference
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Big and well supported**\
+Strong evidence for a substantial effect
+:::
+
+<!-- Medium -->
+
+:::: {style="background:#7fc97f; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Medium
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$d=.50$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Moderate observed difference, but evidence favors** $H_0$\
+Could be unstable
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Moderate-looking effect, weak evidence**\
+Unclear whether it will replicate
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Some indication of a meaningful effect**\
+Not decisive yet
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real and noticeable**\
+Worth taking seriously
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Meaningful effect with strong support**\
+Good evidence and practical relevance
+:::
+
+<!-- Small -->
+
+:::: {style="background:#cfe8cf; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Small
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$d=.20$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Little effect, evidence favors** $H_0$\
+Probably not much happening
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Small difference, weak evidence overall**\
+Not much to conclude
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Maybe real, but still small**\
+Even if true, impact is modest
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real, but modest**\
+Useful distinction: real does not mean big
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Very strong evidence for a small effect**\
+Consistent, but not large
+:::
+::::::::::::::::::::::::::::::
+
+## Step 5: Does it matter?
+
+::::: columns
+::: {.column width="60%"}
+**Statistical:**
+
+-   Not significantly different than 45
+
+<br>
+
+**Practical:**
+
+-   Effect size: $d$ = -0.142 → *small effect*\
+-   Bayes Factor: bf<sub>10</sub> = 0.267 → *Some evidence for H*<sub>0</sub>
+
+<br>
+
+**Takeaway:**
+
+-   Evidence is favor of $H_0$
+-   Mean is not very different from 45
+-   Interpretation depends on what test value 45 represents
+:::
+
+::: {.column width="40%"}
+<br>
+
+`h5$descriptive_statistics`
+
+```{r ost_desc echo:TRUE, include:TRUE}
+h5$descriptive_statistics
+```
+:::
+:::::
+
+# Wilcoxon Tests
+
+Comparing Medians between Two Categories
+
+## Wilcoxon Rank-Sum Test `idw()`
+
+```{r run_idw echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
+df <- t_tall
+
+h6 <- df %>%
+  idw(scones~tea)
+```
+
+:::::::::: columns
+::::: {.column width="40%"}
+<br>
+
+::: fragment
+### Steps 1-3: Setup
+
+<br>
+
+**Test:** Wilcoxon Rank-Sum Test\
+**Function:** `idw()`
+
+<br>
+
+**H**<sub>0</sub>: Median<sub>Black</sub> = Median<sub>Green</sub>\
+**H**<sub>A</sub>: Median<sub>Black</sub> $\neq$ Median<sub>Green</sub>\
+**α = 0.05**
+:::
+
+<br>
+
+::: fragment
+### Run the Test
+
+```{r show_idw, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
+h6 <- df %>%
+  idw(scones~tea)
+```
+:::
+:::::
+
+::: {.column width="5%"}
+:::
+
+::::: {.column width="55%"}
+<br>
+
+::: fragment
+### Step 4: Do we believe it?
+
+`h6$results`
+
+`r h6$results`
+
+<br>
+
+**Decision Rule:**
+
+-   If p $\leq \alpha$ → Reject H<sub>0</sub>\
+-   If p \> $\alpha$ → Fail to Reject H<sub>0</sub>
+
+<br>
+:::
+
+::: fragment
+**Decision:**\
+p = 0.137 \> 0.05 → **Fail to Reject H**<sub>0</sub>
+:::
+:::::
+::::::::::
+
+## Bayes Factor vs. Effect Size `idw()` \| `psw()`
+
+:::::: {style="display:grid; grid-template-columns: .9fr 1.1fr; column-gap:1.2rem; align-items:center; margin-bottom:.25rem;"}
+<!-- LEFT: test output -->
+
+:::: {style="display:flex; justify-content:flex-start; align-items:center;"}
+::: {style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;"}
+**`r h6$results`**
+:::
+::::
+
+<!-- RIGHT: Bayes factor anchor -->
+
+::: {style="display:flex; justify-content:flex-end; align-items:center;"}
+![](../shared/images/bayes_factor.svg){fig-alt="Bayes factor scale showing evidence from strong evidence for H0 through anecdotal evidence to strong and decisive evidence for HA." style="width:100%; max-width:1250px; display:block;"}
+:::
+::::::
+
+:::::::::::::::::::::::::::::: {style="display:grid; grid-template-columns: 185px repeat(5, 1fr); gap:.28rem; align-items:stretch;"}
+<!-- header row -->
+
+::: {style="text-align:center; font-size:1.02rem; font-weight:700; padding:.45rem .3rem; background:#eef2f7; display:flex; align-items:center; justify-content:center;"}
+Rank-biserial $r_{rb}$
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+$BF_{10} < 0.33$
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+0.33–1
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+1–3
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#d6e2f6;"}
+3–10
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#ccd9f2;"}
+$> 10$
+:::
+
+<!-- Large -->
+
+:::: {style="background:#2e8b57; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Large
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$r_{rb}=.50$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Strong rank separation, but evidence favors** $H_0$\
+Possible noisy result or very small sample
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Strong-looking separation, weak evidence**\
+Promising, but still uncertain
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Potentially important separation**\
+Need more evidence before being confident
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real and practically meaningful**\
+Ranks are noticeably separated
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Strong and well supported**\
+Clear evidence of substantial separation
+:::
+
+<!-- Medium -->
+
+:::: {style="background:#7fc97f; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Medium
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$r_{rb}=.30$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Moderate rank separation, but evidence favors** $H_0$\
+Could be unstable
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Moderate-looking separation, weak evidence**\
+Unclear whether it will replicate
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Some indication of meaningful separation**\
+Not decisive yet
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real and noticeable**\
+Worth taking seriously
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Meaningful and well supported**\
+Good evidence and practical relevance
+:::
+
+<!-- Small -->
+
+:::: {style="background:#cfe8cf; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Small
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$r_{rb}=.10$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Little rank separation, evidence favors** $H_0$\
+Probably not much happening
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Small separation, weak evidence overall**\
+Not much to conclude
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Maybe real, but still small**\
+Even if true, impact is modest
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real, but modest**\
+Useful distinction: real does not mean large
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Very strong evidence for a small effect**\
+Consistent, but not large
+:::
+::::::::::::::::::::::::::::::
+
+## Step 5: Does it matter?
+
+::::: columns
+::: {.column width="60%"}
+<br>
+
+**Statistical:**
+
+-   No statistically significant difference between groups
+
+**Practical:**
+
+-   Effect size: $r_{rb}$ = -0.361 → *medium effect*\
+-   Bayes Factor: bf<sub>10</sub> = 1.013 → *anecdotal evidence for H*<sub>A</sub>
+
+**Takeaway:**
+
+-   Evidence is weak\
+-   Data does not convincingly support a difference\
+-   Any observed difference may be noise
+:::
+
+::: {.column width="40%"}
+<br>
+
+`h6$descriptive_statistics`
+
+```{r idw_desc echo:TRUE, include:TRUE}
+h6$descriptive_statistics
+```
+:::
+:::::
+
+## Wilcoxon Signed-Rank Test `psw()`
+
+```{r run_psw echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
+df <- t_wide
+
+h7 <- df %>%
+  psw(~black_tea,~green_tea)
+```
+
+:::::::::: columns
+::::: {.column width="40%"}
+<br>
+
+::: fragment
+### Steps 1-3: Setup
+
+<br>
+
+**Test:** Wilcoxon Signed-Rank Test\
+**Function:** `psw()`
+
+<br>
+
+**H**<sub>0</sub>: Median<sub>Black</sub> = Median<sub>Green</sub>\
+**H**<sub>A</sub>: Median<sub>Black</sub> $\neq$ Median<sub>Green</sub>\
+**α = 0.05**
+:::
+
+<br>
+
+::: fragment
+### Run the Test
+
+```{r show_psw, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
+h7 <- df %>%
+  psw(~black_tea,~green_tea)
+```
+:::
+:::::
+
+::: {.column width="5%"}
+:::
+
+::::: {.column width="55%"}
+<br>
+
+::: fragment
+### Step 4: Do we believe it?
+
+`h7$results`
+
+`r h7$results`
+
+<br>
+
+**Decision Rule:**
+
+-   If p $\leq \alpha$ → Reject H<sub>0</sub>\
+-   If p \> $\alpha$ → Fail to Reject H<sub>0</sub>
+
+<br>
+:::
+
+::: fragment
+**Decision:**\
+p = 0.046 \< 0.05 → **Reject H**<sub>0</sub>
+:::
+:::::
+::::::::::
+
+## Bayes Factor vs. Effect Size `idw()` \| `psw()`
+
+:::::: {style="display:grid; grid-template-columns: .9fr 1.1fr; column-gap:1.2rem; align-items:center; margin-bottom:.25rem;"}
+<!-- LEFT: test output -->
+
+:::: {style="display:flex; justify-content:flex-start; align-items:center;"}
+::: {style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;"}
+**`r h7$results`**
+:::
+::::
+
+<!-- RIGHT: Bayes factor anchor -->
+
+::: {style="display:flex; justify-content:flex-end; align-items:center;"}
+![](../shared/images/bayes_factor.svg){fig-alt="Bayes factor scale showing evidence from strong evidence for H0 through anecdotal evidence to strong and decisive evidence for HA." style="width:100%; max-width:1250px; display:block;"}
+:::
+::::::
+
+:::::::::::::::::::::::::::::: {style="display:grid; grid-template-columns: 185px repeat(5, 1fr); gap:.28rem; align-items:stretch;"}
+<!-- header row -->
+
+::: {style="text-align:center; font-size:1.02rem; font-weight:700; padding:.45rem .3rem; background:#eef2f7; display:flex; align-items:center; justify-content:center;"}
+Rank-biserial $r_{rb}$
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+$BF_{10} < 0.33$
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+0.33–1
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+1–3
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#d6e2f6;"}
+3–10
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#ccd9f2;"}
+$> 10$
+:::
+
+<!-- Large -->
+
+:::: {style="background:#2e8b57; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Large
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$r_{rb}=.50$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Strong rank separation, but evidence favors** $H_0$\
+Possible noisy result or very small sample
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Strong-looking separation, weak evidence**\
+Promising, but still uncertain
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Potentially important separation**\
+Need more evidence before being confident
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real and practically meaningful**\
+Ranks are noticeably separated
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Strong and well supported**\
+Clear evidence of substantial separation
+:::
+
+<!-- Medium -->
+
+:::: {style="background:#7fc97f; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Medium
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$r_{rb}=.30$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Moderate rank separation, but evidence favors** $H_0$\
+Could be unstable
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Moderate-looking separation, weak evidence**\
+Unclear whether it will replicate
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Some indication of meaningful separation**\
+Not decisive yet
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real and noticeable**\
+Worth taking seriously
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Meaningful and well supported**\
+Good evidence and practical relevance
+:::
+
+<!-- Small -->
+
+:::: {style="background:#cfe8cf; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Small
+
+::: {style="font-size:.95rem; margin-top:.2rem;"}
+$r_{rb}=.10$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Little rank separation, evidence favors** $H_0$\
+Probably not much happening
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Small separation, weak evidence overall**\
+Not much to conclude
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;"}
+**Maybe real, but still small**\
+Even if true, impact is modest
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;"}
+**Likely real, but modest**\
+Useful distinction: real does not mean large
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;"}
+**Very strong evidence for a small effect**\
+Consistent, but not large
+:::
+::::::::::::::::::::::::::::::
+
+## Step 5: Does it matter?
+
+::::: columns
+::: {.column width="60%"}
+<br>
+
+**Statistical:**
+
+-   Statistically significant difference between groups
+
+**Practical:**
+
+-   Effect size: $r_{rb}$ = 0.709 → *Large effect*\
+-   Bayes Factor: bf<sub>10</sub> = 2.401 → *anecdotal evidence for H*<sub>A</sub>
+
+**Takeaway:**
+
+-   Potentially important separation between groups
+-   Need more evidence before being confident
+-   Difference in medians, should be resistent to outliers
+:::
+
+::: {.column width="40%"}
+<br>
+
+`h6$descriptive_statistics`
+
+```{r psw_desc echo:TRUE, include:TRUE}
+h6$descriptive_statistics
+```
+:::
+:::::
+
+## What R output belongs in a presentation?
+
+<br>
+
+::: fragment
+#### What is the practical interpretation of this analysis for a ***business audience***? Are my estimates precise enough to tell the story I outlined in part (2)?
+:::
+
+<br>
+
+::: fragment
+-   Takeaways
+-   Practical Interpretation (light on jargon & stats)
+-   Limited Statistical Interpretation (don't rely on p value)
+-   No mention of $H_0$/$H_A$\
+:::
+
+::: {style="position:absolute; bottom:40px; right:60px; font-size:.7em; color:#6b7280; text-align:right;"}
+`r h5$results`
+:::

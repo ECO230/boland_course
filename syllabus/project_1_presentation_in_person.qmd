@@ -1,0 +1,255 @@
+---
+title: "GROUP PROJECT – IN PERSON PRESENTATION"
+subtitle: "Presentation Guidelines"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    number-sections: false
+    anchor-sections: true
+    smooth-scroll: true
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: auto
+---
+
+```{r setup}
+# Libraries
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+# Options
+options(scipen = 999)
+
+# Consistent helper for both HTML and PDF (syllabus-style)
+kbl_course <- function(df, full_width = FALSE, longtable = FALSE) {
+  if (knitr::is_latex_output()) {
+    kbl(
+      df, format = "latex", booktabs = TRUE, longtable = longtable, linesep = ""
+    ) |>
+      kable_styling(latex_options = c("hold_position"))
+  } else {
+    kbl(df, format = "html") |>
+      kable_paper("striped", full_width = full_width)
+  }
+}
+```
+
+## Overview
+
+::: callout-note
+**OVERVIEW**
+:::
+
+The research process is not complete without communication of your results. Stakeholders in your data analysis project will often expect you to present your findings to them. Presenting your work allows for a productive, interactive experience with your audience that circulating a report cannot replicate.
+
+Your team of business analysts has completed your analysis and now you are presenting your findings to your decision makers.
+
+If you are having trouble crafting your message, you may find it useful to “make up” a decision maker. Is this presentation geared toward general consumers, or is it directed toward a specific client or organization?
+
+## Scenario and audience
+
+::: callout-note
+**SCENARIO AND AUDIENCE**
+:::
+
+Treat this as a formal business presentation to decision makers who need a clear story, relevant evidence, and practical recommendations.
+
+Your audience may not be experts in statistics. Your goal is not to show everything you did. Your goal is to help the audience understand:
+- what question you investigated,
+- what you found,
+- why it matters,
+- and what they should do next.
+
+## Key deliverables
+
+::: callout-note
+**KEY DELIVERABLES**
+:::
+
+1.  In-person group presentation
+2.  Presentation materials submitted as a file
+3.  Additional time reserved for audience questions
+
+## Logistical details
+
+::: callout-note
+**LOGISTICAL DETAILS**
+:::
+
+- Your team will present during class.
+- Email or submit your presentation slides to the instructor **at least one hour before class starts**.
+- Include your group number in the file name using this format:  
+  **ECO 230 Project 3_GroupX**
+- A file is preferred instead of, or in addition to, a link to Google Slides or PowerPoint online.
+- Acceptable file formats: **PowerPoint (.pptx)** or **PDF**
+
+## Delivery requirements
+
+::: callout-note
+**DELIVERY REQUIREMENTS**
+:::
+
+Requirements for preparation and delivery are reflected in the rubric for the in-person presentation.
+
+::: callout-warning
+**MINIMUM EXPECTATIONS**
+:::
+
+- Practice together as a group.
+- Aim for a cohesive presentation rather than a collection of separate mini-presentations.
+- All group members should speak for roughly equal amounts of time.
+- At minimum, wear something that would be appropriate for a job interview. Business casual or professional attire are both acceptable.
+
+## Presentation expectations
+
+::: callout-note
+**PRESENTATION EXPECTATIONS**
+:::
+
+Give an **8(ish) minute presentation** with additional time at the end for questions from the audience.
+
+Because time is limited, your presentation must be clear and concise while still conveying your message fully and effectively. Do not try to show every part of your analysis. Instead, **curate your results**. Focus on the most important evidence needed to support your story and conclusions.
+
+Aim to make connections between ideas and maintain smooth flow across the presentation.
+
+::: callout-warning
+**WHAT THIS MEANS IN PRACTICE**
+:::
+
+- Do not rush.
+- Do not try to include every result you produced.
+- Prioritize the strongest and most decision-relevant findings.
+- Make your key takeaways clear early, then support them with evidence.
+
+## Visual aid requirements
+
+::: callout-note
+**VISUAL AID**
+:::
+
+A visual aid is required. Create slides that are professional and that engage the interest of the audience. The slides should help the audience understand and remember your key points.
+
+::: callout-warning
+**SLIDE DESIGN TIPS**
+:::
+
+- Do **not** put everything you want to say onto the slides. The slides are not your teleprompter.
+- Put figures, tables, and visuals on the slide, then discuss the details aloud.
+- Aim for a consistent and cohesive appearance in terms of theme and color scheme.
+- Limit text and avoid garish colors.
+- Use color with purpose to direct the audience’s attention to key numbers or patterns.
+- If you have a visualization on a slide, make it the star of that slide. Do not clutter the slide with extra text boxes.
+- Consider including a “road map” slide or recurring visual cue to help the audience track your progress.
+- Avoid copying and pasting raw statistical output from RStudio into the slides.
+- Avoid pasting raw tables from RStudio into the slides. Recreate tables in slide software or Excel, or use polished outputs such as `kable()` in R Markdown when appropriate.
+- You **can and should** paste finished visualizations into your presentation.
+
+## Recommended presentation structure
+
+
+You may organize your presentation as you wish, but it should contain the following major elements.
+
+::: callout-warning
+**INTRODUCTION**
+:::
+
+- Introduce yourselves.
+- Explain why this analysis matters for your decision makers.
+- Provide enough background information to set the stage.
+- Do not begin by diving directly into the data.
+- Briefly identify the audience or decision maker your presentation is targeting.
+- Include a short road map or agenda.
+
+::: callout-warning
+**OVERALL CONCLUSION AND CENTRAL MESSAGE**
+:::
+
+State your key takeaways early. The audience should learn your main message near the beginning of the presentation and then see the evidence that supports it.
+
+Throughout the presentation, incorporate smooth transitions between speakers and between sections. Ideally, transitions should help reinforce the logic of your story.
+
+::: callout-warning
+**VARIABLES AND APPROACH**
+:::
+
+Summarize your overall approach to the analysis.
+
+Explain:
+- what variables you used,
+- what they measure,
+- any created measures or unfamiliar terms,
+- and how the audience should think about the analysis at a high level.
+
+Assume the audience has **not** seen the data before.
+
+::: callout-warning
+**KEY FINDINGS**
+:::
+
+Use your data to support your conclusions by presenting a number of relevant key findings.
+
+For each figure or table:
+- explain what it shows,
+- explain why it matters,
+- and connect it to the conclusion you are drawing.
+
+This is one of the most important parts of the presentation and should be especially well organized.
+
+::: callout-warning
+**RECOMMENDATIONS / CONCLUSION**
+:::
+
+Briefly reiterate your key takeaways from the analysis.
+
+Then make recommendation(s) based on your findings. Recommendations do not need to be technical. Instead, focus on the implications of your analysis for the decision makers.
+
+::: callout-warning
+**CLOSING**
+:::
+
+End strong. Reinforce the central message, briefly restate the key takeaway, and invite questions.
+
+## Suggested presenter checklist
+
+::: callout-note
+**PRESENTER CHECKLIST**
+:::
+
+```{r}
+checklist <- tibble::tibble(
+  `Before presenting, make sure your team can say yes to each item` = c(
+    "We have a clear decision maker or target audience in mind.",
+    "We state our main takeaway early in the presentation.",
+    "Our slides support the story instead of repeating a script.",
+    "Our visuals are readable and easy for a nontechnical audience to understand.",
+    "We avoid raw R output and overly technical language on slides.",
+    "Each figure or table has a clear purpose and takeaway.",
+    "All group members speak and transitions feel practiced.",
+    "Our recommendations follow logically from our findings.",
+    "We can answer basic questions about how we conducted the analysis."
+  )
+)
+
+kbl_course(checklist, full_width = TRUE)
+```
+
+## Grading criteria
+
+::: callout-note
+**GRADING CRITERIA**
+:::
+
+Delivery requirements for preparation and presentation are reflected in the rubric for the in-person presentation. Use that rubric as your guide while practicing and refining your slides.
+
+The strongest presentations will:
+- communicate a clear and memorable message,
+- use visuals effectively,
+- stay audience-centered,
+- and connect evidence to recommendations.
+

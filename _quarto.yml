@@ -29,6 +29,13 @@ website:
             file: week06/week_06.qmd
           - text: "Week 7"
             file: week07/week_07.qmd
+            
+      - text: "Interpretation"
+        menu:
+          - text: "Chi-square Tests"
+            file: week07/interpretation_x2.qmd
+          - text: "t-Tests & Wilcoxon Tests"
+            file: week08/interpretation_tw.qmd
       - text: "Homework"
         menu:
           - text: "Homework 1"
@@ -43,12 +50,16 @@ website:
             file: week06/Homework_05.qmd
           - text: "Homework 6"
             file: week07/Homework_06.qmd
+          - text: "Homework 7"
+            file: week08/Homework_07.qmd
       - text: "Project 1"
         menu:
           - text: "Project Prompt"
             file: syllabus/project_1_prompt.qmd
           - text: "Project Timeline"
             file: syllabus/project_1_timeline.qmd
+          - text: "In Person Presentation"
+            file: syllabus/project_1_presentation_in_person.qmd
 
 format:
   html:
