@@ -2151,119 +2151,119 @@
   {
     "objectID": "week08/interpretation_tw.html#steps-in-hypothesis-testing",
     "href": "week08/interpretation_tw.html#steps-in-hypothesis-testing",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Steps in Hypothesis Testing",
     "text": "Steps in Hypothesis Testing\n\nWhat statistical story am I attempting to tell?\n\n\n\n\n\n\n\n\nWhat are we trying to find out?\n\n\n\n\n\n\n\n\nWhat have I estimated or plotted… If no uncertainty, what should the business do?\n\n\n\n\n\n\n\n\nWhat do we expect to happen?\n\n\n\n\n\n\n\n\nWhich test is appropriate and what is the null hypothesis?\n\n\n\n\n\n\n\n\nHow are we going to test it?\n\n\n\n\n\n\n\n\nWhat is the statistical interpretation of the test result?\n\n\n\n\n\n\n\n\nDo we believe it?\n\n\n\n\n\n\n\n\nWhat is the practical interpretation of this analysis for a business audience?\n\n\n\n\n\n\n\n\nDoes it matter?"
   },
   {
     "objectID": "week08/interpretation_tw.html#independent-samples-t-test-idt",
     "href": "week08/interpretation_tw.html#independent-samples-t-test-idt",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Independent Samples t-Test idt()",
     "text": "Independent Samples t-Test idt()\n\n\n\n\nSteps 1-3: Setup\n\nTest: Independent Samples t-test\nFunction: idt()\n\nH0: \\(\\mu\\)Black = \\(\\mu\\)Green\nHA: \\(\\mu\\)Black \\(\\neq\\) \\(\\mu\\)Green\nα = 0.05\n\n\n\nRun the Test\n\nh3 &lt;- df %&gt;%\n  idt(scones ~ tea)\n\n\n\n\n\n\n\nStep 4: Do we believe it?\nh3$results\nt(21.39) = -1.681, p = 0.107, d = -0.686, bf10 = 1.013\n\nDecision Rule:\n\nIf p \\(\\leq \\alpha\\) → Reject H0\n\nIf p &gt; \\(\\alpha\\) → Fail to Reject H0\n\n\n\n\nDecision:\np = 0.107 &gt; 0.05 → Fail to Reject H0"
   },
   {
     "objectID": "week08/interpretation_tw.html#bayes-factor-vs.-effect-size-idt-pst-ost",
     "href": "week08/interpretation_tw.html#bayes-factor-vs.-effect-size-idt-pst-ost",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Bayes Factor vs. Effect Size idt() | pst() | ost()",
     "text": "Bayes Factor vs. Effect Size idt() | pst() | ost()\n\n\n\n\nt(21.39) = -1.681, p = 0.107, d = -0.686, bf10 = 1.013\n\n\n\n\n\n\n\n\n\n\nCohen’s \\(d\\)\n\n\n\\(BF_{10} &lt; 0.33\\)\n\n\n0.33 – 1\n\n\n1 – 3\n\n\n3 – 10\n\n\n\\(&gt; 10\\)\n\n\n\nLarge\n\n\\(d=.80\\)\n\n\n\nLooks large, but evidence favors \\(H_0\\)\nPossible noisy result or very small sample\n\n\nLarge-looking difference, weak evidence\nPromising, but still uncertain\n\n\nPotentially important effect\nNeed more evidence before being confident\n\n\nLikely real and practically meaningful\nA noticeable difference\n\n\nBig and well supported\nStrong evidence for a substantial effect\n\n\n\nMedium\n\n\\(d=.50\\)\n\n\n\nModerate observed difference, but evidence favors \\(H_0\\)\nCould be unstable\n\n\nModerate-looking effect, weak evidence\nUnclear whether it will replicate\n\n\nSome indication of a meaningful effect\nNot decisive yet\n\n\nLikely real and noticeable\nWorth taking seriously\n\n\nMeaningful effect with strong support\nGood evidence and practical relevance\n\n\n\nSmall\n\n\\(d=.20\\)\n\n\n\nLittle effect, evidence favors \\(H_0\\)\nProbably not much happening\n\n\nSmall difference, weak evidence overall\nNot much to conclude\n\n\nMaybe real, but still small\nEven if true, impact is modest\n\n\nLikely real, but modest\nUseful distinction: real does not mean big\n\n\nVery strong evidence for a small effect\nConsistent, but not large"
   },
   {
     "objectID": "week08/interpretation_tw.html#step-5-does-it-matter",
     "href": "week08/interpretation_tw.html#step-5-does-it-matter",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Step 5: Does it matter?",
     "text": "Step 5: Does it matter?\n\n\n\nStatistical:\n\nNo statistically significant difference between groups\n\nPractical:\n\nEffect size: \\(d\\) = -0.686 → medium effect\n\nBayes Factor: bf10 = 1.013 → anecdotal evidence for HA\n\nTakeaway:\n\nEvidence is weak\n\nData does not convincingly support a difference\n\nAny observed difference may be noise\n\n\n\nh3$descriptive_statistics\n\n\n      Group     N  Mean Standard_Error\n1 Black Tea 12.00 40.00           2.68\n2 Green Tea 12.00 47.00           3.18"
   },
   {
     "objectID": "week08/interpretation_tw.html#paired-samples-t-test-pst",
     "href": "week08/interpretation_tw.html#paired-samples-t-test-pst",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Paired Samples t-Test pst()",
     "text": "Paired Samples t-Test pst()\n\n\n\n\nSteps 1-3: Setup\n\nTest: Paired Samples t-test\nFunction: pst()\n\nH0: \\(\\mu\\)Black = \\(\\mu\\)Green\nHA: \\(\\mu\\)Black \\(\\neq\\) \\(\\mu\\)Green\nα = 0.05\n\n\n\nRun the Test\n\nh4 &lt;- df %&gt;%\n  pst(~black_tea,~green_tea)\n\n\n\n\n\n\n\nStep 4: Do we believe it?\nh4$results\nt(11) = -2.473, p = 0.031, d = -0.714, bf10 = 2.401\n\nDecision Rule:\n\nIf p \\(\\leq \\alpha\\) → Reject H0\n\nIf p &gt; \\(\\alpha\\) → Fail to Reject H0\n\n\n\n\nDecision:\np = 0.031 &lt; 0.05 → Reject H0"
   },
   {
     "objectID": "week08/interpretation_tw.html#bayes-factor-vs.-effect-size-idt-pst-ost-1",
     "href": "week08/interpretation_tw.html#bayes-factor-vs.-effect-size-idt-pst-ost-1",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Bayes Factor vs. Effect Size idt() | pst() | ost()",
     "text": "Bayes Factor vs. Effect Size idt() | pst() | ost()\n\n\n\n\nt(11) = -2.473, p = 0.031, d = -0.714, bf10 = 2.401\n\n\n\n\n\n\n\n\n\n\nCohen’s \\(d\\)\n\n\n\\(BF_{10} &lt; 0.33\\)\n\n\n0.33 – 1\n\n\n1 – 3\n\n\n3 – 10\n\n\n\\(&gt; 10\\)\n\n\n\nLarge\n\n\\(d=.80\\)\n\n\n\nLooks large, but evidence favors \\(H_0\\)\nPossible noisy result or very small sample\n\n\nLarge-looking difference, weak evidence\nPromising, but still uncertain\n\n\nPotentially important effect\nNeed more evidence before being confident\n\n\nLikely real and practically meaningful\nA noticeable difference\n\n\nBig and well supported\nStrong evidence for a substantial effect\n\n\n\nMedium\n\n\\(d=.50\\)\n\n\n\nModerate observed difference, but evidence favors \\(H_0\\)\nCould be unstable\n\n\nModerate-looking effect, weak evidence\nUnclear whether it will replicate\n\n\nSome indication of a meaningful effect\nNot decisive yet\n\n\nLikely real and noticeable\nWorth taking seriously\n\n\nMeaningful effect with strong support\nGood evidence and practical relevance\n\n\n\nSmall\n\n\\(d=.20\\)\n\n\n\nLittle effect, evidence favors \\(H_0\\)\nProbably not much happening\n\n\nSmall difference, weak evidence overall\nNot much to conclude\n\n\nMaybe real, but still small\nEven if true, impact is modest\n\n\nLikely real, but modest\nUseful distinction: real does not mean big\n\n\nVery strong evidence for a small effect\nConsistent, but not large"
   },
   {
     "objectID": "week08/interpretation_tw.html#step-5-does-it-matter-1",
     "href": "week08/interpretation_tw.html#step-5-does-it-matter-1",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Step 5: Does it matter?",
     "text": "Step 5: Does it matter?\n\n\nStatistical:\n\nStatistically significant difference between groups\n\n\nPractical:\n\nEffect size: \\(d\\) = -0.714 → medium to large effect\n\nBayes Factor: bf10 = 1.013 → anecdotal evidence for HA\n\n\nTakeaway:\n\nEvidence is weak\n\nSome indication of a meaningful effect\nNeed more evidence before being confident\n\n\n\nh4$descriptive_statistics\n\n\n           N Mean Standard_Error\nblack_tea 12   40       2.682717\ngreen_tea 12   47       3.183766"
   },
   {
     "objectID": "week08/interpretation_tw.html#one-sample-t-test-ost",
     "href": "week08/interpretation_tw.html#one-sample-t-test-ost",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "One Sample t-Test ost()",
     "text": "One Sample t-Test ost()\n\n\n\n\nSteps 1-3: Setup\n\nTest: One Sample t-test\nFunction: ost()\n\nH0: μScones = 45\nHA: μScones \\(\\neq\\) 45\nα = 0.05\n\n\n\nRun the Test\n\nh5 &lt;- df %&gt;%\n  ost(~scones, mu=45.0)\n\n\n\n\n\n\n\nStep 4: Do we believe it?\nh5$results\nt(23) = -0.694, p = 0.495, d = -0.142, bf10 = 0.267\n\nDecision Rule:\n\nIf p \\(\\leq \\alpha\\) → Reject H0\n\nIf p &gt; \\(\\alpha\\) → Fail to Reject H0\n\n\n\n\nDecision:\np = 0.495 &gt; 0.05 → Fail to Reject H0"
   },
   {
     "objectID": "week08/interpretation_tw.html#bayes-factor-vs.-effect-size-idt-pst-ost-2",
     "href": "week08/interpretation_tw.html#bayes-factor-vs.-effect-size-idt-pst-ost-2",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Bayes Factor vs. Effect Size idt() | pst() | ost()",
     "text": "Bayes Factor vs. Effect Size idt() | pst() | ost()\n\n\n\n\nt(23) = -0.694, p = 0.495, d = -0.142, bf10 = 0.267\n\n\n\n\n\n\n\n\n\n\nCohen’s \\(d\\)\n\n\n\\(BF_{10} &lt; 0.33\\)\n\n\n0.33 – 1\n\n\n1 – 3\n\n\n3 – 10\n\n\n\\(&gt; 10\\)\n\n\n\nLarge\n\n\\(d=.80\\)\n\n\n\nLooks large, but evidence favors \\(H_0\\)\nPossible noisy result or very small sample\n\n\nLarge-looking difference, weak evidence\nPromising, but still uncertain\n\n\nPotentially important effect\nNeed more evidence before being confident\n\n\nLikely real and practically meaningful\nA noticeable difference\n\n\nBig and well supported\nStrong evidence for a substantial effect\n\n\n\nMedium\n\n\\(d=.50\\)\n\n\n\nModerate observed difference, but evidence favors \\(H_0\\)\nCould be unstable\n\n\nModerate-looking effect, weak evidence\nUnclear whether it will replicate\n\n\nSome indication of a meaningful effect\nNot decisive yet\n\n\nLikely real and noticeable\nWorth taking seriously\n\n\nMeaningful effect with strong support\nGood evidence and practical relevance\n\n\n\nSmall\n\n\\(d=.20\\)\n\n\n\nLittle effect, evidence favors \\(H_0\\)\nProbably not much happening\n\n\nSmall difference, weak evidence overall\nNot much to conclude\n\n\nMaybe real, but still small\nEven if true, impact is modest\n\n\nLikely real, but modest\nUseful distinction: real does not mean big\n\n\nVery strong evidence for a small effect\nConsistent, but not large"
   },
   {
     "objectID": "week08/interpretation_tw.html#step-5-does-it-matter-2",
     "href": "week08/interpretation_tw.html#step-5-does-it-matter-2",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Step 5: Does it matter?",
     "text": "Step 5: Does it matter?\n\n\nStatistical:\n\nNot significantly different than 45\n\n\nPractical:\n\nEffect size: \\(d\\) = -0.142 → small effect\n\nBayes Factor: bf10 = 0.267 → Some evidence for H0\n\n\nTakeaway:\n\nEvidence is favor of \\(H_0\\)\nMean is not very different from 45\nInterpretation depends on what test value 45 represents\n\n\n\nh5$descriptive_statistics\n\n\n        N Mean Standard_Error\nscones 24 43.5       2.162761"
   },
   {
     "objectID": "week08/interpretation_tw.html#wilcoxon-rank-sum-test-idw",
     "href": "week08/interpretation_tw.html#wilcoxon-rank-sum-test-idw",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Wilcoxon Rank-Sum Test idw()",
     "text": "Wilcoxon Rank-Sum Test idw()\n\n\n\n\nSteps 1-3: Setup\n\nTest: Wilcoxon Rank-Sum Test\nFunction: idw()\n\nH0: MedianBlack = MedianGreen\nHA: MedianBlack \\(\\neq\\) MedianGreen\nα = 0.05\n\n\n\nRun the Test\n\nh6 &lt;- df %&gt;%\n  idw(scones~tea)\n\n\n\n\n\n\n\nStep 4: Do we believe it?\nh6$results\nW = 46, p = 0.137, r_rb = -0.361, bf10 ≈ 1.013\n\nDecision Rule:\n\nIf p \\(\\leq \\alpha\\) → Reject H0\n\nIf p &gt; \\(\\alpha\\) → Fail to Reject H0\n\n\n\n\nDecision:\np = 0.137 &gt; 0.05 → Fail to Reject H0"
   },
   {
     "objectID": "week08/interpretation_tw.html#bayes-factor-vs.-effect-size-idw-psw",
     "href": "week08/interpretation_tw.html#bayes-factor-vs.-effect-size-idw-psw",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Bayes Factor vs. Effect Size idw() | psw()",
     "text": "Bayes Factor vs. Effect Size idw() | psw()\n\n\n\n\nW = 46, p = 0.137, r_rb = -0.361, bf10 ≈ 1.013\n\n\n\n\n\n\n\n\n\n\nRank-biserial \\(r_{rb}\\)\n\n\n\\(BF_{10} &lt; 0.33\\)\n\n\n0.33–1\n\n\n1–3\n\n\n3–10\n\n\n\\(&gt; 10\\)\n\n\n\nLarge\n\n\\(r_{rb}=.50\\)\n\n\n\nStrong rank separation, but evidence favors \\(H_0\\)\nPossible noisy result or very small sample\n\n\nStrong-looking separation, weak evidence\nPromising, but still uncertain\n\n\nPotentially important separation\nNeed more evidence before being confident\n\n\nLikely real and practically meaningful\nRanks are noticeably separated\n\n\nStrong and well supported\nClear evidence of substantial separation\n\n\n\nMedium\n\n\\(r_{rb}=.30\\)\n\n\n\nModerate rank separation, but evidence favors \\(H_0\\)\nCould be unstable\n\n\nModerate-looking separation, weak evidence\nUnclear whether it will replicate\n\n\nSome indication of meaningful separation\nNot decisive yet\n\n\nLikely real and noticeable\nWorth taking seriously\n\n\nMeaningful and well supported\nGood evidence and practical relevance\n\n\n\nSmall\n\n\\(r_{rb}=.10\\)\n\n\n\nLittle rank separation, evidence favors \\(H_0\\)\nProbably not much happening\n\n\nSmall separation, weak evidence overall\nNot much to conclude\n\n\nMaybe real, but still small\nEven if true, impact is modest\n\n\nLikely real, but modest\nUseful distinction: real does not mean large\n\n\nVery strong evidence for a small effect\nConsistent, but not large"
   },
   {
     "objectID": "week08/interpretation_tw.html#step-5-does-it-matter-3",
     "href": "week08/interpretation_tw.html#step-5-does-it-matter-3",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Step 5: Does it matter?",
     "text": "Step 5: Does it matter?\n\n\n\nStatistical:\n\nNo statistically significant difference between groups\n\nPractical:\n\nEffect size: \\(r_{rb}\\) = -0.361 → medium effect\n\nBayes Factor: bf10 = 1.013 → anecdotal evidence for HA\n\nTakeaway:\n\nEvidence is weak\n\nData does not convincingly support a difference\n\nAny observed difference may be noise\n\n\n\nh6$descriptive_statistics\n\n\n      Group  N Median\n1 Black Tea 12     40\n2 Green Tea 12     50"
   },
   {
     "objectID": "week08/interpretation_tw.html#wilcoxon-signed-rank-test-psw",
     "href": "week08/interpretation_tw.html#wilcoxon-signed-rank-test-psw",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Wilcoxon Signed-Rank Test psw()",
     "text": "Wilcoxon Signed-Rank Test psw()\n\n\n\n\nSteps 1-3: Setup\n\nTest: Wilcoxon Signed-Rank Test\nFunction: psw()\n\nH0: MedianBlack = MedianGreen\nHA: MedianBlack \\(\\neq\\) MedianGreen\nα = 0.05\n\n\n\nRun the Test\n\nh7 &lt;- df %&gt;%\n  psw(~black_tea,~green_tea)\n\n\n\n\n\n\n\nStep 4: Do we believe it?\nh7$results\nV = 8, p = 0.046, r_rb = -0.709, bf10 ≈ 2.401\n\nDecision Rule:\n\nIf p \\(\\leq \\alpha\\) → Reject H0\n\nIf p &gt; \\(\\alpha\\) → Fail to Reject H0\n\n\n\n\nDecision:\np = 0.046 &lt; 0.05 → Reject H0"
   },
   {
     "objectID": "week08/interpretation_tw.html#bayes-factor-vs.-effect-size-idw-psw-1",
     "href": "week08/interpretation_tw.html#bayes-factor-vs.-effect-size-idw-psw-1",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Bayes Factor vs. Effect Size idw() | psw()",
     "text": "Bayes Factor vs. Effect Size idw() | psw()\n\n\n\n\nV = 8, p = 0.046, r_rb = -0.709, bf10 ≈ 2.401\n\n\n\n\n\n\n\n\n\n\nRank-biserial \\(r_{rb}\\)\n\n\n\\(BF_{10} &lt; 0.33\\)\n\n\n0.33–1\n\n\n1–3\n\n\n3–10\n\n\n\\(&gt; 10\\)\n\n\n\nLarge\n\n\\(r_{rb}=.50\\)\n\n\n\nStrong rank separation, but evidence favors \\(H_0\\)\nPossible noisy result or very small sample\n\n\nStrong-looking separation, weak evidence\nPromising, but still uncertain\n\n\nPotentially important separation\nNeed more evidence before being confident\n\n\nLikely real and practically meaningful\nRanks are noticeably separated\n\n\nStrong and well supported\nClear evidence of substantial separation\n\n\n\nMedium\n\n\\(r_{rb}=.30\\)\n\n\n\nModerate rank separation, but evidence favors \\(H_0\\)\nCould be unstable\n\n\nModerate-looking separation, weak evidence\nUnclear whether it will replicate\n\n\nSome indication of meaningful separation\nNot decisive yet\n\n\nLikely real and noticeable\nWorth taking seriously\n\n\nMeaningful and well supported\nGood evidence and practical relevance\n\n\n\nSmall\n\n\\(r_{rb}=.10\\)\n\n\n\nLittle rank separation, evidence favors \\(H_0\\)\nProbably not much happening\n\n\nSmall separation, weak evidence overall\nNot much to conclude\n\n\nMaybe real, but still small\nEven if true, impact is modest\n\n\nLikely real, but modest\nUseful distinction: real does not mean large\n\n\nVery strong evidence for a small effect\nConsistent, but not large"
   },
   {
     "objectID": "week08/interpretation_tw.html#step-5-does-it-matter-4",
     "href": "week08/interpretation_tw.html#step-5-does-it-matter-4",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "Step 5: Does it matter?",
     "text": "Step 5: Does it matter?\n\n\n\nStatistical:\n\nStatistically significant difference between groups\n\nPractical:\n\nEffect size: \\(r_{rb}\\) = 0.709 → Large effect\n\nBayes Factor: bf10 = 2.401 → anecdotal evidence for HA\n\nTakeaway:\n\nPotentially important separation between groups\nNeed more evidence before being confident\nDifference in medians, should be resistent to outliers\n\n\n\nh6$descriptive_statistics\n\n\n      Group  N Median\n1 Black Tea 12     40\n2 Green Tea 12     50"
   },
   {
     "objectID": "week08/interpretation_tw.html#what-r-output-belongs-in-a-presentation",
     "href": "week08/interpretation_tw.html#what-r-output-belongs-in-a-presentation",
-    "title": "Week 8 - Comparing Two Groups",
+    "title": "Interpreting t-Tests & Wilcoxon Tests",
     "section": "What R output belongs in a presentation?",
     "text": "What R output belongs in a presentation?\n\n\nWhat is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?\n\n\n\n\nTakeaways\nPractical Interpretation (light on jargon & stats)\nLimited Statistical Interpretation (don’t rely on p value)\nNo mention of \\(H_0\\)/\\(H_A\\)\n\n\n\n\nt(23) = -0.694, p = 0.495, d = -0.142, bf10 = 0.267"
   },
@@ -2601,7 +2601,7 @@
     "href": "week07/week_07.html#libraryeco230r",
     "title": "Week 7 - Testing Hypotheses",
     "section": "library(eco230r)",
-    "text": "library(eco230r)\n\n\n\n\n\nh1 &lt;- df %&gt;%\n  csi(bed_type~room_type)\n\nh1$results\nX2(8) = 327.875, p &lt; .001, V = 0.207, bf10 = 2.609e+19\n\n\nh2 &lt;- df %&gt;%\n  idt(listed_price~cleaning_fee)\n\nh2$results\nt(1455.02) = -1.682, p = 0.093, d = -0.067, bf10 = 0.203\n\n\nh3 &lt;- df %&gt;%\n  ano(listed_price~bed_type)\n\nh3$results\nF(4,34.25) = 44.326, p &lt; .001, ξ = 0.522, bf10 = 8926.807"
+    "text": "library(eco230r)\n\n\n\n\n\nh1 &lt;- df %&gt;%\n  csi(bed_type~room_type)\n\nh1$results\nX2(8) = 327.875, p &lt; .001, V = 0.207, bf10 = 2.609e+19\n\n\nh2 &lt;- df %&gt;%\n  idt(listed_price~cleaning_fee)\n\nh2$results\nt(1455.02) = -1.682, p = 0.093, d = -0.067, bf10 = 0.203\n\n\nh3 &lt;- df %&gt;%\n  ano(listed_price~bed_type)\n\nh3$results\nF(4,34.25) = 44.326, p &lt; .001, ξ = 0.566, bf10 = 8926.807"
   },
   {
     "objectID": "week07/week_07.html#what-effect-does-it-have-on-test-scores-2",
