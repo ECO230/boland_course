@@ -85,12 +85,11 @@ h1 <- df %>%
 
 <br>
 
-**H<sub>0</sub>**: Cool_Time fits expected model
+**H<sub>0</sub>:** Cool_Time fits expected model
 
-**H<sub>A</sub>**: Cool_Time fits expected model
+**H<sub>A</sub>:** Cool_Time fits expected model
 
 **α =** 0.05
-
 :::
 
 <br>
@@ -330,7 +329,6 @@ h1$expected
 ```{r csf_sr echo:TRUE, include:TRUE}
 h1$standardized_residuals
 ```
-
 :::
 :::::
 
@@ -358,9 +356,9 @@ h2 <- df %>%
 
 <br>
 
-**H<sub>0</sub>**: Finger_Preference not associated with Cool_Time
+**H<sub>0</sub>:** Finger_Preference not associated with Cool_Time
 
-**H<sub>A</sub>**: Finger_Preference is associated with Cool_Time
+**H<sub>A</sub>:** Finger_Preference is associated with Cool_Time
 
 **α =** 0.05
 :::
@@ -572,7 +570,7 @@ Consistent, but not large
 
 **Practical:**
 
--   Effect size: $V$ <.001 → *small effect*\
+-   Effect size: $V$ \<.001 → *small effect*\
 -   Bayes Factor: bf<sub>10</sub> = 0.183 → *strong evidence for H<sub>0</sub>*
 
 **Takeaway:**
@@ -602,7 +600,6 @@ h2$expected
 ```{r csi_sr echo:TRUE, include:TRUE}
 h2$standardized_residuals
 ```
-
 :::
 :::::
 
@@ -619,7 +616,7 @@ h2$standardized_residuals
 ::: fragment
 -   Takeaways
 -   Practical Interpretation (light on jargon & stats)
--   Limited Statistical Interpretation (don't rely on p value)
+-   Limited Statistical Interpretation (don't rely on p value to tell the story)
 -   No mention of $H_0$/$H_A$\
 :::
 

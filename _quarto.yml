@@ -36,6 +36,8 @@ website:
             file: week07/interpretation_x2.qmd
           - text: "t-Tests & Wilcoxon Tests"
             file: week08/interpretation_tw.qmd
+          - text: "ANOVA & Simple Linear Regression"
+            file: week09/interpretation_anlr.qmd
       - text: "Homework"
         menu:
           - text: "Homework 1"

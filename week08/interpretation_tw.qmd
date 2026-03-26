@@ -1,5 +1,5 @@
 ---
-title: "Week 8 - Comparing Two Groups"
+title: "Interpreting t-Tests & Wilcoxon Tests"
 format:
   revealjs:
     theme:
@@ -84,8 +84,8 @@ h3 <- df %>%
 
 <br>
 
-**H**<sub>0</sub>: $\mu$<sub>Black</sub> = $\mu$<sub>Green</sub>\
-**H**<sub>A</sub>: $\mu$<sub>Black</sub> $\neq$ $\mu$<sub>Green</sub>\
+**H<sub>0</sub>:** $\mu$<sub>Black</sub> = $\mu$<sub>Green</sub>\
+**H<sub>A</sub>:** $\mu$<sub>Black</sub> $\neq$ $\mu$<sub>Green</sub>\
 **α =** 0.05
 :::
 
@@ -126,7 +126,7 @@ h3 <- df %>%
 
 ::: fragment
 **Decision:**\
-p = 0.107 \> 0.05 → **Fail to Reject H**<sub>0</sub>
+p = 0.107 \> 0.05 → **Fail to Reject H<sub>0</sub>**
 :::
 :::::
 ::::::::::
@@ -295,7 +295,7 @@ Consistent, but not large
 **Practical:**
 
 -   Effect size: $d$ = -0.686 → *medium effect*\
--   Bayes Factor: bf<sub>10</sub> = 1.013 → *anecdotal evidence for H*<sub>A</sub>
+-   Bayes Factor: bf<sub>10</sub> = 1.013 → *anecdotal evidence for H<sub>A</sub>*
 
 **Takeaway:**
 
@@ -338,8 +338,8 @@ h4 <- df %>%
 
 <br>
 
-**H**<sub>0</sub>: $\mu$<sub>Black</sub> = $\mu$<sub>Green</sub>\
-**H**<sub>A</sub>: $\mu$<sub>Black</sub> $\neq$ $\mu$<sub>Green</sub>\
+**H<sub>0</sub>:** $\mu$<sub>Black</sub> = $\mu$<sub>Green</sub>\
+**H<sub>A</sub>:** $\mu$<sub>Black</sub> $\neq$ $\mu$<sub>Green</sub>\
 **α =** 0.05
 :::
 
@@ -380,7 +380,7 @@ h4 <- df %>%
 
 ::: fragment
 **Decision:**\
-p = 0.031 \< 0.05 → **Reject H**<sub>0</sub>
+p = 0.031 \< 0.05 → **Reject H<sub>0</sub>**
 :::
 :::::
 ::::::::::
@@ -549,7 +549,7 @@ Consistent, but not large
 **Practical:**
 
 -   Effect size: $d$ = -0.714 → *medium to large effect*\
--   Bayes Factor: bf<sub>10</sub> = 1.013 → *anecdotal evidence for H*<sub>A</sub>
+-   Bayes Factor: bf<sub>10</sub> = 1.013 → *anecdotal evidence for H<sub>A</sub>*
 
 <br>
 
@@ -594,9 +594,9 @@ h5 <- df %>%
 
 <br>
 
-**H**<sub>0</sub>: μ<sub>Scones</sub> = 45
+**H<sub>0</sub>:** μ<sub>Scones</sub> = 45
 
-**H**<sub>A</sub>: μ<sub>Scones</sub> $\neq$ 45
+**H<sub>A</sub>:** μ<sub>Scones</sub> $\neq$ 45
 
 **α =** 0.05
 :::
@@ -638,7 +638,7 @@ h5 <- df %>%
 
 ::: fragment
 **Decision:**\
-p = 0.495 \> 0.05 → **Fail to Reject H**<sub>0</sub>
+p = 0.495 \> 0.05 → **Fail to Reject H<sub>0</sub>**
 :::
 :::::
 ::::::::::
@@ -807,7 +807,7 @@ Consistent, but not large
 **Practical:**
 
 -   Effect size: $d$ = -0.142 → *small effect*\
--   Bayes Factor: bf<sub>10</sub> = 0.267 → *Some evidence for H*<sub>0</sub>
+-   Bayes Factor: bf<sub>10</sub> = 0.267 → *Some evidence for H<sub>0</sub>*
 
 <br>
 
@@ -856,9 +856,9 @@ h6 <- df %>%
 
 <br>
 
-**H**<sub>0</sub>: Median<sub>Black</sub> = Median<sub>Green</sub>\
-**H**<sub>A</sub>: Median<sub>Black</sub> $\neq$ Median<sub>Green</sub>\
-**α = 0.05**
+**H<sub>0</sub>:** Median<sub>Black</sub> = Median<sub>Green</sub>\
+**H<sub>A</sub>:** Median<sub>Black</sub> $\neq$ Median<sub>Green</sub>\
+**α =** 0.05
 :::
 
 <br>
@@ -898,7 +898,7 @@ h6 <- df %>%
 
 ::: fragment
 **Decision:**\
-p = 0.137 \> 0.05 → **Fail to Reject H**<sub>0</sub>
+p = 0.137 \> 0.05 → **Fail to Reject H<sub>0</sub>**
 :::
 :::::
 ::::::::::
@@ -1067,7 +1067,7 @@ Consistent, but not large
 **Practical:**
 
 -   Effect size: $r_{rb}$ = -0.361 → *medium effect*\
--   Bayes Factor: bf<sub>10</sub> = 1.013 → *anecdotal evidence for H*<sub>A</sub>
+-   Bayes Factor: bf<sub>10</sub> = 1.013 → *anecdotal evidence for H<sub>A</sub>*
 
 **Takeaway:**
 
@@ -1110,8 +1110,8 @@ h7 <- df %>%
 
 <br>
 
-**H**<sub>0</sub>: Median<sub>Black</sub> = Median<sub>Green</sub>\
-**H**<sub>A</sub>: Median<sub>Black</sub> $\neq$ Median<sub>Green</sub>\
+**H<sub>0</sub>**: Median<sub>Black</sub> = Median<sub>Green</sub>\
+**H<sub>A</sub>**: Median<sub>Black</sub> $\neq$ Median<sub>Green</sub>\
 **α = 0.05**
 :::
 
@@ -1152,7 +1152,7 @@ h7 <- df %>%
 
 ::: fragment
 **Decision:**\
-p = 0.046 \< 0.05 → **Reject H**<sub>0</sub>
+p = 0.046 \< 0.05 → **Reject H<sub>0</sub>**
 :::
 :::::
 ::::::::::
@@ -1321,7 +1321,7 @@ Consistent, but not large
 **Practical:**
 
 -   Effect size: $r_{rb}$ = 0.709 → *Large effect*\
--   Bayes Factor: bf<sub>10</sub> = 2.401 → *anecdotal evidence for H*<sub>A</sub>
+-   Bayes Factor: bf<sub>10</sub> = 2.401 → *anecdotal evidence for H<sub>A</sub>*
 
 **Takeaway:**
 
@@ -1354,7 +1354,7 @@ h6$descriptive_statistics
 ::: fragment
 -   Takeaways
 -   Practical Interpretation (light on jargon & stats)
--   Limited Statistical Interpretation (don't rely on p value)
+-   Limited Statistical Interpretation (don't rely on p value to tell the story)
 -   No mention of $H_0$/$H_A$\
 :::
 
