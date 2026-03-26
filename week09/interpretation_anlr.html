@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
-  <title>ECO 230 — Section 12 – Interpreting Chi-Square Analysis</title>
+  <title>ECO 230 — Section 12 – Interpreting ANOVA &amp; Simple Linear Regression</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -192,7 +192,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Interpreting Chi-Square Analysis</h1>
+  <h1 class="title">Interpreting ANOVA &amp; Simple Linear Regression</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -292,32 +292,31 @@
 </div>
 </section>
 <section>
-<section id="chi-square-analysis" class="title-slide slide level1 center">
-<h1>Chi-Square Analysis</h1>
-<p>Comparing Categorical Variables</p>
+<section id="anova" class="title-slide slide level1 center">
+<h1>ANOVA</h1>
+<p>Comparing Means Between More Than Two Categories</p>
 </section>
-<section id="chi-square-goodness-of-fit-csf" class="slide level2">
-<h2>Chi-Square Goodness of Fit <code>csf()</code></h2>
+<section id="analysis-of-variance-anova-ano" class="slide level2">
+<h2>Analysis of Variance (ANOVA) <code>ano()</code></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p><br></p>
 <div class="fragment">
 <h3 id="steps-1-3-setup">Steps 1-3: Setup</h3>
 <p><br></p>
-<p><strong>Test:</strong> Chi-Square Goodness of Fit Test<br>
-</p>
-<p><strong>Function:</strong> <code>csf()</code></p>
+<p><strong>Test:</strong> ANOVA<br>
+<strong>Function:</strong> <code>ano()</code></p>
 <p><br></p>
-<p><strong>H<sub>0</sub>:</strong> Cool_Time fits expected model</p>
-<p><strong>H<sub>A</sub>:</strong> Cool_Time fits expected model</p>
-<p><strong>α =</strong> 0.05</p>
+<p><strong>H<sub>0</sub>:</strong> <span class="math inline">\(\mu\)</span><sub>Low</sub> = <span class="math inline">\(\mu\)</span><sub>Warm</sub> = <span class="math inline">\(\mu\)</span><sub>Harsh</sub><br>
+<strong>H<sub>A</sub>:</strong> <span class="math inline">\(\mu\)</span><sub>Low</sub> <span class="math inline">\(\neq\)</span> <span class="math inline">\(\mu\)</span><sub>Warm</sub> <span class="math inline">\(\neq\)</span> <span class="math inline">\(\mu\)</span><sub>Harsh</sub><br>
+<strong>α =</strong> 0.05</p>
 </div>
 <p><br></p>
 <div class="fragment">
 <h3 id="run-the-test">Run the Test</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>h1 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a></a>  <span class="fu">csf</span>(<span class="sc">~</span>cool_time)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>h8 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a></a>  <span class="fu">ano</span>(naptime <span class="sc">~</span> light)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div><div class="column" style="width:5%;">
@@ -326,8 +325,8 @@
 <p><br></p>
 <div class="fragment">
 <h3 id="step-4-do-we-believe-it">Step 4: Do we believe it?</h3>
-<p><code>h1$results</code></p>
-<p>X2(3) = 4.333, p = 0.228, w = 0.251, bf10 = 0.082</p>
+<p><code>h8$results</code></p>
+<p>F(2,12) = 5.119, p = 0.025, ω² = 0.354, bf10 = 3.071</p>
 <p><br></p>
 <p><strong>Decision Rule:</strong></p>
 <ul>
@@ -339,17 +338,17 @@
 </div>
 <div class="fragment">
 <p><strong>Decision:</strong><br>
-p = 0.228 &gt; 0.05 → <strong>Fail to Reject H<sub>0</sub></strong></p>
+p = 0.025 &lt; 0.05 → <strong>Reject H<sub>0</sub></strong></p>
 </div>
 </div></div>
 </section>
-<section id="bayes-factor-vs.-effect-size-csf-csi" class="slide level2">
-<h2>Bayes Factor vs.&nbsp;Effect Size <code>csf()</code> | <code>csi()</code></h2>
+<section id="bayes-factor-vs.-effect-size-ano" class="slide level2">
+<h2>Bayes Factor vs.&nbsp;Effect Size <code>ano()</code></h2>
 <div style="display:grid; grid-template-columns: .9fr 1.1fr; column-gap:1.2rem; align-items:center; margin-bottom:.25rem;">
 <!-- LEFT: test output -->
 <div style="display:flex; justify-content:flex-start; align-items:center;">
 <div style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;">
-<p><strong>X2(3) = 4.333, p = 0.228, w = 0.251, bf10 = 0.082</strong></p>
+<p><strong>F(2,12) = 5.119, p = 0.025, ω² = 0.354, bf10 = 3.071</strong></p>
 </div>
 </div>
 <!-- RIGHT: Bayes factor anchor -->
@@ -359,9 +358,10 @@ p = 0.228 &gt; 0.05 → <strong>Fail to Reject H<sub>0</sub></strong></p>
 </div>
 <div style="display:grid; grid-template-columns: 205px repeat(5, 1fr); gap:.28rem; align-items:stretch;">
 <!-- header row -->
-<div style="text-align:center; font-size:.96rem; font-weight:700; padding:.45rem .3rem; background:#eef2f7; display:flex; align-items:center; justify-content:center; line-height:1.15;">
-<div style="font-size:.82rem; font-weight:600; margin-top:.12rem;">
-<p>Cohen’s <span class="math inline">\(w\)</span> (Association) Cramer’s <span class="math inline">\(V\)</span> (Departure Size)</p>
+<div style="text-align:center; font-size:.96rem; font-weight:700; padding:.45rem .3rem; background:#eef2f7; display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1.1;">
+<p>Variance Explained</p>
+<div style="font-size:.82rem; font-weight:600;">
+<p><span class="math inline">\(\omega^2\)</span>, <span class="math inline">\(\xi\)</span></p>
 </div>
 </div>
 <div style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;">
@@ -382,83 +382,83 @@ p = 0.228 &gt; 0.05 → <strong>Fail to Reject H<sub>0</sub></strong></p>
 <!-- Large -->
 <div style="background:#2e8b57; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;">
 <p>Large</p>
-<div style="font-size:.95rem; margin-top:.2rem;">
-<p><span class="math inline">\(w, V = .50\)</span></p>
+<div style="font-size:.95rem;">
+<p><span class="math inline">\(\omega^2, \xi = .14\)</span></p>
 </div>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Large pattern, but evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
-Possible noisy result or very small sample</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;">
+<p><strong>Large variance explained, but evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
+Group differences appear large, but this may be due to noise or small sample size</p>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Large-looking pattern, weak evidence</strong><br>
-Promising, but still uncertain</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;">
+<p><strong>Large-looking differences, weak evidence</strong><br>
+Groups look different, but we are not yet confident this pattern is real</p>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Potentially important association / mismatch</strong><br>
-Need more evidence before being confident</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;">
+<p><strong>Potentially important group differences</strong><br>
+Group membership may explain a meaningful portion of the outcome, but evidence is still limited</p>
 </div>
-<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;">
-<p><strong>Likely real and practically meaningful</strong><br>
-A strong pattern in the counts</p>
+<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; background:#f6fbf6;">
+<p><strong>Likely real and meaningful differences</strong><br>
+Group membership explains a substantial portion of variation in the outcome</p>
 </div>
-<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;">
+<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; background:#eef8ee;">
 <p><strong>Large and well supported</strong><br>
-Strong evidence for a substantial pattern</p>
+Strong evidence that group differences explain a large share of the outcome</p>
 </div>
 <!-- Medium -->
 <div style="background:#7fc97f; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;">
 <p>Medium</p>
-<div style="font-size:.95rem; margin-top:.2rem;">
-<p><span class="math inline">\(w, V = .30\)</span></p>
+<div style="font-size:.95rem;">
+<p><span class="math inline">\(\omega^2, \xi = .06\)</span></p>
 </div>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Moderate pattern, but evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
-Could be unstable</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;">
+<p><strong>Moderate variance explained, but evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
+There may be some group differences, but the data do not support them clearly</p>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Moderate-looking pattern, weak evidence</strong><br>
-Unclear whether it will hold up</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;">
+<p><strong>Moderate differences, weak evidence</strong><br>
+Groups show some separation, but it may not hold up with more data</p>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Some indication of a meaningful pattern</strong><br>
-Not decisive yet</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;">
+<p><strong>Some indication of meaningful differences</strong><br>
+Group membership may explain part of the outcome, but not decisively</p>
 </div>
-<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;">
-<p><strong>Likely real and noticeable</strong><br>
-Worth taking seriously</p>
+<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; background:#f6fbf6;">
+<p><strong>Likely real and noticeable differences</strong><br>
+Group differences explain a meaningful portion of variation</p>
 </div>
-<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;">
+<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; background:#eef8ee;">
 <p><strong>Meaningful and well supported</strong><br>
-Good evidence and practical relevance</p>
+Good evidence that group differences matter for the outcome</p>
 </div>
 <!-- Small -->
 <div style="background:#cfe8cf; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;">
 <p>Small</p>
-<div style="font-size:.95rem; margin-top:.2rem;">
-<p><span class="math inline">\(w, V = .10\)</span></p>
+<div style="font-size:.95rem;">
+<p><span class="math inline">\(\omega^2, \xi = .01\)</span></p>
 </div>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Little pattern, evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
-Probably not much happening</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;">
+<p><strong>Little variance explained, evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
+Group differences do not explain much of the outcome</p>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Small pattern, weak evidence overall</strong><br>
-Not much to conclude</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;">
+<p><strong>Small differences, weak evidence</strong><br>
+Groups look similar, and there is little evidence of meaningful separation</p>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Maybe real, but still small</strong><br>
-Even if true, impact is modest</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;">
+<p><strong>Maybe real, but small impact</strong><br>
+Even if group differences exist, they explain very little of the outcome</p>
 </div>
-<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;">
-<p><strong>Likely real, but modest</strong><br>
-Useful distinction: real does not mean large</p>
+<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; background:#f6fbf6;">
+<p><strong>Likely real, but modest differences</strong><br>
+Group differences are consistent, but explain only a small portion of variation</p>
 </div>
-<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;">
-<p><strong>Very strong evidence for a small pattern</strong><br>
-Consistent, but not large</p>
+<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; background:#eef8ee;">
+<p><strong>Very strong evidence for small differences</strong><br>
+Group differences are real, but they explain very little of the outcome</p>
 </div>
 </div>
 </section>
@@ -469,76 +469,69 @@ Consistent, but not large</p>
 <p><br></p>
 <p><strong>Statistical:</strong></p>
 <ul>
-<li>Variable is not significantly different than the expected model where counts from all categories are equal</li>
+<li>Statistically significant difference between groups</li>
 </ul>
 <p><strong>Practical:</strong></p>
 <ul>
-<li>Effect size: <span class="math inline">\(w\)</span> = 0.251 → <em>small to medium effect</em><br>
+<li>Effect size: <span class="math inline">\(\omega^2\)</span> = 0.354 → <em>large effect</em><br>
 </li>
-<li>Bayes Factor: bf<sub>10</sub> = 0.082 → <em>strong evidence for H<sub>0</sub></em></li>
+<li>Bayes Factor: bf<sub>10</sub> = 3.071 → <em>Some evidence for H<sub>A</sub></em></li>
 </ul>
 <p><strong>Takeaway:</strong></p>
 <ul>
-<li>Little to moderate pattern in data, evidence favors H<sub>0</sub></li>
-<li>Pattern could be unstable</li>
-<li>Possible sample is too small to see meaningful pattern</li>
+<li>Likely real and meaningful differences between groups</li>
+<li>Group membership explains a substantial portion of variation</li>
+<li><strong>Post-hoc analysis must be done for individual group differences</strong></li>
+<li>Difference between Low Light and Harsh light only significant difference (p&lt;.05)</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <p><br></p>
-<p><code>h1$observed</code></p>
+<p><code>h8$descriptive_statistics</code></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>      cool_time Freq
-1   0-5 minutes   14
-2 11-15 minutes   21
-3   15+ minutes   12
-4  6-10 minutes   22</code></pre>
+<pre><code>        Group     N  Mean Standard_Error
+1 Harsh Light 5.000 2.200          0.583
+2   Low Light 5.000 5.000          0.707
+3  Warm Light 5.000 3.200          0.583</code></pre>
 </div>
 </div>
-<p><code>h1$expected</code></p>
+<p><code>h8$post_hoc_analysis</code></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>               Freq
-0-5 minutes   17.25
-11-15 minutes 17.25
-15+ minutes   17.25
-6-10 minutes  17.25</code></pre>
-</div>
-</div>
-<p><code>h1$standardized_residuals</code></p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>      cool_time       Freq
-1   0-5 minutes -0.9035625
-2 11-15 minutes  1.0425721
-3   15+ minutes -1.4596009
-4  6-10 minutes  1.3205913</code></pre>
+<pre><code>                       Difference P.Value
+Low Light-Harsh Light         2.8  0.0209
+Warm Light-Harsh Light        1.0  0.5160
+Warm Light-Low Light         -1.8  0.1470</code></pre>
 </div>
 </div>
 </div></div>
+</section></section>
+<section>
+<section id="simple-linear-regression" class="title-slide slide level1 center">
+<h1>Simple Linear Regression</h1>
+<p>Testing if there is a linear relationship between two ratio scales</p>
 </section>
-<section id="chi-square-test-of-association-csi" class="slide level2">
-<h2>Chi-Square Test of Association <code>csi()</code></h2>
+<section id="simple-linear-regression-slr" class="slide level2">
+<h2>Simple Linear Regression <code>slr()</code></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p><br></p>
 <div class="fragment">
 <h3 id="steps-1-3-setup-1">Steps 1-3: Setup</h3>
 <p><br></p>
-<p><strong>Test:</strong> Chi-Square Test of Association<br>
-</p>
-<p><strong>Function:</strong> <code>csi()</code></p>
+<p><strong>Test:</strong> Simple Linear Regression<br>
+<strong>Function:</strong> <code>slr()</code></p>
 <p><br></p>
-<p><strong>H<sub>0</sub>:</strong> Finger_Preference not associated with Cool_Time</p>
-<p><strong>H<sub>A</sub>:</strong> Finger_Preference is associated with Cool_Time</p>
-<p><strong>α =</strong> 0.05</p>
+<p><strong>H<sub>0</sub>:</strong> <span class="math inline">\(\beta_1\)</span> = 0<br>
+<strong>H<sub>A</sub>:</strong> <span class="math inline">\(\beta_1\)</span> <span class="math inline">\(\neq\)</span> 0<br>
+<strong>α =</strong> 0.05</p>
 </div>
 <p><br></p>
 <div class="fragment">
 <h3 id="run-the-test-1">Run the Test</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>h2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a></a>  <span class="fu">csi</span>(finger_preference<span class="sc">~</span>cool_time)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>h9 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a></a>  <span class="fu">slr</span>(naptime <span class="sc">~</span> timestamp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div><div class="column" style="width:5%;">
@@ -547,8 +540,8 @@ Consistent, but not large</p>
 <p><br></p>
 <div class="fragment">
 <h3 id="step-4-do-we-believe-it-1">Step 4: Do we believe it?</h3>
-<p><code>h2$results</code></p>
-<p>X2(3) = 2.761, p = 0.430, V &lt; .001, bf10 = 0.183</p>
+<p><code>h9$results</code></p>
+<p>F(2,13) = 6.534, p = 0.024, R2 = 0.334, bf10 = 2.861</p>
 <p><br></p>
 <p><strong>Decision Rule:</strong></p>
 <ul>
@@ -560,17 +553,17 @@ Consistent, but not large</p>
 </div>
 <div class="fragment">
 <p><strong>Decision:</strong><br>
-p = 0.430 &gt; 0.05 → <strong>Fail to Reject H<sub>0</sub></strong></p>
+p = 0.024 &lt; 0.05 → <strong>Reject H<sub>0</sub></strong></p>
 </div>
 </div></div>
 </section>
-<section id="bayes-factor-vs.-effect-size-csf-csi-1" class="slide level2">
-<h2>Bayes Factor vs.&nbsp;Effect Size <code>csf()</code> | <code>csi()</code></h2>
+<section id="bayes-factor-vs.-effect-size-slr" class="slide level2">
+<h2>Bayes Factor vs.&nbsp;Effect Size <code>slr()</code></h2>
 <div style="display:grid; grid-template-columns: .9fr 1.1fr; column-gap:1.2rem; align-items:center; margin-bottom:.25rem;">
 <!-- LEFT: test output -->
 <div style="display:flex; justify-content:flex-start; align-items:center;">
 <div style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;">
-<p><strong>X2(3) = 2.761, p = 0.430, V &lt; .001, bf10 = 0.183</strong></p>
+<p><strong>F(2,13) = 6.534, p = 0.024, R2 = 0.334, bf10 = 2.861</strong></p>
 </div>
 </div>
 <!-- RIGHT: Bayes factor anchor -->
@@ -580,9 +573,10 @@ p = 0.430 &gt; 0.05 → <strong>Fail to Reject H<sub>0</sub></strong></p>
 </div>
 <div style="display:grid; grid-template-columns: 205px repeat(5, 1fr); gap:.28rem; align-items:stretch;">
 <!-- header row -->
-<div style="text-align:center; font-size:.96rem; font-weight:700; padding:.45rem .3rem; background:#eef2f7; display:flex; align-items:center; justify-content:center; line-height:1.15;">
-<div style="font-size:.82rem; font-weight:600; margin-top:.12rem;">
-<p>Cohen’s <span class="math inline">\(w\)</span> (Association) Cramer’s <span class="math inline">\(V\)</span> (Departure Size)</p>
+<div style="text-align:center; font-size:.96rem; font-weight:700; padding:.45rem .3rem; background:#eef2f7; display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1.1;">
+<p>Variance Explained</p>
+<div style="font-size:.82rem; font-weight:600;">
+<p><span class="math inline">\(R^2\)</span></p>
 </div>
 </div>
 <div style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;">
@@ -603,131 +597,122 @@ p = 0.430 &gt; 0.05 → <strong>Fail to Reject H<sub>0</sub></strong></p>
 <!-- Large -->
 <div style="background:#2e8b57; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;">
 <p>Large</p>
-<div style="font-size:.95rem; margin-top:.2rem;">
-<p><span class="math inline">\(w, V = .50\)</span></p>
+<div style="font-size:.95rem;">
+<p><span class="math inline">\(R^2 = .26\)</span></p>
 </div>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Large pattern, but evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
-Possible noisy result or very small sample</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;">
+<p><strong>Large variance explained, but evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
+The predictor appears important, but this may be due to noise or limited data</p>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Large-looking pattern, weak evidence</strong><br>
-Promising, but still uncertain</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;">
+<p><strong>Strong-looking relationship, weak evidence</strong><br>
+The predictor explains a lot of variation, but we are not yet confident it is real</p>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Potentially important association / mismatch</strong><br>
-Need more evidence before being confident</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;">
+<p><strong>Potentially important predictor</strong><br>
+The predictor may explain a large portion of the outcome, but evidence is still limited</p>
 </div>
-<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;">
-<p><strong>Likely real and practically meaningful</strong><br>
-A strong pattern in the counts</p>
+<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; background:#f6fbf6;">
+<p><strong>Likely real and meaningful relationship</strong><br>
+The predictor explains a substantial share of variation in the outcome</p>
 </div>
-<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;">
+<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; background:#eef8ee;">
 <p><strong>Large and well supported</strong><br>
-Strong evidence for a substantial pattern</p>
+Strong evidence that the predictor is highly informative for the outcome</p>
 </div>
 <!-- Medium -->
 <div style="background:#7fc97f; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;">
 <p>Medium</p>
-<div style="font-size:.95rem; margin-top:.2rem;">
-<p><span class="math inline">\(w, V = .30\)</span></p>
+<div style="font-size:.95rem;">
+<p><span class="math inline">\(R^2 = .13\)</span></p>
 </div>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Moderate pattern, but evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
-Could be unstable</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem;">
+<p><strong>Moderate variance explained, but evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
+The predictor may matter, but the data do not support it clearly</p>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Moderate-looking pattern, weak evidence</strong><br>
-Unclear whether it will hold up</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem;">
+<p><strong>Moderate relationship, weak evidence</strong><br>
+The predictor explains some variation, but this may not hold up</p>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Some indication of a meaningful pattern</strong><br>
-Not decisive yet</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem;">
+<p><strong>Some indication of a useful predictor</strong><br>
+The predictor may explain part of the outcome, but not decisively</p>
 </div>
-<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;">
-<p><strong>Likely real and noticeable</strong><br>
-Worth taking seriously</p>
+<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; background:#f6fbf6;">
+<p><strong>Likely real and noticeable relationship</strong><br>
+The predictor explains a meaningful portion of variation</p>
 </div>
-<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;">
+<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; background:#eef8ee;">
 <p><strong>Meaningful and well supported</strong><br>
-Good evidence and practical relevance</p>
+Good evidence that the predictor contributes to the outcome</p>
 </div>
 <!-- Small -->
 <div style="background:#cfe8cf; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;">
 <p>Small</p>
-<div style="font-size:.95rem; margin-top:.2rem;">
-<p><span class="math inline">\(w, V = .10\)</span></p>
+<div style="font-size:.95rem;">
+<p><span class="math inline">\(R^2 = .02\)</span></p>
 </div>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Little pattern, evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
-Probably not much happening</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem;">
+<p><strong>Little variance explained, evidence favors</strong> <span class="math inline">\(H_0\)</span><br>
+The predictor does not explain much of the outcome</p>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Small pattern, weak evidence overall</strong><br>
-Not much to conclude</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem;">
+<p><strong>Small relationship, weak evidence</strong><br>
+The predictor explains very little variation</p>
 </div>
-<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22; background:#fcfcfc;">
-<p><strong>Maybe real, but still small</strong><br>
-Even if true, impact is modest</p>
+<div style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem;">
+<p><strong>Maybe real, but small impact</strong><br>
+Even if real, the predictor has limited influence on the outcome</p>
 </div>
-<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; line-height:1.22; background:#f6fbf6;">
-<p><strong>Likely real, but modest</strong><br>
-Useful distinction: real does not mean large</p>
+<div style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; background:#f6fbf6;">
+<p><strong>Likely real, but modest relationship</strong><br>
+The predictor consistently explains a small portion of variation</p>
 </div>
-<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; line-height:1.22; background:#eef8ee;">
-<p><strong>Very strong evidence for a small pattern</strong><br>
-Consistent, but not large</p>
+<div style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; background:#eef8ee;">
+<p><strong>Very strong evidence for a small relationship</strong><br>
+The predictor matters, but only explains a small share of the outcome</p>
 </div>
 </div>
 </section>
 <section id="step-5-does-it-matter-1" class="slide level2">
 <h2>Step 5: Does it matter?</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p><br></p>
+<div class="column" style="width:60%;">
 <p><strong>Statistical:</strong></p>
 <ul>
-<li>No significant association between Finger_Preference and Cool_Time</li>
+<li>There is a statistically significant linear relationship between timestamp and naptime.</li>
 </ul>
+<p><br></p>
 <p><strong>Practical:</strong></p>
 <ul>
-<li>Effect size: <span class="math inline">\(V\)</span> &lt;.001 → <em>small effect</em><br>
+<li>Effect size: <span class="math inline">\(R^2\)</span> = 0.334 → <em>large effect</em><br>
 </li>
-<li>Bayes Factor: bf<sub>10</sub> = 0.183 → <em>strong evidence for H<sub>0</sub></em></li>
+<li>Bayes Factor: bf<sub>10</sub> = 2.861 → <em>anecdotal evidence for H<sub>A</sub></em></li>
 </ul>
+<p><br></p>
 <p><strong>Takeaway:</strong></p>
 <ul>
-<li>Little to pattern in data, evidence favors H<sub>0</sub></li>
-<li>Probably not much of an association</li>
-<li>Possible sample is too small to see meaningful pattern</li>
+<li>Potentially important predictor</li>
+<li>Evidence is still limited</li>
+<li>Relationship described by h9$linear_regression_model</li>
 </ul>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:40%;">
 <p><br></p>
-<p><code>h2$observed</code></p>
+<p><code>h9$linear_regression_model</code></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>  finger_preference  0-5 minutes 11-15 minutes 15+ minutes 6-10 minutes
-1         Pinky Down           6            12           4           13
-2           Pinky Up           8             9           8            9</code></pre>
+<pre><code>[1] "y = 0.23x + 1.64"</code></pre>
 </div>
 </div>
-<p><code>h1$expected</code></p>
+<p><code>h9$coefficients</code></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>           X0.5.minutes X11.15.minutes X15..minutes X6.10.minutes
-Pinky Down     7.101449       10.65217     6.086957      11.15942
-Pinky Up       6.898551       10.34783     5.913043      10.84058</code></pre>
-</div>
-</div>
-<p><code>h1$standardized_residuals</code></p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>  finger_preference  0-5 minutes 11-15 minutes 15+ minutes 6-10 minutes
-1         Pinky Down  -0.6595068     0.7053485   -1.325823    0.9510307
-2           Pinky Up   0.6595068    -0.7053485    1.325823   -0.9510307</code></pre>
+<pre><code>             Estimate Std..Error  t.value   Pr...t..
+(Intercept) 1.6380952 0.81301123 2.014849 0.06508462
+timestamp   0.2285714 0.08941931 2.556175 0.02391157</code></pre>
 </div>
 </div>
 </div></div>
@@ -749,7 +734,7 @@ Pinky Up       6.898551       10.34783     5.913043      10.84058</code></pre>
 </ul>
 </div>
 <div style="position:absolute; bottom:40px; right:60px; font-size:.7em; color:#6b7280; text-align:right;">
-<p>X2(3) = 4.333, p = 0.228, w = 0.251, bf10 = 0.082</p>
+<p>F(2,12) = 5.119, p = 0.025, ω² = 0.354, bf10 = 3.071</p>
 </div>
 
 
