@@ -168,6 +168,41 @@
     "text": "What R output belongs in a presentation?\n\n\nWhat is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?\n\n\n\n\nTakeaways\nPractical Interpretation (light on jargon & stats)\nLimited Statistical Interpretation (don’t rely on p value to tell the story)\nNo mention of \\(H_0\\)/\\(H_A\\)\n\n\n\n\nF(2,12) = 5.119, p = 0.025, ω² = 0.354, bf10 = 3.071"
   },
   {
+    "objectID": "week09/Homework_08.html",
+    "href": "week09/Homework_08.html",
+    "title": "Homework 8",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(eco230r)\noptions(scipen = 999)"
+  },
+  {
+    "objectID": "week09/Homework_08.html#homework-8",
+    "href": "week09/Homework_08.html#homework-8",
+    "title": "Homework 8",
+    "section": "HOMEWORK 8",
+    "text": "HOMEWORK 8\n\n\n\n\n\n\nNote\n\n\n\nOBJECTIVES\n\n\n\nContinue applying the hypothesis testing framework\n\nFocus on Step 4 (statistical interpretation) and Step 5 (practical interpretation)\n\nStrengthen communication of results using effect size and Bayes factor\n\n\n\n\n\n\n\n\nNote\n\n\n\nINSTRUCTIONS"
+  },
+  {
+    "objectID": "week09/Homework_08.html#homework-8-anova-and-simple-linear-regression",
+    "href": "week09/Homework_08.html#homework-8-anova-and-simple-linear-regression",
+    "title": "Homework 8",
+    "section": "HOMEWORK 8: ANOVA and Simple Linear Regression",
+    "text": "HOMEWORK 8: ANOVA and Simple Linear Regression\n\nObjectives\n\n\nComplete step 4 of the hypothesis testing process: What is the statistical interpretation of the test result?\nComplete step 5 of the hypothesis testing process: What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?\nAttempt to run an ANOVA or Simple Linear Regression in R and complete steps 1-5\n\n\nResources\n\n\n.csv files included with this project or your groups clean data set.\nWeek 6 & 9 resources and lectures\n\n\nInstructions\n\n\nLoad the dataset into r as df with:\n\n\n#load larger data set for these specific analyses\ndf &lt;- read.csv('../shared/data/airbnb_full_oa.csv')\n\n\nReview the example in Hypothesis 1\nComplete steps 4-5 of the Hypothesis Test for Hypothesis 2\nAttempt to run an ANOVA or Simple Linear Regression in R related to your project and complete steps 1-5 of the Hypothesis Test\n\n\nExample: A full Hypothesis Test\n\n\nHypothesis 1 - My Interpretation Steps 1-5\n\nWhat statistical story am I attempting to tell?\nProperties with a real bed listed will have higher list prices than properties with other bed types\nWhat have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?\n\n\n\nAvg List Price by bed type\n\n\nProperties that list real beds have a higher mean price than those that do not.\nWhich test is appropriate and what is the null hypothesis?\nAnalysis of Variance ano()\n\\(H_0\\): \\(\\mu\\) Airbed = \\(\\mu\\) Couch = \\(\\mu\\) Futon = \\(\\mu\\) PO-Sofa = \\(\\mu\\) Real Bed\n\\(H_A\\): \\(\\mu\\) Airbed \\(\\neq\\) \\(\\mu\\) Couch \\(\\neq\\) \\(\\mu\\) Futon \\(\\neq\\) \\(\\mu\\) PO-Sofa \\(\\neq\\) \\(\\mu\\) Real Bed\n\\(\\alpha\\) = 0.05 (you can use this as the default value)\n\n\n#ano()\nh1 &lt;- df %&gt;%\n  ano(listed_price~bed_type)\n\n[1] \"Independent variable converted to a factor using as.factor()\"\n\nprint(h1)\n\n$analysis_type\n[1] \"Homogeneity of Variance is not assumed, Robust One Way ANOVA for medians,  0.1  trimmed means, Post Hocs using linear equality constraints\"\n\n$results\n[1] \"F(4,731.84) = 404.918, p &lt; .001, ξ = 0.357, bf10 = 4.227e+51\"\n\n$descriptive_statistics\n          Group         N      Mean Standard_Error\n1        Airbed   463.000   108.000          8.060\n2         Couch   262.000   112.000          9.710\n3         Futon   742.000    93.500          3.400\n4 Pull-out Sofa   572.000   102.000          3.100\n5      Real Bed 71100.000   162.000          0.633\n\n$post_hoc_analysis\n                        Difference   P.Value\nAirbed-Couch            -0.7802336 0.9500000\nAirbed-Futon            -1.0598392 0.9500000\nAirbed-Pull-out Sofa   -13.8109676 0.0001990\nAirbed-Real Bed        -52.7118173 0.0000000\nCouch-Futon             -0.2796056 0.9500000\nCouch-Pull-out Sofa    -13.0307340 0.0200000\nCouch-Real Bed         -51.9315837 0.0000000\nFuton-Pull-out Sofa    -12.7511285 0.0000347\nFuton-Real Bed         -51.6519781 0.0000000\nPull-out Sofa-Real Bed -38.9008496 0.0000000\n\n\n\nWhat is the statistical interpretation of the test result?\nF(4,731.84) = 404.918, p &lt; .001, ξ = 0.357, bf10 = 4.227e+51\np is less than 0.05 (\\(\\alpha\\)) so we reject the null hypothesis. Mean list price differs by bed type. Post hoc analysis reveals significant differences betweent the following bed types:\n\nAirbed - PO-Sofa\nAirbed - Real Bed\nCouch - PO-Sofa\nCouch - Real Bed\nFuton - PO-Sofa\nFuton - Real Bed\nPO-Sofa - Real Bed\n\nWhat is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?\nThere is a significant difference in price based on bed type. Real bed had the highest mean list price as it was significantly higher than any other category. This makes sense as nicer properties are less likely to have worse bed options and owners will charge a premium for them. There were also several significant differences between other bed types. Couch and Airbed had significantly higher mean list prices than Pull-out Sofa. Pull-out Sofa had significantly higher mean list prices than Futon. There were some strange results in the post-hocs. There is no significant difference between couches and futons nor between airbeds and couches or airbeds and futons. This could indicate that there is variation in the non-real bed categories. Providing a real bed clearly has a benefit in terms of the list price, but there is not a conclusive advantage in one remaining category over the others. The effect size for this relationship is 0.36 which represents a large effect so this decision is not trivial. The Bayes factor is very large (&gt; 100k) so there is decisive evidence for this effect. The effect is large and well supported with strong evidence that group differences explain a large share of the differences in price. It is likely that the choice of bed type will have a material impact on the list price so if a real bed is an option it should be listed.\n\n\n\n\nHypothesis 2 - You Interpret steps 4-5\n\nWhat statistical story am I attempting to tell?\nThere is a linear relationship between bathroom ratio (beds per bathroom) and list price.\nWhat have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?\n\n\n\nScatter Plot comparing Bathroom Ratio to Price\n\n\nThere is a positive relationship between bathroom ratio and price. As the number of beds per bathroom goes up, so does the price. Note: we will have to calculate bathroom ratio as it does not exist yet in the data set.\nWhich test is appropriate and what is the null hypothesis?\nSimple linear regression testing effect between listed_price (y) and bathroom_ratio (x) slr()\n\\(H_0\\): \\(\\beta_1\\) (slope) = 0\n\\(H_A\\): \\(\\beta_1\\) (slope) \\(\\neq\\) 0\n\\(\\alpha\\) = 0.05 (you can use this as the default value)\n\n\n#slr()\nh2 &lt;- df %&gt;%\n  filter(bathrooms &gt; 0) %&gt;% #make sure we don't divide by zero\n  mutate(bathroom_ratio = beds/bathrooms) %&gt;%\n  slr(listed_price~bathroom_ratio)\n\n[1] \"73 rows removed due to NA/Nan/Inf values in data.\"\n\nprint(h2)\n\n$analysis_type\n[1] \"Simple linear regression testing effect between listed_price (y) and  bathroom_ratio (x)\"\n\n$results\n[1] \"F(2,72653) = 2199.873, p &lt; .001, R2 = 0.029, bf10 =  Inf\"\n\n$linear_regression_model\n[1] \"y = 35.97x + 109.82\"\n\n$predictors\n[1] \"Predictor 1:  bathroom_ratio (t = 46.9, p = 0)\"\n\n$coefficients\n                Estimate Std..Error  t.value Pr...t..\n(Intercept)    109.82112  1.2421416 88.41272        0\nbathroom_ratio  35.97465  0.7670042 46.90280        0\n\n\n\nWhat is the statistical interpretation of the test result?\nF(2,72653) = 2199.873, p &lt; .001, R2 = 0.029, bf10 = Inf\nStatistical Interpretation:\nWhat is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?\nPractical Interpretation:\nHint what is the equation for the line of best fit, how can it be applied / interpreted\n\n\n\n\nHypothesis 3 - You Attempt the Full Test Steps 1-5 for a Hypothesis Related to Your Project\n\nWhat statistical story am I attempting to tell?\nWhat have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?\nYou may leave this blank if you want, or you can try uploading an image and displaying.\nWhich test is appropriate and what is the null hypothesis?\nTest Type:\n\\(H_0\\):\n\\(H_A\\):\n\\(\\alpha\\) = 0.05 (you can use this as the default value)\n\n\n#Attempt a test using ano() or slr() you can copy the code above and adjust the variables\n#If you can't get it to run leave your code in this chunk and comment out the lines with #\n\n#load one of the default data sets or your own\nff &lt;- read.csv('../shared/data/airbnb_chicago.csv')\n\n#h3 &lt;- ff %&gt;%\n#  ano(listed_price~bed_type)\n\n#print(h3)\n\n\nWhat is the statistical interpretation of the test result?\nStatistical Interpretation:\nWhat is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?\nPractical Interpretation:"
+  },
+  {
+    "objectID": "week09/Homework_08.html#submission-requirements",
+    "href": "week09/Homework_08.html#submission-requirements",
+    "title": "Homework 8",
+    "section": "SUBMISSION REQUIREMENTS",
+    "text": "SUBMISSION REQUIREMENTS\n\n\n\n\n\n\nWarning\n\n\n\nWHAT TO INCLUDE\n\n\n\nClearly stated hypotheses (H₀ and Hₐ)\n\nAppropriate test selection (using eco230r)\n\nCorrect statistical interpretation (Step 4)\n\nPractical interpretation (Step 5) including:\n\neffect size\n\nBayes factor\n\n\nClear, concise written explanations"
+  },
+  {
+    "objectID": "week09/Homework_08.html#notes",
+    "href": "week09/Homework_08.html#notes",
+    "title": "Homework 8",
+    "section": "NOTES",
+    "text": "NOTES\n\n\n\n\n\n\nNote\n\n\n\nGUIDANCE\n\n\n\nFocus on clarity over length\n\nUse variable names from your dataset\n\nAvoid copying raw output without interpretation\n\nConnect your findings back to your original question"
+  },
+  {
     "objectID": "week03/Homework_03.html",
     "href": "week03/Homework_03.html",
     "title": "Homework 3: Visualizing Data",
@@ -375,7 +410,7 @@
     "href": "week07/week_07.html#libraryeco230r",
     "title": "Week 7 - Testing Hypotheses",
     "section": "library(eco230r)",
-    "text": "library(eco230r)\n\n\n\n\n\nh1 &lt;- df %&gt;%\n  csi(bed_type~room_type)\n\nh1$results\nX2(8) = 327.875, p &lt; .001, V = 0.207, bf10 = 2.609e+19\n\n\nh2 &lt;- df %&gt;%\n  idt(listed_price~cleaning_fee)\n\nh2$results\nt(1455.02) = -1.682, p = 0.093, d = -0.067, bf10 = 0.203\n\n\nh3 &lt;- df %&gt;%\n  ano(listed_price~bed_type)\n\nh3$results\nF(4,34.25) = 44.326, p &lt; .001, ξ = 0.53, bf10 = 8926.807"
+    "text": "library(eco230r)\n\n\n\n\n\nh1 &lt;- df %&gt;%\n  csi(bed_type~room_type)\n\nh1$results\nX2(8) = 327.875, p &lt; .001, V = 0.207, bf10 = 2.609e+19\n\n\nh2 &lt;- df %&gt;%\n  idt(listed_price~cleaning_fee)\n\nh2$results\nt(1455.02) = -1.682, p = 0.093, d = -0.067, bf10 = 0.203\n\n\nh3 &lt;- df %&gt;%\n  ano(listed_price~bed_type)\n\nh3$results\nF(4,34.25) = 44.326, p &lt; .001, ξ = 0.48, bf10 = 8926.807"
   },
   {
     "objectID": "week07/week_07.html#what-effect-does-it-have-on-test-scores-2",
@@ -2749,6 +2784,34 @@
     "title": "Week 3 — Fun With Data",
     "section": "Who Wore it Best?",
     "text": "Who Wore it Best?\n\n\n\n\n\n\n\nStory Time\n\n\nHow do you best tell your story visually?"
+  },
+  {
+    "objectID": "week09/week_09.html#peer-review-day",
+    "href": "week09/week_09.html#peer-review-day",
+    "title": "Week 9 - Peer Review",
+    "section": "Peer Review Day",
+    "text": "Peer Review Day\n\n\nYou will present your project\nYou will review two other groups (canvas quiz x2)\nYou will receive feedback from two groups"
+  },
+  {
+    "objectID": "week09/week_09.html#locations",
+    "href": "week09/week_09.html#locations",
+    "title": "Week 9 - Peer Review",
+    "section": "Locations",
+    "text": "Locations\n\n\n\nRoom 2115\nPresenter\nReviewers\n\n\n\n\nRound 1\nG1\nG2, G3\n\n\nRound 2\nG2\nG1, G3\n\n\nRound 3\nG3\nG1, G2\n\n\n\n\n\n\nRoom 2127\nPresenter\nReviewers\n\n\n\n\nRound 1\nG4\nG5, G6\n\n\nRound 2\nG5\nG4, G6\n\n\nRound 3\nG6\nG4, G5\n\n\n\n\n\n\nRoom 112\nPresenter\nReviewers\n\n\n\n\nRound 1\nG7\nG8, G9\n\n\nRound 2\nG8\nG7, G9\n\n\nRound 3\nG9\nG7, G8"
+  },
+  {
+    "objectID": "week09/week_09.html#rough-schedule",
+    "href": "week09/week_09.html#rough-schedule",
+    "title": "Week 9 - Peer Review",
+    "section": "Rough Schedule",
+    "text": "Rough Schedule\n\n\nPresentation: ~8 minutes\n\nFeedback: ~7 minutes\n\nRepeat for all 3 rounds\n\n\nPresent once\nReview two groups\nProvide useful, actionable feedback"
+  },
+  {
+    "objectID": "week09/week_09.html#what-good-feedback-looks-like",
+    "href": "week09/week_09.html#what-good-feedback-looks-like",
+    "title": "Week 9 - Peer Review",
+    "section": "What Good Feedback Looks Like",
+    "text": "What Good Feedback Looks Like\n\nBe specific:\n\nWhat should be cut\nWhat should be improved\nWhat is unclear\nWhat works well\n\n\nMindset\n\nYou are not grading them.\nYou are helping them improve."
   },
   {
     "objectID": "week04/week_04.html#one-set-of-principles",

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Homework 1: Data Anatomy &amp; Responsible AI Use – ECO 230 — Section 12</title>
+<title>Homework 8 – ECO 230 — Section 12</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -40,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-63e153e02dd19ca4996d7285ee651b1c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-30e33b9170478032341da2de80696f6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,11 +104,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles/accessibility.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -227,13 +291,29 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#homework-8" id="toc-homework-8" class="nav-link active" data-scroll-target="#homework-8">HOMEWORK 8</a></li>
+  <li><a href="#homework-8-anova-and-simple-linear-regression" id="toc-homework-8-anova-and-simple-linear-regression" class="nav-link" data-scroll-target="#homework-8-anova-and-simple-linear-regression">HOMEWORK 8: ANOVA and Simple Linear Regression</a>
+  <ul class="collapse">
+  <li><a href="#hypothesis-1---my-interpretation-steps-1-5" id="toc-hypothesis-1---my-interpretation-steps-1-5" class="nav-link" data-scroll-target="#hypothesis-1---my-interpretation-steps-1-5">Hypothesis 1 - My Interpretation Steps 1-5</a></li>
+  <li><a href="#hypothesis-2---you-interpret-steps-4-5" id="toc-hypothesis-2---you-interpret-steps-4-5" class="nav-link" data-scroll-target="#hypothesis-2---you-interpret-steps-4-5">Hypothesis 2 - You Interpret steps 4-5</a></li>
+  <li><a href="#hypothesis-3---you-attempt-the-full-test-steps-1-5-for-a-hypothesis-related-to-your-project" id="toc-hypothesis-3---you-attempt-the-full-test-steps-1-5-for-a-hypothesis-related-to-your-project" class="nav-link" data-scroll-target="#hypothesis-3---you-attempt-the-full-test-steps-1-5-for-a-hypothesis-related-to-your-project">Hypothesis 3 - You Attempt the Full Test Steps 1-5 for a Hypothesis Related to Your Project</a></li>
+  </ul></li>
+  <li><a href="#submission-requirements" id="toc-submission-requirements" class="nav-link" data-scroll-target="#submission-requirements">SUBMISSION REQUIREMENTS</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">NOTES</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Homework 1: Data Anatomy &amp; Responsible AI Use</h1>
+<h1 class="title">Homework 8</h1>
 </div>
 
 
@@ -250,197 +330,304 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Purpose">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eco230r)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="homework-8" class="level2">
+<h2 class="anchored" data-anchor-id="homework-8">HOMEWORK 8</h2>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Purpose
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This assignment helps you practice the three essential questions from Week&nbsp;1:</p>
-<ol type="1">
-<li><strong>What does one row represent?</strong> (unit of analysis / grain)<br>
-</li>
-<li><strong>What kinds of variables do I have?</strong> (types + NOIR measurement scales)<br>
-</li>
-<li><strong>What can this data actually answer?</strong> (analytical frame)</li>
-</ol>
-<p>You will work with real microdata, evaluate its structure, and reflect on how to use AI responsibly to <strong>accelerate—not replace—your thinking</strong>.</p>
+<p><strong>OBJECTIVES</strong></p>
 </div>
 </div>
-<section id="objectives" class="level2">
-<h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
 <ul>
-<li>Open and inspect raw <code>.csv</code> data<br>
+<li>Continue applying the hypothesis testing framework<br>
 </li>
-<li>Save and format data as <code>.xlsx</code><br>
+<li>Focus on Step 4 (statistical interpretation) and Step 5 (practical interpretation)<br>
 </li>
-<li>Determine whether a dataset is <strong>tidy</strong><br>
-</li>
-<li>Contrast <strong>microdata</strong> vs <strong>summary data</strong><br>
-</li>
-<li>Build a pivot table using <strong>Dimensions</strong> and <strong>Measures</strong><br>
-</li>
-<li>Describe <strong>unit of analysis</strong> and <strong>grain</strong><br>
-</li>
-<li>Identify variable types<br>
-</li>
-<li>Reflect on <strong>ethical AI use</strong> in data work</li>
+<li>Strengthen communication of results using effect size and Bayes factor</li>
 </ul>
-</section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<ul>
-<li>Datasets in Posit Cloud<br>
-</li>
-<li>Data Description files on Canvas<br>
-</li>
-<li>Week&nbsp;1 slides (Unit of Analysis, Tidy Data, Dimensions vs Measures)</li>
-</ul>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Important">
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Important
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This assignment is graded for <strong>sincere completion</strong>, not perfection.<br>
-Try every step. Bring questions to class. We will review solutions together.</p>
+<p><strong>INSTRUCTIONS</strong></p>
 </div>
 </div>
-<hr>
 </section>
-<section id="choose-and-download-your-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="choose-and-download-your-dataset">1) Choose and Download Your Dataset</h2>
+<section id="homework-8-anova-and-simple-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="homework-8-anova-and-simple-linear-regression">HOMEWORK 8: ANOVA and Simple Linear Regression</h2>
+<div class="alert alert-info">
+<p><strong>Objectives</strong></p>
+</div>
+<ul>
+<li>Complete step 4 of the hypothesis testing process: What is the statistical interpretation of the test result?</li>
+<li>Complete step 5 of the hypothesis testing process: What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?</li>
+<li>Attempt to run an ANOVA or Simple Linear Regression in R and complete steps 1-5</li>
+</ul>
+<div class="alert alert-info">
+<p><strong>Resources</strong></p>
+</div>
+<ul>
+<li>.csv files included with this project or your groups clean data set.</li>
+<li>Week 6 &amp; 9 resources and lectures</li>
+</ul>
+<div class="alert alert-info">
+<p><strong>Instructions</strong></p>
+</div>
+<ul>
+<li>Load the dataset into r as df with:</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load larger data set for these specific analyses</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'../shared/data/airbnb_full_oa.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li><p>Review the example in Hypothesis 1</p></li>
+<li><p>Complete steps 4-5 of the Hypothesis Test for Hypothesis 2</p></li>
+<li><p>Attempt to run an ANOVA or Simple Linear Regression in R related to your project and complete steps 1-5 of the Hypothesis Test</p></li>
+</ul>
+<div class="alert alert-info">
+<p><strong>Example: A full Hypothesis Test</strong></p>
+</div>
+<section id="hypothesis-1---my-interpretation-steps-1-5" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-1---my-interpretation-steps-1-5">Hypothesis 1 - My Interpretation Steps 1-5</h3>
 <ol type="1">
-<li>Select <strong>one</strong> dataset from your Posit Cloud project.<br>
-</li>
-<li>Download it as a <code>.csv</code>.<br>
-</li>
-<li>Save a working copy as <code>.xlsx</code>.</li>
+<li><p><strong>What statistical story am I attempting to tell?</strong></p>
+<p>Properties with a real bed listed will have higher list prices than properties with other bed types</p></li>
+<li><p><strong>What have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/images/H8_ano_graph.png" class="img-fluid figure-img"></p>
+<figcaption>Avg List Price by bed type</figcaption>
+</figure>
+</div>
+<p>Properties that list real beds have a higher mean price than those that do not.</p></li>
+<li><p><strong>Which test is appropriate and what is the null hypothesis?</strong></p>
+<p>Analysis of Variance ano()</p>
+<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu\)</span> Airbed = <span class="math inline">\(\mu\)</span> Couch = <span class="math inline">\(\mu\)</span> Futon = <span class="math inline">\(\mu\)</span> PO-Sofa = <span class="math inline">\(\mu\)</span> Real Bed</p>
+<p><span class="math inline">\(H_A\)</span>: <span class="math inline">\(\mu\)</span> Airbed <span class="math inline">\(\neq\)</span> <span class="math inline">\(\mu\)</span> Couch <span class="math inline">\(\neq\)</span> <span class="math inline">\(\mu\)</span> Futon <span class="math inline">\(\neq\)</span> <span class="math inline">\(\mu\)</span> PO-Sofa <span class="math inline">\(\neq\)</span> <span class="math inline">\(\mu\)</span> Real Bed</p>
+<p><span class="math inline">\(\alpha\)</span> = 0.05 (you can use this as the default value)</p></li>
 </ol>
-<p><em>(No written response required.)</em></p>
-<hr>
-</section>
-<section id="is-your-data-tidy-why-or-why-not" class="level2">
-<h2 class="anchored" data-anchor-id="is-your-data-tidy-why-or-why-not">2) Is Your Data Tidy? Why or Why Not?</h2>
-<p>Using the Week&nbsp;1 tidy data principles:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ano()</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>h1 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ano</span>(listed_price<span class="sc">~</span>bed_type)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Independent variable converted to a factor using as.factor()"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(h1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$analysis_type
+[1] "Homogeneity of Variance is not assumed, Robust One Way ANOVA for medians,  0.1  trimmed means, Post Hocs using linear equality constraints"
+
+$results
+[1] "F(4,731.84) = 404.918, p &lt; .001, ξ = 0.357, bf10 = 4.227e+51"
+
+$descriptive_statistics
+          Group         N      Mean Standard_Error
+1        Airbed   463.000   108.000          8.060
+2         Couch   262.000   112.000          9.710
+3         Futon   742.000    93.500          3.400
+4 Pull-out Sofa   572.000   102.000          3.100
+5      Real Bed 71100.000   162.000          0.633
+
+$post_hoc_analysis
+                        Difference   P.Value
+Airbed-Couch            -0.7802336 0.9500000
+Airbed-Futon            -1.0598392 0.9500000
+Airbed-Pull-out Sofa   -13.8109676 0.0001990
+Airbed-Real Bed        -52.7118173 0.0000000
+Couch-Futon             -0.2796056 0.9500000
+Couch-Pull-out Sofa    -13.0307340 0.0200000
+Couch-Real Bed         -51.9315837 0.0000000
+Futon-Pull-out Sofa    -12.7511285 0.0000347
+Futon-Real Bed         -51.6519781 0.0000000
+Pull-out Sofa-Real Bed -38.9008496 0.0000000</code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li><p><strong>What is the statistical interpretation of the test result?</strong></p>
+<p>F(4,731.84) = 404.918, p &lt; .001, ξ = 0.357, bf10 = 4.227e+51</p>
+<p>p is less than 0.05 (<span class="math inline">\(\alpha\)</span>) so we reject the null hypothesis. Mean list price differs by bed type. Post hoc analysis reveals significant differences betweent the following bed types:</p>
 <ul>
-<li>Each <strong>variable</strong> in its own column<br>
-</li>
-<li>Each <strong>observation</strong> in its own row<br>
-</li>
-<li>One table per <strong>type of observational unit</strong><br>
-</li>
-<li>Keys required if multiple tables link</li>
-</ul>
-<p><strong>Write 3–5 sentences</strong> answering:</p>
-<ul>
-<li>Is your dataset tidy? Why or why not?<br>
-</li>
-<li>If it’s not tidy, identify the issue (e.g., wide layout, mixed grains, repeated headers, embedded units).</li>
-</ul>
+<li>Airbed - PO-Sofa</li>
+<li>Airbed - Real Bed</li>
+<li>Couch - PO-Sofa</li>
+<li>Couch - Real Bed</li>
+<li>Futon - PO-Sofa</li>
+<li>Futon - Real Bed</li>
+<li>PO-Sofa - Real Bed</li>
+</ul></li>
+<li><p><strong>What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?</strong></p>
+<p>There is a significant difference in price based on bed type. Real bed had the highest mean list price as it was significantly higher than any other category. This makes sense as nicer properties are less likely to have worse bed options and owners will charge a premium for them. There were also several significant differences between other bed types. Couch and Airbed had significantly higher mean list prices than Pull-out Sofa. Pull-out Sofa had significantly higher mean list prices than Futon. There were some strange results in the post-hocs. There is no significant difference between couches and futons nor between airbeds and couches or airbeds and futons. This could indicate that there is variation in the non-real bed categories. Providing a real bed clearly has a benefit in terms of the list price, but there is not a conclusive advantage in one remaining category over the others. The effect size for this relationship is 0.36 which represents a large effect so this decision is not trivial. The Bayes factor is very large (&gt; 100k) so there is decisive evidence for this effect. The effect is large and well supported with strong evidence that group differences explain a large share of the differences in price. It is likely that the choice of bed type will have a material impact on the list price so if a real bed is an option it should be listed.</p></li>
+</ol>
 <hr>
 </section>
-<section id="format-as-a-table-excel" class="level2">
-<h2 class="anchored" data-anchor-id="format-as-a-table-excel">3) Format as a Table (Excel)</h2>
-<p>In Excel, convert your data into an official <strong>Table</strong> (<code>Ctrl/Cmd + T</code>) to enable consistent filters and references.</p>
-<p><em>(No written response required.)</em></p>
-<hr>
-</section>
-<section id="build-a-pivot-table-dimensions-measures" class="level2">
-<h2 class="anchored" data-anchor-id="build-a-pivot-table-dimensions-measures">4) Build a Pivot Table (Dimensions + Measures)</h2>
-<p>Create an Excel pivot table using:</p>
-<ul>
-<li>≥ <strong>1 Dimension</strong> (categorical descriptor: ZIP, Gender, Date, Location, Category)<br>
-</li>
-<li>≥ <strong>1 Measure</strong> (numeric summary: Count, Average, Total, Min/Max)</li>
-</ul>
-<p>If you encounter errors, <strong>briefly describe what happened</strong> and what you tried.</p>
-<p><em>(Optional: include a screenshot.)</em></p>
-<hr>
-</section>
-<section id="what-is-the-unit-of-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-the-unit-of-analysis">5) What Is the Unit of Analysis?</h2>
-<p>In <strong>3–5 sentences</strong>, explain:</p>
-<ul>
-<li>What <strong>one row represents</strong> in your dataset (the grain)<br>
-</li>
-<li>Why this grain matters for answerable questions<br>
-</li>
-<li>What information would appear if the grain were <strong>more detailed</strong></li>
-</ul>
-<p>Remember your training:</p>
-<blockquote class="blockquote">
-<p>“Rows are never <em>just rows</em>. If you misunderstand the unit of analysis, every result is wrong—even with perfect code.”</p>
-</blockquote>
-<hr>
-</section>
-<section id="identify-variable-types" class="level2">
-<h2 class="anchored" data-anchor-id="identify-variable-types">6) Identify Variable Types</h2>
-<p>List at least <strong>one</strong> variable for each type.<br>
-If a type is missing, describe the <strong>additional data</strong> you would need.</p>
-<ul>
-<li><strong>Categorical (Nominal):</strong><br>
-</li>
-<li><strong>Ordinal:</strong><br>
-</li>
-<li><strong>True/False (Logical):</strong><br>
-</li>
-<li><strong>Discrete Numeric:</strong><br>
-</li>
-<li><strong>Continuous Numeric:</strong><br>
-</li>
-<li><strong>Date/Time:</strong><br>
-</li>
-<li><strong>Geographic/Spatial:</strong></li>
-</ul>
-<p><em>(You may list more than one variable for a given type.)</em></p>
-<hr>
-</section>
-<section id="responsible-use-of-ai-required" class="level2">
-<h2 class="anchored" data-anchor-id="responsible-use-of-ai-required">7) Responsible Use of AI (Required)</h2>
-<p>AI can accelerate learning, but it <strong>must not</strong> interpret results or make analytical decisions for you.<br>
-Use AI only for clarification, rewriting, or troubleshooting.</p>
-<p>Write <strong>5–7 sentences</strong> responding to:</p>
-<p><strong>A.</strong> How did you use AI on this assignment?<br>
-<em>(If not at all, state that and why.)</em></p>
-<p><strong>B.</strong> What did AI help with? <em>(Be specific.)</em></p>
-<p><strong>C.</strong> What did AI get wrong, miss, or oversimplify?</p>
-<p><strong>D.</strong> Include <strong>one AI prompt you used</strong> and note:<br>
-- How the response helped<br>
-- Where it fell short</p>
-<p>Remember our goal with AI:</p>
-<blockquote class="blockquote">
-<p>“Can you use AI responsibly to <strong>accelerate—not replace—your thinking</strong>?”</p>
-</blockquote>
-<hr>
-</section>
-<section id="submission" class="level2">
-<h2 class="anchored" data-anchor-id="submission">8) Submission</h2>
-<p>Upload to Canvas:</p>
+<section id="hypothesis-2---you-interpret-steps-4-5" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-2---you-interpret-steps-4-5">Hypothesis 2 - You Interpret steps 4-5</h3>
 <ol type="1">
-<li>Your completed <strong>Excel workbook (.xlsx)</strong><br>
-</li>
-<li>A document (Word/PDF or Canvas text entry) with your responses, including the AI reflection</li>
+<li><p><strong>What statistical story am I attempting to tell?</strong></p>
+<p>There is a linear relationship between bathroom ratio (beds per bathroom) and list price.</p></li>
+<li><p><strong>What have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/images/H8_slr_graph.png" class="img-fluid figure-img"></p>
+<figcaption>Scatter Plot comparing Bathroom Ratio to Price</figcaption>
+</figure>
+</div>
+<p>There is a positive relationship between bathroom ratio and price. As the number of beds per bathroom goes up, so does the price. Note: we will have to calculate bathroom ratio as it does not exist yet in the data set.</p></li>
+<li><p><strong>Which test is appropriate and what is the null hypothesis?</strong></p>
+<p>Simple linear regression testing effect between listed_price (y) and bathroom_ratio (x) slr()</p>
+<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta_1\)</span> (slope) = 0</p>
+<p><span class="math inline">\(H_A\)</span>: <span class="math inline">\(\beta_1\)</span> (slope) <span class="math inline">\(\neq\)</span> 0</p>
+<p><span class="math inline">\(\alpha\)</span> = 0.05 (you can use this as the default value)</p></li>
 </ol>
-<p>Please bring your <code>.xlsx</code> file to class for in‑class demonstrations.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#slr()</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>h2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(bathrooms <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="co">#make sure we don't divide by zero</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bathroom_ratio =</span> beds<span class="sc">/</span>bathrooms) <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slr</span>(listed_price<span class="sc">~</span>bathroom_ratio)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "73 rows removed due to NA/Nan/Inf values in data."</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(h2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$analysis_type
+[1] "Simple linear regression testing effect between listed_price (y) and  bathroom_ratio (x)"
+
+$results
+[1] "F(2,72653) = 2199.873, p &lt; .001, R2 = 0.029, bf10 =  Inf"
+
+$linear_regression_model
+[1] "y = 35.97x + 109.82"
+
+$predictors
+[1] "Predictor 1:  bathroom_ratio (t = 46.9, p = 0)"
+
+$coefficients
+                Estimate Std..Error  t.value Pr...t..
+(Intercept)    109.82112  1.2421416 88.41272        0
+bathroom_ratio  35.97465  0.7670042 46.90280        0</code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li><p><strong>What is the statistical interpretation of the test result?</strong></p>
+<p>F(2,72653) = 2199.873, p &lt; .001, R2 = 0.029, bf10 = Inf</p>
+<p>Statistical Interpretation:</p></li>
+<li><p><strong>What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?</strong></p>
+<p>Practical Interpretation:</p>
+<p>Hint what is the equation for the line of best fit, how can it be applied / interpreted</p></li>
+</ol>
 <hr>
 </section>
-<section id="alignment-to-course-outcomes" class="level2">
-<h2 class="anchored" data-anchor-id="alignment-to-course-outcomes">Alignment to Course Outcomes</h2>
+<section id="hypothesis-3---you-attempt-the-full-test-steps-1-5-for-a-hypothesis-related-to-your-project" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-3---you-attempt-the-full-test-steps-1-5-for-a-hypothesis-related-to-your-project">Hypothesis 3 - You Attempt the Full Test Steps 1-5 for a Hypothesis Related to Your Project</h3>
+<ol type="1">
+<li><p><strong>What statistical story am I attempting to tell?</strong></p></li>
+<li><p><strong>What have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?</strong></p>
+<p>You may leave this blank if you want, or you can try uploading an image and displaying.</p></li>
+<li><p><strong>Which test is appropriate and what is the null hypothesis?</strong></p>
+<p>Test Type:</p>
+<p><span class="math inline">\(H_0\)</span>:</p>
+<p><span class="math inline">\(H_A\)</span>:</p>
+<p><span class="math inline">\(\alpha\)</span> = 0.05 (you can use this as the default value)</p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Attempt a test using ano() or slr() you can copy the code above and adjust the variables</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#If you can't get it to run leave your code in this chunk and comment out the lines with #</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#load one of the default data sets or your own</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>ff <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'../shared/data/airbnb_chicago.csv'</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#h3 &lt;- ff %&gt;%</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  ano(listed_price~bed_type)</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#print(h3)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="4" type="1">
+<li><p><strong>What is the statistical interpretation of the test result?</strong></p>
+<p>Statistical Interpretation:</p></li>
+<li><p><strong>What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?</strong></p>
+<p>Practical Interpretation:</p></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="submission-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="submission-requirements">SUBMISSION REQUIREMENTS</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>WHAT TO INCLUDE</strong></p>
+</div>
+</div>
 <ul>
-<li><strong>Choose the right analysis:</strong> You identify grain, tidy structure, and variable types to determine valid analyses.<br>
+<li>Clearly stated hypotheses (H₀ and Hₐ)<br>
 </li>
-<li><strong>Interpret results in context:</strong> Your pivot and explanations tie summaries to what the data can and cannot answer.<br>
+<li>Appropriate test selection (using <code>eco230r</code>)<br>
 </li>
-<li><strong>Explain limitations, assumptions, and uncertainty:</strong> Your AI reflection and grain discussion surface constraints <em>before</em> statistics.</li>
+<li>Correct statistical interpretation (Step 4)<br>
+</li>
+<li>Practical interpretation (Step 5) including:
+<ul>
+<li>effect size<br>
+</li>
+<li>Bayes factor<br>
+</li>
+</ul></li>
+<li>Clear, concise written explanations</li>
+</ul>
+<hr>
+</section>
+<section id="notes" class="level2">
+<h2 class="anchored" data-anchor-id="notes">NOTES</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>GUIDANCE</strong></p>
+</div>
+</div>
+<ul>
+<li>Focus on clarity over length<br>
+</li>
+<li>Use variable names from your dataset<br>
+</li>
+<li>Avoid copying raw output without interpretation<br>
+</li>
+<li>Connect your findings back to your original question</li>
 </ul>
 
 
