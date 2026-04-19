@@ -1,0 +1,255 @@
+---
+title: "Homework 8"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r setup, include: false, show:false}
+library(tidyverse)
+library(eco230r)
+options(scipen = 999)
+```
+
+## HOMEWORK 8
+
+::: callout-note
+**OBJECTIVES**
+:::
+
+-   Continue applying the hypothesis testing framework\
+-   Focus on Step 4 (statistical interpretation) and Step 5 (practical interpretation)\
+-   Strengthen communication of results using effect size and Bayes factor
+
+------------------------------------------------------------------------
+
+::: callout-note
+**INSTRUCTIONS**
+:::
+
+---
+output:
+  html_document: default
+---
+
+```{r include=FALSE}
+library(tidyverse)
+library(tidyr)
+library(eco230r)
+library(ggplot2)
+library(knitr)
+library(Hmisc)
+#I'm going to turn off scientific notation:
+options(scipen=999)
+#If you want to turn it back on you can uncomment and run this line:
+#options(scipen=0)
+```
+
+## HOMEWORK 8: ANOVA and Simple Linear Regression
+
+::: {.alert .alert-info}
+<strong>Objectives</strong>
+:::
+
+-   Complete step 4 of the hypothesis testing process: What is the statistical interpretation of the test result?
+-   Complete step 5 of the hypothesis testing process: What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?
+-   Attempt to run an ANOVA or Simple Linear Regression in R and complete steps 1-5
+
+::: {.alert .alert-info}
+<strong>Resources</strong>
+:::
+
+-   .csv files included with this project or your groups clean data set.
+-   Week 6 & 9 resources and lectures
+
+::: {.alert .alert-info}
+<strong>Instructions</strong>
+:::
+
+-   Load the dataset into r as df with:
+
+```{r}
+#load larger data set for these specific analyses
+df <- read.csv('../shared/data/airbnb_full_oa.csv')
+```
+
+-   Review the example in Hypothesis 1
+
+-   Complete steps 4-5 of the Hypothesis Test for Hypothesis 2
+
+-   Attempt to run an ANOVA or Simple Linear Regression in R related to your project and complete steps 1-5 of the Hypothesis Test
+
+::: {.alert .alert-info}
+<strong>Example: A full Hypothesis Test</strong>
+:::
+
+### Hypothesis 1 - My Interpretation Steps 1-5
+
+1.  **What statistical story am I attempting to tell?**
+
+    Properties with a real bed listed will have higher list prices than properties with other bed types
+
+2.  **What have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?**
+
+    ![Avg List Price by bed type](media/images/H8_ano_graph.png)
+
+    Properties that list real beds have a higher mean price than those that do not.
+
+3.  **Which test is appropriate and what is the null hypothesis?**
+
+    Analysis of Variance ano()
+
+    $H_0$: $\mu$ Airbed = $\mu$ Couch = $\mu$ Futon = $\mu$ PO-Sofa = $\mu$ Real Bed
+
+    $H_A$: $\mu$ Airbed $\neq$ $\mu$ Couch $\neq$ $\mu$ Futon $\neq$ $\mu$ PO-Sofa $\neq$ $\mu$ Real Bed
+
+    $\alpha$ = 0.05 (you can use this as the default value)
+
+```{r}
+#ano()
+h1 <- df %>%
+  ano(listed_price~bed_type)
+
+print(h1)
+```
+
+4.  **What is the statistical interpretation of the test result?**
+
+    `r h1$results`
+
+    p is less than 0.05 ($\alpha$) so we reject the null hypothesis. Mean list price differs by bed type. Post hoc analysis reveals significant differences betweent the following bed types:
+
+    -   Airbed - PO-Sofa
+    -   Airbed - Real Bed
+    -   Couch - PO-Sofa
+    -   Couch - Real Bed
+    -   Futon - PO-Sofa
+    -   Futon - Real Bed
+    -   PO-Sofa - Real Bed
+
+5.  **What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?**
+
+    There is a significant difference in price based on bed type. Real bed had the highest mean list price as it was significantly higher than any other category. This makes sense as nicer properties are less likely to have worse bed options and owners will charge a premium for them. There were also several significant differences between other bed types. Couch and Airbed had significantly higher mean list prices than Pull-out Sofa. Pull-out Sofa had significantly higher mean list prices than Futon. There were some strange results in the post-hocs. There is no significant difference between couches and futons nor between airbeds and couches or airbeds and futons. This could indicate that there is variation in the non-real bed categories. Providing a real bed clearly has a benefit in terms of the list price, but there is not a conclusive advantage in one remaining category over the others. The effect size for this relationship is 0.36 which represents a large effect so this decision is not trivial. The Bayes factor is very large (\> 100k) so there is decisive evidence for this effect. The effect is large and well supported with strong evidence that group differences explain a large share of the differences in price. It is likely that the choice of bed type will have a material impact on the list price so if a real bed is an option it should be listed.
+
+------------------------------------------------------------------------
+
+### Hypothesis 2 - You Interpret steps 4-5
+
+1.  **What statistical story am I attempting to tell?**
+
+    There is a linear relationship between bathroom ratio (beds per bathroom) and list price.
+
+2.  **What have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?**
+
+    ![Scatter Plot comparing Bathroom Ratio to Price](media/images/H8_slr_graph.png)
+
+    There is a positive relationship between bathroom ratio and price. As the number of beds per bathroom goes up, so does the price. Note: we will have to calculate bathroom ratio as it does not exist yet in the data set.
+
+3.  **Which test is appropriate and what is the null hypothesis?**
+
+    Simple linear regression testing effect between listed_price (y) and bathroom_ratio (x) slr()
+
+    $H_0$: $\beta_1$ (slope) = 0
+
+    $H_A$: $\beta_1$ (slope) $\neq$ 0
+
+    $\alpha$ = 0.05 (you can use this as the default value)
+
+```{r}
+#slr()
+h2 <- df %>%
+  filter(bathrooms > 0) %>% #make sure we don't divide by zero
+  mutate(bathroom_ratio = beds/bathrooms) %>%
+  slr(listed_price~bathroom_ratio)
+
+print(h2)
+```
+
+4.  **What is the statistical interpretation of the test result?**
+
+    `r h2$results`
+
+    Statistical Interpretation:
+
+5.  **What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?**
+
+    Practical Interpretation:
+
+    Hint what is the equation for the line of best fit, how can it be applied / interpreted
+
+------------------------------------------------------------------------
+
+### Hypothesis 3 - You Attempt the Full Test Steps 1-5 for a Hypothesis Related to Your Project
+
+1.  **What statistical story am I attempting to tell?**
+
+2.  **What have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?**
+
+    You may leave this blank if you want, or you can try uploading an image and displaying.
+
+3.  **Which test is appropriate and what is the null hypothesis?**
+
+    Test Type:
+
+    $H_0$:
+
+    $H_A$:
+
+    $\alpha$ = 0.05 (you can use this as the default value)
+
+```{r}
+#Attempt a test using ano() or slr() you can copy the code above and adjust the variables
+#If you can't get it to run leave your code in this chunk and comment out the lines with #
+
+#load one of the default data sets or your own
+ff <- read.csv('../shared/data/airbnb_chicago.csv')
+
+#h3 <- ff %>%
+#  ano(listed_price~bed_type)
+
+#print(h3)
+```
+
+4.  **What is the statistical interpretation of the test result?**
+
+    Statistical Interpretation:
+
+5.  **What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?**
+
+    Practical Interpretation:
+
+------------------------------------------------------------------------
+
+## SUBMISSION REQUIREMENTS
+
+::: callout-warning
+**WHAT TO INCLUDE**
+:::
+
+-   Clearly stated hypotheses (H₀ and Hₐ)\
+-   Appropriate test selection (using `eco230r`)\
+-   Correct statistical interpretation (Step 4)\
+-   Practical interpretation (Step 5) including:
+    -   effect size\
+    -   Bayes factor\
+-   Clear, concise written explanations
+
+------------------------------------------------------------------------
+
+## NOTES
+
+::: callout-note
+**GUIDANCE**
+:::
+
+-   Focus on clarity over length\
+-   Use variable names from your dataset\
+-   Avoid copying raw output without interpretation\
+-   Connect your findings back to your original question

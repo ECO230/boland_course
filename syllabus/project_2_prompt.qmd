@@ -1,0 +1,145 @@
+---
+title: "Design Challenge: Can We Trust It?"
+format:
+  html:
+    toc: false
+    number-sections: false
+---
+
+## DESIGN CHALLENGE: CAN WE TRUST IT?
+
+### Objectives
+
+- Shift focus from analyzing data to designing how data should be collected
+- Evaluate whether results should be trusted before they exist
+- Apply concepts from sampling, research design, machine learning, and ethics
+
+---
+
+## Overview
+
+In earlier parts of this course, you analyzed data and communicated results.
+
+Now we step back and ask a more fundamental question:
+
+**Why should we trust a result at all?**
+
+Your goal is to design a study or model such that:
+
+**If the result came out positive, we would believe it enough to act on it.**
+
+---
+
+## Task
+
+In teams, you will design a proposal and present it in a Shark Tank-style session.
+
+You will NOT collect data and you will NOT run analysis.
+
+Instead, you will design how the data should be collected and defend why the results would be trustworthy.
+
+---
+
+## Requirements
+
+### 1. Research Question
+
+- Must be specific and testable
+- Must imply a real decision
+
+---
+
+### 2. Design Choice (Pick ONE)
+
+Choose one approach:
+
+- Observational study  
+- Survey  
+- Experiment  
+- Predictive model (ML)  
+
+Describe clearly:
+
+- Who or what is being studied  
+- What variables are measured  
+- How the data would be collected  
+
+---
+
+### 3. Why Should We Trust This?
+
+You must explicitly address:
+
+**Sampling**
+- Who is represented?
+- Who might be missing?
+
+**Measurement / Design**
+- Are you measuring the right thing?
+- What could go wrong?
+
+**Causality or Generalization**
+- Can you claim cause? OR
+- Will this generalize to new data?
+
+**Ethics**
+- Who could be harmed?
+- Who is excluded?
+
+---
+
+### 4. Known Risks
+
+Even if everything goes well, how could this still fail?
+
+Be specific. This is one of the most important parts of the assignment.
+
+---
+
+## Red Team Component
+
+Each team will be assigned another team to critique.
+
+You must prepare 3–5 targeted criticisms, including:
+
+- One sampling issue  
+- One design or measurement issue  
+- One causality or generalization issue  
+- One ethical concern  
+
+---
+
+## Presentation Format
+
+- Pitch: 3–4 minutes  
+- Red Team Critique: 2 minutes  
+- Defense: 2 minutes  
+
+---
+
+## Shark Tank Investment
+
+Each student receives $100 (five $20 bills, no change).
+
+You will invest based on:
+
+**Would you trust this result enough to act on it?**
+
+You are NOT investing in the idea—you are investing in the credibility of the design.
+
+---
+
+## Grading
+
+- Research Question & Design Clarity  
+- Trustworthiness Reasoning  
+- Red Team Critique Quality  
+- Defense & Response  
+- Overall Clarity  
+
+---
+
+## Key Principle
+
+Good analysis cannot fix bad data.  
+Good design prevents bad data.

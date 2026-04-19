@@ -54,6 +54,8 @@ website:
             file: week07/Homework_06.qmd
           - text: "Homework 7"
             file: week08/Homework_07.qmd
+          - text: "Homework 8"
+            file: week09/Homework_08.qmd
       - text: "Project 1"
         menu:
           - text: "Project Prompt"
@@ -62,6 +64,8 @@ website:
             file: syllabus/project_1_timeline.qmd
           - text: "In Person Presentation"
             file: syllabus/project_1_presentation_in_person.qmd
+          - text: "Peer Review"
+            file: week09/week_09.qmd
 
 format:
   html:

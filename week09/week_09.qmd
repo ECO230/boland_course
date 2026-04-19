@@ -1,0 +1,81 @@
+---
+title: "Week 9 - Peer Review"
+format:
+  revealjs:
+    theme:
+      - default
+      - ../shared/styles/boland-reveal.scss
+    slide-number: true
+    hash: true
+    center: false
+    transition: fade
+    controls: true
+    pdf-export: true
+execute:
+  echo: false
+---
+
+## Peer Review Day
+
+<br>
+
+-   You will present your project
+-   You will review two other groups (canvas quiz x2)
+-   You will receive feedback from two groups
+
+## Locations
+
+| **Room 2115** | Presenter | Reviewers |
+|---------------|-----------|-----------|
+| Round 1       | G1        | G2, G3    |
+| Round 2       | G2        | G1, G3    |
+| Round 3       | G3        | G1, G2    |
+
+| **Room 2127** | Presenter | Reviewers |
+|---------------|-----------|-----------|
+| Round 1       | G4        | G5, G6    |
+| Round 2       | G5        | G4, G6    |
+| Round 3       | G6        | G4, G5    |
+
+| **Room 112** | Presenter | Reviewers |
+|--------------|-----------|-----------|
+| Round 1      | G7        | G8, G9    |
+| Round 2      | G8        | G7, G9    |
+| Round 3      | G9        | G7, G8    |
+
+------------------------------------------------------------------------
+
+## Rough Schedule
+
+<br>
+
+-   Presentation: \~8 minutes\
+-   Feedback: \~7 minutes
+
+*Repeat for all 3 rounds*
+
+<br>
+
+-   Present **once**
+-   Review **two groups**
+-   Provide **useful, actionable feedback**
+
+------------------------------------------------------------------------
+
+## What Good Feedback Looks Like
+
+<br>
+
+### Be specific:
+
+-   What should be **cut**
+-   What should be **improved**
+-   What is **unclear**
+-   What works well
+
+<br>
+
+### Mindset
+
+> You are not grading them.\
+> You are helping them improve.
