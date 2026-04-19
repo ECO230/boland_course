@@ -1,0 +1,786 @@
+---
+title: "Week 12 - Sampling and Survey Research"
+author: "Mike Boland, MBA"
+format:
+  revealjs:
+    theme:
+      - default
+      - ../shared/styles/boland-reveal.scss
+    slide-number: true
+    hash: true
+    center: false
+    transition: fade
+    controls: true
+    pdf-export: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+# Can a sample tell the truth?
+
+<br>
+
+::: {.callout-note title="Today's question"}
+When does a small group of people tell us something useful about a much larger group?
+:::
+
+::: notes
+Open with the idea that students already trust samples constantly: reviews, polls, product ratings, class feedback, medical studies.
+:::
+
+## First: take the survey
+
+<br>
+
+::: {.callout-important title="Class data lab"}
+We are going to use your responses as today's dataset.
+:::
+
+<br>
+
+1.  Take the survey.
+2.  Do not overthink your answers.
+3.  We will use the response pool to test sampling methods.
+
+::: notes
+Use the LimeSurvey link or QR code here once the final survey is active. Keep this slide up while students respond.
+:::
+
+## Today
+
+<br>
+
+1.  What a sample is trying to represent
+2.  Random vs representative
+3.  Sampling methods
+4.  Sampling frame and nonresponse error
+5.  Survey question design
+
+# Population to Sample
+
+## Census
+
+<br>
+
+::: {.callout-note title="Census"}
+A census tries to collect information from every member of the population.
+:::
+
+<br>
+
+Sometimes possible:
+
+-   students enrolled in this section
+-   employees in one company
+-   every row in a database
+
+Often impossible:
+
+-   all voters
+-   all customers
+-   all Airbnb guests
+
+## Population
+
+<br>
+
+::: {.callout-tip title="Target Population"}
+The full group we want to understand.
+:::
+
+<br>
+
+Examples:
+
+-   all ECO230 students
+-   all students at UWL
+-   all Airbnb hosts in Chicago
+-   all voters in Wisconsin
+
+## Sampling Frame
+
+<br>
+
+::: {.callout-note title="Sampling Frame"}
+The list or process we can actually sample from.
+:::
+
+<br>
+
+::: {.callout-important title="Critical difference"}
+The population we care about and the frame we can reach are often not the same.
+:::
+
+## Sampling Frame Error
+
+<br>
+
+::: {.callout-important title="Frame error"}
+Sampling frame error happens when the frame leaves out part of the target population or includes the wrong people.
+:::
+
+<br>
+
+Example:
+
+You want all students in the course, but your survey only reaches students who came to class today.
+
+## Planned Sample
+
+<br>
+
+::: {.callout-note title="Planned Sample"}
+The people we intend to contact or include.
+:::
+
+<br>
+
+The planned sample depends on:
+
+-   the sampling frame
+-   the sampling method
+-   the sample size
+-   practical constraints
+
+## Respondents
+
+<br>
+
+::: {.callout-note title="Respondents"}
+The people who actually give us usable data.
+:::
+
+<br>
+
+Respondents are not always the same as the planned sample.
+
+## Nonresponse Error
+
+<br>
+
+::: {.callout-important title="Nonresponse error"}
+Nonresponse error happens when people who respond are different from people who do not respond.
+:::
+
+<br>
+
+The danger is not just fewer rows.
+
+The danger is **different rows**.
+
+## The Survey Pipeline
+
+<br>
+
+| Stage             | Question                      |
+|-------------------|-------------------------------|
+| Target population | Who do we want to understand? |
+| Sampling frame    | Who could be selected?        |
+| Planned sample    | Who did we try to select?     |
+| Respondents       | Who actually answered?        |
+| Final estimate    | What did we conclude?         |
+
+::: notes
+This replaces the old population -\> frame -\> sample sequence with the full measurement pipeline.
+:::
+
+# Random vs Representative
+
+## The goal
+
+<br>
+
+::: {.callout-tip title="Good sample"}
+A good sample is random enough to protect against selection bias and representative enough to reflect the population we care about.
+:::
+
+## Randomness is not the same as representativeness
+
+<br>
+
+|   | Representative | Not representative |
+|------------------------|------------------------|------------------------|
+| Random | Best case | Possible, especially with small samples or bad frames |
+| Not random | Possible, but harder to defend | Common convenience-sample problem |
+
+## Random
+
+<br>
+
+::: {.callout-note title="Random sample"}
+Every unit in the frame has a known chance of being selected.
+:::
+
+<br>
+
+Random sampling helps protect us from hidden selection rules.
+
+It does not guarantee perfection in every single sample.
+
+## Representative
+
+<br>
+
+::: {.callout-note title="Representative sample"}
+The sample resembles the population on variables that matter for the question.
+:::
+
+<br>
+
+Representative is about the result.
+
+Random is about the process.
+
+## Random but not representative
+
+<br>
+
+This can happen when:
+
+-   the sample is small
+-   the frame is flawed
+-   an important subgroup is rare
+-   the random draw is unlucky
+-   nonresponse changes the final data
+
+## Nonrandom but representative
+
+<br>
+
+This can happen, but it usually requires careful control.
+
+Examples:
+
+-   quota sampling
+-   judgment sampling
+-   balanced recruitment
+-   post-stratification or weighting
+
+::: {.callout-important title="Tradeoff"}
+Nonrandom samples can be useful, but they are harder to defend.
+:::
+
+# Sampling Methods
+
+## Same goal, different risks
+
+<br>
+
+Every sampling method is trying to answer:
+
+> How do we learn about the population without measuring everyone?
+
+<br>
+
+But each method creates different risks.
+
+## Simple Random Sample
+
+<br>
+
+::: {.callout-note title="Simple random sample"}
+Select units randomly from the sampling frame.
+:::
+
+<br>
+
+Works well when:
+
+-   the frame is good
+-   everyone can be contacted
+-   sample size is large enough
+
+Risk:
+
+-   rare groups can still be missed
+
+## Systematic Sample
+
+<br>
+
+::: {.callout-note title="Systematic sample"}
+Choose every kth unit after a starting point.
+:::
+
+<br>
+
+Works well when:
+
+-   the list order is harmless
+-   the frame is complete
+
+Risk:
+
+-   hidden patterns in the list can bias the sample
+
+## Convenience Sample
+
+<br>
+
+::: {.callout-note title="Convenience sample"}
+Sample whoever is easiest to reach.
+:::
+
+<br>
+
+Works when:
+
+-   speed matters
+-   early exploration is enough
+
+Risk:
+
+-   easy-to-reach people are often not typical
+
+## Stratified Sample
+
+<br>
+
+::: {.callout-note title="Stratified sample"}
+Split the population into groups, then sample within each group.
+:::
+
+<br>
+
+Useful when:
+
+-   subgroups matter
+-   you want representation from each subgroup
+
+Risk:
+
+-   you need to know the strata in advance
+
+## Quota Sample
+
+<br>
+
+::: {.callout-note title="Quota sample"}
+Recruit until each subgroup reaches a target count.
+:::
+
+<br>
+
+Useful when:
+
+-   representativeness by visible categories matters
+-   random sampling is impractical
+
+Risk:
+
+-   selection within each quota may still be biased
+
+## Cluster Sample
+
+<br>
+
+::: {.callout-note title="Cluster sample"}
+Randomly select groups, then sample people inside those groups.
+:::
+
+<br>
+
+Useful when:
+
+-   people naturally appear in groups
+-   travel or access costs matter
+
+Risk:
+
+-   clusters may differ from each other
+
+## Judgment and Snowball Samples
+
+<br>
+
+::: {.callout-note title="Niche populations"}
+Sometimes the people we need are hard to find.
+:::
+
+<br>
+
+Examples:
+
+-   obscure hobbies
+-   rare medical conditions
+-   hidden communities
+-   specialized professionals
+
+## Snowball Sampling
+
+<br>
+
+::: {.callout-note title="Snowball sample"}
+Start with known participants and ask them to refer others.
+:::
+
+<br>
+
+Useful when:
+
+-   the population is hard to locate
+
+Risk:
+
+-   social networks shape the sample
+
+# Sampling Lab
+
+## App Activity
+
+<br>
+
+In the app, choose:
+
+1.  an outcome variable
+2.  a sample size
+3.  a sampling method
+4.  a comparison group
+
+<br>
+
+Then ask:
+
+> Did the sample look like the response pool?
+
+## What to watch
+
+<br>
+
+::: tight-list
+-   Sample estimate
+-   Full response-pool estimate
+-   Difference between the two
+-   Class standing mix
+-   Attendance mix
+-   Work hours
+-   Commute time
+-   Early vs late responders
+:::
+
+## The important comparison
+
+<br>
+
+::: {.callout-tip title="Not just the estimate"}
+Two samples can have similar averages but very different subgroup composition.
+:::
+
+<br>
+
+Representation is about who is in the data, not just whether one number looks close.
+
+## Random Sampling Error
+
+<br>
+
+::: {.callout-note title="Random sampling error"}
+Random sampling error is the difference caused by selecting one random sample instead of another.
+:::
+
+<br>
+
+It is noise from sampling.
+
+It is not the same as bias.
+
+## Systematic Error
+
+<br>
+
+::: {.callout-important title="Bias"}
+Systematic error pushes estimates in a consistent direction.
+:::
+
+<br>
+
+Bias can come from:
+
+-   bad frames
+-   nonresponse
+-   convenience selection
+-   bad questions
+-   social desirability
+
+# Survey Design
+
+## The transition
+
+<br>
+
+::: {.callout-important title="Measurement problem"}
+Even if we sample the right people, we can still ask the wrong question.
+:::
+
+## Select One
+
+<br>
+
+Use select-one questions when respondents should choose one best answer.
+
+Example:
+
+> What is your primary way of getting to campus?
+
+::: {.callout-tip title="Design check"}
+Are the choices mutually exclusive enough for the question?
+:::
+
+## Select All That Apply
+
+<br>
+
+Use all-that-apply when multiple answers can be true.
+
+Example:
+
+> Which tools have you used for coursework this semester?
+
+::: {.callout-important title="Interpretation warning"}
+The percentages across choices usually do not add to 100%.
+:::
+
+## Likert Scale
+
+<br>
+
+Likert scales make attitudes easier to measure consistently.
+
+Example:
+
+> I feel confident interpreting statistical results.
+
+<br>
+
+Strongly disagree -\> Strongly agree
+
+## Semantic Differential
+
+<br>
+
+Semantic differential scales measure perception between opposite ideas.
+
+Example:
+
+> Statistics feels...
+
+<br>
+
+Easy 1 2 3 4 5 6 7 Difficult
+
+## Numeric Scales Need Anchors
+
+<br>
+
+Bad:
+
+> Rate your confidence from 0 to 100.
+
+<br>
+
+Better:
+
+> 0 = not confident at all\
+> 50 = somewhat confident\
+> 100 = completely confident
+
+## Constant Sum
+
+<br>
+
+::: {.callout-note title="Constant sum"}
+Respondents allocate a fixed number of points across options.
+:::
+
+<br>
+
+Use it when you want prioritization.
+
+Electronic surveys can enforce the total.
+
+## Graphic Rating Scales
+
+<br>
+
+Graphic scales can help when numbers or words are difficult.
+
+Useful in:
+
+-   child surveys
+-   low literacy contexts
+-   medical pain scales
+-   fatigue or communication difficulty
+
+## Drilldown Questions
+
+<br>
+
+::: {.callout-note title="Drilldown"}
+Start broad, then narrow the choices.
+:::
+
+<br>
+
+Better than forcing people through a giant pick list.
+
+Example:
+
+College -\> Department -\> Major
+
+## Heat Maps
+
+<br>
+
+Electronic surveys can collect information paper surveys cannot.
+
+Example:
+
+> Click the part of this chart that is most confusing.
+
+<br>
+
+Useful for testing:
+
+-   visuals
+-   dashboards
+-   app screens
+-   instructions
+
+## Text Boxes
+
+<br>
+
+::: {.callout-tip title="Open text"}
+Text boxes reveal categories the researcher did not anticipate.
+:::
+
+<br>
+
+Example:
+
+> What is something unique about you that a normal survey would not know to ask?
+
+## From Text Boxes to Sampling
+
+<br>
+
+If someone writes:
+
+> My obscure hobby is competitive speedcubing.
+
+<br>
+
+How would we sample that population?
+
+::: {.callout-important title="Key link"}
+Rare or niche populations often require judgment, cluster, or snowball sampling.
+:::
+
+# Bad Questions
+
+## Leading Question
+
+<br>
+
+Bad:
+
+> How much do you agree that this helpful course improves your analytical thinking?
+
+<br>
+
+Problem:
+
+The wording pushes respondents toward a positive answer.
+
+## Loaded Question
+
+<br>
+
+Bad:
+
+> How often do you waste time using AI instead of thinking for yourself?
+
+<br>
+
+Problem:
+
+The wording judges the respondent before they answer.
+
+## Double-Barreled Question
+
+<br>
+
+Bad:
+
+> The Shiny apps are easy to use and help me learn the material.
+
+<br>
+
+Problem:
+
+This asks two questions at once.
+
+## Assumption Question
+
+<br>
+
+Bad:
+
+> How often do you use ChatGPT to complete your homework?
+
+<br>
+
+Problem:
+
+It assumes the respondent uses ChatGPT.
+
+## Better Question Flow
+
+<br>
+
+1.  Have you used ChatGPT or another AI assistant for homework?
+2.  If yes, how often?
+3.  If yes, for which tasks?
+4.  What did you check yourself?
+
+::: notes
+Use this to connect back to responsible AI expectations from earlier homework.
+:::
+
+# Wrap Up
+
+## What makes a survey good?
+
+<br>
+
+Survey quality depends on:
+
+-   who could be selected
+-   who was selected
+-   who responded
+-   what they were asked
+-   whether the question measured what we think it measured
+
+## Prime Directive
+
+<br>
+
+::: {.callout-tip title="Before trusting a survey result"}
+Ask: who was in the frame, how were they sampled, who responded, and how was the question worded?
+:::
+
+## Exit Question
+
+<br>
+
+Pick one survey result you saw today.
+
+<br>
+
+Answer:
+
+1.  What population did it claim to describe?
+2.  What could make it biased?
+3.  What would make the sample more representative?
