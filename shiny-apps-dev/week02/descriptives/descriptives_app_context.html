@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Homework 1: Data Anatomy &amp; Responsible AI Use – ECO 230 — Section 12</title>
+<title>descriptives_app_context – ECO 230 — Section 12</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-63e153e02dd19ca4996d7285ee651b1c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-30e33b9170478032341da2de80696f6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,9 +115,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">ECO 230 — Section 12</span>
     </a>
   </div>
@@ -93,11 +128,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../syllabus/syllabus.html"> 
+    <a class="nav-link" href="../../../syllabus/syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -106,35 +141,35 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
         <li>
-    <a class="dropdown-item" href="../week01/week_01.html">
+    <a class="dropdown-item" href="../../../week01/week_01.html">
  <span class="dropdown-text">Week 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week02/week_02.html">
+    <a class="dropdown-item" href="../../../week02/week_02.html">
  <span class="dropdown-text">Week 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week03/week_03.html">
+    <a class="dropdown-item" href="../../../week03/week_03.html">
  <span class="dropdown-text">Week 3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week04/week_04.html">
+    <a class="dropdown-item" href="../../../week04/week_04.html">
  <span class="dropdown-text">Week 4</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week05/week_05.html">
+    <a class="dropdown-item" href="../../../week05/week_05.html">
  <span class="dropdown-text">Week 5</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week06/week_06.html">
+    <a class="dropdown-item" href="../../../week06/week_06.html">
  <span class="dropdown-text">Week 6</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week07/week_07.html">
+    <a class="dropdown-item" href="../../../week07/week_07.html">
  <span class="dropdown-text">Week 7</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week12/week_12.html">
+    <a class="dropdown-item" href="../../../week12/week_12.html">
  <span class="dropdown-text">Week 12</span></a>
   </li>  
     </ul>
@@ -145,15 +180,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-interpretation">    
         <li>
-    <a class="dropdown-item" href="../week07/interpretation_x2.html">
+    <a class="dropdown-item" href="../../../week07/interpretation_x2.html">
  <span class="dropdown-text">Chi-square Tests</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week08/interpretation_tw.html">
+    <a class="dropdown-item" href="../../../week08/interpretation_tw.html">
  <span class="dropdown-text">t-Tests &amp; Wilcoxon Tests</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week09/interpretation_anlr.html">
+    <a class="dropdown-item" href="../../../week09/interpretation_anlr.html">
  <span class="dropdown-text">ANOVA &amp; Simple Linear Regression</span></a>
   </li>  
     </ul>
@@ -164,35 +199,35 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-homework">    
         <li>
-    <a class="dropdown-item" href="../week01/Homework_01.html">
+    <a class="dropdown-item" href="../../../week01/Homework_01.html">
  <span class="dropdown-text">Homework 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week02/Homework_02.html">
+    <a class="dropdown-item" href="../../../week02/Homework_02.html">
  <span class="dropdown-text">Homework 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week03/Homework_03.html">
+    <a class="dropdown-item" href="../../../week03/Homework_03.html">
  <span class="dropdown-text">Homework 3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week04/Homework_04.html">
+    <a class="dropdown-item" href="../../../week04/Homework_04.html">
  <span class="dropdown-text">Homework 4</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week06/Homework_05.html">
+    <a class="dropdown-item" href="../../../week06/Homework_05.html">
  <span class="dropdown-text">Homework 5</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week07/Homework_06.html">
+    <a class="dropdown-item" href="../../../week07/Homework_06.html">
  <span class="dropdown-text">Homework 6</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week08/Homework_07.html">
+    <a class="dropdown-item" href="../../../week08/Homework_07.html">
  <span class="dropdown-text">Homework 7</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week09/Homework_08.html">
+    <a class="dropdown-item" href="../../../week09/Homework_08.html">
  <span class="dropdown-text">Homework 8</span></a>
   </li>  
     </ul>
@@ -203,19 +238,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-project-1">    
         <li>
-    <a class="dropdown-item" href="../syllabus/project_1_prompt.html">
+    <a class="dropdown-item" href="../../../syllabus/project_1_prompt.html">
  <span class="dropdown-text">Project Prompt</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../syllabus/project_1_timeline.html">
+    <a class="dropdown-item" href="../../../syllabus/project_1_timeline.html">
  <span class="dropdown-text">Project Timeline</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../syllabus/project_1_presentation_in_person.html">
+    <a class="dropdown-item" href="../../../syllabus/project_1_presentation_in_person.html">
  <span class="dropdown-text">In Person Presentation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week09/week_09.html">
+    <a class="dropdown-item" href="../../../week09/week_09.html">
  <span class="dropdown-text">Peer Review</span></a>
   </li>  
     </ul>
@@ -226,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-project-2">    
         <li>
-    <a class="dropdown-item" href="../syllabus/project_2_prompt.html">
+    <a class="dropdown-item" href="../../../syllabus/project_2_prompt.html">
  <span class="dropdown-text">Project Prompt</span></a>
   </li>  
     </ul>
@@ -244,221 +279,167 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Homework 1: Data Anatomy &amp; Responsible AI Use</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Purpose">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Purpose
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This assignment helps you practice the three essential questions from Week&nbsp;1:</p>
+<section id="descriptives-shiny-app-context-document" class="level1">
+<h1>Descriptives Shiny App – Context Document</h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This Shiny app supports Week 2 instruction on descriptive measures using the Wisconsin accidents dataset.</p>
+<p>The app lets students filter a shared accident dataset and explore:</p>
+<ul>
+<li>measures of size</li>
+<li>central tendency</li>
+<li>spread</li>
+<li>percentiles and IQR</li>
+<li>box-and-whisker plots</li>
+<li>row attrition from filtering, missingness, and trimming</li>
+</ul>
+<p>The main teaching goal is to make “N vs usable n” visible before students interpret summary statistics.</p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<ul>
+<li>Distinguish total rows, filtered rows, missing or invalid values, trimmed values, and usable observations.</li>
+<li>Compare mean, median, and rounded mode.</li>
+<li>See how trimming extremes changes center and spread.</li>
+<li>Interpret standard deviation, percentiles, IQR, and boxplots as complementary descriptions of shape.</li>
+<li>Connect numeric summaries to the filtered population being described.</li>
+</ul>
+</section>
+<section id="data-source" class="level2">
+<h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
+<p>The app loads:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>data<span class="sc">/</span>junior<span class="sc">/</span>boland_course<span class="sc">/</span>shared<span class="sc">/</span>data<span class="sc">/</span>accident_wi.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It derives:</p>
+<ul>
+<li><code>start_time</code></li>
+<li><code>end_time</code></li>
+<li><code>season</code></li>
+<li><code>time_of_day</code></li>
+<li><code>duration_mins</code></li>
+</ul>
+<p>The app keeps a limited teaching-friendly set of numeric and categorical fields.</p>
+</section>
+<section id="ui-structure" class="level2">
+<h2 class="anchored" data-anchor-id="ui-structure">UI Structure</h2>
+<p>The interface uses one parameter panel and four instructional tabs:</p>
 <ol type="1">
-<li><strong>What does one row represent?</strong> (unit of analysis / grain)<br>
-</li>
-<li><strong>What kinds of variables do I have?</strong> (types + NOIR measurement scales)<br>
-</li>
-<li><strong>What can this data actually answer?</strong> (analytical frame)</li>
+<li>Measures of Size</li>
+<li>Central Tendency</li>
+<li>Spread</li>
+<li>Box &amp; Whisker (Tie Together)</li>
 </ol>
-<p>You will work with real microdata, evaluate its structure, and reflect on how to use AI responsibly to <strong>accelerate—not replace—your thinking</strong>.</p>
-</div>
-</div>
-<section id="objectives" class="level2">
-<h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
+<p>The parameter panel is collapsed by default using an HTML <code>details</code> element.</p>
+<p>Important controls include:</p>
 <ul>
-<li>Open and inspect raw <code>.csv</code> data<br>
-</li>
-<li>Save and format data as <code>.xlsx</code><br>
-</li>
-<li>Determine whether a dataset is <strong>tidy</strong><br>
-</li>
-<li>Contrast <strong>microdata</strong> vs <strong>summary data</strong><br>
-</li>
-<li>Build a pivot table using <strong>Dimensions</strong> and <strong>Measures</strong><br>
-</li>
-<li>Describe <strong>unit of analysis</strong> and <strong>grain</strong><br>
-</li>
-<li>Identify variable types<br>
-</li>
-<li>Reflect on <strong>ethical AI use</strong> in data work</li>
+<li>numeric variable selector</li>
+<li>categorical filter field and included levels</li>
+<li>date range filter</li>
+<li>drop missing/invalid toggle</li>
+<li>mean/median line toggle</li>
+<li>standard deviation whisker toggle</li>
+<li>percentile line input</li>
+<li>IQR shading toggle</li>
+<li>tail-trimming slider</li>
+<li>rounded mode precision</li>
+<li>boxplot dot toggle</li>
 </ul>
 </section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<ul>
-<li>Datasets in Posit Cloud<br>
-</li>
-<li>Data Description files on Canvas<br>
-</li>
-<li>Week&nbsp;1 slides (Unit of Analysis, Tidy Data, Dimensions vs Measures)</li>
-</ul>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Important">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This assignment is graded for <strong>sincere completion</strong>, not perfection.<br>
-Try every step. Bring questions to class. We will review solutions together.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="choose-and-download-your-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="choose-and-download-your-dataset">1) Choose and Download Your Dataset</h2>
+<section id="core-reactive-flow" class="level2">
+<h2 class="anchored" data-anchor-id="core-reactive-flow">Core Reactive Flow</h2>
+<p>The app follows this chain:</p>
 <ol type="1">
-<li>Select <strong>one</strong> dataset from your Posit Cloud project.<br>
-</li>
-<li>Download it as a <code>.csv</code>.<br>
-</li>
-<li>Save a working copy as <code>.xlsx</code>.</li>
+<li>Load and pre-process accident data once at startup.</li>
+<li>Build dynamic categorical filter UI from the selected field.</li>
+<li>Filter rows by date and optional category levels.</li>
+<li>Convert the selected numeric variable to finite numeric values.</li>
+<li>Track missing/invalid values.</li>
+<li>Optionally trim extremes from each tail.</li>
+<li>Render text summaries and plots from the same filtered and trimmed data.</li>
 </ol>
-<p><em>(No written response required.)</em></p>
-<hr>
-</section>
-<section id="is-your-data-tidy-why-or-why-not" class="level2">
-<h2 class="anchored" data-anchor-id="is-your-data-tidy-why-or-why-not">2) Is Your Data Tidy? Why or Why Not?</h2>
-<p>Using the Week&nbsp;1 tidy data principles:</p>
+<p>Key reactive objects:</p>
 <ul>
-<li>Each <strong>variable</strong> in its own column<br>
-</li>
-<li>Each <strong>observation</strong> in its own row<br>
-</li>
-<li>One table per <strong>type of observational unit</strong><br>
-</li>
-<li>Keys required if multiple tables link</li>
+<li><code>filtered()</code></li>
+<li><code>x_info()</code></li>
+<li><code>trim_flags()</code></li>
+<li><code>x_trimmed()</code></li>
+<li><code>quartiles()</code></li>
+<li><code>pct_values()</code></li>
+<li><code>dot_long()</code></li>
 </ul>
-<p><strong>Write 3–5 sentences</strong> answering:</p>
+</section>
+<section id="visualization-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="visualization-strategy">Visualization Strategy</h2>
+<section id="measures-of-size" class="level3">
+<h3 class="anchored" data-anchor-id="measures-of-size">Measures of Size</h3>
+<p>Uses a faceted dot grid to show attrition:</p>
 <ul>
-<li>Is your dataset tidy? Why or why not?<br>
-</li>
-<li>If it’s not tidy, identify the issue (e.g., wide layout, mixed grains, repeated headers, embedded units).</li>
+<li>all rows</li>
+<li>after filters</li>
+<li>missing/invalid</li>
+<li>trimmed</li>
+<li>usable n</li>
 </ul>
-<hr>
+<p>This is meant to slow students down before they interpret statistics.</p>
 </section>
-<section id="format-as-a-table-excel" class="level2">
-<h2 class="anchored" data-anchor-id="format-as-a-table-excel">3) Format as a Table (Excel)</h2>
-<p>In Excel, convert your data into an official <strong>Table</strong> (<code>Ctrl/Cmd + T</code>) to enable consistent filters and references.</p>
-<p><em>(No written response required.)</em></p>
-<hr>
+<section id="central-tendency" class="level3">
+<h3 class="anchored" data-anchor-id="central-tendency">Central Tendency</h3>
+<p>Uses a point histogram with stacked and jittered dots. Mean and median can be overlaid.</p>
 </section>
-<section id="build-a-pivot-table-dimensions-measures" class="level2">
-<h2 class="anchored" data-anchor-id="build-a-pivot-table-dimensions-measures">4) Build a Pivot Table (Dimensions + Measures)</h2>
-<p>Create an Excel pivot table using:</p>
+<section id="spread" class="level3">
+<h3 class="anchored" data-anchor-id="spread">Spread</h3>
+<p>Uses a histogram with optional:</p>
 <ul>
-<li>≥ <strong>1 Dimension</strong> (categorical descriptor: ZIP, Gender, Date, Location, Category)<br>
-</li>
-<li>≥ <strong>1 Measure</strong> (numeric summary: Count, Average, Total, Min/Max)</li>
+<li>mean and median markers</li>
+<li>custom percentile lines</li>
+<li>IQR shading</li>
+<li>standard deviation whisker</li>
 </ul>
-<p>If you encounter errors, <strong>briefly describe what happened</strong> and what you tried.</p>
-<p><em>(Optional: include a screenshot.)</em></p>
-<hr>
 </section>
-<section id="what-is-the-unit-of-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-the-unit-of-analysis">5) What Is the Unit of Analysis?</h2>
-<p>In <strong>3–5 sentences</strong>, explain:</p>
+<section id="boxplot" class="level3">
+<h3 class="anchored" data-anchor-id="boxplot">Boxplot</h3>
+<p>Draws a manual boxplot so trimming, outliers, mean markers, and optional dots behave consistently.</p>
+</section>
+</section>
+<section id="teaching-design" class="level2">
+<h2 class="anchored" data-anchor-id="teaching-design">Teaching Design</h2>
+<p>This app is designed to support the Week 2 descriptive measures sequence:</p>
+<p>size -&gt; center -&gt; spread -&gt; shape</p>
+<p>It emphasizes that every summary statistic is conditional on:</p>
 <ul>
-<li>What <strong>one row represents</strong> in your dataset (the grain)<br>
-</li>
-<li>Why this grain matters for answerable questions<br>
-</li>
-<li>What information would appear if the grain were <strong>more detailed</strong></li>
+<li>the dataset</li>
+<li>filters</li>
+<li>valid values</li>
+<li>trimming choices</li>
+<li>the variable’s measurement scale</li>
 </ul>
-<p>Remember your training:</p>
-<blockquote class="blockquote">
-<p>“Rows are never <em>just rows</em>. If you misunderstand the unit of analysis, every result is wrong—even with perfect code.”</p>
-</blockquote>
-<hr>
 </section>
-<section id="identify-variable-types" class="level2">
-<h2 class="anchored" data-anchor-id="identify-variable-types">6) Identify Variable Types</h2>
-<p>List at least <strong>one</strong> variable for each type.<br>
-If a type is missing, describe the <strong>additional data</strong> you would need.</p>
+<section id="modification-guidance" class="level2">
+<h2 class="anchored" data-anchor-id="modification-guidance">Modification Guidance</h2>
+<p>When modifying:</p>
 <ul>
-<li><strong>Categorical (Nominal):</strong><br>
-</li>
-<li><strong>Ordinal:</strong><br>
-</li>
-<li><strong>True/False (Logical):</strong><br>
-</li>
-<li><strong>Discrete Numeric:</strong><br>
-</li>
-<li><strong>Continuous Numeric:</strong><br>
-</li>
-<li><strong>Date/Time:</strong><br>
-</li>
-<li><strong>Geographic/Spatial:</strong></li>
+<li>Keep the startup <code>renv::load()</code> block at the top for deployment.</li>
+<li>Keep all tabs driven by the same filtered data.</li>
+<li>Preserve row attrition as a first-class teaching object.</li>
+<li>Avoid adding charts that obscure the difference between total rows and usable n.</li>
+<li>If adding variables, update <code>num_vars</code> or the categorical filter choices deliberately.</li>
 </ul>
-<p><em>(You may list more than one variable for a given type.)</em></p>
-<hr>
 </section>
-<section id="responsible-use-of-ai-required" class="level2">
-<h2 class="anchored" data-anchor-id="responsible-use-of-ai-required">7) Responsible Use of AI (Required)</h2>
-<p>AI can accelerate learning, but it <strong>must not</strong> interpret results or make analytical decisions for you.<br>
-Use AI only for clarification, rewriting, or troubleshooting.</p>
-<p>Write <strong>5–7 sentences</strong> responding to:</p>
-<p><strong>A.</strong> How did you use AI on this assignment?<br>
-<em>(If not at all, state that and why.)</em></p>
-<p><strong>B.</strong> What did AI help with? <em>(Be specific.)</em></p>
-<p><strong>C.</strong> What did AI get wrong, miss, or oversimplify?</p>
-<p><strong>D.</strong> Include <strong>one AI prompt you used</strong> and note:<br>
-- How the response helped<br>
-- Where it fell short</p>
-<p>Remember our goal with AI:</p>
-<blockquote class="blockquote">
-<p>“Can you use AI responsibly to <strong>accelerate—not replace—your thinking</strong>?”</p>
-</blockquote>
-<hr>
-</section>
-<section id="submission" class="level2">
-<h2 class="anchored" data-anchor-id="submission">8) Submission</h2>
-<p>Upload to Canvas:</p>
-<ol type="1">
-<li>Your completed <strong>Excel workbook (.xlsx)</strong><br>
-</li>
-<li>A document (Word/PDF or Canvas text entry) with your responses, including the AI reflection</li>
-</ol>
-<p>Please bring your <code>.xlsx</code> file to class for in‑class demonstrations.</p>
-<hr>
-</section>
-<section id="alignment-to-course-outcomes" class="level2">
-<h2 class="anchored" data-anchor-id="alignment-to-course-outcomes">Alignment to Course Outcomes</h2>
+<section id="known-constraints" class="level2">
+<h2 class="anchored" data-anchor-id="known-constraints">Known Constraints</h2>
 <ul>
-<li><strong>Choose the right analysis:</strong> You identify grain, tidy structure, and variable types to determine valid analyses.<br>
-</li>
-<li><strong>Interpret results in context:</strong> Your pivot and explanations tie summaries to what the data can and cannot answer.<br>
-</li>
-<li><strong>Explain limitations, assumptions, and uncertainty:</strong> Your AI reflection and grain discussion surface constraints <em>before</em> statistics.</li>
+<li>The app is tied to the deployment path <code>/data/junior/boland_course</code>.</li>
+<li>It is built around the WI accidents dataset.</li>
+<li>It uses base Shiny and ggplot2 rather than a broader component framework.</li>
+<li>Missing/invalid values are handled for teaching clarity rather than advanced data validation.</li>
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

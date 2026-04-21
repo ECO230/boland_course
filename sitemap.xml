@@ -41,32 +41,44 @@
     <lastmod>2026-02-03T22:40:34.642Z</lastmod>
   </url>
   <url>
-    <loc>https://ECO230.github.io/boland_course/week05/week_05.html</loc>
-    <lastmod>2026-02-28T20:39:15.036Z</lastmod>
+    <loc>https://ECO230.github.io/boland_course/syllabus/project_1_timeline.html</loc>
+    <lastmod>2026-02-24T19:50:09.133Z</lastmod>
   </url>
   <url>
-    <loc>https://ECO230.github.io/boland_course/week01/Homework_01.html</loc>
-    <lastmod>2026-01-29T19:47:47.503Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ECO230.github.io/boland_course/week01/snippets/video2-block.html</loc>
-    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ECO230.github.io/boland_course/week01/snippets/video1-block.html</loc>
-    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ECO230.github.io/boland_course/week01/study/video3-study.html</loc>
-    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ECO230.github.io/boland_course/week01/transcripts/video1.html</loc>
-    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ECO230.github.io/boland_course/week01/transcripts/video3.html</loc>
+    <loc>https://ECO230.github.io/boland_course/week01/week_01_DEP.html</loc>
     <lastmod>2026-01-29T19:47:47.599Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/week01/week_01.html</loc>
+    <lastmod>2026-01-31T18:23:09.029Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/week01/snippets/video3-block.html</loc>
+    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/week01/study/video2-study.html</loc>
+    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/week01/study/video1-study.html</loc>
+    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/week01/transcripts/video2.html</loc>
+    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/week12/week_12.html</loc>
+    <lastmod>2026-04-21T21:35:14.227Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/week12/surveys/sampling_survey_v2_spec.html</loc>
+    <lastmod>2026-04-21T19:19:15.131Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/week12/surveys/limesurvey_cleanup_notes.html</loc>
+    <lastmod>2026-04-21T19:19:15.120Z</lastmod>
   </url>
   <url>
     <loc>https://ECO230.github.io/boland_course/week06/Homework_05.html</loc>
@@ -77,12 +89,28 @@
     <lastmod>2026-03-07T22:44:44.290Z</lastmod>
   </url>
   <url>
-    <loc>https://ECO230.github.io/boland_course/shiny-apps-dev/week06/samplingdist/sampling_distribution_simulator_summary.html</loc>
-    <lastmod>2026-02-28T21:14:39.544Z</lastmod>
+    <loc>https://ECO230.github.io/boland_course/shiny-apps-dev/week02/descriptives/descriptives_app_context.html</loc>
+    <lastmod>2026-04-19T18:52:15.547Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/shiny-apps-dev/week02/correlation/correlation_app_context.html</loc>
+    <lastmod>2026-04-19T18:52:15.537Z</lastmod>
   </url>
   <url>
     <loc>https://ECO230.github.io/boland_course/shiny-apps-dev/week06/coinflipper/coin_flip_simulator_context.html</loc>
     <lastmod>2026-02-28T22:24:17.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/shiny-apps-dev/week12/samplinglab/samplinglab_context.html</loc>
+    <lastmod>2026-04-21T21:35:14.117Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/shiny-apps-dev/week06/samplingdist/sampling_distribution_simulator_summary.html</loc>
+    <lastmod>2026-02-28T21:14:39.544Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/shiny-apps-dev/week02/crosstab/crosstab_app_context.html</loc>
+    <lastmod>2026-04-19T18:52:15.542Z</lastmod>
   </url>
   <url>
     <loc>https://ECO230.github.io/boland_course/shiny-apps-dev/week05/game_simulator_requirements.html</loc>
@@ -97,32 +125,44 @@
     <lastmod>2026-03-10T20:00:44.874Z</lastmod>
   </url>
   <url>
-    <loc>https://ECO230.github.io/boland_course/week01/transcripts/video2.html</loc>
-    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
+    <loc>https://ECO230.github.io/boland_course/week12/surveys/sampling_survey_live_build.html</loc>
+    <lastmod>2026-04-21T19:19:15.125Z</lastmod>
   </url>
   <url>
-    <loc>https://ECO230.github.io/boland_course/week01/study/video1-study.html</loc>
-    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
+    <loc>https://ECO230.github.io/boland_course/week12/surveys/uwl_college_department_degree_drilldown.html</loc>
+    <lastmod>2026-04-21T19:19:15.137Z</lastmod>
   </url>
   <url>
-    <loc>https://ECO230.github.io/boland_course/week01/study/video2-study.html</loc>
-    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ECO230.github.io/boland_course/week01/snippets/video3-block.html</loc>
-    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ECO230.github.io/boland_course/week01/week_01.html</loc>
-    <lastmod>2026-01-31T18:23:09.029Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ECO230.github.io/boland_course/week01/week_01_DEP.html</loc>
+    <loc>https://ECO230.github.io/boland_course/week01/transcripts/video3.html</loc>
     <lastmod>2026-01-29T19:47:47.599Z</lastmod>
   </url>
   <url>
-    <loc>https://ECO230.github.io/boland_course/syllabus/project_1_timeline.html</loc>
-    <lastmod>2026-02-24T19:50:09.133Z</lastmod>
+    <loc>https://ECO230.github.io/boland_course/week01/transcripts/video1.html</loc>
+    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/week01/study/video3-study.html</loc>
+    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/week01/snippets/video1-block.html</loc>
+    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/week01/snippets/video2-block.html</loc>
+    <lastmod>2026-01-29T19:47:47.595Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/week01/Homework_01.html</loc>
+    <lastmod>2026-01-29T19:47:47.503Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/week05/week_05.html</loc>
+    <lastmod>2026-02-28T20:39:15.036Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ECO230.github.io/boland_course/syllabus/project_2_prompt.html</loc>
+    <lastmod>2026-04-21T22:07:45.558Z</lastmod>
   </url>
   <url>
     <loc>https://ECO230.github.io/boland_course/syllabus/project_1_presentation_in_person.html</loc>
@@ -154,7 +194,7 @@
   </url>
   <url>
     <loc>https://ECO230.github.io/boland_course/week09/week_09.html</loc>
-    <lastmod>2026-03-31T20:34:41.060Z</lastmod>
+    <lastmod>2026-04-21T22:03:16.657Z</lastmod>
   </url>
   <url>
     <loc>https://ECO230.github.io/boland_course/week04/week_04.html</loc>
