@@ -25,6 +25,31 @@ safe_numeric <- function(x) {
   suppressWarnings(as.numeric(x))
 }
 
+var_labels <- c(
+  submitdate = "Submission time",
+  response_order = "Response order",
+  age_band = "Age band",
+  class_stand = "Class standing",
+  major = "Major",
+  attend = "In-person attendance",
+  commute_min = "Commute time (minutes)",
+  work_hrs = "Work hours per week",
+  sleep_hrs = "Sleep last night (hours)",
+  conf_interp = "Confidence interpreting statistics",
+  bias_conf = "Confidence explaining sampling bias (0-100)",
+  hometown_xy = "Hometown image click",
+  summer_lacrosse = "Lives in La Crosse over summer",
+  hobby_text = "Obscure hobby or interest",
+  transport = "Primary transport",
+  acad_area = "Academic area",
+  uses_ai = "Uses AI for coursework"
+)
+
+pretty_var_name <- function(x) {
+  out <- unname(var_labels[x])
+  ifelse(is.na(out), x, out)
+}
+
 generate_demo_data <- function(n = 120) {
   set.seed(23012)
 
@@ -232,7 +257,7 @@ clean_limesurvey_responses <- function(df) {
   out <- tibble::tibble(
     response_id = df$id,
     submitdate = df$submitdate,
-    response_order = rev(seq_len(nrow(df))),
+    response_order = seq_len(nrow(df)),
     age_band = unname(age_map[df$`931648X26X258`]),
     class_stand = unname(class_map[df$`931648X26X211`]),
     major = major,
@@ -496,8 +521,14 @@ server <- function(input, output, session) {
     num_vars <- setdiff(numeric_vars(df), "response_order")
     cat_vars <- setdiff(categorical_vars(df), "response_order")
     outcome_choices <- c(num_vars, cat_vars)
-    updateSelectInput(session, "outcome_var", choices = outcome_choices, selected = outcome_choices[1] %||% "")
-    updateSelectInput(session, "compare_var", choices = cat_vars, selected = cat_vars[1] %||% "")
+    outcome_named <- stats::setNames(outcome_choices, pretty_var_name(outcome_choices))
+    compare_named <- stats::setNames(cat_vars, pretty_var_name(cat_vars))
+
+    default_outcome <- if ("sleep_hrs" %in% outcome_choices) "sleep_hrs" else outcome_choices[1] %||% ""
+    default_compare <- if ("class_stand" %in% cat_vars) "class_stand" else cat_vars[1] %||% ""
+
+    updateSelectInput(session, "outcome_var", choices = outcome_named, selected = default_outcome)
+    updateSelectInput(session, "compare_var", choices = compare_named, selected = default_compare)
     max_n <- max(5, min(100, nrow(df)))
     current_n <- min(input$sample_n %||% 20, max_n)
     updateSliderInput(session, "sample_n", max = max_n, value = current_n)
@@ -509,21 +540,26 @@ server <- function(input, output, session) {
     x <- df[[input$outcome_var]]
     if (is.numeric(x)) return(NULL)
     levs <- sort(unique(stats::na.omit(as.character(x))))
-    selectInput("outcome_level", "Category to estimate", choices = levs, selected = levs[1] %||% "")
+    selectInput("outcome_level", paste("Level for", pretty_var_name(input$outcome_var)), choices = levs, selected = levs[1] %||% "")
   })
 
   output$order_var_ui <- renderUI({
     if (!input$method %in% c("Convenience sample", "Systematic sample")) return(NULL)
     df <- base_data()
     vars <- names(df)
-    selectInput("order_var", "Order by", choices = vars, selected = "response_order")
+    vars <- setdiff(vars, c("response_id", "hobby_text", "hometown_xy"))
+    named_vars <- stats::setNames(vars, pretty_var_name(vars))
+    default_order <- if ("submitdate" %in% vars) "submitdate" else if ("response_order" %in% vars) "response_order" else vars[1]
+    selectInput("order_var", "Order by", choices = named_vars, selected = default_order)
   })
 
   output$strata_var_ui <- renderUI({
     if (!identical(input$method, "Stratified sample")) return(NULL)
     df <- base_data()
     cat_vars <- setdiff(categorical_vars(df), "response_order")
-    selectInput("strata_var", "Stratify by", choices = cat_vars, selected = cat_vars[1] %||% "")
+    named_vars <- stats::setNames(cat_vars, pretty_var_name(cat_vars))
+    default_strata <- if ("class_stand" %in% cat_vars) "class_stand" else cat_vars[1] %||% ""
+    selectInput("strata_var", "Stratify by", choices = named_vars, selected = default_strata)
   })
 
   current_estimate <- reactive({
@@ -630,8 +666,8 @@ server <- function(input, output, session) {
     num <- setdiff(numeric_vars(df), "response_order")
     cat <- setdiff(categorical_vars(df), "response_order")
     data.frame(
-      Numeric = c(num, rep("", max(0, length(cat) - length(num)))),
-      Categorical = c(cat, rep("", max(0, length(num) - length(cat)))),
+      Numeric = c(pretty_var_name(num), rep("", max(0, length(cat) - length(num)))),
+      Categorical = c(pretty_var_name(cat), rep("", max(0, length(num) - length(cat)))),
       stringsAsFactors = FALSE
     )
   }, striped = TRUE)
@@ -647,7 +683,10 @@ server <- function(input, output, session) {
     ggplot(df_plot, aes(x = source, y = estimate, fill = source)) +
       geom_col(width = 0.6, show.legend = FALSE) +
       coord_flip() +
-      labs(x = NULL, y = if (is.numeric(x)) "Mean" else "Proportion") +
+      labs(
+        x = NULL,
+        y = if (is.numeric(x)) paste("Mean of", pretty_var_name(input$outcome_var)) else paste("Proportion:", input$outcome_level %||% "")
+      ) +
       theme_minimal(base_size = 14)
   })
 
@@ -665,7 +704,7 @@ server <- function(input, output, session) {
     ggplot(plot_df, aes(x = level, y = pct, fill = source)) +
       geom_col(position = "dodge") +
       scale_y_continuous(labels = function(x) paste0(round(x * 100), "%")) +
-      labs(x = NULL, y = "Percent of rows") +
+      labs(x = pretty_var_name(var), y = "Percent of rows") +
       theme_minimal(base_size = 13) +
       theme(axis.text.x = element_text(angle = 25, hjust = 1))
   })
