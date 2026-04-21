@@ -1,47 +1,48 @@
 # Week 12/13 Sampling Survey
 
-This folder contains a draft LimeSurvey import for the sampling and survey-design lab.
+This folder contains the working materials for the Week 12/13 class survey used in the sampling and survey-design lab.
+
+## Recommended Path
+
+The old TSV imports were useful for exploration, but they produced messy LimeSurvey output. The recommended path now is:
+
+1. Create a fresh survey in LimeSurvey.
+2. Build it manually from `sampling_survey_live_build.md`.
+3. Use `sampling_survey_v2_spec.md` as the fuller design reference.
+4. Export the clean survey once it looks right.
+5. Treat that export as the new baseline artifact.
 
 ## Files
 
-- `sampling_survey_lab_limesurvey_import.txt` - tab-separated LimeSurvey survey-structure draft.
-- `sampling_survey_lab_questions_only_import.txt` - safer tab-separated import without survey metadata rows.
-- `sampling_survey_lab_with_language_import.txt` - recommended import with minimal English language metadata.
+- `sampling_survey_live_build.md` - the fastest clean manual build guide for LimeSurvey.
+- `sampling_survey_v2_spec.md` - fuller survey blueprint with rationale and optional items.
+- `limesurvey_cleanup_notes.md` - triage notes if you keep cleaning the current imported survey.
+- `sampling_survey_lab_limesurvey_import.txt` - legacy draft import.
+- `sampling_survey_lab_questions_only_import.txt` - legacy safer import attempt.
+- `sampling_survey_lab_with_language_import.txt` - legacy import attempt with minimal language rows.
 
-## Import
+## Current Recommendation On Imports
 
-In LimeSurvey:
+Do not rely on the TSV imports as the canonical survey.
 
-1. Go to **Surveys**.
-2. Choose **Import a survey**.
-3. Upload `sampling_survey_lab_with_language_import.txt`.
-4. Import it as a survey structure.
-5. Preview the survey and check question logic before activating.
+They can still be useful for reference, but the live student survey should be rebuilt cleanly in the LimeSurvey UI so that:
 
-If the recommended file fails, try `sampling_survey_lab_questions_only_import.txt`, then set the survey language/title manually in the LimeSurvey admin UI.
-
-LimeSurvey supports tab-separated `.txt` survey-structure imports. This format is easier to edit than raw `.lss` XML while drafting.
-
-## Post-Import Checks
-
-After import, review these items in the LimeSurvey admin UI:
-
-- Constant sum: verify the multiple-numeric question requires the six values to sum to 100. If the TSV import does not preserve that validation, add it manually.
-- Drilldown: the draft uses three dropdown questions instead of a true cascading drilldown. Convert to cascading logic if desired.
-- Graphic rating: the draft uses a 5-point choice as the portable core version. Replace with a visual/slider question type if your LimeSurvey setup supports it.
-- Heat map: the draft uses a long-text placeholder because heat map/image-click questions may require a plugin or a specific question module.
-- Bad-question diagnosis: these are included as list/radio diagnosis items. They can be moved to an in-class activity if the live survey feels too long.
+- question titles are human-readable
+- internal variable names stay hidden
+- answer lists look correct
+- `Other` handling is intentional
+- required questions do not show distracting `No answer` options
 
 ## Design Purpose
 
 The survey is designed to feed a Shiny app that demonstrates:
 
 - random vs representative samples
-- simple random, systematic, convenience, stratified, quota, cluster, judgment, and snowball sampling
+- sampling methods such as simple random, convenience, systematic, and stratified sampling
 - sampling frame error
 - nonresponse error
 - survey question formats
-- leading, loaded, double-barreled, and assumption-based questions
+- the value of open-text responses for niche populations
 
 The private design source of truth is:
 
