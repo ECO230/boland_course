@@ -7,6 +7,8 @@ library(shiny)
 library(dplyr)
 library(readr)
 library(ggplot2)
+library(DBI)
+library(RMariaDB)
 
 `%||%` <- function(a, b) if (!is.null(a) && length(a) > 0 && !all(is.na(a))) a else b
 
@@ -18,6 +20,10 @@ fmt_num <- function(x, digits = 2) {
 fmt_pct <- function(x, digits = 1) {
   if (is.na(x)) return("\u2014")
   paste0(format(round(100 * x, digits), nsmall = digits, trim = TRUE), "%")
+}
+
+safe_numeric <- function(x) {
+  suppressWarnings(as.numeric(x))
 }
 
 generate_demo_data <- function(n = 120) {
@@ -152,6 +158,95 @@ make_clean_data <- function(df) {
   df
 }
 
+load_limesurvey_responses <- function() {
+  con <- DBI::dbConnect(
+    RMariaDB::MariaDB(),
+    host = Sys.getenv("SURVEY_DB_HOST"),
+    user = Sys.getenv("SURVEY_DB_USER"),
+    password = Sys.getenv("SURVEY_DB_PASSWORD"),
+    dbname = Sys.getenv("SURVEY_DB_NAME"),
+    port = as.integer(Sys.getenv("SURVEY_DB_PORT"))
+  )
+
+  on.exit(DBI::dbDisconnect(con), add = TRUE)
+
+  DBI::dbGetQuery(con, "SELECT * FROM survey_931648 ORDER BY id DESC")
+}
+
+clean_limesurvey_responses <- function(df) {
+  if (!nrow(df)) return(df)
+
+  class_map <- c(
+    AO01 = "First-year",
+    AO02 = "Sophomore",
+    AO03 = "Junior",
+    AO04 = "Senior (+)"
+  )
+
+  attend_map <- c(
+    AO01 = "Almost always",
+    AO02 = "Often",
+    AO03 = "Sometimes",
+    AO04 = "Rarely"
+  )
+
+  conf_interp_map <- c(
+    AO01 = "Not at all confident",
+    AO02 = "Slightly confident",
+    AO03 = "Moderately confident",
+    AO04 = "Extremely confident",
+    AO05 = "Very confident"
+  )
+
+  age_map <- c(
+    AO01 = "18 - 20",
+    AO02 = "20 - 22",
+    AO03 = "22 - 24"
+  )
+
+  yes_no_map <- c(
+    Y = "Yes",
+    N = "No"
+  )
+
+  major_labels <- c(
+    "931648X26X216SQ001" = "Accountancy",
+    "931648X26X216SQ002" = "Business Administration",
+    "931648X26X216SQ003" = "Finance",
+    "931648X26X216SQ004" = "Economics",
+    "931648X26X216SQ005" = "Information Systems",
+    "931648X26X216SQ006" = "International Business",
+    "931648X26X216SQ007" = "Management",
+    "931648X26X216SQ008" = "Marketing"
+  )
+
+  major_values <- df[, names(major_labels), drop = FALSE]
+  major_idx <- max.col(major_values == "Y", ties.method = "first")
+  has_major <- rowSums(major_values == "Y", na.rm = TRUE) > 0
+  major <- rep(NA_character_, nrow(df))
+  major[has_major] <- unname(major_labels[major_idx[has_major]])
+
+  out <- tibble::tibble(
+    response_id = df$id,
+    submitdate = df$submitdate,
+    response_order = rev(seq_len(nrow(df))),
+    age_band = unname(age_map[df$`931648X26X258`]),
+    class_stand = unname(class_map[df$`931648X26X211`]),
+    major = major,
+    attend = unname(attend_map[df$`931648X26X225`]),
+    commute_min = safe_numeric(df$`931648X26X226`),
+    work_hrs = safe_numeric(df$`931648X26X227`),
+    sleep_hrs = safe_numeric(df$`931648X26X228`),
+    conf_interp = unname(conf_interp_map[df$`931648X27X229`]),
+    bias_conf = safe_numeric(df$`931648X27X248SQ001`),
+    hometown_xy = df$`931648X28X257`,
+    summer_lacrosse = unname(yes_no_map[df$`931648X28X259`]),
+    hobby_text = df$`931648X28X260`
+  )
+
+  out
+}
+
 numeric_vars <- function(df) {
   keep <- vapply(df, function(x) is.numeric(x) && dplyr::n_distinct(x, na.rm = TRUE) >= 4, logical(1))
   names(df)[keep]
@@ -267,12 +362,16 @@ ui <- fluidPage(
     column(
       3,
       tags$details(
-        class = "param",
-        open = TRUE,
-        tags$summary("Controls"),
-        div(
-          class = "content",
-          radioButtons("data_mode", "Data source", choices = c("Demo data", "Upload CSV"), selected = "Demo data"),
+          class = "param",
+          open = TRUE,
+          tags$summary("Controls"),
+          div(
+            class = "content",
+          radioButtons("data_mode", "Data source", choices = c("Demo data", "Live survey DB", "Upload CSV"), selected = "Demo data"),
+          conditionalPanel(
+            "input.data_mode == 'Live survey DB'",
+            uiOutput("live_db_status")
+          ),
           conditionalPanel(
             "input.data_mode == 'Upload CSV'",
             fileInput("csv_file", "CSV file", accept = c(".csv"))
@@ -347,7 +446,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  rv <- reactiveValues(current_sample = NULL, sim_results = NULL)
+  rv <- reactiveValues(current_sample = NULL, sim_results = NULL, live_db_error = NULL)
 
   uploaded_data <- reactive({
     req(input$csv_file)
@@ -356,11 +455,36 @@ server <- function(input, output, session) {
     read_csv(input$csv_file$datapath, show_col_types = FALSE)
   })
 
+  live_data <- reactive({
+    tryCatch({
+      rv$live_db_error <- NULL
+      clean_limesurvey_responses(load_limesurvey_responses())
+    }, error = function(e) {
+      rv$live_db_error <- conditionMessage(e)
+      NULL
+    })
+  })
+
   base_data <- reactive({
     if (identical(input$data_mode, "Upload CSV")) {
       make_clean_data(uploaded_data())
+    } else if (identical(input$data_mode, "Live survey DB")) {
+      df <- live_data()
+      validate(need(!is.null(df), paste("Live survey database load failed:", rv$live_db_error %||% "unknown error")))
+      make_clean_data(df)
     } else {
       make_clean_data(generate_demo_data())
+    }
+  })
+
+  output$live_db_status <- renderUI({
+    if (identical(input$data_mode, "Live survey DB")) {
+      df <- live_data()
+      if (is.null(df)) {
+        div(class = "small", style = "color:#8b1e1e;", paste("DB load failed:", rv$live_db_error %||% "unknown error"))
+      } else {
+        div(class = "small", style = "color:#1b6c3f;", paste("Connected. Rows loaded:", nrow(df)))
+      }
     }
   })
 

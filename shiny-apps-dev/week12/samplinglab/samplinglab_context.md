@@ -24,9 +24,20 @@ The app is designed to work before full live LimeSurvey database integration is 
 The app currently supports:
 
 1. built-in demo data generated inside `app.R`
-2. uploaded CSV files
+2. live LimeSurvey/MariaDB loading through environment variables
+3. uploaded CSV files
 
-The intended future extension is direct LimeSurvey/MariaDB loading once the database connection path is stable and documented.
+The live database path uses:
+
+- `SURVEY_DB_HOST`
+- `SURVEY_DB_PORT`
+- `SURVEY_DB_NAME`
+- `SURVEY_DB_USER`
+- `SURVEY_DB_PASSWORD`
+
+Version 1 targets survey response table:
+
+- `survey_931648`
 
 ## UI Structure
 
@@ -83,7 +94,6 @@ That lets the instructor separate:
 
 ## Future Extensions
 
-- direct MariaDB/LimeSurvey connection
 - explicit frame-error simulator tab
 - nonresponse mechanism simulator
 - saved presets tied to the Week 12 survey schema
