@@ -1,145 +1,264 @@
 ---
-title: "Design Challenge: Can We Trust It?"
+title: "Project 2: Can We Trust It?"
 format:
   html:
     toc: false
     number-sections: false
 ---
 
-## DESIGN CHALLENGE: CAN WE TRUST IT?
+## PROJECT 2: CAN WE TRUST IT?
 
-### Objectives
+### Overview
 
-- Shift focus from analyzing data to designing how data should be collected
-- Evaluate whether results should be trusted before they exist
-- Apply concepts from sampling, research design, machine learning, and ethics
+Earlier in the course, you analyzed data and communicated results.
 
----
+For Project 2, we step back and ask a more fundamental question:
 
-## Overview
+**Why should we trust a result enough to act on it?**
 
-In earlier parts of this course, you analyzed data and communicated results.
+Your job is to identify a real problem, opportunity, or decision and design a study that could produce evidence people would actually believe.
 
-Now we step back and ask a more fundamental question:
+You will **not** collect the data and you will **not** complete the final analysis.
 
-**Why should we trust a result at all?**
-
-Your goal is to design a study or model such that:
-
-**If the result came out positive, we would believe it enough to act on it.**
+Instead, you will design how the evidence should be produced and defend why that design is strong enough to matter.
 
 ---
 
-## Task
+## Core Goal
 
-In teams, you will design a proposal and present it in a Shark Tank-style session.
+This project is about **study design**, not repeating hypothesis tests for their own sake.
 
-You will NOT collect data and you will NOT run analysis.
+Your proposal should make a clear case that:
 
-Instead, you will design how the data should be collected and defend why the results would be trustworthy.
+- the question matters
+- the design fits the question
+- the data would be collected in a credible way
+- the results would be trustworthy enough to inform a real decision
 
----
-
-## Requirements
-
-### 1. Research Question
-
-- Must be specific and testable
-- Must imply a real decision
+If you include research objectives or a tentative hypothesis, they should support the design rather than overshadow it.
 
 ---
 
-### 2. Design Choice (Pick ONE)
+## Deliverables
 
-Choose one approach:
+You will complete the following:
 
-- Observational study  
-- Survey  
-- Experiment  
-- Predictive model (ML)  
+- Initial in-class project check-in
+- Informal in-class study design proposal
+- Informal in-class pitch and defense
+- Final written proposal before the final exam
 
-Describe clearly:
-
-- Who or what is being studied  
-- What variables are measured  
-- How the data would be collected  
+The written proposal may take the form of an executive summary, outline, or combined proposal document, depending on the course materials used in class.
 
 ---
 
-### 3. Why Should We Trust This?
+## Timeline
 
-You must explicitly address:
+### Week 12
 
-**Sampling**
+- Form groups
+- Explore possible topics
+- Begin identifying a problem or opportunity worth studying
+
+### Week 13
+
+- Final topic selection
+- Informal in-class study design proposal
+
+By this stage, teams should be ready to explain:
+
+- the problem or opportunity
+- the research question
+- who or what would be studied
+- the proposed source of data
+- why the design might be trustworthy
+
+### Week 14
+
+- Informal in-class pitch
+- Red Team critique
+- Defense and revision discussion
+
+By this stage, teams should be ready to explain:
+
+- the proposed study design
+- what could go wrong
+- who might be excluded or harmed
+- why the design is still worth considering
+
+### Before the Final
+
+- Submit the final written proposal
+
+---
+
+## Topic Options
+
+You may focus on:
+
+- a real business situation you know through work, family, or your personal network
+- an academic question connected to your major field of study
+- a case study or industry problem where you can propose a new research design
+- any topic you genuinely find interesting
+
+Because you are not required to complete the project, you are encouraged to be ambitious. You are also not limited to methods we have practiced in class, but if you propose a more advanced method you are responsible for explaining why it fits the problem.
+
+---
+
+## Required Components
+
+### 1. Problem or Opportunity
+
+Explain the situation that motivates the project.
+
+Your audience should understand:
+
+- what is happening
+- why it matters
+- who would use the results
+
+### 2. Research Question
+
+Your question should be:
+
+- specific
+- interesting
+- actionable
+
+A strong question implies a real decision.
+
+### 3. Proposed Study Design
+
+You may propose a:
+
+- survey
+- observational study
+- experiment
+- predictive model
+- or another justified design
+
+Explain clearly:
+
+- who or what is being studied
+- what information would be collected
+- how the data would be collected
+
+### 4. Why Should We Trust It?
+
+This is the heart of the assignment.
+
+You must make a case for trustworthiness by addressing:
+
+**Population and Sampling**
+
 - Who is represented?
 - Who might be missing?
+- How could the sample become misleading?
 
-**Measurement / Design**
+**Measurement and Design**
+
 - Are you measuring the right thing?
-- What could go wrong?
+- Are the variables or questions well designed?
+- What could go wrong in data collection?
 
-**Causality or Generalization**
-- Can you claim cause? OR
-- Will this generalize to new data?
+**Generalization or Causal Claims**
+
+- If this is observational, what can and can you not conclude?
+- If this is experimental, what causal claim would be justified?
+- If this is predictive, why should it generalize to new cases?
 
 **Ethics**
+
 - Who could be harmed?
-- Who is excluded?
+- Who could be excluded?
+- What privacy, fairness, or consent concerns matter here?
 
----
+### 5. Known Risks and Limitations
 
-### 4. Known Risks
-
-Even if everything goes well, how could this still fail?
+Even if the project is well designed, how could it still fail?
 
 Be specific. This is one of the most important parts of the assignment.
 
----
+### 6. Optional Supporting Structure
 
-## Red Team Component
+If helpful, you may also include:
 
-Each team will be assigned another team to critique.
+- short research objectives
+- a tentative hypothesis or expected pattern
+- a high-level analysis plan
 
-You must prepare 3–5 targeted criticisms, including:
-
-- One sampling issue  
-- One design or measurement issue  
-- One causality or generalization issue  
-- One ethical concern  
+These can strengthen the proposal, but they are not the main focus. The central question is still whether the **design** would produce evidence worth trusting.
 
 ---
 
-## Presentation Format
+## In-Class Format
 
-- Pitch: 3–4 minutes  
-- Red Team Critique: 2 minutes  
-- Defense: 2 minutes  
+Project 2 will use a pitch-and-critique format.
+
+### Proposing Team
+
+Your team will act like a group seeking support for a research idea.
+
+Your job is to:
+
+- pitch the problem
+- explain the study design
+- defend why the design is credible
+
+### Red Team
+
+Another team will act as your **Red Team**.
+
+Their job is to challenge your proposal by identifying weaknesses such as:
+
+- sampling problems
+- design or measurement flaws
+- weak generalization or causal reasoning
+- ethical concerns
+
+### Audience
+
+The rest of the class should think like skeptical decision-makers:
+
+**Would we trust this result enough to act on it?**
 
 ---
 
-## Shark Tank Investment
+## Suggested Pitch Structure
 
-Each student receives $100 (five $20 bills, no change).
+Your in-class pitch should briefly cover:
 
-You will invest based on:
+1. the problem or opportunity
+2. the research question
+3. the proposed design
+4. why the evidence would be trustworthy
+5. the biggest known risk
 
-**Would you trust this result enough to act on it?**
+Your goal is not to prove the answer in advance.
 
-You are NOT investing in the idea—you are investing in the credibility of the design.
+Your goal is to convince the audience that your design is worth taking seriously.
 
 ---
 
-## Grading
+## Grading Emphasis
 
-- Research Question & Design Clarity  
-- Trustworthiness Reasoning  
-- Red Team Critique Quality  
-- Defense & Response  
-- Overall Clarity  
+Your work will be judged mainly on:
+
+- clarity and importance of the problem
+- quality of the research question
+- fit between the question and the design
+- quality of the trustworthiness reasoning
+- attention to bias, limitations, and ethics
+- clarity of oral and written communication
+
+Students who identify honest weaknesses and explain them clearly will usually be stronger than students who pretend their design has none.
 
 ---
 
 ## Key Principle
 
-Good analysis cannot fix bad data.  
-Good design prevents bad data.
+Good analysis cannot rescue bad design.
+
+If the design is weak, the result should not be trusted.
+
+If the design is strong, the result becomes worth arguing about.
