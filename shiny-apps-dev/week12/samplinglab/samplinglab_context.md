@@ -41,11 +41,12 @@ Version 1 targets survey response table:
 
 ## UI Structure
 
-The app uses one left control panel and three tabs:
+The app uses one left control panel and four tabs:
 
 1. Response pool
 2. Sampling lab
 3. Repeat sampling
+4. Image heatmap
 
 The control panel is collapsed into a `details` element and includes:
 
@@ -70,6 +71,7 @@ The control panel is collapsed into a `details` element and includes:
 6. Compare the current sample estimate to the response-pool estimate.
 7. Compare subgroup composition between the sample and the pool.
 8. Optionally repeat the sampling many times to show estimator variation.
+9. Visualize image-click coordinates from the survey on top of the Escher image.
 
 ## Sampling Methods In Version 1
 
@@ -98,3 +100,4 @@ That lets the instructor separate:
 - nonresponse mechanism simulator
 - saved presets tied to the Week 12 survey schema
 - survey-design examples tied to specific question formats
+- a truer image-density heatmap or click-cluster summary if the current overlay becomes a recurring classroom feature

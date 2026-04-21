@@ -37,7 +37,8 @@ var_labels <- c(
   sleep_hrs = "Sleep last night (hours)",
   conf_interp = "Confidence interpreting statistics",
   bias_conf = "Confidence explaining sampling bias (0-100)",
-  hometown_xy = "Hometown image click",
+  hometown_text = "Hometown text",
+  image_click_coords = "Image click coordinates",
   summer_lacrosse = "Lives in La Crosse over summer",
   hobby_text = "Obscure hobby or interest",
   transport = "Primary transport",
@@ -48,6 +49,107 @@ var_labels <- c(
 pretty_var_name <- function(x) {
   out <- unname(var_labels[x])
   ifelse(is.na(out), x, out)
+}
+
+teaching_outcome_vars <- c(
+  "sleep_hrs",
+  "work_hrs",
+  "commute_min",
+  "bias_conf",
+  "class_stand",
+  "major",
+  "attend",
+  "conf_interp",
+  "summer_lacrosse",
+  "age_band"
+)
+
+teaching_compare_vars <- c(
+  "class_stand",
+  "major",
+  "attend",
+  "conf_interp",
+  "summer_lacrosse",
+  "age_band"
+)
+
+parse_click_coords <- function(x) {
+  if (length(x) == 0) {
+    return(data.frame(x = numeric(0), y = numeric(0)))
+  }
+  pieces <- strsplit(trimws(x), ",")
+  good <- vapply(pieces, function(p) length(p) == 2, logical(1))
+  pieces <- pieces[good]
+  if (!length(pieces)) {
+    return(data.frame(x = numeric(0), y = numeric(0)))
+  }
+  xs <- suppressWarnings(as.numeric(vapply(pieces, `[`, character(1), 1)))
+  ys <- suppressWarnings(as.numeric(vapply(pieces, `[`, character(1), 2)))
+  out <- data.frame(x = xs, y = ys)
+  out <- out[is.finite(out$x) & is.finite(out$y), , drop = FALSE]
+  out[out$x >= 0 & out$x <= 100 & out$y >= 0 & out$y <= 100, , drop = FALSE]
+}
+
+interpret_sample <- function(pool_df, sample_df, outcome_var, outcome_level, compare_var) {
+  pool_est <- estimate_value(pool_df, outcome_var, outcome_level)
+  samp_est <- estimate_value(sample_df, outcome_var, outcome_level)
+  gap <- samp_est - pool_est
+  outcome_data <- pool_df[[outcome_var]]
+
+  estimate_line <- if (is.numeric(outcome_data)) {
+    if (abs(gap) < 0.15) {
+      paste("The sample mean is very close to the response-pool mean for", pretty_var_name(outcome_var), ".")
+    } else if (gap > 0) {
+      paste("The sample mean is higher than the response-pool mean for", pretty_var_name(outcome_var), ".")
+    } else {
+      paste("The sample mean is lower than the response-pool mean for", pretty_var_name(outcome_var), ".")
+    }
+  } else {
+    if (abs(gap) < 0.03) {
+      paste("The sample proportion is close to the response-pool proportion for", outcome_level, ".")
+    } else if (gap > 0) {
+      paste("The sample overstates the proportion for", outcome_level, ".")
+    } else {
+      paste("The sample understates the proportion for", outcome_level, ".")
+    }
+  }
+
+  comp_pool <- pool_df %>%
+    count(level = .data[[compare_var]]) %>%
+    mutate(pool_pct = n / sum(n))
+  comp_sample <- sample_df %>%
+    count(level = .data[[compare_var]]) %>%
+    mutate(sample_pct = n / sum(n))
+
+  comp <- full_join(comp_pool, comp_sample, by = "level") %>%
+    mutate(
+      pool_pct = dplyr::coalesce(pool_pct, 0),
+      sample_pct = dplyr::coalesce(sample_pct, 0),
+      diff = sample_pct - pool_pct
+    )
+
+  if (!nrow(comp)) {
+    return(estimate_line)
+  }
+
+  top_over <- comp %>% arrange(desc(diff)) %>% slice(1)
+  top_under <- comp %>% arrange(diff) %>% slice(1)
+
+  balance_line <- if (abs(top_over$diff) < 0.05 && abs(top_under$diff) < 0.05) {
+    paste("The sample looks fairly balanced across", pretty_var_name(compare_var), ".")
+  } else {
+    paste(
+      "Compared with the response pool, this sample overrepresents",
+      top_over$level,
+      "and underrepresents",
+      top_under$level,
+      "on",
+      pretty_var_name(compare_var),
+      "."
+    )
+  }
+
+  paste(estimate_line, balance_line)
 }
 
 generate_demo_data <- function(n = 120) {
@@ -267,7 +369,8 @@ clean_limesurvey_responses <- function(df) {
     sleep_hrs = safe_numeric(df$`931648X26X228`),
     conf_interp = unname(conf_interp_map[df$`931648X27X229`]),
     bias_conf = safe_numeric(df$`931648X27X248SQ001`),
-    hometown_xy = df$`931648X28X257`,
+    hometown_text = df$`931648X28X256`,
+    image_click_coords = df$`931648X28X257`,
     summer_lacrosse = unname(yes_no_map[df$`931648X28X259`]),
     hobby_text = df$`931648X28X260`
   )
@@ -454,6 +557,9 @@ ui <- fluidPage(
             column(4, div(class = "metric", div(class = "metricTitle", "Difference from pool"), div(class = "metricValue", textOutput("estimate_gap", inline = TRUE))))
           ),
           fluidRow(
+            column(12, div(class = "callout", strong("Interpretation"), textOutput("interpretation_text")))
+          ),
+          fluidRow(
             column(6, div(class = "box", h4("Sample vs response pool"), plotOutput("compare_plot", height = 320))),
             column(6, div(class = "box", h4("Representativeness by subgroup"), plotOutput("composition_plot", height = 320)))
           ),
@@ -466,6 +572,17 @@ ui <- fluidPage(
           br(),
           fluidRow(
             column(12, div(class = "box", h4("Sampling distribution of the estimator"), plotOutput("sampling_dist_plot", height = 360), uiOutput("repeat_note")))
+          )
+        ),
+        tabPanel(
+          "Image heatmap",
+          br(),
+          fluidRow(
+            column(4, div(class = "metric", div(class = "metricTitle", "Recorded clicks"), div(class = "metricValue", textOutput("n_clicks", inline = TRUE)))),
+            column(8, div(class = "callout", strong("What this shows"), p("Each point marks where a respondent clicked on the Escher image. Brighter regions show where class attention clustered.")))
+          ),
+          fluidRow(
+            column(12, div(class = "box", h4("Class click map"), plotOutput("heatmap_plot", height = 700)))
           )
         )
       )
@@ -520,12 +637,13 @@ server <- function(input, output, session) {
     df <- base_data()
     num_vars <- setdiff(numeric_vars(df), "response_order")
     cat_vars <- setdiff(categorical_vars(df), "response_order")
-    outcome_choices <- c(num_vars, cat_vars)
+    outcome_choices <- intersect(c(teaching_outcome_vars, num_vars, cat_vars), c(num_vars, cat_vars))
+    compare_vars <- intersect(c(teaching_compare_vars, cat_vars), cat_vars)
     outcome_named <- stats::setNames(outcome_choices, pretty_var_name(outcome_choices))
-    compare_named <- stats::setNames(cat_vars, pretty_var_name(cat_vars))
+    compare_named <- stats::setNames(compare_vars, pretty_var_name(compare_vars))
 
     default_outcome <- if ("sleep_hrs" %in% outcome_choices) "sleep_hrs" else outcome_choices[1] %||% ""
-    default_compare <- if ("class_stand" %in% cat_vars) "class_stand" else cat_vars[1] %||% ""
+    default_compare <- if ("class_stand" %in% compare_vars) "class_stand" else compare_vars[1] %||% ""
 
     updateSelectInput(session, "outcome_var", choices = outcome_named, selected = default_outcome)
     updateSelectInput(session, "compare_var", choices = compare_named, selected = default_compare)
@@ -547,7 +665,7 @@ server <- function(input, output, session) {
     if (!input$method %in% c("Convenience sample", "Systematic sample")) return(NULL)
     df <- base_data()
     vars <- names(df)
-    vars <- setdiff(vars, c("response_id", "hobby_text", "hometown_xy"))
+    vars <- setdiff(vars, c("response_id", "hobby_text", "hometown_text", "image_click_coords"))
     named_vars <- stats::setNames(vars, pretty_var_name(vars))
     default_order <- if ("submitdate" %in% vars) "submitdate" else if ("response_order" %in% vars) "response_order" else vars[1]
     selectInput("order_var", "Order by", choices = named_vars, selected = default_order)
@@ -556,7 +674,7 @@ server <- function(input, output, session) {
   output$strata_var_ui <- renderUI({
     if (!identical(input$method, "Stratified sample")) return(NULL)
     df <- base_data()
-    cat_vars <- setdiff(categorical_vars(df), "response_order")
+    cat_vars <- intersect(c(teaching_compare_vars, categorical_vars(df)), categorical_vars(df))
     named_vars <- stats::setNames(cat_vars, pretty_var_name(cat_vars))
     default_strata <- if ("class_stand" %in% cat_vars) "class_stand" else cat_vars[1] %||% ""
     selectInput("strata_var", "Stratify by", choices = named_vars, selected = default_strata)
@@ -652,6 +770,17 @@ server <- function(input, output, session) {
     }
   })
 
+  output$interpretation_text <- renderText({
+    req(rv$current_sample, input$outcome_var, input$compare_var)
+    interpret_sample(
+      pool_df = base_data(),
+      sample_df = rv$current_sample,
+      outcome_var = input$outcome_var,
+      outcome_level = input$outcome_level %||% NULL,
+      compare_var = input$compare_var
+    )
+  })
+
   output$data_preview <- renderTable({
     head(base_data(), 8)
   }, striped = TRUE)
@@ -716,6 +845,56 @@ server <- function(input, output, session) {
       geom_vline(xintercept = pool_estimate(), color = "#D34E4E", linewidth = 1.2) +
       labs(x = "Estimate across repeated samples", y = "Count") +
       theme_minimal(base_size = 14)
+  })
+
+  click_df <- reactive({
+    df <- base_data()
+    if (!"image_click_coords" %in% names(df)) {
+      return(data.frame(x = numeric(0), y = numeric(0)))
+    }
+    parse_click_coords(stats::na.omit(df$image_click_coords))
+  })
+
+  output$n_clicks <- renderText(nrow(click_df()))
+
+  output$heatmap_plot <- renderPlot({
+    pts <- click_df()
+
+    img_path <- "/data/junior/boland_course/week12/media/images/Print_Gallery_by_M._C._Escher.jpg"
+    has_jpeg <- requireNamespace("jpeg", quietly = TRUE)
+    has_image <- file.exists(img_path)
+
+    if (has_jpeg && has_image) {
+      img <- jpeg::readJPEG(img_path)
+      g <- grid::rasterGrob(img, width = unit(1, "npc"), height = unit(1, "npc"))
+      p <- ggplot() +
+        annotation_custom(g, xmin = 0, xmax = 100, ymin = 100, ymax = 0)
+    } else {
+      p <- ggplot() +
+        annotate("rect", xmin = 0, xmax = 100, ymin = 0, ymax = 100, fill = "grey95", color = "grey70")
+    }
+
+    p +
+      stat_density_2d(
+        data = pts,
+        aes(x = x, y = y, fill = after_stat(level), alpha = after_stat(level)),
+        geom = "polygon",
+        contour = TRUE,
+        na.rm = TRUE
+      ) +
+      geom_point(
+        data = pts,
+        aes(x = x, y = y),
+        color = "#D34E4E",
+        alpha = 0.45,
+        size = 3
+      ) +
+      scale_x_continuous(limits = c(0, 100), expand = c(0, 0)) +
+      scale_y_reverse(limits = c(100, 0), expand = c(0, 0)) +
+      scale_fill_gradient(low = "#FDBFB6", high = "#A61E4D", guide = "none") +
+      scale_alpha(range = c(0.08, 0.35), guide = "none") +
+      labs(x = NULL, y = NULL) +
+      theme_void()
   })
 
   output$repeat_note <- renderUI({
