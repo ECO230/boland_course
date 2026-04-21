@@ -1,4 +1,17 @@
+------------------------------------------------------------------------
+
 ---
+library(DBI)
+library(RMariaDB)
+
+con <- dbConnect(
+  MariaDB(),
+  host = Sys.getenv("SURVEY_DB_HOST"),
+  port = as.integer(Sys.getenv("SURVEY_DB_PORT", "3306")),
+  dbname = Sys.getenv("SURVEY_DB_NAME"),
+  user = Sys.getenv("SURVEY_DB_USER"),
+  password = Sys.getenv("SURVEY_DB_PASSWORD")
+)---
 title: "Week 12 - Sampling and Survey Research"
 author: "Mike Boland, MBA"
 format:
