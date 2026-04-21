@@ -8,7 +8,6 @@ library(dplyr)
 library(readr)
 library(ggplot2)
 library(DBI)
-library(RMariaDB)
 
 `%||%` <- function(a, b) if (!is.null(a) && length(a) > 0 && !all(is.na(a))) a else b
 
@@ -159,6 +158,10 @@ make_clean_data <- function(df) {
 }
 
 load_limesurvey_responses <- function() {
+  if (!requireNamespace("RMariaDB", quietly = TRUE)) {
+    stop("RMariaDB is not available in this Shiny runtime.")
+  }
+
   con <- DBI::dbConnect(
     RMariaDB::MariaDB(),
     host = Sys.getenv("SURVEY_DB_HOST"),
