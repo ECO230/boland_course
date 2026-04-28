@@ -30,6 +30,7 @@
     }
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-7de2922f2d1fbf696a6ae0955d43c603.css">
+  <link rel="stylesheet" href="population_pipeline.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -225,191 +226,41 @@ Mike Boland, MBA
 <h1>Population to Sample</h1>
 
 </section>
-<section id="census" class="slide level2">
-<h2>Census</h2>
-<p><br></p>
-<div title="Census">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Census</strong></p>
-</div>
-<div class="callout-content">
-<p>A census tries to collect information from every member of the population.</p>
+<section id="total-population" class="slide level2">
+<h2>Total Population</h2>
+<div class="population-stage">
+<img class="person p001 t-std" src="../shared/images/xkcd_man.png"> <img class="person p002 t-std flipped" src="../shared/images/xkcd_beanie.png"> <img class="person p003 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p004 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p005 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p006 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p007 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p008 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p009 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p010 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p011 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p012 t-std" src="../shared/images/xkcd_bun.png"> <img class="person p013 t-std flipped" src="../shared/images/xkcd_neutral.png"> <img class="person p014 t-std" src="../shared/images/xkcd_beardo.png"> <img class="person p015 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p016 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p017 t-std" src="../shared/images/xkcd_man.png"> <img class="person p018 t-std flipped" src="../shared/images/xkcd_cap.png"> <img class="person p019 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p020 t-std" src="../shared/images/xkcd_woman.png"> <img class="person p021 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p022 t-std" src="../shared/images/xkcd_woman.png"> <img class="person p023 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p024 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p025 t-std flipped" src="../shared/images/xkcd_black_hat.png"> <img class="person p026 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p027 t-std" src="../shared/images/xkcd_woman.png"> <img class="person p028 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p029 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p030 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p031 t-std flipped" src="../shared/images/xkcd_stick.png"> <img class="person p032 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p033 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p034 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p035 t-std flipped" src="../shared/images/xkcd_bun.png"> <img class="person p036 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p037 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p038 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p039 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p040 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p041 t-std" src="../shared/images/xkcd_man.png"> <img class="person p042 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p043 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p044 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p045 t-std" src="../shared/images/xkcd_man.png"> <img class="person p046 t-std flipped" src="../shared/images/xkcd_stick.png"> <img class="person p047 t-std flipped" src="../shared/images/xkcd_beanie.png"> <img class="person p048 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p049 t-std flipped" src="../shared/images/xkcd_woman.png"> <img class="person p050 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p051 t-std flipped" src="../shared/images/xkcd_neutral.png"> <img class="person p052 t-std" src="../shared/images/xkcd_man.png"> <img class="person p053 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p054 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p055 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p056 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p057 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p058 t-std flipped" src="../shared/images/xkcd_bun.png"> <img class="person p059 t-std" src="../shared/images/xkcd_man.png"> <img class="person p060 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p061 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p062 t-std flipped" src="../shared/images/xkcd_stick.png"> <img class="person p063 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p064 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p065 t-std flipped" src="../shared/images/xkcd_black_hat.png"> <img class="person p066 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p067 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p068 t-std" src="../shared/images/xkcd_woman.png"> <img class="person p069 t-std flipped" src="../shared/images/xkcd_neutral.png"> <img class="person p070 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p071 t-std flipped" src="../shared/images/xkcd_beanie.png"> <img class="person p072 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p073 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p074 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p075 t-std" src="../shared/images/xkcd_man.png"> <img class="person p076 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p077 t-std" src="../shared/images/xkcd_man.png"> <img class="person p078 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p079 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p080 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p081 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p082 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p083 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p084 t-std flipped" src="../shared/images/xkcd_black_hat.png"> <img class="person p085 t-std flipped" src="../shared/images/xkcd_woman.png"> <img class="person p086 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p087 t-std flipped" src="../shared/images/xkcd_cap.png"> <img class="person p088 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p089 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p090 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p091 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p092 t-std" src="../shared/images/xkcd_beardo.png"> <img class="person p093 t-pony flipped" src="../shared/images/xkcd_pony.png"> <img class="person p094 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p095 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p096 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p097 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p098 t-std" src="../shared/images/xkcd_woman.png"> <img class="person p099 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p100 t-std flipped" src="../shared/images/xkcd_stick.png">
+<div class="caption-left">
+Census
 </div>
 </div>
-</div>
-</div>
-<p><br></p>
-<p>Sometimes possible:</p>
-<ul>
-<li>students enrolled in this section</li>
-<li>employees in one company</li>
-<li>every row in a database</li>
-</ul>
-<p>Often impossible:</p>
-<ul>
-<li>all voters</li>
-<li>all customers</li>
-<li>all Airbnb guests</li>
-</ul>
-</section>
-<section id="population" class="slide level2">
-<h2>Population</h2>
-<p><br></p>
-<div title="Target Population">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Target Population</strong></p>
-</div>
-<div class="callout-content">
-<p>The full group we want to understand.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>Examples:</p>
-<ul>
-<li>all ECO230 students</li>
-<li>all students at UWL</li>
-<li>all Airbnb hosts in Chicago</li>
-<li>all voters in Wisconsin</li>
-</ul>
 </section>
 <section id="sampling-frame" class="slide level2">
 <h2>Sampling Frame</h2>
-<p><br></p>
-<div title="Sampling Frame">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Sampling Frame</strong></p>
-</div>
-<div class="callout-content">
-<p>The list or process we can actually sample from.</p>
+<div class="population-stage">
+<img class="person p001 t-std" src="../shared/images/xkcd_man.png"> <img class="person p002 t-std flipped" src="../shared/images/xkcd_beanie.png"> <img class="person p003 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p004 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p005 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p006 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p007 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p008 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p009 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p010 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p011 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p012 t-std excluded" src="../shared/images/xkcd_bun.png"> <img class="person p013 t-std flipped" src="../shared/images/xkcd_neutral.png"> <img class="person p014 t-std excluded" src="../shared/images/xkcd_beardo.png"> <img class="person p015 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p016 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p017 t-std" src="../shared/images/xkcd_man.png"> <img class="person p018 t-std flipped" src="../shared/images/xkcd_cap.png"> <img class="person p019 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p020 t-std" src="../shared/images/xkcd_woman.png"> <img class="person p021 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p022 t-std" src="../shared/images/xkcd_woman.png"> <img class="person p023 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p024 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p025 t-std flipped" src="../shared/images/xkcd_black_hat.png"> <img class="person p026 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p027 t-std" src="../shared/images/xkcd_woman.png"> <img class="person p028 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p029 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p030 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p031 t-std flipped" src="../shared/images/xkcd_stick.png"> <img class="person p032 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p033 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p034 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p035 t-std flipped excluded" src="../shared/images/xkcd_bun.png"> <img class="person p036 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p037 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p038 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p039 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p040 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p041 t-std" src="../shared/images/xkcd_man.png"> <img class="person p042 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p043 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p044 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p045 t-std" src="../shared/images/xkcd_man.png"> <img class="person p046 t-std flipped" src="../shared/images/xkcd_stick.png"> <img class="person p047 t-std flipped" src="../shared/images/xkcd_beanie.png"> <img class="person p048 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p049 t-std flipped" src="../shared/images/xkcd_woman.png"> <img class="person p050 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p051 t-std flipped" src="../shared/images/xkcd_neutral.png"> <img class="person p052 t-std" src="../shared/images/xkcd_man.png"> <img class="person p053 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p054 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p055 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p056 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p057 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p058 t-std flipped excluded" src="../shared/images/xkcd_bun.png"> <img class="person p059 t-std" src="../shared/images/xkcd_man.png"> <img class="person p060 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p061 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p062 t-std flipped" src="../shared/images/xkcd_stick.png"> <img class="person p063 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p064 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p065 t-std flipped" src="../shared/images/xkcd_black_hat.png"> <img class="person p066 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p067 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p068 t-std" src="../shared/images/xkcd_woman.png"> <img class="person p069 t-std flipped" src="../shared/images/xkcd_neutral.png"> <img class="person p070 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p071 t-std flipped" src="../shared/images/xkcd_beanie.png"> <img class="person p072 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p073 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p074 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p075 t-std" src="../shared/images/xkcd_man.png"> <img class="person p076 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p077 t-std" src="../shared/images/xkcd_man.png"> <img class="person p078 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p079 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p080 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p081 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p082 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p083 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p084 t-std flipped" src="../shared/images/xkcd_black_hat.png"> <img class="person p085 t-std flipped" src="../shared/images/xkcd_woman.png"> <img class="person p086 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p087 t-std flipped" src="../shared/images/xkcd_cap.png"> <img class="person p088 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p089 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p090 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p091 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p092 t-std excluded" src="../shared/images/xkcd_beardo.png"> <img class="person p093 t-pony flipped" src="../shared/images/xkcd_pony.png"> <img class="person p094 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p095 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p096 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p097 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p098 t-std" src="../shared/images/xkcd_woman.png"> <img class="person p099 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p100 t-std flipped" src="../shared/images/xkcd_stick.png">
+<div class="caption">
+<span class="muted">Total Population</span> <span class="plain">&gt; Sampling Frame =</span> <span class="accent">Sampling Frame Error</span>
 </div>
 </div>
-</div>
-</div>
-<p><br></p>
-<div title="Critical difference">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Critical difference</strong></p>
-</div>
-<div class="callout-content">
-<p>The population we care about and the frame we can reach are often not the same.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="sampling-frame-error" class="slide level2">
-<h2>Sampling Frame Error</h2>
-<p><br></p>
-<div title="Frame error">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Frame error</strong></p>
-</div>
-<div class="callout-content">
-<p>Sampling frame error happens when the frame leaves out part of the target population or includes the wrong people.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>Example:</p>
-<p>You want all students in the course, but your survey only reaches students who came to class today.</p>
 </section>
 <section id="planned-sample" class="slide level2">
 <h2>Planned Sample</h2>
-<p><br></p>
-<div title="Planned Sample">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Planned Sample</strong></p>
-</div>
-<div class="callout-content">
-<p>The people we intend to contact or include.</p>
+<div class="population-stage">
+<img class="person p001 t-std excluded" src="../shared/images/xkcd_man.png"> <img class="person p002 t-std flipped" src="../shared/images/xkcd_beanie.png"> <img class="person p003 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p004 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p005 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p006 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p007 t-std excluded" src="../shared/images/xkcd_cap.png"> <img class="person p008 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p009 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p010 t-std excluded" src="../shared/images/xkcd_beanie.png"> <img class="person p011 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p012 t-std excluded" src="../shared/images/xkcd_bun.png"> <img class="person p013 t-std flipped" src="../shared/images/xkcd_neutral.png"> <img class="person p014 t-std excluded" src="../shared/images/xkcd_beardo.png"> <img class="person p015 t-std excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p016 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p017 t-std excluded" src="../shared/images/xkcd_man.png"> <img class="person p018 t-std flipped" src="../shared/images/xkcd_cap.png"> <img class="person p019 t-woman2 excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p020 t-std" src="../shared/images/xkcd_woman.png"> <img class="person p021 t-std excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p022 t-std excluded" src="../shared/images/xkcd_woman.png"> <img class="person p023 t-woman2 flipped" src="../shared/images/xkcd_woman2.png"> <img class="person p024 t-std excluded" src="../shared/images/xkcd_beanie.png"> <img class="person p025 t-std flipped excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p026 t-std excluded" src="../shared/images/xkcd_stick.png"> <img class="person p027 t-std excluded" src="../shared/images/xkcd_woman.png"> <img class="person p028 t-std excluded" src="../shared/images/xkcd_stick.png"> <img class="person p029 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p030 t-std excluded" src="../shared/images/xkcd_neutral.png"> <img class="person p031 t-std flipped excluded" src="../shared/images/xkcd_stick.png"> <img class="person p032 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p033 t-std excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p034 t-std excluded" src="../shared/images/xkcd_cap.png"> <img class="person p035 t-std flipped excluded" src="../shared/images/xkcd_bun.png"> <img class="person p036 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p037 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p038 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p039 t-pony excluded" src="../shared/images/xkcd_pony.png"> <img class="person p040 t-std excluded" src="../shared/images/xkcd_neutral.png"> <img class="person p041 t-std excluded" src="../shared/images/xkcd_man.png"> <img class="person p042 t-std excluded" src="../shared/images/xkcd_stick.png"> <img class="person p043 t-std excluded" src="../shared/images/xkcd_stick.png"> <img class="person p044 t-std excluded" src="../shared/images/xkcd_beanie.png"> <img class="person p045 t-std" src="../shared/images/xkcd_man.png"> <img class="person p046 t-std flipped" src="../shared/images/xkcd_stick.png"> <img class="person p047 t-std flipped" src="../shared/images/xkcd_beanie.png"> <img class="person p048 t-std flipped excluded" src="../shared/images/xkcd_man.png"> <img class="person p049 t-std flipped" src="../shared/images/xkcd_woman.png"> <img class="person p050 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p051 t-std flipped" src="../shared/images/xkcd_neutral.png"> <img class="person p052 t-std" src="../shared/images/xkcd_man.png"> <img class="person p053 t-std excluded" src="../shared/images/xkcd_cap.png"> <img class="person p054 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p055 t-pony" src="../shared/images/xkcd_pony.png"> <img class="person p056 t-std excluded" src="../shared/images/xkcd_cap.png"> <img class="person p057 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p058 t-std flipped excluded" src="../shared/images/xkcd_bun.png"> <img class="person p059 t-std excluded" src="../shared/images/xkcd_man.png"> <img class="person p060 t-std excluded" src="../shared/images/xkcd_neutral.png"> <img class="person p061 t-std flipped excluded" src="../shared/images/xkcd_man.png"> <img class="person p062 t-std flipped excluded" src="../shared/images/xkcd_stick.png"> <img class="person p063 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p064 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p065 t-std flipped excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p066 t-woman2 excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p067 t-pony excluded" src="../shared/images/xkcd_pony.png"> <img class="person p068 t-std excluded" src="../shared/images/xkcd_woman.png"> <img class="person p069 t-std flipped" src="../shared/images/xkcd_neutral.png"> <img class="person p070 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p071 t-std flipped" src="../shared/images/xkcd_beanie.png"> <img class="person p072 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p073 t-std excluded" src="../shared/images/xkcd_beanie.png"> <img class="person p074 t-std" src="../shared/images/xkcd_black_hat.png"> <img class="person p075 t-std excluded" src="../shared/images/xkcd_man.png"> <img class="person p076 t-std excluded" src="../shared/images/xkcd_beanie.png"> <img class="person p077 t-std" src="../shared/images/xkcd_man.png"> <img class="person p078 t-woman2 excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p079 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p080 t-std excluded" src="../shared/images/xkcd_stick.png"> <img class="person p081 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p082 t-pony excluded" src="../shared/images/xkcd_pony.png"> <img class="person p083 t-std excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p084 t-std flipped" src="../shared/images/xkcd_black_hat.png"> <img class="person p085 t-std flipped" src="../shared/images/xkcd_woman.png"> <img class="person p086 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p087 t-std flipped excluded" src="../shared/images/xkcd_cap.png"> <img class="person p088 t-woman2 excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p089 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p090 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p091 t-std excluded" src="../shared/images/xkcd_cap.png"> <img class="person p092 t-std excluded" src="../shared/images/xkcd_beardo.png"> <img class="person p093 t-pony flipped" src="../shared/images/xkcd_pony.png"> <img class="person p094 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p095 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p096 t-std excluded" src="../shared/images/xkcd_cap.png"> <img class="person p097 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p098 t-std excluded" src="../shared/images/xkcd_woman.png"> <img class="person p099 t-std flipped excluded" src="../shared/images/xkcd_man.png"> <img class="person p100 t-std flipped" src="../shared/images/xkcd_stick.png">
+<div class="caption">
+<span class="muted">Sampling Frame</span> <span class="plain">&gt; Planned Sample =</span> <span class="accent">Random Sampling Error</span>
 </div>
 </div>
-</div>
-</div>
-<p><br></p>
-<p>The planned sample depends on:</p>
-<ul>
-<li>the sampling frame</li>
-<li>the sampling method</li>
-<li>the sample size</li>
-<li>practical constraints</li>
-</ul>
 </section>
-<section id="respondents" class="slide level2">
-<h2>Respondents</h2>
-<p><br></p>
-<div title="Respondents">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Respondents</strong></p>
-</div>
-<div class="callout-content">
-<p>The people who actually give us usable data.</p>
+<section id="sample" class="slide level2">
+<h2>Sample</h2>
+<div class="population-stage">
+<img class="person p001 t-std excluded" src="../shared/images/xkcd_man.png"> <img class="person p002 t-std flipped" src="../shared/images/xkcd_beanie.png"> <img class="person p003 t-std excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p004 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p005 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p006 t-std excluded" src="../shared/images/xkcd_stick.png"> <img class="person p007 t-std excluded" src="../shared/images/xkcd_cap.png"> <img class="person p008 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p009 t-pony excluded" src="../shared/images/xkcd_pony.png"> <img class="person p010 t-std excluded" src="../shared/images/xkcd_beanie.png"> <img class="person p011 t-std flipped" src="../shared/images/xkcd_man.png"> <img class="person p012 t-std excluded" src="../shared/images/xkcd_bun.png"> <img class="person p013 t-std flipped" src="../shared/images/xkcd_neutral.png"> <img class="person p014 t-std excluded" src="../shared/images/xkcd_beardo.png"> <img class="person p015 t-std excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p016 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p017 t-std excluded" src="../shared/images/xkcd_man.png"> <img class="person p018 t-std flipped" src="../shared/images/xkcd_cap.png"> <img class="person p019 t-woman2 excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p020 t-std excluded" src="../shared/images/xkcd_woman.png"> <img class="person p021 t-std excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p022 t-std excluded" src="../shared/images/xkcd_woman.png"> <img class="person p023 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p024 t-std excluded" src="../shared/images/xkcd_beanie.png"> <img class="person p025 t-std flipped excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p026 t-std excluded" src="../shared/images/xkcd_stick.png"> <img class="person p027 t-std excluded" src="../shared/images/xkcd_woman.png"> <img class="person p028 t-std excluded" src="../shared/images/xkcd_stick.png"> <img class="person p029 t-std excluded" src="../shared/images/xkcd_beanie.png"> <img class="person p030 t-std excluded" src="../shared/images/xkcd_neutral.png"> <img class="person p031 t-std flipped excluded" src="../shared/images/xkcd_stick.png"> <img class="person p032 t-pony excluded" src="../shared/images/xkcd_pony.png"> <img class="person p033 t-std excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p034 t-std excluded" src="../shared/images/xkcd_cap.png"> <img class="person p035 t-std flipped excluded" src="../shared/images/xkcd_bun.png"> <img class="person p036 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p037 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p038 t-std flipped excluded" src="../shared/images/xkcd_man.png"> <img class="person p039 t-pony excluded" src="../shared/images/xkcd_pony.png"> <img class="person p040 t-std excluded" src="../shared/images/xkcd_neutral.png"> <img class="person p041 t-std excluded" src="../shared/images/xkcd_man.png"> <img class="person p042 t-std excluded" src="../shared/images/xkcd_stick.png"> <img class="person p043 t-std excluded" src="../shared/images/xkcd_stick.png"> <img class="person p044 t-std excluded" src="../shared/images/xkcd_beanie.png"> <img class="person p045 t-std" src="../shared/images/xkcd_man.png"> <img class="person p046 t-std flipped excluded" src="../shared/images/xkcd_stick.png"> <img class="person p047 t-std flipped" src="../shared/images/xkcd_beanie.png"> <img class="person p048 t-std flipped excluded" src="../shared/images/xkcd_man.png"> <img class="person p049 t-std flipped excluded" src="../shared/images/xkcd_woman.png"> <img class="person p050 t-woman2 excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p051 t-std flipped" src="../shared/images/xkcd_neutral.png"> <img class="person p052 t-std excluded" src="../shared/images/xkcd_man.png"> <img class="person p053 t-std excluded" src="../shared/images/xkcd_cap.png"> <img class="person p054 t-std flipped excluded" src="../shared/images/xkcd_man.png"> <img class="person p055 t-pony excluded" src="../shared/images/xkcd_pony.png"> <img class="person p056 t-std excluded" src="../shared/images/xkcd_cap.png"> <img class="person p057 t-std" src="../shared/images/xkcd_beanie.png"> <img class="person p058 t-std flipped excluded" src="../shared/images/xkcd_bun.png"> <img class="person p059 t-std excluded" src="../shared/images/xkcd_man.png"> <img class="person p060 t-std excluded" src="../shared/images/xkcd_neutral.png"> <img class="person p061 t-std flipped excluded" src="../shared/images/xkcd_man.png"> <img class="person p062 t-std flipped excluded" src="../shared/images/xkcd_stick.png"> <img class="person p063 t-std excluded" src="../shared/images/xkcd_neutral.png"> <img class="person p064 t-std flipped excluded" src="../shared/images/xkcd_man.png"> <img class="person p065 t-std flipped excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p066 t-woman2 excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p067 t-pony excluded" src="../shared/images/xkcd_pony.png"> <img class="person p068 t-std excluded" src="../shared/images/xkcd_woman.png"> <img class="person p069 t-std flipped" src="../shared/images/xkcd_neutral.png"> <img class="person p070 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p071 t-std flipped excluded" src="../shared/images/xkcd_beanie.png"> <img class="person p072 t-std" src="../shared/images/xkcd_cap.png"> <img class="person p073 t-std excluded" src="../shared/images/xkcd_beanie.png"> <img class="person p074 t-std excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p075 t-std excluded" src="../shared/images/xkcd_man.png"> <img class="person p076 t-std excluded" src="../shared/images/xkcd_beanie.png"> <img class="person p077 t-std" src="../shared/images/xkcd_man.png"> <img class="person p078 t-woman2 excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p079 t-std excluded" src="../shared/images/xkcd_beanie.png"> <img class="person p080 t-std excluded" src="../shared/images/xkcd_stick.png"> <img class="person p081 t-std" src="../shared/images/xkcd_neutral.png"> <img class="person p082 t-pony excluded" src="../shared/images/xkcd_pony.png"> <img class="person p083 t-std excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p084 t-std flipped excluded" src="../shared/images/xkcd_black_hat.png"> <img class="person p085 t-std flipped" src="../shared/images/xkcd_woman.png"> <img class="person p086 t-std" src="../shared/images/xkcd_stick.png"> <img class="person p087 t-std flipped excluded" src="../shared/images/xkcd_cap.png"> <img class="person p088 t-woman2 excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p089 t-std excluded" src="../shared/images/xkcd_cap.png"> <img class="person p090 t-woman2" src="../shared/images/xkcd_woman2.png"> <img class="person p091 t-std excluded" src="../shared/images/xkcd_cap.png"> <img class="person p092 t-std excluded" src="../shared/images/xkcd_beardo.png"> <img class="person p093 t-pony flipped excluded" src="../shared/images/xkcd_pony.png"> <img class="person p094 t-std excluded" src="../shared/images/xkcd_neutral.png"> <img class="person p095 t-std excluded" src="../shared/images/xkcd_neutral.png"> <img class="person p096 t-std excluded" src="../shared/images/xkcd_cap.png"> <img class="person p097 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png"> <img class="person p098 t-std excluded" src="../shared/images/xkcd_woman.png"> <img class="person p099 t-std flipped excluded" src="../shared/images/xkcd_man.png"> <img class="person p100 t-std flipped excluded" src="../shared/images/xkcd_stick.png">
+<div class="caption">
+<span class="muted">Planned Sample</span> <span class="plain">&gt; Respondents =</span> <span class="accent">Nonresponse Error</span>
 </div>
 </div>
-</div>
-</div>
-<p><br></p>
-<p>Respondents are not always the same as the planned sample.</p>
-</section>
-<section id="nonresponse-error" class="slide level2">
-<h2>Nonresponse Error</h2>
-<p><br></p>
-<div title="Nonresponse error">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Nonresponse error</strong></p>
-</div>
-<div class="callout-content">
-<p>Nonresponse error happens when people who respond are different from people who do not respond.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>The danger is not just fewer rows.</p>
-<p>The danger is <strong>different rows</strong>.</p>
 </section>
 <section id="the-survey-pipeline" class="slide level2">
 <h2>The Survey Pipeline</h2>
@@ -610,236 +461,264 @@ Mike Boland, MBA
 <p><br></p>
 <p>But each method creates different risks.</p>
 </section>
-<section id="simple-random-sample" class="slide level2">
+<section id="probability-sampling" class="slide level2" data-background-image="media/images/w12_go.jpeg" data-background-size="cover" data-background-position="center">
+<h2>Probability Sampling</h2>
+<div class="method-panel">
+<div class="method-kicker">
+Known chance of selection
+</div>
+<div class="method-title">
+Probability Sampling
+</div>
+<div class="method-subtitle">
+Every unit in the frame has a known path into the sample. That makes the process easier to defend.
+</div>
+</div>
+</section>
+<section id="non-probability-sampling" class="slide level2" data-background-image="media/images/w12_spider.jpeg" data-background-size="cover" data-background-position="center">
+<h2>Non Probability Sampling</h2>
+<div class="method-panel">
+<div class="method-title" style="top: 28px; right: 28px; left: auto; max-width: 48%; text-align: right;">
+Non Probability Sampling
+</div>
+<div class="method-subtitle" style="left:auto; right:28px; max-width:42%; text-align:right;">
+Useful when speed or access matters, but the selection process is shaped by availability, judgment, or networks.
+</div>
+</div>
+</section>
+<section id="simple-random-sample" class="slide level2" data-background-image="media/images/w12_bingo.jpeg" data-background-size="contain" data-background-position="center" data-background-color="#ffffff">
 <h2>Simple Random Sample</h2>
-<p><br></p>
-<div title="Simple random sample">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="method-panel">
+<div class="method-title" style="color:#111; text-shadow:none; top: 18px;">
+Simple Random Sample
 </div>
-<p><strong>Simple random sample</strong></p>
-</div>
-<div class="callout-content">
-<p>Select units randomly from the sampling frame.</p>
+<div class="method-note">
+<pre><code>Coin flip each row in the app.
+&lt;span class="small"&gt;Fast way to make randomness visible without pretending every draw is perfectly representative.&lt;/span&gt;</code></pre>
 </div>
 </div>
-</div>
-</div>
-<p><br></p>
-<p>Works well when:</p>
-<ul>
-<li>the frame is good</li>
-<li>everyone can be contacted</li>
-<li>sample size is large enough</li>
-</ul>
-<p>Risk:</p>
-<ul>
-<li>rare groups can still be missed</li>
-</ul>
 </section>
-<section id="systematic-sample" class="slide level2">
+<section id="systematic-sample" class="slide level2" data-background-image="media/images/w12_hood_wide.png" data-background-size="contain" data-background-position="center" data-background-color="#ffffff">
 <h2>Systematic Sample</h2>
-<p><br></p>
-<div title="Systematic sample">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="method-panel">
+<div class="method-title" style="color:#111; text-shadow:none; top: 18px;">
+Systematic Sample
 </div>
-<p><strong>Systematic sample</strong></p>
-</div>
-<div class="callout-content">
-<p>Choose every kth unit after a starting point.</p>
+<div class="method-chip">
+Every 6th house after a starting point
 </div>
 </div>
-</div>
-</div>
-<p><br></p>
-<p>Works well when:</p>
-<ul>
-<li>the list order is harmless</li>
-<li>the frame is complete</li>
-</ul>
-<p>Risk:</p>
-<ul>
-<li>hidden patterns in the list can bias the sample</li>
-</ul>
 </section>
-<section id="convenience-sample" class="slide level2">
+<section id="systematic-sample-walkthrough" class="slide level2">
+<h2>Systematic Sample Walkthrough</h2>
+<div class="systematic-map">
+<img src="media/images/w12_hood_wide.png" alt="Neighborhood map for systematic sampling walkthrough">
+<div class="sys-marker plus fragment" data-fragment-index="1" style="left:4.84%; top:10.1%;">
++
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="2" style="left:9.69%; top:10.1%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="3" style="left:12.6%; top:10.1%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="4" style="left:17.44%; top:10.1%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="5" style="left:22.29%; top:10.1%;">
+×
+</div>
+<div class="sys-marker plus fragment" data-fragment-index="6" style="left:25.19%; top:10.1%;">
++
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="7" style="left:25.19%; top:25.25%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="8" style="left:25.19%; top:29.46%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="9" style="left:21.8%; top:33.67%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="10" style="left:16.96%; top:29.46%;">
+×
+</div>
+<div class="sys-marker plus fragment" data-fragment-index="11" style="left:9.69%; top:29.46%;">
++
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="12" style="left:7.75%; top:29.46%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="13" style="left:5.81%; top:42.09%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="14" style="left:10.66%; top:42.09%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="15" style="left:13.57%; top:42.09%;">
+×
+</div>
+<div class="sys-marker plus fragment" data-fragment-index="16" style="left:17.44%; top:42.09%;">
++
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="17" style="left:22.29%; top:42.09%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="18" style="left:25.19%; top:42.09%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="19" style="left:25.19%; top:60.61%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="20" style="left:23.26%; top:60.61%;">
+×
+</div>
+<div class="sys-marker plus fragment" data-fragment-index="21" style="left:20.35%; top:60.61%;">
++
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="22" style="left:17.44%; top:60.61%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="23" style="left:13.57%; top:60.61%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="24" style="left:9.69%; top:60.61%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="25" style="left:5.81%; top:63.97%;">
+×
+</div>
+<div class="sys-marker plus fragment" data-fragment-index="26" style="left:5.81%; top:71.55%;">
++
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="27" style="left:16.96%; top:71.55%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="28" style="left:19.38%; top:71.55%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="29" style="left:22.29%; top:71.55%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="30" style="left:24.22%; top:71.55%;">
+×
+</div>
+<div class="sys-marker plus fragment" data-fragment-index="31" style="left:26.65%; top:71.55%;">
++
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="32" style="left:34.88%; top:71.55%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="33" style="left:38.76%; top:71.55%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="34" style="left:41.18%; top:71.55%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="35" style="left:46.03%; top:71.55%;">
+×
+</div>
+<div class="sys-marker plus fragment" data-fragment-index="36" style="left:47.48%; top:71.55%;">
++
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="37" style="left:49.42%; top:71.55%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="38" style="left:55.72%; top:71.55%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="39" style="left:55.72%; top:58.92%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="40" style="left:50.87%; top:58.92%;">
+×
+</div>
+<div class="sys-marker plus fragment" data-fragment-index="41" style="left:46.03%; top:58.92%;">
++
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="42" style="left:42.64%; top:58.92%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="43" style="left:38.76%; top:58.92%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="44" style="left:34.88%; top:58.92%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="45" style="left:34.88%; top:42.09%;">
+×
+</div>
+<div class="sys-marker plus fragment" data-fragment-index="46" style="left:38.76%; top:42.09%;">
++
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="47" style="left:42.64%; top:42.09%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="48" style="left:47.48%; top:42.09%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="49" style="left:51.36%; top:42.09%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="50" style="left:55.72%; top:43.77%;">
+×
+</div>
+<div class="sys-marker plus fragment" data-fragment-index="51" style="left:55.72%; top:37.88%;">
++
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="52" style="left:55.72%; top:29.46%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="53" style="left:48.45%; top:29.46%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="54" style="left:41.18%; top:29.46%;">
+×
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="55" style="left:34.88%; top:29.46%;">
+×
+</div>
+<div class="systematic-note">
+Your exact route: start at the first house, then mark every 6th address.
+</div>
+</div>
+</section>
+<section id="convenience-sample" class="slide level2" data-background-image="media/images/w12_marathon.jpeg" data-background-size="cover" data-background-position="center">
 <h2>Convenience Sample</h2>
-<p><br></p>
-<div title="Convenience sample">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Convenience sample</strong></p>
-</div>
-<div class="callout-content">
-<p>Sample whoever is easiest to reach.</p>
+<div class="method-panel">
+<div class="method-chip">
+Convenience Sample
 </div>
 </div>
-</div>
-</div>
-<p><br></p>
-<p>Works when:</p>
-<ul>
-<li>speed matters</li>
-<li>early exploration is enough</li>
-</ul>
-<p>Risk:</p>
-<ul>
-<li>easy-to-reach people are often not typical</li>
-</ul>
 </section>
-<section id="stratified-sample" class="slide level2">
+<section id="stratified-sample" class="slide level2" data-background-image="media/images/w12_red_white.jpeg" data-background-size="cover" data-background-position="center">
 <h2>Stratified Sample</h2>
-<p><br></p>
-<div title="Stratified sample">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Stratified sample</strong></p>
-</div>
-<div class="callout-content">
-<p>Split the population into groups, then sample within each group.</p>
+<div class="method-panel">
+<div class="method-chip">
+Stratified Sample
 </div>
 </div>
-</div>
-</div>
-<p><br></p>
-<p>Useful when:</p>
-<ul>
-<li>subgroups matter</li>
-<li>you want representation from each subgroup</li>
-</ul>
-<p>Risk:</p>
-<ul>
-<li>you need to know the strata in advance</li>
-</ul>
 </section>
-<section id="quota-sample" class="slide level2">
+<section id="quota-sample" class="slide level2" data-background-image="media/images/w12_black_yellow.jpeg" data-background-size="cover" data-background-position="center">
 <h2>Quota Sample</h2>
-<p><br></p>
-<div title="Quota sample">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Quota sample</strong></p>
-</div>
-<div class="callout-content">
-<p>Recruit until each subgroup reaches a target count.</p>
+<div class="method-panel">
+<div class="method-chip">
+Quota Sample
 </div>
 </div>
-</div>
-</div>
-<p><br></p>
-<p>Useful when:</p>
-<ul>
-<li>representativeness by visible categories matters</li>
-<li>random sampling is impractical</li>
-</ul>
-<p>Risk:</p>
-<ul>
-<li>selection within each quota may still be biased</li>
-</ul>
 </section>
-<section id="cluster-sample" class="slide level2">
-<h2>Cluster Sample</h2>
-<p><br></p>
-<div title="Cluster sample">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Cluster sample</strong></p>
-</div>
-<div class="callout-content">
-<p>Randomly select groups, then sample people inside those groups.</p>
+<section id="cluster-judgement-snowball-sample" class="slide level2" data-background-image="media/images/w12_larp.jpeg" data-background-size="cover" data-background-position="center">
+<h2>Cluster | Judgement | Snowball Sample</h2>
+<div class="method-panel">
+<div class="method-chip">
+Cluster Sample | Judgement Sample | Snowball Sample
 </div>
 </div>
-</div>
-</div>
-<p><br></p>
-<p>Useful when:</p>
-<ul>
-<li>people naturally appear in groups</li>
-<li>travel or access costs matter</li>
-</ul>
-<p>Risk:</p>
-<ul>
-<li>clusters may differ from each other</li>
-</ul>
 </section>
-<section id="judgment-and-snowball-samples" class="slide level2">
-<h2>Judgment and Snowball Samples</h2>
-<p><br></p>
-<div title="Niche populations">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Niche populations</strong></p>
-</div>
-<div class="callout-content">
-<p>Sometimes the people we need are hard to find.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>Examples:</p>
-<ul>
-<li>obscure hobbies</li>
-<li>rare medical conditions</li>
-<li>hidden communities</li>
-<li>specialized professionals</li>
-</ul>
-</section>
-<section id="snowball-sampling" class="slide level2">
-<h2>Snowball Sampling</h2>
-<p><br></p>
-<div title="Snowball sample">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Snowball sample</strong></p>
-</div>
-<div class="callout-content">
-<p>Start with known participants and ask them to refer others.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>Useful when:</p>
-<ul>
-<li>the population is hard to locate</li>
-</ul>
-<p>Risk:</p>
-<ul>
-<li>social networks shape the sample</li>
-</ul>
-</section></section>
+<section id="multistage-area-sample" class="slide level2">
+<h2>Multistage Area Sample</h2>
+
+<img data-src="media/images/w12_multistage.svg" style="width:100.0%" class="r-stretch"></section></section>
 <section>
 <section id="sampling-lab" class="title-slide slide level1 center">
 <h1>Sampling Lab</h1>
@@ -920,34 +799,10 @@ Mike Boland, MBA
 <p>It is noise from sampling.</p>
 <p>It is not the same as bias.</p>
 </section>
-<section id="systematic-error" class="slide level2">
-<h2>Systematic Error</h2>
-<p><br></p>
-<div title="Bias">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Bias</strong></p>
-</div>
-<div class="callout-content">
-<p>Systematic error pushes estimates in a consistent direction.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>Bias can come from:</p>
-<ul>
-<li>bad frames</li>
-<li>nonresponse</li>
-<li>convenience selection</li>
-<li>bad questions</li>
-<li>social desirability</li>
-</ul>
-</section></section>
+<section id="bias-sources" class="slide level2">
+<h2>Bias Sources</h2>
+
+<img data-src="media/images/w12_bias.svg" style="width:100.0%" class="r-stretch"></section></section>
 <section>
 <section id="survey-design" class="title-slide slide level1 center">
 <h1>Survey Design</h1>
@@ -1113,6 +968,156 @@ Mike Boland, MBA
 <p>Better than forcing people through a giant pick list.</p>
 <p>Example:</p>
 <p>College -&gt; Department -&gt; Major</p>
+</section>
+<section id="collectively-exhaustive-vs-mutually-exclusive" class="slide level2">
+<h2>Collectively Exhaustive vs Mutually Exclusive</h2>
+<div class="q-example">
+<div class="q-title">
+<p>Question categories can fail in different ways</p>
+</div>
+<div class="q-col left">
+<div class="col-head">
+<p>Collectively Exhaustive</p>
+</div>
+<div class="prompt">
+<p>How old are you?</p>
+</div>
+<ul>
+<li>18-20</li>
+<li>20-22</li>
+<li>22-24</li>
+</ul>
+<div class="prompt">
+<p>How old are you?</p>
+</div>
+<ul>
+<li>&lt; 18</li>
+<li>18-20</li>
+<li>20-22</li>
+<li>22-24</li>
+<li>24+</li>
+</ul>
+</div>
+<div class="q-col right">
+<div class="col-head">
+<p>Mutually Exclusive</p>
+</div>
+<div class="prompt">
+<p>How old are you?</p>
+</div>
+<ul>
+<li>18-20</li>
+<li>21-22</li>
+<li>23-24</li>
+</ul>
+<div class="prompt">
+<p>How old are you?</p>
+</div>
+<ul>
+<li>&lt; 18</li>
+<li>18-20</li>
+<li>21-22</li>
+<li>23-24</li>
+<li>25+</li>
+</ul>
+</div>
+<p><img data-src="media/images/w12_birthday.jpeg" class="food" alt="Birthday cake"> ::: {.frame}</p>
+</div>
+<p>::::</p>
+</section>
+<section id="generate-variance" class="slide level2">
+<h2>Generate Variance</h2>
+<div class="q-example">
+<div class="q-title">
+<p>Generate Variance</p>
+</div>
+<div class="q-col left">
+<div style="width: 46%;">
+<div class="prompt">
+<p>How many meals per day do you eat?</p>
+</div>
+<ul>
+<li>0-5</li>
+<li>6-10</li>
+<li>11+</li>
+</ul>
+<div class="prompt">
+<p>How many meals per day do you eat?</p>
+</div>
+<ul>
+<li>Less than 1</li>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>More than 3</li>
+</ul>
+</div>
+</div>
+<p><img data-src="media/images/w12_taters.jpeg" class="food" alt="Potatoes"></p>
+</div>
+</section>
+<section id="sensitivity" class="slide level2">
+<h2>Sensitivity</h2>
+<div class="q-example">
+<div class="q-title">
+<p>Sensitivity</p>
+</div>
+<div class="q-col left">
+<div class="prompt">
+<p>I am bored.</p>
+</div>
+<ul>
+<li>Strongly Disagree</li>
+<li>Disagree</li>
+<li>Neutral</li>
+<li>Agree</li>
+<li>Strongly Agree</li>
+</ul>
+<div class="prompt">
+<p>I am bored.</p>
+</div>
+<ul>
+<li>Disagree</li>
+<li>Agree</li>
+</ul>
+<div class="prompt">
+<p>I am bored.</p>
+</div>
+<ul>
+<li>Strongly Disagree</li>
+<li>Disagree</li>
+<li>Somewhat Disagree</li>
+<li>Agree</li>
+</ul>
+</div>
+<div class="q-col right">
+<div style="font-size: 0.72rem;">
+<div class="prompt">
+<p>I am bored.</p>
+</div>
+<ul>
+<li>Extremely Very Strongly Disagree</li>
+<li>Very Strongly Disagree</li>
+<li>Strongly Disagree</li>
+<li>Disagree</li>
+<li>Extremely Very Moderately Disagree</li>
+<li>Very Moderately Disagree</li>
+<li>Moderately Disagree</li>
+<li>Extremely Very Somewhat Disagree</li>
+<li>Very Somewhat Disagree</li>
+<li>Somewhat Disagree</li>
+<li>Disagree Somewhat</li>
+<li>Kind of Disagree to some extent</li>
+<li>Not Really Disagree</li>
+<li>Neutral</li>
+<li>Moderately Neutral</li>
+<li>Extremely Neutral</li>
+<li>Neutrally Neutral</li>
+</ul>
+</div>
+</div>
+<p><img data-src="media/images/w12_pillow.jpeg" class="pillow" alt="Pillow"></p>
+</div>
 </section>
 <section id="heat-maps" class="slide level2">
 <h2>Heat Maps</h2>
