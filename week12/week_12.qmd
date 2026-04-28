@@ -6,6 +6,7 @@ format:
     theme:
       - default
       - ../shared/styles/boland-reveal.scss
+    css: population_pipeline.css
     slide-number: true
     hash: true
     center: false
@@ -60,115 +61,7 @@ Use the LimeSurvey link or QR code here once the final survey is active. Keep th
 
 # Population to Sample
 
-## Census
-
-<br>
-
-::: {.callout-note title="Census"}
-A census tries to collect information from every member of the population.
-:::
-
-<br>
-
-Sometimes possible:
-
--   students enrolled in this section
--   employees in one company
--   every row in a database
-
-Often impossible:
-
--   all voters
--   all customers
--   all Airbnb guests
-
-## Population
-
-<br>
-
-::: {.callout-tip title="Target Population"}
-The full group we want to understand.
-:::
-
-<br>
-
-Examples:
-
--   all ECO230 students
--   all students at UWL
--   all Airbnb hosts in Chicago
--   all voters in Wisconsin
-
-## Sampling Frame
-
-<br>
-
-::: {.callout-note title="Sampling Frame"}
-The list or process we can actually sample from.
-:::
-
-<br>
-
-::: {.callout-important title="Critical difference"}
-The population we care about and the frame we can reach are often not the same.
-:::
-
-## Sampling Frame Error
-
-<br>
-
-::: {.callout-important title="Frame error"}
-Sampling frame error happens when the frame leaves out part of the target population or includes the wrong people.
-:::
-
-<br>
-
-Example:
-
-You want all students in the course, but your survey only reaches students who came to class today.
-
-## Planned Sample
-
-<br>
-
-::: {.callout-note title="Planned Sample"}
-The people we intend to contact or include.
-:::
-
-<br>
-
-The planned sample depends on:
-
--   the sampling frame
--   the sampling method
--   the sample size
--   practical constraints
-
-## Respondents
-
-<br>
-
-::: {.callout-note title="Respondents"}
-The people who actually give us usable data.
-:::
-
-<br>
-
-Respondents are not always the same as the planned sample.
-
-## Nonresponse Error
-
-<br>
-
-::: {.callout-important title="Nonresponse error"}
-Nonresponse error happens when people who respond are different from people who do not respond.
-:::
-
-<br>
-
-The danger is not just fewer rows.
-
-The danger is **different rows**.
+{{< include _population_pipeline.qmd >}}
 
 ## The Survey Pipeline
 
@@ -276,155 +169,127 @@ Every sampling method is trying to answer:
 
 But each method creates different risks.
 
-## Simple Random Sample
+## Probability Sampling {background-image="media/images/w12_go.jpeg" background-size="cover" background-position="center"}
 
-<br>
+<div class="method-panel">
+  <div class="method-kicker">Known chance of selection</div>
+  <div class="method-title">Probability Sampling</div>
+  <div class="method-subtitle">Every unit in the frame has a known path into the sample. That makes the process easier to defend.</div>
+</div>
 
-::: {.callout-note title="Simple random sample"}
-Select units randomly from the sampling frame.
-:::
+## Non Probability Sampling {background-image="media/images/w12_spider.jpeg" background-size="cover" background-position="center"}
 
-<br>
+<div class="method-panel">
+  <div class="method-title" style="top: 28px; right: 28px; left: auto; max-width: 48%; text-align: right;">Non Probability Sampling</div>
+  <div class="method-subtitle" style="left:auto; right:28px; max-width:42%; text-align:right;">Useful when speed or access matters, but the selection process is shaped by availability, judgment, or networks.</div>
+</div>
 
-Works well when:
+## Simple Random Sample {background-image="media/images/w12_bingo.jpeg" background-size="contain" background-position="center" background-color="#ffffff"}
 
--   the frame is good
--   everyone can be contacted
--   sample size is large enough
+<div class="method-panel">
+  <div class="method-title" style="color:#111; text-shadow:none; top: 18px;">Simple Random Sample</div>
+  <div class="method-note">
+    Coin flip each row in the app.
+    <span class="small">Fast way to make randomness visible without pretending every draw is perfectly representative.</span>
+  </div>
+</div>
 
-Risk:
+## Systematic Sample {background-image="media/images/w12_hood_wide.png" background-size="contain" background-position="center" background-color="#ffffff"}
 
--   rare groups can still be missed
+<div class="method-panel">
+  <div class="method-title" style="color:#111; text-shadow:none; top: 18px;">Systematic Sample</div>
+  <div class="method-chip">Every 6th house after a starting point</div>
+</div>
 
-## Systematic Sample
+## Systematic Sample Walkthrough
 
-<br>
+<div class="systematic-map">
+  <img src="media/images/w12_hood_wide.png" alt="Neighborhood map for systematic sampling walkthrough">
+  <div class="sys-marker plus fragment" data-fragment-index="1" style="left:4.84%; top:10.1%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="2" style="left:9.69%; top:10.1%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="3" style="left:12.6%; top:10.1%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="4" style="left:17.44%; top:10.1%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="5" style="left:22.29%; top:10.1%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="6" style="left:25.19%; top:10.1%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="7" style="left:25.19%; top:25.25%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="8" style="left:25.19%; top:29.46%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="9" style="left:21.8%; top:33.67%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="10" style="left:16.96%; top:29.46%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="11" style="left:9.69%; top:29.46%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="12" style="left:7.75%; top:29.46%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="13" style="left:5.81%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="14" style="left:10.66%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="15" style="left:13.57%; top:42.09%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="16" style="left:17.44%; top:42.09%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="17" style="left:22.29%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="18" style="left:25.19%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="19" style="left:25.19%; top:60.61%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="20" style="left:23.26%; top:60.61%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="21" style="left:20.35%; top:60.61%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="22" style="left:17.44%; top:60.61%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="23" style="left:13.57%; top:60.61%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="24" style="left:9.69%; top:60.61%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="25" style="left:5.81%; top:63.97%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="26" style="left:5.81%; top:71.55%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="27" style="left:16.96%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="28" style="left:19.38%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="29" style="left:22.29%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="30" style="left:24.22%; top:71.55%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="31" style="left:26.65%; top:71.55%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="32" style="left:34.88%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="33" style="left:38.76%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="34" style="left:41.18%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="35" style="left:46.03%; top:71.55%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="36" style="left:47.48%; top:71.55%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="37" style="left:49.42%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="38" style="left:55.72%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="39" style="left:55.72%; top:58.92%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="40" style="left:50.87%; top:58.92%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="41" style="left:46.03%; top:58.92%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="42" style="left:42.64%; top:58.92%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="43" style="left:38.76%; top:58.92%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="44" style="left:34.88%; top:58.92%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="45" style="left:34.88%; top:42.09%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="46" style="left:38.76%; top:42.09%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="47" style="left:42.64%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="48" style="left:47.48%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="49" style="left:51.36%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="50" style="left:55.72%; top:43.77%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="51" style="left:55.72%; top:37.88%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="52" style="left:55.72%; top:29.46%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="53" style="left:48.45%; top:29.46%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="54" style="left:41.18%; top:29.46%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="55" style="left:34.88%; top:29.46%;">&times;</div>
+  <div class="systematic-note">Your exact route: start at the first house, then mark every 6th address.</div>
+</div>
 
-::: {.callout-note title="Systematic sample"}
-Choose every kth unit after a starting point.
-:::
+## Convenience Sample {background-image="media/images/w12_marathon.jpeg" background-size="cover" background-position="center"}
 
-<br>
+<div class="method-panel">
+  <div class="method-chip">Convenience Sample</div>
+</div>
 
-Works well when:
+## Stratified Sample {background-image="media/images/w12_red_white.jpeg" background-size="cover" background-position="center"}
 
--   the list order is harmless
--   the frame is complete
+<div class="method-panel">
+  <div class="method-chip">Stratified Sample</div>
+</div>
 
-Risk:
+## Quota Sample {background-image="media/images/w12_black_yellow.jpeg" background-size="cover" background-position="center"}
 
--   hidden patterns in the list can bias the sample
+<div class="method-panel">
+  <div class="method-chip">Quota Sample</div>
+</div>
 
-## Convenience Sample
+## Cluster | Judgement | Snowball Sample {background-image="media/images/w12_larp.jpeg" background-size="cover" background-position="center"}
 
-<br>
+<div class="method-panel">
+  <div class="method-chip">Cluster Sample | Judgement Sample | Snowball Sample</div>
+</div>
 
-::: {.callout-note title="Convenience sample"}
-Sample whoever is easiest to reach.
-:::
+## Multistage Area Sample
 
-<br>
-
-Works when:
-
--   speed matters
--   early exploration is enough
-
-Risk:
-
--   easy-to-reach people are often not typical
-
-## Stratified Sample
-
-<br>
-
-::: {.callout-note title="Stratified sample"}
-Split the population into groups, then sample within each group.
-:::
-
-<br>
-
-Useful when:
-
--   subgroups matter
--   you want representation from each subgroup
-
-Risk:
-
--   you need to know the strata in advance
-
-## Quota Sample
-
-<br>
-
-::: {.callout-note title="Quota sample"}
-Recruit until each subgroup reaches a target count.
-:::
-
-<br>
-
-Useful when:
-
--   representativeness by visible categories matters
--   random sampling is impractical
-
-Risk:
-
--   selection within each quota may still be biased
-
-## Cluster Sample
-
-<br>
-
-::: {.callout-note title="Cluster sample"}
-Randomly select groups, then sample people inside those groups.
-:::
-
-<br>
-
-Useful when:
-
--   people naturally appear in groups
--   travel or access costs matter
-
-Risk:
-
--   clusters may differ from each other
-
-## Judgment and Snowball Samples
-
-<br>
-
-::: {.callout-note title="Niche populations"}
-Sometimes the people we need are hard to find.
-:::
-
-<br>
-
-Examples:
-
--   obscure hobbies
--   rare medical conditions
--   hidden communities
--   specialized professionals
-
-## Snowball Sampling
-
-<br>
-
-::: {.callout-note title="Snowball sample"}
-Start with known participants and ask them to refer others.
-:::
-
-<br>
-
-Useful when:
-
--   the population is hard to locate
-
-Risk:
-
--   social networks shape the sample
+![](media/images/w12_multistage.svg){width=100%}
 
 # Sampling Lab
 
@@ -486,23 +351,9 @@ It is noise from sampling.
 
 It is not the same as bias.
 
-## Systematic Error
+## Bias Sources
 
-<br>
-
-::: {.callout-important title="Bias"}
-Systematic error pushes estimates in a consistent direction.
-:::
-
-<br>
-
-Bias can come from:
-
--   bad frames
--   nonresponse
--   convenience selection
--   bad questions
--   social desirability
+![](media/images/w12_bias.svg){width=100%}
 
 # Survey Design
 
@@ -628,6 +479,162 @@ Better than forcing people through a giant pick list.
 Example:
 
 College -\> Department -\> Major
+
+## Collectively Exhaustive vs Mutually Exclusive
+
+:::: {.q-example}
+::: {.q-title}
+Question categories can fail in different ways
+:::
+
+::: {.q-col .left}
+::: {.col-head}
+Collectively Exhaustive
+:::
+
+::: {.prompt}
+How old are you?
+:::
+
+- 18-20
+- 20-22
+- 22-24
+
+::: {.prompt}
+How old are you?
+:::
+
+- < 18
+- 18-20
+- 20-22
+- 22-24
+- 24+
+:::
+
+::: {.q-col .right}
+::: {.col-head}
+Mutually Exclusive
+:::
+
+::: {.prompt}
+How old are you?
+:::
+
+- 18-20
+- 21-22
+- 23-24
+
+::: {.prompt}
+How old are you?
+:::
+
+- < 18
+- 18-20
+- 21-22
+- 23-24
+- 25+
+:::
+
+![](media/images/w12_birthday.jpeg){.food fig-alt="Birthday cake"}
+::: {.frame}
+:::
+::::
+
+## Generate Variance
+
+:::: {.q-example}
+::: {.q-title}
+Generate Variance
+:::
+
+::: {.q-col .left}
+:::{style="width: 46%;"}
+::: {.prompt}
+How many meals per day do you eat?
+:::
+
+- 0-5
+- 6-10
+- 11+
+
+::: {.prompt}
+How many meals per day do you eat?
+:::
+
+- Less than 1
+- 1
+- 2
+- 3
+- More than 3
+:::
+:::
+
+![](media/images/w12_taters.jpeg){.food fig-alt="Potatoes"}
+::::
+
+## Sensitivity
+
+:::: {.q-example}
+::: {.q-title}
+Sensitivity
+:::
+
+::: {.q-col .left}
+::: {.prompt}
+I am bored.
+:::
+
+- Strongly Disagree
+- Disagree
+- Neutral
+- Agree
+- Strongly Agree
+
+::: {.prompt}
+I am bored.
+:::
+
+- Disagree
+- Agree
+
+::: {.prompt}
+I am bored.
+:::
+
+- Strongly Disagree
+- Disagree
+- Somewhat Disagree
+- Agree
+:::
+
+::: {.q-col .right}
+:::{style="font-size: 0.72rem;"}
+::: {.prompt}
+I am bored.
+:::
+
+- Extremely Very Strongly Disagree
+- Very Strongly Disagree
+- Strongly Disagree
+- Disagree
+- Extremely Very Moderately Disagree
+- Very Moderately Disagree
+- Moderately Disagree
+- Extremely Very Somewhat Disagree
+- Very Somewhat Disagree
+- Somewhat Disagree
+- Disagree Somewhat
+- Kind of Disagree to some extent
+- Not Really Disagree
+- Neutral
+- Moderately Neutral
+- Extremely Neutral
+- Neutrally Neutral
+:::
+:::
+
+![](media/images/w12_pillow.jpeg){.pillow fig-alt="Pillow"}
+::::
 
 ## Heat Maps
 

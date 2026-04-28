@@ -1,0 +1,132 @@
+---
+title: "Project 2 Rubric"
+format:
+  html:
+    toc: false
+    number-sections: false
+---
+
+## Project 2 Rubric
+
+This rubric is designed to match the Project 2 prompt and the course timeline.
+
+Project 2 is graded across four parts:
+
+-   Week 13 informal meeting: 10 points
+-   Week 14 informal presentation: 10 points
+-   Week 14 Red Team critique: 10 points
+-   Final written proposal: 70 points
+
+Total: 100 points
+
+------------------------------------------------------------------------
+
+## Criterion 1: Week 13 Informal Meeting (10 points)
+
+**Professional Quality (10-8 points)**\
+Team arrives prepared with a real topic, a clear problem or opportunity, and a plausible research direction. Team can explain who or what might be studied and why the topic is worth pursuing.
+
+**High Quality with Minor Issues (8-5 points)**\
+Team arrives with a workable topic, but the problem, audience, or research direction is still somewhat vague or underdeveloped.
+
+**Low Quality with Major Issues (5-1 points)**\
+Team is underprepared. Topic is unclear, too broad, or not yet connected to a workable research design.
+
+**No Marks (0 points)**\
+Team does not participate or does not present a meaningful topic or direction.
+
+------------------------------------------------------------------------
+
+## Criterion 2: Week 14 Informal Presentation (10 points)
+
+**Professional Quality (10-8 points)**\
+Presentation clearly explains the problem or opportunity, the research question, the proposed design, and why the design could produce trustworthy evidence. The audience can understand what is being proposed and why it matters.
+
+**High Quality with Minor Issues (8-5 points)**\
+Presentation is understandable, but one or more elements are not clearly developed, such as the research question, the fit between question and design, or the explanation of trustworthiness.
+
+**Low Quality with Major Issues (5-1 points)**\
+Presentation is difficult to follow, lacks important components, or does not make a convincing case for the design.
+
+**No Marks (0 points)**\
+Presentation is missing or does not meaningfully address the assignment.
+
+------------------------------------------------------------------------
+
+## Criterion 3: Week 14 Red Team Critique (10 points)
+
+**Professional Quality (10-8 points)**\
+Critique is serious, professional, and useful. Team identifies meaningful risks or weaknesses related to sampling, measurement, design, ethics, generalization, or limitations and offers feedback that could genuinely improve the project.
+
+**High Quality with Minor Issues (8-5 points)**\
+Critique identifies some real concerns, but the feedback is somewhat general, incomplete, or not fully developed.
+
+**Low Quality with Major Issues (5-1 points)**\
+Critique is superficial, unfocused, or too vague to help improve the proposal.
+
+**No Marks (0 points)**\
+Critique is missing or does not meaningfully engage with another team’s proposal.
+
+------------------------------------------------------------------------
+
+## Criterion 4: Written Proposal - Problem / Opportunity (15 points)
+
+**Professional Quality (15-12 points)**\
+Written report clearly identifies the decision maker, stakeholder, or audience and clearly explains the problem or opportunity. It is easy to see why the question matters and how the results could inform a real decision.
+
+**High Quality with Minor Issues (12-8 points)**\
+Problem or opportunity is present but not fully clear, specific, or well connected to decision-making.
+
+**Low Quality with Major Issues (8-1 points)**\
+Section is vague, thin, or underdeveloped. The reader cannot clearly tell what problem is being addressed or why it matters.
+
+**No Marks (0 points)**\
+Section is missing or not meaningfully addressed.
+
+------------------------------------------------------------------------
+
+## Criterion 5: Written Proposal - Research Question and Direction (15 points)
+
+**Professional Quality (15-12 points)**\
+Written report states a specific, interesting, and actionable research question. The scope is focused enough to study, and any supporting objectives or hypotheses help clarify the design rather than distract from it.
+
+**High Quality with Minor Issues (12-8 points)**\
+Research question is workable but somewhat broad, narrow, or loosely connected to the proposed design.
+
+**Low Quality with Major Issues (8-1 points)**\
+Research question is unclear, unfocused, or not actionable.
+
+**No Marks (0 points)**\
+Section is missing or not meaningfully addressed.
+
+------------------------------------------------------------------------
+
+## Criterion 6: Written Proposal - Study Design and Measures (20 points)
+
+**Professional Quality (20-16 points)**\
+Written report clearly explains the proposed method, defines who or what will be studied, and describes what information would be collected and how. The design is concrete enough that a reader can imagine how the study would actually be carried out.
+
+**High Quality with Minor Issues (16-10 points)**\
+Study design is reasonable, but parts of the method, measurement plan, or data collection process remain unclear or underdeveloped.
+
+**Low Quality with Major Issues (10-1 points)**\
+Study design is vague, incomplete, or not clearly connected to the research question.
+
+**No Marks (0 points)**\
+Section is missing or not meaningfully addressed.
+
+------------------------------------------------------------------------
+
+## Criterion 7: Written Proposal - Trustworthiness, Risks, and Limits (20 points)
+
+**Professional Quality (20-16 points)**\
+Written report thoughtfully addresses sampling, representation, measurement, bias, limitations, and ethics. It shows real reflection about what the study could support, what could go wrong, and why the evidence might still be worth using.
+
+**High Quality with Minor Issues (16-10 points)**\
+Report addresses trustworthiness and limitations, but some important risks, assumptions, or ethical concerns are only briefly discussed.
+
+**Low Quality with Major Issues (10-1 points)**\
+Discussion of trustworthiness, bias, limitations, or ethics is thin, generic, or incomplete.
+
+**No Marks (0 points)**\
+Section is missing or not meaningfully addressed.
