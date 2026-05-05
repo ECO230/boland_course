@@ -29,8 +29,8 @@ website:
             file: week06/week_06.qmd
           - text: "Week 7"
             file: week07/week_07.qmd
-          - text: "Week 13"
-            file: week13/week_13.qmd
+          - text: "Week 12"
+            file: week12/week_12.qmd
             
       - text: "Interpretation"
         menu:
@@ -68,6 +68,10 @@ website:
             file: syllabus/project_1_presentation_in_person.qmd
           - text: "Peer Review"
             file: week09/week_09.qmd
+      - text: "Project 2"
+        menu:
+          - text: "Project Prompt"
+            file: syllabus/project_2_prompt.qmd
 
 format:
   html:
