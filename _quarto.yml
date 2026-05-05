@@ -75,11 +75,11 @@ website:
       - text: "Practicum"
         menu:
           - text: "Rubric and Guidelines"
-            file: admin/final/Practice_Practium_Guidelines.qmd
+            file: admin/final/Practice_Practicum_Guidelines.qmd
           - text: "Practice Practicum"
-            file: admin/final/Practice_Practium_Prompt.qmd
+            file: admin/final/Practice_Practicum_Prompt.qmd
           - text: "Final Practicum"
-            file: admin/final/Practium_Prompt.qmd
+            file: admin/final/Practicum_Prompt.qmd
 
 format:
   html:
