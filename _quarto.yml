@@ -72,6 +72,14 @@ website:
         menu:
           - text: "Project Prompt"
             file: syllabus/project_2_prompt.qmd
+      - text: "Practicum"
+        menu:
+          - text: "Rubric and Guidelines"
+            file: admin/final/Practice_Practium_Guidelines.qmd
+          - text: "Practice Practicum"
+            file: admin/final/Practice_Practium_Prompt.qmd
+          - text: "Final Practicum"
+            file: admin/final/Practium_Prompt.qmd
 
 format:
   html:

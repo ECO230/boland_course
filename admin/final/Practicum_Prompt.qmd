@@ -1,0 +1,83 @@
+---
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tidyr)
+library(eco230r)
+library(ggplot2)
+library(knitr)
+library(Hmisc)
+load("grading_1.RData")
+load("grading_2.RData")
+# I'm going to turn off scientific notation:
+options(scipen = 999)
+# If you want to turn it back on you can uncomment and run this line:
+# options(scipen = 0)
+```
+
+## ECO 230 PRACTICUM - SPRING 2026
+
+*This prompt is for the Practicum portion of your final exam. Please review it carefully before you arrive for the exam. The scenario and data description are included here. You will receive the actual data at the start of the exam period. This exercise is open note, book, Google etc., but is not a team exercise. You must complete your work without communicating with others. However, you are welcome to discuss the prompt and your strategy with others before class. The rubric does include points for originality of work.*
+
+::: {.callout-note title="Scenario"}
+The Pension Benefit Guarantee Corporation (PBGC) is a governmental agency that pays pension benefits to workers when their pension plans become insolvent. So, if a pension plan is unable to pay benefits to retirees, the PBGC will cover the liabilities up to a maximum payout of \$69,750 annually per retiree. Like other insurers, the PBGC charges premiums and those funds are used to finance the payouts for any plans that become insolvent. Any employer with a pension fund covered by the PBGC must pay premiums.
+
+The PBGC must closely track payouts to ensure it is collecting enough money to cover liabilities. Your consulting firm has been tasked with analyzing PBGC payouts to insolvent funds between fiscal years 2005 and 2019. Your team has decided to address the following questions in their report:
+
+-   Are plans equally distributed across states or do some states have more insolvent plans than others?
+-   Is the average payment amount increasing over time?
+-   In 2019, was the average payment per participant lower than the maximum benefit of \$69,750?
+:::
+
+::: {.callout-note title="Data Description"}
+The data grouping is panel, but payment and participant information is missing in years when the plan did not receive any payment. These rows have already been excluded from the data for you. You will not need to remove missing data before conducting your analysis.
+
+The unit of analysis is one observation per plan per year. Plans that the PBGC provided payments for over multiple years will appear in multiple rows.
+
+The variables are:
+
+-   `PIN`: Plan identification number
+-   `PlanName`: Name of the plan (e.g. "ALA Lithographic Industry Pension Plan")
+-   `State`: Two letter state abbreviation
+-   `Participants`: Number of plan participants (employees who have retirement benefits through that plan)
+-   `Payment`: Total payments in dollars the PBGC made to all plan participants
+-   `Year`: The fiscal year when the payments occurred
+:::
+
+::: {.callout-note title="Requirements"}
+Using Posit.cloud, Excel, and Tableau (optional), please conduct preliminary analysis of any of the questions above. Your analysis should include:
+
+-   At least one graph
+-   At least one table
+-   At least one hypothesis test
+-   A brief bullet point summary of your findings
+-   Work in Posit.cloud (required) Excel (required) and Tableau (optional)
+
+***You do not need to address all questions! You may choose to focus on only one or just a few.***
+:::
+
+::: {.callout-note title="Submitting Completed Work"}
+Upload your knit RMarkdown .pdf, your Excel ***Workbook (.xlsx)*** and/or your Tableau ***Packaged Workbook (.twbx)*** to Canvas.
+:::
+
+::: {.callout-note title="Formal Grading Criteria: The Practicum Counts for 40% of Your Final Exam Grade"}
+```{r}
+kable(grading_1)
+```
+
+```{r}
+kable(grading_2)
+```
+:::

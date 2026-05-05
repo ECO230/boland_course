@@ -1,0 +1,87 @@
+---
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tidyr)
+library(eco230r)
+library(ggplot2)
+library(knitr)
+library(Hmisc)
+load("grading_1.RData")
+load("grading_2.RData")
+# I'm going to turn off scientific notation:
+options(scipen = 999)
+# If you want to turn it back on you can uncomment and run this line:
+# options(scipen = 0)
+```
+
+## ECO 230 PRACTICUM RUBRIC AND GUIDELINES
+
+::: {.callout-note title="Timeline"}
+-   On Week 13 the prompt and data description will be posted on Canvas in your Final Exam Preparation Module
+-   The data will be released during our final exam period.
+-   You will have 120 minutes to complete both the traditional portion of the final and the Practicum.
+:::
+
+::: {.callout-note title="Requirements"}
+Your analysis should include:
+
+-   At least one graph
+-   At least one table (e.g. pivot table)
+-   At least one hypothesis test
+-   A brief bullet point summary of your findings
+-   Work in Posit.cloud, Excel, and Tableau (optional) - **Posit.cloud and Excel are required Tableau is optional.**
+
+***You do not need to address all questions in the prompt. You may choose to focus on only one if you like.***
+:::
+
+::: {.callout-note title="Submitting Completed Work"}
+Upload your knit RMarkdown pdf, your Excel workbook (.xlsx) and/or your Tableau Packaged Workbook (.twbx) to Canvas.
+:::
+
+::: {.callout-note title="Permitted and Forbidden Resources"}
+You are welcome to use:
+
+-   Your own hand written notes
+-   Prior work in RStudio including completed case work, homework, and practice assignments
+-   Any web resources including Primers from Posit.cloud
+-   Ideas developed while discussing the case with colleagues before the exam
+
+You may not:
+
+-   Discuss work with colleagues during the exam via any channel (no text, email, chat etc.)
+-   Count on your instructor for substantive help during the exam or ask for comments on planned analysis before the exam.
+-   Use text generating AI. We all love robots and their plans for world domination, but your answers and analysis should be in your own words.
+:::
+
+::: {.callout-note title="Suggestions for Successful Work"}
+-   Plan ahead! Know what you intend to make before you launch the final and choose what test will be appropriate.
+-   Keep it simple. Do not attempt to do more than is required of you. Do not make graphs with more than 2 variables!
+-   Do not forget what you've learned about data visualization. No 3D. Use color to convey meaning only.
+-   Pay attention to measures vs. dimensions and green vs. blue pills in Tableau.
+-   Do your hypothesis test in R.
+-   Don't forget to write your bullet point interpretations!
+-   Save your work correctly: .xlsx instead of .csv, .twbx instead of .twb, .Rmd knit to .pdf.
+:::
+
+::: {.callout-note title="Formal Grading Criteria: The Practicum Counts for 40% of Your Final Exam Grade"}
+```{r}
+kable(grading_1)
+```
+
+```{r}
+kable(grading_2)
+```
+:::
