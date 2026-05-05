@@ -1,0 +1,417 @@
+.reveal .slides section.has-dark-background h1,
+.reveal .slides section.has-dark-background h2,
+.reveal .slides section.has-dark-background p,
+.reveal .slides section.has-dark-background li {
+  color: #ffffff;
+}
+
+.analytics-ladder {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.ladder-step {
+  min-height: 7rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0.8rem;
+  border: 2px solid #1f497d;
+  background: #eef4fb;
+  font-weight: 700;
+  color: #16365c;
+}
+
+.ladder-step:nth-child(2) {
+  background: #f5f2df;
+  border-color: #9bbb59;
+}
+
+.ladder-step:nth-child(3) {
+  background: #f9eceb;
+  border-color: #c0504d;
+}
+
+.ladder-step:nth-child(4) {
+  background: #ece7f3;
+  border-color: #8064a2;
+}
+
+.two-col,
+.three-col {
+  display: grid;
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.two-col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.three-col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.col,
+.mini-card,
+.model-card,
+.group-panel {
+  min-width: 0;
+}
+
+.card-title {
+  margin: 0 0 0.45rem;
+  color: #000000;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.mini-card,
+.model-card,
+.group-panel,
+.experiment-card,
+.design-group,
+.design-result,
+.design-arrow,
+.factor-cell,
+.anova-total,
+.anova-branch,
+.anova-leaf {
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.7rem;
+  text-align: center;
+}
+
+.model-flow,
+.experiment-equation,
+.design-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.model-card {
+  flex: 1 1 0;
+  font-weight: 700;
+}
+
+.model-card img {
+  max-height: 8rem;
+  object-fit: contain;
+}
+
+.flow-arrow,
+.experiment-plus {
+  font-weight: 800;
+  color: #1f497d;
+}
+
+.method-panel {
+  position: absolute;
+  left: 1.3rem;
+  bottom: 1.3rem;
+  max-width: 58%;
+  padding: 0.85rem 1rem;
+  background: rgba(0, 0, 0, 0.68);
+  color: #ffffff;
+}
+
+.method-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.method-subtitle {
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  line-height: 1.25;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.method-grid.compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.method-chip {
+  display: grid;
+  place-items: center;
+  min-height: 4.2rem;
+  padding: 0.55rem;
+  border: 2px solid #4f81bd;
+  background: #f6f9fc;
+  color: #1f497d;
+  text-align: center;
+  font-weight: 700;
+}
+
+.roc-box {
+  position: relative;
+  height: 16rem;
+  border-left: 4px solid #222222;
+  border-bottom: 4px solid #222222;
+  background:
+    linear-gradient(135deg, transparent 49%, rgba(192, 80, 77, 0.35) 50%, transparent 51%),
+    #ffffff;
+}
+
+.roc-line {
+  position: absolute;
+  left: 8%;
+  bottom: 9%;
+  width: 82%;
+  height: 75%;
+  border-left: 7px solid #4f81bd;
+  border-top: 7px solid #4f81bd;
+  border-radius: 100% 0 0 0;
+  transform: skewX(-18deg);
+}
+
+.axis,
+.auc {
+  position: absolute;
+  font-weight: 800;
+}
+
+.axis.y {
+  left: 0.35rem;
+  top: 0.25rem;
+}
+
+.axis.x {
+  right: 0.35rem;
+  bottom: 0.25rem;
+}
+
+.auc {
+  right: 1rem;
+  top: 1rem;
+  color: #c0504d;
+}
+
+.experiment-card {
+  min-width: 10rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.experiment-card.treatment {
+  border-color: #c0504d;
+  background: #f9eceb;
+}
+
+.experiment-card.outcome {
+  border-color: #9bbb59;
+  background: #eef6e4;
+}
+
+.group-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.group-panel {
+  min-height: 15rem;
+}
+
+.group-panel.experimental {
+  border-color: #c0504d;
+  background: #fff7f6;
+}
+
+.group-panel img {
+  height: 5rem;
+  width: auto;
+  object-fit: contain;
+  margin: 0.25rem;
+}
+
+.design-stack {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.design-group,
+.design-result,
+.design-arrow {
+  min-width: 9rem;
+  font-weight: 800;
+}
+
+.design-group {
+  background: #eef4fb;
+  border-color: #4f81bd;
+}
+
+.design-group.control {
+  background: #f7f7f7;
+  border-color: #777777;
+}
+
+.design-arrow {
+  background: #f9eceb;
+  border-color: #c0504d;
+}
+
+.design-arrow.muted {
+  background: #f7f7f7;
+  border-color: #b8b8b8;
+  color: #555555;
+}
+
+.design-result {
+  background: #eef6e4;
+  border-color: #9bbb59;
+}
+
+.party-board {
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.68);
+  color: #ffffff;
+}
+
+.party-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 0.55rem;
+}
+
+.party-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.4rem;
+  font-size: 0.72rem;
+}
+
+.party-grid span {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0.25rem;
+  text-align: center;
+}
+
+.factorial-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr 1fr;
+  gap: 0.5rem;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.factor-cell {
+  min-height: 6rem;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.factor-cell.header,
+.factor-cell.rowhead {
+  background: #eef4fb;
+  color: #16365c;
+}
+
+.factor-cell.corner {
+  border-color: transparent;
+  background: transparent;
+}
+
+.factor-cell img {
+  max-height: 5.2rem;
+  object-fit: contain;
+}
+
+.anova-map {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.anova-total {
+  grid-column: 1 / -1;
+  background: #eef4fb;
+  border-color: #4f81bd;
+  font-weight: 800;
+}
+
+.anova-branch {
+  grid-column: span 1;
+  background: #f5f2df;
+  border-color: #9bbb59;
+  font-weight: 800;
+}
+
+.anova-branch:nth-of-type(3) {
+  grid-column: span 2;
+  background: #f7f7f7;
+  border-color: #777777;
+}
+
+.anova-leaf {
+  min-height: 5rem;
+  background: #f9eceb;
+  border-color: #c0504d;
+  font-weight: 700;
+}
+
+.image-caption {
+  position: absolute;
+  left: 1.2rem;
+  bottom: 1.2rem;
+  max-width: 55%;
+  padding: 0.45rem 0.65rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.image-caption.dark {
+  color: #111111;
+}
+
+@media (max-width: 800px) {
+  .analytics-ladder,
+  .method-grid,
+  .method-grid.compact,
+  .two-col,
+  .three-col,
+  .group-compare {
+    grid-template-columns: 1fr;
+  }
+
+  .model-flow,
+  .experiment-equation,
+  .design-flow {
+    flex-wrap: wrap;
+  }
+
+  .party-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
