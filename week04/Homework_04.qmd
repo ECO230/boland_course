@@ -1,0 +1,245 @@
+---
+title: "Homework 4: Project Story Planning"
+format:
+  html:
+    toc: false
+    number-sections: false
+execute:
+  echo: false
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+# No code required for this homework.
+```
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+This assignment practices the Week 4 goal:
+
+> **Turn descriptive statistics and visuals into a story someone can act on.**
+
+You will propose **five** candidate data stories and turn **each** into a short **analysis-plan outline** your group can combine next week.
+:::
+
+## Objectives
+
+-   Write **takeaway-first** headlines (not topics)
+-   Translate a story across **writing / visuals / speaking**
+-   Identify **variables**, **derived fields**, and **data gaps/joins**
+-   Draft **testable hypotheses** and a feasible analysis outline
+
+## Resources
+
+-   Your project dataset in **posit.cloud** (the one you plan to use for the group project)
+-   Week 4 readings on writing/presenting with data (Canvas → Week 4)
+-   Week 4 slides: *Telling Stories with Data*
+
+::: {.callout-tip appearance="minimal" icon="false" title="Important"}
+-   This is **planning**, not execution. You are **not** running tests yet.
+-   Bullets and notes are expected. Full paragraphs are not required.
+-   Aim for **clarity and feasibility**: ideas should be testable (or clearly explain what data is missing).
+:::
+
+------------------------------------------------------------------------
+
+## 1) Confirm Your Dataset (Project)
+
+1.  Name the dataset you plan to use for the project.
+2.  List any quick filters you expect to apply (e.g., date range, excluding blanks, limiting to U.S. only).
+
+*(No long writeup—just bullets.)*
+
+------------------------------------------------------------------------
+
+## 2) Write 5 Data Headlines (Takeaways)
+
+Write **five** potential data headlines your dataset could support.
+
+Each headline should:
+
+-   be a **complete sentence**
+-   state a **takeaway** (a claim), not a topic
+-   avoid numbers and test statistics
+
+**Good headlines (claims)**
+
+-   Drivers in northern states experience fewer accidents during freezing conditions than drivers in southern states.
+-   San Francisco offers better Airbnb value (price relative to ratings) than other major U.S. cities.
+-   Visiting kickers miss field goals more often at Raymond James Stadium than at other stadiums.
+
+**Weak headlines (topics)**
+
+-   Accident severity and temperature
+-   Airbnb prices by city
+-   Field goal analysis
+
+------------------------------------------------------------------------
+
+## 3) For Each Headline: 3 Relationships + Variables
+
+For **each** of your 5 headlines, list:
+
+### A) Three relationships you could investigate
+
+Relationships describe **what you would compare/examine**, not results.
+
+Example relationships (for the accident headline):
+
+-   Average accident severity by region when temperature \< 32°F
+-   Number of accidents before vs. after winter weather events by region
+-   Accident rate per capita by region during winter months
+
+### B) Variables needed for each relationship
+
+For each relationship:
+
+-   list the variables involved
+
+-   label each variable as:
+
+    -   **Exists** (already in the dataset)
+    -   **Derived** (you will calculate/recategorize it)
+    -   **External** (you would need to join a new data source)
+
+Example:
+
+-   Severity (**Exists**)
+-   State (**Exists**)
+-   Region: North vs South (**Derived**)
+-   Temperature (**Exists**)
+-   Population by zip code (**External**)
+
+------------------------------------------------------------------------
+
+## 4) Analysis Plan Outline (Do This for ALL 5 Stories)
+
+For **each** of your 5 stories, complete the outline below.\
+These outlines are designed to be easy to combine into a **group analysis plan** next week.
+
+### For each story, include:
+
+#### A) 3-second version (≤ 7 words, no numbers)
+
+This is your “headline headline.”\
+Example: *Low visibility increases crash severity.*
+
+#### B) 30-second version (1–2 sentences)
+
+Include:
+
+-   the takeaway
+-   **who** should care and **why**
+
+#### C) Hypotheses (at least 2)
+
+Write as testable statements.
+
+Examples:
+
+-   Average crash severity is higher when visibility \< 10 miles than when visibility ≥ 10 miles.
+-   The proportion of severe crashes is higher during precipitation than clear conditions.
+
+#### D) Data requirements and gaps
+
+-   Variables already present
+-   Derived fields you will create (how?)
+-   External data you would need to join (what source? what key?)
+-   Any obvious data quality issues you anticipate (missingness, outliers, mis-coded categories)
+
+#### E) Planned analyses (bullets)
+
+Examples (choose what fits):
+
+-   group means / medians
+-   proportions and rate comparisons
+-   time trends
+-   t-test / chi-square / ANOVA (later—just list what you *might* use)
+-   simple regression (if appropriate)
+
+#### F) One visual you would use
+
+Name a chart type and what it would compare. **You are encouraged to recycle analysis from HW2 & HW3 here**
+
+Examples:
+
+-   Sorted bar chart of rates by group
+-   Line chart of a metric over time (consistent denominators)
+-   Boxplot comparing distributions across categories
+-   Scatterplot with a trend line for relationships
+
+------------------------------------------------------------------------
+
+## Suggested Submission Format (Copy/Paste Template)
+
+### Story 1
+
+**Headline (sentence):**
+
+## **Relationships (3):**
+
+-   
+
+-   
+
+## **Variables for each relationship (Exists / Derived / External):**
+
+**3-second headline (≤7 words):**\
+**30-second story (1–2 sentences):**
+
+## **Hypotheses (2+):**
+
+-   
+
+## **Data requirements & gaps:**
+
+## **Planned analyses:**
+
+## **Planned visual:**
+
+------------------------------------------------------------------------
+
+### Story 2
+
+*(repeat)*
+
+------------------------------------------------------------------------
+
+### Story 3
+
+*(repeat)*
+
+------------------------------------------------------------------------
+
+### Story 4
+
+*(repeat)*
+
+------------------------------------------------------------------------
+
+### Story 5
+
+*(repeat)*
+
+------------------------------------------------------------------------
+
+## Group Prep (Next Week)
+
+Be prepared to share **at least one** of your stories with your group:
+
+-   **3 seconds:** your ≤7-word headline
+-   **30 seconds:** your short story + why it matters
+-   **1 visual idea:** what you would show
+
+Also: have a ranking in your head of your **top three strongest stories** (the ones your group should consider first).
+
+------------------------------------------------------------------------
+
+## Quick Checklist (Before Submitting)
+
+-   [ ] I included **5** headlines written as takeaways (not topics)
+-   [ ] Each headline has **3** relationships that actually support it
+-   [ ] I listed variables and labeled them **Exists / Derived / External**
+-   [ ] I outlined **all 5** stories (3s, 30s, hypotheses, plan, visual)
+-   [ ] I identified at least one **data gap/join** if needed
+-   [ ] I can present at least **one** story clearly in 30 seconds
+-   [ ] I know my **top 3** strongest story ideas

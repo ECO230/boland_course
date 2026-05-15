@@ -1,0 +1,622 @@
+---
+title: "Interpreting ANOVA & Simple Linear Regression"
+format:
+  revealjs:
+    theme:
+      - default
+      - ../shared/styles/boland-reveal.scss
+    slide-number: true
+    hash: true
+    center: false
+    transition: fade
+    controls: true
+    pdf-export: true
+execute:
+  echo: false
+---
+
+## Steps in Hypothesis Testing
+
+1.  [*What statistical story am I attempting to tell?*]{.muted}
+
+::: {.callout-tip title="What are we trying to find out?"}
+:::
+
+2.  [*What have I estimated or plotted... If no uncertainty, what should the business do?*]{.muted}
+
+::: {.callout-tip title="What do we expect to happen?"}
+:::
+
+3.  [*Which test is appropriate and what is the null hypothesis?*]{.muted}
+
+::: {.callout-tip title="How are we going to test it?"}
+:::
+
+4.  [*What is the statistical interpretation of the test result?*]{.muted}
+
+::: {.callout-tip title="Do we believe it?"}
+:::
+
+5.  [*What is the practical interpretation of this analysis for a business audience?*]{.muted}
+
+::: {.callout-tip title="Does it matter?"}
+:::
+
+# ANOVA
+
+Comparing Means Between More Than Two Categories
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(stringr)
+library(purrr)
+library(eco230r)
+library(here)
+library(readr)
+
+get("t_tall", envir = asNamespace("eco230r"))
+get("t_wide", envir = asNamespace("eco230r"))
+get("tea_tab", envir = asNamespace("eco230r"))
+get("napData", envir = asNamespace("eco230r"))
+
+```
+
+## Analysis of Variance (ANOVA) `ano()`
+
+```{r run_ano echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
+df <- napData
+
+h8 <- df %>%
+  ano(naptime ~ light)
+```
+
+:::::::::: columns
+::::: {.column width="40%"}
+<br>
+
+::: fragment
+### Steps 1-3: Setup
+
+<br>
+
+**Test:** ANOVA\
+**Function:** `ano()`
+
+<br>
+
+**H<sub>0</sub>:** $\mu$<sub>Low</sub> = $\mu$<sub>Warm</sub> = $\mu$<sub>Harsh</sub>\
+**H<sub>A</sub>:** $\mu$<sub>Low</sub> $\neq$ $\mu$<sub>Warm</sub> $\neq$ $\mu$<sub>Harsh</sub>\
+**α =** 0.05
+:::
+
+<br>
+
+::: fragment
+### Run the Test
+
+```{r show_ano, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
+h8 <- df %>%
+  ano(naptime ~ light)
+```
+:::
+:::::
+
+::: {.column width="5%"}
+:::
+
+::::: {.column width="55%"}
+<br>
+
+::: fragment
+### Step 4: Do we believe it?
+
+`h8$results`
+
+`r h8$results`
+
+<br>
+
+**Decision Rule:**
+
+-   If p $\leq \alpha$ → Reject H<sub>0</sub>\
+-   If p \> $\alpha$ → Fail to Reject H<sub>0</sub>
+
+<br>
+:::
+
+::: fragment
+**Decision:**\
+p = 0.025 \< 0.05 → **Reject H<sub>0</sub>**
+:::
+:::::
+::::::::::
+
+## Bayes Factor vs. Effect Size `ano()`
+
+:::::: {style="display:grid; grid-template-columns: .9fr 1.1fr; column-gap:1.2rem; align-items:center; margin-bottom:.25rem;"}
+<!-- LEFT: test output -->
+
+:::: {style="display:flex; justify-content:flex-start; align-items:center;"}
+::: {style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;"}
+**`r h8$results`**
+:::
+::::
+
+<!-- RIGHT: Bayes factor anchor -->
+
+::: {style="display:flex; justify-content:flex-end; align-items:center;"}
+![](../shared/images/bayes_factor.svg){fig-alt="Bayes factor scale showing evidence from strong evidence for H0 through anecdotal evidence to strong and decisive evidence for HA." style="width:100%; max-width:1250px; display:block;"}
+:::
+::::::
+
+::::::::::::::::::::::::::::::: {style="display:grid; grid-template-columns: 205px repeat(5, 1fr); gap:.28rem; align-items:stretch;"}
+<!-- header row -->
+
+:::: {style="text-align:center; font-size:.96rem; font-weight:700; padding:.45rem .3rem; background:#eef2f7; display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1.1;"}
+Variance Explained
+
+::: {style="font-size:.82rem; font-weight:600;"}
+$\omega^2$, $\xi$
+:::
+::::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+$BF_{10} < 0.33$
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+0.33–1
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+1–3
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#d6e2f6;"}
+3–10
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#ccd9f2;"}
+$> 10$
+:::
+
+<!-- Large -->
+
+:::: {style="background:#2e8b57; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Large
+
+::: {style="font-size:.95rem;"}
+$\omega^2, \xi = .14$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;"}
+**Large variance explained, but evidence favors** $H_0$\
+Group differences appear large, but this may be due to noise or small sample size
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;"}
+**Large-looking differences, weak evidence**\
+Groups look different, but we are not yet confident this pattern is real
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;"}
+**Potentially important group differences**\
+Group membership may explain a meaningful portion of the outcome, but evidence is still limited
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; background:#f6fbf6;"}
+**Likely real and meaningful differences**\
+Group membership explains a substantial portion of variation in the outcome
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; background:#eef8ee;"}
+**Large and well supported**\
+Strong evidence that group differences explain a large share of the outcome
+:::
+
+<!-- Medium -->
+
+:::: {style="background:#7fc97f; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Medium
+
+::: {style="font-size:.95rem;"}
+$\omega^2, \xi = .06$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;"}
+**Moderate variance explained, but evidence favors** $H_0$\
+There may be some group differences, but the data do not support them clearly
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;"}
+**Moderate differences, weak evidence**\
+Groups show some separation, but it may not hold up with more data
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;"}
+**Some indication of meaningful differences**\
+Group membership may explain part of the outcome, but not decisively
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; background:#f6fbf6;"}
+**Likely real and noticeable differences**\
+Group differences explain a meaningful portion of variation
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; background:#eef8ee;"}
+**Meaningful and well supported**\
+Good evidence that group differences matter for the outcome
+:::
+
+<!-- Small -->
+
+:::: {style="background:#cfe8cf; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Small
+
+::: {style="font-size:.95rem;"}
+$\omega^2, \xi = .01$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;"}
+**Little variance explained, evidence favors** $H_0$\
+Group differences do not explain much of the outcome
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;"}
+**Small differences, weak evidence**\
+Groups look similar, and there is little evidence of meaningful separation
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;"}
+**Maybe real, but small impact**\
+Even if group differences exist, they explain very little of the outcome
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; background:#f6fbf6;"}
+**Likely real, but modest differences**\
+Group differences are consistent, but explain only a small portion of variation
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; background:#eef8ee;"}
+**Very strong evidence for small differences**\
+Group differences are real, but they explain very little of the outcome
+:::
+:::::::::::::::::::::::::::::::
+
+## Step 5: Does it matter?
+
+::::: columns
+::: {.column width="60%"}
+<br>
+
+**Statistical:**
+
+-   Statistically significant difference between groups
+
+**Practical:**
+
+-   Effect size: $\omega^2$ = 0.354 → *large effect*\
+-   Bayes Factor: bf<sub>10</sub> = 3.071 → *Some evidence for H<sub>A</sub>*
+
+**Takeaway:**
+
+-   Likely real and meaningful differences between groups
+-   Group membership explains a substantial portion of variation
+-   **Post-hoc analysis must be done for individual group differences**
+-   Difference between Low Light and Harsh light only significant difference (p<.05)
+:::
+
+::: {.column width="40%"}
+<br>
+
+`h8$descriptive_statistics`
+
+```{r ano_desc echo:TRUE, include:TRUE}
+h8$descriptive_statistics
+```
+
+`h8$post_hoc_analysis`
+
+```{r ano_pha echo:TRUE, include:TRUE}
+h8$post_hoc_analysis
+```
+
+:::
+:::::
+
+# Simple Linear Regression
+
+Testing if there is a linear relationship between two ratio scales
+
+## Simple Linear Regression `slr()`
+
+```{r run_slr echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
+df <- napData
+
+h9 <- df %>%
+  slr(naptime ~ timestamp)
+```
+
+:::::::::: columns
+::::: {.column width="40%"}
+<br>
+
+::: fragment
+### Steps 1-3: Setup
+
+<br>
+
+**Test:** Simple Linear Regression\
+**Function:** `slr()`
+
+<br>
+
+**H<sub>0</sub>:** $\beta_1$ = 0\
+**H<sub>A</sub>:** $\beta_1$ $\neq$ 0\
+**α =** 0.05
+:::
+
+<br>
+
+::: fragment
+### Run the Test
+
+```{r show_slr, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
+h9 <- df %>%
+  slr(naptime ~ timestamp)
+```
+:::
+:::::
+
+::: {.column width="5%"}
+:::
+
+::::: {.column width="55%"}
+<br>
+
+::: fragment
+### Step 4: Do we believe it?
+
+`h9$results`
+
+`r h9$results`
+
+<br>
+
+**Decision Rule:**
+
+-   If p $\leq \alpha$ → Reject H<sub>0</sub>\
+-   If p \> $\alpha$ → Fail to Reject H<sub>0</sub>
+
+<br>
+:::
+
+::: fragment
+**Decision:**\
+p = 0.024 \< 0.05 → **Reject H<sub>0</sub>**
+:::
+:::::
+::::::::::
+
+## Bayes Factor vs. Effect Size `slr()`
+
+:::::: {style="display:grid; grid-template-columns: .9fr 1.1fr; column-gap:1.2rem; align-items:center; margin-bottom:.25rem;"}
+<!-- LEFT: test output -->
+
+:::: {style="display:flex; justify-content:flex-start; align-items:center;"}
+::: {style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;"}
+**`r h9$results`**
+:::
+::::
+
+<!-- RIGHT: Bayes factor anchor -->
+
+::: {style="display:flex; justify-content:flex-end; align-items:center;"}
+![](../shared/images/bayes_factor.svg){fig-alt="Bayes factor scale showing evidence from strong evidence for H0 through anecdotal evidence to strong and decisive evidence for HA." style="width:100%; max-width:1250px; display:block;"}
+:::
+::::::
+
+::::::::::::::::::::::::::::::: {style="display:grid; grid-template-columns: 205px repeat(5, 1fr); gap:.28rem; align-items:stretch;"}
+<!-- header row -->
+
+:::: {style="text-align:center; font-size:.96rem; font-weight:700; padding:.45rem .3rem; background:#eef2f7; display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1.1;"}
+Variance Explained
+
+::: {style="font-size:.82rem; font-weight:600;"}
+$R^2$
+:::
+::::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+$BF_{10} < 0.33$
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+0.33–1
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#dfe7f4;"}
+1–3
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#d6e2f6;"}
+3–10
+:::
+
+::: {style="text-align:center; font-size:.9rem; font-weight:700; padding:.45rem .3rem; background:#ccd9f2;"}
+$> 10$
+:::
+
+<!-- Large -->
+
+:::: {style="background:#2e8b57; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Large
+
+::: {style="font-size:.95rem;"}
+$R^2 = .26$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;"}
+**Large variance explained, but evidence favors** $H_0$\
+The predictor appears important, but this may be due to noise or limited data
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;"}
+**Strong-looking relationship, weak evidence**\
+The predictor explains a lot of variation, but we are not yet confident it is real
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem; line-height:1.22;"}
+**Potentially important predictor**\
+The predictor may explain a large portion of the outcome, but evidence is still limited
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; background:#f6fbf6;"}
+**Likely real and meaningful relationship**\
+The predictor explains a substantial share of variation in the outcome
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; background:#eef8ee;"}
+**Large and well supported**\
+Strong evidence that the predictor is highly informative for the outcome
+:::
+
+<!-- Medium -->
+
+:::: {style="background:#7fc97f; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Medium
+
+::: {style="font-size:.95rem;"}
+$R^2 = .13$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem;"}
+**Moderate variance explained, but evidence favors** $H_0$\
+The predictor may matter, but the data do not support it clearly
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem;"}
+**Moderate relationship, weak evidence**\
+The predictor explains some variation, but this may not hold up
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem;"}
+**Some indication of a useful predictor**\
+The predictor may explain part of the outcome, but not decisively
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; background:#f6fbf6;"}
+**Likely real and noticeable relationship**\
+The predictor explains a meaningful portion of variation
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; background:#eef8ee;"}
+**Meaningful and well supported**\
+Good evidence that the predictor contributes to the outcome
+:::
+
+<!-- Small -->
+
+:::: {style="background:#cfe8cf; color:white; font-weight:700; text-align:center; padding:.7rem .45rem; display:flex; flex-direction:column; justify-content:center; min-height:92px;"}
+Small
+
+::: {style="font-size:.95rem;"}
+$R^2 = .02$
+:::
+::::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem;"}
+**Little variance explained, evidence favors** $H_0$\
+The predictor does not explain much of the outcome
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem;"}
+**Small relationship, weak evidence**\
+The predictor explains very little variation
+:::
+
+::: {style="border:1px solid #d0d0d0; padding:.55rem; font-size:.78rem;"}
+**Maybe real, but small impact**\
+Even if real, the predictor has limited influence on the outcome
+:::
+
+::: {style="border:1px solid #c7d9c7; padding:.55rem; font-size:.78rem; background:#f6fbf6;"}
+**Likely real, but modest relationship**\
+The predictor consistently explains a small portion of variation
+:::
+
+::: {style="border:1px solid #9fc49f; padding:.55rem; font-size:.78rem; background:#eef8ee;"}
+**Very strong evidence for a small relationship**\
+The predictor matters, but only explains a small share of the outcome
+:::
+:::::::::::::::::::::::::::::::
+
+## Step 5: Does it matter?
+
+::::: columns
+::: {.column width="60%"}
+**Statistical:**
+
+-   There is a statistically significant linear relationship between timestamp and naptime.
+
+<br>
+
+**Practical:**
+
+-   Effect size: $R^2$ = 0.334 → *large effect*\
+-   Bayes Factor: bf<sub>10</sub> = 2.861 → *anecdotal evidence for H<sub>A</sub>*
+
+<br>
+
+**Takeaway:**
+
+-   Potentially important predictor 
+-   Evidence is still limited
+-   Relationship described by h9$linear_regression_model
+:::
+
+::: {.column width="40%"}
+<br>
+
+`h9$linear_regression_model`
+
+```{r slr_mod echo:TRUE, include:TRUE}
+h9$linear_regression_model
+```
+
+`h9$coefficients`
+
+```{r slr_coef echo:TRUE, include:TRUE}
+h9$coefficients
+```
+
+:::
+:::::
+
+
+
+## What R output belongs in a presentation?
+
+<br>
+
+::: fragment
+#### What is the practical interpretation of this analysis for a ***business audience***? Are my estimates precise enough to tell the story I outlined in part (2)?
+:::
+
+<br>
+
+::: fragment
+-   Takeaways
+-   Practical Interpretation (light on jargon & stats)
+-   Limited Statistical Interpretation (don't rely on p value to tell the story)
+-   No mention of $H_0$/$H_A$\
+:::
+
+::: {style="position:absolute; bottom:40px; right:60px; font-size:.7em; color:#6b7280; text-align:right;"}
+`r h8$results`
+:::

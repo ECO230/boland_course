@@ -1,0 +1,81 @@
+---
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tidyr)
+library(eco230r)
+library(ggplot2)
+library(knitr)
+library(Hmisc)
+# I'm going to turn off scientific notation:
+options(scipen = 999)
+# If you want to turn it back on you can uncomment and run this line:
+# options(scipen = 0)
+```
+
+## ECO 230 PRACTICE PRACTICUM
+
+*This exercise is intended to help you prepare for the practical portion of your final exam. Please review the prompt carefully before you arrive in class. The scenario and data description are included here. You will receive the actual data at the start of class. This exercise is open note, book, Google etc, but is not a team exercise. You must complete your work in the classroom without communicating with others. However, you are welcome to discuss the prompt and your strategy with others before class. The rubric does include points for originality of work.*
+
+::: {.callout-note title="Scenario"}
+The NCAA adopted an interim name, image, and likeness (NIL) policy in June 2021, and college athletes were allowed to begin receiving compensation for NIL activities on July 1, 2021. In practice, this means athletes may be paid for sponsorships, endorsements, social media promotions, appearances, merchandise, camps, and other uses of their personal brand.
+
+Supporters argue that NIL gives athletes access to income and business opportunities connected to the value they help create. Critics worry that NIL may increase inequality between schools, blur the line between college and professional sports, and make recruiting more complicated. Either way, NIL has made some college athletes much more visible to the public than they would have been under the old rules.
+
+You work for a consulting firm hired by a consortium of Division 1 universities to understand whether this new sports visibility matters for admissions. Your team is interested in whether attention around well-known athletes or successful sports programs is connected to student interest in the university.
+
+Your team has been asked to answer two questions:
+
+1.  Does having a famous athlete increase university enrollment?
+2.  Does having a successful sports program increase university enrollment?
+
+Your team has been compiling a database to address these questions for recent admission cycles. You only have two years of data collected so far, but you'd like to do some preliminary analysis.
+:::
+
+::: {.callout-note title="Data Description"}
+The data grouping is panel.
+
+The unit of analysis is one observation per university for each year (2024 and 2025).
+
+The variables are:
+
+-   `year`: which contains values 2024 or 2025
+-   `applications`: count of applications received by each school
+-   `top25`: percentage of students in the incoming class who were ranked in the top 25% of their high school graduating class
+-   `verbal500`: percentage of students in the incoming class with verbal SAT scores of 500 or greater
+-   `mth500`: percentage of students in the incoming class with math SAT scores of 500 or greater
+-   `famous_athlete_lastyr`: binary variable equal to 1 if the school had a nationally famous athlete with major NIL/media visibility in the prior year
+-   `bowl_lastyr`: binary variable equal to 1 if the school made it to a bowl game in the prior year
+-   `finfour_lastyr`: binary variable equal to 1 if the school's men's basketball team made the final four in the previous year
+-   `school`: school name
+:::
+
+::: {.callout-note title="Requirements"}
+Using Excel, Tableau and Posit.cloud, please conduct preliminary analysis of the questions above. Your analysis should include:
+
+-   At least one graph
+-   At least one table
+-   At least one hypothesis test
+-   A brief bullet point summary of your findings and limitations
+-   Work in Posit.cloud and work in either/or Tableau, Excel
+
+***You do not need to address both questions. You may choose to focus on only one if you like.***
+:::
+
+::: {.callout-note title="Submitting Completed Work"}
+Upload your Excel workbook, your Tableau Packaged Workbook, and your knit RMarkdown .pdf to Canvas.
+
+After you upload your submission, you will be able to view other student submissions in the discussion thread.
+:::

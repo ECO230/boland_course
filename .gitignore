@@ -40,3 +40,9 @@ __pycache__/
 # Miscellaneous
 # -----------------------------
 *.log
+
+# -----------------------------
+# Local Codex private context
+# -----------------------------
+.codex/private.md
+.codex/private/

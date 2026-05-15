@@ -1,0 +1,423 @@
+## Total Population
+
+<div class="population-stage">
+  <img class="person p001 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p002 t-std flipped" src="../shared/images/xkcd_beanie.png">
+  <img class="person p003 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p004 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p005 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p006 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p007 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p008 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p009 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p010 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p011 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p012 t-std" src="../shared/images/xkcd_bun.png">
+  <img class="person p013 t-std flipped" src="../shared/images/xkcd_neutral.png">
+  <img class="person p014 t-std" src="../shared/images/xkcd_beardo.png">
+  <img class="person p015 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p016 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p017 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p018 t-std flipped" src="../shared/images/xkcd_cap.png">
+  <img class="person p019 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p020 t-std" src="../shared/images/xkcd_woman.png">
+  <img class="person p021 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p022 t-std" src="../shared/images/xkcd_woman.png">
+  <img class="person p023 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p024 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p025 t-std flipped" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p026 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p027 t-std" src="../shared/images/xkcd_woman.png">
+  <img class="person p028 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p029 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p030 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p031 t-std flipped" src="../shared/images/xkcd_stick.png">
+  <img class="person p032 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p033 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p034 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p035 t-std flipped" src="../shared/images/xkcd_bun.png">
+  <img class="person p036 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p037 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p038 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p039 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p040 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p041 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p042 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p043 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p044 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p045 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p046 t-std flipped" src="../shared/images/xkcd_stick.png">
+  <img class="person p047 t-std flipped" src="../shared/images/xkcd_beanie.png">
+  <img class="person p048 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p049 t-std flipped" src="../shared/images/xkcd_woman.png">
+  <img class="person p050 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p051 t-std flipped" src="../shared/images/xkcd_neutral.png">
+  <img class="person p052 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p053 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p054 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p055 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p056 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p057 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p058 t-std flipped" src="../shared/images/xkcd_bun.png">
+  <img class="person p059 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p060 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p061 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p062 t-std flipped" src="../shared/images/xkcd_stick.png">
+  <img class="person p063 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p064 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p065 t-std flipped" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p066 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p067 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p068 t-std" src="../shared/images/xkcd_woman.png">
+  <img class="person p069 t-std flipped" src="../shared/images/xkcd_neutral.png">
+  <img class="person p070 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p071 t-std flipped" src="../shared/images/xkcd_beanie.png">
+  <img class="person p072 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p073 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p074 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p075 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p076 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p077 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p078 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p079 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p080 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p081 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p082 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p083 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p084 t-std flipped" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p085 t-std flipped" src="../shared/images/xkcd_woman.png">
+  <img class="person p086 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p087 t-std flipped" src="../shared/images/xkcd_cap.png">
+  <img class="person p088 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p089 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p090 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p091 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p092 t-std" src="../shared/images/xkcd_beardo.png">
+  <img class="person p093 t-pony flipped" src="../shared/images/xkcd_pony.png">
+  <img class="person p094 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p095 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p096 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p097 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p098 t-std" src="../shared/images/xkcd_woman.png">
+  <img class="person p099 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p100 t-std flipped" src="../shared/images/xkcd_stick.png">
+  <div class="caption-left">Census</div>
+</div>
+
+## Sampling Frame
+
+<div class="population-stage">
+  <img class="person p001 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p002 t-std flipped" src="../shared/images/xkcd_beanie.png">
+  <img class="person p003 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p004 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p005 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p006 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p007 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p008 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p009 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p010 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p011 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p012 t-std excluded" src="../shared/images/xkcd_bun.png">
+  <img class="person p013 t-std flipped" src="../shared/images/xkcd_neutral.png">
+  <img class="person p014 t-std excluded" src="../shared/images/xkcd_beardo.png">
+  <img class="person p015 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p016 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p017 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p018 t-std flipped" src="../shared/images/xkcd_cap.png">
+  <img class="person p019 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p020 t-std" src="../shared/images/xkcd_woman.png">
+  <img class="person p021 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p022 t-std" src="../shared/images/xkcd_woman.png">
+  <img class="person p023 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p024 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p025 t-std flipped" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p026 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p027 t-std" src="../shared/images/xkcd_woman.png">
+  <img class="person p028 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p029 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p030 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p031 t-std flipped" src="../shared/images/xkcd_stick.png">
+  <img class="person p032 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p033 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p034 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p035 t-std flipped excluded" src="../shared/images/xkcd_bun.png">
+  <img class="person p036 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p037 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p038 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p039 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p040 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p041 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p042 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p043 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p044 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p045 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p046 t-std flipped" src="../shared/images/xkcd_stick.png">
+  <img class="person p047 t-std flipped" src="../shared/images/xkcd_beanie.png">
+  <img class="person p048 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p049 t-std flipped" src="../shared/images/xkcd_woman.png">
+  <img class="person p050 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p051 t-std flipped" src="../shared/images/xkcd_neutral.png">
+  <img class="person p052 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p053 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p054 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p055 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p056 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p057 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p058 t-std flipped excluded" src="../shared/images/xkcd_bun.png">
+  <img class="person p059 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p060 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p061 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p062 t-std flipped" src="../shared/images/xkcd_stick.png">
+  <img class="person p063 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p064 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p065 t-std flipped" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p066 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p067 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p068 t-std" src="../shared/images/xkcd_woman.png">
+  <img class="person p069 t-std flipped" src="../shared/images/xkcd_neutral.png">
+  <img class="person p070 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p071 t-std flipped" src="../shared/images/xkcd_beanie.png">
+  <img class="person p072 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p073 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p074 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p075 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p076 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p077 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p078 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p079 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p080 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p081 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p082 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p083 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p084 t-std flipped" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p085 t-std flipped" src="../shared/images/xkcd_woman.png">
+  <img class="person p086 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p087 t-std flipped" src="../shared/images/xkcd_cap.png">
+  <img class="person p088 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p089 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p090 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p091 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p092 t-std excluded" src="../shared/images/xkcd_beardo.png">
+  <img class="person p093 t-pony flipped" src="../shared/images/xkcd_pony.png">
+  <img class="person p094 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p095 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p096 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p097 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p098 t-std" src="../shared/images/xkcd_woman.png">
+  <img class="person p099 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p100 t-std flipped" src="../shared/images/xkcd_stick.png">
+  <div class="caption"><span class="muted">Total Population</span> <span class="plain">&gt; Sampling Frame =</span> <span class="accent">Sampling Frame Error</span></div>
+</div>
+
+## Planned Sample
+
+<div class="population-stage">
+  <img class="person p001 t-std excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p002 t-std flipped" src="../shared/images/xkcd_beanie.png">
+  <img class="person p003 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p004 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p005 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p006 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p007 t-std excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p008 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p009 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p010 t-std excluded" src="../shared/images/xkcd_beanie.png">
+  <img class="person p011 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p012 t-std excluded" src="../shared/images/xkcd_bun.png">
+  <img class="person p013 t-std flipped" src="../shared/images/xkcd_neutral.png">
+  <img class="person p014 t-std excluded" src="../shared/images/xkcd_beardo.png">
+  <img class="person p015 t-std excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p016 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p017 t-std excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p018 t-std flipped" src="../shared/images/xkcd_cap.png">
+  <img class="person p019 t-woman2 excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p020 t-std" src="../shared/images/xkcd_woman.png">
+  <img class="person p021 t-std excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p022 t-std excluded" src="../shared/images/xkcd_woman.png">
+  <img class="person p023 t-woman2 flipped" src="../shared/images/xkcd_woman2.png">
+  <img class="person p024 t-std excluded" src="../shared/images/xkcd_beanie.png">
+  <img class="person p025 t-std flipped excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p026 t-std excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p027 t-std excluded" src="../shared/images/xkcd_woman.png">
+  <img class="person p028 t-std excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p029 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p030 t-std excluded" src="../shared/images/xkcd_neutral.png">
+  <img class="person p031 t-std flipped excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p032 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p033 t-std excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p034 t-std excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p035 t-std flipped excluded" src="../shared/images/xkcd_bun.png">
+  <img class="person p036 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p037 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p038 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p039 t-pony excluded" src="../shared/images/xkcd_pony.png">
+  <img class="person p040 t-std excluded" src="../shared/images/xkcd_neutral.png">
+  <img class="person p041 t-std excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p042 t-std excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p043 t-std excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p044 t-std excluded" src="../shared/images/xkcd_beanie.png">
+  <img class="person p045 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p046 t-std flipped" src="../shared/images/xkcd_stick.png">
+  <img class="person p047 t-std flipped" src="../shared/images/xkcd_beanie.png">
+  <img class="person p048 t-std flipped excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p049 t-std flipped" src="../shared/images/xkcd_woman.png">
+  <img class="person p050 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p051 t-std flipped" src="../shared/images/xkcd_neutral.png">
+  <img class="person p052 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p053 t-std excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p054 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p055 t-pony" src="../shared/images/xkcd_pony.png">
+  <img class="person p056 t-std excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p057 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p058 t-std flipped excluded" src="../shared/images/xkcd_bun.png">
+  <img class="person p059 t-std excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p060 t-std excluded" src="../shared/images/xkcd_neutral.png">
+  <img class="person p061 t-std flipped excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p062 t-std flipped excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p063 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p064 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p065 t-std flipped excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p066 t-woman2 excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p067 t-pony excluded" src="../shared/images/xkcd_pony.png">
+  <img class="person p068 t-std excluded" src="../shared/images/xkcd_woman.png">
+  <img class="person p069 t-std flipped" src="../shared/images/xkcd_neutral.png">
+  <img class="person p070 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p071 t-std flipped" src="../shared/images/xkcd_beanie.png">
+  <img class="person p072 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p073 t-std excluded" src="../shared/images/xkcd_beanie.png">
+  <img class="person p074 t-std" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p075 t-std excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p076 t-std excluded" src="../shared/images/xkcd_beanie.png">
+  <img class="person p077 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p078 t-woman2 excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p079 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p080 t-std excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p081 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p082 t-pony excluded" src="../shared/images/xkcd_pony.png">
+  <img class="person p083 t-std excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p084 t-std flipped" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p085 t-std flipped" src="../shared/images/xkcd_woman.png">
+  <img class="person p086 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p087 t-std flipped excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p088 t-woman2 excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p089 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p090 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p091 t-std excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p092 t-std excluded" src="../shared/images/xkcd_beardo.png">
+  <img class="person p093 t-pony flipped" src="../shared/images/xkcd_pony.png">
+  <img class="person p094 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p095 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p096 t-std excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p097 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p098 t-std excluded" src="../shared/images/xkcd_woman.png">
+  <img class="person p099 t-std flipped excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p100 t-std flipped" src="../shared/images/xkcd_stick.png">
+  <div class="caption"><span class="muted">Sampling Frame</span> <span class="plain">&gt; Planned Sample =</span> <span class="accent">Random Sampling Error</span></div>
+</div>
+
+## Sample
+
+<div class="population-stage">
+  <img class="person p001 t-std excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p002 t-std flipped" src="../shared/images/xkcd_beanie.png">
+  <img class="person p003 t-std excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p004 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p005 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p006 t-std excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p007 t-std excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p008 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p009 t-pony excluded" src="../shared/images/xkcd_pony.png">
+  <img class="person p010 t-std excluded" src="../shared/images/xkcd_beanie.png">
+  <img class="person p011 t-std flipped" src="../shared/images/xkcd_man.png">
+  <img class="person p012 t-std excluded" src="../shared/images/xkcd_bun.png">
+  <img class="person p013 t-std flipped" src="../shared/images/xkcd_neutral.png">
+  <img class="person p014 t-std excluded" src="../shared/images/xkcd_beardo.png">
+  <img class="person p015 t-std excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p016 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p017 t-std excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p018 t-std flipped" src="../shared/images/xkcd_cap.png">
+  <img class="person p019 t-woman2 excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p020 t-std excluded" src="../shared/images/xkcd_woman.png">
+  <img class="person p021 t-std excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p022 t-std excluded" src="../shared/images/xkcd_woman.png">
+  <img class="person p023 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p024 t-std excluded" src="../shared/images/xkcd_beanie.png">
+  <img class="person p025 t-std flipped excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p026 t-std excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p027 t-std excluded" src="../shared/images/xkcd_woman.png">
+  <img class="person p028 t-std excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p029 t-std excluded" src="../shared/images/xkcd_beanie.png">
+  <img class="person p030 t-std excluded" src="../shared/images/xkcd_neutral.png">
+  <img class="person p031 t-std flipped excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p032 t-pony excluded" src="../shared/images/xkcd_pony.png">
+  <img class="person p033 t-std excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p034 t-std excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p035 t-std flipped excluded" src="../shared/images/xkcd_bun.png">
+  <img class="person p036 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p037 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p038 t-std flipped excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p039 t-pony excluded" src="../shared/images/xkcd_pony.png">
+  <img class="person p040 t-std excluded" src="../shared/images/xkcd_neutral.png">
+  <img class="person p041 t-std excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p042 t-std excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p043 t-std excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p044 t-std excluded" src="../shared/images/xkcd_beanie.png">
+  <img class="person p045 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p046 t-std flipped excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p047 t-std flipped" src="../shared/images/xkcd_beanie.png">
+  <img class="person p048 t-std flipped excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p049 t-std flipped excluded" src="../shared/images/xkcd_woman.png">
+  <img class="person p050 t-woman2 excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p051 t-std flipped" src="../shared/images/xkcd_neutral.png">
+  <img class="person p052 t-std excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p053 t-std excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p054 t-std flipped excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p055 t-pony excluded" src="../shared/images/xkcd_pony.png">
+  <img class="person p056 t-std excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p057 t-std" src="../shared/images/xkcd_beanie.png">
+  <img class="person p058 t-std flipped excluded" src="../shared/images/xkcd_bun.png">
+  <img class="person p059 t-std excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p060 t-std excluded" src="../shared/images/xkcd_neutral.png">
+  <img class="person p061 t-std flipped excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p062 t-std flipped excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p063 t-std excluded" src="../shared/images/xkcd_neutral.png">
+  <img class="person p064 t-std flipped excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p065 t-std flipped excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p066 t-woman2 excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p067 t-pony excluded" src="../shared/images/xkcd_pony.png">
+  <img class="person p068 t-std excluded" src="../shared/images/xkcd_woman.png">
+  <img class="person p069 t-std flipped" src="../shared/images/xkcd_neutral.png">
+  <img class="person p070 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p071 t-std flipped excluded" src="../shared/images/xkcd_beanie.png">
+  <img class="person p072 t-std" src="../shared/images/xkcd_cap.png">
+  <img class="person p073 t-std excluded" src="../shared/images/xkcd_beanie.png">
+  <img class="person p074 t-std excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p075 t-std excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p076 t-std excluded" src="../shared/images/xkcd_beanie.png">
+  <img class="person p077 t-std" src="../shared/images/xkcd_man.png">
+  <img class="person p078 t-woman2 excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p079 t-std excluded" src="../shared/images/xkcd_beanie.png">
+  <img class="person p080 t-std excluded" src="../shared/images/xkcd_stick.png">
+  <img class="person p081 t-std" src="../shared/images/xkcd_neutral.png">
+  <img class="person p082 t-pony excluded" src="../shared/images/xkcd_pony.png">
+  <img class="person p083 t-std excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p084 t-std flipped excluded" src="../shared/images/xkcd_black_hat.png">
+  <img class="person p085 t-std flipped" src="../shared/images/xkcd_woman.png">
+  <img class="person p086 t-std" src="../shared/images/xkcd_stick.png">
+  <img class="person p087 t-std flipped excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p088 t-woman2 excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p089 t-std excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p090 t-woman2" src="../shared/images/xkcd_woman2.png">
+  <img class="person p091 t-std excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p092 t-std excluded" src="../shared/images/xkcd_beardo.png">
+  <img class="person p093 t-pony flipped excluded" src="../shared/images/xkcd_pony.png">
+  <img class="person p094 t-std excluded" src="../shared/images/xkcd_neutral.png">
+  <img class="person p095 t-std excluded" src="../shared/images/xkcd_neutral.png">
+  <img class="person p096 t-std excluded" src="../shared/images/xkcd_cap.png">
+  <img class="person p097 t-woman2 flipped excluded" src="../shared/images/xkcd_woman2.png">
+  <img class="person p098 t-std excluded" src="../shared/images/xkcd_woman.png">
+  <img class="person p099 t-std flipped excluded" src="../shared/images/xkcd_man.png">
+  <img class="person p100 t-std flipped excluded" src="../shared/images/xkcd_stick.png">
+  <div class="caption"><span class="muted">Planned Sample</span> <span class="plain">&gt; Respondents =</span> <span class="accent">Nonresponse Error</span></div>
+</div>

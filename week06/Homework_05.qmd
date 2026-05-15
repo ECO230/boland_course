@@ -1,0 +1,132 @@
+---
+title: "Homework 5: Hypothesis Tests"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+library(dplyr)
+library(eco230r)
+```
+
+## HOMEWORK 5: HYPOTHESIS TESTS
+
+::: {.callout-note title="Objectives"}
+-   Complete step 3 of the hypothesis testing process: Which test is appropriate and what is the null hypothesis?
+-   Choose an appropriate inferential test for each hypothesis.
+-   Translate your hypothesis to null ($H_0$) and alternate ($H_A$) form.
+-   Draft pseudocode that outlines how you would run each test in R.
+:::
+
+::: {.callout-important title="Submission Instructions"}
+1.  Open the Posit Cloud project space: https://posit.cloud/spaces/3173/content/5508040\
+2.  Open the file named **Homework_5.Rmd**.\
+3.  Complete Hypotheses 1–3 (fill in hypothesis, test type, $H_0$, $H_A$, and pseudocode).\
+4.  Knit to .pdf and submit the knitted file.
+
+**Important** - Running code is NOT required for this homework. - If you try code and it prevents knitting, comment it out using #.
+:::
+
+::: {.callout-note title="What You Will Likely Need To Do In R"}
+Most hypotheses will require:
+
+-   Load data
+-   Filter to relevant subset (example: IL, MI, WI)
+-   Run the appropriate test
+
+Example pseudocode (ANOVA across IL/MI/WI):
+
+```{r}
+#| eval: false
+# Load data
+
+# Filter to states
+
+# Run ANOVA
+
+```
+:::
+
+------------------------------------------------------------------------
+
+### Hypothesis 1
+
+**What statistical story am I attempting to tell?**
+
+Hypothesis:
+
+**Which test is appropriate and what is the null hypothesis?**
+
+Test Type:
+
+$H_0$:
+
+$H_A$:
+
+**Pseudocode**
+
+```{r}
+#| eval: false
+# Load data
+# Filter (if needed)
+# Run test
+```
+
+------------------------------------------------------------------------
+
+### Hypothesis 2
+
+**What statistical story am I attempting to tell?**
+
+Hypothesis:
+
+**Which test is appropriate and what is the null hypothesis?**
+
+Test Type:
+
+$H_0$:
+
+$H_A$:
+
+**Pseudocode**
+
+```{r}
+#| eval: false
+# Load data
+# Filter (if needed)
+# Run test
+```
+
+------------------------------------------------------------------------
+
+### Hypothesis 3
+
+**What statistical story am I attempting to tell?**
+
+Hypothesis:
+
+**Which test is appropriate and what is the null hypothesis?**
+
+Test Type:
+
+$H_0$:
+
+$H_A$:
+
+**Pseudocode**
+
+```{r}
+#| eval: false
+# Load data
+# Filter (if needed)
+# Run test
+```

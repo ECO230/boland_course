@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="276.45374mm"
+   height="41.328743mm"
+   viewBox="0 0 276.45374 41.328743"
+   version="1.1"
+   id="svg20340"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="bayes_factor.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview20342"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.2102413"
+     inkscape:cx="1655.2409"
+     inkscape:cy="2088.0769"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs20337" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(870.65907,404.49911)">
+    <g
+       transform="matrix(0.26458333,0,0,0.26458333,-900.8093,-527.26578)"
+       id="g20561">
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="32px"
+         transform="translate(846.58,618)"
+         id="text20461">30</text>
+      <rect
+         x="123"
+         y="464"
+         width="123"
+         height="122"
+         fill="#8faadc"
+         id="rect20463" />
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(152.629,504)"
+         id="text20465">Strong</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(140.969,533)"
+         id="text20467">Evidence</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(156.189,562)"
+         id="text20469">for H</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="16px"
+         transform="translate(204.515,567)"
+         id="text20471">0</text>
+      <rect
+         x="246"
+         y="464"
+         width="123"
+         height="122"
+         fill="#bdd7ee"
+         id="rect20473" />
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(280.064,504)"
+         id="text20475">Some</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(264.011,533)"
+         id="text20477">Evidence</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(279.231,562)"
+         id="text20479">for H</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="16px"
+         transform="translate(327.558,567)"
+         id="text20481">0</text>
+      <rect
+         x="369"
+         y="464"
+         width="123"
+         height="122"
+         fill="#bfbfbf"
+         id="rect20483" />
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(381.17,504)"
+         id="text20485">Anecdotal</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(387.057,533)"
+         id="text20487">Evidence</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(402.277,562)"
+         id="text20489">for H</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="16px"
+         transform="translate(450.603,567)"
+         id="text20491">0</text>
+      <rect
+         x="492"
+         y="464"
+         width="123"
+         height="122"
+         fill="#bfbfbf"
+         id="rect20493" />
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(504.212,504)"
+         id="text20495">Anecdotal</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(510.099,533)"
+         id="text20497">Evidence</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(524.739,562)"
+         id="text20499">for H</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="16px"
+         transform="translate(573.066,567)"
+         id="text20501">A</text>
+      <rect
+         x="615"
+         y="464"
+         width="123"
+         height="122"
+         fill="#bdd7ee"
+         id="rect20503" />
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(649.191,504)"
+         id="text20505">Some</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(633.138,533)"
+         id="text20507">Evidence</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(647.778,562)"
+         id="text20509">for H</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="16px"
+         transform="translate(696.105,567)"
+         id="text20511">A</text>
+      <rect
+         x="738"
+         y="464"
+         width="123"
+         height="122"
+         fill="#8faadc"
+         id="rect20513" />
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(767.84,504)"
+         id="text20515">Strong</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(756.18,533)"
+         id="text20517">Evidence</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(770.82,562)"
+         id="text20519">for H</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="16px"
+         transform="translate(819.147,567)"
+         id="text20521">A</text>
+      <rect
+         x="861"
+         y="464"
+         width="134"
+         height="122"
+         fill="#2f5597"
+         id="rect20523" />
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(871.664,504)"
+         id="text20525">Very Strong</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(884.631,533)"
+         id="text20527">Evidence</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(899.271,562)"
+         id="text20529">for H</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="16px"
+         transform="translate(947.598,567)"
+         id="text20531">A</text>
+      <rect
+         x="995"
+         y="464"
+         width="134"
+         height="122"
+         fill="#222a35"
+         id="rect20533" />
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(1021.99,504)"
+         id="text20535">Decisive</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(1018.49,533)"
+         id="text20537">Evidence</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="24px"
+         transform="translate(1033.13,562)"
+         id="text20539">for H</text>
+      <text
+         fill="#ffffff"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="16px"
+         transform="translate(1081.46,567)"
+         id="text20541">A</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="32px"
+         transform="translate(483.961,620)"
+         id="text20543">1</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="32px"
+         transform="translate(357.215,619)"
+         id="text20545">.3</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="32px"
+         transform="translate(231.308,620)"
+         id="text20547">.1</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="32px"
+         transform="translate(113.063,619)"
+         id="text20549">0</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="32px"
+         transform="translate(606.342,619)"
+         id="text20551">3</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="32px"
+         transform="translate(723.888,619)"
+         id="text20553">10</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="32px"
+         transform="translate(974.56,618)"
+         id="text20555">100</text>
+      <text
+         fill="#333333"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="32px"
+         transform="translate(1095.24,616)"
+         id="text20557">100k</text>
+      <path
+         d="M 493.5,464.5 V 586.19"
+         stroke="#262626"
+         stroke-width="2.66667"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path20559" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,793 @@
+---
+title: "Week 12 - Sampling and Survey Research"
+author: "Mike Boland, MBA"
+format:
+  revealjs:
+    theme:
+      - default
+      - ../shared/styles/boland-reveal.scss
+    css: population_pipeline.css
+    slide-number: true
+    hash: true
+    center: false
+    transition: fade
+    controls: true
+    pdf-export: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+# Can a sample tell the truth?
+
+<br>
+
+::: {.callout-note title="Today's question"}
+When does a small group of people tell us something useful about a much larger group?
+:::
+
+::: notes
+Open with the idea that students already trust samples constantly: reviews, polls, product ratings, class feedback, medical studies.
+:::
+
+## First: take the survey
+
+<br>
+
+::: {.callout-important title="Class data lab"}
+We are going to use your responses as today's dataset.
+:::
+
+<br>
+
+1.  Take the survey.
+2.  Do not overthink your answers.
+3.  We will use the response pool to test sampling methods.
+
+::: notes
+Use the LimeSurvey link or QR code here once the final survey is active. Keep this slide up while students respond.
+:::
+
+## Today
+
+<br>
+
+1.  What a sample is trying to represent
+2.  Random vs representative
+3.  Sampling methods
+4.  Sampling frame and nonresponse error
+5.  Survey question design
+
+# Population to Sample
+
+{{< include _population_pipeline.qmd >}}
+
+## The Survey Pipeline
+
+<br>
+
+| Stage             | Question                      |
+|-------------------|-------------------------------|
+| Target population | Who do we want to understand? |
+| Sampling frame    | Who could be selected?        |
+| Planned sample    | Who did we try to select?     |
+| Respondents       | Who actually answered?        |
+| Final estimate    | What did we conclude?         |
+
+::: notes
+This replaces the old population -\> frame -\> sample sequence with the full measurement pipeline.
+:::
+
+# Random vs Representative
+
+## The goal
+
+<br>
+
+::: {.callout-tip title="Good sample"}
+A good sample is random enough to protect against selection bias and representative enough to reflect the population we care about.
+:::
+
+## Randomness is not the same as representativeness
+
+<br>
+
+|   | Representative | Not representative |
+|------------------------|------------------------|------------------------|
+| Random | Best case | Possible, especially with small samples or bad frames |
+| Not random | Possible, but harder to defend | Common convenience-sample problem |
+
+## Random
+
+<br>
+
+::: {.callout-note title="Random sample"}
+Every unit in the frame has a known chance of being selected.
+:::
+
+<br>
+
+Random sampling helps protect us from hidden selection rules.
+
+It does not guarantee perfection in every single sample.
+
+## Representative
+
+<br>
+
+::: {.callout-note title="Representative sample"}
+The sample resembles the population on variables that matter for the question.
+:::
+
+<br>
+
+Representative is about the result.
+
+Random is about the process.
+
+## Random but not representative
+
+<br>
+
+This can happen when:
+
+-   the sample is small
+-   the frame is flawed
+-   an important subgroup is rare
+-   the random draw is unlucky
+-   nonresponse changes the final data
+
+## Nonrandom but representative
+
+<br>
+
+This can happen, but it usually requires careful control.
+
+Examples:
+
+-   quota sampling
+-   judgment sampling
+-   balanced recruitment
+-   post-stratification or weighting
+
+::: {.callout-important title="Tradeoff"}
+Nonrandom samples can be useful, but they are harder to defend.
+:::
+
+# Sampling Methods
+
+## Same goal, different risks
+
+<br>
+
+Every sampling method is trying to answer:
+
+> How do we learn about the population without measuring everyone?
+
+<br>
+
+But each method creates different risks.
+
+## Probability Sampling {background-image="media/images/w12_go.jpeg" background-size="cover" background-position="center"}
+
+<div class="method-panel">
+  <div class="method-kicker">Known chance of selection</div>
+  <div class="method-title">Probability Sampling</div>
+  <div class="method-subtitle">Every unit in the frame has a known path into the sample. That makes the process easier to defend.</div>
+</div>
+
+## Non Probability Sampling {background-image="media/images/w12_spider.jpeg" background-size="cover" background-position="center"}
+
+<div class="method-panel">
+  <div class="method-title" style="top: 28px; right: 28px; left: auto; max-width: 48%; text-align: right;">Non Probability Sampling</div>
+  <div class="method-subtitle" style="left:auto; right:28px; max-width:42%; text-align:right;">Useful when speed or access matters, but the selection process is shaped by availability, judgment, or networks.</div>
+</div>
+
+## Simple Random Sample {background-image="media/images/w12_bingo.jpeg" background-size="contain" background-position="center" background-color="#ffffff"}
+
+<div class="method-panel">
+  <div class="method-title" style="color:#111; text-shadow:none; top: 18px;">Simple Random Sample</div>
+  <div class="method-note">
+    Coin flip each row in the app.
+    <span class="small">Fast way to make randomness visible without pretending every draw is perfectly representative.</span>
+  </div>
+</div>
+
+## Systematic Sample {background-image="media/images/w12_hood_wide.png" background-size="contain" background-position="center" background-color="#ffffff"}
+
+<div class="method-panel">
+  <div class="method-title" style="color:#111; text-shadow:none; top: 18px;">Systematic Sample</div>
+  <div class="method-chip">Every 6th house after a starting point</div>
+</div>
+
+## Systematic Sample Walkthrough
+
+<div class="systematic-map">
+  <img src="media/images/w12_hood_wide.png" alt="Neighborhood map for systematic sampling walkthrough">
+  <div class="sys-marker plus fragment" data-fragment-index="1" style="left:4.84%; top:10.1%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="2" style="left:9.69%; top:10.1%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="3" style="left:12.6%; top:10.1%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="4" style="left:17.44%; top:10.1%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="5" style="left:22.29%; top:10.1%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="6" style="left:25.19%; top:10.1%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="7" style="left:25.19%; top:25.25%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="8" style="left:25.19%; top:29.46%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="9" style="left:21.8%; top:33.67%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="10" style="left:16.96%; top:29.46%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="11" style="left:9.69%; top:29.46%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="12" style="left:7.75%; top:29.46%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="13" style="left:5.81%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="14" style="left:10.66%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="15" style="left:13.57%; top:42.09%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="16" style="left:17.44%; top:42.09%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="17" style="left:22.29%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="18" style="left:25.19%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="19" style="left:25.19%; top:60.61%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="20" style="left:23.26%; top:60.61%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="21" style="left:20.35%; top:60.61%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="22" style="left:17.44%; top:60.61%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="23" style="left:13.57%; top:60.61%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="24" style="left:9.69%; top:60.61%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="25" style="left:5.81%; top:63.97%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="26" style="left:5.81%; top:71.55%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="27" style="left:16.96%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="28" style="left:19.38%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="29" style="left:22.29%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="30" style="left:24.22%; top:71.55%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="31" style="left:26.65%; top:71.55%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="32" style="left:34.88%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="33" style="left:38.76%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="34" style="left:41.18%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="35" style="left:46.03%; top:71.55%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="36" style="left:47.48%; top:71.55%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="37" style="left:49.42%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="38" style="left:55.72%; top:71.55%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="39" style="left:55.72%; top:58.92%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="40" style="left:50.87%; top:58.92%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="41" style="left:46.03%; top:58.92%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="42" style="left:42.64%; top:58.92%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="43" style="left:38.76%; top:58.92%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="44" style="left:34.88%; top:58.92%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="45" style="left:34.88%; top:42.09%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="46" style="left:38.76%; top:42.09%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="47" style="left:42.64%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="48" style="left:47.48%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="49" style="left:51.36%; top:42.09%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="50" style="left:55.72%; top:43.77%;">&times;</div>
+  <div class="sys-marker plus fragment" data-fragment-index="51" style="left:55.72%; top:37.88%;">+</div>
+  <div class="sys-marker cross fragment" data-fragment-index="52" style="left:55.72%; top:29.46%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="53" style="left:48.45%; top:29.46%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="54" style="left:41.18%; top:29.46%;">&times;</div>
+  <div class="sys-marker cross fragment" data-fragment-index="55" style="left:34.88%; top:29.46%;">&times;</div>
+  <div class="systematic-note">Your exact route: start at the first house, then mark every 6th address.</div>
+</div>
+
+## Convenience Sample {background-image="media/images/w12_marathon.jpeg" background-size="cover" background-position="center"}
+
+<div class="method-panel">
+  <div class="method-chip">Convenience Sample</div>
+</div>
+
+## Stratified Sample {background-image="media/images/w12_red_white.jpeg" background-size="cover" background-position="center"}
+
+<div class="method-panel">
+  <div class="method-chip">Stratified Sample</div>
+</div>
+
+## Quota Sample {background-image="media/images/w12_black_yellow.jpeg" background-size="cover" background-position="center"}
+
+<div class="method-panel">
+  <div class="method-chip">Quota Sample</div>
+</div>
+
+## Cluster | Judgement | Snowball Sample {background-image="media/images/w12_larp.jpeg" background-size="cover" background-position="center"}
+
+<div class="method-panel">
+  <div class="method-chip">Cluster Sample | Judgement Sample | Snowball Sample</div>
+</div>
+
+## Multistage Area Sample
+
+![](media/images/w12_multistage.svg){width=100%}
+
+# Sampling Lab
+
+## App Activity
+
+<br>
+
+In the app, choose:
+
+1.  an outcome variable
+2.  a sample size
+3.  a sampling method
+4.  a comparison group
+
+<br>
+
+Then ask:
+
+> Did the sample look like the response pool?
+
+## What to watch
+
+<br>
+
+::: tight-list
+-   Sample estimate
+-   Full response-pool estimate
+-   Difference between the two
+-   Class standing mix
+-   Attendance mix
+-   Work hours
+-   Commute time
+-   Early vs late responders
+:::
+
+## The important comparison
+
+<br>
+
+::: {.callout-tip title="Not just the estimate"}
+Two samples can have similar averages but very different subgroup composition.
+:::
+
+<br>
+
+Representation is about who is in the data, not just whether one number looks close.
+
+## Random Sampling Error
+
+<br>
+
+::: {.callout-note title="Random sampling error"}
+Random sampling error is the difference caused by selecting one random sample instead of another.
+:::
+
+<br>
+
+It is noise from sampling.
+
+It is not the same as bias.
+
+## Bias Sources
+
+![](media/images/w12_bias.svg){width=100%}
+
+# Survey Design
+
+## The transition
+
+<br>
+
+::: {.callout-important title="Measurement problem"}
+Even if we sample the right people, we can still ask the wrong question.
+:::
+
+## Select One
+
+<br>
+
+Use select-one questions when respondents should choose one best answer.
+
+Example:
+
+> What is your primary way of getting to campus?
+
+::: {.callout-tip title="Design check"}
+Are the choices mutually exclusive enough for the question?
+:::
+
+## Select All That Apply
+
+<br>
+
+Use all-that-apply when multiple answers can be true.
+
+Example:
+
+> Which tools have you used for coursework this semester?
+
+::: {.callout-important title="Interpretation warning"}
+The percentages across choices usually do not add to 100%.
+:::
+
+## Likert Scale
+
+<br>
+
+Likert scales make attitudes easier to measure consistently.
+
+Example:
+
+> I feel confident interpreting statistical results.
+
+<br>
+
+Strongly disagree -\> Strongly agree
+
+## Semantic Differential
+
+<br>
+
+Semantic differential scales measure perception between opposite ideas.
+
+Example:
+
+> Statistics feels...
+
+<br>
+
+Easy 1 2 3 4 5 6 7 Difficult
+
+## Numeric Scales Need Anchors
+
+<br>
+
+Bad:
+
+> Rate your confidence from 0 to 100.
+
+<br>
+
+Better:
+
+> 0 = not confident at all\
+> 50 = somewhat confident\
+> 100 = completely confident
+
+## Constant Sum
+
+<br>
+
+::: {.callout-note title="Constant sum"}
+Respondents allocate a fixed number of points across options.
+:::
+
+<br>
+
+Use it when you want prioritization.
+
+Electronic surveys can enforce the total.
+
+## Graphic Rating Scales
+
+<br>
+
+Graphic scales can help when numbers or words are difficult.
+
+Useful in:
+
+-   child surveys
+-   low literacy contexts
+-   medical pain scales
+-   fatigue or communication difficulty
+
+## Drilldown Questions
+
+<br>
+
+::: {.callout-note title="Drilldown"}
+Start broad, then narrow the choices.
+:::
+
+<br>
+
+Better than forcing people through a giant pick list.
+
+Example:
+
+College -\> Department -\> Major
+
+## Collectively Exhaustive vs Mutually Exclusive
+
+:::: {.q-example}
+::: {.q-title}
+Question categories can fail in different ways
+:::
+
+::: {.q-col .left}
+::: {.col-head}
+Collectively Exhaustive
+:::
+
+::: {.prompt}
+How old are you?
+:::
+
+- 18-20
+- 20-22
+- 22-24
+
+::: {.prompt}
+How old are you?
+:::
+
+- < 18
+- 18-20
+- 20-22
+- 22-24
+- 24+
+:::
+
+::: {.q-col .right}
+::: {.col-head}
+Mutually Exclusive
+:::
+
+::: {.prompt}
+How old are you?
+:::
+
+- 18-20
+- 21-22
+- 23-24
+
+::: {.prompt}
+How old are you?
+:::
+
+- < 18
+- 18-20
+- 21-22
+- 23-24
+- 25+
+:::
+
+![](media/images/w12_birthday.jpeg){.food fig-alt="Birthday cake"}
+::: {.frame}
+:::
+::::
+
+## Generate Variance
+
+:::: {.q-example}
+::: {.q-title}
+Generate Variance
+:::
+
+::: {.q-col .left}
+:::{style="width: 46%;"}
+::: {.prompt}
+How many meals per day do you eat?
+:::
+
+- 0-5
+- 6-10
+- 11+
+
+::: {.prompt}
+How many meals per day do you eat?
+:::
+
+- Less than 1
+- 1
+- 2
+- 3
+- More than 3
+:::
+:::
+
+![](media/images/w12_taters.jpeg){.food fig-alt="Potatoes"}
+::::
+
+## Sensitivity
+
+:::: {.q-example}
+::: {.q-title}
+Sensitivity
+:::
+
+::: {.q-col .left}
+::: {.prompt}
+I am bored.
+:::
+
+- Strongly Disagree
+- Disagree
+- Neutral
+- Agree
+- Strongly Agree
+
+::: {.prompt}
+I am bored.
+:::
+
+- Disagree
+- Agree
+
+::: {.prompt}
+I am bored.
+:::
+
+- Strongly Disagree
+- Disagree
+- Somewhat Disagree
+- Agree
+:::
+
+::: {.q-col .right}
+:::{style="font-size: 0.72rem;"}
+::: {.prompt}
+I am bored.
+:::
+
+- Extremely Very Strongly Disagree
+- Very Strongly Disagree
+- Strongly Disagree
+- Disagree
+- Extremely Very Moderately Disagree
+- Very Moderately Disagree
+- Moderately Disagree
+- Extremely Very Somewhat Disagree
+- Very Somewhat Disagree
+- Somewhat Disagree
+- Disagree Somewhat
+- Kind of Disagree to some extent
+- Not Really Disagree
+- Neutral
+- Moderately Neutral
+- Extremely Neutral
+- Neutrally Neutral
+:::
+:::
+
+![](media/images/w12_pillow.jpeg){.pillow fig-alt="Pillow"}
+::::
+
+## Heat Maps
+
+<br>
+
+Electronic surveys can collect information paper surveys cannot.
+
+Example:
+
+> Click the part of this chart that is most confusing.
+
+<br>
+
+Useful for testing:
+
+-   visuals
+-   dashboards
+-   app screens
+-   instructions
+
+## Text Boxes
+
+<br>
+
+::: {.callout-tip title="Open text"}
+Text boxes reveal categories the researcher did not anticipate.
+:::
+
+<br>
+
+Example:
+
+> What is something unique about you that a normal survey would not know to ask?
+
+## From Text Boxes to Sampling
+
+<br>
+
+If someone writes:
+
+> My obscure hobby is competitive speedcubing.
+
+<br>
+
+How would we sample that population?
+
+::: {.callout-important title="Key link"}
+Rare or niche populations often require judgment, cluster, or snowball sampling.
+:::
+
+# Bad Questions
+
+## Leading Question
+
+<br>
+
+Bad:
+
+> How much do you agree that this helpful course improves your analytical thinking?
+
+<br>
+
+Problem:
+
+The wording pushes respondents toward a positive answer.
+
+## Loaded Question
+
+<br>
+
+Bad:
+
+> How often do you waste time using AI instead of thinking for yourself?
+
+<br>
+
+Problem:
+
+The wording judges the respondent before they answer.
+
+## Double-Barreled Question
+
+<br>
+
+Bad:
+
+> The Shiny apps are easy to use and help me learn the material.
+
+<br>
+
+Problem:
+
+This asks two questions at once.
+
+## Assumption Question
+
+<br>
+
+Bad:
+
+> How often do you use ChatGPT to complete your homework?
+
+<br>
+
+Problem:
+
+It assumes the respondent uses ChatGPT.
+
+## Better Question Flow
+
+<br>
+
+1.  Have you used ChatGPT or another AI assistant for homework?
+2.  If yes, how often?
+3.  If yes, for which tasks?
+4.  What did you check yourself?
+
+::: notes
+Use this to connect back to responsible AI expectations from earlier homework.
+:::
+
+# Wrap Up
+
+## What makes a survey good?
+
+<br>
+
+Survey quality depends on:
+
+-   who could be selected
+-   who was selected
+-   who responded
+-   what they were asked
+-   whether the question measured what we think it measured
+
+## Prime Directive
+
+<br>
+
+::: {.callout-tip title="Before trusting a survey result"}
+Ask: who was in the frame, how were they sampled, who responded, and how was the question worded?
+:::
+
+## Exit Question
+
+<br>
+
+Pick one survey result you saw today.
+
+<br>
+
+Answer:
+
+1.  What population did it claim to describe?
+2.  What could make it biased?
+3.  What would make the sample more representative?

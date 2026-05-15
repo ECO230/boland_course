@@ -1,0 +1,923 @@
+# MUST be at the very top of app.R, before any library(...)
+if (requireNamespace("renv", quietly = TRUE)) {
+  renv::load("/data/junior/boland_course")
+}
+
+library(shiny)
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(DBI)
+
+`%||%` <- function(a, b) if (!is.null(a) && length(a) > 0 && !all(is.na(a))) a else b
+
+fmt_num <- function(x, digits = 2) {
+  if (is.na(x)) return("\u2014")
+  format(round(x, digits), nsmall = digits, trim = TRUE)
+}
+
+fmt_pct <- function(x, digits = 1) {
+  if (is.na(x)) return("\u2014")
+  paste0(format(round(100 * x, digits), nsmall = digits, trim = TRUE), "%")
+}
+
+safe_numeric <- function(x) {
+  suppressWarnings(as.numeric(x))
+}
+
+var_labels <- c(
+  submitdate = "Submission time",
+  response_order = "Response order",
+  age_band = "Age band",
+  class_stand = "Class standing",
+  major = "Major",
+  attend = "In-person attendance",
+  commute_min = "Commute time (minutes)",
+  work_hrs = "Work hours per week",
+  sleep_hrs = "Sleep last night (hours)",
+  conf_interp = "Confidence interpreting statistics",
+  bias_conf = "Confidence explaining sampling bias (0-100)",
+  hometown_text = "Hometown text",
+  image_click_coords = "Image click coordinates",
+  summer_lacrosse = "Lives in La Crosse over summer",
+  hobby_text = "Obscure hobby or interest",
+  transport = "Primary transport",
+  acad_area = "Academic area",
+  uses_ai = "Uses AI for coursework"
+)
+
+pretty_var_name <- function(x) {
+  out <- unname(var_labels[x])
+  ifelse(is.na(out), x, out)
+}
+
+teaching_outcome_vars <- c(
+  "sleep_hrs",
+  "work_hrs",
+  "commute_min",
+  "bias_conf",
+  "class_stand",
+  "major",
+  "attend",
+  "conf_interp",
+  "summer_lacrosse",
+  "age_band"
+)
+
+teaching_compare_vars <- c(
+  "class_stand",
+  "major",
+  "attend",
+  "conf_interp",
+  "summer_lacrosse",
+  "age_band"
+)
+
+parse_click_coords <- function(x) {
+  if (length(x) == 0) {
+    return(data.frame(x = numeric(0), y = numeric(0)))
+  }
+  pieces <- strsplit(trimws(x), ",")
+  good <- vapply(pieces, function(p) length(p) == 2, logical(1))
+  pieces <- pieces[good]
+  if (!length(pieces)) {
+    return(data.frame(x = numeric(0), y = numeric(0)))
+  }
+  xs <- suppressWarnings(as.numeric(vapply(pieces, `[`, character(1), 1)))
+  ys <- suppressWarnings(as.numeric(vapply(pieces, `[`, character(1), 2)))
+  out <- data.frame(x = xs, y = ys)
+  out <- out[is.finite(out$x) & is.finite(out$y), , drop = FALSE]
+  out[out$x >= 0 & out$x <= 100 & out$y >= 0 & out$y <= 100, , drop = FALSE]
+}
+
+interpret_sample <- function(pool_df, sample_df, outcome_var, outcome_level, compare_var) {
+  pool_est <- estimate_value(pool_df, outcome_var, outcome_level)
+  samp_est <- estimate_value(sample_df, outcome_var, outcome_level)
+  gap <- samp_est - pool_est
+  outcome_data <- pool_df[[outcome_var]]
+
+  estimate_line <- if (is.numeric(outcome_data)) {
+    if (abs(gap) < 0.15) {
+      paste("The sample mean is very close to the response-pool mean for", pretty_var_name(outcome_var), ".")
+    } else if (gap > 0) {
+      paste("The sample mean is higher than the response-pool mean for", pretty_var_name(outcome_var), ".")
+    } else {
+      paste("The sample mean is lower than the response-pool mean for", pretty_var_name(outcome_var), ".")
+    }
+  } else {
+    if (abs(gap) < 0.03) {
+      paste("The sample proportion is close to the response-pool proportion for", outcome_level, ".")
+    } else if (gap > 0) {
+      paste("The sample overstates the proportion for", outcome_level, ".")
+    } else {
+      paste("The sample understates the proportion for", outcome_level, ".")
+    }
+  }
+
+  comp_pool <- pool_df %>%
+    count(level = .data[[compare_var]]) %>%
+    mutate(pool_pct = n / sum(n))
+  comp_sample <- sample_df %>%
+    count(level = .data[[compare_var]]) %>%
+    mutate(sample_pct = n / sum(n))
+
+  comp <- full_join(comp_pool, comp_sample, by = "level") %>%
+    mutate(
+      pool_pct = dplyr::coalesce(pool_pct, 0),
+      sample_pct = dplyr::coalesce(sample_pct, 0),
+      diff = sample_pct - pool_pct
+    )
+
+  if (!nrow(comp)) {
+    return(estimate_line)
+  }
+
+  top_over <- comp %>% arrange(desc(diff)) %>% slice(1)
+  top_under <- comp %>% arrange(diff) %>% slice(1)
+
+  balance_line <- if (abs(top_over$diff) < 0.05 && abs(top_under$diff) < 0.05) {
+    paste("The sample looks fairly balanced across", pretty_var_name(compare_var), ".")
+  } else {
+    paste(
+      "Compared with the response pool, this sample overrepresents",
+      top_over$level,
+      "and underrepresents",
+      top_under$level,
+      "on",
+      pretty_var_name(compare_var),
+      "."
+    )
+  }
+
+  paste(estimate_line, balance_line)
+}
+
+generate_demo_data <- function(n = 120) {
+  set.seed(23012)
+
+  class_stand <- sample(
+    c("First-year", "Sophomore", "Junior", "Senior", "Graduate student"),
+    size = n,
+    replace = TRUE,
+    prob = c(0.17, 0.22, 0.27, 0.29, 0.05)
+  )
+
+  acad_area <- sample(
+    c("Business", "Science or health", "Social sciences", "Arts or humanities", "Education", "Engineering or technology"),
+    size = n,
+    replace = TRUE,
+    prob = c(0.36, 0.19, 0.16, 0.1, 0.08, 0.11)
+  )
+
+  attend <- sample(
+    c("Almost always", "Often", "Sometimes", "Rarely"),
+    size = n,
+    replace = TRUE,
+    prob = c(0.48, 0.28, 0.18, 0.06)
+  )
+
+  transport <- sample(
+    c("Walk", "Bike or scooter", "Drive alone", "Carpool", "Bus or public transportation", "I do not usually come to campus"),
+    size = n,
+    replace = TRUE,
+    prob = c(0.2, 0.05, 0.42, 0.08, 0.18, 0.07)
+  )
+
+  work_hrs <- pmax(0, round(rnorm(
+    n,
+    mean = ifelse(class_stand %in% c("Junior", "Senior"), 15, 10),
+    sd = 8
+  )))
+
+  commute_min <- pmax(0, round(rnorm(
+    n,
+    mean = ifelse(transport %in% c("Drive alone", "Carpool"), 19, 11),
+    sd = 7
+  )))
+
+  sleep_hrs <- pmin(24, pmax(2.5, round(rnorm(
+    n,
+    mean = 6.9 - pmin(work_hrs, 30) / 22,
+    sd = 1.05
+  ), 2)))
+
+  bias_conf <- pmin(100, pmax(0, round(rnorm(
+    n,
+    mean = 57 +
+      ifelse(attend == "Almost always", 8, 0) +
+      ifelse(attend == "Rarely", -10, 0),
+    sd = 16
+  ))))
+
+  conf_interp <- cut(
+    bias_conf,
+    breaks = c(-Inf, 20, 40, 60, 80, Inf),
+    labels = c(
+      "Not at all confident",
+      "Slightly confident",
+      "Moderately confident",
+      "Very confident",
+      "Extremely confident"
+    ),
+    ordered_result = TRUE
+  )
+
+  uses_ai <- sample(
+    c("Yes", "No"),
+    size = n,
+    replace = TRUE,
+    prob = c(0.62, 0.38)
+  )
+
+  hobby_pool <- c(
+    "Speedcubing",
+    "Birding",
+    "Mini painting",
+    "Powerlifting",
+    "Cosplay sewing",
+    "Climbing",
+    "Chess tactics",
+    "Vintage cameras",
+    "Roller derby",
+    "Soap making",
+    "No especially obscure hobby"
+  )
+
+  hobby_text <- sample(hobby_pool, size = n, replace = TRUE)
+
+  tibble(
+    response_order = seq_len(n),
+    class_stand = class_stand,
+    acad_area = acad_area,
+    attend = attend,
+    transport = transport,
+    commute_min = commute_min,
+    work_hrs = work_hrs,
+    sleep_hrs = sleep_hrs,
+    conf_interp = as.character(conf_interp),
+    bias_conf = bias_conf,
+    uses_ai = uses_ai,
+    hobby_text = hobby_text
+  )
+}
+
+make_clean_data <- function(df) {
+  df <- as.data.frame(df, stringsAsFactors = FALSE)
+  names(df) <- make.names(names(df), unique = TRUE)
+
+  if (!"response_order" %in% names(df)) {
+    df$response_order <- seq_len(nrow(df))
+  }
+
+  for (nm in names(df)) {
+    if (is.character(df[[nm]])) {
+      suppressWarnings({
+        numeric_version <- as.numeric(df[[nm]])
+      })
+      share_numeric <- mean(!is.na(numeric_version))
+      if (is.finite(share_numeric) && share_numeric > 0.85) {
+        df[[nm]] <- numeric_version
+      }
+    }
+  }
+
+  df
+}
+
+load_limesurvey_responses <- function() {
+  if (!requireNamespace("RMariaDB", quietly = TRUE)) {
+    stop("RMariaDB is not available in this Shiny runtime.")
+  }
+
+  con <- DBI::dbConnect(
+    RMariaDB::MariaDB(),
+    host = Sys.getenv("SURVEY_DB_HOST"),
+    user = Sys.getenv("SURVEY_DB_USER"),
+    password = Sys.getenv("SURVEY_DB_PASSWORD"),
+    dbname = Sys.getenv("SURVEY_DB_NAME"),
+    port = as.integer(Sys.getenv("SURVEY_DB_PORT"))
+  )
+
+  on.exit(DBI::dbDisconnect(con), add = TRUE)
+
+  DBI::dbGetQuery(con, "SELECT * FROM survey_931648 ORDER BY id DESC")
+}
+
+clean_limesurvey_responses <- function(df) {
+  if (!nrow(df)) return(df)
+
+  class_map <- c(
+    AO01 = "First-year",
+    AO02 = "Sophomore",
+    AO03 = "Junior",
+    AO04 = "Senior (+)"
+  )
+
+  attend_map <- c(
+    AO01 = "Almost always",
+    AO02 = "Often",
+    AO03 = "Sometimes",
+    AO04 = "Rarely"
+  )
+
+  conf_interp_map <- c(
+    AO01 = "Not at all confident",
+    AO02 = "Slightly confident",
+    AO03 = "Moderately confident",
+    AO04 = "Extremely confident",
+    AO05 = "Very confident"
+  )
+
+  age_map <- c(
+    AO01 = "18 - 20",
+    AO02 = "20 - 22",
+    AO03 = "22 - 24"
+  )
+
+  yes_no_map <- c(
+    Y = "Yes",
+    N = "No"
+  )
+
+  major_labels <- c(
+    "931648X26X216SQ001" = "Accountancy",
+    "931648X26X216SQ002" = "Business Administration",
+    "931648X26X216SQ003" = "Finance",
+    "931648X26X216SQ004" = "Economics",
+    "931648X26X216SQ005" = "Information Systems",
+    "931648X26X216SQ006" = "International Business",
+    "931648X26X216SQ007" = "Management",
+    "931648X26X216SQ008" = "Marketing"
+  )
+
+  major_values <- df[, names(major_labels), drop = FALSE]
+  major_idx <- max.col(major_values == "Y", ties.method = "first")
+  has_major <- rowSums(major_values == "Y", na.rm = TRUE) > 0
+  major <- rep(NA_character_, nrow(df))
+  major[has_major] <- unname(major_labels[major_idx[has_major]])
+
+  out <- tibble::tibble(
+    response_id = df$id,
+    submitdate = df$submitdate,
+    response_order = seq_len(nrow(df)),
+    age_band = unname(age_map[df$`931648X26X258`]),
+    class_stand = unname(class_map[df$`931648X26X211`]),
+    major = major,
+    attend = unname(attend_map[df$`931648X26X225`]),
+    commute_min = safe_numeric(df$`931648X26X226`),
+    work_hrs = safe_numeric(df$`931648X26X227`),
+    sleep_hrs = safe_numeric(df$`931648X26X228`),
+    conf_interp = unname(conf_interp_map[df$`931648X27X229`]),
+    bias_conf = safe_numeric(df$`931648X27X248SQ001`),
+    hometown_text = df$`931648X28X256`,
+    image_click_coords = df$`931648X28X257`,
+    summer_lacrosse = unname(yes_no_map[df$`931648X28X259`]),
+    hobby_text = df$`931648X28X260`
+  )
+
+  out
+}
+
+numeric_vars <- function(df) {
+  keep <- vapply(df, function(x) is.numeric(x) && dplyr::n_distinct(x, na.rm = TRUE) >= 4, logical(1))
+  names(df)[keep]
+}
+
+categorical_vars <- function(df) {
+  keep <- vapply(df, function(x) {
+    (!is.numeric(x) || dplyr::n_distinct(x, na.rm = TRUE) < 10) &&
+      !all(is.na(x))
+  }, logical(1))
+  names(df)[keep]
+}
+
+estimate_value <- function(df, var, level = NULL) {
+  x <- df[[var]]
+  if (is.numeric(x)) {
+    mean(x, na.rm = TRUE)
+  } else {
+    if (is.null(level) || !nzchar(level)) return(NA_real_)
+    mean(x == level, na.rm = TRUE)
+  }
+}
+
+estimate_label <- function(df, var, level = NULL) {
+  x <- df[[var]]
+  if (is.numeric(x)) {
+    paste("Mean of", var)
+  } else {
+    paste("Proportion with", var, "=", level)
+  }
+}
+
+sample_srs <- function(df, n) {
+  df[sample(seq_len(nrow(df)), size = n, replace = FALSE), , drop = FALSE]
+}
+
+sample_convenience <- function(df, n, order_var) {
+  ord <- order(df[[order_var]], na.last = TRUE)
+  df[head(ord, n), , drop = FALSE]
+}
+
+sample_systematic <- function(df, n, order_var) {
+  ord <- order(df[[order_var]], na.last = TRUE)
+  df2 <- df[ord, , drop = FALSE]
+  N <- nrow(df2)
+  k <- max(1, floor(N / n))
+  start <- sample.int(k, 1)
+  idx <- seq(from = start, to = N, by = k)
+  idx <- idx[seq_len(min(length(idx), n))]
+  if (length(idx) < n) {
+    leftovers <- setdiff(seq_len(N), idx)
+    idx <- c(idx, sample(leftovers, n - length(idx), replace = FALSE))
+  }
+  df2[sort(idx), , drop = FALSE]
+}
+
+sample_stratified <- function(df, n, strata_var) {
+  g <- df[[strata_var]]
+  strata <- split(seq_len(nrow(df)), g)
+  strata <- strata[lengths(strata) > 0]
+  props <- lengths(strata) / nrow(df)
+  target <- floor(props * n)
+  remainder <- n - sum(target)
+  if (remainder > 0) {
+    order_idx <- order(props * n - target, decreasing = TRUE)
+    target[order_idx[seq_len(remainder)]] <- target[order_idx[seq_len(remainder)]] + 1
+  }
+  sampled <- integer(0)
+  for (i in seq_along(strata)) {
+    ids <- strata[[i]]
+    take <- min(length(ids), target[i])
+    if (take > 0) sampled <- c(sampled, sample(ids, take, replace = FALSE))
+  }
+  if (length(sampled) < n) {
+    leftovers <- setdiff(seq_len(nrow(df)), sampled)
+    sampled <- c(sampled, sample(leftovers, n - length(sampled), replace = FALSE))
+  }
+  df[sampled, , drop = FALSE]
+}
+
+draw_sample <- function(df, method, n, order_var = "response_order", strata_var = NULL) {
+  n <- min(n, nrow(df))
+  switch(
+    method,
+    "Simple random sample" = sample_srs(df, n),
+    "Convenience sample" = sample_convenience(df, n, order_var),
+    "Systematic sample" = sample_systematic(df, n, order_var),
+    "Stratified sample" = sample_stratified(df, n, strata_var),
+    sample_srs(df, n)
+  )
+}
+
+ui <- fluidPage(
+  tags$style("
+    h2 { margin-top: 0.25rem; }
+    .small { opacity: 0.78; font-size: 0.96rem; }
+    .box { background:#f7f7f7; border-radius:12px; padding:12px; margin-bottom:12px; }
+    details.param { background:#f7f7f7; border-radius:12px; margin-bottom:12px; }
+    details.param > summary { cursor:pointer; font-weight:700; padding:12px; list-style:none; }
+    details.param > summary::-webkit-details-marker { display:none; }
+    details.param .content { padding:12px; padding-top:0; }
+    .metric { background:white; border:1px solid #e7e7e7; border-radius:12px; padding:12px; margin-bottom:12px; }
+    .metricTitle { font-weight:800; font-size:0.95rem; color:#555; }
+    .metricValue { font-weight:900; font-size:1.8rem; line-height:1.1; }
+    .callout { border-left:6px solid #1b6ca8; background:rgba(27,108,168,.06); border-radius:12px; padding:12px; margin-bottom:12px; }
+  "),
+
+  h2("Sampling and Survey Error Lab"),
+  div(class = "small", "Compare sampling methods against a known response pool. This app teaches random vs representative using either demo data or a survey export."),
+  hr(),
+
+  fluidRow(
+    column(
+      3,
+      tags$details(
+          class = "param",
+          open = TRUE,
+          tags$summary("Controls"),
+          div(
+            class = "content",
+          radioButtons("data_mode", "Data source", choices = c("Demo data", "Live survey DB", "Upload CSV"), selected = "Demo data"),
+          conditionalPanel(
+            "input.data_mode == 'Live survey DB'",
+            uiOutput("live_db_status")
+          ),
+          conditionalPanel(
+            "input.data_mode == 'Upload CSV'",
+            fileInput("csv_file", "CSV file", accept = c(".csv"))
+          ),
+          hr(),
+          selectInput("outcome_var", "Outcome variable", choices = NULL),
+          uiOutput("outcome_level_ui"),
+          sliderInput("sample_n", "Sample size", min = 5, max = 60, value = 20, step = 1),
+          selectInput(
+            "method",
+            "Sampling method",
+            choices = c("Simple random sample", "Convenience sample", "Systematic sample", "Stratified sample")
+          ),
+          uiOutput("order_var_ui"),
+          uiOutput("strata_var_ui"),
+          selectInput("compare_var", "Compare representativeness by", choices = NULL),
+          actionButton("draw_sample", "Draw sample"),
+          hr(),
+          sliderInput("n_reps", "Repeat samples", min = 50, max = 500, value = 200, step = 50),
+          actionButton("simulate", "Simulate many samples")
+        )
+      ),
+      div(
+        class = "callout",
+        strong("Teaching note"),
+        p("The response pool is not the true population. It is the class data we can observe today. That makes it good for comparing methods, but not for claiming perfect truth."),
+        uiOutput("method_note")
+      )
+    ),
+    column(
+      9,
+      tabsetPanel(
+        tabPanel(
+          "Response pool",
+          br(),
+          fluidRow(
+            column(4, div(class = "metric", div(class = "metricTitle", "Rows in response pool"), div(class = "metricValue", textOutput("n_pool", inline = TRUE)))),
+            column(4, div(class = "metric", div(class = "metricTitle", "Outcome definition"), div(class = "small", textOutput("outcome_desc", inline = TRUE)))),
+            column(4, div(class = "metric", div(class = "metricTitle", "Response-pool estimate"), div(class = "metricValue", textOutput("pool_estimate", inline = TRUE))))
+          ),
+          fluidRow(
+            column(6, div(class = "box", h4("Variable snapshot"), tableOutput("var_snapshot"))),
+            column(6, div(class = "box", h4("Response pool preview"), tableOutput("data_preview")))
+          )
+        ),
+        tabPanel(
+          "Sampling lab",
+          br(),
+          fluidRow(
+            column(4, div(class = "metric", div(class = "metricTitle", "Current sample size"), div(class = "metricValue", textOutput("n_sample", inline = TRUE)))),
+            column(4, div(class = "metric", div(class = "metricTitle", "Current sample estimate"), div(class = "metricValue", textOutput("sample_estimate", inline = TRUE)))),
+            column(4, div(class = "metric", div(class = "metricTitle", "Difference from pool"), div(class = "metricValue", textOutput("estimate_gap", inline = TRUE))))
+          ),
+          fluidRow(
+            column(12, div(class = "callout", strong("Interpretation"), textOutput("interpretation_text")))
+          ),
+          fluidRow(
+            column(6, div(class = "box", h4("Sample vs response pool"), plotOutput("compare_plot", height = 320))),
+            column(6, div(class = "box", h4("Representativeness by subgroup"), plotOutput("composition_plot", height = 320)))
+          ),
+          fluidRow(
+            column(12, div(class = "box", h4("Current sample rows"), tableOutput("sample_preview")))
+          )
+        ),
+        tabPanel(
+          "Repeat sampling",
+          br(),
+          fluidRow(
+            column(12, div(class = "box", h4("Sampling distribution of the estimator"), plotOutput("sampling_dist_plot", height = 360), uiOutput("repeat_note")))
+          )
+        ),
+        tabPanel(
+          "Image heatmap",
+          br(),
+          fluidRow(
+            column(4, div(class = "metric", div(class = "metricTitle", "Recorded clicks"), div(class = "metricValue", textOutput("n_clicks", inline = TRUE)))),
+            column(8, div(class = "callout", strong("What this shows"), p("Each point marks where a respondent clicked on the Escher image. Brighter regions show where class attention clustered.")))
+          ),
+          fluidRow(
+            column(12, div(class = "box", h4("Class click map"), plotOutput("heatmap_plot", height = 700)))
+          )
+        )
+      )
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  rv <- reactiveValues(current_sample = NULL, sim_results = NULL, live_db_error = NULL)
+
+  uploaded_data <- reactive({
+    req(input$csv_file)
+    ext <- tools::file_ext(input$csv_file$name)
+    validate(need(tolower(ext) == "csv", "Please upload a CSV file."))
+    read_csv(input$csv_file$datapath, show_col_types = FALSE)
+  })
+
+  live_data <- reactive({
+    tryCatch({
+      rv$live_db_error <- NULL
+      clean_limesurvey_responses(load_limesurvey_responses())
+    }, error = function(e) {
+      rv$live_db_error <- conditionMessage(e)
+      NULL
+    })
+  })
+
+  base_data <- reactive({
+    if (identical(input$data_mode, "Upload CSV")) {
+      make_clean_data(uploaded_data())
+    } else if (identical(input$data_mode, "Live survey DB")) {
+      df <- live_data()
+      validate(need(!is.null(df), paste("Live survey database load failed:", rv$live_db_error %||% "unknown error")))
+      make_clean_data(df)
+    } else {
+      make_clean_data(generate_demo_data())
+    }
+  })
+
+  output$live_db_status <- renderUI({
+    if (identical(input$data_mode, "Live survey DB")) {
+      df <- live_data()
+      if (is.null(df)) {
+        div(class = "small", style = "color:#8b1e1e;", paste("DB load failed:", rv$live_db_error %||% "unknown error"))
+      } else {
+        div(class = "small", style = "color:#1b6c3f;", paste("Connected. Rows loaded:", nrow(df)))
+      }
+    }
+  })
+
+  observe({
+    df <- base_data()
+    num_vars <- setdiff(numeric_vars(df), "response_order")
+    cat_vars <- setdiff(categorical_vars(df), "response_order")
+    outcome_choices <- intersect(c(teaching_outcome_vars, num_vars, cat_vars), c(num_vars, cat_vars))
+    compare_vars <- intersect(c(teaching_compare_vars, cat_vars), cat_vars)
+    outcome_named <- stats::setNames(outcome_choices, pretty_var_name(outcome_choices))
+    compare_named <- stats::setNames(compare_vars, pretty_var_name(compare_vars))
+
+    default_outcome <- if ("sleep_hrs" %in% outcome_choices) "sleep_hrs" else outcome_choices[1] %||% ""
+    default_compare <- if ("class_stand" %in% compare_vars) "class_stand" else compare_vars[1] %||% ""
+
+    updateSelectInput(session, "outcome_var", choices = outcome_named, selected = default_outcome)
+    updateSelectInput(session, "compare_var", choices = compare_named, selected = default_compare)
+    max_n <- max(5, min(100, nrow(df)))
+    current_n <- min(input$sample_n %||% 20, max_n)
+    updateSliderInput(session, "sample_n", max = max_n, value = current_n)
+  })
+
+  output$outcome_level_ui <- renderUI({
+    req(input$outcome_var)
+    df <- base_data()
+    x <- df[[input$outcome_var]]
+    if (is.numeric(x)) return(NULL)
+    levs <- sort(unique(stats::na.omit(as.character(x))))
+    selectInput("outcome_level", paste("Level for", pretty_var_name(input$outcome_var)), choices = levs, selected = levs[1] %||% "")
+  })
+
+  output$order_var_ui <- renderUI({
+    if (!input$method %in% c("Convenience sample", "Systematic sample")) return(NULL)
+    df <- base_data()
+    vars <- names(df)
+    vars <- setdiff(vars, c("response_id", "hobby_text", "hometown_text", "image_click_coords"))
+    named_vars <- stats::setNames(vars, pretty_var_name(vars))
+    default_order <- if ("submitdate" %in% vars) "submitdate" else if ("response_order" %in% vars) "response_order" else vars[1]
+    selectInput("order_var", "Order by", choices = named_vars, selected = default_order)
+  })
+
+  output$strata_var_ui <- renderUI({
+    if (!identical(input$method, "Stratified sample")) return(NULL)
+    df <- base_data()
+    cat_vars <- intersect(c(teaching_compare_vars, categorical_vars(df)), categorical_vars(df))
+    named_vars <- stats::setNames(cat_vars, pretty_var_name(cat_vars))
+    default_strata <- if ("class_stand" %in% cat_vars) "class_stand" else cat_vars[1] %||% ""
+    selectInput("strata_var", "Stratify by", choices = named_vars, selected = default_strata)
+  })
+
+  current_estimate <- reactive({
+    req(rv$current_sample, input$outcome_var)
+    estimate_value(rv$current_sample, input$outcome_var, input$outcome_level %||% NULL)
+  })
+
+  pool_estimate <- reactive({
+    req(input$outcome_var)
+    estimate_value(base_data(), input$outcome_var, input$outcome_level %||% NULL)
+  })
+
+  observeEvent(input$draw_sample, {
+    df <- base_data()
+    rv$current_sample <- draw_sample(
+      df = df,
+      method = input$method,
+      n = input$sample_n,
+      order_var = input$order_var %||% "response_order",
+      strata_var = input$strata_var %||% NULL
+    )
+  })
+
+  observeEvent(base_data(), {
+    df <- base_data()
+    rv$current_sample <- draw_sample(df, "Simple random sample", min(20, nrow(df)))
+  }, ignoreInit = FALSE)
+
+  observeEvent(list(base_data(), input$outcome_var, input$outcome_level), {
+    rv$sim_results <- NULL
+  })
+
+  observeEvent(input$simulate, {
+    df <- base_data()
+    req(nrow(df) >= 5)
+
+    if (identical(input$method, "Convenience sample")) {
+      rv$sim_results <- data.frame(
+        rep = 1,
+        estimate = estimate_value(
+          draw_sample(df, input$method, input$sample_n, input$order_var %||% "response_order", input$strata_var %||% NULL),
+          input$outcome_var,
+          input$outcome_level %||% NULL
+        )
+      )
+    } else {
+      estimates <- numeric(input$n_reps)
+      withProgress(message = "Drawing repeated samples", value = 0, {
+        for (i in seq_len(input$n_reps)) {
+          samp <- draw_sample(
+            df = df,
+            method = input$method,
+            n = input$sample_n,
+            order_var = input$order_var %||% "response_order",
+            strata_var = input$strata_var %||% NULL
+          )
+          estimates[i] <- estimate_value(samp, input$outcome_var, input$outcome_level %||% NULL)
+          if (i %% 20 == 0 || i == input$n_reps) setProgress(i / input$n_reps)
+        }
+      })
+      rv$sim_results <- data.frame(rep = seq_len(input$n_reps), estimate = estimates)
+    }
+  })
+
+  output$n_pool <- renderText(nrow(base_data()))
+  output$outcome_desc <- renderText(estimate_label(base_data(), input$outcome_var, input$outcome_level %||% NULL))
+  output$pool_estimate <- renderText({
+    x <- base_data()[[input$outcome_var]]
+    est <- pool_estimate()
+    if (is.numeric(x)) fmt_num(est) else fmt_pct(est)
+  })
+  output$n_sample <- renderText({
+    if (is.null(rv$current_sample)) return("0")
+    nrow(rv$current_sample)
+  })
+  output$sample_estimate <- renderText({
+    req(rv$current_sample)
+    x <- base_data()[[input$outcome_var]]
+    est <- current_estimate()
+    if (is.numeric(x)) fmt_num(est) else fmt_pct(est)
+  })
+  output$estimate_gap <- renderText({
+    req(rv$current_sample)
+    x <- base_data()[[input$outcome_var]]
+    gap <- current_estimate() - pool_estimate()
+    if (is.numeric(x)) {
+      ifelse(is.na(gap), "\u2014", sprintf("%+.2f", gap))
+    } else {
+      ifelse(is.na(gap), "\u2014", sprintf("%+.1f pts", 100 * gap))
+    }
+  })
+
+  output$interpretation_text <- renderText({
+    req(rv$current_sample, input$outcome_var, input$compare_var)
+    interpret_sample(
+      pool_df = base_data(),
+      sample_df = rv$current_sample,
+      outcome_var = input$outcome_var,
+      outcome_level = input$outcome_level %||% NULL,
+      compare_var = input$compare_var
+    )
+  })
+
+  output$data_preview <- renderTable({
+    head(base_data(), 8)
+  }, striped = TRUE)
+
+  output$sample_preview <- renderTable({
+    req(rv$current_sample)
+    head(rv$current_sample, 10)
+  }, striped = TRUE)
+
+  output$var_snapshot <- renderTable({
+    df <- base_data()
+    num <- setdiff(numeric_vars(df), "response_order")
+    cat <- setdiff(categorical_vars(df), "response_order")
+    data.frame(
+      Numeric = c(pretty_var_name(num), rep("", max(0, length(cat) - length(num)))),
+      Categorical = c(pretty_var_name(cat), rep("", max(0, length(num) - length(cat)))),
+      stringsAsFactors = FALSE
+    )
+  }, striped = TRUE)
+
+  output$compare_plot <- renderPlot({
+    req(rv$current_sample, input$outcome_var)
+    x <- base_data()[[input$outcome_var]]
+    df_plot <- data.frame(
+      source = c("Response pool", "Current sample"),
+      estimate = c(pool_estimate(), current_estimate())
+    )
+
+    ggplot(df_plot, aes(x = source, y = estimate, fill = source)) +
+      geom_col(width = 0.6, show.legend = FALSE) +
+      coord_flip() +
+      labs(
+        x = NULL,
+        y = if (is.numeric(x)) paste("Mean of", pretty_var_name(input$outcome_var)) else paste("Proportion:", input$outcome_level %||% "")
+      ) +
+      theme_minimal(base_size = 14)
+  })
+
+  output$composition_plot <- renderPlot({
+    req(rv$current_sample, input$compare_var)
+    var <- input$compare_var
+    pool <- base_data() %>%
+      count(level = .data[[var]]) %>%
+      mutate(source = "Response pool", pct = n / sum(n))
+    samp <- rv$current_sample %>%
+      count(level = .data[[var]]) %>%
+      mutate(source = "Current sample", pct = n / sum(n))
+    plot_df <- bind_rows(pool, samp)
+
+    ggplot(plot_df, aes(x = level, y = pct, fill = source)) +
+      geom_col(position = "dodge") +
+      scale_y_continuous(labels = function(x) paste0(round(x * 100), "%")) +
+      labs(x = pretty_var_name(var), y = "Percent of rows") +
+      theme_minimal(base_size = 13) +
+      theme(axis.text.x = element_text(angle = 25, hjust = 1))
+  })
+
+  output$sampling_dist_plot <- renderPlot({
+    req(rv$sim_results)
+    ggplot(rv$sim_results, aes(x = estimate)) +
+      geom_histogram(bins = 20, fill = "#6FA8DC", color = "white") +
+      geom_vline(xintercept = pool_estimate(), color = "#D34E4E", linewidth = 1.2) +
+      labs(x = "Estimate across repeated samples", y = "Count") +
+      theme_minimal(base_size = 14)
+  })
+
+  click_df <- reactive({
+    df <- base_data()
+    if (!"image_click_coords" %in% names(df)) {
+      return(data.frame(x = numeric(0), y = numeric(0)))
+    }
+    parse_click_coords(stats::na.omit(df$image_click_coords))
+  })
+
+  output$n_clicks <- renderText(nrow(click_df()))
+
+  output$heatmap_plot <- renderPlot({
+    pts <- click_df()
+
+    img_path <- "/data/junior/boland_course/week12/media/images/Print_Gallery_by_M._C._Escher.jpg"
+    has_jpeg <- requireNamespace("jpeg", quietly = TRUE)
+    has_image <- file.exists(img_path)
+
+    if (has_jpeg && has_image) {
+      img <- jpeg::readJPEG(img_path)
+      g <- grid::rasterGrob(img, width = unit(1, "npc"), height = unit(1, "npc"))
+      p <- ggplot() +
+        annotation_custom(g, xmin = 0, xmax = 100, ymin = 100, ymax = 0)
+    } else {
+      p <- ggplot() +
+        annotate("rect", xmin = 0, xmax = 100, ymin = 0, ymax = 100, fill = "grey95", color = "grey70")
+    }
+
+    p +
+      stat_density_2d(
+        data = pts,
+        aes(x = x, y = y, fill = after_stat(level), alpha = after_stat(level)),
+        geom = "polygon",
+        contour = TRUE,
+        na.rm = TRUE
+      ) +
+      geom_point(
+        data = pts,
+        aes(x = x, y = y),
+        color = "#D34E4E",
+        alpha = 0.45,
+        size = 3
+      ) +
+      scale_x_continuous(limits = c(0, 100), expand = c(0, 0)) +
+      scale_y_reverse(limits = c(100, 0), expand = c(0, 0)) +
+      scale_fill_gradient(low = "#FDBFB6", high = "#A61E4D", guide = "none") +
+      scale_alpha(range = c(0.08, 0.35), guide = "none") +
+      labs(x = NULL, y = NULL) +
+      theme_void()
+  })
+
+  output$repeat_note <- renderUI({
+    if (is.null(rv$sim_results)) {
+      return(tags$p("Run repeated samples to see how the estimator moves around the response-pool value."))
+    }
+    if (identical(input$method, "Convenience sample")) {
+      tags$p("Convenience sampling is deterministic here once the ordering rule is fixed, so repeated draws do not create a meaningful sampling distribution.")
+    } else {
+      tags$p(paste("The red line marks the response-pool estimate. The histogram shows how much your chosen method and sample size bounce around that value over repeated samples."))
+    }
+  })
+
+  output$method_note <- renderUI({
+    txt <- switch(
+      input$method,
+      "Simple random sample" = "Every row in the response pool has the same chance of selection. This is the cleanest benchmark method in the app.",
+      "Convenience sample" = "Rows are taken from the top of an ordering variable. This is useful for showing how easy it is to get a quick sample that is not representative.",
+      "Systematic sample" = "The app orders the rows, picks a random start, and then takes every k-th row. This works well until the ordering itself hides a pattern.",
+      "Stratified sample" = "The app samples within groups to preserve subgroup balance. This is a good way to talk about representation as a design choice rather than a lucky accident."
+    )
+    tags$p(txt)
+  })
+}
+
+shinyApp(ui, server)

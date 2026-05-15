@@ -1,0 +1,309 @@
+---
+title: "Project 2: Can We Trust It?"
+format:
+  html:
+    toc: false
+    number-sections: false
+---
+
+## PROJECT 2: CAN WE TRUST IT?
+
+### Overview
+
+Earlier in the course, you analyzed data and communicated results.
+
+For Project 2, we step back and ask a more fundamental question:
+
+**Why should we trust a result enough to act on it?**
+
+Your job is to identify a real problem, opportunity, or decision and design a study that could produce evidence people would actually believe.
+
+You will **not** collect the data and you will **not** complete the final analysis.
+
+Instead, you will design how the evidence should be produced and defend why that design is strong enough to matter.
+
+------------------------------------------------------------------------
+
+## Core Goal
+
+This project is about **study design**, not repeating hypothesis tests for their own sake.
+
+Your proposal should make a clear case that:
+
+-   the question matters
+-   the design fits the question
+-   the data would be collected in a credible way
+-   the results would be trustworthy enough to inform a real decision
+
+If you include research objectives or a tentative hypothesis, they should support the design rather than overshadow it.
+
+------------------------------------------------------------------------
+
+## Deliverables
+
+You will complete the following:
+
+-   Week 13 informal topic meeting
+-   Week 14 informal presentation
+-   Week 14 Red Team critique
+-   Final written proposal before the final exam
+
+The written proposal may take the form of an executive summary, outline, or combined proposal document, depending on the course materials used in class.
+
+------------------------------------------------------------------------
+
+## Timeline
+
+### Week 12
+
+-   Form groups
+-   Explore possible topics
+-   Begin identifying a problem or opportunity worth studying
+
+### Week 13
+
+-   Final topic selection
+-   Informal in-class topic discussion and study design proposal
+
+By this stage, teams should be ready to explain:
+
+-   the problem or opportunity
+-   the research question
+-   who or what would be studied
+-   the proposed source of data
+-   why the design might be trustworthy
+
+### Week 14
+
+-   Informal in-class pitch
+-   Red Team critique
+-   Rebuttal, defense, and revision discussion
+
+By this stage, teams should be ready to explain:
+
+-   the proposed study design
+-   what could go wrong
+-   who might be excluded or harmed
+-   why the design is still worth considering
+
+### Before the Final
+
+-   Submit the final written proposal
+
+The final written proposal should incorporate the feedback you received during the Week 14 pitch, critique, and rebuttal discussion.
+
+------------------------------------------------------------------------
+
+## Topic Options
+
+You may focus on:
+
+-   a real business situation you know through work, family, or your personal network
+-   an academic question connected to your major field of study
+-   a case study or industry problem where you can propose a new research design
+-   any topic you genuinely find interesting
+
+Because you are not required to complete the project, you are encouraged to be ambitious. You are also not limited to methods we have practiced in class, but if you propose a more advanced method you are responsible for explaining why it fits the problem.
+
+------------------------------------------------------------------------
+
+## In-Class Format
+
+Project 2 will use a pitch-and-critique format.
+
+### Proposing Team
+
+Your team will act like a group seeking support for a research idea.
+
+Your job is to:
+
+-   pitch the problem
+-   explain the study design
+-   defend why the design is credible
+
+### Red Team
+
+Another team will act as your **Red Team**.
+
+Their job is to challenge your proposal by identifying weaknesses such as:
+
+-   sampling problems
+-   design or measurement flaws
+-   weak generalization or causal reasoning
+-   ethical concerns
+
+### Audience
+
+The rest of the class should think like skeptical decision-makers:
+
+**Would we trust this result enough to act on it?**
+
+------------------------------------------------------------------------
+
+## Suggested Pitch Structure
+
+Your in-class pitch should briefly cover:
+
+1.  the problem or opportunity
+2.  the research question
+3.  the proposed design
+4.  why the evidence would be trustworthy
+5.  the biggest known risk
+
+Your goal is not to prove the answer in advance.
+
+Your goal is to convince the audience that your design is worth taking seriously.
+
+------------------------------------------------------------------------
+
+## Written Research Proposal Guidance
+
+The written research proposal is the final product of this process.
+
+In other words:
+
+-   Week 13 is an informal topic discussion
+-   Week 14 is the pitch, Red Team critique, and rebuttal
+-   the final written research proposal should reflect what your team learned from that feedback
+
+There is an Analysis Plan Outline in the Week 12 canvas materials. You do **not** need to fill it out as a form, but it may help you think through the elements your proposal should include.
+
+A good target is about 2-4 pages in paragraph form.
+
+The Analysis Plan Outline can still be useful as a guide or idea starter. The written research proposal rubric lines up with it roughly as follows:
+
+-   **Written Research Proposal 1: Problem / Opportunity** -> mostly aligns with Outline Section 1
+-   **Written Research Proposal 2: Research Question and Direction** -> mostly aligns with Outline Sections 2-4
+-   **Written Research Proposal 3: Study Design and Measures** -> mostly aligns with Outline Section 5
+-   **Written Research Proposal 4: Trustworthiness, Risks, and Limits** -> mostly aligns with Outline Sections 6 and 8
+
+You do **not** need to follow the outline section-by-section or use those exact headings. The outline is there to help you think through what a strong final proposal should cover.
+
+------------------------------------------------------------------------
+
+## Required Components
+
+The final written research proposal should clearly address the following components.
+
+### 1. Problem or Opportunity
+
+Explain the situation that motivates the project.
+
+Your audience should understand:
+
+-   what is happening
+-   why it matters
+-   who would use the results
+
+### 2. Research Question
+
+Your question should be:
+
+-   specific
+-   interesting
+-   actionable
+
+A strong question implies a real decision.
+
+### 3. Proposed Study Design
+
+You may propose a:
+
+-   survey
+-   observational study
+-   experiment
+-   predictive model
+-   or another justified design
+
+Explain clearly:
+
+-   who or what is being studied
+-   what information would be collected
+-   how the data would be collected
+
+### 4. Why Should We Trust It?
+
+This is the heart of the assignment.
+
+You must make a case for trustworthiness by addressing:
+
+**Population and Sampling**
+
+-   Who is represented?
+-   Who might be missing?
+-   How could the sample become misleading?
+
+**Measurement and Design**
+
+-   Are you measuring the right thing?
+-   Are the variables or questions well designed?
+-   What could go wrong in data collection?
+
+**Generalization or Causal Claims**
+
+-   If this is observational, what can and can you not conclude?
+-   If this is experimental, what causal claim would be justified?
+-   If this is predictive, why should it generalize to new cases?
+
+**Ethics**
+
+-   Who could be harmed?
+-   Who could be excluded?
+-   What privacy, fairness, or consent concerns matter here?
+
+### 5. Known Risks and Limitations
+
+Even if the project is well designed, how could it still fail?
+
+Be specific. This is one of the most important parts of the assignment.
+
+### 6. Optional Supporting Structure
+
+If helpful, you may also include:
+
+-   short research objectives
+-   a tentative hypothesis or expected pattern
+-   a high-level analysis plan
+
+These can strengthen the proposal, but they are not the main focus. The central question is still whether the **design** would produce evidence worth trusting.
+
+------------------------------------------------------------------------
+
+## Grading
+
+Project 2 will be graded across four parts:
+
+-   Week 13 informal meeting: 10
+-   Week 14 informal presentation: 10
+-   Week 14 Red Team critique: 10
+-   Written proposal 1 - Problem / Opportunity: 15
+-   Written proposal 2 - Research Question and Direction: 15
+-   Written proposal 3 - Study Design and Measures: 20
+-   Written proposal 4 - Trustworthiness, Risks, and Limits: 20
+
+Total: 100 points
+
+------------------------------------------------------------------------
+
+## Grading Emphasis
+
+Your work will be judged mainly on:
+
+-   clarity and importance of the problem
+-   quality of the research question
+-   fit between the question and the design
+-   quality of the trustworthiness reasoning
+-   attention to bias, limitations, and ethics
+-   clarity of oral and written communication
+
+Students who identify honest weaknesses and explain them clearly will usually be stronger than students who pretend their design has none.
+
+------------------------------------------------------------------------
+
+## Key Principle
+
+Good analysis cannot rescue bad design.
+
+If the design is weak, the result should not be trusted.
+
+If the design is strong, the result becomes worth arguing about.

@@ -1,0 +1,113 @@
+﻿id	related_id	class	type/scale	name	relevance	text	help	language	validation	mandatory	other	default	same_default
+		S		language		en							
+		S		format		G							
+		SL		surveyls_title		Sampling Survey Lab		en					
+1		G		sampling_vars		Background		en					
+2		Q	L	class_standing	1	What is your current class standing?			en		Y		
+2		A		first_year		First-year		en					
+2		A		sophomore		Sophomore		en					
+2		A		junior		Junior		en					
+2		A		senior		Senior		en					
+2		A		graduate		Graduate student		en					
+2		A		other		Other / not listed		en					
+9		Q	!	college	1	Which college or school best describes your primary academic area?	This is the first part of a drilldown-style question.		en			Y	
+9		A		business		Business		en					
+9		A		science_health		Science or health		en					
+9		A		arts_humanities		Arts or humanities		en					
+9		A		social_sciences		Social sciences		en					
+9		A		education		Education		en					
+9		A		engineering_tech		Engineering or technology		en					
+9		A		undecided		Undecided / exploring		en					
+9		A		other		Other / not listed		en					
+18		Q	S	major_text	1	What is your major, minor, concentration, or academic interest?	This open text version keeps the import portable. It can be converted to a true drilldown later.	en					
+19		Q	L	attendance	1	How often do you usually attend this class in person?			en		Y		
+19		A		almost_always		Almost always		en					
+19		A		often		Often		en					
+19		A		sometimes		Sometimes		en					
+19		A		rarely		Rarely		en					
+19		A		not_sure		I am not sure how to answer		en					
+25		Q	N	commute_minutes	1	About how many minutes does it usually take you to get to campus or class?	Enter a whole number of minutes. If you live on campus or are already nearby, enter your usual walking/travel time. If you do not usually come to campus, estimate the time it would take.	en		Y			
+26		Q	N	work_hours	1	About how many hours do you work for pay in a typical week during the semester?	Enter 0 if you do not currently work for pay.	en		Y			
+27		Q	N	sleep_hours	1	About how many hours did you sleep last night?	Use decimals if needed. For example, enter 6.5 for six and a half hours.	en		Y			
+28		Q	L	survey_timing	1	When did you complete this survey?			en		Y		
+28		A		before_class		Before class started		en					
+28		A		first_minutes		During the first few minutes of class		en					
+28		A		later_class		Later during class		en					
+28		A		after_class		After class		en					
+28		A		not_sure		Not sure		en					
+34		G		question_types		Question types		en					
+35		Q	L	transport	1	What is your primary way of getting to campus or class?	Choose the one best answer.	en		Y	Y		
+35		A		walk		Walk		en					
+35		A		bike_scooter		Bike or scooter		en					
+35		A		drive_alone		Drive alone		en					
+35		A		carpool		Carpool		en					
+35		A		bus_public		Bus or public transportation		en					
+35		A		dropped_off		Dropped off by someone else		en					
+35		A		not_regular		I do not come to campus regularly		en					
+44		Q	M	tools	1	Which tools or supports have you used for coursework this semester? Select all that apply.	Multiple-response percentages do not usually sum to 100 percent across choices.	en					
+45		SQ		excel		Excel		en					
+46		SQ		tableau		Tableau		en					
+47		SQ		r_posit		R / Posit		en					
+48		SQ		ai		ChatGPT or another AI assistant		en					
+49		SQ		youtube		YouTube or tutorial videos		en					
+50		SQ		tutoring		Tutoring center		en					
+51		SQ		study_group		Study group		en					
+52		SQ		office_hours		Office hours		en					
+53		SQ		canvas		Canvas course materials		en					
+54		SQ		none		None of these		en					
+55		Q	A	stat_conf	1	Please rate your agreement with each statement.			en		Y		
+56		SQ		interpret_results		I feel confident interpreting statistical results.		en					
+57		SQ		graph_fit		I can usually tell whether a graph is appropriate for the question.		en					
+58		SQ		sampling_method		I understand why sampling method matters.		en					
+59		SQ		explain_pvalue		I know how to explain a p-value to a nontechnical audience.		en					
+60		Q	F	sem_stats	1	Right now, statistics feels...	For each row, choose the number that best fits where your feeling falls between the two endpoints.	en		Y			
+60		A		1		1		en					
+60		A		2		2		en					
+60		A		3		3		en					
+60		A		4		4		en					
+60		A		5		5		en					
+60		A		6		6		en					
+60		A		7		7		en					
+68		SQ		easy_difficult		Easy ... Difficult		en					
+69		SQ		useful_useless		Useful ... Useless		en					
+70		SQ		concrete_abstract		Concrete ... Abstract		en					
+71		SQ		stress		Low-stress ... High-stress		en					
+72		Q	N	bias_conf	1	On a scale from 0 to 100, how confident are you that you could explain sampling bias to someone else?	0 = not confident at all. 50 = somewhat confident. 100 = completely confident.	en		Y			
+73		Q	K	success	1	Allocate 100 points across the things that most affect your success in this class.	Electronic surveys can enforce the math. After import, check that the total-sum validation is set to 100.	en		Y			
+74		SQ		time_available		Time available		en					
+75		SQ		interest		Interest in the topic		en					
+76		SQ		prior_background		Prior math or statistics background		en					
+77		SQ		examples		Quality of examples		en					
+78		SQ		group_support		Group or project support		en					
+79		SQ		software		Confidence with software		en					
+80		Q	5	topic_diff	1	How difficult does today's topic feel right now?	Portable version of a graphic rating scale. 1 = very easy. 5 = very difficult.	en		Y			
+81		Q	T	heat_confuse	1	Heat map placeholder: If you were looking at a busy class visual, what part would you click as most confusing?	If your LimeSurvey setup supports image-click or heat-map question types, replace this with that question type.	en					
+82		Q	T	unique_trait	1	What is something unique about you that a normal survey would probably not know to ask?			en				
+83		Q	T	hobby_text	1	What is your most obscure hobby, interest, community, or skill?			en				
+84		G		bad_questions		Bad questions		en					
+85		Q	X	bad_intro	1	The next questions show intentionally flawed survey wording. For each one, identify the main problem.			en				
+86		Q	L	diag_lead	1	Bad question: How much do you agree that this helpful course improves your analytical thinking?			en		Y		
+86		A		leading		Leading wording		en					
+86		A		loaded		Loaded wording		en					
+86		A		double_barreled		Double-barreled wording		en					
+86		A		assumption		Makes an assumption		en					
+86		A		no_problem		No major problem		en					
+92		Q	L	diag_loaded	1	Bad question: How often do you waste time using AI instead of thinking for yourself?			en		Y		
+92		A		leading		Leading wording		en					
+92		A		loaded		Loaded wording		en					
+92		A		double_barreled		Double-barreled wording		en					
+92		A		assumption		Makes an assumption		en					
+92		A		no_problem		No major problem		en					
+98		Q	L	diag_double	1	Bad question: The Shiny apps are easy to use and help me learn the material.			en		Y		
+98		A		leading		Leading wording		en					
+98		A		loaded		Loaded wording		en					
+98		A		double_barreled		Double-barreled wording		en					
+98		A		assumption		Makes an assumption		en					
+98		A		no_problem		No major problem		en					
+104		Q	L	diag_assume	1	Bad question: How often do you use ChatGPT to complete your homework?			en		Y		
+104		A		leading		Leading wording		en					
+104		A		loaded		Loaded wording		en					
+104		A		double_barreled		Double-barreled wording		en					
+104		A		assumption		Makes an assumption		en					
+104		A		no_problem		No major problem		en					
+110		Q	U	feedback	1	Optional: Is there anything else a good sampling or survey-design lesson should ask students?			en				
