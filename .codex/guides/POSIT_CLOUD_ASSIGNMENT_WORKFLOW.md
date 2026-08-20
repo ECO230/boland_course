@@ -32,12 +32,23 @@ Homework 6 is the reference implementation:
 - source document: `week07/Homework_06_assignment.qmd`;
 - student README: `week07/Homework_06_README.md`;
 - manifest: `week07/homework_06.manifest.json`;
-- generated repository: `.assignment-build/homework_06`;
-- GitHub test repository: `ECO230/homework-06-posit-cloud-test`;
+- generated repository: `.assignment-build/homework_06_ip`;
+- GitHub reference repository: `ECO230/homework-06-ip`;
 - shared environment files: `shared/posit-cloud/`.
 
 The generated repository is intentionally not a mirror of the week folder. Its
 contents are defined only by the manifest.
+
+Use a delivery-mode suffix when an assignment has separate versions:
+
+- `IP` means in person;
+- `OA` means online asynchronous.
+
+Use lowercase kebab-case for repository names, such as `homework-06-ip`, and
+the course filename pattern for student files, such as `Homework_06_IP.qmd`,
+`Homework_06_IP.Rproj`, and `Homework_06_IP.pdf`. Write the delivery mode out in
+the visible document subtitle (`In-Person Sections` or `Online Asynchronous`)
+so students do not need to interpret the abbreviation.
 
 ## Manifest Rules
 

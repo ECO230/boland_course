@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "id": "homework_06",
-  "title": "Homework 6: Chi-Square Analysis",
-  "output_directory": ".assignment-build/homework_06",
+  "id": "homework_06_ip",
+  "title": "Homework 6: Chi-Square Analysis (In Person)",
+  "output_directory": ".assignment-build/homework_06_ip",
   "files": [
     {
       "source": "week07/Homework_06_assignment.qmd",
-      "destination": "Homework_06.qmd"
+      "destination": "Homework_06_IP.qmd"
     },
     {
       "source": "week07/Homework_06_README.md",
@@ -46,7 +46,7 @@
     },
     {
       "source": "shared/posit-cloud/project.Rproj",
-      "destination": "Homework_06.Rproj"
+      "destination": "Homework_06_IP.Rproj"
     },
     {
       "source": "shared/posit-cloud/project_setup.R",
@@ -66,8 +66,8 @@
     }
   ],
   "required_files": [
-    "Homework_06.qmd",
-    "Homework_06.Rproj",
+    "Homework_06_IP.qmd",
+    "Homework_06_IP.Rproj",
     "README.md",
     "data/accident_wi.csv",
     "data/airbnb_chicago.csv",
@@ -75,5 +75,5 @@
     "data/nfl_special_MasonCrosby.csv",
     "renv.lock"
   ],
-  "render": "Homework_06.qmd"
+  "render": "Homework_06_IP.qmd"
 }

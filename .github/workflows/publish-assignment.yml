@@ -11,7 +11,7 @@ on:
       target_repository:
         description: New repository in owner/name form
         required: true
-        default: ECO230/homework-06-posit-cloud-test
+        default: ECO230/homework-06-ip
         type: string
       visibility:
         description: Visibility for the new repository

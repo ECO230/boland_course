@@ -1,5 +1,6 @@
 ---
 title: "Homework 6: Chi-Square Analysis"
+subtitle: "In-Person Sections"
 format:
   typst:
     toc: false
@@ -287,9 +288,9 @@ before rendering the final PDF.
 
 ## Submission
 
-Render this document to PDF and submit `Homework_06.pdf` in Canvas. Your PDF
+Render this document to PDF and submit `Homework_06_IP.pdf` in Canvas. Your PDF
 must contain your responses for Hypotheses 2 and 3 and the code you attempted
-for Hypothesis 3. Keep `Homework_06.qmd` in your Posit Cloud project so you can
+for Hypothesis 3. Keep `Homework_06_IP.qmd` in your Posit Cloud project so you can
 revise it if needed.
 
 ## Checklist
@@ -299,7 +300,7 @@ revise it if needed.
 - [ ] I completed all five hypothesis-testing steps for Hypothesis 3.
 - [ ] I preserved or commented out the code I attempted.
 - [ ] I rendered the document successfully and reviewed the PDF.
-- [ ] I submitted `Homework_06.pdf` in Canvas.
+- [ ] I submitted `Homework_06_IP.pdf` in Canvas.
 
 **Grading focus:** Your work will be evaluated for correct hypothesis-test
 structure, use of evidence in context, distinction between statistical and

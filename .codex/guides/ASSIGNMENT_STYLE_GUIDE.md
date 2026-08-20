@@ -289,6 +289,14 @@ ECO230_HWNN_LastName.ext
 Do not invent a filename requirement when Canvas already renames files and no
 instructional need exists.
 
+When separate standalone versions exist for different delivery modes, use
+`IP` for in person and `OA` for online asynchronous. Use lowercase kebab-case
+for generated repository names (`homework-06-ip`) and append the uppercase
+suffix to student project files (`Homework_06_IP.qmd`, `Homework_06_IP.Rproj`,
+and `Homework_06_IP.pdf`). Keep the visible title in the standard
+`Homework N: Topic` form and write the delivery mode out in a subtitle such as
+`In-Person Sections` or `Online Asynchronous`.
+
 ### Course tools and file types
 
 Use these forms consistently:
