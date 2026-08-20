@@ -6,7 +6,7 @@ project:
     browser: true
 
 website:
-  title: "ECO 230 — Section 12"
+  title: "ECO 230"
   navbar:
     left:
       - text: "Home"

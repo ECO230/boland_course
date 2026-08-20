@@ -1,0 +1,12 @@
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+.quarto/
+*_cache/
+*_files/
+*.html
+*.pdf
+renv/library/
+renv/staging/

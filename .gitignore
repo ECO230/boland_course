@@ -42,6 +42,11 @@ __pycache__/
 *.log
 
 # -----------------------------
+# Generated assignment releases
+# -----------------------------
+.assignment-build/
+
+# -----------------------------
 # Local Codex private context
 # -----------------------------
 .codex/private.md

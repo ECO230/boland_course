@@ -1,6 +1,6 @@
 ---
 title: "ECO 230 Business and Economic Research & Communication"
-subtitle: "Spring 2026 · Section 12 · 3 Credits"
+subtitle: "`r { sections <- read.csv('data/sections.csv', check.names = FALSE); s <- sections[as.character(sections$section) == as.character(params$class_section), ]; paste0(s$semester_name[1], ' ', s$full_year[1], '  |  Section ', s$class_section[1], '  |  3 Credits') }`"
 
 # Force correct format selection (prevents RevealJS interference)
 format:
@@ -17,23 +17,11 @@ execute:
   echo: false
   warning: false
   message: false
-  freeze: auto
+  freeze: false
 
-# Term/section parameters (safe for inline R)
+# Term/section parameter. Section-specific details are loaded from data/sections.csv.
 params:
-  semester_name: "Spring"
-  full_year: 2026
   class_section: 12
-  classroom: "Wittich 112"
-  class_dow: "Tuesday"
-  class_start: "5:30 pm"
-  class_end: "8:15 pm"
-  final_dow: "Tuesday"
-  final_date: "May 12th"
-  final_start: "7:00 pm"
-  final_end: "9:00 pm"
-  office_location: "Non Extant"
-  office_hours: "Mon.–Fri. Noon–1pm in Zoom or by appointment"
 ---
 
 ```{r setup}
@@ -45,13 +33,66 @@ library(kableExtra)
 # Options
 options(scipen = 999)
 
-# Data (expects CSVs in the working directory; adjust paths if needed)
-cd  <- read.csv("data/class_dates.csv")
-ap  <- read.csv("data/assignment_percs.csv", check.names = FALSE)
+# Section selection
+selected_section <- as.character(params$class_section)
+
+sections <- read.csv("data/sections.csv", check.names = FALSE) |>
+  mutate(section = as.character(section))
+
+section_info <- sections |>
+  filter(section == selected_section)
+
+if (nrow(section_info) != 1) {
+  stop(
+    "data/sections.csv must contain exactly one row for section ",
+    selected_section,
+    ". Found: ",
+    nrow(section_info)
+  )
+}
+
+section_info <- as.list(section_info[1, ])
+syllabus_subtitle <- paste0(
+  section_info$semester_name,
+  " ",
+  section_info$full_year,
+  "  |  Section ",
+  section_info$class_section,
+  "  |  3 Credits"
+)
+
+final_exam_line <- paste(
+  section_info$final_dow,
+  section_info$final_date,
+  section_info$final_start,
+  " - ",
+  section_info$final_end,
+  "in",
+  section_info$classroom
+)
+
+read_section_csv <- function(path, section = selected_section, ...) {
+  df <- read.csv(path, check.names = FALSE, ...)
+  section_col <- names(df)[tolower(names(df)) == "section"]
+
+  if (length(section_col) == 0) {
+    return(df)
+  }
+
+  section_col <- section_col[1]
+  df <- df[as.character(df[[section_col]]) == as.character(section), , drop = FALSE]
+  df[[section_col]] <- NULL
+  rownames(df) <- NULL
+  df
+}
+
+# Data
+cd  <- read_section_csv("data/section_class_dates.csv")
+ap  <- read_section_csv("data/section_assignment_percs.csv")
 gs  <- read.csv("data/grading_scale.csv", check.names = FALSE)
 lo  <- read.csv("data/learning_outcomes.csv", check.names = FALSE)
-idf <- read.csv("data/important_dates_formatted.csv", check.names = FALSE)
-cs  <- read.csv("data/schedule_formatted.csv", check.names = FALSE)
+idf <- read_section_csv("data/section_important_dates_formatted.csv")
+cs  <- read_section_csv("data/section_schedule_formatted.csv")
 
 
 # Decide table format based on output
@@ -78,22 +119,22 @@ kbl_syllabus <- function(df, full_width = FALSE) {
 
 **ECO 230 Business and Economic Research & Communication**
 
-**`r params$semester_name` `r params$full_year` \| Section `r params$class_section` \| Credits: 3**
+**`r syllabus_subtitle`**
 
-Meets in `r params$classroom` `r params$class_dow` `r params$class_start` to `r params$class_end`.
+Meets in `r section_info$classroom` `r section_info$class_dow` `r section_info$class_start` to `r section_info$class_end`.
 
 ### Instructor information
 
 -   Mike Boland, MBA\
--   Office Location: `r params$office_location`\
--   Student Hours: `r params$office_hours`\
+-   Office Location: `r section_info$office_location`\
+-   Student Hours: `r section_info$office_hours`\
 -   Class Webpage: <https://www.uwlax.edu/canvas>\
 -   Email: [mboland\@uwlax.edu](mailto:mboland@uwlax.edu){.email}\
 -   Cell Phone: 608-385-6497
 
 ### Final exam
 
-***`r params$final_dow` `r params$final_date` `r params$final_start` – `r params$final_end` in `r params$classroom`***
+***`r final_exam_line`***
 
 ## Course description
 
@@ -111,7 +152,7 @@ Prerequisite: ENG 110 or ENG 112; STAT 145; CBA major, CLS economics major, or H
 2.  Describe, summarize, and interpret data using descriptive statistics, inferential statistics, and data visualization.
 3.  Develop foundational skills related to spreadsheets, interactive data visualization software, and scripting languages used for data analysis and visualization.
 4.  Communicate the purpose, methods, and results of analysis to authentic audiences in appropriate written and oral formats. (CS-1, CS-2)
-5.  Apply research design and data analysis best practices to complete case-based projects and to critique others’ analyses. (CT-1)
+5.  Apply research design and data analysis best practices to complete case-based projects and to critique others' analyses. (CT-1)
 6.  Describe current debates in research ethics and data privacy and the implications for business research. (SR-1)
 
 ### CBA Undergraduate Curriculum Goals and Objectives referenced above
@@ -151,10 +192,10 @@ Your overall grade consists of the following assessments, arranged by type and v
 
 ### Calculation of individual grades for team project work
 
-All work for the assignments denoted as Team Projects by (T) above will be scored out of 100 points to assign a Team Grade. Individual grades will be computed by multiplying the Team Grade by the CATME peer evaluation score you receive for that work. The CATME peer evaluation is a psychometrically validated and behaviorally anchored rating scale developed under a National Science Foundation Grant and used by universities throughout the country. Through a secure web-based platform, you will rate your own and your teammate’s performance on each project. This information will be reported in the aggregate to your teammates (they cannot see who gave them what scores) and will produce a Peer Evaluation Score. Most students receive a score of 1, those that exhibit exceptional performance receive scores above 1 with a maximum of 1.05. Underperforming teammates receive scores below 1, and as low as 0.4.
+All work for the assignments denoted as Team Projects by (T) above will be scored out of 100 points to assign a Team Grade. Individual grades will be computed by multiplying the Team Grade by the CATME peer evaluation score you receive for that work. The CATME peer evaluation is a psychometrically validated and behaviorally anchored rating scale developed under a National Science Foundation Grant and used by universities throughout the country. Through a secure web-based platform, you will rate your own and your teammate's performance on each project. This information will be reported in the aggregate to your teammates (they cannot see who gave them what scores) and will produce a Peer Evaluation Score. Most students receive a score of 1, those that exhibit exceptional performance receive scores above 1 with a maximum of 1.05. Underperforming teammates receive scores below 1, and as low as 0.4.
 
 ::: callout-note
-**Note:** This is not a “zero sum game”. It is possible for team members to get scores above 1 without others getting scores below. The algorithm flags evaluations that appear to manipulate ratings to inflate their own scores. Your score will automatically be reduced by 0.05 if you fail to complete the Peer Evaluation on or before the due date.
+**Note:** This is not a "zero sum game". It is possible for team members to get scores above 1 without others getting scores below. The algorithm flags evaluations that appear to manipulate ratings to inflate their own scores. Your score will automatically be reduced by 0.05 if you fail to complete the Peer Evaluation on or before the due date.
 :::
 
 ### Grievance procedure for peer evaluation scores
@@ -175,7 +216,7 @@ Poor peer evaluations can lead an individual grade to fall substantially below t
 #### Individual assignments
 
 ::: callout-warning
-Individual assignments are due on the dates indicated on the Canvas Weekly Agendas. Late or missing assignments will not be graded. **All assignments in a module must be completed before the Module Quiz.** If extenuating circumstances impact your ability to meet deadlines or participate in class activities, you are responsible for alerting me as soon as possible. When conflicts are known ahead of the deadline you must notify me ahead of the deadline. All communication regarding missed or late individual work should be confirmed by email – even if we speak in person or during student hours, you must follow up via email to confirm so that we both have a record of the agreement.
+Individual assignments are due on the dates indicated on the Canvas Weekly Agendas. Late or missing assignments will not be graded. **All assignments in a module must be completed before the Module Quiz.** If extenuating circumstances impact your ability to meet deadlines or participate in class activities, you are responsible for alerting me as soon as possible. When conflicts are known ahead of the deadline you must notify me ahead of the deadline. All communication regarding missed or late individual work should be confirmed by email  -  even if we speak in person or during student hours, you must follow up via email to confirm so that we both have a record of the agreement.
 :::
 
 #### Team assignments
@@ -194,7 +235,7 @@ Although attendance will not be formally recorded for all class meetings, your T
 -   Document that communication (e.g. save emails or post to team message board).\
 -   Participate actively in scheduling Team Meetings outside of class.\
 -   Lay out policies on scheduling team meetings and missed meetings and follow them.\
--   Respect others’ time and reserve absences for only when absolutely unavoidable.\
+-   Respect others' time and reserve absences for only when absolutely unavoidable.\
 -   Communicate with me (your instructor) or the Office of Student Life if any situation arises that will dramatically impact your attendance in class and at team meetings (e.g. serious illness, injury or personal emergency).
 
 If you are absent from class, it is your responsibility to obtain notes and other materials from colleagues. While you are welcome to book student hours, you should not view them as a substitute for coming to class. If you are absent regularly without a documented extenuating circumstance, requests for student hours meetings may be denied.
@@ -211,7 +252,7 @@ I provide students feedback and/or scores on assignments that require individual
 
 ## AI usage limitations
 
-Artificial intelligence (AI) tools and resources used for creating text, images, computer code, audio, or other media, may be used in certain circumstances in this class. The specifics of when, where, and how these tools are permitted will be included with each assignment. Guidance for attribution/citation will be provided by your instructor. Any use of these tools other than where/how indicated is a violation of course expectations and is subject to UW-La Crosse’s [Academic Misconduct Policy](https://www.uwlax.edu/student-life/our-services/student-conduct/academic-misconduct/). Students are responsible for verifying the accuracy and appropriateness of content composed by AI. If you are in doubt as to whether you are using a tool inappropriately in this course, you are encouraged to discuss your situation with your instructor.
+Artificial intelligence (AI) tools and resources used for creating text, images, computer code, audio, or other media, may be used in certain circumstances in this class. The specifics of when, where, and how these tools are permitted will be included with each assignment. Guidance for attribution/citation will be provided by your instructor. Any use of these tools other than where/how indicated is a violation of course expectations and is subject to UW-La Crosse's [Academic Misconduct Policy](https://www.uwlax.edu/student-life/our-services/student-conduct/academic-misconduct/). Students are responsible for verifying the accuracy and appropriateness of content composed by AI. If you are in doubt as to whether you are using a tool inappropriately in this course, you are encouraged to discuss your situation with your instructor.
 
 ## Regular and substantive interaction
 
@@ -227,7 +268,7 @@ In this course, regular and substantive interaction between the instructor and s
 
 ## UWL syllabus policy information & statements
 
-UWL encourages students to know the campus’ important policies and statements which can be found on the Syllabus Information website.
+UWL encourages students to know the campus' important policies and statements which can be found on the Syllabus Information website.
 
 -   [Classes during inclement weather](https://www.uwlax.edu/info/syllabus/#tm-261340)
 -   [Religious accommodations](https://www.uwlax.edu/info/syllabus/#tm-111043)
@@ -248,7 +289,7 @@ Access to course materials in Canvas may cease after the term ends. If you wish 
 
 ### Inclusive excellence
 
-[Mission](https://www.uwlax.edu/chancellor/mission/) “Diversity, equity, and the inclusion and engagement of all people in a safe campus climate that embraces and respects the innumerable different perspectives found within an increasingly integrated and culturally diverse global community". If you are not experiencing my class in this manner, please come talk to me about your experiences so I can try to adjust the course if possible.
+[Mission](https://www.uwlax.edu/chancellor/mission/) "Diversity, equity, and the inclusion and engagement of all people in a safe campus climate that embraces and respects the innumerable different perspectives found within an increasingly integrated and culturally diverse global community". If you are not experiencing my class in this manner, please come talk to me about your experiences so I can try to adjust the course if possible.
 
 ### Name/pronouns
 

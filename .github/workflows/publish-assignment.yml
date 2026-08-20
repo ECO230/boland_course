@@ -1,0 +1,90 @@
+name: Publish assignment repository
+
+on:
+  workflow_dispatch:
+    inputs:
+      manifest:
+        description: Assignment manifest path
+        required: true
+        default: week07/homework_06.manifest.json
+        type: string
+      target_repository:
+        description: New repository in owner/name form
+        required: true
+        default: ECO230/homework-06-posit-cloud-test
+        type: string
+      visibility:
+        description: Visibility for the new repository
+        required: true
+        default: private
+        type: choice
+        options:
+          - private
+          - public
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out the course repository
+        uses: actions/checkout@v4
+
+      - name: Build the assignment repository
+        run: python scripts/build_assignment_repo.py "${{ inputs.manifest }}"
+
+      - name: Locate the generated repository
+        id: release
+        shell: bash
+        run: |
+          output=$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["output_directory"])' "${{ inputs.manifest }}")
+          echo "path=$output" >> "$GITHUB_OUTPUT"
+
+      - name: Upload the release candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: assignment-repository
+          path: ${{ steps.release.outputs.path }}
+          if-no-files-found: error
+
+      - name: Create and push the new repository
+        env:
+          GH_TOKEN: ${{ secrets.ASSIGNMENT_REPO_TOKEN }}
+          TARGET_REPOSITORY: ${{ inputs.target_repository }}
+          VISIBILITY: ${{ inputs.visibility }}
+          RELEASE_PATH: ${{ steps.release.outputs.path }}
+        shell: bash
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "ASSIGNMENT_REPO_TOKEN is not configured."
+            exit 1
+          fi
+
+          if gh api "repos/$TARGET_REPOSITORY" >/dev/null 2>&1; then
+            echo "The target repository already exists; refusing to overwrite it."
+            exit 1
+          fi
+
+          owner=${TARGET_REPOSITORY%%/*}
+          repository=${TARGET_REPOSITORY#*/}
+
+          if [ "$VISIBILITY" = "private" ]; then
+            private=true
+          else
+            private=false
+          fi
+
+          gh api --method POST "orgs/$owner/repos" \
+            -f name="$repository" \
+            -F private="$private" \
+            -f description="Posit Cloud source project generated from the ECO 230 course repository"
+
+          git -C "$RELEASE_PATH" init -b main
+          git -C "$RELEASE_PATH" config user.name "github-actions[bot]"
+          git -C "$RELEASE_PATH" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "$RELEASE_PATH" add .
+          git -C "$RELEASE_PATH" commit -m "Publish assignment"
+          git -C "$RELEASE_PATH" remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${TARGET_REPOSITORY}.git"
+          git -C "$RELEASE_PATH" push -u origin main

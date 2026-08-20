@@ -12,6 +12,9 @@ execute:
   warning: false
   message: false
   freeze: auto
+
+params:
+  class_section: 12
 ---
 
 ```{r setup}
@@ -25,17 +28,21 @@ options(scipen = 999)
 
 # --- Load -------------------------------------------------------------------
 # Assumes this file is in /boland_course/syllabus/ and CSV is in /boland_course/syllabus/data/
-cd <- read_csv("data/class_dates.csv", show_col_types = FALSE) |>
+selected_section <- as.character(params$class_section)
+
+cd <- read_csv("data/section_class_dates.csv", show_col_types = FALSE) |>
   mutate(
+    section = as.character(section),
     code = str_trim(code),
     due_reg_dt = mdy(due_reg_dt)  # your CSV uses m/d/YYYY
-  )
+  ) |>
+  filter(section == selected_section)
 
 # --- Validate ---------------------------------------------------------------
 needed_codes <- c("C5","C6","C7","C8","C9","C11","C12")
 missing_codes <- setdiff(needed_codes, cd$code)
 if (length(missing_codes) > 0) {
-  stop(paste("class_dates.csv is missing these codes:", paste(missing_codes, collapse = ", ")))
+  stop(paste("section_class_dates.csv is missing these codes:", paste(missing_codes, collapse = ", ")))
 }
 
 # --- Helpers ----------------------------------------------------------------
