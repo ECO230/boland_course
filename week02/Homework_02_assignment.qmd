@@ -1,0 +1,291 @@
+---
+title: "Homework 2: Exploratory Analysis"
+subtitle: "In-Person Sections"
+format:
+  typst:
+    toc: false
+    papersize: us-letter
+    fontsize: 10pt
+    linestretch: 1
+    margin:
+      x: 1in
+      y: 1in
+    number-sections: false
+    page-numbering: "1"
+execute:
+  echo: true
+  warning: false
+  message: false
+editor: source
+---
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+This assignment helps you describe the size, center, shape, and relationships in
+one project dataset before creating charts or running hypothesis tests.
+
+You will build four summary tables, explain the denominators and statistics you
+selected, identify three findings, and reflect on responsible AI use.
+:::
+
+## Objectives
+
+By the end of this assignment, you will be able to:
+
+- create frequency, grouped-summary, and cross-tabulation tables;
+- match measures of center and spread to the variable and distribution;
+- distinguish row, column, and overall percentages;
+- state denominators and missing-data rules; and
+- interpret numerical summaries in context.
+
+## Resources
+
+- Week 2 slides on size, center, shape, relationships, and percentages
+- Week 1 slides on grain, tidy data, dimensions, and measures
+- The four `.csv` files in the `data` folder
+- Excel, Tableau, or R in Posit Cloud
+
+::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
+This assignment is graded for clear, careful completion. Do not create charts.
+Your tables must make their denominators, units, filters, and missing-data rules
+clear.
+:::
+
+## 1) Choose and Load Your Dataset
+
+Choose one project dataset. State its filename and any filters or cleaning steps
+you apply.
+
+**Dataset:**
+
+**Filters or cleaning:**
+
+If you are working in R, change `project_file` to the appropriate filename.
+
+```{r}
+project_file <- "accident_wi.csv"
+df <- read.csv(file.path("data", project_file), check.names = FALSE)
+
+cat(
+  project_file, "contains", nrow(df), "rows and",
+  ncol(df), "columns."
+)
+```
+
+---
+
+## 2) Select Your Tools
+
+You may complete the tables in Excel, Tableau, R, or a combination. Insert each
+finished table or its output in this document. Choose the tool that best supports
+the table you are building.
+
+**Tools used:**
+
+
+
+---
+
+## 3) Create Table 1 - Frequency Table
+
+Create a frequency table for one categorical variable. A variable with at least
+3-4 useful categories is recommended.
+
+Your table must include:
+
+- category;
+- count (`n`);
+- percent of total; and
+- any other information needed to explain the distribution.
+
+The following example shows the structure using Airbnb cancellation policy. Use
+variables from your selected dataset in your final table.
+
+```{r}
+#| eval: false
+example_df <- read.csv(file.path("data", "airbnb_chicago.csv"))
+
+example_df |>
+  count(cancellation_policy, name = "n") |>
+  mutate(percent = n / sum(n)) |>
+  arrange(desc(n))
+```
+
+**Table 1 code, table, or inserted output:**
+
+
+
+**Brief finding:** What appears often, and what is rare?
+
+
+
+---
+
+## 4) Create Table 2 - Continuous by Categorical
+
+Create a grouped summary table using:
+
+- 1 continuous measure;
+- 1 categorical dimension with at least 3 useful groups;
+- `n_non_missing` for the measure; and
+- a meaningful measure of center and spread.
+
+Use mean and standard deviation when they represent the distribution well. Use
+median and IQR when the distribution is skewed, contains influential outliers,
+or is better described by its middle.
+
+```{r}
+#| eval: false
+# Mean and standard-deviation structure:
+df |>
+  group_by(your_group_variable) |>
+  summarise(
+    n_non_missing = sum(!is.na(your_measure)),
+    mean_value = mean(your_measure, na.rm = TRUE),
+    sd_value = sd(your_measure, na.rm = TRUE)
+  )
+
+# Median and IQR structure:
+df |>
+  group_by(your_group_variable) |>
+  summarise(
+    n_non_missing = sum(!is.na(your_measure)),
+    median_value = median(your_measure, na.rm = TRUE),
+    q25 = quantile(your_measure, 0.25, na.rm = TRUE),
+    q75 = quantile(your_measure, 0.75, na.rm = TRUE),
+    iqr = q75 - q25
+  )
+```
+
+**Table 2 code, table, or inserted output:**
+
+
+
+In 1-2 sentences, explain why your measures of center and spread are meaningful.
+
+*Your response:*
+
+
+
+---
+
+## 5) Create Table 3 - A Different Relationship
+
+Create a second continuous-by-categorical summary that changes at least one of
+these elements:
+
+- the continuous measure;
+- the categorical dimension;
+- the summary choice; or
+- the filter or analytical frame.
+
+Include the same core fields as Table 2 and ensure that Table 3 answers a
+different question.
+
+```{r}
+#| eval: false
+# Add your Table 3 code here, or insert output from Excel or Tableau below.
+```
+
+**Table 3 code, table, or inserted output:**
+
+
+
+**Brief finding:**
+
+
+
+---
+
+## 6) Create Table 4 - Cross-Tabulation
+
+Create a cross-tabulation using two categorical variables, each with at least 3
+useful categories.
+
+Your table must include:
+
+- cell counts;
+- one clearly labeled percentage type: row, column, or overall;
+- row and column totals; and
+- a sentence that states the denominator.
+
+```{r}
+#| eval: false
+xt <- table(df$your_row_variable, df$your_column_variable)
+xt
+
+# Choose one percentage calculation:
+prop.table(xt, margin = 1)  # row percentages
+prop.table(xt, margin = 2)  # column percentages
+prop.table(xt)              # overall percentages
+```
+
+**Table 4 code, table, or inserted output:**
+
+
+
+Complete this sentence: These percentages are calculated as __________, so each
+__________ totals to 100%.
+
+---
+
+## Optional Correlation Table
+
+If your dataset has two relevant continuous variables, you may report the number
+of complete pairs, correlation `r`, and a one-sentence interpretation. This is
+not required and does not replace Tables 1-4.
+
+```{r}
+#| eval: false
+cor(df$your_numeric_variable_1, df$your_numeric_variable_2, use = "complete.obs")
+```
+
+---
+
+## 7) Summarize Three Findings
+
+Write 3 takeaways in approximately 5-10 sentences total. Each takeaway must:
+
+- cite a specific table;
+- include at least one value and its category or group; and
+- explain what the value implies rather than only restating it.
+
+**Example structure:** Table 2 shows that Group A has a higher median than Group
+B, suggesting that...
+
+*Your response:*
+
+
+
+---
+
+## 8) Reflect on Responsible AI Use
+
+::: {.callout-warning appearance="minimal" icon="false" title="AI Policy"}
+AI may support clarification, rewriting, or troubleshooting, but not statistical
+selection or interpretation. Verify every claim and submit work you understand.
+:::
+
+Write 4-6 sentences explaining how you used AI, what it helped with, what it
+missed or oversimplified, and one prompt you used. If you did not use AI, state
+that directly.
+
+*Your response:*
+
+
+
+## Submission
+
+Submit `Homework_02_IP.pdf` in Canvas. It must contain Tables 1-4, the three
+findings, and the AI reflection. Also submit the supporting file you used to
+create the tables when applicable: `.xlsx`, `.twbx`, or your Quarto source file.
+
+## Checklist
+
+- [ ] I identified my dataset, filters, tools, and missing-data decisions.
+- [ ] I created four labeled tables and justified their summaries and denominators.
+- [ ] I wrote three evidence-based findings and completed the AI reflection.
+- [ ] I reviewed and submitted the PDF and required supporting files.
+
+**Grading focus:** Your work will be evaluated for appropriate summaries,
+correct denominators, readable tables, and interpretations tied to specific
+evidence.

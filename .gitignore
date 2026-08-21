@@ -46,6 +46,10 @@ __pycache__/
 # -----------------------------
 .assignment-build/
 
+# Local Posit Cloud exports and review artifacts
+/posit_assignments/
+/tmp/
+
 # -----------------------------
 # Local Codex private context
 # -----------------------------

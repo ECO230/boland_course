@@ -307,3 +307,25 @@ organization application approval.
 - Typst is the default PDF engine for assignment deliverables.
 - The generated repository is disposable build output; the monorepo remains the
   authoritative source.
+
+## In-Person Homework Release Map
+
+The homework number is the release identifier; it does not always match the
+week that contains the authoritative prompt.
+
+| Homework | Source week | Manifest | Generated repository |
+|---|---:|---|---|
+| 1 | 01 | `week01/homework_01.manifest.json` | `ECO230/homework-01-ip` |
+| 2 | 02 | `week02/homework_02.manifest.json` | `ECO230/homework-02-ip` |
+| 3 | 03 | `week03/homework_03.manifest.json` | `ECO230/homework-03-ip` |
+| 4 | 04 | `week04/homework_04.manifest.json` | `ECO230/homework-04-ip` |
+| 5 | 06 | `week06/homework_05.manifest.json` | `ECO230/homework-05-ip` |
+| 6 | 07 | `week07/homework_06.manifest.json` | `ECO230/homework-06-ip` |
+| 7 | 08 | `week08/homework_07.manifest.json` | `ECO230/homework-07-ip` |
+| 8 | 09 | `week09/homework_08.manifest.json` | `ECO230/homework-08-ip` |
+
+Use `Homework_NN_IP.qmd`, `Homework_NN_IP.Rproj`, and
+`Homework_NN_IP.pdf` inside each generated repository. Keep exported Posit
+Cloud projects in the ignored `posit_assignments/` directory as reference
+material only; copy only manifest-approved student-facing content into a
+release.

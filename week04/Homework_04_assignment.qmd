@@ -1,0 +1,339 @@
+---
+title: "Homework 4: Project Story Planning"
+subtitle: "In-Person Sections"
+format:
+  typst:
+    toc: false
+    papersize: us-letter
+    fontsize: 10pt
+    linestretch: 1
+    margin:
+      x: 1in
+      y: 1in
+    number-sections: false
+    page-numbering: "1"
+execute:
+  echo: false
+  warning: false
+  message: false
+editor: source
+---
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+This assignment helps you turn descriptive statistics and visuals into a story
+that someone can act on.
+
+You will propose five candidate project stories and create a feasible analysis
+plan for each one. Your group will use these plans to select and combine its
+strongest ideas.
+:::
+
+## Objectives
+
+By the end of this assignment, you will be able to:
+
+- write takeaway-first headlines rather than topics;
+- identify relationships and the variables needed to investigate them;
+- distinguish existing, derived, and external variables;
+- draft testable hypotheses; and
+- plan analyses and visuals that support a business story.
+
+## Resources
+
+- Your project dataset in the `data` folder
+- Homework 2 tables and Homework 3 visuals
+- Week 4 readings and slides on telling stories with data
+
+::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
+This is planning, not execution. Bullets and concise notes are appropriate. Your
+ideas must be clear, testable, and feasible, or explicitly identify the data
+that would make them feasible.
+:::
+
+## 1) Confirm Your Project Dataset
+
+**Dataset:**
+
+**Expected filters or cleaning:**
+
+**Unit of analysis:**
+
+
+
+---
+
+## 2) Review the Headline Standard
+
+A strong headline is a complete sentence that states a potential takeaway. It
+does not need numbers or test statistics at this planning stage.
+
+**Strong examples:**
+
+- Drivers in northern states experience fewer accidents during freezing
+  conditions than drivers in southern states.
+- San Francisco offers better Airbnb value relative to ratings than other major
+  cities.
+- Visiting kickers miss field goals more often at Raymond James Stadium than at
+  other stadiums.
+
+**Weak examples:**
+
+- Accident severity and temperature
+- Airbnb prices by city
+- Field-goal analysis
+
+The weak examples name topics but do not state a takeaway someone could evaluate.
+
+---
+
+## 3) Use the Analysis-Plan Structure
+
+For every story, provide:
+
+1. **Headline:** A complete takeaway sentence.
+2. **Three relationships:** Comparisons or patterns that could support or
+   challenge the headline.
+3. **Variables:** Label each variable as **Exists**, **Derived**, or **External**.
+4. **3-second version:** No more than 7 words and no numbers.
+5. **30-second version:** 1-2 sentences stating the takeaway, who should care,
+   and why.
+6. **At least two hypotheses:** Testable statements.
+7. **Data requirements and gaps:** Missingness, outliers, derived fields,
+   external sources, and join keys.
+8. **Planned analyses:** Appropriate descriptive or inferential methods.
+9. **Planned visual:** A chart type and the comparison it will show.
+
+### Worked Example
+
+**Headline:** Drivers in northern states experience fewer severe accidents
+during freezing conditions than drivers in southern states.
+
+**Relationships:** Average severity by region below 32 degrees; severe-accident
+proportion by region during precipitation; accident count before and after a
+winter-weather event.
+
+**Variables:** Severity (**Exists**); State (**Exists**); North/South region
+(**Derived**); Temperature (**Exists**); Population by ZIP code (**External**).
+
+**3-second version:** Freezing crashes differ by region.
+
+**30-second version:** Transportation planners should compare freezing-weather
+crash severity across regions so they can target preparation and messaging where
+the risk is greatest.
+
+**Hypotheses:** Mean severity differs between northern and southern states below
+32 degrees. The proportion of severe crashes during precipitation differs by
+region.
+
+**Data requirements and gaps:** Define the regional classification; review
+missing temperature and severity values; obtain population by ZIP code for
+rates.
+
+**Planned analyses:** Group summaries, rate comparisons, t-test or Wilcoxon
+test, and chi-square test.
+
+**Planned visual:** A sorted bar chart of severe-crash rates by region.
+
+---
+
+## 4) Story 1
+
+**Headline:**
+
+**Relationship 1:**
+
+**Relationship 2:**
+
+**Relationship 3:**
+
+**Variables for the three relationships (Exists / Derived / External):**
+
+
+
+**3-second version (7 words maximum):**
+
+**30-second version (1-2 sentences):**
+
+
+
+**Hypothesis 1:**
+
+**Hypothesis 2:**
+
+**Data requirements and gaps:**
+
+
+
+**Planned analyses:**
+
+**Planned visual:**
+
+---
+
+## 5) Story 2
+
+**Headline:**
+
+**Relationship 1:**
+
+**Relationship 2:**
+
+**Relationship 3:**
+
+**Variables for the three relationships (Exists / Derived / External):**
+
+
+
+**3-second version (7 words maximum):**
+
+**30-second version (1-2 sentences):**
+
+
+
+**Hypothesis 1:**
+
+**Hypothesis 2:**
+
+**Data requirements and gaps:**
+
+
+
+**Planned analyses:**
+
+**Planned visual:**
+
+---
+
+## 6) Story 3
+
+**Headline:**
+
+**Relationship 1:**
+
+**Relationship 2:**
+
+**Relationship 3:**
+
+**Variables for the three relationships (Exists / Derived / External):**
+
+
+
+**3-second version (7 words maximum):**
+
+**30-second version (1-2 sentences):**
+
+
+
+**Hypothesis 1:**
+
+**Hypothesis 2:**
+
+**Data requirements and gaps:**
+
+
+
+**Planned analyses:**
+
+**Planned visual:**
+
+---
+
+## 7) Story 4
+
+**Headline:**
+
+**Relationship 1:**
+
+**Relationship 2:**
+
+**Relationship 3:**
+
+**Variables for the three relationships (Exists / Derived / External):**
+
+
+
+**3-second version (7 words maximum):**
+
+**30-second version (1-2 sentences):**
+
+
+
+**Hypothesis 1:**
+
+**Hypothesis 2:**
+
+**Data requirements and gaps:**
+
+
+
+**Planned analyses:**
+
+**Planned visual:**
+
+---
+
+## 8) Story 5
+
+**Headline:**
+
+**Relationship 1:**
+
+**Relationship 2:**
+
+**Relationship 3:**
+
+**Variables for the three relationships (Exists / Derived / External):**
+
+
+
+**3-second version (7 words maximum):**
+
+**30-second version (1-2 sentences):**
+
+
+
+**Hypothesis 1:**
+
+**Hypothesis 2:**
+
+**Data requirements and gaps:**
+
+
+
+**Planned analyses:**
+
+**Planned visual:**
+
+---
+
+## 9) Prepare for Group Discussion
+
+Rank your top three stories and be ready to share at least one story with your
+group.
+
+1. **Strongest story:**
+2. **Second strongest:**
+3. **Third strongest:**
+
+For the strongest story, prepare its 3-second headline, 30-second explanation,
+and one visual idea.
+
+## Submission
+
+Submit `Homework_04_IP.pdf` in Canvas. It must contain all five completed story
+plans and your top-three ranking. Keep the PDF available for the in-class group
+discussion.
+
+## Checklist
+
+- [ ] I wrote five headlines as takeaways rather than topics.
+- [ ] Every headline has three supporting relationships.
+- [ ] I labeled variables as Exists, Derived, or External.
+- [ ] I completed every analysis-plan component for all five stories.
+- [ ] I identified data gaps or joins where needed.
+- [ ] I ranked my top three stories and can present the strongest one.
+- [ ] I reviewed and submitted `Homework_04_IP.pdf`.
+
+**Grading focus:** Your work will be evaluated for takeaway-first writing,
+logical relationships, feasible data requirements, testable hypotheses, and a
+clear connection between each story, analysis, and visual.

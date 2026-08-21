@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "homework_07_ip",
+  "title": "Homework 7: t-Tests and Wilcoxon Tests (In Person)",
+  "output_directory": ".assignment-build/homework_07_ip",
+  "files": [
+    {
+      "source": "week08/Homework_07_assignment.qmd",
+      "destination": "Homework_07_IP.qmd"
+    },
+    {
+      "source": "week08/Homework_07_README.md",
+      "destination": "README.md"
+    },
+    {
+      "source": "week08/media/images/H7_idt_graph.png",
+      "destination": "media/images/H7_idt_graph.png"
+    },
+    {
+      "source": "week08/media/images/H7_idw_graph.png",
+      "destination": "media/images/H7_idw_graph.png"
+    },
+    {
+      "source": "shared/data/accident_wi.csv",
+      "destination": "data/accident_wi.csv"
+    },
+    {
+      "source": "shared/data/airbnb_chicago.csv",
+      "destination": "data/airbnb_chicago.csv"
+    },
+    {
+      "source": "shared/data/hospital_charges_wi.csv",
+      "destination": "data/hospital_charges_wi.csv"
+    },
+    {
+      "source": "shared/data/nfl_special_MasonCrosby.csv",
+      "destination": "data/nfl_special_MasonCrosby.csv"
+    },
+    {
+      "source": "shared/posit-cloud/.Rprofile",
+      "destination": ".Rprofile"
+    },
+    {
+      "source": "shared/posit-cloud/.gitignore",
+      "destination": ".gitignore"
+    },
+    {
+      "source": "shared/posit-cloud/project.Rproj",
+      "destination": "Homework_07_IP.Rproj"
+    },
+    {
+      "source": "shared/posit-cloud/project_setup.R",
+      "destination": "project_setup.R"
+    },
+    {
+      "source": "shared/posit-cloud/renv.lock",
+      "destination": "renv.lock"
+    },
+    {
+      "source": "shared/posit-cloud/renv/activate.R",
+      "destination": "renv/activate.R"
+    },
+    {
+      "source": "shared/posit-cloud/renv/settings.json",
+      "destination": "renv/settings.json"
+    }
+  ],
+  "required_files": [
+    "Homework_07_IP.qmd",
+    "Homework_07_IP.Rproj",
+    "README.md",
+    "media/images/H7_idt_graph.png",
+    "media/images/H7_idw_graph.png",
+    "data/accident_wi.csv",
+    "data/airbnb_chicago.csv",
+    "data/hospital_charges_wi.csv",
+    "data/nfl_special_MasonCrosby.csv",
+    "renv.lock"
+  ],
+  "render": "Homework_07_IP.qmd"
+}

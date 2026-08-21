@@ -1,0 +1,243 @@
+---
+title: "Homework 5: Hypothesis-Test Planning"
+subtitle: "In-Person Sections"
+format:
+  typst:
+    toc: false
+    papersize: us-letter
+    fontsize: 10pt
+    linestretch: 1
+    margin:
+      x: 1in
+      y: 1in
+    number-sections: false
+    page-numbering: "1"
+execute:
+  echo: true
+  warning: false
+  message: false
+editor: source
+---
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+This assignment focuses on Step 3 of the five-step hypothesis-testing process:
+selecting a test and translating a statistical story into null and alternative
+hypotheses.
+
+You will choose three project hypotheses, select an appropriate inferential test
+for each one, and write pseudocode that outlines how the test would run in R.
+:::
+
+## Objectives
+
+By the end of this assignment, you will be able to:
+
+- distinguish among the inferential tests introduced in the course;
+- match a test to the variables and study design;
+- state $H_0$ and $H_A$ in context; and
+- outline data-loading, filtering, and testing steps as R pseudocode.
+
+## Resources
+
+- Week 6 slides and test-selection resources
+- Your project analysis plan and three candidate hypotheses
+- The four `.csv` files in the `data` folder
+- `eco230r` function examples from lecture
+
+::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
+Running code is not required. Your pseudocode must show a reasonable path from
+the dataset to the selected test. If you experiment with code that prevents the
+document from rendering, comment it out with `#`.
+:::
+
+## 1) Review the Available Tests
+
+| Function | Test | Typical structure |
+|---|---|---|
+| `csf()` | Chi-square goodness-of-fit test | One categorical variable |
+| `csi()` | Chi-square test of independence | Two categorical variables |
+| `ost()` | One-sample t-test | One numeric variable vs a reference value |
+| `idt()` | Independent-samples t-test | Numeric outcome by two independent groups |
+| `idw()` | Wilcoxon rank-sum test | Numeric/ordinal outcome by two independent groups |
+| `pst()` | Paired-samples t-test | Numeric outcome measured in pairs |
+| `psw()` | Wilcoxon signed-rank test | Numeric/ordinal outcome measured in pairs |
+| `ano()` | One-way ANOVA | Numeric outcome by three or more groups |
+| `slr()` | Simple linear regression | Numeric outcome and one numeric predictor |
+
+Select a test based on the variables, number of groups, independence or pairing,
+and the type of comparison in your statistical story.
+
+---
+
+## 2) Review the Worked Example
+
+### Statistical story
+
+The average number of bedrooms in Chicago Airbnb listings differs from two.
+
+### Estimate or plot
+
+A descriptive summary of `bedrooms` would show whether the sample mean is above
+or below two. This estimate provides direction but not evidence about sampling
+uncertainty.
+
+### Test and hypotheses
+
+The outcome is one numeric variable compared with a reference value, so the
+appropriate test is a one-sample t-test using `ost()`.
+
+$H_0$: The population mean number of bedrooms is 2.
+
+$H_A$: The population mean number of bedrooms is not 2.
+
+$\alpha = 0.05$
+
+```{r}
+#| eval: false
+df <- read.csv(file.path("data", "airbnb_chicago.csv"))
+
+h1 <- df |>
+  ost(~ bedrooms, mu = 2)
+
+print(h1)
+```
+
+The exact argument for the reference value may depend on the current `eco230r`
+function interface. At this stage, the important work is identifying the test,
+hypotheses, and intended code sequence.
+
+Steps 4-5, the statistical and practical interpretations, are not required for
+this homework because you are planning rather than interpreting test results.
+
+---
+
+## 3) Plan Hypothesis 1
+
+1. **Statistical story:** What relationship, difference, or pattern are you
+   investigating, and why might it matter?
+
+   *Your response:*
+
+
+
+2. **Estimate or plot:** What descriptive estimate or plot would support this
+   story? If there were no uncertainty, what action would the business take?
+
+   *Your response:*
+
+
+
+3. **Test and hypotheses:** Which test is appropriate? State $H_0$, $H_A$,
+   and the alpha level.
+
+   **Test and function:**
+
+   $H_0$:
+
+   $H_A$:
+
+   $\alpha = 0.05$
+
+```{r}
+#| eval: false
+# Load the selected dataset.
+
+# Filter or derive variables if needed.
+
+# Run the selected eco230r test.
+```
+
+---
+
+## 4) Plan Hypothesis 2
+
+1. **Statistical story:** What relationship, difference, or pattern are you
+   investigating, and why might it matter?
+
+   *Your response:*
+
+
+
+2. **Estimate or plot:** What descriptive estimate or plot would support this
+   story? If there were no uncertainty, what action would the business take?
+
+   *Your response:*
+
+
+
+3. **Test and hypotheses:** Which test is appropriate? State $H_0$, $H_A$,
+   and the alpha level.
+
+   **Test and function:**
+
+   $H_0$:
+
+   $H_A$:
+
+   $\alpha = 0.05$
+
+```{r}
+#| eval: false
+# Load the selected dataset.
+
+# Filter or derive variables if needed.
+
+# Run the selected eco230r test.
+```
+
+---
+
+## 5) Plan Hypothesis 3
+
+1. **Statistical story:** What relationship, difference, or pattern are you
+   investigating, and why might it matter?
+
+   *Your response:*
+
+
+
+2. **Estimate or plot:** What descriptive estimate or plot would support this
+   story? If there were no uncertainty, what action would the business take?
+
+   *Your response:*
+
+
+
+3. **Test and hypotheses:** Which test is appropriate? State $H_0$, $H_A$,
+   and the alpha level.
+
+   **Test and function:**
+
+   $H_0$:
+
+   $H_A$:
+
+   $\alpha = 0.05$
+
+```{r}
+#| eval: false
+# Load the selected dataset.
+
+# Filter or derive variables if needed.
+
+# Run the selected eco230r test.
+```
+
+## Submission
+
+Render this document and submit `Homework_05_IP.pdf` in Canvas. The PDF must
+contain three statistical stories, three test selections, contextual null and
+alternative hypotheses, and pseudocode for each test.
+
+## Checklist
+
+- [ ] I selected three hypotheses connected to my project.
+- [ ] Each test matches the variables, groups, and study design.
+- [ ] Each $H_0$ and $H_A$ is stated in context.
+- [ ] Each pseudocode block shows loading, preparation, and testing steps.
+- [ ] Any incomplete experimental code is commented out.
+- [ ] I reviewed and submitted `Homework_05_IP.pdf`.
+
+**Grading focus:** Your work will be evaluated for appropriate test selection,
+testable hypotheses, clear context, and pseudocode that reflects a feasible
+analysis plan.

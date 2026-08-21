@@ -1,0 +1,220 @@
+---
+title: "Homework 3: Visualizing Data"
+subtitle: "In-Person Sections"
+format:
+  typst:
+    toc: false
+    papersize: us-letter
+    fontsize: 10pt
+    linestretch: 1
+    margin:
+      x: 1in
+      y: 1in
+    number-sections: false
+    page-numbering: "1"
+execute:
+  echo: true
+  warning: false
+  message: false
+editor: source
+---
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+This assignment helps you choose visualizations that match the comparison you
+want an audience to make and apply perception-aware design.
+
+You will create exactly three visuals from different analytical frames and
+justify the story, encoding, scope, and design choices for each one.
+:::
+
+## Objectives
+
+By the end of this assignment, you will be able to:
+
+- connect a data story to an appropriate analytical frame and chart type;
+- apply clear scales, ordering, color, and labeling;
+- state filters, units, and denominators; and
+- explain why an encoding supports the intended comparison.
+
+## Resources
+
+- Week 3 slides on visual perception and analytical frames
+- Week 1-2 slides on grain, NOIR, and descriptive summaries
+- The four `.csv` files in the `data` folder
+- Excel, Tableau, or R in Posit Cloud
+
+::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
+Create exactly three visuals: one from Module A, one from Module B, and one from
+Module C. Your grade emphasizes fit-for-purpose encodings, perceptual clarity,
+and concise explanations.
+:::
+
+## 1) Identify Your Dataset and Scope
+
+Choose one project dataset and record the scope of your analysis.
+
+**Dataset:**
+
+**Filters or cleaning:**
+
+**Units and denominators:**
+
+
+
+---
+
+## 2) Create and Insert Your Visuals
+
+Build the visuals in Excel, Tableau, or R. Export each visual as a readable PNG
+and upload it to this Posit Cloud project.
+
+To insert a visual in this document, use Markdown like this after uploading the
+file:
+
+```markdown
+![Descriptive alternative text](visual_A.png)
+```
+
+Replace the example filename and alternative text with your own. Do not leave a
+broken image reference in the document you submit.
+
+---
+
+## 3) Visual A - Comparison
+
+Choose one frame:
+
+- nominal comparison, such as side-by-side bars; or
+- ranking, such as sorted horizontal bars.
+
+Use labeled axes and clear units. Sort categories when rank is part of the
+story.
+
+**Insert Visual A below:**
+
+
+
+Write 3-5 sentences that address:
+
+1. **Story:** What comparison are you highlighting?
+2. **Frame and encoding:** Which frame and chart type did you choose, and why do
+   they fit?
+3. **Data scope:** What groups, filters, units, and denominators are shown?
+4. **Design:** Name at least two principles you applied.
+
+*Your response:*
+
+
+
+---
+
+## 4) Visual B - Composition or Difference
+
+Choose one frame:
+
+- part-to-whole, shown as percentages that total 100%;
+- a time series of one metric;
+- deviation from a clearly labeled benchmark.
+
+Use an honest baseline for a time series. Show a zero line and explain the
+benchmark for deviation. Make the denominator explicit for part-to-whole.
+
+**Insert Visual B below:**
+
+
+
+Write 3-5 sentences using the same four-part structure: story, frame and
+encoding, data scope, and at least two design principles.
+
+*Your response:*
+
+
+
+---
+
+## 5) Visual C - Distribution or Relationship
+
+Choose one frame:
+
+- a frequency distribution, such as a histogram or boxplot; or
+- a relationship, such as a scatterplot with an optional trend line.
+
+Use sensible bins, show units, reduce overplotting when needed, and identify
+important outliers without allowing them to distort the scale.
+
+**Insert Visual C below:**
+
+
+
+Write 3-5 sentences using the same four-part structure: story, frame and
+encoding, data scope, and at least two design principles.
+
+*Your response:*
+
+
+
+---
+
+## Optional R Example
+
+If you choose to create a chart in R, adapt this scaffold. The example is not
+executed because the variable names must be replaced with variables from your
+dataset.
+
+```{r}
+#| eval: false
+library(ggplot2)
+
+ggplot(df, aes(x = your_category, y = your_value)) +
+  geom_col(fill = "#4C78A8") +
+  coord_flip() +
+  labs(
+    title = "A Takeaway-First Title",
+    x = NULL,
+    y = "Units"
+  ) +
+  theme_minimal(base_size = 12)
+```
+
+---
+
+## 6) Review the Design
+
+- [ ] Each chart matches its analytical frame.
+- [ ] Axes, units, scales, and denominators are clear.
+- [ ] Categories are ordered when order supports the story.
+- [ ] Color is used sparingly and intentionally.
+- [ ] The visuals avoid 3D effects and unnecessary decoration.
+- [ ] Composition totals 100%, deviation shows zero, and relationships show
+  appropriate scales when those frames are used.
+- [ ] Each visual has concise alternative text.
+
+---
+
+## 7) Summarize the Three Visuals
+
+In no more than 200 words, synthesize what the three visuals reveal. Explain
+whether the evidence matches your expectations or identifies something
+unexpected.
+
+*Your response:*
+
+
+
+## Submission
+
+Submit `Homework_03_IP.pdf` in Canvas. It must include all three visuals, the
+3-5 sentence explanation for each visual, and the summary. Also submit the
+supporting `.xlsx` or `.twbx` file when you used Excel or Tableau.
+
+## Checklist
+
+- [ ] I used one frame from each module: A, B, and C.
+- [ ] I inserted three readable visuals with no broken paths.
+- [ ] I explained the story, encoding, scope, and design for each visual.
+- [ ] I completed the design review and the 200-word summary.
+- [ ] I reviewed and submitted `Homework_03_IP.pdf` and supporting files.
+
+**Grading focus:** Your work will be evaluated for chart selection, perceptual
+clarity, honest scales and denominators, and explanations that connect each
+visual to its intended story.

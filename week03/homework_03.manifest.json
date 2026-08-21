@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "homework_03_ip",
+  "title": "Homework 3: Visualizing Data (In Person)",
+  "output_directory": ".assignment-build/homework_03_ip",
+  "files": [
+    {
+      "source": "week03/Homework_03_assignment.qmd",
+      "destination": "Homework_03_IP.qmd"
+    },
+    {
+      "source": "week03/Homework_03_README.md",
+      "destination": "README.md"
+    },
+    {
+      "source": "shared/data/accident_wi.csv",
+      "destination": "data/accident_wi.csv"
+    },
+    {
+      "source": "shared/data/airbnb_chicago.csv",
+      "destination": "data/airbnb_chicago.csv"
+    },
+    {
+      "source": "shared/data/hospital_charges_wi.csv",
+      "destination": "data/hospital_charges_wi.csv"
+    },
+    {
+      "source": "shared/data/nfl_special_MasonCrosby.csv",
+      "destination": "data/nfl_special_MasonCrosby.csv"
+    },
+    {
+      "source": "shared/posit-cloud/.Rprofile",
+      "destination": ".Rprofile"
+    },
+    {
+      "source": "shared/posit-cloud/.gitignore",
+      "destination": ".gitignore"
+    },
+    {
+      "source": "shared/posit-cloud/project.Rproj",
+      "destination": "Homework_03_IP.Rproj"
+    },
+    {
+      "source": "shared/posit-cloud/project_setup.R",
+      "destination": "project_setup.R"
+    },
+    {
+      "source": "shared/posit-cloud/renv.lock",
+      "destination": "renv.lock"
+    },
+    {
+      "source": "shared/posit-cloud/renv/activate.R",
+      "destination": "renv/activate.R"
+    },
+    {
+      "source": "shared/posit-cloud/renv/settings.json",
+      "destination": "renv/settings.json"
+    }
+  ],
+  "required_files": [
+    "Homework_03_IP.qmd",
+    "Homework_03_IP.Rproj",
+    "README.md",
+    "data/accident_wi.csv",
+    "data/airbnb_chicago.csv",
+    "data/hospital_charges_wi.csv",
+    "data/nfl_special_MasonCrosby.csv",
+    "renv.lock"
+  ],
+  "render": "Homework_03_IP.qmd"
+}
