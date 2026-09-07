@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Homework 6: Chi Squared Analysis – ECO 230 — Section 12</title>
+<title>Homework 6: Chi Squared Analysis – ECO 230</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-30e33b9170478032341da2de80696f6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -147,7 +147,7 @@ window.Quarto = {
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">ECO 230 — Section 12</span>
+    <span class="navbar-title">ECO 230</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -456,7 +456,7 @@ window.Quarto = {
 [1] "Chi Square Test of Goodness of Fit model on x=cancellation_policy (3 levels)"
 
 $results
-[1] "X2(2) = 182.008, p &lt; .001, w = 0.221, bf10 = 2.756e+35"
+[1] "X2(2) = 182.008, p = 0"
 
 $fit_model
 [1] "No Goodness of Fit model included"
@@ -495,7 +495,7 @@ $table_percentages
 <ol start="4" type="1">
 <li><strong>Statistical Interpretation</strong></li>
 </ol>
-<p>X2(2) = 182.008, p &lt; .001, w = 0.221, bf10 = 2.756e+35</p>
+<p>X2(2) = 182.008, p = 0</p>
 <p>p is less than 0.05 so we reject the null hypothesis. Cancellation_policy does not fit the expected model.</p>
 <ol start="5" type="1">
 <li><strong>Practical Interpretation</strong></li>
@@ -562,15 +562,17 @@ $table_percentages
 [1] "Chi Square Test of Association between cleaning_fee  and  bathrooms (2x3 contingency)"
 
 $results
-[1] "X2(2) = 8.844, p = 0.012, V = 0.044, bf10 = 0.332"
+[1] "X2(2) = 8.844, p = 0.012, bf10 = 0.332"
 
 $odds_ratio
 [1] "Odd Ratio only calculated for 2x2 contingency tables."
 
 $observed
-  cleaning_fee     1 1.5   2
-1         FALSE  695  57 129
-2          TRUE 2043 123 476
+# A tibble: 2 × 4
+  `cleaning_fee `   `1` `1.5`   `2`
+  &lt;fct&gt;           &lt;int&gt; &lt;int&gt; &lt;int&gt;
+1 FALSE             695    57   129
+2 TRUE             2043   123   476
 
 $expected
              X1      X1.5       X2
@@ -578,35 +580,45 @@ FALSE  684.6943  45.01277 151.2929
 TRUE  2053.3057 134.98723 453.7071
 
 $standardized_residuals
-  cleaning_fee           1       1.5         2
-1         FALSE  0.9634757  2.118014 -2.299649
-2          TRUE -0.9634757 -2.118014  2.299649
+# A tibble: 2 × 4
+  `cleaning_fee `    `1` `1.5`   `2`
+  &lt;fct&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 FALSE            0.963  2.12 -2.30
+2 TRUE            -0.963 -2.12  2.30
 
 $contribution
-  cleaning_fee       1     1.5       2
-1         FALSE 1.75 %  36.1 % 37.14 %
-2          TRUE 0.58 % 12.04 % 12.39 %
+# A tibble: 2 × 4
+  `cleaning_fee ` `1`    `1.5`   `2`    
+  &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;  
+1 FALSE           1.75 % 36.1 %  37.14 %
+2 TRUE            0.58 % 12.04 % 12.39 %
 
 $table_percentages
-  cleaning_fee        1    1.5       2
-1         FALSE 19.73 % 1.62 %  3.66 %
-2          TRUE 57.99 % 3.49 % 13.51 %
+# A tibble: 2 × 4
+  `cleaning_fee ` `1`     `1.5`  `2`    
+  &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  
+1 FALSE           19.73 % 1.62 % 3.66 % 
+2 TRUE            57.99 % 3.49 % 13.51 %
 
 $column_percentages
-  cleaning_fee        1     1.5       2
-1         FALSE 25.38 % 31.67 % 21.32 %
-2          TRUE 74.62 % 68.33 % 78.68 %
+# A tibble: 2 × 4
+  `cleaning_fee ` `1`     `1.5`   `2`    
+  &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+1 FALSE           25.38 % 31.67 % 21.32 %
+2 TRUE            74.62 % 68.33 % 78.68 %
 
 $row_percentages
-  cleaning_fee        1    1.5       2
-1         FALSE 78.89 % 6.47 % 14.64 %
-2          TRUE 77.33 % 4.66 % 18.02 %</code></pre>
+# A tibble: 2 × 4
+  `cleaning_fee ` `1`     `1.5`  `2`    
+  &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  
+1 FALSE           78.89 % 6.47 % 14.64 %
+2 TRUE            77.33 % 4.66 % 18.02 %</code></pre>
 </div>
 </div>
 <ol start="4" type="1">
 <li><strong>Statistical Interpretation</strong></li>
 </ol>
-<p>X2(2) = 8.844, p = 0.012, V = 0.044, bf10 = 0.332</p>
+<p>X2(2) = 8.844, p = 0.012, bf10 = 0.332</p>
 <p>Statistical Interpretation:</p>
 <ol start="5" type="1">
 <li><strong>Practical Interpretation</strong></li>

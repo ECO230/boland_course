@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="for BayeBayes">
-  <title>ECO 230 — Section 12 – Week 7 - Testing Hypotheses</title>
+  <title>ECO 230 – Week 7 - Testing Hypotheses</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -865,21 +865,21 @@ BF_{10} \approx \frac{2.33}{0.075} \approx 31
 <span id="cb1-2"><a></a>  <span class="fu">csi</span>(bed_type<span class="sc">~</span>room_type)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <h3 id="h1results">h1$results</h3>
-<p><strong>X2(8) = 327.875, p &lt; .001, V = 0.207, bf10 = 2.609e+19</strong></p>
+<p><strong>X2(8) = 327.875, p = 0, bf10 = 26091461984491266048</strong></p>
 <p><br></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>h2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
 <span id="cb2-2"><a></a>  <span class="fu">idt</span>(listed_price<span class="sc">~</span>cleaning_fee)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <h3 id="h2results">h2$results</h3>
-<p><strong>t(1455.02) = -1.682, p = 0.093, d = -0.067, bf10 = 0.203</strong></p>
+<p><strong>t(1455.02) = -1.682, p = 0.093, r = 0.044, bf10 = 0.203</strong></p>
 <p><br></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>h3 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a></a>  <span class="fu">ano</span>(listed_price<span class="sc">~</span>bed_type)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <h3 id="h3results">h3$results</h3>
-<p><strong>F(4,34.25) = 44.326, p &lt; .001, ξ = 0.504, bf10 = 8926.807</strong></p>
+<p><strong>F(4,34.25) = 44.326, p = 0, w = 0.556, bf10 = 8926.807</strong></p>
 </div></div>
 </section>
 <section id="what-effect-does-it-have-on-test-scores-2" class="slide level2">
@@ -1134,42 +1134,80 @@ BF_{10} \approx \frac{2.33}{0.075} \approx 31
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

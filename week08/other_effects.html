@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
-  <title>ECO 230 — Section 12 – Week 8 - Comparing Two Groups</title>
+  <title>ECO 230 – Week 8 - Comparing Two Groups</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -326,7 +326,7 @@
 <div class="fragment">
 <h3 id="step-4-do-we-believe-it">Step 4: Do we believe it?</h3>
 <p><code>h3$results</code></p>
-<p>t(21.39) = -1.681, p = 0.107, d = -0.686, bf10 = 1.013</p>
+<p>t(21.39) = -1.681, p = 0.107, r = 0.342, bf10 = 1.013</p>
 <p><br></p>
 <p><strong>Decision Rule:</strong></p>
 <ul>
@@ -348,7 +348,7 @@ p = 0.107 &gt; 0.05 → <strong>Fail to Reject H</strong><sub>0</sub></p>
 <!-- LEFT: test output -->
 <div style="display:flex; justify-content:flex-start; align-items:center;">
 <div style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;">
-<p><strong>t(21.39) = -1.681, p = 0.107, d = -0.686, bf10 = 1.013</strong></p>
+<p><strong>t(21.39) = -1.681, p = 0.107, r = 0.342, bf10 = 1.013</strong></p>
 </div>
 </div>
 <!-- RIGHT: Bayes factor anchor -->
@@ -524,7 +524,7 @@ Consistent, but not large</p>
 <div class="fragment">
 <h3 id="step-4-do-we-believe-it-1">Step 4: Do we believe it?</h3>
 <p><code>h4$results</code></p>
-<p>t(11) = -2.473, p = 0.031, d = -0.714, bf10 = 2.401</p>
+<p>t(11) = -2.473, p = 0.031, r = 0.598, bf10 = 2.401</p>
 <p><br></p>
 <p><strong>Decision Rule:</strong></p>
 <ul>
@@ -546,7 +546,7 @@ p = 0.031 &lt; 0.05 → <strong>Reject H</strong><sub>0</sub></p>
 <!-- LEFT: test output -->
 <div style="display:flex; justify-content:flex-start; align-items:center;">
 <div style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;">
-<p><strong>t(11) = -2.473, p = 0.031, d = -0.714, bf10 = 2.401</strong></p>
+<p><strong>t(11) = -2.473, p = 0.031, r = 0.598, bf10 = 2.401</strong></p>
 </div>
 </div>
 <!-- RIGHT: Bayes factor anchor -->
@@ -721,7 +721,7 @@ green_tea 12   47       3.183766</code></pre>
 <p><br></p>
 <div class="fragment">
 <h3 id="step-4-do-we-believe-it-2">Step 4: Do we believe it?</h3>
-<p>W = 46, p = 0.137, r_rb = -0.361, bf10 ≈ 1.013</p>
+<p>W = 46, p = 0.137, r = 0.303</p>
 <p><br></p>
 <p><strong>Decision Rule:</strong></p>
 <ul>
@@ -743,7 +743,7 @@ p = 0.137 &gt; 0.05 → <strong>Fail to Reject H</strong><sub>0</sub></p>
 <!-- LEFT: test output -->
 <div style="display:flex; justify-content:flex-start; align-items:center;">
 <div style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;">
-<p><strong>t(21.39) = -1.681, p = 0.107, d = -0.686, bf10 = 1.013</strong></p>
+<p><strong>t(21.39) = -1.681, p = 0.107, r = 0.342, bf10 = 1.013</strong></p>
 </div>
 </div>
 <!-- RIGHT: Bayes factor anchor -->
@@ -1431,42 +1431,80 @@ The predictor matters, but only explains a small share of the outcome</p>
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
