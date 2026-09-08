@@ -24,41 +24,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -250,7 +215,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#clinical-fact-files" id="toc-clinical-fact-files" class="nav-link" data-scroll-target="#clinical-fact-files">Clinical fact files</a></li>
   <li><a href="#financial-and-reference-files" id="toc-financial-and-reference-files" class="nav-link" data-scroll-target="#financial-and-reference-files">Financial and reference files</a></li>
   <li><a href="#how-the-files-relate" id="toc-how-the-files-relate" class="nav-link" data-scroll-target="#how-the-files-relate">How the files relate</a></li>
-  <li><a href="#example-encounter-level-diagnosis-counts" id="toc-example-encounter-level-diagnosis-counts" class="nav-link" data-scroll-target="#example-encounter-level-diagnosis-counts">Example: encounter-level diagnosis counts</a></li>
   <li><a href="#important-limitations-and-designed-issues" id="toc-important-limitations-and-designed-issues" class="nav-link" data-scroll-target="#important-limitations-and-designed-issues">Important limitations and designed issues</a></li>
   <li><a href="#terminology-privacy-and-provenance" id="toc-terminology-privacy-and-provenance" class="nav-link" data-scroll-target="#terminology-privacy-and-provenance">Terminology, privacy, and provenance</a></li>
   </ul>
@@ -307,8 +271,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Release:</strong> <code>project1/2026-fall/v1/health</code><br>
-<strong>Coverage:</strong> Simulated histories through December 31, 2025<br>
+<p><strong>Coverage:</strong> Simulated histories through December 31, 2025<br>
 <strong>Geography:</strong> Wisconsin and Minnesota<br>
 <strong>Patients:</strong> 5,694<br>
 <strong>License:</strong> Synthea software, Apache 2.0; adapted release, CC BY 4.0</p>
@@ -321,43 +284,43 @@ Note
 </section>
 <section id="core-and-analysis-files" class="level2">
 <h2 class="anchored" data-anchor-id="core-and-analysis-files">Core and analysis files</h2>
+<p>Course assignments provide <code>.csv</code> extracts from these tables. Extracts may cover a smaller time period, state, or type of care than the complete dataset.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>File</th>
-<th style="text-align: right;">Rows</th>
+<th>Table</th>
 <th>One row represents</th>
 <th>Primary key</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_patients.parquet"><code>ehr_patients.parquet</code></a></td>
-<td style="text-align: right;">5,694</td>
+<td><code>ehr_patients</code></td>
 <td>One synthetic patient</td>
 <td><code>patient_key</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_encounters.parquet"><code>ehr_encounters.parquet</code></a></td>
-<td style="text-align: right;">326,567</td>
+<td><code>ehr_encounters</code></td>
 <td>One healthcare encounter</td>
 <td><code>encounter_key</code></td>
 </tr>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_appointments.parquet"><code>ehr_appointments.parquet</code></a></td>
-<td style="text-align: right;">330,884</td>
+<td><code>ehr_appointments</code></td>
 <td>One scheduled appointment</td>
 <td><code>appointment_key</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_patient_satisfaction.parquet"><code>ehr_patient_satisfaction.parquet</code></a></td>
-<td style="text-align: right;">145,694</td>
+<td><code>ehr_patient_satisfaction</code></td>
 <td>One survey invitation, including nonresponses</td>
 <td><code>survey_key</code></td>
 </tr>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_encounter_analysis.parquet"><code>ehr_encounter_analysis.parquet</code></a></td>
-<td style="text-align: right;">326,567</td>
+<td><code>ehr_encounter_analysis</code></td>
 <td>One encounter with selected utilization and follow-up summaries</td>
 <td><code>encounter_key</code></td>
 </tr>
@@ -367,54 +330,51 @@ Note
 <section id="clinical-fact-files" class="level2">
 <h2 class="anchored" data-anchor-id="clinical-fact-files">Clinical fact files</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>File</th>
-<th style="text-align: right;">Rows</th>
+<th>Table</th>
 <th>One row represents</th>
 <th>Primary key</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_diagnoses.parquet"><code>ehr_diagnoses.parquet</code></a></td>
-<td style="text-align: right;">195,399</td>
+<td><code>ehr_diagnoses</code></td>
 <td>One condition episode documented at an encounter</td>
 <td><code>diagnosis_key</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_procedures.parquet"><code>ehr_procedures.parquet</code></a></td>
-<td style="text-align: right;">693,823</td>
+<td><code>ehr_procedures</code></td>
 <td>One procedure event</td>
 <td><code>procedure_key</code></td>
 </tr>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_medications.parquet"><code>ehr_medications.parquet</code></a></td>
-<td style="text-align: right;">251,127</td>
+<td><code>ehr_medications</code></td>
 <td>One medication episode</td>
 <td><code>medication_key</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_observations.parquet"><code>ehr_observations.parquet</code></a></td>
-<td style="text-align: right;">4,102,071</td>
+<td><code>ehr_observations</code></td>
 <td>One lab, vital-sign, or assessment result</td>
 <td><code>observation_key</code></td>
 </tr>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_allergies.parquet"><code>ehr_allergies.parquet</code></a></td>
-<td style="text-align: right;">4,986</td>
+<td><code>ehr_allergies</code></td>
 <td>One allergy or intolerance episode</td>
 <td><code>allergy_key</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_immunizations.parquet"><code>ehr_immunizations.parquet</code></a></td>
-<td style="text-align: right;">83,945</td>
+<td><code>ehr_immunizations</code></td>
 <td>One administered immunization</td>
 <td><code>immunization_key</code></td>
 </tr>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_careplans.parquet"><code>ehr_careplans.parquet</code></a></td>
-<td style="text-align: right;">18,482</td>
+<td><code>ehr_careplans</code></td>
 <td>One care-plan episode</td>
 <td><code>careplan_key</code></td>
 </tr>
@@ -424,48 +384,46 @@ Note
 <section id="financial-and-reference-files" class="level2">
 <h2 class="anchored" data-anchor-id="financial-and-reference-files">Financial and reference files</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>File</th>
-<th style="text-align: right;">Rows</th>
+<th>Table</th>
 <th>One row represents</th>
 <th>Primary key</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_claims.parquet"><code>ehr_claims.parquet</code></a></td>
-<td style="text-align: right;">577,694</td>
+<td><code>ehr_claims</code></td>
 <td>One healthcare claim</td>
 <td><code>claim_key</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_claim_transactions.parquet"><code>ehr_claim_transactions.parquet</code></a></td>
-<td style="text-align: right;">4,311,052</td>
+<td><code>ehr_claim_transactions</code></td>
 <td>One transaction on a claim</td>
 <td><code>claim_transaction_key</code></td>
 </tr>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_coverage_periods.parquet"><code>ehr_coverage_periods.parquet</code></a></td>
-<td style="text-align: right;">206,219</td>
+<td><code>ehr_coverage_periods</code></td>
 <td>One continuous payer-coverage period</td>
 <td><code>coverage_period_key</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_organizations.parquet"><code>ehr_organizations.parquet</code></a></td>
-<td style="text-align: right;">2,049</td>
+<td><code>ehr_organizations</code></td>
 <td>One simulated organization</td>
 <td><code>organization_key</code></td>
 </tr>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_providers.parquet"><code>ehr_providers.parquet</code></a></td>
-<td style="text-align: right;">2,049</td>
+<td><code>ehr_providers</code></td>
 <td>One synthetic clinician</td>
 <td><code>provider_key</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/health/ehr_payers.parquet"><code>ehr_payers.parquet</code></a></td>
-<td style="text-align: right;">10</td>
+<td><code>ehr_payers</code></td>
 <td>One payer organization</td>
 <td><code>payer_key</code></td>
 </tr>
@@ -482,23 +440,6 @@ Note
 <li><code>county_fips</code> supports a join from patients to compatible county-level population or geographic reference data.</li>
 </ul>
 <p>One encounter may have many diagnoses, procedures, medications, observations, and claim transactions. Aggregate each fact table independently before joining it to encounters.</p>
-</section>
-<section id="example-encounter-level-diagnosis-counts" class="level2">
-<h2 class="anchored" data-anchor-id="example-encounter-level-diagnosis-counts">Example: encounter-level diagnosis counts</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>base_url <span class="ot">&lt;-</span> <span class="st">"https://data.60land.com/project1/2026-fall/v1/health/"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>encounters <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="fu">paste0</span>(base_url, <span class="st">"ehr_encounters.parquet"</span>))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>diagnoses <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="fu">paste0</span>(base_url, <span class="st">"ehr_diagnoses.parquet"</span>))</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>diagnosis_summary <span class="ot">&lt;-</span> diagnoses <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(encounter_key, <span class="at">name =</span> <span class="st">"diagnosis_count"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>encounter_level <span class="ot">&lt;-</span> encounters <span class="sc">|&gt;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(diagnosis_summary, <span class="at">by =</span> <span class="st">"encounter_key"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diagnosis_count =</span> <span class="fu">coalesce</span>(diagnosis_count, <span class="dv">0</span>L))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="important-limitations-and-designed-issues" class="level2">
 <h2 class="anchored" data-anchor-id="important-limitations-and-designed-issues">Important limitations and designed issues</h2>

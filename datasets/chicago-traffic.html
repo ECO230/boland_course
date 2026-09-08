@@ -24,41 +24,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -248,7 +213,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#about-this-dataset" id="toc-about-this-dataset" class="nav-link active" data-scroll-target="#about-this-dataset">About this dataset</a></li>
   <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files">Files</a></li>
   <li><a href="#how-the-files-relate" id="toc-how-the-files-relate" class="nav-link" data-scroll-target="#how-the-files-relate">How the files relate</a></li>
-  <li><a href="#example-crash-level-vehicle-counts" id="toc-example-crash-level-vehicle-counts" class="nav-link" data-scroll-target="#example-crash-level-vehicle-counts">Example: crash-level vehicle counts</a></li>
   <li><a href="#important-limitations" id="toc-important-limitations" class="nav-link" data-scroll-target="#important-limitations">Important limitations</a></li>
   <li><a href="#provenance-and-privacy" id="toc-provenance-and-privacy" class="nav-link" data-scroll-target="#provenance-and-privacy">Provenance and privacy</a></li>
   </ul>
@@ -292,8 +256,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Release:</strong> <code>project1/2026-fall/v1/traffic</code><br>
-<strong>Coverage:</strong> January 1, 2018 through December 31, 2025<br>
+<p><strong>Coverage:</strong> January 1, 2018 through December 31, 2025<br>
 <strong>Geography:</strong> City of Chicago<br>
 <strong>License:</strong> City of Chicago Data Portal terms; NOAA observations are U.S. government data</p>
 </div>
@@ -305,37 +268,38 @@ Note
 </section>
 <section id="files" class="level2">
 <h2 class="anchored" data-anchor-id="files">Files</h2>
+<p>Course assignments provide <code>.csv</code> extracts from these tables. Extracts may cover a smaller time period than the complete dataset.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>File</th>
-<th style="text-align: right;">Rows</th>
+<th>Table</th>
 <th>One row represents</th>
 <th>Primary key</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_crashes.parquet"><code>chicago_traffic_crashes.parquet</code></a></td>
-<td style="text-align: right;">877,920</td>
+<td><code>chicago_traffic_crashes</code></td>
 <td>One crash</td>
 <td><code>crash_record_id</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_vehicles.parquet"><code>chicago_traffic_vehicles.parquet</code></a></td>
-<td style="text-align: right;">1,792,368</td>
+<td><code>chicago_traffic_vehicles</code></td>
 <td>One crash unit, usually a vehicle, pedestrian, or cyclist</td>
 <td><code>crash_unit_id</code></td>
 </tr>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_people.parquet"><code>chicago_traffic_people.parquet</code></a></td>
-<td style="text-align: right;">1,927,651</td>
+<td><code>chicago_traffic_people</code></td>
 <td>One person represented in a crash report</td>
 <td><code>person_id</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_crash_analysis.parquet"><code>chicago_traffic_crash_analysis.parquet</code></a></td>
-<td style="text-align: right;">877,920</td>
+<td><code>chicago_traffic_crash_analysis</code></td>
 <td>One crash with time, geography, and numeric weather</td>
 <td><code>crash_record_id</code></td>
 </tr>
@@ -388,22 +352,6 @@ Note
 </table>
 <p>Do not join vehicles and people directly to crashes and then total crash-level measures. A crash with three units and four people can become as many as twelve rows. Summarize the many-side table first unless person- or unit-level records are the intended result.</p>
 <p>Useful geographic fields include <code>state_fips</code>, <code>city_geoid</code>, <code>zip5</code>, <code>police_beat</code>, <code>latitude</code>, and <code>longitude</code>. ZIP codes are routing regions rather than Census geographies; for demographic analysis, a documented spatial join to a Census geography is generally stronger.</p>
-</section>
-<section id="example-crash-level-vehicle-counts" class="level2">
-<h2 class="anchored" data-anchor-id="example-crash-level-vehicle-counts">Example: crash-level vehicle counts</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>base_url <span class="ot">&lt;-</span> <span class="st">"https://data.60land.com/project1/2026-fall/v1/traffic/"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>crashes <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="fu">paste0</span>(base_url, <span class="st">"chicago_traffic_crashes.parquet"</span>))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>vehicles <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="fu">paste0</span>(base_url, <span class="st">"chicago_traffic_vehicles.parquet"</span>))</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>vehicle_summary <span class="ot">&lt;-</span> vehicles <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(crash_record_id, <span class="at">name =</span> <span class="st">"vehicle_rows"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>crash_level <span class="ot">&lt;-</span> crashes <span class="sc">|&gt;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(vehicle_summary, <span class="at">by =</span> <span class="st">"crash_record_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="important-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="important-limitations">Important limitations</h2>

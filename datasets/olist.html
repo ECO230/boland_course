@@ -24,41 +24,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -248,7 +213,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#about-this-dataset" id="toc-about-this-dataset" class="nav-link active" data-scroll-target="#about-this-dataset">About this dataset</a></li>
   <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files">Files</a></li>
   <li><a href="#how-the-files-relate" id="toc-how-the-files-relate" class="nav-link" data-scroll-target="#how-the-files-relate">How the files relate</a></li>
-  <li><a href="#example-build-an-order-level-item-summary" id="toc-example-build-an-order-level-item-summary" class="nav-link" data-scroll-target="#example-build-an-order-level-item-summary">Example: build an order-level item summary</a></li>
   <li><a href="#important-limitations" id="toc-important-limitations" class="nav-link" data-scroll-target="#important-limitations">Important limitations</a></li>
   <li><a href="#provenance-and-privacy" id="toc-provenance-and-privacy" class="nav-link" data-scroll-target="#provenance-and-privacy">Provenance and privacy</a></li>
   </ul>
@@ -292,8 +256,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Release:</strong> <code>project1/2026-fall/v1/olist</code><br>
-<strong>Commerce coverage:</strong> September 2016 through October 2018<br>
+<p><strong>Commerce coverage:</strong> September 2016 through October 2018<br>
 <strong>Marketing coverage:</strong> June 2017 through June 2018<br>
 <strong>Currency:</strong> Brazilian reais (BRL)<br>
 <strong>License:</strong> CC BY-NC-SA 4.0</p>
@@ -306,61 +269,58 @@ Note
 </section>
 <section id="files" class="level2">
 <h2 class="anchored" data-anchor-id="files">Files</h2>
+<p>Course assignments provide <code>.csv</code> extracts from these tables. Extracts may cover a smaller time period or geography than the complete dataset.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>File</th>
-<th style="text-align: right;">Rows</th>
+<th>Table</th>
 <th>One row represents</th>
 <th>Primary key</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/olist/olist_orders.parquet"><code>olist_orders.parquet</code></a></td>
-<td style="text-align: right;">99,441</td>
+<td><code>olist_orders</code></td>
 <td>One marketplace order</td>
 <td><code>order_key</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/olist/olist_order_items.parquet"><code>olist_order_items.parquet</code></a></td>
-<td style="text-align: right;">112,650</td>
+<td><code>olist_order_items</code></td>
 <td>One item sequence within an order</td>
 <td><code>order_key</code>, <code>order_item_number</code></td>
 </tr>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/olist/olist_payments.parquet"><code>olist_payments.parquet</code></a></td>
-<td style="text-align: right;">103,886</td>
+<td><code>olist_payments</code></td>
 <td>One payment sequence within an order</td>
 <td><code>order_key</code>, <code>payment_sequence</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/olist/olist_reviews.parquet"><code>olist_reviews.parquet</code></a></td>
-<td style="text-align: right;">98,673</td>
+<td><code>olist_reviews</code></td>
 <td>One reviewed order with aggregated scores</td>
 <td><code>order_key</code></td>
 </tr>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/olist/olist_products.parquet"><code>olist_products.parquet</code></a></td>
-<td style="text-align: right;">32,951</td>
+<td><code>olist_products</code></td>
 <td>One product</td>
 <td><code>product_key</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/olist/olist_sellers.parquet"><code>olist_sellers.parquet</code></a></td>
-<td style="text-align: right;">3,095</td>
+<td><code>olist_sellers</code></td>
 <td>One seller</td>
 <td><code>seller_key</code></td>
 </tr>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/olist/olist_marketing_leads.parquet"><code>olist_marketing_leads.parquet</code></a></td>
-<td style="text-align: right;">8,000</td>
+<td><code>olist_marketing_leads</code></td>
 <td>One sampled marketing-qualified lead</td>
 <td><code>lead_key</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/olist/olist_order_analysis.parquet"><code>olist_order_analysis.parquet</code></a></td>
-<td style="text-align: right;">99,441</td>
+<td><code>olist_order_analysis</code></td>
 <td>One order with selected commercial, review, and delivery summaries</td>
 <td><code>order_key</code></td>
 </tr>
@@ -370,29 +330,7 @@ Note
 <section id="how-the-files-relate" class="level2">
 <h2 class="anchored" data-anchor-id="how-the-files-relate">How the files relate</h2>
 <p><code>order_key</code> connects orders, items, payments, reviews, and the analysis table. Items then connect to products with <code>product_key</code> and sellers with <code>seller_key</code>. <code>customer_key</code> identifies repeat orders by the same anonymized customer. Converted marketing leads may connect to sellers with <code>seller_key</code>.</p>
-<p>Orders, items, and payments have different grains. Joining items and payments directly by <code>order_key</code> can multiply both item prices and payment amounts. Aggregate each to one row per order first, or begin with <code>olist_order_analysis.parquet</code>.</p>
-</section>
-<section id="example-build-an-order-level-item-summary" class="level2">
-<h2 class="anchored" data-anchor-id="example-build-an-order-level-item-summary">Example: build an order-level item summary</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>base_url <span class="ot">&lt;-</span> <span class="st">"https://data.60land.com/project1/2026-fall/v1/olist/"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>orders <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="fu">paste0</span>(base_url, <span class="st">"olist_orders.parquet"</span>))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="fu">paste0</span>(base_url, <span class="st">"olist_order_items.parquet"</span>))</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>item_summary <span class="ot">&lt;-</span> items <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(order_key) <span class="sc">|&gt;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">item_count =</span> <span class="fu">n</span>(),</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">merchandise_value =</span> <span class="fu">sum</span>(item_price, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">freight_value =</span> <span class="fu">sum</span>(freight_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>order_level <span class="ot">&lt;-</span> orders <span class="sc">|&gt;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(item_summary, <span class="at">by =</span> <span class="st">"order_key"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Orders, items, and payments have different grains. Joining items and payments directly by <code>order_key</code> can multiply both item prices and payment amounts. Aggregate each to one row per order first, or begin with the provided <code>olist_order_analysis</code> file.</p>
 </section>
 <section id="important-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="important-limitations">Important limitations</h2>

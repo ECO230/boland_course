@@ -24,41 +24,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -247,7 +212,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#current-project-datasets" id="toc-current-project-datasets" class="nav-link active" data-scroll-target="#current-project-datasets">Current project datasets</a></li>
   <li><a href="#legacy-backup-datasets" id="toc-legacy-backup-datasets" class="nav-link" data-scroll-target="#legacy-backup-datasets">Legacy backup datasets</a></li>
-  <li><a href="#reading-parquet-in-r" id="toc-reading-parquet-in-r" class="nav-link" data-scroll-target="#reading-parquet-in-r">Reading Parquet in R</a></li>
   <li><a href="#general-joining-rule" id="toc-general-joining-rule" class="nav-link" data-scroll-target="#general-joining-rule">General joining rule</a></li>
   </ul>
 </nav>
@@ -279,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>These datasets are curated for ECO 230. Each release is immutable: the files at a versioned URL will not be silently replaced. Download only the tables your question requires, preserve their row grain, and validate every join.</p>
+<p>These datasets are curated for ECO 230. Assignments and projects provide the appropriate <code>.csv</code> files in Canvas or Posit Cloud. Preserve each file’s row grain and validate every join.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -290,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Each dataset page explains the available files, what one row represents, the useful join keys, common analytical mistakes, and a short R example. Parquet files are smaller and faster than equivalent CSV files and preserve dates and numeric types.</p>
+<p>Each dataset page explains the available files, what one row represents, the useful join keys, and common analytical mistakes. Use the files supplied with your assignment; you do not need to retrieve the underlying course data.</p>
 </div>
 </div>
 <section id="current-project-datasets" class="level2">
@@ -362,16 +326,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-</section>
-<section id="reading-parquet-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="reading-parquet-in-r">Reading Parquet in R</h2>
-<p>Install <code>arrow</code> once if it is not already in the project, then read a file directly from the course data service.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"arrow"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="st">"https://data.60land.com/project1/2026-fall/v1/olist/olist_order_analysis.parquet"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>For reproducible work, keep the versioned URL in your script. Do not replace it with an unversioned “latest” link.</p>
 </section>
 <section id="general-joining-rule" class="level2">
 <h2 class="anchored" data-anchor-id="general-joining-rule">General joining rule</h2>

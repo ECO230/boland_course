@@ -907,7 +907,7 @@
     "href": "week04/Homework_04.html#resources",
     "title": "Homework 4: Project Story Planning",
     "section": "Resources",
-    "text": "Resources\n\nYour project dataset in posit.cloud (the one you plan to use for the group project)\nWeek 4 readings on writing/presenting with data (Canvas → Week 4)\nWeek 4 slides: Telling Stories with Data\n\n\n\n\n\n\n\nTipImportant\n\n\n\n\nThis is planning, not execution. You are not running tests yet.\nBullets and notes are expected. Full paragraphs are not required.\nAim for clarity and feasibility: ideas should be testable (or clearly explain what data is missing)."
+    "text": "Resources\n\nOpen Homework 4 in Posit Cloud\nThe course .csv extract in Posit Cloud that matches your project domain\nWeek 4 readings on writing/presenting with data (Canvas → Week 4)\nWeek 4 slides: Telling Stories with Data\n\n\n\n\n\n\n\nTipImportant\n\n\n\n\nThis is planning, not execution. You are not running tests yet.\nBullets and notes are expected. Full paragraphs are not required.\nAim for clarity and feasibility: ideas should be testable (or clearly explain what data is missing)."
   },
   {
     "objectID": "week04/Homework_04.html#confirm-your-dataset-project",
@@ -921,14 +921,14 @@
     "href": "week04/Homework_04.html#write-5-data-headlines-takeaways",
     "title": "Homework 4: Project Story Planning",
     "section": "2) Write 5 Data Headlines (Takeaways)",
-    "text": "2) Write 5 Data Headlines (Takeaways)\nWrite five potential data headlines your dataset could support.\nEach headline should:\n\nbe a complete sentence\nstate a takeaway (a claim), not a topic\navoid numbers and test statistics\n\nGood headlines (claims)\n\nDrivers in northern states experience fewer accidents during freezing conditions than drivers in southern states.\nSan Francisco offers better Airbnb value (price relative to ratings) than other major U.S. cities.\nVisiting kickers miss field goals more often at Raymond James Stadium than at other stadiums.\n\nWeak headlines (topics)\n\nAccident severity and temperature\nAirbnb prices by city\nField goal analysis"
+    "text": "2) Write 5 Data Headlines (Takeaways)\nWrite five potential data headlines your dataset could support.\nEach headline should:\n\nbe a complete sentence\nstate a takeaway (a claim), not a topic\navoid numbers and test statistics\n\nGood headlines (claims)\n\nChicago crashes are more likely to involve injuries under some road and lighting conditions.\nLate Olist deliveries receive lower review scores than on-time deliveries.\nReminder use and scheduling lead time are related to synthetic appointment no-shows.\n\nWeak headlines (topics)\n\nCrash injuries and lighting\nOlist delivery and reviews\nAppointment no-shows"
   },
   {
     "objectID": "week04/Homework_04.html#for-each-headline-3-relationships-variables",
     "href": "week04/Homework_04.html#for-each-headline-3-relationships-variables",
     "title": "Homework 4: Project Story Planning",
     "section": "3) For Each Headline: 3 Relationships + Variables",
-    "text": "3) For Each Headline: 3 Relationships + Variables\nFor each of your 5 headlines, list:\n\nA) Three relationships you could investigate\nRelationships describe what you would compare/examine, not results.\nExample relationships (for the accident headline):\n\nAverage accident severity by region when temperature &lt; 32°F\nNumber of accidents before vs. after winter weather events by region\nAccident rate per capita by region during winter months\n\n\n\nB) Variables needed for each relationship\nFor each relationship:\n\nlist the variables involved\nlabel each variable as:\n\nExists (already in the dataset)\nDerived (you will calculate/recategorize it)\nExternal (you would need to join a new data source)\n\n\nExample:\n\nSeverity (Exists)\nState (Exists)\nRegion: North vs South (Derived)\nTemperature (Exists)\nPopulation by zip code (External)"
+    "text": "3) For Each Headline: 3 Relationships + Variables\nFor each of your 5 headlines, list:\n\nA) Three relationships you could investigate\nRelationships describe what you would compare/examine, not results.\nExample relationships (for the Chicago crash headline):\n\nInjury proportion by lighting condition\nInjury proportion by reported road surface\nMedian injury count by time period\n\n\n\nB) Variables needed for each relationship\nFor each relationship:\n\nlist the variables involved\nlabel each variable as:\n\nExists (already in the dataset)\nDerived (you will calculate/recategorize it)\nExternal (you would need to join a new data source)\n\n\nExample:\n\nSeverity (Exists)\nState (Exists)\nRegion: North vs South (Derived)\nTemperature (Exists)\nPopulation by zip code (External)"
   },
   {
     "objectID": "week04/Homework_04.html#analysis-plan-outline-do-this-for-all-5-stories",
@@ -1019,14 +1019,14 @@
     "href": "week02/Homework_02.html#resources",
     "title": "Homework 2: Exploratory Analysis",
     "section": "Resources",
-    "text": "Resources\n\nWeek 2 slides (Size, Center, Shape, Relationships; Percentage Problems)\nWeek 1 slides (Unit of Analysis / Grain; Dimensions vs Measures; Tidy Data)\nDataset description files on Canvas\n\n\n\n\n\n\n\nTipImportant\n\n\n\nThis assignment is graded for clear, careful completion.\n\nNo charts this week.\nYour job is to be explicit and disciplined about what one row represents, what your denominators are, and which summaries are meaningful."
+    "text": "Resources\n\nOpen Homework 2 in Posit Cloud\nWeek 2 slides (Size, Center, Shape, Relationships; Percentage Problems)\nWeek 1 slides (Unit of Analysis / Grain; Dimensions vs Measures; Tidy Data)\nDataset description files on Canvas\n\n\n\n\n\n\n\nTipImportant\n\n\n\nThis assignment is graded for clear, careful completion.\n\nNo charts this week.\nYour job is to be explicit and disciplined about what one row represents, what your denominators are, and which summaries are meaningful."
   },
   {
     "objectID": "week02/Homework_02.html#choose-your-dataset-week-1",
     "href": "week02/Homework_02.html#choose-your-dataset-week-1",
     "title": "Homework 2: Exploratory Analysis",
     "section": "1) Choose Your Dataset (Week 1)",
-    "text": "1) Choose Your Dataset (Week 1)\n\nSelect one of the four Week 1 datasets.\nYou may keep the same dataset from Homework 1 or switch.\nIn your submission, state:\n\n\nWhich dataset you used\nAny filters or cleaning steps (e.g., removing blanks, focusing on a date range)\n\n(No written response required beyond the brief notes above.)"
+    "text": "1) Choose Your Dataset (Week 1)\n\nSelect one of the five Week 1 datasets.\nYou may keep the same dataset from Homework 1 or switch.\nIn your submission, state:\n\n\nWhich dataset you used\nAny filters or cleaning steps (e.g., removing blanks, focusing on a date range)\n\n(No written response required beyond the brief notes above.)"
   },
   {
     "objectID": "week02/Homework_02.html#tools-you-may-mix-and-match",
@@ -1691,7 +1691,7 @@
     "href": "week07/week_07.html#libraryeco230r",
     "title": "Week 7 - Testing Hypotheses",
     "section": "library(eco230r)",
-    "text": "library(eco230r)\n\n\n\n\n\nh1 &lt;- df %&gt;%\n  csi(bed_type~room_type)\n\nh1$results\nX2(8) = 327.875, p &lt; .001, V = 0.207, bf10 = 2.609e+19\n\n\nh2 &lt;- df %&gt;%\n  idt(listed_price~cleaning_fee)\n\nh2$results\nt(1455.02) = -1.682, p = 0.093, d = -0.067, bf10 = 0.203\n\n\nh3 &lt;- df %&gt;%\n  ano(listed_price~bed_type)\n\nh3$results\nF(4,34.25) = 44.326, p &lt; .001, ξ = 0.559, bf10 = 8926.807"
+    "text": "library(eco230r)\n\n\n\n\n\nh1 &lt;- df %&gt;%\n  csi(bed_type~room_type)\n\nh1$results\nX2(8) = 327.875, p &lt; .001, V = 0.207, bf10 = 2.609e+19\n\n\nh2 &lt;- df %&gt;%\n  idt(listed_price~cleaning_fee)\n\nh2$results\nt(1455.02) = -1.682, p = 0.093, d = -0.067, bf10 = 0.203\n\n\nh3 &lt;- df %&gt;%\n  ano(listed_price~bed_type)\n\nh3$results\nF(4,34.25) = 44.326, p &lt; .001, ξ = 0.573, bf10 = 8926.807"
   },
   {
     "objectID": "week07/week_07.html#what-effect-does-it-have-on-test-scores-2",
@@ -2531,7 +2531,7 @@
     "href": "datasets/olist.html",
     "title": "Olist Marketplace",
     "section": "",
-    "text": "Note\n\n\n\nRelease: project1/2026-fall/v1/olist\nCommerce coverage: September 2016 through October 2018\nMarketing coverage: June 2017 through June 2018\nCurrency: Brazilian reais (BRL)\nLicense: CC BY-NC-SA 4.0"
+    "text": "Note\n\n\n\nCommerce coverage: September 2016 through October 2018\nMarketing coverage: June 2017 through June 2018\nCurrency: Brazilian reais (BRL)\nLicense: CC BY-NC-SA 4.0"
   },
   {
     "objectID": "datasets/olist.html#about-this-dataset",
@@ -2545,21 +2545,14 @@
     "href": "datasets/olist.html#files",
     "title": "Olist Marketplace",
     "section": "Files",
-    "text": "Files\n\n\n\nFile\nRows\nOne row represents\nPrimary key\n\n\n\n\nolist_orders.parquet\n99,441\nOne marketplace order\norder_key\n\n\nolist_order_items.parquet\n112,650\nOne item sequence within an order\norder_key, order_item_number\n\n\nolist_payments.parquet\n103,886\nOne payment sequence within an order\norder_key, payment_sequence\n\n\nolist_reviews.parquet\n98,673\nOne reviewed order with aggregated scores\norder_key\n\n\nolist_products.parquet\n32,951\nOne product\nproduct_key\n\n\nolist_sellers.parquet\n3,095\nOne seller\nseller_key\n\n\nolist_marketing_leads.parquet\n8,000\nOne sampled marketing-qualified lead\nlead_key\n\n\nolist_order_analysis.parquet\n99,441\nOne order with selected commercial, review, and delivery summaries\norder_key"
+    "text": "Files\nCourse assignments provide .csv extracts from these tables. Extracts may cover a smaller time period or geography than the complete dataset.\n\n\n\n\n\n\n\n\nTable\nOne row represents\nPrimary key\n\n\n\n\nolist_orders\nOne marketplace order\norder_key\n\n\nolist_order_items\nOne item sequence within an order\norder_key, order_item_number\n\n\nolist_payments\nOne payment sequence within an order\norder_key, payment_sequence\n\n\nolist_reviews\nOne reviewed order with aggregated scores\norder_key\n\n\nolist_products\nOne product\nproduct_key\n\n\nolist_sellers\nOne seller\nseller_key\n\n\nolist_marketing_leads\nOne sampled marketing-qualified lead\nlead_key\n\n\nolist_order_analysis\nOne order with selected commercial, review, and delivery summaries\norder_key"
   },
   {
     "objectID": "datasets/olist.html#how-the-files-relate",
     "href": "datasets/olist.html#how-the-files-relate",
     "title": "Olist Marketplace",
     "section": "How the files relate",
-    "text": "How the files relate\norder_key connects orders, items, payments, reviews, and the analysis table. Items then connect to products with product_key and sellers with seller_key. customer_key identifies repeat orders by the same anonymized customer. Converted marketing leads may connect to sellers with seller_key.\nOrders, items, and payments have different grains. Joining items and payments directly by order_key can multiply both item prices and payment amounts. Aggregate each to one row per order first, or begin with olist_order_analysis.parquet."
-  },
-  {
-    "objectID": "datasets/olist.html#example-build-an-order-level-item-summary",
-    "href": "datasets/olist.html#example-build-an-order-level-item-summary",
-    "title": "Olist Marketplace",
-    "section": "Example: build an order-level item summary",
-    "text": "Example: build an order-level item summary\nlibrary(arrow)\nlibrary(dplyr)\n\nbase_url &lt;- \"https://data.60land.com/project1/2026-fall/v1/olist/\"\n\norders &lt;- read_parquet(paste0(base_url, \"olist_orders.parquet\"))\nitems &lt;- read_parquet(paste0(base_url, \"olist_order_items.parquet\"))\n\nitem_summary &lt;- items |&gt;\n  group_by(order_key) |&gt;\n  summarize(\n    item_count = n(),\n    merchandise_value = sum(item_price, na.rm = TRUE),\n    freight_value = sum(freight_value, na.rm = TRUE),\n    .groups = \"drop\"\n  )\n\norder_level &lt;- orders |&gt;\n  left_join(item_summary, by = \"order_key\")"
+    "text": "How the files relate\norder_key connects orders, items, payments, reviews, and the analysis table. Items then connect to products with product_key and sellers with seller_key. customer_key identifies repeat orders by the same anonymized customer. Converted marketing leads may connect to sellers with seller_key.\nOrders, items, and payments have different grains. Joining items and payments directly by order_key can multiply both item prices and payment amounts. Aggregate each to one row per order first, or begin with the provided olist_order_analysis file."
   },
   {
     "objectID": "datasets/olist.html#important-limitations",
@@ -2594,14 +2587,7 @@
     "href": "datasets/legacy-traffic.html#file",
     "title": "Legacy U.S. Accidents Sample",
     "section": "File",
-    "text": "File\n\n\n\nFile\nRows\nOne row represents\nPrimary key\n\n\n\n\nlegacy_us_accidents_100k.parquet\n100,000\nOne sampled traffic incident\nlegacy_source_index\n\n\n\nid retains the source incident identifier. Column names have been normalized to snake case."
-  },
-  {
-    "objectID": "datasets/legacy-traffic.html#example",
-    "href": "datasets/legacy-traffic.html#example",
-    "title": "Legacy U.S. Accidents Sample",
-    "section": "Example",
-    "text": "Example\nlibrary(arrow)\nlibrary(dplyr)\n\naccidents &lt;- read_parquet(\n  \"https://data.60land.com/project1/2026-fall/v1/legacy-traffic/legacy_us_accidents_100k.parquet\"\n)\n\naccidents |&gt;\n  count(state, severity, sort = TRUE)"
+    "text": "File\n\n\n\n\n\n\n\n\n\nTable\nRows\nOne row represents\nPrimary key\n\n\n\n\nlegacy_us_accidents_100k\n100,000\nOne sampled traffic incident\nlegacy_source_index\n\n\n\nid retains the source incident identifier. Column names have been normalized to snake case."
   },
   {
     "objectID": "datasets/legacy-traffic.html#joining-and-enrichment",
@@ -2629,7 +2615,7 @@
     "href": "datasets/index.html",
     "title": "ECO 230 Dataset Catalog",
     "section": "",
-    "text": "These datasets are curated for ECO 230. Each release is immutable: the files at a versioned URL will not be silently replaced. Download only the tables your question requires, preserve their row grain, and validate every join."
+    "text": "These datasets are curated for ECO 230. Assignments and projects provide the appropriate .csv files in Canvas or Posit Cloud. Preserve each file’s row grain and validate every join."
   },
   {
     "objectID": "datasets/index.html#current-project-datasets",
@@ -2646,13 +2632,6 @@
     "text": "Legacy backup datasets\nThese smaller single-file datasets remain available for projects that need a simpler structure. They are suitable for backup use, but their age and scope limitations should be part of the analysis.\n\n\n\nDataset\nScope\nRows\n\n\n\n\nLegacy U.S. Accidents Sample\nNationwide 100,000-row sample\n100,000\n\n\nLegacy CMS Inpatient Charges\nFY2011 hospital and MS-DRG summaries\n163,065"
   },
   {
-    "objectID": "datasets/index.html#reading-parquet-in-r",
-    "href": "datasets/index.html#reading-parquet-in-r",
-    "title": "ECO 230 Dataset Catalog",
-    "section": "Reading Parquet in R",
-    "text": "Reading Parquet in R\nInstall arrow once if it is not already in the project, then read a file directly from the course data service.\ninstall.packages(\"arrow\")\n\nlibrary(arrow)\n\ndata &lt;- read_parquet(\"https://data.60land.com/project1/2026-fall/v1/olist/olist_order_analysis.parquet\")\nFor reproducible work, keep the versioned URL in your script. Do not replace it with an unversioned “latest” link."
-  },
-  {
     "objectID": "datasets/index.html#general-joining-rule",
     "href": "datasets/index.html#general-joining-rule",
     "title": "ECO 230 Dataset Catalog",
@@ -2664,7 +2643,7 @@
     "href": "datasets/chicago-traffic.html",
     "title": "Chicago Traffic Crashes",
     "section": "",
-    "text": "Note\n\n\n\nRelease: project1/2026-fall/v1/traffic\nCoverage: January 1, 2018 through December 31, 2025\nGeography: City of Chicago\nLicense: City of Chicago Data Portal terms; NOAA observations are U.S. government data"
+    "text": "Note\n\n\n\nCoverage: January 1, 2018 through December 31, 2025\nGeography: City of Chicago\nLicense: City of Chicago Data Portal terms; NOAA observations are U.S. government data"
   },
   {
     "objectID": "datasets/chicago-traffic.html#about-this-dataset",
@@ -2678,7 +2657,7 @@
     "href": "datasets/chicago-traffic.html#files",
     "title": "Chicago Traffic Crashes",
     "section": "Files",
-    "text": "Files\n\n\n\nFile\nRows\nOne row represents\nPrimary key\n\n\n\n\nchicago_traffic_crashes.parquet\n877,920\nOne crash\ncrash_record_id\n\n\nchicago_traffic_vehicles.parquet\n1,792,368\nOne crash unit, usually a vehicle, pedestrian, or cyclist\ncrash_unit_id\n\n\nchicago_traffic_people.parquet\n1,927,651\nOne person represented in a crash report\nperson_id\n\n\nchicago_traffic_crash_analysis.parquet\n877,920\nOne crash with time, geography, and numeric weather\ncrash_record_id"
+    "text": "Files\nCourse assignments provide .csv extracts from these tables. Extracts may cover a smaller time period than the complete dataset.\n\n\n\n\n\n\n\n\nTable\nOne row represents\nPrimary key\n\n\n\n\nchicago_traffic_crashes\nOne crash\ncrash_record_id\n\n\nchicago_traffic_vehicles\nOne crash unit, usually a vehicle, pedestrian, or cyclist\ncrash_unit_id\n\n\nchicago_traffic_people\nOne person represented in a crash report\nperson_id\n\n\nchicago_traffic_crash_analysis\nOne crash with time, geography, and numeric weather\ncrash_record_id"
   },
   {
     "objectID": "datasets/chicago-traffic.html#how-the-files-relate",
@@ -2686,13 +2665,6 @@
     "title": "Chicago Traffic Crashes",
     "section": "How the files relate",
     "text": "How the files relate\n\n\n\n\n\n\n\n\n\nFrom\nTo\nJoin key\nRelationship\n\n\n\n\nCrashes\nCrash analysis\ncrash_record_id\nOne-to-one\n\n\nCrashes\nVehicles\ncrash_record_id\nOne-to-many\n\n\nCrashes\nPeople\ncrash_record_id\nOne-to-many\n\n\nVehicles\nPeople\nvehicle_id\nOne-to-many when the person is linked to a unit\n\n\n\nDo not join vehicles and people directly to crashes and then total crash-level measures. A crash with three units and four people can become as many as twelve rows. Summarize the many-side table first unless person- or unit-level records are the intended result.\nUseful geographic fields include state_fips, city_geoid, zip5, police_beat, latitude, and longitude. ZIP codes are routing regions rather than Census geographies; for demographic analysis, a documented spatial join to a Census geography is generally stronger."
-  },
-  {
-    "objectID": "datasets/chicago-traffic.html#example-crash-level-vehicle-counts",
-    "href": "datasets/chicago-traffic.html#example-crash-level-vehicle-counts",
-    "title": "Chicago Traffic Crashes",
-    "section": "Example: crash-level vehicle counts",
-    "text": "Example: crash-level vehicle counts\nlibrary(arrow)\nlibrary(dplyr)\n\nbase_url &lt;- \"https://data.60land.com/project1/2026-fall/v1/traffic/\"\n\ncrashes &lt;- read_parquet(paste0(base_url, \"chicago_traffic_crashes.parquet\"))\nvehicles &lt;- read_parquet(paste0(base_url, \"chicago_traffic_vehicles.parquet\"))\n\nvehicle_summary &lt;- vehicles |&gt;\n  count(crash_record_id, name = \"vehicle_rows\")\n\ncrash_level &lt;- crashes |&gt;\n  left_join(vehicle_summary, by = \"crash_record_id\")"
   },
   {
     "objectID": "datasets/chicago-traffic.html#important-limitations",
@@ -2720,7 +2692,7 @@
     "href": "datasets/airline.html",
     "title": "U.S. Airline Marketplace",
     "section": "",
-    "text": "Note\n\n\n\nRelease: project1/2026-fall/v1/airline\nCoverage: Calendar year 2024\nGeography: Domestic U.S. scheduled passenger markets\nLicense: U.S. federal government public data"
+    "text": "Note\n\n\n\nCoverage: Calendar year 2024\nGeography: Domestic U.S. scheduled passenger markets\nLicense: U.S. federal government public data"
   },
   {
     "objectID": "datasets/airline.html#about-this-dataset",
@@ -2734,7 +2706,7 @@
     "href": "datasets/airline.html#files",
     "title": "U.S. Airline Marketplace",
     "section": "Files",
-    "text": "Files\n\n\n\nFile\nRows\nOne row represents\nPrimary key\n\n\n\n\nairline_flights.parquet\n7,546,968\nOne reported scheduled domestic marketing-carrier flight\nflight_key\n\n\nairline_airports.parquet\n359\nOne BTS airport represented in the flight table\nairport_id\n\n\nairline_route_quarter.parquet\n606,970\nOne directional route, ticketing carrier, year, and quarter\nroute + carrier + quarter\n\n\nairline_carrier_month.parquet\n120\nOne marketing carrier and calendar month\nmonth, marketing_carrier_code"
+    "text": "Files\nCourse assignments provide .csv extracts from these tables. Extracts may cover a smaller time period or geography than the complete dataset.\n\n\n\n\n\n\n\n\nTable\nOne row represents\nPrimary key\n\n\n\n\nairline_flights\nOne reported scheduled domestic marketing-carrier flight\nflight_key\n\n\nairline_airports\nOne BTS airport represented in the flight table\nairport_id\n\n\nairline_route_quarter\nOne directional route, ticketing carrier, year, and quarter\nroute + carrier + quarter\n\n\nairline_carrier_month\nOne marketing carrier and calendar month\nmonth, marketing_carrier_code"
   },
   {
     "objectID": "datasets/airline.html#how-the-files-relate",
@@ -2742,13 +2714,6 @@
     "title": "U.S. Airline Marketplace",
     "section": "How the files relate",
     "text": "How the files relate\n\n\n\n\n\n\n\nAnalysis\nRecommended connection\n\n\n\n\nAirport characteristics\nJoin airport lookup twice: once to origin and once to destination\n\n\nCarrier operational trend\nAggregate flights or use airline_carrier_month; join by month and marketing carrier\n\n\nFare and route service\nAggregate flights to directional route, quarter, and an explicitly chosen carrier definition before joining to route-quarter fares\n\n\n\nTicketing, marketing, and operating carriers are not interchangeable. A ticket may be sold by one carrier and a flight marketed or operated by another. State which carrier concept your question uses."
-  },
-  {
-    "objectID": "datasets/airline.html#example-carrier-month-performance",
-    "href": "datasets/airline.html#example-carrier-month-performance",
-    "title": "U.S. Airline Marketplace",
-    "section": "Example: carrier-month performance",
-    "text": "Example: carrier-month performance\nlibrary(arrow)\nlibrary(dplyr)\n\nbase_url &lt;- \"https://data.60land.com/project1/2026-fall/v1/airline/\"\n\ncarrier_month &lt;- read_parquet(paste0(base_url, \"airline_carrier_month.parquet\"))\n\ncarrier_month |&gt;\n  arrange(desc(cancellation_rate)) |&gt;\n  select(month, marketing_carrier_code, scheduled_flights,\n         cancellation_rate, delayed_15_rate, mean_arrival_delay_minutes)"
   },
   {
     "objectID": "datasets/airline.html#important-limitations",
@@ -2783,21 +2748,21 @@
     "href": "datasets/health.html#core-and-analysis-files",
     "title": "Great Lakes Synthetic Health Records",
     "section": "Core and analysis files",
-    "text": "Core and analysis files\n\n\n\nFile\nRows\nOne row represents\nPrimary key\n\n\n\n\nehr_patients.parquet\n5,694\nOne synthetic patient\npatient_key\n\n\nehr_encounters.parquet\n326,567\nOne healthcare encounter\nencounter_key\n\n\nehr_appointments.parquet\n330,884\nOne scheduled appointment\nappointment_key\n\n\nehr_patient_satisfaction.parquet\n145,694\nOne survey invitation, including nonresponses\nsurvey_key\n\n\nehr_encounter_analysis.parquet\n326,567\nOne encounter with selected utilization and follow-up summaries\nencounter_key"
+    "text": "Core and analysis files\nCourse assignments provide .csv extracts from these tables. Extracts may cover a smaller time period, state, or type of care than the complete dataset.\n\n\n\n\n\n\n\n\nTable\nOne row represents\nPrimary key\n\n\n\n\nehr_patients\nOne synthetic patient\npatient_key\n\n\nehr_encounters\nOne healthcare encounter\nencounter_key\n\n\nehr_appointments\nOne scheduled appointment\nappointment_key\n\n\nehr_patient_satisfaction\nOne survey invitation, including nonresponses\nsurvey_key\n\n\nehr_encounter_analysis\nOne encounter with selected utilization and follow-up summaries\nencounter_key"
   },
   {
     "objectID": "datasets/health.html#clinical-fact-files",
     "href": "datasets/health.html#clinical-fact-files",
     "title": "Great Lakes Synthetic Health Records",
     "section": "Clinical fact files",
-    "text": "Clinical fact files\n\n\n\nFile\nRows\nOne row represents\nPrimary key\n\n\n\n\nehr_diagnoses.parquet\n195,399\nOne condition episode documented at an encounter\ndiagnosis_key\n\n\nehr_procedures.parquet\n693,823\nOne procedure event\nprocedure_key\n\n\nehr_medications.parquet\n251,127\nOne medication episode\nmedication_key\n\n\nehr_observations.parquet\n4,102,071\nOne lab, vital-sign, or assessment result\nobservation_key\n\n\nehr_allergies.parquet\n4,986\nOne allergy or intolerance episode\nallergy_key\n\n\nehr_immunizations.parquet\n83,945\nOne administered immunization\nimmunization_key\n\n\nehr_careplans.parquet\n18,482\nOne care-plan episode\ncareplan_key"
+    "text": "Clinical fact files\n\n\n\n\n\n\n\n\nTable\nOne row represents\nPrimary key\n\n\n\n\nehr_diagnoses\nOne condition episode documented at an encounter\ndiagnosis_key\n\n\nehr_procedures\nOne procedure event\nprocedure_key\n\n\nehr_medications\nOne medication episode\nmedication_key\n\n\nehr_observations\nOne lab, vital-sign, or assessment result\nobservation_key\n\n\nehr_allergies\nOne allergy or intolerance episode\nallergy_key\n\n\nehr_immunizations\nOne administered immunization\nimmunization_key\n\n\nehr_careplans\nOne care-plan episode\ncareplan_key"
   },
   {
     "objectID": "datasets/health.html#financial-and-reference-files",
     "href": "datasets/health.html#financial-and-reference-files",
     "title": "Great Lakes Synthetic Health Records",
     "section": "Financial and reference files",
-    "text": "Financial and reference files\n\n\n\nFile\nRows\nOne row represents\nPrimary key\n\n\n\n\nehr_claims.parquet\n577,694\nOne healthcare claim\nclaim_key\n\n\nehr_claim_transactions.parquet\n4,311,052\nOne transaction on a claim\nclaim_transaction_key\n\n\nehr_coverage_periods.parquet\n206,219\nOne continuous payer-coverage period\ncoverage_period_key\n\n\nehr_organizations.parquet\n2,049\nOne simulated organization\norganization_key\n\n\nehr_providers.parquet\n2,049\nOne synthetic clinician\nprovider_key\n\n\nehr_payers.parquet\n10\nOne payer organization\npayer_key"
+    "text": "Financial and reference files\n\n\n\n\n\n\n\n\nTable\nOne row represents\nPrimary key\n\n\n\n\nehr_claims\nOne healthcare claim\nclaim_key\n\n\nehr_claim_transactions\nOne transaction on a claim\nclaim_transaction_key\n\n\nehr_coverage_periods\nOne continuous payer-coverage period\ncoverage_period_key\n\n\nehr_organizations\nOne simulated organization\norganization_key\n\n\nehr_providers\nOne synthetic clinician\nprovider_key\n\n\nehr_payers\nOne payer organization\npayer_key"
   },
   {
     "objectID": "datasets/health.html#how-the-files-relate",
@@ -2805,13 +2770,6 @@
     "title": "Great Lakes Synthetic Health Records",
     "section": "How the files relate",
     "text": "How the files relate\n\npatient_key connects a fictional patient across time.\nencounter_key connects clinical facts, appointments that became encounters, surveys, and claims to a visit.\norganization_key, provider_key, and payer_key connect encounters to facilities, clinicians, and insurers.\nclaim_key connects claims to claim transactions.\ncounty_fips supports a join from patients to compatible county-level population or geographic reference data.\n\nOne encounter may have many diagnoses, procedures, medications, observations, and claim transactions. Aggregate each fact table independently before joining it to encounters."
-  },
-  {
-    "objectID": "datasets/health.html#example-encounter-level-diagnosis-counts",
-    "href": "datasets/health.html#example-encounter-level-diagnosis-counts",
-    "title": "Great Lakes Synthetic Health Records",
-    "section": "Example: encounter-level diagnosis counts",
-    "text": "Example: encounter-level diagnosis counts\nlibrary(arrow)\nlibrary(dplyr)\n\nbase_url &lt;- \"https://data.60land.com/project1/2026-fall/v1/health/\"\n\nencounters &lt;- read_parquet(paste0(base_url, \"ehr_encounters.parquet\"))\ndiagnoses &lt;- read_parquet(paste0(base_url, \"ehr_diagnoses.parquet\"))\n\ndiagnosis_summary &lt;- diagnoses |&gt;\n  count(encounter_key, name = \"diagnosis_count\")\n\nencounter_level &lt;- encounters |&gt;\n  left_join(diagnosis_summary, by = \"encounter_key\") |&gt;\n  mutate(diagnosis_count = coalesce(diagnosis_count, 0L))"
   },
   {
     "objectID": "datasets/health.html#important-limitations-and-designed-issues",
@@ -2846,14 +2804,7 @@
     "href": "datasets/legacy-hospital.html#file",
     "title": "Legacy CMS Inpatient Charges",
     "section": "File",
-    "text": "File\n\n\n\nFile\nRows\nOne row represents\nPrimary key\n\n\n\n\nlegacy_cms_inpatient_charges_fy2011.parquet\n163,065\nOne hospital and MS-DRG combination with at least 11 discharges\nlegacy_source_index\n\n\n\nProvider fields identify the billing hospital and its location. drg_definition contains the MS-DRG code and description. Monetary columns are stored as numeric decimal values rather than currency-formatted text."
-  },
-  {
-    "objectID": "datasets/legacy-hospital.html#example",
-    "href": "datasets/legacy-hospital.html#example",
-    "title": "Legacy CMS Inpatient Charges",
-    "section": "Example",
-    "text": "Example\nlibrary(arrow)\nlibrary(dplyr)\n\nhospital &lt;- read_parquet(\n  \"https://data.60land.com/project1/2026-fall/v1/legacy-hospital/legacy_cms_inpatient_charges_fy2011.parquet\"\n)\n\nhospital |&gt;\n  group_by(provider_state) |&gt;\n  summarize(\n    hospital_drg_rows = n(),\n    median_payment = median(average_total_payments, na.rm = TRUE),\n    .groups = \"drop\"\n  )"
+    "text": "File\n\n\n\n\n\n\n\n\n\nTable\nRows\nOne row represents\nPrimary key\n\n\n\n\nlegacy_cms_inpatient_charges_fy2011\n163,065\nOne hospital and MS-DRG combination with at least 11 discharges\nlegacy_source_index\n\n\n\nProvider fields identify the billing hospital and its location. drg_definition contains the MS-DRG code and description. Monetary columns are stored as numeric decimal values rather than currency-formatted text."
   },
   {
     "objectID": "datasets/legacy-hospital.html#joining-and-enrichment",
@@ -2881,7 +2832,7 @@
     "href": "datasets/nfl.html",
     "title": "NFL Games, Plays, and Players",
     "section": "",
-    "text": "Note\n\n\n\nRelease: project1/2026-fall/v1/nfl\nCoverage: 2021 through 2025 regular seasons and postseasons\nTracking data: Not included\nLicense: nflverse-data, CC BY 4.0; original NFL data remain subject to applicable owner terms"
+    "text": "Note\n\n\n\nCoverage: 2021 through 2025 regular seasons and postseasons\nTracking data: Not included\nLicense: nflverse-data, CC BY 4.0; original NFL data remain subject to applicable owner terms"
   },
   {
     "objectID": "datasets/nfl.html#about-this-dataset",
@@ -2895,21 +2846,14 @@
     "href": "datasets/nfl.html#files",
     "title": "NFL Games, Plays, and Players",
     "section": "Files",
-    "text": "Files\n\n\n\nFile\nRows\nOne row represents\nPrimary key\n\n\n\n\nnfl_games.parquet\n1,424\nOne game\ngame_id\n\n\nnfl_plays.parquet\n247,284\nOne play\ngame_id, play_id\n\n\nnfl_player_game_stats.parquet\n94,738\nOne player, team, and game statistical record\ngame_id, player_id, team\n\n\nnfl_team_game_stats.parquet\n2,848\nOne team statistical record per game\ngame_id, team\n\n\nnfl_players.parquet\n5,855\nOne represented player\nplayer_id\n\n\nnfl_rosters.parquet\n15,531\nOne player, team, and season roster record\nseason, team, player_id\n\n\nnfl_teams.parquet\n32\nOne current team lookup record\nteam_abbr"
+    "text": "Files\nCourse assignments provide .csv extracts from these tables. Extracts may cover fewer seasons, teams, or games than the complete dataset.\n\n\n\n\n\n\n\n\nTable\nOne row represents\nPrimary key\n\n\n\n\nnfl_games\nOne game\ngame_id\n\n\nnfl_plays\nOne play\ngame_id, play_id\n\n\nnfl_player_game_stats\nOne player, team, and game statistical record\ngame_id, player_id, team\n\n\nnfl_team_game_stats\nOne team statistical record per game\ngame_id, team\n\n\nnfl_players\nOne represented player\nplayer_id\n\n\nnfl_rosters\nOne player, team, and season roster record\nseason, team, player_id\n\n\nnfl_teams\nOne current team lookup record\nteam_abbr"
   },
   {
     "objectID": "datasets/nfl.html#how-the-files-relate",
     "href": "datasets/nfl.html#how-the-files-relate",
     "title": "NFL Games, Plays, and Players",
     "section": "How the files relate",
-    "text": "How the files relate\n\ngame_id connects games, plays, player-game statistics, and team-game statistics.\nplayer_id connects players, rosters, player-game statistics, and selected play participants.\nteam_abbr is the team lookup key. Other tables use contextual fields such as team, home_team, away_team, possession_team, and defensive_team.\n(season, team, player_id) connects a player to the correct seasonal roster.\n\nNever join game-level values to plays and then sum them: each game value would repeat once per play. Aggregate plays to one row per game or team-game first."
-  },
-  {
-    "objectID": "datasets/nfl.html#example-add-player-characteristics",
-    "href": "datasets/nfl.html#example-add-player-characteristics",
-    "title": "NFL Games, Plays, and Players",
-    "section": "Example: add player characteristics",
-    "text": "Example: add player characteristics\nlibrary(arrow)\nlibrary(dplyr)\n\nbase_url &lt;- \"https://data.60land.com/project1/2026-fall/v1/nfl/\"\n\nstats &lt;- read_parquet(paste0(base_url, \"nfl_player_game_stats.parquet\"))\nplayers &lt;- read_parquet(paste0(base_url, \"nfl_players.parquet\"))\n\nplayer_games &lt;- stats |&gt;\n  left_join(\n    players |&gt; select(player_id, birth_date, position_group,\n                      height_inches, weight_pounds, college),\n    by = \"player_id\"\n  )\nCalculate age at the game date after joining to nfl_games; do not use a player’s current age for historical events."
+    "text": "How the files relate\n\ngame_id connects games, plays, player-game statistics, and team-game statistics.\nplayer_id connects players, rosters, player-game statistics, and selected play participants.\nteam_abbr is the team lookup key. Other tables use contextual fields such as team, home_team, away_team, possession_team, and defensive_team.\n(season, team, player_id) connects a player to the correct seasonal roster.\n\nNever join game-level values to plays and then sum them: each game value would repeat once per play. Aggregate plays to one row per game or team-game first.\nCalculate age at the game date after joining to nfl_games; do not use a player’s current age for historical events."
   },
   {
     "objectID": "datasets/nfl.html#important-limitations",
@@ -3805,14 +3749,14 @@
     "href": "week01/Homework_01.html#resources",
     "title": "Homework 1: Data Anatomy & Responsible AI Use",
     "section": "Resources",
-    "text": "Resources\n\nDatasets in Posit Cloud\n\nData Description files on Canvas\n\nWeek 1 slides (Unit of Analysis, Tidy Data, Dimensions vs Measures)\n\n\n\n\n\n\n\nTipImportant\n\n\n\nThis assignment is graded for sincere completion, not perfection.\nTry every step. Bring questions to class. We will review solutions together."
+    "text": "Resources\n\nOpen Homework 1 in Posit Cloud\n\nDatasets in Posit Cloud\n\nData Description files on Canvas\n\nWeek 1 slides (Unit of Analysis, Tidy Data, Dimensions vs Measures)\n\n\n\n\n\n\n\nTipImportant\n\n\n\nThis assignment is graded for sincere completion, not perfection.\nTry every step. Bring questions to class. We will review solutions together."
   },
   {
     "objectID": "week01/Homework_01.html#choose-and-download-your-dataset",
     "href": "week01/Homework_01.html#choose-and-download-your-dataset",
     "title": "Homework 1: Data Anatomy & Responsible AI Use",
     "section": "1) Choose and Download Your Dataset",
-    "text": "1) Choose and Download Your Dataset\n\nSelect one dataset from your Posit Cloud project.\n\nDownload it as a .csv.\n\nSave a working copy as .xlsx.\n\n(No written response required.)"
+    "text": "1) Choose and Download Your Dataset\n\nSelect one dataset from your Posit Cloud project.\n\nDownload it as a .csv.\n\nSave a working copy as .xlsx.\n\n\n\n\n\n\n\n\nDataset\nFilename\n\n\n\n\nChicago traffic crashes, 2024\ntraffic_chicago_2024.csv\n\n\nMidwest airport departures, 2024\nairline_midwest_2024.csv\n\n\nBrazilian marketplace orders, 2017\nolist_southeast_2017.csv\n\n\nNFL regular-season plays, 2024\nnfl_plays_2024.csv\n\n\nSynthetic Wisconsin healthcare appointments, 2023-2025\nhealth_wisconsin_appointments_2023_2025.csv\n\n\n\n(No written response required.)"
   },
   {
     "objectID": "week01/Homework_01.html#is-your-data-tidy-why-or-why-not",
@@ -3889,14 +3833,14 @@
     "href": "week03/Homework_03.html#resources",
     "title": "Homework 3: Visualizing Data",
     "section": "Resources",
-    "text": "Resources\n\nWeek 3 slides (visual perception; analytical frames)\nWeek 1–2 slides (grain, NOIR, size/center/shape/relationships)\nYour Week 1-2 dataset (or any approved course dataset)\nTools: Excel and/or Tableau (you may mix; no code required)\n\n\n\n\n\n\n\nTipImportant\n\n\n\n\nYour grade emphasizes fit‑for‑purpose encodings + clean design.\nInclude a short brief writeup (3–5 sentences) for each chart.\nA Design Checklist is encouraged for each chart (not required)."
+    "text": "Resources\n\nOpen Homework 3 in Posit Cloud\nWeek 3 slides (visual perception; analytical frames)\nWeek 1–2 slides (grain, NOIR, size/center/shape/relationships)\nYour Week 1-2 dataset (or any approved course dataset)\nTools: Excel and/or Tableau (you may mix; no code required)\n\n\n\n\n\n\n\nTipImportant\n\n\n\n\nYour grade emphasizes fit‑for‑purpose encodings + clean design.\nInclude a short brief writeup (3–5 sentences) for each chart.\nA Design Checklist is encouraged for each chart (not required)."
   },
   {
     "objectID": "week03/Homework_03.html#choose-your-dataset-week-1",
     "href": "week03/Homework_03.html#choose-your-dataset-week-1",
     "title": "Homework 3: Visualizing Data",
     "section": "1) Choose Your Dataset (Week 1)",
-    "text": "1) Choose Your Dataset (Week 1)\n\nUse one of the four Week 1 datasets (you may keep the same as HW1 & HW2 or change to a different dataset).\nNote any filters/cleaning (e.g., date window, excluding blanks).\n\n(No extended writeup—just list what you did.)"
+    "text": "1) Choose Your Dataset (Week 1)\n\nUse one of the five Week 1 datasets (you may keep the same as HW1 & HW2 or change to a different dataset).\nNote any filters/cleaning (e.g., date window, excluding blanks).\n\n(No extended writeup—just list what you did.)"
   },
   {
     "objectID": "week03/Homework_03.html#tools-exceltableau",

@@ -24,41 +24,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -248,7 +213,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#about-this-dataset" id="toc-about-this-dataset" class="nav-link active" data-scroll-target="#about-this-dataset">About this dataset</a></li>
   <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files">Files</a></li>
   <li><a href="#how-the-files-relate" id="toc-how-the-files-relate" class="nav-link" data-scroll-target="#how-the-files-relate">How the files relate</a></li>
-  <li><a href="#example-carrier-month-performance" id="toc-example-carrier-month-performance" class="nav-link" data-scroll-target="#example-carrier-month-performance">Example: carrier-month performance</a></li>
   <li><a href="#important-limitations" id="toc-important-limitations" class="nav-link" data-scroll-target="#important-limitations">Important limitations</a></li>
   <li><a href="#provenance" id="toc-provenance" class="nav-link" data-scroll-target="#provenance">Provenance</a></li>
   </ul>
@@ -292,8 +256,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Release:</strong> <code>project1/2026-fall/v1/airline</code><br>
-<strong>Coverage:</strong> Calendar year 2024<br>
+<p><strong>Coverage:</strong> Calendar year 2024<br>
 <strong>Geography:</strong> Domestic U.S. scheduled passenger markets<br>
 <strong>License:</strong> U.S. federal government public data</p>
 </div>
@@ -305,37 +268,38 @@ Note
 </section>
 <section id="files" class="level2">
 <h2 class="anchored" data-anchor-id="files">Files</h2>
+<p>Course assignments provide <code>.csv</code> extracts from these tables. Extracts may cover a smaller time period or geography than the complete dataset.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>File</th>
-<th style="text-align: right;">Rows</th>
+<th>Table</th>
 <th>One row represents</th>
 <th>Primary key</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/airline/airline_flights.parquet"><code>airline_flights.parquet</code></a></td>
-<td style="text-align: right;">7,546,968</td>
+<td><code>airline_flights</code></td>
 <td>One reported scheduled domestic marketing-carrier flight</td>
 <td><code>flight_key</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/airline/airline_airports.parquet"><code>airline_airports.parquet</code></a></td>
-<td style="text-align: right;">359</td>
+<td><code>airline_airports</code></td>
 <td>One BTS airport represented in the flight table</td>
 <td><code>airport_id</code></td>
 </tr>
 <tr class="odd">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/airline/airline_route_quarter.parquet"><code>airline_route_quarter.parquet</code></a></td>
-<td style="text-align: right;">606,970</td>
+<td><code>airline_route_quarter</code></td>
 <td>One directional route, ticketing carrier, year, and quarter</td>
 <td>route + carrier + quarter</td>
 </tr>
 <tr class="even">
-<td><a href="https://data.60land.com/project1/2026-fall/v1/airline/airline_carrier_month.parquet"><code>airline_carrier_month.parquet</code></a></td>
-<td style="text-align: right;">120</td>
+<td><code>airline_carrier_month</code></td>
 <td>One marketing carrier and calendar month</td>
 <td><code>month</code>, <code>marketing_carrier_code</code></td>
 </tr>
@@ -371,20 +335,6 @@ Note
 </tbody>
 </table>
 <p>Ticketing, marketing, and operating carriers are not interchangeable. A ticket may be sold by one carrier and a flight marketed or operated by another. State which carrier concept your question uses.</p>
-</section>
-<section id="example-carrier-month-performance" class="level2">
-<h2 class="anchored" data-anchor-id="example-carrier-month-performance">Example: carrier-month performance</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>base_url <span class="ot">&lt;-</span> <span class="st">"https://data.60land.com/project1/2026-fall/v1/airline/"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>carrier_month <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="fu">paste0</span>(base_url, <span class="st">"airline_carrier_month.parquet"</span>))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>carrier_month <span class="sc">|&gt;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(cancellation_rate)) <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(month, marketing_carrier_code, scheduled_flights,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>         cancellation_rate, delayed_15_rate, mean_arrival_delay_minutes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="important-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="important-limitations">Important limitations</h2>
