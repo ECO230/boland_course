@@ -61,7 +61,11 @@ if ($course.workflow_state -ne "unpublished") {
     throw "Course $CourseId must remain unpublished while module visibility is staged."
 }
 
-$modules = @(Invoke-RestMethod -Method Get -Uri $moduleUri -Headers $headers)
+$moduleResponse = Invoke-RestMethod -Method Get -Uri $moduleUri -Headers $headers
+$modules = @()
+foreach ($moduleRecord in $moduleResponse) {
+    $modules += $moduleRecord
+}
 if ($modules.Count -eq 0) {
     throw "Canvas returned no modules for course $CourseId."
 }
@@ -126,7 +130,11 @@ if ($PublishSelectedContent) {
     $publishedContentKeys = New-Object 'System.Collections.Generic.HashSet[string]'
     foreach ($selectedModule in @($modules | Where-Object { $_.name -in $PublishedModuleNames })) {
         $itemsUri = "$canvasBase/api/v1/courses/$CourseId/modules/$($selectedModule.id)/items?per_page=100"
-        $moduleItems = @(Invoke-RestMethod -Method Get -Uri $itemsUri -Headers $headers)
+        $moduleItemResponse = Invoke-RestMethod -Method Get -Uri $itemsUri -Headers $headers
+        $moduleItems = @()
+        foreach ($moduleItemRecord in $moduleItemResponse) {
+            $moduleItems += $moduleItemRecord
+        }
 
         foreach ($item in $moduleItems) {
             $contentKey = "$($item.type):$($item.content_id):$($item.page_url)"
@@ -178,7 +186,11 @@ foreach ($change in @($changes | Where-Object { $_.desired_published })) {
         Out-Null
 }
 
-$verifiedModules = @(Invoke-RestMethod -Method Get -Uri $moduleUri -Headers $headers)
+$verifiedModuleResponse = Invoke-RestMethod -Method Get -Uri $moduleUri -Headers $headers
+$verifiedModules = @()
+foreach ($verifiedModuleRecord in $verifiedModuleResponse) {
+    $verifiedModules += $verifiedModuleRecord
+}
 $after = @(
     $verifiedModules |
         Sort-Object position |
