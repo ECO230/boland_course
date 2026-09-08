@@ -55,13 +55,13 @@ step and document any difficulty you encounter.
 Choose one project dataset from the `data` folder. If the project files do not
 open correctly, use the fallback download links below.
 
-| Project dataset | Download |
-|---|---|
-| Chicago traffic crashes, 2024 | [`traffic_chicago_2024.csv`](data/traffic_chicago_2024.csv) |
-| Midwest airport departures, 2024 | [`airline_midwest_2024.csv`](data/airline_midwest_2024.csv) |
-| Brazilian marketplace orders, 2017 | [`olist_southeast_2017.csv`](data/olist_southeast_2017.csv) |
-| NFL regular-season plays, 2024 | [`nfl_plays_2024.csv`](data/nfl_plays_2024.csv) |
-| Synthetic Wisconsin healthcare appointments, 2023-2025 | [`health_wisconsin_appointments_2023_2025.csv`](data/health_wisconsin_appointments_2023_2025.csv) |
+| Project dataset | Data description | Download |
+|---|---|---|
+| Chicago traffic crashes, 2024 | [Review the Chicago traffic data](https://eco230.github.io/boland_course/datasets/chicago-traffic.html) | [`traffic_chicago_2024.csv`](data/traffic_chicago_2024.csv) |
+| Midwest airport departures, 2024 | [Review the airline data](https://eco230.github.io/boland_course/datasets/airline.html) | [`airline_midwest_2024.csv`](data/airline_midwest_2024.csv) |
+| Brazilian marketplace orders, 2017 | [Review the Olist marketplace data](https://eco230.github.io/boland_course/datasets/olist.html) | [`olist_southeast_2017.csv`](data/olist_southeast_2017.csv) |
+| NFL regular-season plays, 2024 | [Review the NFL data](https://eco230.github.io/boland_course/datasets/nfl.html) | [`nfl_plays_2024.csv`](data/nfl_plays_2024.csv) |
+| Synthetic Wisconsin healthcare appointments, 2023-2025 | [Review the synthetic health data](https://eco230.github.io/boland_course/datasets/health.html) | [`health_wisconsin_appointments_2023_2025.csv`](data/health_wisconsin_appointments_2023_2025.csv) |
 
 Download the `.csv` file from Posit Cloud and save a working copy as an Excel
 workbook (`.xlsx`).

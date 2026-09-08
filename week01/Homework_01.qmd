@@ -63,13 +63,13 @@ Try every step. Bring questions to class. We will review solutions together.
 2.  Download the `.csv` file.\
 3.  Save a working copy as `.xlsx`.
 
-| Dataset | Download |
-|---|---|
-| Chicago traffic crashes, 2024 | [`traffic_chicago_2024.csv`](../shared/data/early-homework-v1/traffic_chicago_2024.csv) |
-| Midwest airport departures, 2024 | [`airline_midwest_2024.csv`](../shared/data/early-homework-v1/airline_midwest_2024.csv) |
-| Brazilian marketplace orders, 2017 | [`olist_southeast_2017.csv`](../shared/data/early-homework-v1/olist_southeast_2017.csv) |
-| NFL regular-season plays, 2024 | [`nfl_plays_2024.csv`](../shared/data/early-homework-v1/nfl_plays_2024.csv) |
-| Synthetic Wisconsin healthcare appointments, 2023-2025 | [`health_wisconsin_appointments_2023_2025.csv`](../shared/data/early-homework-v1/health_wisconsin_appointments_2023_2025.csv) |
+| Dataset | Data description | Download |
+|---|---|---|
+| Chicago traffic crashes, 2024 | [Review the Chicago traffic data](../datasets/chicago-traffic.qmd) | [`traffic_chicago_2024.csv`](../shared/data/early-homework-v1/traffic_chicago_2024.csv) |
+| Midwest airport departures, 2024 | [Review the airline data](../datasets/airline.qmd) | [`airline_midwest_2024.csv`](../shared/data/early-homework-v1/airline_midwest_2024.csv) |
+| Brazilian marketplace orders, 2017 | [Review the Olist marketplace data](../datasets/olist.qmd) | [`olist_southeast_2017.csv`](../shared/data/early-homework-v1/olist_southeast_2017.csv) |
+| NFL regular-season plays, 2024 | [Review the NFL data](../datasets/nfl.qmd) | [`nfl_plays_2024.csv`](../shared/data/early-homework-v1/nfl_plays_2024.csv) |
+| Synthetic Wisconsin healthcare appointments, 2023-2025 | [Review the synthetic health data](../datasets/health.qmd) | [`health_wisconsin_appointments_2023_2025.csv`](../shared/data/early-homework-v1/health_wisconsin_appointments_2023_2025.csv) |
 
 Use these links if the Posit Cloud project is unavailable or does not finish
 setting up. The files are identical to the copies provided in the project.
