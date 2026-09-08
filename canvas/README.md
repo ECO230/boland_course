@@ -63,12 +63,13 @@ Set a staged weekly module release without deleting Canvas content with:
 
 ```powershell
 & .\canvas\scripts\set-module-visibility.ps1 -CourseId 870634 -ExpectedModuleCount 16
-& .\canvas\scripts\set-module-visibility.ps1 -CourseId 870634 -ExpectedModuleCount 16 -Execute
+& .\canvas\scripts\set-module-visibility.ps1 -CourseId 870634 -ExpectedModuleCount 16 -PublishSelectedContent -Execute
 ```
 
 The first command is read-only and writes a proposed before-state audit. The
-second command publishes only `Course Info and Resources` and `Week 1: Intro to
-Data Analysis`, unpublishes every other module, and verifies the live result.
+second command publishes the content and module items in `Course Info and
+Resources` and `Week 1: Intro to Data Analysis`, publishes those two modules,
+unpublishes every other module, and verifies the live result.
 Pass a different `-PublishedModuleNames` list as additional weeks are released.
 The script changes module visibility only; underlying assignments, pages, and
 module items retain their own Canvas publication states.

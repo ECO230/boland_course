@@ -14,6 +14,8 @@ param(
 
     [string]$AuditDirectory,
 
+    [switch]$PublishSelectedContent,
+
     [switch]$Execute
 )
 
@@ -54,6 +56,11 @@ $canvasBase = "https:" + "//uwlac.instructure.com"
 $moduleUri = "$canvasBase/api/v1/courses/$CourseId/modules?per_page=100"
 $courseUri = "$canvasBase/api/v1/courses/$CourseId"
 
+$course = Invoke-RestMethod -Method Get -Uri $courseUri -Headers $headers
+if ($course.workflow_state -ne "unpublished") {
+    throw "Course $CourseId must remain unpublished while module visibility is staged."
+}
+
 $modules = @(Invoke-RestMethod -Method Get -Uri $moduleUri -Headers $headers)
 if ($modules.Count -eq 0) {
     throw "Canvas returned no modules for course $CourseId."
@@ -68,10 +75,12 @@ if ($missingNames.Count -gt 0) {
     throw "Modules requested for publication were not found: $($missingNames -join ', '). No changes made."
 }
 
-$ambiguousNames = @(
-    $PublishedModuleNames |
-        Where-Object { @($modules | Where-Object { $_.name -eq $_ }).Count -gt 1 }
-)
+$ambiguousNames = @()
+foreach ($publishedName in $PublishedModuleNames) {
+    if (@($modules | Where-Object { $_.name -eq $publishedName }).Count -gt 1) {
+        $ambiguousNames += $publishedName
+    }
+}
 if ($ambiguousNames.Count -gt 0) {
     throw "Module names are ambiguous in Canvas: $($ambiguousNames -join ', '). No changes made."
 }
@@ -101,15 +110,71 @@ if (-not $Execute) {
     return
 }
 
-foreach ($change in $changes) {
+foreach ($change in @($changes | Where-Object { -not $_.desired_published })) {
     $updateUri = "$canvasBase/api/v1/courses/$CourseId/modules/$($change.id)"
-    $desiredState = if ($change.desired_published) { "true" } else { "false" }
     Invoke-RestMethod `
         -Method Put `
         -Uri $updateUri `
         -Headers $headers `
         -ContentType "application/x-www-form-urlencoded" `
-        -Body @{ "module[published]" = $desiredState } |
+        -Body @{ "module[published]" = "false" } |
+        Out-Null
+}
+
+$publishedContentCount = 0
+if ($PublishSelectedContent) {
+    $publishedContentKeys = New-Object 'System.Collections.Generic.HashSet[string]'
+    foreach ($selectedModule in @($modules | Where-Object { $_.name -in $PublishedModuleNames })) {
+        $itemsUri = "$canvasBase/api/v1/courses/$CourseId/modules/$($selectedModule.id)/items?per_page=100"
+        $moduleItems = @(Invoke-RestMethod -Method Get -Uri $itemsUri -Headers $headers)
+
+        foreach ($item in $moduleItems) {
+            $contentKey = "$($item.type):$($item.content_id):$($item.page_url)"
+            if ($publishedContentKeys.Add($contentKey)) {
+                $contentResponse = $null
+                if ($item.type -eq "Assignment") {
+                    $contentUri = "$canvasBase/api/v1/courses/$CourseId/assignments/$($item.content_id)"
+                    $contentResponse = Invoke-RestMethod -Method Put -Uri $contentUri -Headers $headers -ContentType "application/x-www-form-urlencoded" -Body @{ "assignment[published]" = "true" }
+                }
+                elseif ($item.type -eq "Page") {
+                    $pageUrl = [Uri]::EscapeDataString([string]$item.page_url)
+                    $contentUri = "$canvasBase/api/v1/courses/$CourseId/pages/$pageUrl"
+                    $contentResponse = Invoke-RestMethod -Method Put -Uri $contentUri -Headers $headers -ContentType "application/x-www-form-urlencoded" -Body @{ "wiki_page[published]" = "true" }
+                }
+                elseif ($item.type -eq "Discussion") {
+                    $contentUri = "$canvasBase/api/v1/courses/$CourseId/discussion_topics/$($item.content_id)"
+                    $contentResponse = Invoke-RestMethod -Method Put -Uri $contentUri -Headers $headers -ContentType "application/x-www-form-urlencoded" -Body @{ "published" = "true" }
+                }
+                elseif ($item.type -eq "Quiz") {
+                    $contentUri = "$canvasBase/api/v1/courses/$CourseId/quizzes/$($item.content_id)"
+                    $contentResponse = Invoke-RestMethod -Method Put -Uri $contentUri -Headers $headers -ContentType "application/x-www-form-urlencoded" -Body @{ "quiz[published]" = "true" }
+                }
+
+                if ($null -ne $contentResponse) {
+                    if ($contentResponse.published -ne $true) {
+                        throw "Canvas did not confirm publication of $($item.type) '$($item.title)'."
+                    }
+                    $publishedContentCount += 1
+                }
+            }
+
+            $itemUri = "$canvasBase/api/v1/courses/$CourseId/modules/$($selectedModule.id)/items/$($item.id)"
+            $itemResponse = Invoke-RestMethod -Method Put -Uri $itemUri -Headers $headers -ContentType "application/x-www-form-urlencoded" -Body @{ "module_item[published]" = "true" }
+            if ($itemResponse.published -ne $true) {
+                throw "Canvas did not confirm publication of module item '$($item.title)'."
+            }
+        }
+    }
+}
+
+foreach ($change in @($changes | Where-Object { $_.desired_published })) {
+    $updateUri = "$canvasBase/api/v1/courses/$CourseId/modules/$($change.id)"
+    Invoke-RestMethod `
+        -Method Put `
+        -Uri $updateUri `
+        -Headers $headers `
+        -ContentType "application/x-www-form-urlencoded" `
+        -Body @{ "module[published]" = "true" } |
         Out-Null
 }
 
@@ -135,8 +200,11 @@ if ($mismatches.Count -gt 0) {
 }
 
 $course = Invoke-RestMethod -Method Get -Uri $courseUri -Headers $headers
+if ($course.workflow_state -ne "unpublished") {
+    throw "Course $CourseId was unexpectedly published."
+}
 $after | Format-Table position, name, published -AutoSize
 Write-Output "Verified published modules: $(@($after | Where-Object { $_.published }).Count)"
+Write-Output "Published selected content objects: $publishedContentCount"
 Write-Output "Course state: $($course.workflow_state)"
 Write-Output "Audit directory: $AuditDirectory"
-
