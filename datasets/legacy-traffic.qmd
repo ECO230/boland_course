@@ -14,7 +14,6 @@ format:
 :::
 
 ::: {.callout-note}
-**Release:** `project1/2026-fall/v1/legacy-traffic`  
 **Rows:** 100,000  
 **Geography:** United States  
 **License:** CC BY-NC-SA 4.0
@@ -26,25 +25,11 @@ This is a portable sample of reported U.S. traffic incidents from the U.S. Accid
 
 ## File
 
-| File | Rows | One row represents | Primary key |
+| Table | Rows | One row represents | Primary key |
 |---|---:|---|---|
-| [`legacy_us_accidents_100k.parquet`](https://data.60land.com/project1/2026-fall/v1/legacy-traffic/legacy_us_accidents_100k.parquet) | 100,000 | One sampled traffic incident | `legacy_source_index` |
+| `legacy_us_accidents_100k` | 100,000 | One sampled traffic incident | `legacy_source_index` |
 
 `id` retains the source incident identifier. Column names have been normalized to snake case.
-
-## Example
-
-```r
-library(arrow)
-library(dplyr)
-
-accidents <- read_parquet(
-  "https://data.60land.com/project1/2026-fall/v1/legacy-traffic/legacy_us_accidents_100k.parquet"
-)
-
-accidents |>
-  count(state, severity, sort = TRUE)
-```
 
 ## Joining and enrichment
 
@@ -60,4 +45,3 @@ This is a single-file release. Coordinates can support spatial joins, while stat
 ## Provenance
 
 The source is the [U.S. Accidents dataset](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents) assembled by Moosavi and collaborators. Use is noncommercial, attribution is required, and adaptations retain the same license.
-

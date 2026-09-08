@@ -10,7 +10,6 @@ format:
 ---
 
 ::: {.callout-note}
-**Release:** `project1/2026-fall/v1/traffic`  
 **Coverage:** January 1, 2018 through December 31, 2025  
 **Geography:** City of Chicago  
 **License:** City of Chicago Data Portal terms; NOAA observations are U.S. government data
@@ -24,12 +23,15 @@ The base files deliberately do not contain Census demographics or other ready-ma
 
 ## Files
 
-| File | Rows | One row represents | Primary key |
-|---|---:|---|---|
-| [`chicago_traffic_crashes.parquet`](https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_crashes.parquet) | 877,920 | One crash | `crash_record_id` |
-| [`chicago_traffic_vehicles.parquet`](https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_vehicles.parquet) | 1,792,368 | One crash unit, usually a vehicle, pedestrian, or cyclist | `crash_unit_id` |
-| [`chicago_traffic_people.parquet`](https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_people.parquet) | 1,927,651 | One person represented in a crash report | `person_id` |
-| [`chicago_traffic_crash_analysis.parquet`](https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_crash_analysis.parquet) | 877,920 | One crash with time, geography, and numeric weather | `crash_record_id` |
+Course assignments provide `.csv` extracts from these tables. Extracts may
+cover a smaller time period than the complete dataset.
+
+| Table | One row represents | Primary key |
+|---|---|---|
+| `chicago_traffic_crashes` | One crash | `crash_record_id` |
+| `chicago_traffic_vehicles` | One crash unit, usually a vehicle, pedestrian, or cyclist | `crash_unit_id` |
+| `chicago_traffic_people` | One person represented in a crash report | `person_id` |
+| `chicago_traffic_crash_analysis` | One crash with time, geography, and numeric weather | `crash_record_id` |
 
 ## How the files relate
 
@@ -44,24 +46,6 @@ Do not join vehicles and people directly to crashes and then total crash-level m
 
 Useful geographic fields include `state_fips`, `city_geoid`, `zip5`, `police_beat`, `latitude`, and `longitude`. ZIP codes are routing regions rather than Census geographies; for demographic analysis, a documented spatial join to a Census geography is generally stronger.
 
-## Example: crash-level vehicle counts
-
-```r
-library(arrow)
-library(dplyr)
-
-base_url <- "https://data.60land.com/project1/2026-fall/v1/traffic/"
-
-crashes <- read_parquet(paste0(base_url, "chicago_traffic_crashes.parquet"))
-vehicles <- read_parquet(paste0(base_url, "chicago_traffic_vehicles.parquet"))
-
-vehicle_summary <- vehicles |>
-  count(crash_record_id, name = "vehicle_rows")
-
-crash_level <- crashes |>
-  left_join(vehicle_summary, by = "crash_record_id")
-```
-
 ## Important limitations
 
 - These are police-reported crashes, not every collision or traffic hazard.
@@ -73,4 +57,3 @@ crash_level <- crashes |>
 ## Provenance and privacy
 
 Source records come from the City of Chicago Traffic Crashes--Crashes, Vehicles, and People datasets, the City's ZIP boundary lookup, and NOAA Local Climatological Data. Driver-license fields, home geography, hospital/EMS identifiers, and selected carrier, permit, towing, and hazardous-material identifiers are excluded from the public course release.
-

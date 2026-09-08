@@ -10,7 +10,6 @@ format:
 ---
 
 ::: {.callout-note}
-**Release:** `project1/2026-fall/v1/airline`  
 **Coverage:** Calendar year 2024  
 **Geography:** Domestic U.S. scheduled passenger markets  
 **License:** U.S. federal government public data
@@ -24,12 +23,15 @@ Flights and fares are not row-level joinable. They describe different processes 
 
 ## Files
 
-| File | Rows | One row represents | Primary key |
-|---|---:|---|---|
-| [`airline_flights.parquet`](https://data.60land.com/project1/2026-fall/v1/airline/airline_flights.parquet) | 7,546,968 | One reported scheduled domestic marketing-carrier flight | `flight_key` |
-| [`airline_airports.parquet`](https://data.60land.com/project1/2026-fall/v1/airline/airline_airports.parquet) | 359 | One BTS airport represented in the flight table | `airport_id` |
-| [`airline_route_quarter.parquet`](https://data.60land.com/project1/2026-fall/v1/airline/airline_route_quarter.parquet) | 606,970 | One directional route, ticketing carrier, year, and quarter | route + carrier + quarter |
-| [`airline_carrier_month.parquet`](https://data.60land.com/project1/2026-fall/v1/airline/airline_carrier_month.parquet) | 120 | One marketing carrier and calendar month | `month`, `marketing_carrier_code` |
+Course assignments provide `.csv` extracts from these tables. Extracts may
+cover a smaller time period or geography than the complete dataset.
+
+| Table | One row represents | Primary key |
+|---|---|---|
+| `airline_flights` | One reported scheduled domestic marketing-carrier flight | `flight_key` |
+| `airline_airports` | One BTS airport represented in the flight table | `airport_id` |
+| `airline_route_quarter` | One directional route, ticketing carrier, year, and quarter | route + carrier + quarter |
+| `airline_carrier_month` | One marketing carrier and calendar month | `month`, `marketing_carrier_code` |
 
 ## How the files relate
 
@@ -40,22 +42,6 @@ Flights and fares are not row-level joinable. They describe different processes 
 | Fare and route service | Aggregate flights to directional route, quarter, and an explicitly chosen carrier definition before joining to route-quarter fares |
 
 Ticketing, marketing, and operating carriers are not interchangeable. A ticket may be sold by one carrier and a flight marketed or operated by another. State which carrier concept your question uses.
-
-## Example: carrier-month performance
-
-```r
-library(arrow)
-library(dplyr)
-
-base_url <- "https://data.60land.com/project1/2026-fall/v1/airline/"
-
-carrier_month <- read_parquet(paste0(base_url, "airline_carrier_month.parquet"))
-
-carrier_month |>
-  arrange(desc(cancellation_rate)) |>
-  select(month, marketing_carrier_code, scheduled_flights,
-         cancellation_rate, delayed_15_rate, mean_arrival_delay_minutes)
-```
 
 ## Important limitations
 
@@ -69,4 +55,3 @@ carrier_month |>
 ## Provenance
 
 The flight records come from BTS Marketing Carrier On-Time Performance monthly files. Fare and demand summaries come from the BTS Origin and Destination Survey DB1B Market quarterly files. Raw tail numbers are replaced with release-local aircraft keys.
-

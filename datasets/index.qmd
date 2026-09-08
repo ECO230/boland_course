@@ -7,12 +7,16 @@ format:
     toc-depth: 2
 ---
 
-These datasets are curated for ECO 230. Each release is immutable: the files at a versioned URL will not be silently replaced. Download only the tables your question requires, preserve their row grain, and validate every join.
+These datasets are curated for ECO 230. Assignments and projects provide the
+appropriate `.csv` files in Canvas or Posit Cloud. Preserve each file's row
+grain and validate every join.
 
 ::: {.callout-tip}
 ## Start here
 
-Each dataset page explains the available files, what one row represents, the useful join keys, common analytical mistakes, and a short R example. Parquet files are smaller and faster than equivalent CSV files and preserve dates and numeric types.
+Each dataset page explains the available files, what one row represents, the
+useful join keys, and common analytical mistakes. Use the files supplied with
+your assignment; you do not need to retrieve the underlying course data.
 :::
 
 ## Current project datasets
@@ -34,20 +38,6 @@ These smaller single-file datasets remain available for projects that need a sim
 | [Legacy U.S. Accidents Sample](legacy-traffic.qmd) | Nationwide 100,000-row sample | 100,000 |
 | [Legacy CMS Inpatient Charges](legacy-hospital.qmd) | FY2011 hospital and MS-DRG summaries | 163,065 |
 
-## Reading Parquet in R
-
-Install `arrow` once if it is not already in the project, then read a file directly from the course data service.
-
-```r
-install.packages("arrow")
-
-library(arrow)
-
-data <- read_parquet("https://data.60land.com/project1/2026-fall/v1/olist/olist_order_analysis.parquet")
-```
-
-For reproducible work, keep the versioned URL in your script. Do not replace it with an unversioned "latest" link.
-
 ## General joining rule
 
 Before joining two files, answer three questions:
@@ -57,4 +47,3 @@ Before joining two files, answer three questions:
 3. What should one row represent after the join?
 
 If either side has multiple rows per join key, aggregate it to the intended analysis grain before joining. A larger row count after a join is sometimes correct, but it must be understood and documented.
-

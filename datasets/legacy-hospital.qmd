@@ -14,7 +14,6 @@ format:
 :::
 
 ::: {.callout-note}
-**Release:** `project1/2026-fall/v1/legacy-hospital`  
 **Rows:** 163,065  
 **Coverage:** Federal fiscal year 2011  
 **License:** U.S. federal government public data
@@ -26,30 +25,11 @@ This CMS public-use file compares inpatient discharges, average covered charges,
 
 ## File
 
-| File | Rows | One row represents | Primary key |
+| Table | Rows | One row represents | Primary key |
 |---|---:|---|---|
-| [`legacy_cms_inpatient_charges_fy2011.parquet`](https://data.60land.com/project1/2026-fall/v1/legacy-hospital/legacy_cms_inpatient_charges_fy2011.parquet) | 163,065 | One hospital and MS-DRG combination with at least 11 discharges | `legacy_source_index` |
+| `legacy_cms_inpatient_charges_fy2011` | 163,065 | One hospital and MS-DRG combination with at least 11 discharges | `legacy_source_index` |
 
 Provider fields identify the billing hospital and its location. `drg_definition` contains the MS-DRG code and description. Monetary columns are stored as numeric decimal values rather than currency-formatted text.
-
-## Example
-
-```r
-library(arrow)
-library(dplyr)
-
-hospital <- read_parquet(
-  "https://data.60land.com/project1/2026-fall/v1/legacy-hospital/legacy_cms_inpatient_charges_fy2011.parquet"
-)
-
-hospital |>
-  group_by(provider_state) |>
-  summarize(
-    hospital_drg_rows = n(),
-    median_payment = median(average_total_payments, na.rm = TRUE),
-    .groups = "drop"
-  )
-```
 
 ## Joining and enrichment
 
@@ -66,4 +46,3 @@ Use provider identifiers for hospital-level reference data only after checking t
 ## Provenance and privacy
 
 The source is the CMS Medicare Provider Charge Inpatient public-use file. It contains hospital-level aggregates and no student records or patient-level protected health information.
-

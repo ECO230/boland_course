@@ -10,7 +10,6 @@ format:
 ---
 
 ::: {.callout-note}
-**Release:** `project1/2026-fall/v1/nfl`  
 **Coverage:** 2021 through 2025 regular seasons and postseasons  
 **Tracking data:** Not included  
 **License:** nflverse-data, CC BY 4.0; original NFL data remain subject to applicable owner terms
@@ -24,15 +23,18 @@ The five-season window begins with the NFL's 17-game regular-season era and ends
 
 ## Files
 
-| File | Rows | One row represents | Primary key |
-|---|---:|---|---|
-| [`nfl_games.parquet`](https://data.60land.com/project1/2026-fall/v1/nfl/nfl_games.parquet) | 1,424 | One game | `game_id` |
-| [`nfl_plays.parquet`](https://data.60land.com/project1/2026-fall/v1/nfl/nfl_plays.parquet) | 247,284 | One play | `game_id`, `play_id` |
-| [`nfl_player_game_stats.parquet`](https://data.60land.com/project1/2026-fall/v1/nfl/nfl_player_game_stats.parquet) | 94,738 | One player, team, and game statistical record | `game_id`, `player_id`, `team` |
-| [`nfl_team_game_stats.parquet`](https://data.60land.com/project1/2026-fall/v1/nfl/nfl_team_game_stats.parquet) | 2,848 | One team statistical record per game | `game_id`, `team` |
-| [`nfl_players.parquet`](https://data.60land.com/project1/2026-fall/v1/nfl/nfl_players.parquet) | 5,855 | One represented player | `player_id` |
-| [`nfl_rosters.parquet`](https://data.60land.com/project1/2026-fall/v1/nfl/nfl_rosters.parquet) | 15,531 | One player, team, and season roster record | `season`, `team`, `player_id` |
-| [`nfl_teams.parquet`](https://data.60land.com/project1/2026-fall/v1/nfl/nfl_teams.parquet) | 32 | One current team lookup record | `team_abbr` |
+Course assignments provide `.csv` extracts from these tables. Extracts may
+cover fewer seasons, teams, or games than the complete dataset.
+
+| Table | One row represents | Primary key |
+|---|---|---|
+| `nfl_games` | One game | `game_id` |
+| `nfl_plays` | One play | `game_id`, `play_id` |
+| `nfl_player_game_stats` | One player, team, and game statistical record | `game_id`, `player_id`, `team` |
+| `nfl_team_game_stats` | One team statistical record per game | `game_id`, `team` |
+| `nfl_players` | One represented player | `player_id` |
+| `nfl_rosters` | One player, team, and season roster record | `season`, `team`, `player_id` |
+| `nfl_teams` | One current team lookup record | `team_abbr` |
 
 ## How the files relate
 
@@ -42,25 +44,6 @@ The five-season window begins with the NFL's 17-game regular-season era and ends
 - `(season, team, player_id)` connects a player to the correct seasonal roster.
 
 Never join game-level values to plays and then sum them: each game value would repeat once per play. Aggregate plays to one row per game or team-game first.
-
-## Example: add player characteristics
-
-```r
-library(arrow)
-library(dplyr)
-
-base_url <- "https://data.60land.com/project1/2026-fall/v1/nfl/"
-
-stats <- read_parquet(paste0(base_url, "nfl_player_game_stats.parquet"))
-players <- read_parquet(paste0(base_url, "nfl_players.parquet"))
-
-player_games <- stats |>
-  left_join(
-    players |> select(player_id, birth_date, position_group,
-                      height_inches, weight_pounds, college),
-    by = "player_id"
-  )
-```
 
 Calculate age at the game date after joining to `nfl_games`; do not use a player's current age for historical events.
 
@@ -75,4 +58,3 @@ Calculate age at the game date after joining to `nfl_games`; do not use a player
 ## Provenance and privacy
 
 The source is the canonical Parquet release assets from [nflverse-data](https://github.com/nflverse/nflverse-data). The player table includes public football biography fields such as birth date, height, weight, college, position, experience, and draft information. Headshots, profile URLs, unrelated external-platform identifiers, and tracking data are excluded.
-

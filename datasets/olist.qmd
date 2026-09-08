@@ -10,7 +10,6 @@ format:
 ---
 
 ::: {.callout-note}
-**Release:** `project1/2026-fall/v1/olist`  
 **Commerce coverage:** September 2016 through October 2018  
 **Marketing coverage:** June 2017 through June 2018  
 **Currency:** Brazilian reais (BRL)  
@@ -25,46 +24,25 @@ Release-local pseudonymous keys preserve useful relationships without releasing 
 
 ## Files
 
-| File | Rows | One row represents | Primary key |
-|---|---:|---|---|
-| [`olist_orders.parquet`](https://data.60land.com/project1/2026-fall/v1/olist/olist_orders.parquet) | 99,441 | One marketplace order | `order_key` |
-| [`olist_order_items.parquet`](https://data.60land.com/project1/2026-fall/v1/olist/olist_order_items.parquet) | 112,650 | One item sequence within an order | `order_key`, `order_item_number` |
-| [`olist_payments.parquet`](https://data.60land.com/project1/2026-fall/v1/olist/olist_payments.parquet) | 103,886 | One payment sequence within an order | `order_key`, `payment_sequence` |
-| [`olist_reviews.parquet`](https://data.60land.com/project1/2026-fall/v1/olist/olist_reviews.parquet) | 98,673 | One reviewed order with aggregated scores | `order_key` |
-| [`olist_products.parquet`](https://data.60land.com/project1/2026-fall/v1/olist/olist_products.parquet) | 32,951 | One product | `product_key` |
-| [`olist_sellers.parquet`](https://data.60land.com/project1/2026-fall/v1/olist/olist_sellers.parquet) | 3,095 | One seller | `seller_key` |
-| [`olist_marketing_leads.parquet`](https://data.60land.com/project1/2026-fall/v1/olist/olist_marketing_leads.parquet) | 8,000 | One sampled marketing-qualified lead | `lead_key` |
-| [`olist_order_analysis.parquet`](https://data.60land.com/project1/2026-fall/v1/olist/olist_order_analysis.parquet) | 99,441 | One order with selected commercial, review, and delivery summaries | `order_key` |
+Course assignments provide `.csv` extracts from these tables. Extracts may
+cover a smaller time period or geography than the complete dataset.
+
+| Table | One row represents | Primary key |
+|---|---|---|
+| `olist_orders` | One marketplace order | `order_key` |
+| `olist_order_items` | One item sequence within an order | `order_key`, `order_item_number` |
+| `olist_payments` | One payment sequence within an order | `order_key`, `payment_sequence` |
+| `olist_reviews` | One reviewed order with aggregated scores | `order_key` |
+| `olist_products` | One product | `product_key` |
+| `olist_sellers` | One seller | `seller_key` |
+| `olist_marketing_leads` | One sampled marketing-qualified lead | `lead_key` |
+| `olist_order_analysis` | One order with selected commercial, review, and delivery summaries | `order_key` |
 
 ## How the files relate
 
 `order_key` connects orders, items, payments, reviews, and the analysis table. Items then connect to products with `product_key` and sellers with `seller_key`. `customer_key` identifies repeat orders by the same anonymized customer. Converted marketing leads may connect to sellers with `seller_key`.
 
-Orders, items, and payments have different grains. Joining items and payments directly by `order_key` can multiply both item prices and payment amounts. Aggregate each to one row per order first, or begin with `olist_order_analysis.parquet`.
-
-## Example: build an order-level item summary
-
-```r
-library(arrow)
-library(dplyr)
-
-base_url <- "https://data.60land.com/project1/2026-fall/v1/olist/"
-
-orders <- read_parquet(paste0(base_url, "olist_orders.parquet"))
-items <- read_parquet(paste0(base_url, "olist_order_items.parquet"))
-
-item_summary <- items |>
-  group_by(order_key) |>
-  summarize(
-    item_count = n(),
-    merchandise_value = sum(item_price, na.rm = TRUE),
-    freight_value = sum(freight_value, na.rm = TRUE),
-    .groups = "drop"
-  )
-
-order_level <- orders |>
-  left_join(item_summary, by = "order_key")
-```
+Orders, items, and payments have different grains. Joining items and payments directly by `order_key` can multiply both item prices and payment amounts. Aggregate each to one row per order first, or begin with the provided `olist_order_analysis` file.
 
 ## Important limitations
 
@@ -77,4 +55,3 @@ order_level <- orders |>
 ## Provenance and privacy
 
 The source datasets are Olist's [Brazilian E-Commerce Public Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) and [Marketing Funnel](https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist). Names, comments, review identifiers, and sales-representative identifiers are excluded. Geography is limited to state, normalized city, and five-digit Brazilian postal-code prefix.
-
