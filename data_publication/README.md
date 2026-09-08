@@ -51,7 +51,8 @@ Current tracked definitions include:
   gated until the extracts' source provenance and license are documented.
 - `course_samples/`: deterministic, instructor-run SQL and Python pipeline for
   the 15,000-row `.csv` extracts used in Homework 1-4. These files are built
-  from approved local release artifacts and distributed through the assignment
+  from approved local release artifacts, tracked under
+  `shared/data/early-homework-v1/`, and distributed through the assignment
   projects; students do not connect to the publication service directly.
 
 As of September 6, 2026, Traffic, Airline, NFL, and Olist are publicly

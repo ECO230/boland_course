@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "dataset_id": "eco230_early_homework_samples",
+  "version": "early-homework-v1",
+  "duckdb_version": "1.5.2",
+  "deterministic_salt": "eco230-early-homework-v1",
+  "artifacts": [
+    {
+      "key": "traffic",
+      "filename": "traffic_chicago_2024.csv",
+      "rows": 15000,
+      "columns": 38,
+      "bytes": 6853351,
+      "sha256": "703627c817bbb81db506ba2d7cdfea0696dc4331cbef034a0a8a593837105b8c",
+      "grain": "One police-reported crash",
+      "scope": "Chicago crashes during calendar year 2024",
+      "primary_key": "crash_id",
+      "sampling": "First 15,000 eligible rows ordered by MD5(primary key + 'eco230-early-homework-v1')",
+      "source_artifacts": [
+        ".data-build/traffic/chicago-2018-2025-v1/release/chicago_traffic_crash_analysis.parquet"
+      ]
+    },
+    {
+      "key": "airline",
+      "filename": "airline_midwest_2024.csv",
+      "rows": 15000,
+      "columns": 33,
+      "bytes": 2801650,
+      "sha256": "f99e702951119a5632d72d5a1f04e9fe5280d3982e83cfd81e2188f6f66e1884",
+      "grain": "One scheduled domestic flight",
+      "scope": "2024 departures from ORD, MDW, MKE, or MSP",
+      "primary_key": "flight_id",
+      "sampling": "First 15,000 eligible rows ordered by MD5(primary key + 'eco230-early-homework-v1')",
+      "source_artifacts": [
+        ".data-build/airline/us-airline-marketplace-2024-v1/release/airline_flights.parquet"
+      ]
+    },
+    {
+      "key": "olist",
+      "filename": "olist_southeast_2017.csv",
+      "rows": 15000,
+      "columns": 23,
+      "bytes": 2310473,
+      "sha256": "2cea41f6c007f34e7598964b51b74f2a701d8d9b3c8def4cbc75fb4a62bb013f",
+      "grain": "One delivered marketplace order",
+      "scope": "2017 delivered orders for customers in SP, RJ, or MG",
+      "primary_key": "order_id",
+      "sampling": "First 15,000 eligible rows ordered by MD5(primary key + 'eco230-early-homework-v1')",
+      "source_artifacts": [
+        ".data-build/olist/brazilian-ecommerce-2016-2018-v1/release/olist_order_analysis.parquet"
+      ]
+    },
+    {
+      "key": "nfl",
+      "filename": "nfl_plays_2024.csv",
+      "rows": 15000,
+      "columns": 50,
+      "bytes": 4607560,
+      "sha256": "12bcc2b88c57863aea849071bc384761334826746846cf5c4464a6c8ab997946",
+      "grain": "One recorded play",
+      "scope": "2024 NFL regular season plays",
+      "primary_key": "play_id",
+      "sampling": "First 15,000 eligible rows ordered by MD5(primary key + 'eco230-early-homework-v1')",
+      "source_artifacts": [
+        ".data-build/nfl/nfl-complete-2021-2025-v1/release/nfl_plays.parquet"
+      ]
+    },
+    {
+      "key": "health",
+      "filename": "health_wisconsin_appointments_2023_2025.csv",
+      "rows": 15000,
+      "columns": 32,
+      "bytes": 2643235,
+      "sha256": "96928e8e1ad875056c8770751323e800a834a2d0b2c0e8ee7e8119c359dfdd7e",
+      "grain": "One scheduled synthetic appointment",
+      "scope": "Wisconsin appointments scheduled from 2023 through 2025",
+      "primary_key": "appointment_id",
+      "sampling": "First 15,000 eligible rows ordered by MD5(primary key + 'eco230-early-homework-v1')",
+      "source_artifacts": [
+        ".data-build/health/great-lakes-synthetic-ehr-2026-public-v1/release/ehr_appointments.parquet",
+        ".data-build/health/great-lakes-synthetic-ehr-2026-public-v1/release/ehr_patients.parquet",
+        ".data-build/health/great-lakes-synthetic-ehr-2026-public-v1/release/ehr_patient_satisfaction.parquet"
+      ]
+    }
+  ]
+}

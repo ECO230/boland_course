@@ -15,7 +15,6 @@ import json
 import shutil
 import sys
 from dataclasses import dataclass
-from datetime import datetime, timezone
 from pathlib import Path
 
 import duckdb
@@ -138,7 +137,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--output",
-        default=".data-build/course-samples/early-homework-v1",
+        default="shared/data/early-homework-v1",
         help="Output directory for CSV files and manifest.json",
     )
     parser.add_argument(
@@ -268,7 +267,6 @@ def main() -> int:
         "schema_version": 1,
         "dataset_id": "eco230_early_homework_samples",
         "version": "early-homework-v1",
-        "built_at_utc": datetime.now(timezone.utc).isoformat(),
         "duckdb_version": duckdb.__version__,
         "deterministic_salt": SAMPLE_SALT,
         "artifacts": artifacts,

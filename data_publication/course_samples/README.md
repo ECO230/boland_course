@@ -36,11 +36,12 @@ Run from the repository root with the publishing Python environment:
   "data_publication\course_samples\build_samples.py"
 ```
 
-Outputs are written to
-`.data-build/course-samples/early-homework-v1/`. The generated `manifest.json`
-records scope, grain, row and column counts, byte sizes, checksums, source
-artifacts, and the sampling rule. Pass `--force` to atomically replace an
-existing build, or repeat `--sample` to build selected files only.
+Outputs are written to `shared/data/early-homework-v1/`. The generated
+`manifest.json` records scope, grain, row and column counts, byte sizes,
+checksums, source artifacts, and the sampling rule. Pass `--force` to
+atomically replace an existing build, or repeat `--sample` to build selected
+files only.
 
-The generated data remain outside Git. Only this builder, its SQL, and its
-documentation belong in the repository.
+The CSV files and manifest are tracked in Git so every Homework 1-4 project is
+built from the same reviewed version. The approved source Parquet files remain
+under `.data-build/` and outside Git.
