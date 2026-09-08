@@ -1,0 +1,9 @@
+{
+  "name": "eco230-canvas-slide-export",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local Reveal-to-PDF export support for ECO 230 Canvas artifacts",
+  "dependencies": {
+    "playwright-core": "^1.62.1"
+  }
+}

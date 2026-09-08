@@ -1,0 +1,106 @@
+schema_version: 1
+status: draft
+key: "homework-5"
+title: "Homework 5"
+points_possible: 50.0
+free_form_criterion_comments: false
+hide_score_total: false
+criteria:
+  - key: "hypothesis-1-1"
+    description: "Hypothesis 1"
+    long_description: "Hypothesis Testing Step 1 &amp; Step 3"
+    points: 5.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Step 1 - Described in statistical terms.\nStep 3 - Proper test type is used\nStep 3 -  Correct Null Hypothesis\nStep 3 - Correct Alternate Hypothesis\nPseudocode - Pseudocode included"
+        points: 5.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "1-2 Criteria missing/incorrect"
+        points: 4.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "More than 2 Criteria missing/incorrect"
+        points: 3.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Hypothesis not attempted"
+        points: 1.0
+  - key: "hypothesis-2-2"
+    description: "Hypothesis 2"
+    long_description: "Hypothesis Testing Step 1 &amp; Step 3"
+    points: 5.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Step 1 - Described in statistical terms.\nStep 3 - Proper test type is used\nStep 3 -  Correct Null Hypothesis\nStep 3 - Correct Alternate Hypothesis\nPseudocode - Pseudocode included"
+        points: 5.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "1-2 Criteria missing/incorrect"
+        points: 4.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "More than 2 Criteria missing/incorrect"
+        points: 3.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Hypothesis not attempted"
+        points: 1.0
+  - key: "hypothesis-3-3"
+    description: "Hypothesis 3"
+    long_description: "Hypothesis Testing Step 1 &amp; Step 3"
+    points: 5.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Step 1 - Described in statistical terms.\nStep 3 - Proper test type is used\nStep 3 -  Correct Null Hypothesis\nStep 3 - Correct Alternate Hypothesis\nPseudocode - Pseudocode included"
+        points: 5.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "1-2 Criteria missing/incorrect"
+        points: 4.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "More than 2 Criteria missing/incorrect"
+        points: 3.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Hypothesis not attempted"
+        points: 1.0
+  - key: "attempt-4"
+    description: "Attempt"
+    long_description: "Homework was attempted"
+    points: 25.0
+    use_range: null
+    ratings:
+      - key: "homework-attempted"
+        description: "Homework Attempted"
+        long_description: ""
+        points: 25.0
+      - key: "homework-not-attempted"
+        description: "Homework not Attempted"
+        long_description: ""
+        points: 0.0
+  - key: "file-submission-5"
+    description: "File Submission"
+    long_description: "Relevant files are included with submission."
+    points: 10.0
+    use_range: null
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: ".pdf document knit from .Rmd document in posit.cloud included"
+        points: 10.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: ".pdf file not included, .Rmd does not knit properly or another format is used e.g. word, text entry"
+        points: 9.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "File is not included"
+        points: 0.0

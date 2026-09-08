@@ -1,0 +1,31 @@
+schema_version: 1
+hosting: "course_site"
+site_base: "https://eco230.github.io/boland_course/"
+
+# These files are shared across every ECO 230 section. Quarto copies them into
+# _site through project.resources in _quarto.yml. Canvas content uses the
+# public_url values through the shared template_values configuration.
+resources:
+  - key: "lab-01-olist-prep-data"
+    source_path: "week01/lab-prep/data/olist_orders_sample.csv"
+    public_url: "https://eco230.github.io/boland_course/week01/lab-prep/data/olist_orders_sample.csv"
+    template_value: "lab_01_data_url"
+    use: "before-class preparation"
+
+  - key: "lab-02-nfl-files"
+    source_path: "week02/labs/data/Lab_02_NFL_Files.zip"
+    public_url: "https://eco230.github.io/boland_course/week02/labs/data/Lab_02_NFL_Files.zip"
+    template_value: "lab_02_download_url"
+    use: "in-class lab"
+
+  - key: "lab-03-airline-prep-workbook"
+    source_path: "week03/lab-prep/Lab_03_Chart_Practice.xlsx"
+    public_url: "https://eco230.github.io/boland_course/week03/lab-prep/Lab_03_Chart_Practice.xlsx"
+    template_value: "lab_03_excel_training_url"
+    use: "before-class preparation"
+
+  - key: "lab-03-traffic-files"
+    source_path: "week03/labs/data/chicago_traffic_crashes_sample.csv"
+    public_url: "https://eco230.github.io/boland_course/week03/labs/data/chicago_traffic_crashes_sample.csv"
+    template_value: "lab_03_data_url"
+    use: "in-class lab"

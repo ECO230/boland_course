@@ -1,0 +1,140 @@
+schema_version: 1
+status: draft
+key: "open-topic-case-outline"
+title: "Open Topic Case - Outline"
+points_possible: 50.0
+free_form_criterion_comments: false
+hide_score_total: false
+criteria:
+  - key: "frame-the-problem-1"
+    description: "Frame the problem."
+    long_description: ""
+    points: 10.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "All appropriate categories are considered. Decision maker is clearly outlined. Business problem/opportunity is clearly defined."
+        points: 10.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Not all appropriate categories are considered. Decision maker is not clearly outlined. Business problem/opportunity is not clearly defined."
+        points: 8.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Major sections left blank or not explored in any detail."
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Section is missing / not addressed."
+        points: 0.0
+  - key: "articulate-an-interesting-and-actionable-research-question-2"
+    description: "Articulate an interesting and actionable research question."
+    long_description: ""
+    points: 5.0
+    use_range: true
+    ratings:
+      - key: "full-marks"
+        description: "Full Marks"
+        long_description: "Research question is appropriate for the material and study being proposed. Question narrows the scope of the topic enough so it is clear what is being studied, but does not limit to only one or two hypotheses/concepts."
+        points: 5.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Research question is appropriate for the material and study being proposed. Question is too broad or limits the study too much to have much practical use."
+        points: 4.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Major sections left blank or not explored in any detail."
+        points: 3.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Section is missing / not addressed."
+        points: 0.0
+  - key: "formulate-research-objectives-and-testable-hypotheses-3"
+    description: "Formulate research objectives and testable hypotheses."
+    long_description: ""
+    points: 5.0
+    use_range: true
+    ratings:
+      - key: "full-marks"
+        description: "Full Marks"
+        long_description: "All relevant variables and concepts to be measured are defined. Hypotheses are defined that illustrate what key relationships will be tested."
+        points: 5.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Not all relevant variables and concepts to be measured are defined. Some hypotheses are defined that illustrate what key relationships will be tested, but some hypotheses important to the study are not well defined."
+        points: 4.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Major sections left blank or not explored in any detail."
+        points: 3.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Section is missing / not addressed."
+        points: 0.0
+  - key: "select-methods-suited-to-testing-identified-hypotheses-4"
+    description: "Select methods suited to testing identified hypotheses."
+    long_description: ""
+    points: 15.0
+    use_range: true
+    ratings:
+      - key: "full-marks"
+        description: "Full Marks"
+        long_description: "Methods appropriate to the study are well defined. Major concepts that will be measured are well defined and it is clear in what method they will be measured, e.g. Major topics to appear on survey are described in detail.  Experiment design is clearly outlined."
+        points: 15.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Methods appropriate to the study are well defined. Major concepts that will be measured are defined but it is not entirely clear in what method they will be measured, e.g. Major topics to appear on survey are described but are worded in a manner that will confuse respondents.  Experiment design is not  clearly outlined or a major factor/group is not included."
+        points: 13.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Major sections left blank or not explored in any detail."
+        points: 10.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Section is missing / not addressed."
+        points: 0.0
+  - key: "identify-the-study-population-and-consider-potential-risks-and-biases-5"
+    description: "Identify the study population and consider potential risks and biases."
+    long_description: ""
+    points: 10.0
+    use_range: true
+    ratings:
+      - key: "full-marks"
+        description: "Full Marks"
+        long_description: "Population and sampling method are clearly defined and designed to produce a random and representative sample. Ethical considerations are explored in detail. Potential risks are explored and addressed in the statement of informed consent."
+        points: 10.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Population and sampling method are not clearly defined or will not produce a random and representative sample. Ethical considerations are not explored in detail. Potential risks are minimized or explored briefly. It is unclear what will be included in the statement of informed consent."
+        points: 8.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Major sections left blank or not explored in any detail."
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Section is missing / not addressed."
+        points: 0.0
+  - key: "reflect-on-assumptions-and-potential-biases-or-limitations-6"
+    description: "Reflect on assumptions and potential biases or limitations."
+    long_description: ""
+    points: 5.0
+    use_range: true
+    ratings:
+      - key: "full-marks"
+        description: "Full Marks"
+        long_description: "Assumptions and possible biases and limitations of the research are explored in detail."
+        points: 5.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Assumptions and possible biases and limitations of the research are mentioned but not explored in detail."
+        points: 4.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Major sections left blank or not explored in any detail."
+        points: 3.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Section is missing / not addressed."
+        points: 0.0

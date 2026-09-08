@@ -1,0 +1,60 @@
+schema_version: 1
+status: draft
+key: "discussion-rubric"
+title: "Discussion Rubric"
+points_possible: 10.0
+free_form_criterion_comments: false
+hide_score_total: false
+criteria:
+  - key: "initial-post-1"
+    description: "Initial Post"
+    long_description: ""
+    points: 5.0
+    use_range: null
+    ratings:
+      - key: "5"
+        description: "5"
+        long_description: "first post is on time and includes thoughtful, detailed response to the prompts; refers to course material so it is clear that the student read and reflected upon the week’s content"
+        points: 5.0
+      - key: "4"
+        description: "4"
+        long_description: "meets content criteria for five points but is posted late"
+        points: 4.0
+      - key: "3"
+        description: "3"
+        long_description: "posted on time, but offers a shallow and perfunctory response to prompts"
+        points: 3.0
+      - key: "2"
+        description: "2"
+        long_description: "posted late and shallow/perfunctory response to prompts"
+        points: 2.0
+      - key: "0"
+        description: "0"
+        long_description: "No initial post"
+        points: 0.0
+  - key: "response-posts-2"
+    description: "Response Posts"
+    long_description: ""
+    points: 5.0
+    use_range: null
+    ratings:
+      - key: "5"
+        description: "5"
+        long_description: "assigned number of responses made on time; responses include thoughtful reaction based on the prompts provided; response extends the conversation"
+        points: 5.0
+      - key: "4"
+        description: "4"
+        long_description: "fewer than the assigned number of responses, but made on time; responses include thoughtful reaction that extends the conversation"
+        points: 4.0
+      - key: "3"
+        description: "3"
+        long_description: "responses are shallow/perfunctory or do not extend the conversation (such as responses limited to “I agree” statements)"
+        points: 3.0
+      - key: "2"
+        description: "2"
+        long_description: "shallow/perfunctory responses are made late or are too few in number"
+        points: 2.0
+      - key: "0"
+        description: "0"
+        long_description: "No responses to peers"
+        points: 0.0

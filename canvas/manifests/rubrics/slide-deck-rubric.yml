@@ -1,0 +1,140 @@
+schema_version: 1
+status: draft
+key: "slide-deck-rubric"
+title: "Slide Deck Rubric"
+points_possible: 50.0
+free_form_criterion_comments: false
+hide_score_total: false
+criteria:
+  - key: "design-1-1"
+    description: "Design 1"
+    long_description: "Backgrounds, Layout, Theme and Images Enhance Understanding"
+    points: 5.0
+    use_range: null
+    ratings:
+      - key: "professional-quality-4"
+        description: "Professional Quality (4)"
+        long_description: "Design is effective and all best practices are followed. No revisions needed."
+        points: 5.0
+      - key: "minor-revisions-required-3"
+        description: "Minor Revisions Required (3)"
+        long_description: "Effective design is used only a few slides need revisions in layout, font, or visual appeal to achieve professional quality."
+        points: 3.0
+      - key: "major-revisions-required-2"
+        description: "Major Revisions Required (2)"
+        long_description: "Effective design attempted but success varies across slides."
+        points: 2.0
+      - key: "unacceptable-or-missing-1"
+        description: "Unacceptable or Missing (1)"
+        long_description: "Distracting, unprofessional, and/or entirely unrelated to content."
+        points: 0.0
+  - key: "design-2-2"
+    description: "Design 2"
+    long_description: "Use of Text is Limited and Appropriate to Complement Oral Message, Not Compete With it"
+    points: 10.0
+    use_range: null
+    ratings:
+      - key: "professional-quality-4"
+        description: "Professional Quality (4)"
+        long_description: "Use of text is appropriately limited and effectively supports oral messages."
+        points: 10.0
+      - key: "minor-revisions-required-3"
+        description: "Minor Revisions Required (3)"
+        long_description: "Use of text is generally effective throughout all slides with few minor revisions needed to achieve professional quality."
+        points: 7.0
+      - key: "major-revisions-required-2"
+        description: "Major Revisions Required (2)"
+        long_description: "Effectiveness of text varies across slides – some may exhibit too much or text is so limited that it is cryptic"
+        points: 5.0
+      - key: "unacceptable-or-missing-1"
+        description: "Unacceptable or Missing (1)"
+        long_description: "Excessive use of text detracts from oral presentation, text is illegible, or text is wholly unrelated to oral message"
+        points: 0.0
+  - key: "design-3-3"
+    description: "Design 3"
+    long_description: "Use of Color Conveys Meaning"
+    points: 5.0
+    use_range: null
+    ratings:
+      - key: "professional-quality-4"
+        description: "Professional Quality (4)"
+        long_description: "Color is used to convey meaning throughout and consistent across slides to enable reader to connect key points or understand similar visuals."
+        points: 5.0
+      - key: "minor-revisions-required-3"
+        description: "Minor Revisions Required (3)"
+        long_description: "Color is usually used to convey meaning and is consistent across most slides and generally helps reader to connect key points or understand similar visuals across slides but some slides still exhibit minor problems."
+        points: 3.0
+      - key: "major-revisions-required-2"
+        description: "Major Revisions Required (2)"
+        long_description: "Color is usually used to convey meaning and is consistent across most slides and generally helps reader to connect key points or understand similar visuals across slides but some slides still exhibit major problems."
+        points: 2.0
+      - key: "unacceptable-or-missing-1"
+        description: "Unacceptable or Missing (1)"
+        long_description: "Color is not used to convey meaning or is inconsistent throughout the slide deck to the point of obscuring understanding."
+        points: 0.0
+  - key: "organization-4"
+    description: "Organization"
+    long_description: "Organization is Natural and Contributes to Central Message"
+    points: 10.0
+    use_range: null
+    ratings:
+      - key: "professional-quality-4"
+        description: "Professional Quality (4)"
+        long_description: "Slides follow a clear organizational structure aided by headings and slide design that is natural and adds to logical and convincing support for key message."
+        points: 10.0
+      - key: "minor-revisions-required-3"
+        description: "Minor Revisions Required (3)"
+        long_description: "Slides follow a clear organizational structure aided by headings and slide design but minor problems in sequencing or ineffective repetition may remain that either detract from or belabor the key message."
+        points: 7.0
+      - key: "major-revisions-required-2"
+        description: "Major Revisions Required (2)"
+        long_description: "Organizational flow is clearly attempted but is ineffective or not consistently adhered to."
+        points: 5.0
+      - key: "unacceptable-or-missing-1"
+        description: "Unacceptable or Missing (1)"
+        long_description: "Slide order is disjointed or obviously organized around presenters rather than content."
+        points: 0.0
+  - key: "content-1-5"
+    description: "Content 1"
+    long_description: "Visual Displays of Results (Graphs and Tables) are appropriate for analysis and intuitive for audience"
+    points: 10.0
+    use_range: null
+    ratings:
+      - key: "professional-quality-4"
+        description: "Professional Quality (4)"
+        long_description: "Visual displays are appropriate for the data type and easily interpreted by a nontechnical audience and the key takeaway is clear from the visual alone."
+        points: 10.0
+      - key: "minor-revisions-required-3"
+        description: "Minor Revisions Required (3)"
+        long_description: "Visual displays are appropriate for the data type but minor revisions are needed to improve comprehension for nontechnical audience or to convey key takeaway."
+        points: 7.0
+      - key: "major-revisions-required-2"
+        description: "Major Revisions Required (2)"
+        long_description: "Visual displays may be technically correct but are very difficult for nontechnical audience to understand or attempt to convey too much information in one visual."
+        points: 5.0
+      - key: "unacceptable-or-missing-1"
+        description: "Unacceptable or Missing (1)"
+        long_description: "Improper visual displays are used for the data type or question"
+        points: 0.0
+  - key: "content-2-6"
+    description: "Content 2"
+    long_description: "Visual Displays of Results are Legible"
+    points: 10.0
+    use_range: null
+    ratings:
+      - key: "professional-quality-4"
+        description: "Professional Quality (4)"
+        long_description: "Graphs/tables and accompanying labels are all legible and all graph attributes are clearly rendered to enable comprehension."
+        points: 10.0
+      - key: "minor-revisions-required-3"
+        description: "Minor Revisions Required (3)"
+        long_description: "No graphs/tables exhibit major problems described in level (I) but some may require minor revisions to improve clarity (e.g. in patterns, hue or contrast, or small problems with font)"
+        points: 7.0
+      - key: "major-revisions-required-2"
+        description: "Major Revisions Required (2)"
+        long_description: "Some but not all graphs/tables exhibit major problems described in level (1)"
+        points: 5.0
+      - key: "unacceptable-or-missing-1"
+        description: "Unacceptable or Missing (1)"
+        long_description: "Graphs or Tables are illegible or too poorly labeled or rendered to allow for comprehension. Problems may include small font, poor color contrast, or markers/lines that are too small."
+        points: 0.0

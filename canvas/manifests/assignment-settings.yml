@@ -1,0 +1,88 @@
+schema_version: 1
+status: approved
+
+# Canvas submission behavior is kept separate from dates and points so that it
+# can be reviewed without opening Canvas. All objects are created unpublished.
+assignments:
+  analysis-project-individual-score:
+    submission_types: [none]
+  final-exam-grade:
+    submission_types: [none]
+  final-letter-grade:
+    submission_types: [none]
+  homework-1-choose-your-own-data-adventure:
+    submission_types: [online_text_entry, online_upload]
+  prep-work-analysis-plan:
+    submission_types: [online_text_entry, online_upload]
+  technology-set-up:
+    submission_types: [online_text_entry, online_upload]
+  guided-notes-1-data-literacy:
+    submission_types: [online_upload]
+    grading_type: pass_fail
+  homework-2-exploratory-data-analysis:
+    submission_types: [online_text_entry, online_upload]
+  prep-work-clean-data-set:
+    submission_types: [online_text_entry, online_upload]
+  guided-notes-2-descriptive-statistics-data-literacy:
+    submission_types: [none]
+    grading_type: not_graded
+  homework-3-basic-data-visualization:
+    submission_types: [online_upload]
+  open-topic-project-individual-score:
+    submission_types: [none]
+  prep-work-pre-coaching-presentation-draft:
+    submission_types: [online_upload]
+  guided-notes-3-data-visualization:
+    submission_types: [none]
+    grading_type: not_graded
+  homework-4-project-pre-planning:
+    submission_types: [online_text_entry, online_upload]
+  prep-work-coaching-session-attendance:
+    submission_types: [online_upload]
+  analysis-project-presentation:
+    submission_types: [none]
+  guided-notes-4-communicating-data:
+    submission_types: [none]
+    grading_type: points
+  homework-5-hypothesis-tests:
+    submission_types: [online_text_entry, online_upload]
+  analysis-project-slides:
+    submission_types: [online_upload]
+  guided-notes-4-hypothesis-testing:
+    submission_types: [none]
+    grading_type: not_graded
+  homework-6-chi-squared-analysis:
+    submission_types: [online_text_entry, online_upload]
+  homework-7-t-tests-and-wilcoxon-tests:
+    submission_types: [online_text_entry, online_upload]
+  analysis-project-code:
+    submission_types: [online_upload]
+  guided-notes-5-inferential-statistical-tests:
+    submission_types: [none]
+    grading_type: not_graded
+  guided-notes-6-survey-research-methods:
+    submission_types: [none]
+    grading_type: not_graded
+  homework-8-anova-and-simple-linear-regression:
+    submission_types: [online_text_entry, online_upload]
+  guided-notes-7-machine-learning-experimental-research:
+    submission_types: [none]
+    grading_type: not_graded
+  project-2-research-proposal:
+    submission_types: [online_text_entry]
+  labprep-for-lab-4:
+    submission_types: [online_text_entry, online_upload]
+  project-2-research-proposal-fixed-groups:
+    submission_types: [online_text_entry]
+  catme-group-formation-survey:
+    submission_types: [none]
+  rstudio-recipes:
+    submission_types: [online_text_entry]
+  catme-group-evaluation-1:
+    submission_types: [none]
+  catme-group-evaluation-2:
+    submission_types: [none]
+  week-12-survey-participation:
+    submission_types: [none]
+  class-lab-participation:
+    submission_types: [none]

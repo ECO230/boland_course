@@ -1,0 +1,136 @@
+schema_version: 1
+status: draft
+key: "homework-8"
+title: "Homework 8"
+points_possible: 50.0
+free_form_criterion_comments: false
+hide_score_total: false
+criteria:
+  - key: "hypothesis-2-step-4-1"
+    description: "Hypothesis 2 - Step 4"
+    long_description: "What is the statistical interpretation of the test result?"
+    points: 4.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Results are included and interpreted accurately."
+        points: 4.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Results are not included or are not interpreted properly. Practical interpretation (step 5) included with statistical interpretation."
+        points: 2.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Step not completed."
+        points: 0.0
+  - key: "hypothesis-2-step-5-2"
+    description: "Hypothesis 2 - Step 5"
+    long_description: "What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?"
+    points: 12.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Thorough practical interpretation included. Results are interpreted at the level a general business audience can easily understand. Relevant statistics are included in interpretation to support arguments. Effect sizes and their importance are discussed. Practical recommendations are included and explored."
+        points: 12.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Practical interpretation is included. Results are interpreted, but knowledge of statistical theory is needed to understand fully. Not all relevant statistics are included in interpretation. Effect sizes are not discussed in detail. Some recommendations are included but not explored in depth."
+        points: 9.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Practical interpretation is included. Results are included but not interpreted for a general business audience. Not all relevant statistics are included in interpretation. Effect sizes are not discussed. Recommendations are included but cursory."
+        points: 6.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Practical interpretation is not differentiated from statistical interpretation. Relevant statistics are not included in interpretation. Recommendations not included."
+        points: 3.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Step not completed."
+        points: 0.0
+  - key: "hypothesis-3-steps-1-3-3"
+    description: "Hypothesis 3 - Steps 1 & 3"
+    long_description: "What statistical story am I attempting to tell?<br/>\nWhich test is appropriate and what is the null and alternate hypothesis?"
+    points: 4.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Testable hypothesis is included. Correct test is selected. Null and alternate hypothesis are included and correct."
+        points: 4.0
+      - key: "professional-quality-2"
+        description: "Professional Quality"
+        long_description: "Hypothesis is included but is not testable or does not match the analysis performed. Incorrect test is included and/or Null and alternate hypothesis are not included or are not correct."
+        points: 2.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Steps not completed."
+        points: 0.0
+  - key: "hypothesis-3-step-4-4"
+    description: "Hypothesis 3 - Step 4"
+    long_description: "What is the statistical interpretation of the test result?"
+    points: 5.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Results are included and interpreted accurately."
+        points: 5.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Results are not included or are not interpreted properly. Practical interpretation (step 5) included with statistical interpretation."
+        points: 4.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Step not completed."
+        points: 0.0
+  - key: "hypothesis-3-step-5-5"
+    description: "Hypothesis 3 - Step 5"
+    long_description: "What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?"
+    points: 12.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Thorough practical interpretation included. Results are interpreted at the level a general business audience can easily understand. Relevant statistics are included in interpretation to support arguments. Effect sizes and their importance are discussed. Practical recommendations are included and explored."
+        points: 12.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Practical interpretation is included. Results are interpreted, but knowledge of statistical theory is needed to understand fully. Not all relevant statistics are included in interpretation. Effect sizes are not discussed in detail. Some recommendations are included but not explored in depth."
+        points: 9.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Practical interpretation is included. Results are included but not interpreted for a general business audience. Not all relevant statistics are included in interpretation. Effect sizes are not discussed. Recommendations are included but cursory."
+        points: 6.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Practical interpretation is not differentiated from statistical interpretation. Relevant statistics are not included in interpretation. Recommendations not included."
+        points: 3.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Step not completed."
+        points: 0.0
+  - key: "r-coding-6"
+    description: "R Coding"
+    long_description: "Code is included and runs properly. Document is knit from a .Rmd file and submitted properly."
+    points: 13.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "All code is included and running properly."
+        points: 13.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Not all code is running properly but code attempt is included and commented out. p value is made up for purposes of interpretation. File is not knit/submitted properly."
+        points: 10.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Not all code is running properly, attempted code is not included in submission. p value is made up for purposes of interpretation. File is not knit/submitted properly."
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "No file submitted or .Rmd file not completed."
+        points: 0.0

@@ -1,0 +1,124 @@
+schema_version: 1
+status: draft
+key: "oral-communication-rubric"
+title: "Oral Communication Rubric"
+points_possible: 100.0
+free_form_criterion_comments: false
+hide_score_total: false
+criteria:
+  - key: "organization-1"
+    description: "Organization"
+    long_description: ""
+    points: 20.0
+    use_range: null
+    ratings:
+      - key: "milestone-3"
+        description: "Milestone (3)"
+        long_description: "Organizational pattern (specific introduction and conclusion, sequenced material within the body, and transitions) is clearly and consistently observable within the presentation."
+        points: 20.0
+      - key: "milestone-2"
+        description: "Milestone (2)"
+        long_description: "Organizational pattern (specific introduction and conclusion, sequenced material within the body, and transitions) is intermittently observable within the presentation. Intro to the business situation may be lacking sufficient detail."
+        points: 15.0
+      - key: "benchmark-1"
+        description: "Benchmark (1)"
+        long_description: "Organizational pattern (specific introduction and conclusion, sequenced material within the body, and transitions) is not observable within the presentation."
+        points: 10.0
+  - key: "verbal-delivery-2"
+    description: "Verbal Delivery"
+    long_description: ""
+    points: 10.0
+    use_range: null
+    ratings:
+      - key: "milestone-3"
+        description: "Milestone (3)"
+        long_description: "Speaker’s voice is always audible and appropriately expressive and pace of the presentation maintains the interest of the audience. Few or no verbal fillers."
+        points: 10.0
+      - key: "milestone-2"
+        description: "Milestone (2)"
+        long_description: "Speaker’s voice is generally audible with some expression and pace of the presentation is natural. Language in presentation is appropriate to audience. Verbal fillers are noticeable."
+        points: 7.0
+      - key: "benchmark-1"
+        description: "Benchmark (1)"
+        long_description: "Speaker’s voice is inaudible or lacks expression and pace of the presentation is halting or too fast to understand. Language in presentation is not appropriate to audience. Many verbal fillers indicate lack of preparation."
+        points: 3.0
+  - key: "physical-delivery-3"
+    description: "Physical Delivery"
+    long_description: ""
+    points: 10.0
+    use_range: null
+    ratings:
+      - key: "milestone-3"
+        description: "Milestone (3)"
+        long_description: "Delivery techniques (posture, gestures and eye contact) make the presentation interesting and convey confidence. Speaker appears comfortable."
+        points: 10.0
+      - key: "milestone-2"
+        description: "Milestone (2)"
+        long_description: "Delivery techniques (posture, gestures, and eye contact) make the presentation understandable.  Speaker appears tentative or uncomfortable."
+        points: 7.0
+      - key: "benchmark"
+        description: "Benchmark"
+        long_description: "Delivery techniques (posture, gestures and eye contact) do not show confidence and detract from the understandability of the presentation. Speaker appears uncomfortable, eye contact is lacking."
+        points: 3.0
+  - key: "content-supporting-material-4"
+    description: "Content / Supporting Material"
+    long_description: ""
+    points: 30.0
+    use_range: null
+    ratings:
+      - key: "capstone-4"
+        description: "Capstone (4)"
+        long_description: "Supporting material (presentation content, slides, or handouts) is relevant and sufficient to support the ideas. Content shows significant depth of analysis."
+        points: 30.0
+      - key: "milestone-3"
+        description: "Milestone (3)"
+        long_description: "Supporting material (presentation content, slides, or handouts) only partially supports the ideas or some (but minimal) irrelevant content is presented. Sufficient depth of analysis."
+        points: 25.0
+      - key: "milestone-2"
+        description: "Milestone (2)"
+        long_description: "Supporting material lacks depth of analysis to address business situation or content is presented inaccurately."
+        points: 20.0
+      - key: "benchmark-1"
+        description: "Benchmark (1)"
+        long_description: "Insufficient supporting material (presentation content, slides, or handouts) to convey ideas and content is presented inaccurately."
+        points: 10.0
+  - key: "central-message-5"
+    description: "Central Message"
+    long_description: ""
+    points: 20.0
+    use_range: null
+    ratings:
+      - key: "capstone-4"
+        description: "Capstone (4)"
+        long_description: "Central message is clear and compelling (precisely stated, appropriately repeated, memorable, and strongly supported.)"
+        points: 20.0
+      - key: "milestone-3"
+        description: "Milestone (3)"
+        long_description: "Central message is stated and consistent with the supporting material, but not repeated"
+        points: 15.0
+      - key: "milestone-2"
+        description: "Milestone (2)"
+        long_description: "Central message is basically understandable but is not expressed clearly or repeated and is not memorable."
+        points: 10.0
+      - key: "benchmark-1"
+        description: "Benchmark (1)"
+        long_description: "Central message can be deduced, but is not explicitly stated in the presentation or is not clear or consistent with supporting material"
+        points: 5.0
+  - key: "professionalism-6"
+    description: "Professionalism"
+    long_description: ""
+    points: 10.0
+    use_range: null
+    ratings:
+      - key: "milestone-3"
+        description: "Milestone (3)"
+        long_description: "Presenters are on time and appear presentable."
+        points: 10.0
+      - key: "milestone-2"
+        description: "Milestone (2)"
+        long_description: "Presenters are either not on time or are not presentable in appearance."
+        points: 7.0
+      - key: "benchmark-1"
+        description: "Benchmark (1)"
+        long_description: "Presenters exhibited weakness in two of the following areas: punctuality, appearance"
+        points: 5.0

@@ -1,0 +1,156 @@
+schema_version: 1
+status: draft
+key: "homework-3"
+title: "Homework 3"
+points_possible: 100.0
+free_form_criterion_comments: false
+hide_score_total: false
+criteria:
+  - key: "graph-1-1"
+    description: "Graph 1"
+    long_description: "Create a graph that tells one of the following story types from the lecture/readings: Nominal Comparison or Ranking"
+    points: 20.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Chart type clearly fits a comparison frame (nominal or ranking).\nBars, axes, labels, and scales are clear and perceptually honest.\nCategory ordering supports the story (e.g., sorted for ranking).\nVisual is understandable without additional explanation.\nFilters, grouping, and units are appropriate and explicitly considered.\nDesign reflects lecture principles: minimal clutter, purposeful color, readable scale."
+        points: 20.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Chart generally fits the comparison frame, but clarity could be improved (e.g., axis labels, sorting, units).\nVisual mostly supports the story but relies somewhat on the written explanation.\nMinor design or formatting issues reduce perceptual clarity."
+        points: 15.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Chart type does not effectively support comparison (e.g., unsorted ranking bars).\nMissing or unclear axes, units, or labels.\nViewer cannot interpret the story without reading the summary.\nFilters/measures appear incorrect or incomplete."
+        points: 10.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Chart cannot be interpreted reliably as comparison or ranking.\nMajor elements missing (units, labels, scale, categories).\nDoes not relate to the writeup or assignment goals."
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Graph is not included."
+        points: 0.0
+  - key: "graph-2-2"
+    description: "Graph 2"
+    long_description: "Create a graph that tells one of the following story types from the lecture/readings: Part to Whole, Time Series or Deviation"
+    points: 20.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Chart type matches chosen frame (100% bar, honest time series, deviation with zero baseline).\nVisual is perceptually clean, with correct denominators or benchmark labeling.\nViewer can understand the story directly from the graph.\nFilters, periods, and categories are appropriate and documented.\nApplies design principles: honest baselines, thoughtful color, minimal distractions."
+        points: 20.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Frame mostly appropriate, with small issues (e.g., unclear normalization, unlabeled benchmark, insufficient date labeling).\nVisual is mostly clear but requires the summary to fully interpret.\nMinor design issues (scale, color use, clutter)."
+        points: 15.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Chart does not match chosen frame (e.g., part‑to‑whole not summing to 100%, time series without meaningful scale).\nImportant denominators or benchmarks missing.\nViewer cannot interpret meaning without summary."
+        points: 10.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Incompatible chart (e.g., a pie chart when not appropriate; no zero line in a deviation plot).\nMissing critical context, labels, or units.\nStory cannot be determined."
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Graph is not included."
+        points: 0.0
+  - key: "graph-3-3"
+    description: "Graph 3"
+    long_description: "Create a graph that tells one of the following story types from the lecture/readings: Frequency Distribution or Correlation"
+    points: 20.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Chart type correctly matches distribution or correlation frame.\nUnits, axes, binning (for distributions), or regression line (if used) are appropriate and justified.\nVisual communicates shape/spread/relationship clearly without explanation.\nProper handling of outliers, overplotting (alpha), or bin width choices.\nFilters, variables, and measures are appropriate."
+        points: 20.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Chart generally fits the frame but minor improvements needed (e.g., better bin width, clearer axes, trend line not labeled).\nViewer needs the summary for full understanding.\nMinor perceptual issues present."
+        points: 15.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Poor binning, misleading use of axes/scale, or inappropriate chart type.\nImportant context missing (units, variables, filters).\nStory unclear without written explanation."
+        points: 10.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Chart does not show distribution or relationship meaningfully.\nIncomplete or incorrect encoding (e.g., scatterplot with categorical x‑axis).\nUninterpretable without text."
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Graph is not included."
+        points: 0.0
+  - key: "design-principles-4"
+    description: "Design Principles"
+    long_description: "Make sure you are incorporating design principles and best practices for visualization design that were covered in lecture/reading"
+    points: 15.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "All three visuals apply at least two or more lecture‑based design principles each.\nEncoding choices fit the analytical frame.\nColor is purposeful; clutter minimized; scales honest; no 3D.\nDemonstrates understanding of perceptual rules (ordering, baseline, area/length use).\nDesign strengthens communication without drawing attention to itself."
+        points: 15.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Most visuals use appropriate design principles but with small inconsistencies.\nSome choices could be more perceptually effective.\nMinor unnecessary chart elements remain."
+        points: 12.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Design issues reduce clarity (e.g., misleading scales, unnecessary color, poor binning).\nChart types sometimes misaligned with frame.\nEvidence of ignoring key perceptual principles from lecture."
+        points: 6.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Graphs make it more difficult to understand analysis, no consideration for visual perception evident."
+        points: 0.0
+  - key: "summary-5"
+    description: "Summary"
+    long_description: "Start a Word document and paste in your graphs from steps 2-4. Write a brief summary (less than 200 words) explaining what your analysis means. Is the story your data tells consistent with what you would expect or are you seeing something unexpected?"
+    points: 15.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Synthesizes insights across A, B, C.\nClearly states whether results matched expectations.\nProvides meaningful, non‑obvious insights.\nConnects directly to the charts and analytical frames."
+        points: 15.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Summary is accurate and relevant but less insightful or less connected.\nSome important insights implicit rather than explicit."
+        points: 12.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Superficial or incomplete summary.\nRe-states graphs without interpretation.\nMissing insights or unclear connections."
+        points: 6.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Summary not included in document."
+        points: 0.0
+  - key: "file-submission-6"
+    description: "File Submission"
+    long_description: "Relevant files are included with submission."
+    points: 10.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "All required files included (.xlsx, .twbx, Word/PDF).\nTabs, filenames, and exported visuals follow best practices.\nCharts appear correctly embedded."
+        points: 10.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "All supporting materials are included. Files are in the correct file format but do not consistently follow best practices, e.g. tabs do not include descriptive labels, charts are not in separate tabs etc.."
+        points: 8.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Supporting files are in the wrong format, not all relevant files are included."
+        points: 5.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Not all supporting files are included."
+        points: 3.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Supporting files are not included in submission."
+        points: 0.0

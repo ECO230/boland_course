@@ -1,0 +1,109 @@
+schema_version: 1
+status: draft
+
+project_1:
+  instruction_sources:
+    main_prompt: "syllabus/project_1_prompt.qmd"
+    timeline: "syllabus/project_1_timeline.qmd"
+    presentation: "syllabus/project_1_presentation_in_person.qmd"
+  assessments:
+    - assignment: "prep-work-analysis-plan"
+      workflow: "checkpoint"
+      instructions: "timeline"
+      submission: "canvas-text-or-file-upload"
+    - assignment: "prep-work-clean-data-set"
+      workflow: "checkpoint"
+      instructions: "timeline"
+      submission: "canvas-text-or-file-upload"
+    - assignment: "prep-work-pre-coaching-presentation-draft"
+      workflow: "checkpoint"
+      instructions: "timeline"
+      submission: "canvas-file-upload"
+    - assignment: "prep-work-coaching-session-attendance"
+      workflow: "checkpoint"
+      instructions: "timeline"
+      submission: "canvas-file-upload"
+    - assignment: "analysis-project-slides"
+      workflow: "submitted-artifact"
+      instructions: "presentation"
+      submission: "canvas-file-upload"
+      rubric: "slide-deck-rubric"
+    - assignment: "analysis-project-code"
+      workflow: "submitted-artifact"
+      instructions: "main_prompt"
+      submission: "canvas-file-upload"
+      rubric: "code-documentation-rubric"
+    - assignment: "analysis-project-presentation"
+      workflow: "live-performance"
+      instructions: "presentation"
+      submission: "none"
+      grading: "manual"
+      rubric: "oral-communication-rubric"
+    - assignment: "analysis-project-individual-score"
+      workflow: "calculated-adjustment"
+      submission: "none"
+      grading: "calculated-separately"
+
+group_evaluations:
+  provider: "CATME"
+  url: "https://catme.org/login/index"
+  canvas_behavior: "retain-gradebook-shell-and-external-link"
+  assignments:
+    - "catme-group-formation-survey"
+    - "catme-group-evaluation-1"
+    - "catme-group-evaluation-2"
+
+project_2:
+  instruction_source: "syllabus/project_2_prompt.qmd"
+  assignments:
+    - "project-2-research-proposal"
+    - "project-2-research-proposal-fixed-groups"
+  canvas_behavior: "retain-separate-assignment-shells"
+  individual_score:
+    assignment: "open-topic-project-individual-score"
+    workflow: "calculated-adjustment"
+    submission: "none"
+    grading: "calculated-separately"
+
+participation_grades:
+  assignments:
+    - "week-12-survey-participation"
+    - "class-lab-participation"
+  workflow: "manual-gradebook-entry"
+  submission: "none"
+
+practicum:
+  status: "deferred-source-export"
+  current_authoritative_location: "Posit Cloud"
+  required_next_step: "Export and reconcile the current practicum before Canvas synchronization."
+
+final_grades:
+  final_exam_grade:
+    assignment: "final-exam-grade"
+    workflow: "composite-grade"
+    submission: "none"
+    grading: "calculated-separately-and-entered-manually"
+    components:
+      - "final-exam-traditional-portion"
+      - "final-practicum"
+  final_letter_grade:
+    assignment: "final-letter-grade"
+    workflow: "official-letter-grade"
+    submission: "none"
+    grading: "entered-manually-after-course-grade-and-rounding-review"
+    external_destination: "WINGS"
+
+slide_pdfs:
+  status: "automated-derived-artifacts"
+  output_directory: "canvas/work/slide-pdfs"
+  weeks:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+  week_13:
+    status: "deferred-source-revision"
+    reason: "The QMD remains a draft and is not the authoritative replacement for the PowerPoint."

@@ -1,0 +1,61 @@
+schema_version: 1
+products:
+  - key: lab_01_certificate
+    title: "Lab 1: Posit Cloud Certificate"
+    manifest: "week01/lab_01.manifest.json"
+    repository: "ECO230/lab-01-ip"
+    visibility: private
+    canvas_template_value: "lab_01_posit_cloud_url"
+    source_status: ready
+    github_status: published
+    posit_cloud_status: source_project_verified
+
+  - key: lab_02_descriptive_statistics
+    title: "Lab 2: Descriptive Statistics, Cross-Tabulations, and Joins"
+    manifest: "week02/lab_02.manifest.json"
+    repository: "ECO230/lab-02-ip"
+    visibility: private
+    canvas_template_value: "lab_02_posit_cloud_url"
+    download_template_value: "lab_02_download_url"
+    source_status: ready
+    github_status: published
+    posit_cloud_status: source_project_verified
+
+  - key: lab_05_practice_r_coding
+    title: "Lab 5: Practice R Coding"
+    manifest: "week05/lab_05.manifest.json"
+    repository: "ECO230/lab-05-ip"
+    visibility: private
+    canvas_template_value: "practice_r_coding_url"
+    source_status: ready
+    github_status: published
+    posit_cloud_status: source_project_verified
+
+  - key: inference_examples
+    title: "Inference Examples"
+    repository: null
+    visibility: private
+    canvas_template_value: "inference_examples_url"
+    source_status: existing_external_project
+    github_status: not_managed_here
+    posit_cloud_status: configured
+
+  - key: lab_14_practice_practicum
+    title: "Lab 14: Practice Practicum"
+    manifest: "week14/lab_14.manifest.json"
+    repository: "ECO230/lab-14-practice-practicum"
+    visibility: private
+    canvas_template_value: "practicum_practice_url"
+    source_status: ready
+    github_status: published
+    posit_cloud_status: source_project_verified
+
+  - key: final_practicum
+    title: "Final Practicum"
+    manifest: "admin/final/final_practicum.manifest.json"
+    repository: "ECO230/final-practicum-ip"
+    visibility: private
+    canvas_template_value: "final_practicum_url"
+    source_status: ready
+    github_status: published
+    posit_cloud_status: source_project_verified

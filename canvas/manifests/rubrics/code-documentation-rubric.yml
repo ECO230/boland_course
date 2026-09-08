@@ -1,0 +1,78 @@
+schema_version: 1
+status: draft
+key: "code-documentation-rubric"
+title: "Code Documentation Rubric"
+points_possible: 50.0
+free_form_criterion_comments: true
+hide_score_total: false
+criteria:
+  - key: "1-sufficient-documentation-1"
+    description: "1. Sufficient documentation"
+    long_description: "Is documentation sufficient to follow analysis conducted? [comments included]"
+    points: 10.0
+    use_range: null
+    ratings:
+      - key: "full-marks"
+        description: "Full Marks"
+        long_description: ""
+        points: 10.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: ""
+        points: 0.0
+  - key: "2-code-runs-without-error-2"
+    description: "2. Code runs without error"
+    long_description: "Does code run without error from start to finish when beginning from an empty environment? A properly knit Markdown file demonstrates functioning code."
+    points: 10.0
+    use_range: null
+    ratings:
+      - key: "full-marks"
+        description: "Full Marks"
+        long_description: ""
+        points: 10.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: ""
+        points: 0.0
+  - key: "3-completeness-3"
+    description: "3. Completeness"
+    long_description: "Does code reproduce all content included in Slide Deck without major omissions?"
+    points: 10.0
+    use_range: null
+    ratings:
+      - key: "full-marks"
+        description: "Full Marks"
+        long_description: ""
+        points: 10.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: ""
+        points: 0.0
+  - key: "4-organization-4"
+    description: "4. Organization"
+    long_description: "Is organization within the files effective for matching presented work to the code that produced it?"
+    points: 10.0
+    use_range: null
+    ratings:
+      - key: "full-marks"
+        description: "Full Marks"
+        long_description: ""
+        points: 10.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: ""
+        points: 0.0
+  - key: "5-discrepancies-between-presentation-and-code-5"
+    description: "5. Discrepancies between presentation and code"
+    long_description: "Are there discrepancies between the actions the code performs and the way the output is presented in the slides or oral presentation? For example, does the code use filters appropriately to produce analysis for a subset of workers as reported in the slides?"
+    points: 10.0
+    use_range: null
+    ratings:
+      - key: "full-marks"
+        description: "Full Marks"
+        long_description: ""
+        points: 10.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: ""
+        points: 0.0

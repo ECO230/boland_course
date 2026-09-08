@@ -1,0 +1,190 @@
+schema_version: 1
+status: draft
+key: "homework-2"
+title: "Homework 2"
+points_possible: 100.0
+free_form_criterion_comments: false
+hide_score_total: false
+criteria:
+  - key: "frequency-table-categorical-variable-1"
+    description: "Frequency Table (Categorical Variable)"
+    long_description: "Create a frequency table for one categorical variable (≥ 3–4 categories recommended).<br/>\n<br/>\nYour table must include:<br/>\n<br/>\nCategory<br/>\nCount (n)<br/>\nPercent of total<br/>\nAny other information you feel is relevant."
+    points: 15.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "The categorical variable has ≥3–4 meaningful categories.\nTable includes: category, n, percent of total, and clear labels/units.\nDenominators are correct and explicitly shown.\nTable is clean, readable, and free of errors or inappropriate statistics.\nDemonstrates accurate understanding of NOIR measurement scales."
+        points: 15.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Appropriate variable chosen; small issues with labeling, categories, or denominators.\nOne minor formatting or clarity issue (e.g., missing units, unclear category names)."
+        points: 11.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Variable unsuitable (too few categories, poorly chosen).\nMissing key fields (e.g., percent).\nDenominators unclear or incorrect.\nTable is difficult to interpret or contains errors."
+        points: 7.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Major issues (wrong variable type, incorrect counts, percentages that don’t sum correctly).\nNot formatted in a usable way."
+        points: 3.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Analysis is not included/performed"
+        points: 0.0
+  - key: "table-2-continuous-categorical-summary-2"
+    description: "Table 2 — Continuous ↔︎ Categorical Summary"
+    long_description: "Create a grouped summary table using:<br/>\n<br/>\nOne continuous measure (a numeric variable where arithmetic is meaningful)<br/>\nOne categorical dimension (≥ 3 categories)<br/>\nYour table must include:<br/>\n<br/>\nGroup name<br/>\nn_non-missing for the measure<br/>\nA measure of center and/or measure of spread that matches your choice<br/>\nAny other information you feel is relevant.<br/>\nBelow the table, write 1–2 sentences explaining why your choices are meaningful."
+    points: 20.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Appropriate continuous + categorical variables chosen.\nTable includes: group names, n_non-missing, appropriate measure of center/spread (mean/SD or median/IQR), and clear labels.\nSummary choice is defensible and matches the data (based on skew/outliers/scale).\nExplanation beneath table clearly justifies the choice (1–2 sentences).\nClean formatting; denominators correct."
+        points: 20.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Good variable choice but summary choice slightly mismatched or justification thin.\nMinor formatting issues."
+        points: 15.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Variable choice unclear or mismatched (e.g., using mean with highly skewed data).\nMissing n_non-missing or unclear denominators.\nExplanation superficial or incorrect."
+        points: 10.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Shows misunderstanding of continuous vs categorical, or of summary statistics.\nTable incorrect or unusable."
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Analysis is not included/performed"
+        points: 0.0
+  - key: "table-3-another-continuous-categorical-summary-different-angle-3"
+    description: "Table 3 — Another Continuous ↔︎ Categorical Summary (Different Angle)"
+    long_description: "Create a second grouped summary table, changing at least one of the following:<br/>\n<br/>\nA different continuous measure, or<br/>\nA different categorical grouping, or<br/>\nA different summary choice (mean/SD vs median/IQR), or<br/>\nA different filter or frame (e.g., weekday vs weekend, before vs after a date)<br/>\nRequirements are the same as Table 2:<br/>\n<br/>\nGroup name<br/>\nn_non-missing for the measure<br/>\nA measure of center and/or measure of spread that matches your choice<br/>\nAny other information you feel is relevant."
+    points: 20.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Differs meaningfully from Table 2 (different measure, grouping, summary choice, or time frame).\nTable includes all required components: group, n_non-missing, center/spread, clear labels.\nDemonstrates understanding of design choices: why a different summary or grouping is appropriate.\nClean, interpretable, statistically coherent."
+        points: 20.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Good table but lacks clear differentiation from Table 2 (changes feel minor).\nSummary choice partially justified."
+        points: 15.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Weak differentiation from Table 2.\nMissing fields or inconsistent denominators.\nStatistical mismatch (e.g., mean on ordinal data)."
+        points: 10.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Shows misunderstanding of continuous vs categorical, or of summary statistics. Table incorrect or unusable."
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Analysis is not included/performed"
+        points: 0.0
+  - key: "table-4-cross-tab-categorical-categorical-with-percents-4"
+    description: "Table 4 — Cross-Tab (Categorical ↔︎ Categorical With Percents)"
+    long_description: "Create a cross-tab using two categorical variables, each with ≥ 3 categories.<br/>\n<br/>\nYour table must include:<br/>\n<br/>\nCell counts<br/>\n<br/>\nOne percentage type (choose one and label it clearly):<br/>\n<br/>\nRow % (conditional on row)<br/>\nColumn % (conditional on column)<br/>\nTable % (overall share)<br/>\nRow and column totals (margins)<br/>\n<br/>\nBelow the table, write one sentence that states the denominator clearly"
+    points: 20.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Two categorical variables (≥3 categories each).\nTable includes: cell counts, one clearly labeled percentage type (row %, column %, or table %), and margins.\nPercentages correctly computed and denominators clearly stated.\nFormatting clean; categories meaningful and interpretable."
+        points: 20.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Variables appropriate; minor issues with formatting, labeling, or percent clarity.\nDenominator statement present but slightly unclear."
+        points: 15.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Uses variables with too few categories or mismatched types.\nSummary includes incorrect percentages or unclear denominators.\nMissing row/column totals."
+        points: 10.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Not a cross‑tab, uses the wrong type of summary, or table is incorrect."
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Analysis is not included/performed"
+        points: 0.0
+  - key: "findings-summary-3-key-takeaways-5"
+    description: "Findings Summary (3 Key Takeaways)"
+    long_description: "Write 3 key takeaways (about 5–10 sentences total).<br/>\n<br/>\nEach takeaway must:<br/>\n<br/>\nReference a specific table and at least one number (value + category)<br/>\nInterpret what it implies (not just restate a statistic)<br/>\nStrong examples:<br/>\n<br/>\n“Group A has a higher median than Group B (Table 2), suggesting…”<br/>\n“Under row %, Category X is concentrated in Y (Table 4), meaning…”<br/>\n“Mean and median disagree (Table 3), which suggests skew/outliers…”"
+    points: 15.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Three takeaways reference specific tables and specific values.\nInterpretations go beyond description to explain meaning and implications.\nDemonstrates understanding of group differences, distributions, or relationships.\nLinks statistics to reasonable real‑world interpretations."
+        points: 15.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "References tables and numbers but interpretations are surface-level.\nMinor misinterpretations or insufficient detail."
+        points: 11.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Simply re-states statistics without interpreting them.\nFails to link takeaways to tables or uses incorrect references."
+        points: 7.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Missing, incorrect, or irrelevant reflections."
+        points: 3.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Summary document not included."
+        points: 0.0
+  - key: "responsible-use-of-ai-reflection-6"
+    description: "Responsible Use of AI Reflection"
+    long_description: "Write 4–6 sentences responding to:<br/>\n<br/>\nA. How did you use AI on this assignment? (If not at all, say so.)<br/>\nB. What did AI help with (specific steps)?<br/>\nC. What did AI miss, oversimplify, or get wrong?<br/>\nD. Include one prompt you used and briefly note how it helped and where it fell short."
+    points: 5.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Addresses all four questions clearly:\n\nHow AI was used\nWhat it helped with\nWhat it missed\nExample prompt + usefulness/limitations\n\n\nDemonstrates thoughtful, ethical, critical evaluation."
+        points: 5.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Addresses most but not all questions; responses thin or generic."
+        points: 4.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Mentions AI use but lacks specifics; no example prompt."
+        points: 3.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Generic or dismissive statement (“I didn’t use AI” with no reflection)."
+        points: 1.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Not Included/Addressed"
+        points: 0.0
+  - key: "file-submission-tables-supporting-files-7"
+    description: "File Submission (Tables + Supporting Files)"
+    long_description: "A PDF or Word document containing:<br/>\n<br/>\nTables 1–4 (and the optional correlation table if included)<br/>\nYour 3 takeaways<br/>\nYour brief AI reflection<br/>\nYour supporting files (as applicable):<br/>\n<br/>\nExcel: .xlsx<br/>\nTableau: .twbx<br/>\n<a href='http://posit.cloud'>posit.cloud</a>: knitted output (.html or .pdf) and your source file"
+    points: 5.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "All required files included (PDF/Word + Excel/Tableau/posit.cloud).\nTabs, labels, and filenames are clear and organized.\nTables are formatted cleanly (not screenshots of messy spreadsheets)."
+        points: 5.0
+      - key: "high-quality"
+        description: "High Quality"
+        long_description: "All files included; minor naming/organization inconsistencies."
+        points: 4.0
+      - key: "medium-quality"
+        description: "Medium Quality"
+        long_description: "Missing supporting files or file formats incorrect."
+        points: 3.0
+      - key: "low-quality"
+        description: "Low Quality"
+        long_description: "Files missing or unreadable."
+        points: 1.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "No supporting files included."
+        points: 0.0

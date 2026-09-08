@@ -1,0 +1,61 @@
+schema_version: 1
+folder_path: "eco230-managed/guided-notes"
+
+# Each editable guided-notes file is uploaded once per Canvas course and reused
+# by its Canvas assignment wrapper and any supporting pages.
+files:
+  - key: "guided-notes-01-data-literacy"
+    display_name: "Guided Notes 1 - Data Literacy.docx"
+    source_path: "shared/guided-notes/Guided_Notes_01_Data_Literacy.docx"
+    content_type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    template_value: "guided_notes_01_url"
+    use: "editable guided notes and Week 1 pass/fail submission"
+
+  - key: "guided-notes-02-descriptive-statistics-data-literacy"
+    display_name: "Guided Notes 2 - Descriptive Statistics and Data Literacy.docx"
+    source_path: "shared/guided-notes/Guided_Notes_02_Descriptive_Statistics_and_Data_Literacy.docx"
+    content_type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    template_value: "guided_notes_02_url"
+    use: "editable guided notes"
+
+  - key: "guided-notes-03-data-visualization"
+    display_name: "Guided Notes 3 - Data Visualization.docx"
+    source_path: "shared/guided-notes/Guided_Notes_03_Data_Visualization.docx"
+    content_type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    template_value: "guided_notes_03_url"
+    use: "editable guided notes"
+
+  - key: "guided-notes-04-communicating-data"
+    display_name: "Guided Notes 4 - Communicating Data.docx"
+    source_path: "shared/guided-notes/Guided_Notes_04_Communicating_Data.docx"
+    content_type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    template_value: "guided_notes_04_communicating_url"
+    use: "editable guided notes"
+
+  - key: "guided-notes-04-hypothesis-testing"
+    display_name: "Guided Notes 4 - Hypothesis Testing.docx"
+    source_path: "shared/guided-notes/Guided_Notes_04_Hypothesis_Testing.docx"
+    content_type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    template_value: "guided_notes_04_hypothesis_url"
+    use: "editable guided notes"
+
+  - key: "guided-notes-05-inferential-statistical-tests"
+    display_name: "Guided Notes 5 - Inferential Statistical Tests.docx"
+    source_path: "shared/guided-notes/Guided_Notes_05_Inferential_Statistical_Tests.docx"
+    content_type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    template_value: "guided_notes_05_url"
+    use: "editable guided notes"
+
+  - key: "guided-notes-06-survey-research-methods"
+    display_name: "Guided Notes 6 - Survey Research Methods.docx"
+    source_path: "shared/guided-notes/Guided_Notes_06_Survey_Research_Methods.docx"
+    content_type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    template_value: "guided_notes_06_url"
+    use: "editable guided notes"
+
+  - key: "guided-notes-07-machine-learning-experimental-research"
+    display_name: "Guided Notes 7 - Machine Learning and Experimental Research.docx"
+    source_path: "shared/guided-notes/Guided_Notes_07_Machine_Learning_and_Experimental_Research.docx"
+    content_type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    template_value: "guided_notes_07_url"
+    use: "editable guided notes"

@@ -1,0 +1,42 @@
+module,title,cartridge_path,decision,replacement_source
+Course Info and Resources,ECO 230 Syllabus S26_S012.pdf,web_resources/ECO 230 Syllabus S26_S012.pdf,remove_duplicate,syllabus/syllabus.qmd
+Course Info and Resources,About Me.pdf,web_resources/About Me.pdf,remove,
+Week 1: Intro to Data Analysis,Reading: Why Everyone Needs Analytical Skills,web_resources/Readings/KeepingUpWithTheQuants_Ch1.pdf,retain_private_course_copy,https://www.oreilly.com/library/view/keeping-up-with/9781422187265/chapter001.html
+Week 1: Intro to Data Analysis,Reading: Basic Data Types,web_resources/Readings/BasicDataTypes.pdf,replace_with_external_link,https://trinachi.github.io/data-design-builds/ch01.html
+Week 1: Intro to Data Analysis,Reading: Understanding Data,web_resources/Readings/Understanding Data.pdf,recreate_qmd,week01/readings/understanding-data.qmd
+Week 1: Intro to Data Analysis,Reading: Tidy Data,web_resources/Readings/tidy-data.pdf,replace_with_external_link,https://www.jstatsoft.org/v59/i10/
+Week 1: Intro to Data Analysis,Data Organization in Spreadsheets.pdf,web_resources/Readings/Data Organization in Spreadsheets.pdf,replace_with_external_link,https://kbroman.org/Paper_DataOrg/
+Week 2: Descriptive Statistics,DataAggregation.pdf,web_resources/Readings/DataAggregation.pdf,replace_with_external_link,https://trinachi.github.io/data-design-builds/ch02.html
+Week 2: Descriptive Statistics,Measures Of Variability.pdf,web_resources/Readings/Measures Of Variability.pdf,recreate_qmd,week02/readings/measures-of-variability.qmd
+Week 2: Descriptive Statistics,Working with percentages.pdf,web_resources/Readings/Working with percentages.pdf,recreate_qmd,week02/readings/working-with-percentages.qmd
+Week 3: Data Visualization,Considerations in DataViz.pdf,web_resources/Readings/Considerations in DataViz.pdf,replace_with_external_link,https://trinachi.github.io/data-design-builds/
+Week 3: Data Visualization,The Right Graph.pdf,web_resources/Readings/The Right Graph.pdf,replace_with_external_link,https://www.perceptualedge.com/articles/ie/the_right_graph.pdf
+Week 3: Data Visualization,PieCharts_EXCERPT.pdf,web_resources/Readings/PieCharts_EXCERPT.pdf,replace_with_external_link,https://www.perceptualedge.com/articles/visual_business_intelligence/save_the_pies_for_dessert.pdf
+Week 3: Data Visualization,Graph_Choice_Chart.pdf,web_resources/Readings/Graph_Choice_Chart.pdf,replace_with_external_link,https://participatoryscience.org/file/graph-choice-chart
+Week 3: Data Visualization,DataVisGuide_EXCERPT.pdf,web_resources/Readings/DataVisGuide_EXCERPT.pdf,replace_with_external_link,https://cdn2.hubspot.net/hub/53/file-863940581-pdf/Data_Visualization_101_How_to_Design_Charts_and_Graphs.pdf
+Week 3: Data Visualization,AdvancedInterp.pdf,web_resources/Readings/AdvancedInterp.pdf,recreate_qmd,week03/readings/advanced-interpretation.qmd
+Week 3: Data Visualization,Lab3_Hints.pptx,web_resources/Labs/Lab3_Hints.pptx,recreate_qmd,week03/labs/lab-3-hints.qmd
+Week 3: Data Visualization,Lab3_Completed_EXT.twbx,web_resources/Homework/Lab3_Completed_EXT.twbx,retain_solution_file,
+Week 4: Communicating Data,Chapter 1 Clear and to the Point.pdf,web_resources/Readings/Chapter 1 Clear and to the Point.pdf,retain_private_course_copy,https://blog.oup.com/2007/08/powerpoint/
+Week 4: Communicating Data,Telling Compelling Stories with Numbers.pdf,web_resources/Readings/Telling Compelling Stories with Numbers.pdf,replace_with_external_link,https://www.perceptualedge.com/articles/visual_business_intelligence/statistical_narrative.pdf
+Week 4: Communicating Data,Making Data Meaningful UN guide_EXCERPTS.pdf,web_resources/Readings/Making Data Meaningful UN guide_EXCERPTS.pdf,replace_with_external_link,https://unece.org/statistics/publications/making-data-meaningful-part-1
+Week 4: Communicating Data,BusinessWriting.pdf,web_resources/Readings/BusinessWriting.pdf,replace_with_external_link,https://www.instructionalsolutions.com/blog/business-writing-tips
+Week 4: Communicating Data,More Slide Design Tips,web_resources/Readings/visage-co-11-design-tips-beautiful-presentations-.pdf,remove_duplicate,week04/week_04.qmd
+Week 5: Problem Definition & Project 1 Work Time,Keeping Up with the Quants Chapter 2.1.pdf,web_resources/Readings/Keeping Up with the Quants Chapter 2.1.pdf,retain_private_course_copy,https://www.oreilly.com/library/view/keeping-up-with/9781422187265/chapter002.html
+Week 5: Problem Definition & Project 1 Work Time,Problem Definition Examples.pdf,web_resources/Problem Definition Examples.pdf,recreate_qmd,week05/readings/problem-definition-examples.qmd
+Week 5: Problem Definition & Project 1 Work Time,project_1_timeline.pdf,web_resources/Group Project/project_1_timeline.pdf,remove_duplicate,syllabus/project_1_timeline.qmd
+Week 5: Problem Definition & Project 1 Work Time,project_1_prompt.pdf,web_resources/Group Project/project_1_prompt.pdf,remove_duplicate,syllabus/project_1_prompt.qmd
+Week 5: Problem Definition & Project 1 Work Time,rmarkdown_cheat_sheet.pdf,web_resources/rmarkdown_cheat_sheet.pdf,replace_with_external_link,https://rstudio.github.io/cheatsheets/html/rmarkdown.html
+Week 5: Problem Definition & Project 1 Work Time,Tidyverse_cheat_sheet.pdf,web_resources/Tidyverse_cheat_sheet.pdf,replace_with_external_link,https://rstudio.github.io/cheatsheets/
+Week 6: Hypothesis Testing,StatsJargon.pdf,web_resources/Readings/StatsJargon.pdf,retain_private_course_copy,https://onlinelibrary.wiley.com/doi/book/10.1002/9781119182368
+Week 11: Group Presentations,Week 12.1.pptx,web_resources/Week 12.1.pptx,remove_duplicate,week05/week_05.qmd
+Week 12: Advanced Analytics Techniques Problem Definition & Survey Research,Reading: Nonresponse Bias (1 page),web_resources/Readings/nonresponse bias.pdf,replace_with_external_link,https://www.pewresearch.org/methods/2017/05/15/what-low-response-rates-mean-for-telephone-surveys/
+Week 12: Advanced Analytics Techniques Problem Definition & Survey Research,Reading: Bias-Error in Survey Research (4 pages),web_resources/Readings/Bias-Error in Survey Research.pdf,recreate_qmd,week12/readings/bias-error-survey-research.qmd
+Week 12: Advanced Analytics Techniques Problem Definition & Survey Research,Reading: Survey Design (Data & Design textbook- okay to skim),web_resources/DataAndDesign - SurveyContent.pdf,replace_with_external_link,https://trinachi.github.io/data-design-builds/ch03.html
+Week 12: Advanced Analytics Techniques Problem Definition & Survey Research,Week 12.2.pptx,web_resources/Week 12.2.pptx,remove_duplicate,week12/week_12.qmd
+Week 12: Advanced Analytics Techniques Problem Definition & Survey Research,project_2_prompt.pdf,web_resources/Project 3/project_2_prompt.pdf,remove_duplicate,syllabus/project_2_prompt.qmd
+Week 12: Advanced Analytics Techniques Problem Definition & Survey Research,Problem Definition Examples-1.pdf,web_resources/Problem Definition Examples-1.pdf,remove_duplicate,week05/readings/problem-definition-examples.qmd
+Week 12: Advanced Analytics Techniques Problem Definition & Survey Research,Analysis Plan Outline.pdf,web_resources/Analysis Plan Outline.pdf,recreate_qmd,week12/readings/analysis-plan-outline.qmd
+Week 13: Advanced Analytics Techniques Experiment Design & Machine Learning,DataFluency_Chapter4 (2).pdf,web_resources/DataFluency_Chapter4 (2).pdf,retain_private_course_copy,https://onlinelibrary.wiley.com/doi/book/10.1002/9781119182368
+Week 14: Research Ethics,"Reading: Ethical Considerations (Zikmund et al, 9th edition, 2013)  10 pages",web_resources/Readings/EthicalConsiderations.pdf,retain_private_course_copy,https://www.cengage.com/c/student/9781111826949/
+Week 14: Research Ethics,D14_Slides.pptx,web_resources/D14_Slides.pptx,recreate_qmd,week14/week_14.qmd

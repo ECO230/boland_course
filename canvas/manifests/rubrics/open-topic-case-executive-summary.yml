@@ -1,0 +1,162 @@
+schema_version: 1
+status: draft
+key: "open-topic-case-executive-summary"
+title: "Open Topic Case - Executive Summary"
+points_possible: 100.0
+free_form_criterion_comments: false
+hide_score_total: false
+criteria:
+  - key: "week-13-informal-meeting-1"
+    description: "Week 13 Informal Meeting"
+    long_description: ""
+    points: 10.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Team arrives prepared with a real topic, a clear problem or opportunity, and a plausible research direction. Team can explain who or what might be studied and why the topic is worth pursuing."
+        points: 10.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Team arrives with a workable topic, but the problem, audience, or research direction is still somewhat vague or underdeveloped."
+        points: 8.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Team is underprepared. Topic is unclear, too broad, or not yet connected to a workable research design."
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Team does not participate or does not present a meaningful topic or direction."
+        points: 0.0
+  - key: "week-14-informal-presentation-2"
+    description: "Week 14 Informal Presentation"
+    long_description: ""
+    points: 10.0
+    use_range: true
+    ratings:
+      - key: "full-marks"
+        description: "Full Marks"
+        long_description: "Presentation clearly explains the problem or opportunity, the research question, the proposed design, and why the design could produce trustworthy evidence. The audience can understand what is being proposed and why it matters."
+        points: 10.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Presentation is understandable, but one or more elements are not clearly developed, such as the research question, the fit between question and design, or the explanation of trustworthiness."
+        points: 8.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Presentation is difficult to follow, lacks important components, or does not make a convincing case for the design."
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Presentation is missing or does not meaningfully address the assignment."
+        points: 0.0
+  - key: "week-14-red-team-critique-3"
+    description: "Week 14 Red Team Critique"
+    long_description: ""
+    points: 10.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Critique is serious, professional, and useful. Team identifies meaningful risks or weaknesses related to sampling, measurement, design, ethics, generalization, or limitations and offers feedback that could genuinely improve the project."
+        points: 10.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Critique identifies some real concerns, but the feedback is somewhat general, incomplete, or not fully developed."
+        points: 8.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Critique is superficial, unfocused, or too vague to help improve the proposal."
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Critique is missing or does not meaningfully engage with another team’s proposal."
+        points: 0.0
+  - key: "written-proposal-1-4"
+    description: "Written Proposal 1"
+    long_description: "Problem / Opportunity"
+    points: 15.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Written report clearly identifies the decision maker, stakeholder, or audience and clearly explains the problem or opportunity. It is easy to see why the question matters and how the results could inform a real decision."
+        points: 15.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Problem or opportunity is present but not fully clear, specific, or well connected to decision-making."
+        points: 12.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Section is vague, thin, or underdeveloped. The reader cannot clearly tell what problem is being addressed or why it matters."
+        points: 8.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Section is missing or not meaningfully addressed."
+        points: 0.0
+  - key: "written-proposal-2-5"
+    description: "Written Proposal 2"
+    long_description: "Research Question and Direction"
+    points: 15.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Written report states a specific, interesting, and actionable research question. The scope is focused enough to study, and any supporting objectives or hypotheses help clarify the design rather than distract from it."
+        points: 15.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Research question is workable but somewhat broad, narrow, or loosely connected to the proposed design."
+        points: 12.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Research question is unclear, unfocused, or not actionable."
+        points: 8.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Section is missing or not meaningfully addressed."
+        points: 0.0
+  - key: "written-proposal-3-6"
+    description: "Written Proposal 3"
+    long_description: "Study Design and Measures"
+    points: 20.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Written report clearly explains the proposed method, defines who or what will be studied, and describes what information would be collected and how. The design is concrete enough that a reader can imagine how the study would actually be carried out."
+        points: 20.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Study design is reasonable, but parts of the method, measurement plan, or data collection process remain unclear or underdeveloped."
+        points: 16.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Study design is vague, incomplete, or not clearly connected to the research question."
+        points: 10.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Section is missing or not meaningfully addressed."
+        points: 0.0
+  - key: "written-proposal-4-7"
+    description: "Written Proposal 4"
+    long_description: "Trustworthiness, Risks, and Limits"
+    points: 20.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Written report thoughtfully addresses sampling, representation, measurement, bias, limitations, and ethics. It shows real reflection about what the study could support, what could go wrong, and why the evidence might still be worth using."
+        points: 20.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Report addresses trustworthiness and limitations, but some important risks, assumptions, or ethical concerns are only briefly discussed."
+        points: 16.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Discussion of trustworthiness, bias, limitations, or ethics is thin, generic, or incomplete."
+        points: 10.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Section is missing or not meaningfully addressed."
+        points: 0.0

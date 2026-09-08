@@ -1,0 +1,108 @@
+schema_version: 1
+status: draft
+key: "homework-4"
+title: "Homework 4"
+points_possible: 50.0
+free_form_criterion_comments: false
+hide_score_total: false
+criteria:
+  - key: "headline-quality-takeaway-focused-1"
+    description: "Headline Quality (Takeaway-Focused)"
+    long_description: "Write five potential data headlines your dataset could support.<br/>\n<br/>\nEach headline should:<br/>\n<br/>\nbe a complete sentence<br/>\nstate a takeaway (a claim), not a topic<br/>\navoid numbers and test statistics"
+    points: 15.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "All 5 headlines are clear, concise, and written as takeaways (not topics)\n\nHeadlines are testable and relevant to the dataset\n\nHeadlines reflect audience or business relevance"
+        points: 15.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Most headlines are takeaway-focused\n\nMinor vagueness or wording issues in 1–2 headlines"
+        points: 12.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Several headlines are vague, topic-like, or overly broad\n\nSome are not clearly testable"
+        points: 9.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Most headlines are topics rather than takeaways\n\nLittle evidence of careful framing"
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Headlines missing or largely incomplete"
+        points: 0.0
+  - key: "relationships-hypotheses-2"
+    description: "Relationships & Hypotheses"
+    long_description: "For each of your 5 headlines, list:<br/>\n<br/>\nA) Three relationships you could investigate<br/>\nRelationships describe what you would compare/examine, not results."
+    points: 15.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Each story includes 3 meaningful relationships\n\nAt least 2 clear, testable hypotheses per story\n\nRelationships logically support the headline"
+        points: 15.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Most relationships and hypotheses are relevant\n\nSome lack clarity or testability"
+        points: 12.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Relationships or hypotheses are vague or loosely connected to headlines"
+        points: 9.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Many missing, unclear, or untestable relationships/hypotheses"
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Relationships/hypotheses not provided"
+        points: 0.0
+  - key: "variables-data-gaps-feasibility-3"
+    description: "Variables, Data Gaps, & Feasibility"
+    long_description: "B) Variables needed for each relationship<br/>\nFor each relationship:<br/>\n<br/>\nlist the variables involved<br/>\n<br/>\nlabel each variable as:<br/>\n<br/>\nExists (already in the dataset)<br/>\nDerived (you will calculate/recategorize it)<br/>\nExternal (you would need to join a new data source)"
+    points: 15.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "Variables listed for relationships\n\nClear distinction between Exists / Derived / External\n\nData gaps and joins thoughtfully considered"
+        points: 15.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "Most variables identified\n\nSome gaps or derivations unclear"
+        points: 12.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Important variables missing\n\nLimited consideration of feasibility"
+        points: 9.0
+      - key: "medium-quality-with-significant-issues"
+        description: "Medium Quality with Significant Issues"
+        long_description: "Variables largely incomplete or inappropriate"
+        points: 5.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "Variables and data considerations not addressed"
+        points: 0.0
+  - key: "communication-readiness-3s-30s-visual-4"
+    description: "Communication Readiness (3s / 30s / Visual)"
+    long_description: "For each story, include:<br/>\nA) 3-second version (≤ 7 words, no numbers)<br/>\nThis is your “headline headline.”<br/>\nExample: Low visibility increases crash severity.<br/>\n<br/>\nB) 30-second version (1–2 sentences)<br/>\nInclude:<br/>\n<br/>\nthe takeaway<br/>\nwho should care and why<br/>\nC) Hypotheses (at least 2)<br/>\nWrite as testable statements."
+    points: 5.0
+    use_range: true
+    ratings:
+      - key: "professional-quality"
+        description: "Professional Quality"
+        long_description: "All stories include 3-second headline, 30-second story, and a planned visual\n\nClear evidence of storytelling focus"
+        points: 5.0
+      - key: "high-quality-with-minor-issues"
+        description: "High Quality with Minor Issues"
+        long_description: "One component missing or weak for some stories"
+        points: 4.0
+      - key: "low-quality-with-major-issues"
+        description: "Low Quality with Major Issues"
+        long_description: "Multiple components missing or unclear"
+        points: 2.0
+      - key: "no-marks"
+        description: "No Marks"
+        long_description: "No evidence of communication planning"
+        points: 0.0

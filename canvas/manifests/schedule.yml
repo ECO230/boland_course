@@ -1,0 +1,49 @@
+schema_version: 1
+status: active
+date_source: "syllabus/data/section_class_dates.csv"
+
+defaults:
+  time_zone: "America/Chicago"
+  due_date_set: "regular"
+  infer_from_single_week_module: true
+
+# Most assignments inherit C1-C14 from the one weekly module that contains them.
+# Only ambiguous, module-free, and deliberately undated assignments belong here.
+# A rule may use `section_overrides: {12: {due_date_set: alternate}}` when one
+# section needs its alternate CSV timestamp without changing the other sections.
+assignment_rules:
+  analysis-project-individual-score:
+    no_due: true
+    reason: "Calculated after the group project is graded."
+  final-exam-grade:
+    no_due: true
+    reason: "Calculated composite grade entered after the exam and practicum."
+  final-letter-grade:
+    no_due: true
+    reason: "Manual official-grade workflow; not a student submission deadline."
+  open-topic-project-individual-score:
+    no_due: true
+    reason: "Calculated after the group proposal is graded."
+  analysis-project-slides:
+    code: "C10"
+    reason: "Due for the final presentation milestone."
+  analysis-project-presentation:
+    code: "C10"
+    reason: "Live presentation milestone."
+  analysis-project-code:
+    code: "C11"
+    reason: "Technical documentation follows the presentation milestone."
+  project-2-research-proposal:
+    code: "F0"
+    due_at_source: "class_start"
+    reason: "Due at the start of the section's final exam."
+  project-2-research-proposal-fixed-groups:
+    code: "F0"
+    due_at_source: "class_start"
+    reason: "Due at the start of the section's final exam."
+  week-12-survey-participation:
+    code: "C12"
+    reason: "Participation recorded with the Week 12 survey work."
+  class-lab-participation:
+    no_due: true
+    reason: "Cumulative manual participation grade."

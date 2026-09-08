@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "status": "valid-draft",
+  "publication_allowed": false,
+  "counts": {
+    "modules": 16,
+    "module_items": 240,
+    "assignments": 37,
+    "rubrics": 13,
+    "rubric_criteria": 72,
+    "rubric_ratings": 283,
+    "recorded_source_decisions": 21,
+    "pending_source_decisions": 0,
+    "deferred_source_items": 0,
+    "configured_slide_pdf_artifacts": 7,
+    "validated_slide_pdf_artifacts": 1,
+    "external_service_items": 5,
+    "legacy_attachments": 41,
+    "resolved_legacy_attachments": 41,
+    "pending_legacy_attachments": 0,
+    "preserved_canvas_assessments": 10,
+    "deferred_practicum_native_items": 0,
+    "remaining_canvas_native_items": 0,
+    "consolidated_weekly_reading_pages": 9
+  },
+  "blockers": [
+    "Canvas delivery-model repairs are in progress; final course publication is not authorized."
+  ],
+  "rubrics": [
+    {
+      "key": "slide-deck-rubric",
+      "declared_points": 50.0,
+      "criteria_points": 50.0,
+      "criteria_count": 6,
+      "valid": true
+    },
+    {
+      "key": "code-documentation-rubric",
+      "declared_points": 50.0,
+      "criteria_points": 50.0,
+      "criteria_count": 5,
+      "valid": true
+    },
+    {
+      "key": "discussion-rubric",
+      "declared_points": 10.0,
+      "criteria_points": 10.0,
+      "criteria_count": 2,
+      "valid": true
+    },
+    {
+      "key": "homework-2",
+      "declared_points": 100.0,
+      "criteria_points": 100.0,
+      "criteria_count": 7,
+      "valid": true
+    },
+    {
+      "key": "homework-6",
+      "declared_points": 50.0,
+      "criteria_points": 50.0,
+      "criteria_count": 6,
+      "valid": true
+    },
+    {
+      "key": "homework-3",
+      "declared_points": 100.0,
+      "criteria_points": 100.0,
+      "criteria_count": 6,
+      "valid": true
+    },
+    {
+      "key": "homework-7",
+      "declared_points": 50.0,
+      "criteria_points": 50.0,
+      "criteria_count": 6,
+      "valid": true
+    },
+    {
+      "key": "homework-8",
+      "declared_points": 50.0,
+      "criteria_points": 50.0,
+      "criteria_count": 6,
+      "valid": true
+    },
+    {
+      "key": "homework-5",
+      "declared_points": 50.0,
+      "criteria_points": 50.0,
+      "criteria_count": 5,
+      "valid": true
+    },
+    {
+      "key": "open-topic-case-outline",
+      "declared_points": 50.0,
+      "criteria_points": 50.0,
+      "criteria_count": 6,
+      "valid": true
+    },
+    {
+      "key": "oral-communication-rubric",
+      "declared_points": 100.0,
+      "criteria_points": 100.0,
+      "criteria_count": 6,
+      "valid": true
+    },
+    {
+      "key": "open-topic-case-executive-summary",
+      "declared_points": 100.0,
+      "criteria_points": 100.0,
+      "criteria_count": 7,
+      "valid": true
+    },
+    {
+      "key": "homework-4",
+      "declared_points": 50.0,
+      "criteria_points": 50.0,
+      "criteria_count": 4,
+      "valid": true
+    }
+  ]
+}

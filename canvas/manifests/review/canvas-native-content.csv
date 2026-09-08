@@ -1,0 +1,60 @@
+module,content_type,title,decision,notes
+Course Info and Resources,DiscussionTopic,"General Q & A Discussion (course policies, syllabus, etc.)",repository_source,Use canvas/content/discussions/general-qa.md.
+Course Info and Resources,WikiPage,Instructor Contact Info,repository_template,Use canvas/content/pages/instructor-contact.md; inject office hours and private Zoom URL at publication.
+Course Info and Resources,WikiPage,Student Hours Zoom Link,repository_template,Use canvas/content/pages/student-hours.md; never commit the private Zoom URL.
+Week 1: Intro to Data Analysis,WikiPage,Reading: What is Data Literacy?,repository_source,Use week01/readings/data-literacy.qmd.
+Week 1: Intro to Data Analysis,WikiPage,Resource: Data Literacy Terminology,repository_source,Use week01/readings/data-literacy-terminology.qmd.
+Week 1: Intro to Data Analysis,WikiPage,Reading: Data Sources,repository_source,Use week01/readings/data-sources.qmd.
+Week 1: Intro to Data Analysis,Assignment,Guided Notes 1 - Data Literacy,repository_source,Use week01/Guided_Notes_01.qmd; render a DOCX when a downloadable worksheet is needed.
+Week 1: Intro to Data Analysis,WikiPage,LabPrep for Lab 1,repository_template,Use canvas/content/pages/week01-lab-prep.md; inject the current Lab 1 dataset URL at publication.
+Week 1: Intro to Data Analysis,Assignment,Technology Set-Up,repository_template,Use canvas/content/assignments/technology-setup.md; inject the private Posit Cloud join URL at publication.
+Week 2: Descriptive Statistics,WikiPage,Resource: Descriptive Statistics,repository_source,Use week02/readings/descriptive-statistics.qmd.
+Week 2: Descriptive Statistics,WikiPage,Optional resources from Microsoft,repository_source,Use canvas/content/pages/week02-microsoft-excel-resources.md.
+Week 2: Descriptive Statistics,Assignment,Guided Notes 2 - Descriptive Statistics & Data Literacy,repository_source,Use week02/Guided_Notes_02.qmd; render a DOCX when a downloadable worksheet is needed.
+Week 2: Descriptive Statistics,WikiPage,Lab 2 Descriptive Statistics and Cross Tabs,repository_template,Use canvas/content/pages/week02-lab.md; inject the lab download and Posit Cloud URLs at publication.
+Week 2: Descriptive Statistics,WikiPage,Video Demo: Excel Detailed Examples,repository_source,Use canvas/content/pages/week02-excel-detailed-examples.md.
+Week 2: Descriptive Statistics,WikiPage,Video Tutorial: Medians in Excel Pivot Tables,repository_source,Use canvas/content/pages/week02-excel-medians.md.
+Week 2: Descriptive Statistics,WikiPage,Video Tutorials: R / Posit.Cloud,repository_source,Use canvas/content/pages/week02-r-posit-cloud-videos.md.
+Week 2: Descriptive Statistics,WikiPage,Video Tutorial: Medians in Excel Pivot Tables for Macs,remove_duplicate,Use the combined Windows and Mac resource at canvas/content/pages/week02-excel-medians.md.
+Week 3: Data Visualization,Assignment,Guided Notes 3 - Data Visualization,repository_source,Use week03/Guided_Notes_03.qmd; render a DOCX when a downloadable worksheet is needed.
+Week 3: Data Visualization,WikiPage,Video Tutorial: Opening a Tableau File,repository_source,Use canvas/content/pages/week03-opening-tableau-file.md.
+Week 3: Data Visualization,WikiPage,LabPrep for Lab 3,repository_template,Use canvas/content/pages/week03-lab-prep.md; inject the Tableau and Excel training-workbook URLs at publication.
+Week 3: Data Visualization,WikiPage,Lab 3 Creating Basic Visualizations in Excel and Tableau,repository_template,Use canvas/content/pages/week03-lab.md; inject the lab data URL and use the Tableau packaged workbook supplied in the module.
+Week 3: Data Visualization,Quizzes::Quiz,Graded Quiz 1: Descriptive Statistics & Data Literacy (classic),preserve_canvas_assessment,Retain the existing Canvas quiz and do not overwrite its questions.
+Week 4: Communicating Data,Assignment,Guided Notes 4 - Communicating Data,repository_source,Use week04/Guided_Notes_04.qmd; render a DOCX when a downloadable worksheet is needed.
+Week 4: Communicating Data,Assignment,LabPrep for Lab 4,repository_source,Use canvas/content/assignments/week04-lab-prep.md.
+Week 4: Communicating Data,WikiPage,Lab 4 Oral Communication Lab,repository_source,Use canvas/content/pages/week04-oral-communication-lab.md.
+Week 4: Communicating Data,Assignment,CATME Group Formation Survey,external_reference,Retain the Canvas gradebook shell and link to https://catme.org/login/index.
+Week 5: Problem Definition & Project 1 Work Time,Quizzes::Quiz,Graded Quiz 2: Data Visualization and Communication (classic),preserve_canvas_assessment,Retain the existing Canvas quiz and do not overwrite its questions.
+Week 5: Problem Definition & Project 1 Work Time,Assignment,Rstudio Recipes,repository_template,Use canvas/content/assignments/week05-rstudio-recipes.md; inject the current Practice R Coding Posit Cloud URL at publication.
+Week 5: Problem Definition & Project 1 Work Time,WikiPage,Coding Tips and Other Reminders,repository_source,Use canvas/content/pages/week05-coding-tips.md.
+Week 5: Problem Definition & Project 1 Work Time,WikiPage,Visualizing Data in R (Optional),repository_source,Use canvas/content/pages/week05-visualizing-data-in-r.md.
+Week 6: Hypothesis Testing,WikiPage,Readings: Stats Refresher,repository_source,Use canvas/content/pages/week06-stats-refresher.md.
+Week 6: Hypothesis Testing,Assignment,Guided Notes 4 - Hypothesis Testing,repository_source,Use week06/Guided_Notes_Hypothesis_Testing.qmd; render a DOCX when a downloadable worksheet is needed.
+Week 6: Hypothesis Testing,Quizzes::Quiz,Lab 6 Hypothesis Testing,preserve_canvas_assessment,Retain the existing Canvas quiz and do not overwrite its questions.
+Week 6: Hypothesis Testing,Quizzes::Quiz,Practice Activity - Inferential Statistics,preserve_canvas_assessment,Retain the existing Canvas quiz and do not overwrite its questions.
+Week 7: Inferential Stats Chi Squared Analysis,Assignment,Guided Notes 5 - Inferential Statistical Tests,repository_source,Use week07/Guided_Notes_05.qmd; render a DOCX when a downloadable worksheet is needed.
+Week 7: Inferential Stats Chi Squared Analysis,WikiPage,Video Lecture: Hypothesis Tests in R using eco230r Chi Squared Analysis,repository_template,Use canvas/content/pages/week07-chi-square-videos.md; inject the current Inference Examples Posit Cloud URL at publication.
+Week 7: Inferential Stats Chi Squared Analysis,Quizzes::Quiz,Graded  Quiz 3: R Basics,preserve_canvas_assessment,Retain the existing Canvas quiz and do not overwrite its questions.
+Week 8: Coaching Preparation and t-Tests,WikiPage,Video Lecture: Hypothesis Tests in R using eco230r t-Tests and Wilcoxon Tests,repository_template,Use canvas/content/pages/week08-t-test-wilcoxon-videos.md; inject the current Inference Examples Posit Cloud URL at publication.
+Week 9: Presentation Coaching and Linear Regression / ANOVA,WikiPage,Video Lecture: Hypothesis Tests in R using eco230r ANOVA and Regression Analysis,repository_template,Use canvas/content/pages/week09-anova-regression-videos.md; inject the current Inference Examples Posit Cloud URL at publication.
+Week 9: Presentation Coaching and Linear Regression / ANOVA,Quizzes::Quiz,Peer Review Exercise,preserve_canvas_assessment,Retain the existing Canvas quiz and do not overwrite its questions.
+Week 9: Presentation Coaching and Linear Regression / ANOVA,Assignment,CATME Group Evaluation 1,external_reference,Retain the Canvas gradebook shell and link to https://catme.org/login/index.
+Week 10: Documenting Analysis / Work Time,Quizzes::Quiz,Graded Quiz 4: Inferential Stats and Data Literacy,preserve_canvas_assessment,Retain the existing Canvas quiz and do not overwrite its questions.
+Week 12: Advanced Analytics Techniques Problem Definition & Survey Research,WikiPage,Videos: Pew Research Center on Sampling,repository_source,Use canvas/content/pages/week12-pew-sampling.md.
+Week 12: Advanced Analytics Techniques Problem Definition & Survey Research,WikiPage,Videos: Pew Research Center on Survey Design and Mode Effects,repository_source,Use canvas/content/pages/week12-pew-survey-design.md.
+Week 12: Advanced Analytics Techniques Problem Definition & Survey Research,Assignment,Guided Notes 6 - Survey Research Methods,repository_source,Use week12/Guided_Notes_06.qmd; render a DOCX when a downloadable worksheet is needed.
+Week 12: Advanced Analytics Techniques Problem Definition & Survey Research,WikiPage,Sample Survey,repository_template,Use canvas/content/pages/week12-sample-survey.md; inject the current sample survey URL at publication.
+Week 12: Advanced Analytics Techniques Problem Definition & Survey Research,Assignment,CATME Group Evaluation 2,external_reference,Retain the Canvas gradebook shell and link to https://catme.org/login/index.
+Week 13: Advanced Analytics Techniques Experiment Design & Machine Learning,Quizzes::Quiz,Graded Quiz 5: Survey Research Methods Quiz,preserve_canvas_assessment,Retain the existing Canvas quiz and do not overwrite its questions.
+Week 13: Advanced Analytics Techniques Experiment Design & Machine Learning,WikiPage,Neural Network Playground,external_reference,Publish the direct https://playground.tensorflow.org/ module link.
+Week 13: Advanced Analytics Techniques Experiment Design & Machine Learning,Assignment,Guided Notes 7 - Machine Learning & Experimental Research,repository_source,Use week13/Guided_Notes_07.qmd; render a DOCX when a downloadable worksheet is needed.
+Week 14: Research Ethics,WikiPage,Ethical Considerations: Additional Readings,repository_source,Use canvas/content/pages/week14-ethical-considerations-readings.md.
+Week 14: Research Ethics,Quizzes::Quiz,RED Team Research Proposal Review,preserve_canvas_assessment,Retain the existing Canvas quiz and do not overwrite its questions.
+Week 14: Research Ethics,WikiPage,What will the final be like?,repository_template,Use canvas/content/pages/week14-final-overview.md; derive the final-exam schedule from the selected section.
+Week 14: Research Ethics,WikiPage,How should I study for the traditional exam portion?,repository_source,Use canvas/content/pages/week14-traditional-exam-study.md.
+Week 14: Research Ethics,DiscussionTopic,Practicum Practice,repository_template,Use canvas/content/discussions/practicum-practice.md and inject the current Practice Practicum Posit Cloud URL.
+Week 14: Research Ethics,WikiPage,Instructor Solutions to Practicum Practice,defer_practicum_export,Rebuild the private solutions page after the current practicum is exported.
+Week 15: Final Exam,WikiPage,Before you Begin,repository_template,Use canvas/content/pages/week15-before-you-begin.md; inject the current practicum URL at publication.
+Week 15: Final Exam,Quizzes::Quiz,Final Exam - Traditional Portion,preserve_canvas_assessment,Retain the protected Canvas exam and do not export or overwrite its questions.
+Week 15: Final Exam,Assignment,Final Letter Grade,gradebook_shell,Retain the no-submission letter-grade shell; enter the official grade manually after rounding review.

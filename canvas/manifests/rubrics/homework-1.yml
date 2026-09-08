@@ -1,0 +1,102 @@
+schema_version: 1
+status: draft
+key: "homework-1"
+title: "Homework 1"
+points_possible: 10.0
+free_form_criterion_comments: true
+hide_score_total: false
+criteria:
+  - key: "dataset-and-excel-preparation"
+    description: "Dataset and Excel Preparation"
+    long_description: "The submission includes a working Excel workbook with the selected dataset formatted as an Excel table."
+    points: 2.0
+    use_range: false
+    ratings:
+      - key: "complete"
+        description: "Complete"
+        long_description: "The dataset is present, saved as an Excel workbook, and formatted as a usable Excel table."
+        points: 2.0
+      - key: "needs-revision"
+        description: "Needs Revision"
+        long_description: "The workbook is present, but the dataset or Excel-table setup is incomplete or difficult to use."
+        points: 1.0
+      - key: "missing"
+        description: "Missing"
+        long_description: "The required workbook or dataset preparation is missing."
+        points: 0.0
+
+  - key: "tidy-data-and-grain"
+    description: "Tidy Data and Grain"
+    long_description: "The response evaluates tidy-data structure and accurately explains the unit of analysis, grain, and why grain limits the questions the data can answer."
+    points: 2.0
+    use_range: false
+    ratings:
+      - key: "complete"
+        description: "Complete"
+        long_description: "The response addresses tidy structure and correctly explains what one row represents, why that grain matters, and what greater detail would add."
+        points: 2.0
+      - key: "needs-revision"
+        description: "Needs Revision"
+        long_description: "The response attempts both topics but is incomplete, vague, or contains a material misunderstanding."
+        points: 1.0
+      - key: "missing"
+        description: "Missing"
+        long_description: "The tidy-data or unit-of-analysis response is substantially missing."
+        points: 0.0
+
+  - key: "pivot-table"
+    description: "Pivot Table"
+    long_description: "The workbook includes a pivot table with at least one dimension and one measure, and the written response explains what it summarizes."
+    points: 2.0
+    use_range: false
+    ratings:
+      - key: "complete"
+        description: "Complete"
+        long_description: "The pivot table is present and usable, and the response correctly identifies its dimensions, measures, and summary."
+        points: 2.0
+      - key: "needs-revision"
+        description: "Needs Revision"
+        long_description: "A pivot-table attempt is present, but a required component or explanation is incomplete or inaccurate."
+        points: 1.0
+      - key: "missing"
+        description: "Missing"
+        long_description: "The pivot-table work is missing."
+        points: 0.0
+
+  - key: "variable-types"
+    description: "Variable Types"
+    long_description: "The response classifies variables represented in the selected dataset and identifies additional data needed for types that are absent."
+    points: 2.0
+    use_range: false
+    ratings:
+      - key: "complete"
+        description: "Complete"
+        long_description: "Variables are classified accurately across the requested types, with reasonable additional-data examples where needed."
+        points: 2.0
+      - key: "needs-revision"
+        description: "Needs Revision"
+        long_description: "The classification is attempted but contains omissions, unclear examples, or material type errors."
+        points: 1.0
+      - key: "missing"
+        description: "Missing"
+        long_description: "The variable-type response is substantially missing."
+        points: 0.0
+
+  - key: "responsible-ai-and-submission"
+    description: "Responsible AI Reflection and Submission"
+    long_description: "The response addresses the required AI reflection, includes one prompt or explains non-use, evaluates limitations, and includes both required submission files."
+    points: 2.0
+    use_range: false
+    ratings:
+      - key: "complete"
+        description: "Complete"
+        long_description: "The reflection is specific and complete, evaluates both usefulness and limitations, and the PDF and Excel workbook are submitted."
+        points: 2.0
+      - key: "needs-revision"
+        description: "Needs Revision"
+        long_description: "The reflection or required files are partially complete, generic, or missing one required element."
+        points: 1.0
+      - key: "missing"
+        description: "Missing"
+        long_description: "The AI reflection or required submission is substantially missing."
+        points: 0.0
