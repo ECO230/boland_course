@@ -67,6 +67,11 @@ The public Syllabus menu links all three section copies. Each Canvas course
 uses its `class_section` value to extract the matching rendered syllabus into a
 native Canvas Page.
 
+The targeted Week 1 refresh prepares and publishes the underlying Course Info
+and Week 1 content objects, but leaves all modules and the course unpublished.
+The instructor reviews Canvas and publishes the selected modules and course
+manually. The refresh refuses to modify an already published course.
+
 Canvas-only video pages may declare `kaltura_partner_id` and a `videos` list in
 their YAML front matter. The publisher renders each `entry_id` using the current
 Canvas-compatible Kaltura embed component; generated iframe URLs are not stored

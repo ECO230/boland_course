@@ -16,6 +16,8 @@ param(
 
     [switch]$PublishSelectedContent,
 
+    [switch]$KeepModulesUnpublished,
+
     [switch]$Execute
 )
 
@@ -98,7 +100,12 @@ $before = @(
                 position = $_.position
                 name = $_.name
                 published = [bool]$_.published
-                desired_published = $_.name -in $PublishedModuleNames
+                desired_published = if ($KeepModulesUnpublished) {
+                    $false
+                }
+                else {
+                    $_.name -in $PublishedModuleNames
+                }
             }
         }
 )
@@ -208,7 +215,12 @@ $after = @(
                 position = $_.position
                 name = $_.name
                 published = [bool]$_.published
-                desired_published = $_.name -in $PublishedModuleNames
+                desired_published = if ($KeepModulesUnpublished) {
+                    $false
+                }
+                else {
+                    $_.name -in $PublishedModuleNames
+                }
             }
         }
 )

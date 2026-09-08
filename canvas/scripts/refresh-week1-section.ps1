@@ -160,7 +160,7 @@ $planSummary = [pscustomobject]@{
     course_id = $CourseId
     course_state = $course.workflow_state
     modules_found = $modules.Count
-    modules_to_publish = $selectedModuleNames
+    modules_prepared_for_manual_publication = $selectedModuleNames
     assignments_to_refresh = @($labAssignment.name, $homeworkAssignment.name)
     pages_to_refresh = $requiredPageTitles
     obsolete_lab_links_to_remove = $obsoleteLabLinks.Count
@@ -175,8 +175,8 @@ if (-not $Execute) {
     return
 }
 
-# Temporarily unpublish the two visible modules while their content is updated.
-foreach ($canvasModule in @($modules | Where-Object { $_.name -in $selectedModuleNames })) {
+# Keep every module unpublished while its contents are prepared for manual release.
+foreach ($canvasModule in $modules) {
     if ($canvasModule.published -eq $true) {
         $updateModuleUri = "$canvasBase/api/v1/courses/$CourseId/modules/$($canvasModule.id)"
         Invoke-RestMethod -Method Put -Uri $updateModuleUri -Headers $headers -ContentType "application/x-www-form-urlencoded" -Body @{ "module[published]" = "false" } | Out-Null
@@ -261,6 +261,7 @@ foreach ($obsoleteLink in $obsoleteLabLinks) {
     -CourseId $CourseId `
     -ExpectedModuleCount $ExpectedModuleCount `
     -PublishSelectedContent `
+    -KeepModulesUnpublished `
     -AuditDirectory (Join-Path $runRoot "05-module-visibility") `
     -Execute
 
@@ -300,9 +301,8 @@ if (@($verifiedHomeworkAssignments[0].submission_types | Where-Object { $_ -eq "
 if ($remainingObsoleteLinks.Count -ne 0) {
     throw "The redundant Lab 1 Posit module link still exists."
 }
-if ($publishedModules.Count -ne 2 -or
-    @($publishedModules | Where-Object { $_.name -in $selectedModuleNames }).Count -ne 2) {
-    throw "Module publication state did not converge to Course Info and Week 1 only."
+if ($publishedModules.Count -ne 0) {
+    throw "Expected every module to remain unpublished for manual release."
 }
 if ($verifiedSelectedPages.Count -ne 3 -or
     @($verifiedSelectedPages | Where-Object { $_.published -eq $true }).Count -ne 3) {
@@ -314,7 +314,8 @@ $verification = [pscustomobject]@{
     section = $Section
     course_id = $CourseId
     course_state = $verifiedCourse.workflow_state
-    published_modules = @($publishedModules | Sort-Object position | ForEach-Object { $_.name })
+    published_modules = @()
+    modules_ready_for_manual_publication = $selectedModuleNames
     lab_assignment = [pscustomobject]@{
         id = $verifiedLabAssignments[0].id
         name = $verifiedLabAssignments[0].name
