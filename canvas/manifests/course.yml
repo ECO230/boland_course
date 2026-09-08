@@ -62,6 +62,7 @@ assignments:
       kind: "canvas_quarto"
       published_url: "https://eco230.github.io/boland_course/week01/Homework_01.html"
       distribution_path: "week01/Homework_01_assignment.qmd"
+      refresh_existing: true
       match_method: "homework_number"
     rubric: "homework-1"
   - key: "prep-work-analysis-plan"
@@ -107,6 +108,7 @@ assignments:
       kind: "canvas_quarto"
       published_url: "https://eco230.github.io/boland_course/week02/Homework_02.html"
       distribution_path: "week02/Homework_02_assignment.qmd"
+      refresh_existing: true
       match_method: "homework_number"
     rubric: "homework-2"
   - key: "prep-work-clean-data-set"
@@ -142,6 +144,7 @@ assignments:
       kind: "canvas_quarto"
       published_url: "https://eco230.github.io/boland_course/week03/Homework_03.html"
       distribution_path: "week03/Homework_03_assignment.qmd"
+      refresh_existing: true
       match_method: "homework_number"
     rubric: "homework-3"
   - key: "open-topic-project-individual-score"
@@ -183,6 +186,7 @@ assignments:
       kind: "canvas_quarto"
       published_url: "https://eco230.github.io/boland_course/week04/Homework_04.html"
       distribution_path: "week04/Homework_04_assignment.qmd"
+      refresh_existing: true
       match_method: "homework_number"
     rubric: "homework-4"
   - key: "prep-work-coaching-session-attendance"
@@ -754,7 +758,7 @@ modules:
         title: "Homework 1 - Link"
         position: 24
         management: "repository"
-        publish_action: "synchronize"
+        publish_action: "omit_duplicate"
         source:
           path: "week01/Homework_01.qmd"
           kind: "assignment"
@@ -929,7 +933,7 @@ modules:
         title: "Homework 2 - Link"
         position: 17
         management: "repository"
-        publish_action: "synchronize"
+        publish_action: "omit_duplicate"
         source:
           path: "week02/Homework_02.qmd"
           kind: "assignment"
