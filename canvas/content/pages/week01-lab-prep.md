@@ -25,10 +25,10 @@ Cloud certificate project.
 8. Clear the filter and confirm that all rows return.
 9. Save the workbook again and be ready to open it at the start of Lab 1.
 
-::: {.callout-note appearance="minimal" icon="false" title="Preparation is not the in-class lab"}
-Complete these steps before class. During class you will complete the separate
-Lab 1 Posit Cloud certificate activity.
-:::
+> **Preparation is not the in-class lab**
+>
+> Complete these steps before class. During class you will complete the
+> separate Lab 1 Posit Cloud certificate activity.
 
 Use [Sort Data in a Range or Table](https://support.microsoft.com/en-us/excel/sort-data-in-a-range-or-table-in-excel)
 and [Filter Data in a Range or Table](https://support.microsoft.com/en-us/office/filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e)

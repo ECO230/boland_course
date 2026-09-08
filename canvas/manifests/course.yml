@@ -588,13 +588,6 @@ modules:
           kind: "canvas_quarto"
           published_url: "https://eco230.github.io/boland_course/week01/readings/data-literacy-terminology.html"
           match_method: "approved_canvas_native_quarto"
-      - key: "reading-harvard-business-review-on-data-literacy"
-        type: "ExternalUrl"
-        title: "Reading: Harvard Business Review on Data Literacy"
-        position: 5
-        management: "removed"
-        publish_action: "omit_duplicate"
-        external_url: "https://hbr.org/2020/02/boost-your-teams-data-literacy"
       - key: "reading-data-sources"
         type: "WikiPage"
         title: "Reading: Data Sources"
