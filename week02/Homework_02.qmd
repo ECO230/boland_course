@@ -48,6 +48,7 @@ You will also reflect briefly on how to use AI responsibly to **accelerate—not
 
 ## Resources
 
+-   [Open Homework 2 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765365)
 -   Week 2 slides (Size, Center, Shape, Relationships; Percentage Problems)
 -   Week 1 slides (Unit of Analysis / Grain; Dimensions vs Measures; Tidy Data)
 -   Dataset description files on Canvas

@@ -34,6 +34,7 @@ You will produce **three small visuals** (from three different frames) and **bri
 
 ## Resources
 
+- [Open Homework 3 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765402)
 - **Week 3 slides** (visual perception; analytical frames)
 - Week 1–2 slides (grain, NOIR, size/center/shape/relationships)
 - Your **Week 1-2 dataset** (or any approved course dataset)

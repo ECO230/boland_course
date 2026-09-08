@@ -11,7 +11,7 @@ assignments:
   final-letter-grade:
     submission_types: [none]
   homework-1-choose-your-own-data-adventure:
-    submission_types: [online_text_entry, online_upload]
+    submission_types: [online_upload]
   prep-work-analysis-plan:
     submission_types: [online_text_entry, online_upload]
   technology-set-up:
@@ -20,7 +20,7 @@ assignments:
     submission_types: [online_upload]
     grading_type: pass_fail
   homework-2-exploratory-data-analysis:
-    submission_types: [online_text_entry, online_upload]
+    submission_types: [online_upload]
   prep-work-clean-data-set:
     submission_types: [online_text_entry, online_upload]
   guided-notes-2-descriptive-statistics-data-literacy:
@@ -36,7 +36,7 @@ assignments:
     submission_types: [none]
     grading_type: not_graded
   homework-4-project-pre-planning:
-    submission_types: [online_text_entry, online_upload]
+    submission_types: [online_upload]
   prep-work-coaching-session-attendance:
     submission_types: [online_upload]
   analysis-project-presentation:

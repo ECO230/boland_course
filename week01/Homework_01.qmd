@@ -45,6 +45,7 @@ You will work with real microdata, evaluate its structure, and reflect on how to
 
 ## Resources
 
+-   [Open Homework 1 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765400)\
 -   Datasets in Posit Cloud\
 -   Data Description files on Canvas\
 -   Week 1 slides (Unit of Analysis, Tidy Data, Dimensions vs Measures)

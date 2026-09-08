@@ -59,7 +59,7 @@ assignments:
     publish_action: "synchronize"
     source:
       path: "week01/Homework_01.qmd"
-      kind: "assignment"
+      kind: "canvas_quarto"
       published_url: "https://eco230.github.io/boland_course/week01/Homework_01.html"
       distribution_path: "week01/Homework_01_assignment.qmd"
       match_method: "homework_number"
@@ -104,7 +104,7 @@ assignments:
     publish_action: "synchronize"
     source:
       path: "week02/Homework_02.qmd"
-      kind: "assignment"
+      kind: "canvas_quarto"
       published_url: "https://eco230.github.io/boland_course/week02/Homework_02.html"
       distribution_path: "week02/Homework_02_assignment.qmd"
       match_method: "homework_number"
@@ -139,7 +139,7 @@ assignments:
     publish_action: "synchronize"
     source:
       path: "week03/Homework_03.qmd"
-      kind: "assignment"
+      kind: "canvas_quarto"
       published_url: "https://eco230.github.io/boland_course/week03/Homework_03.html"
       distribution_path: "week03/Homework_03_assignment.qmd"
       match_method: "homework_number"
@@ -180,7 +180,7 @@ assignments:
     publish_action: "synchronize"
     source:
       path: "week04/Homework_04.qmd"
-      kind: "assignment"
+      kind: "canvas_quarto"
       published_url: "https://eco230.github.io/boland_course/week04/Homework_04.html"
       distribution_path: "week04/Homework_04_assignment.qmd"
       match_method: "homework_number"

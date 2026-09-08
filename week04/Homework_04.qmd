@@ -30,6 +30,7 @@ You will propose **five** candidate data stories and turn **each** into a short 
 
 ## Resources
 
+-   [Open Homework 4 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765411)
 -   The course `.csv` extract in Posit Cloud that matches your project domain
 -   Week 4 readings on writing/presenting with data (Canvas → Week 4)
 -   Week 4 slides: *Telling Stories with Data*
