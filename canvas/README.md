@@ -63,13 +63,59 @@ Set a staged weekly module release without deleting Canvas content with:
 
 ```powershell
 & .\canvas\scripts\set-module-visibility.ps1 -CourseId 870634 -ExpectedModuleCount 16
-& .\canvas\scripts\set-module-visibility.ps1 -CourseId 870634 -ExpectedModuleCount 16 -PublishSelectedContent -Execute
+& .\canvas\scripts\set-module-visibility.ps1 -CourseId 870634 -ExpectedModuleCount 16 -PublishSelectedContent -KeepModulesUnpublished -Execute
 ```
 
 The first command is read-only and writes a proposed before-state audit. The
 second command publishes the content and module items in `Course Info and
-Resources` and `Week 1: Intro to Data Analysis`, publishes those two modules,
-unpublishes every other module, and verifies the live result.
-Pass a different `-PublishedModuleNames` list as additional weeks are released.
-The script changes module visibility only; underlying assignments, pages, and
-module items retain their own Canvas publication states.
+Resources` and `Week 1: Intro to Data Analysis`, keeps every module
+unpublished, and verifies the live result. The instructor can then publish the
+selected modules and course manually. Omit `-KeepModulesUnpublished` only when
+the script should publish the named modules after verification. Pass a
+different `-PublishedModuleNames` list as additional weeks are released.
+
+## Fall 2026 operational status
+
+Section 11 (`869206`) completed the full provisioning workflow on September 8,
+2026. The selective Week 1 refresh then updated the section-aware syllabus and
+student-hours pages, combined Technology Set-Up and the Posit Cloud certificate
+activity as `Lab 1: Technology Setup`, enabled text entry and file upload for
+Homework 1, and linked its fallback CSV files and dataset descriptions. The
+instructor reviewed and published Section 11 manually.
+
+Section 4 (`870634`) completed the same targeted Week 1 refresh on September 8,
+2026. Because that older build contained only `Syllabus - Link`, the refresh
+created and placed the native `Syllabus` page. It also removed the redundant
+syllabus, Lab 1, and Homework 1 external module links. The updated content
+objects are published, while all Section 4 modules and the course remain
+unpublished for manual review and release.
+
+Use `scripts/refresh-week1-section.ps1` for this repair on an unpublished
+section. The script is section-parameterized, validates the course ID and all
+16 modules, writes its audit under the ignored Canvas operations work area,
+and leaves module and course publication to the instructor. It refuses to
+modify a published course.
+
+## Operational lessons
+
+- Canvas content-object publication, module-item publication, module
+  publication, and course publication are separate states. Verify each layer
+  explicitly instead of treating a published module as proof that its contents
+  are available.
+- The Canvas content planner validates every repository-owned Quarto source,
+  even during a selective repair. Canvas-native HTML dependencies therefore
+  remain in `_quarto.yml` as unlisted render targets; they are generated for
+  extraction without appearing in the public navigation.
+- A partial apply is recoverable. Re-plan from the live Canvas inventory and
+  repeat only the unfinished phase; successful assignment and page updates do
+  not need to be rolled back.
+- Established courses may contain intentionally published calculated or manual
+  gradebook shells. Those objects can block a full placement plan even when the
+  requested module repair is unrelated. The Week 1 refresh consequently makes
+  only the reviewed native-syllabus placement and obsolete-link removals.
+- Canvas list responses should always be flattened explicitly in PowerShell.
+  Otherwise a one-item response can be mistaken for the entire collection and
+  cause misleading module-count or missing-property errors.
+- Course-file name conflicts require deliberate comparison or overwrite
+  approval. Do not assume that a same-named Canvas file matches the repository
+  source.

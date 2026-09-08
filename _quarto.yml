@@ -66,6 +66,14 @@ website:
             href: syllabus_section_11.html
           - text: "Section 12"
             href: syllabus_section_12.html
+      - text: "Slides"
+        menu:
+          - text: "Week 1"
+            file: week01/week_01.qmd
+      - text: "Homework"
+        menu:
+          - text: "Homework 1"
+            file: week01/Homework_01.qmd
       - text: "Datasets"
         menu:
           - text: "Dataset Catalog"
@@ -80,10 +88,6 @@ website:
             file: datasets/olist.qmd
           - text: "Synthetic Health Records"
             file: datasets/health.qmd
-      - text: "Week 1 Slides"
-        file: week01/week_01.qmd
-      - text: "Homework 1"
-        file: week01/Homework_01.qmd
             
 
 format:
