@@ -104,16 +104,17 @@ Explain the difference between correlation and a causal claim.
 
 Consider this example result:
 
-> `t(250.94) = 0.619, p = 0.537, r = 0.039, bf10 = 0.364`
+> t(250.94) &equals; 0.619, p &equals; 0.537, r &equals; 0.039,
+> bf10 &equals; 0.364
 
 Complete the table.
 
 | Output | What it measures | How it contributes to the conclusion | What it does not establish |
 |---|---|---|---|
 | Test statistic and degrees of freedom |  |  |  |
-| `p = 0.537` |  |  |  |
-| `r = 0.039` |  |  |  |
-| `bf10 = 0.364` |  |  |  |
+| p &equals; 0.537 |  |  |  |
+| r &equals; 0.039 |  |  |  |
+| bf10 &equals; 0.364 |  |  |  |
 
 How would your interpretation change if the p-value were small but the effect
 size remained close to 0?
