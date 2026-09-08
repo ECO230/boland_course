@@ -1,5 +1,327 @@
 [
   {
+    "objectID": "admin/final/Practice_Practicum_Guidelines.html",
+    "href": "admin/final/Practice_Practicum_Guidelines.html",
+    "title": "ECO 230",
+    "section": "",
+    "text": "NoteTimeline\n\n\n\n\nOn Week 13 the prompt and data description will be posted on Canvas in your Final Exam Preparation Module\nThe data will be released during our final exam period.\nYou will have 120 minutes to complete both the traditional portion of the final and the Practicum.\n\n\n\n\n\n\n\n\n\nNoteRequirements\n\n\n\nYour analysis should include:\n\nAt least one graph\nAt least one table (e.g. pivot table)\nAt least one hypothesis test\nA brief bullet point summary of your findings\nWork in Posit.cloud, Excel, and Tableau (optional) - Posit.cloud and Excel are required Tableau is optional.\n\nYou do not need to address all questions in the prompt. You may choose to focus on only one if you like.\n\n\n\n\n\n\n\n\nNoteSubmitting Completed Work\n\n\n\nUpload your knit RMarkdown pdf, your Excel workbook (.xlsx) and/or your Tableau Packaged Workbook (.twbx) to Canvas.\n\n\n\n\n\n\n\n\nNotePermitted and Forbidden Resources\n\n\n\nYou are welcome to use:\n\nYour own hand written notes\nPrior work in RStudio including completed case work, homework, and practice assignments\nAny web resources including Primers from Posit.cloud\nIdeas developed while discussing the case with colleagues before the exam\n\nYou may not:\n\nDiscuss work with colleagues during the exam via any channel (no text, email, chat etc.)\nCount on your instructor for substantive help during the exam or ask for comments on planned analysis before the exam.\nUse text generating AI. We all love robots and their plans for world domination, but your answers and analysis should be in your own words.\n\n\n\n\n\n\n\n\n\nNoteSuggestions for Successful Work\n\n\n\n\nPlan ahead! Know what you intend to make before you launch the final and choose what test will be appropriate.\nKeep it simple. Do not attempt to do more than is required of you. Do not make graphs with more than 2 variables!\nDo not forget what you’ve learned about data visualization. No 3D. Use color to convey meaning only.\nPay attention to measures vs. dimensions and green vs. blue pills in Tableau.\nDo your hypothesis test in R.\nDon’t forget to write your bullet point interpretations!\nSave your work correctly: .xlsx instead of .csv, .twbx instead of .twb, .Rmd knit to .pdf.\n\n\n\n\n\n\n\n\n\nNoteFormal Grading Criteria: The Practicum Counts for 40% of Your Final Exam Grade\n\n\n\n\n\n\n\n\n\n\n\nBasic criterion\nIf yes\nIf no\n\n\n\n\nAt least one graph, one table, and one hypothesis test\nContinue grading\n30/100\n\n\nBullet-point interpretations are generally correct\nContinue grading\n50/100\n\n\nAt least two software tools are used\nContinue grading\n60/100\n\n\nThe graph is appropriate for the data\nContinue grading\n65/100\n\n\nThe statistical test is appropriate for the data\nContinue grading\n65/100\n\n\nThe analysis is related to the prompt\nContinue grading\n65/100\n\n\n\n\n\n\nAdditional criterion\nPoints\n\n\n\n\nData visualization best practices\n0-10\n\n\nExcel workbook organization\n0-5\n\n\nR code organization and annotation\n0-5\n\n\nStatistical interpretation is clear and correct\n0-5\n\n\nOriginality of the approach\n0-10"
+  },
+  {
+    "objectID": "admin/final/Practice_Practicum_Guidelines.html#eco-230-practicum-rubric-and-guidelines",
+    "href": "admin/final/Practice_Practicum_Guidelines.html#eco-230-practicum-rubric-and-guidelines",
+    "title": "ECO 230",
+    "section": "",
+    "text": "NoteTimeline\n\n\n\n\nOn Week 13 the prompt and data description will be posted on Canvas in your Final Exam Preparation Module\nThe data will be released during our final exam period.\nYou will have 120 minutes to complete both the traditional portion of the final and the Practicum.\n\n\n\n\n\n\n\n\n\nNoteRequirements\n\n\n\nYour analysis should include:\n\nAt least one graph\nAt least one table (e.g. pivot table)\nAt least one hypothesis test\nA brief bullet point summary of your findings\nWork in Posit.cloud, Excel, and Tableau (optional) - Posit.cloud and Excel are required Tableau is optional.\n\nYou do not need to address all questions in the prompt. You may choose to focus on only one if you like.\n\n\n\n\n\n\n\n\nNoteSubmitting Completed Work\n\n\n\nUpload your knit RMarkdown pdf, your Excel workbook (.xlsx) and/or your Tableau Packaged Workbook (.twbx) to Canvas.\n\n\n\n\n\n\n\n\nNotePermitted and Forbidden Resources\n\n\n\nYou are welcome to use:\n\nYour own hand written notes\nPrior work in RStudio including completed case work, homework, and practice assignments\nAny web resources including Primers from Posit.cloud\nIdeas developed while discussing the case with colleagues before the exam\n\nYou may not:\n\nDiscuss work with colleagues during the exam via any channel (no text, email, chat etc.)\nCount on your instructor for substantive help during the exam or ask for comments on planned analysis before the exam.\nUse text generating AI. We all love robots and their plans for world domination, but your answers and analysis should be in your own words.\n\n\n\n\n\n\n\n\n\nNoteSuggestions for Successful Work\n\n\n\n\nPlan ahead! Know what you intend to make before you launch the final and choose what test will be appropriate.\nKeep it simple. Do not attempt to do more than is required of you. Do not make graphs with more than 2 variables!\nDo not forget what you’ve learned about data visualization. No 3D. Use color to convey meaning only.\nPay attention to measures vs. dimensions and green vs. blue pills in Tableau.\nDo your hypothesis test in R.\nDon’t forget to write your bullet point interpretations!\nSave your work correctly: .xlsx instead of .csv, .twbx instead of .twb, .Rmd knit to .pdf.\n\n\n\n\n\n\n\n\n\nNoteFormal Grading Criteria: The Practicum Counts for 40% of Your Final Exam Grade\n\n\n\n\n\n\n\n\n\n\n\nBasic criterion\nIf yes\nIf no\n\n\n\n\nAt least one graph, one table, and one hypothesis test\nContinue grading\n30/100\n\n\nBullet-point interpretations are generally correct\nContinue grading\n50/100\n\n\nAt least two software tools are used\nContinue grading\n60/100\n\n\nThe graph is appropriate for the data\nContinue grading\n65/100\n\n\nThe statistical test is appropriate for the data\nContinue grading\n65/100\n\n\nThe analysis is related to the prompt\nContinue grading\n65/100\n\n\n\n\n\n\nAdditional criterion\nPoints\n\n\n\n\nData visualization best practices\n0-10\n\n\nExcel workbook organization\n0-5\n\n\nR code organization and annotation\n0-5\n\n\nStatistical interpretation is clear and correct\n0-5\n\n\nOriginality of the approach\n0-10"
+  },
+  {
+    "objectID": "week05/readings/problem-definition-examples.html",
+    "href": "week05/readings/problem-definition-examples.html",
+    "title": "Problem Definition Examples",
+    "section": "",
+    "text": "A data project is useful when it helps a stakeholder make a decision. A broad concern such as “traffic safety is getting worse” may motivate the work, but it is not yet an analysis question.\nUse this chain:\n\nSymptom or concern -&gt; stakeholder and decision -&gt; focused question -&gt; measurable objectives -&gt; evidence and limitations"
+  },
+  {
+    "objectID": "week05/readings/problem-definition-examples.html#begin-with-the-decision-not-the-chart",
+    "href": "week05/readings/problem-definition-examples.html#begin-with-the-decision-not-the-chart",
+    "title": "Problem Definition Examples",
+    "section": "",
+    "text": "A data project is useful when it helps a stakeholder make a decision. A broad concern such as “traffic safety is getting worse” may motivate the work, but it is not yet an analysis question.\nUse this chain:\n\nSymptom or concern -&gt; stakeholder and decision -&gt; focused question -&gt; measurable objectives -&gt; evidence and limitations"
+  },
+  {
+    "objectID": "week05/readings/problem-definition-examples.html#a-framing-worksheet",
+    "href": "week05/readings/problem-definition-examples.html#a-framing-worksheet",
+    "title": "Problem Definition Examples",
+    "section": "A framing worksheet",
+    "text": "A framing worksheet\nAnswer these questions before writing code:\n\nWhat symptom, opportunity, or decision created the request?\nWho will use the result, and what can that person or organization change?\nWhat population, geography, and time period are in scope?\nWhat outcome matters, and how is it represented in the data?\nWhat explanatory or segmentation variables are available?\nWhat resources, deadlines, and ethical constraints limit the project?\nWhat related work or prior evidence should inform the analysis?\nWhat would count as an actionable result?\n\n\n\n\n\n\n\nTipA useful scope test\n\n\n\nA strong question is simultaneously interesting, actionable, and answerable with the available data. Anything outside that overlap belongs in a limitation or a future-data recommendation."
+  },
+  {
+    "objectID": "week05/readings/problem-definition-examples.html#example-traffic-crashes",
+    "href": "week05/readings/problem-definition-examples.html#example-traffic-crashes",
+    "title": "Problem Definition Examples",
+    "section": "Example: traffic crashes",
+    "text": "Example: traffic crashes\nToo broad: Why do crashes happen?\nBetter decision frame: A transportation safety team must decide which conditions and locations deserve targeted investigation.\nFocused question: Among reported Chicago crashes from 2018 through 2025, which combinations of roadway conditions, weather, location, and time are associated with severe outcomes?\nPossible objectives:\n\nDescribe crash counts and severity rates by year, season, and time of day.\nCompare severe-outcome percentages across selected roadway and weather conditions.\nIdentify geographic areas with unusually high severe-crash counts after considering traffic volume if a suitable denominator is available.\nRecommend two conditions or locations for deeper investigation.\n\nBoundary: Crash records can show reported associations. They do not by themselves prove that a condition caused a crash or measure risk without an exposure denominator."
+  },
+  {
+    "objectID": "week05/readings/problem-definition-examples.html#example-short-term-rentals",
+    "href": "week05/readings/problem-definition-examples.html#example-short-term-rentals",
+    "title": "Problem Definition Examples",
+    "section": "Example: short-term rentals",
+    "text": "Example: short-term rentals\nToo broad: What affects Airbnb prices?\nBetter decision frame: A tourism analyst wants to understand how the mix and pricing of listings differs across markets or neighborhoods.\nFocused question: How do listed price and future availability differ by room type, capacity, and geography in the selected market snapshot?\nPossible objectives:\n\nCompare median listed price and IQR across room types.\nEstimate how price changes with guest capacity while acknowledging other listing differences.\nDescribe the geographic distribution of listing types.\nIdentify segments that warrant a more detailed pricing analysis.\n\nBoundary: Listed price is not necessarily the price paid. An unavailable calendar date is not necessarily a booked stay."
+  },
+  {
+    "objectID": "week05/readings/problem-definition-examples.html#example-appointments-and-satisfaction",
+    "href": "week05/readings/problem-definition-examples.html#example-appointments-and-satisfaction",
+    "title": "Problem Definition Examples",
+    "section": "Example: appointments and satisfaction",
+    "text": "Example: appointments and satisfaction\nToo broad: How can the clinic improve?\nBetter decision frame: A clinic manager needs to decide where a limited scheduling-improvement effort should begin.\nFocused question: Which appointment characteristics are associated with no-shows, and how do satisfaction measures differ across operational segments in the synthetic, de-identified EHR data?\nPossible objectives:\n\nMeasure no-show rates by appointment type, lead time, and time of day.\nCompare satisfaction distributions across selected service groups.\nIdentify segments with both operational volume and unfavorable outcomes.\nRecommend a pilot intervention and state what would be measured after implementation.\n\nBoundary: The course EHR data supports analysis practice, not clinical decisions. Associations must not be interpreted as patient blame or medical causation."
+  },
+  {
+    "objectID": "week05/readings/problem-definition-examples.html#use-specific-objective-verbs",
+    "href": "week05/readings/problem-definition-examples.html#use-specific-objective-verbs",
+    "title": "Problem Definition Examples",
+    "section": "Use specific objective verbs",
+    "text": "Use specific objective verbs\nPrefer verbs that make the expected result visible.\n\n\n\nPurpose\nUseful verbs\n\n\n\n\nSummarize\nDescribe, measure, estimate, categorize\n\n\nCompare\nCompare, rank, assess\n\n\nExplore relationships\nIdentify, examine, explore\n\n\nAnticipate\nForecast, predict\n\n\nSupport action\nRecommend, prioritize\n\n\n\nAvoid using only “analyze” or “understand.” Those words do not tell the reader what evidence you will produce."
+  },
+  {
+    "objectID": "week05/readings/problem-definition-examples.html#turn-expectations-into-hypotheses",
+    "href": "week05/readings/problem-definition-examples.html#turn-expectations-into-hypotheses",
+    "title": "Problem Definition Examples",
+    "section": "Turn expectations into hypotheses",
+    "text": "Turn expectations into hypotheses\nA hypothesis is a specific, testable expectation. It should name variables and a direction or benchmark when a defensible direction exists.\n\nRelationship\n\nListings that accommodate more guests tend to have higher listed prices.\n\n\n\nDifference between groups\n\nThe severe-crash percentage differs between daylight and darkness conditions.\n\n\n\nComparison with a benchmark\n\nThe no-show rate for appointments scheduled more than 30 days in advance exceeds the overall no-show rate.\n\nThese hypotheses concern variables. “Chicago will differ from Milwaukee” is incomplete until you say which measured outcome will differ and how."
+  },
+  {
+    "objectID": "week05/readings/problem-definition-examples.html#check-the-finished-problem-statement",
+    "href": "week05/readings/problem-definition-examples.html#check-the-finished-problem-statement",
+    "title": "Problem Definition Examples",
+    "section": "Check the finished problem statement",
+    "text": "Check the finished problem statement\n\nIs the stakeholder named?\nIs the decision or action clear?\nAre the population, time, and geography bounded?\nIs the outcome measurable with the available data?\nDo the objectives collectively answer the question?\nAre causal words avoided unless the design supports causality?\nAre privacy, missingness, selection, and measurement risks acknowledged?"
+  },
+  {
+    "objectID": "week05/readings/problem-definition-examples.html#source-and-course-alignment",
+    "href": "week05/readings/problem-definition-examples.html#source-and-course-alignment",
+    "title": "Problem Definition Examples",
+    "section": "Source and course alignment",
+    "text": "Source and course alignment\nThis page replaces an earlier ECO 230 worksheet. Its problem-framing approach is adapted from Chapter 2 of Thomas H. Davenport and Jinho Kim’s Keeping Up with the Quants. Examples and wording have been newly developed for current course projects.\nFor current Project 1 requirements and dates, use the Project 1 prompt and Project 1 timeline. This supplemental page does not create additional deliverables."
+  },
+  {
+    "objectID": "week02/readings/working-with-percentages.html",
+    "href": "week02/readings/working-with-percentages.html",
+    "title": "Working with Percentages",
+    "section": "",
+    "text": "Counts answer “how many?” Percentages answer “how large relative to what?” They are especially useful when groups have different totals.\nEvery percentage has a numerator and a denominator:\n[ = ]\nName the denominator in words before calculating."
+  },
+  {
+    "objectID": "week02/readings/working-with-percentages.html#why-percentages-help",
+    "href": "week02/readings/working-with-percentages.html#why-percentages-help",
+    "title": "Working with Percentages",
+    "section": "",
+    "text": "Counts answer “how many?” Percentages answer “how large relative to what?” They are especially useful when groups have different totals.\nEvery percentage has a numerator and a denominator:\n[ = ]\nName the denominator in words before calculating."
+  },
+  {
+    "objectID": "week02/readings/working-with-percentages.html#part-of-a-whole",
+    "href": "week02/readings/working-with-percentages.html#part-of-a-whole",
+    "title": "Working with Percentages",
+    "section": "Part of a whole",
+    "text": "Part of a whole\nThe Airbnb example below calculates each room type’s share of listings. The denominator is all listings in this Chicago data file with a recorded room type.\n\n\n\n\n\nRoomType\nListings\nPercent\n\n\n\n\nEntire home/apt\n2217\n59.6\n\n\nPrivate room\n1401\n37.7\n\n\nShared room\n101\n2.7\n\n\n\n\n\nIf the question instead concerned only reviewed listings or only listings below a price threshold, both the numerator and denominator would change."
+  },
+  {
+    "objectID": "week02/readings/working-with-percentages.html#row-column-and-table-percentages",
+    "href": "week02/readings/working-with-percentages.html#row-column-and-table-percentages",
+    "title": "Working with Percentages",
+    "section": "Row, column, and table percentages",
+    "text": "Row, column, and table percentages\nA crosstab can support three different questions. The example compares room type with instant-booking status.\n\nbooking_table &lt;- table(\n  RoomType = airbnb$room_type,\n  InstantBookable = airbnb$instant_bookable,\n  useNA = \"no\"\n)\nbooking_table\n\n                 InstantBookable\nRoomType             f    t\n  Entire home/apt 1617  600\n  Private room     981  420\n  Shared room       62   39\n\n\n\nRow percentage: Within each room type, what percentage is instantly bookable? Use prop.table(booking_table, 1).\nColumn percentage: Within each instant-booking category, what percentage is each room type? Use prop.table(booking_table, 2).\nTable percentage: What percentage of all listings is in each combination? Use prop.table(booking_table).\n\n\nround(100 * prop.table(booking_table, 1), 1)\n\n                 InstantBookable\nRoomType             f    t\n  Entire home/apt 72.9 27.1\n  Private room    70.0 30.0\n  Shared room     61.4 38.6\n\n\nDo not label a table merely “percent.” Say whether it contains row, column, or total percentages."
+  },
+  {
+    "objectID": "week02/readings/working-with-percentages.html#percentage-change",
+    "href": "week02/readings/working-with-percentages.html#percentage-change",
+    "title": "Working with Percentages",
+    "section": "Percentage change",
+    "text": "Percentage change\nPercentage change compares a change with its starting value:\n[ = ]\n\n\n\n\n\n\n\n\n\n\n\nComparison\nJanuary\nJune\nPercentChange\n\n\n\n\nAverage main-sleep minutes: January to June\n452.3\n449.7\n-0.6\n\n\n\n\n\nA negative result indicates a decrease. The starting value is the denominator, so reversing the comparison produces a different percentage."
+  },
+  {
+    "objectID": "week02/readings/working-with-percentages.html#percentage-points-are-not-percent-change",
+    "href": "week02/readings/working-with-percentages.html#percentage-points-are-not-percent-change",
+    "title": "Working with Percentages",
+    "section": "Percentage points are not percent change",
+    "text": "Percentage points are not percent change\nSuppose a response rate rises from 40% to 50%.\n\nIt increased by 10 percentage points: (50% - 40%).\nIt increased by 25% relative to the old rate: ((50 - 40) / 40 ).\n\nThese statements are both correct, but they answer different questions."
+  },
+  {
+    "objectID": "week02/readings/working-with-percentages.html#common-denominator-mistakes",
+    "href": "week02/readings/working-with-percentages.html#common-denominator-mistakes",
+    "title": "Working with Percentages",
+    "section": "Common denominator mistakes",
+    "text": "Common denominator mistakes\n\nComparing counts when group sizes differ.\nDividing by the new value instead of the starting value for percentage change.\nIgnoring missing values that shrink the denominator.\nMixing row and column percentages in one interpretation.\nReporting a large percentage change from a very small starting value without giving the counts.\n\n\n\n\n\n\n\nTipReport counts and percentages together\n\n\n\nWrite “18 of 60 listings (30%)” rather than only “30%.” The count reveals the scale and makes the denominator auditable."
+  },
+  {
+    "objectID": "week02/readings/working-with-percentages.html#source-note",
+    "href": "week02/readings/working-with-percentages.html#source-note",
+    "title": "Working with Percentages",
+    "section": "Source note",
+    "text": "Source note\nThis is a new ECO 230 replacement for the University of Leicester Student Learning Development handout Working with percentages (2009). The explanation and examples have been rewritten using current course data."
+  },
+  {
+    "objectID": "week02/readings/descriptive-statistics.html",
+    "href": "week02/readings/descriptive-statistics.html",
+    "title": "Descriptive Statistics",
+    "section": "",
+    "text": "Descriptive statistics organize and summarize observed data. They help an analyst describe what is typical, how much observations vary, how categories are distributed, and whether variables appear to move together.\nA summary does not automatically generalize beyond the data that were observed, and an association does not establish causation."
+  },
+  {
+    "objectID": "week02/readings/descriptive-statistics.html#what-descriptive-statistics-do",
+    "href": "week02/readings/descriptive-statistics.html#what-descriptive-statistics-do",
+    "title": "Descriptive Statistics",
+    "section": "",
+    "text": "Descriptive statistics organize and summarize observed data. They help an analyst describe what is typical, how much observations vary, how categories are distributed, and whether variables appear to move together.\nA summary does not automatically generalize beyond the data that were observed, and an association does not establish causation."
+  },
+  {
+    "objectID": "week02/readings/descriptive-statistics.html#measures-of-center",
+    "href": "week02/readings/descriptive-statistics.html#measures-of-center",
+    "title": "Descriptive Statistics",
+    "section": "Measures of center",
+    "text": "Measures of center\n\nMean: the arithmetic average. It is useful for quantitative data but can be pulled toward unusually high or low values.\nMedian: the middle ordered value. It is useful for ordinal or quantitative data and is resistant to extreme values.\nMode: the most frequent value or category. It is available for categorical data but may not be unique.\n\nChoose the measure based on the variable’s meaning and distribution, not merely on which calculation is available in the software."
+  },
+  {
+    "objectID": "week02/readings/descriptive-statistics.html#frequency-and-grouped-summary-tables",
+    "href": "week02/readings/descriptive-statistics.html#frequency-and-grouped-summary-tables",
+    "title": "Descriptive Statistics",
+    "section": "Frequency and grouped-summary tables",
+    "text": "Frequency and grouped-summary tables\n\nA frequency table reports counts for the categories of one variable.\nA relative-frequency table adds percentages or proportions.\nA cross-tabulation reports combinations of two categorical variables.\nA grouped-summary table combines a categorical grouping variable with a quantitative measure, such as median listing price by room type.\n\nFor every percentage, name the denominator. Row, column, and table percentages answer different questions."
+  },
+  {
+    "objectID": "week02/readings/descriptive-statistics.html#measures-of-spread",
+    "href": "week02/readings/descriptive-statistics.html#measures-of-spread",
+    "title": "Descriptive Statistics",
+    "section": "Measures of spread",
+    "text": "Measures of spread\n\nMinimum and maximum: the observed endpoints.\nRange: maximum minus minimum.\nInterquartile range (IQR): the width of the middle 50% of observations.\nStandard deviation: typical distance from the mean, expressed in the variable’s original units.\n\nThe median and IQR are often useful for skewed or outlier-prone data. The mean and standard deviation are most informative when the distribution is reasonably symmetric and unusual values have been investigated."
+  },
+  {
+    "objectID": "week02/readings/descriptive-statistics.html#measures-of-association",
+    "href": "week02/readings/descriptive-statistics.html#measures-of-association",
+    "title": "Descriptive Statistics",
+    "section": "Measures of association",
+    "text": "Measures of association\nA cross-tabulation can reveal association between categorical variables. Correlation summarizes the direction and strength of a linear relationship between two quantitative variables on a scale from -1 to +1. Regression can describe how an outcome changes with one or more explanatory variables.\nNone of these methods proves that one variable caused another to change."
+  },
+  {
+    "objectID": "week02/readings/descriptive-statistics.html#related-week-2-resources",
+    "href": "week02/readings/descriptive-statistics.html#related-week-2-resources",
+    "title": "Descriptive Statistics",
+    "section": "Related Week 2 resources",
+    "text": "Related Week 2 resources\n\nMeasures of Variability\nWorking with Percentages\nWeek 2 slides"
+  },
+  {
+    "objectID": "week01/readings/data-sources.html",
+    "href": "week01/readings/data-sources.html",
+    "title": "Data Sources",
+    "section": "",
+    "text": "Data may be created as part of an organization’s normal operations, collected specifically to answer a question, or obtained from an outside source.\n\n\nOrganizations routinely create data through their operations, including:\n\nsales transactions and inventory records;\ncustomer, employee, payroll, and accounting systems;\nwebsite traffic and marketing-platform activity;\npatient encounters and appointment systems; and\nstudent enrollment and course records.\n\nThese data were often created to run a process rather than to support the analyst’s current question. Definitions, missing values, repeated records, and changes in business rules require careful review.\n\n\n\nSurveys, experiments, interviews, observations, and measurements can be designed specifically for a research or business question. Purpose-generated data provide more control over what is measured, but collection choices can introduce sampling, nonresponse, measurement, or response bias.\n\n\n\nAnalysts also reuse data collected by governments, nonprofits, researchers, vendors, and public platforms. Examples include the Census Bureau, economic agencies, transportation departments, and open-data portals. Before using an external dataset, inspect its provenance, definitions, time coverage, license, and update schedule."
+  },
+  {
+    "objectID": "week01/readings/data-sources.html#where-data-come-from",
+    "href": "week01/readings/data-sources.html#where-data-come-from",
+    "title": "Data Sources",
+    "section": "",
+    "text": "Data may be created as part of an organization’s normal operations, collected specifically to answer a question, or obtained from an outside source.\n\n\nOrganizations routinely create data through their operations, including:\n\nsales transactions and inventory records;\ncustomer, employee, payroll, and accounting systems;\nwebsite traffic and marketing-platform activity;\npatient encounters and appointment systems; and\nstudent enrollment and course records.\n\nThese data were often created to run a process rather than to support the analyst’s current question. Definitions, missing values, repeated records, and changes in business rules require careful review.\n\n\n\nSurveys, experiments, interviews, observations, and measurements can be designed specifically for a research or business question. Purpose-generated data provide more control over what is measured, but collection choices can introduce sampling, nonresponse, measurement, or response bias.\n\n\n\nAnalysts also reuse data collected by governments, nonprofits, researchers, vendors, and public platforms. Examples include the Census Bureau, economic agencies, transportation departments, and open-data portals. Before using an external dataset, inspect its provenance, definitions, time coverage, license, and update schedule."
+  },
+  {
+    "objectID": "week01/readings/data-sources.html#structured-and-unstructured-data",
+    "href": "week01/readings/data-sources.html#structured-and-unstructured-data",
+    "title": "Data Sources",
+    "section": "Structured and unstructured data",
+    "text": "Structured and unstructured data\nStructured data are organized into defined fields, commonly rows and columns in a spreadsheet, database table, or Parquet file. Unstructured data include free text, images, audio, video, email, and other content without a single tabular schema.\nECO 230 primarily uses structured data. Some course datasets are large, messy, or assembled from several tables, but size alone does not make data unstructured."
+  },
+  {
+    "objectID": "week01/readings/data-sources.html#questions-to-ask-before-analysis",
+    "href": "week01/readings/data-sources.html#questions-to-ask-before-analysis",
+    "title": "Data Sources",
+    "section": "Questions to ask before analysis",
+    "text": "Questions to ask before analysis\n\nWho created the data, and for what original purpose?\nWhat does one row represent?\nWhich people, places, events, or time periods are included or excluded?\nHow were variables defined and measured?\nWhat transformations occurred before you received the file?\nAre there privacy, licensing, or redistribution restrictions?"
+  },
+  {
+    "objectID": "week01/readings/data-literacy.html",
+    "href": "week01/readings/data-literacy.html",
+    "title": "What Is Data Literacy?",
+    "section": "",
+    "text": "Data literacy is the ability to read, work with, analyze, and communicate with data to inform decisions. It includes understanding what data represent, choosing appropriate methods, recognizing limitations, and explaining results to an audience.\nIn ECO 230, data literacy includes the ability to:\n\nidentify the source, structure, and unit of analysis of a dataset;\ndistinguish variable types and levels of measurement;\nchoose appropriate descriptive summaries and introductory inferential methods;\nselect and create effective, ethical data visualizations;\ninterpret statistical output in context; and\ncommunicate evidence clearly in writing, visuals, and presentations."
+  },
+  {
+    "objectID": "week01/readings/data-literacy.html#working-definition",
+    "href": "week01/readings/data-literacy.html#working-definition",
+    "title": "What Is Data Literacy?",
+    "section": "",
+    "text": "Data literacy is the ability to read, work with, analyze, and communicate with data to inform decisions. It includes understanding what data represent, choosing appropriate methods, recognizing limitations, and explaining results to an audience.\nIn ECO 230, data literacy includes the ability to:\n\nidentify the source, structure, and unit of analysis of a dataset;\ndistinguish variable types and levels of measurement;\nchoose appropriate descriptive summaries and introductory inferential methods;\nselect and create effective, ethical data visualizations;\ninterpret statistical output in context; and\ncommunicate evidence clearly in writing, visuals, and presentations."
+  },
+  {
+    "objectID": "week01/readings/data-literacy.html#data-literacy-in-the-workplace",
+    "href": "week01/readings/data-literacy.html#data-literacy-in-the-workplace",
+    "title": "What Is Data Literacy?",
+    "section": "Data literacy in the workplace",
+    "text": "Data literacy in the workplace\nEffective analysts combine three kinds of knowledge:\n\nsubject-matter knowledge to ask useful questions and recognize implausible results;\nstatistical and technical skills to prepare, summarize, visualize, and analyze data; and\ncommunication skills to explain what the evidence means for a decision.\n\nData literacy also requires technological agility. Specific software will change, but the ability to inspect unfamiliar data, learn a new tool, verify results, and communicate limitations remains valuable across industries."
+  },
+  {
+    "objectID": "week01/readings/data-literacy.html#scope-of-this-course",
+    "href": "week01/readings/data-literacy.html#scope-of-this-course",
+    "title": "What Is Data Literacy?",
+    "section": "Scope of this course",
+    "text": "Scope of this course\nThe course emphasizes descriptive and introductory inferential analysis using structured data. Later weeks introduce survey research, experimental design, and machine learning, but the central goal remains sound reasoning: understand the row, ask a defensible question, use an appropriate method, and communicate what the evidence does and does not support."
+  },
+  {
+    "objectID": "week03/Homework_03.html",
+    "href": "week03/Homework_03.html",
+    "title": "Homework 3: Visualizing Data",
+    "section": "",
+    "text": "NotePurpose\n\n\n\nThis assignment practices the Week 3 goal:\n\nChoose a visualization that matches the analytical frame (the kind of comparison you want the audience to make) and apply perception‑aware design.\n\nYou will produce three small visuals (from three different frames) and brief written justifications that explain:\n\nthe story you are trying to tell,\nwhy this chart type is the right encoding for that story, and\nwhich design principles you intentionally applied."
+  },
+  {
+    "objectID": "week03/Homework_03.html#objectives",
+    "href": "week03/Homework_03.html#objectives",
+    "title": "Homework 3: Visualizing Data",
+    "section": "Objectives",
+    "text": "Objectives\n\nMap a data story to the correct analytical frame and chart form\nApply perceptual design choices from lecture (lines, area, color, clutter)\nCommunicate with succinct captions, clear scales, and explicit denominators"
+  },
+  {
+    "objectID": "week03/Homework_03.html#resources",
+    "href": "week03/Homework_03.html#resources",
+    "title": "Homework 3: Visualizing Data",
+    "section": "Resources",
+    "text": "Resources\n\nOpen Homework 3 in Posit Cloud\nWeek 3 slides (visual perception; analytical frames)\nWeek 1–2 slides (grain, NOIR, size/center/shape/relationships)\nYour Week 1-2 dataset (or any approved course dataset)\nTools: Excel and/or Tableau (you may mix; no code required)\n\n\n\n\n\n\n\nTipImportant\n\n\n\n\nYour grade emphasizes fit‑for‑purpose encodings + clean design.\nInclude a short brief writeup (3–5 sentences) for each chart.\nA Design Checklist is encouraged for each chart (not required)."
+  },
+  {
+    "objectID": "week03/Homework_03.html#choose-your-dataset-week-1",
+    "href": "week03/Homework_03.html#choose-your-dataset-week-1",
+    "title": "Homework 3: Visualizing Data",
+    "section": "1) Choose Your Dataset (Week 1)",
+    "text": "1) Choose Your Dataset (Week 1)\n\nUse one of the five Week 1 datasets (you may keep the same as HW1 & HW2 or change to a different dataset).\nNote any filters/cleaning (e.g., date window, excluding blanks).\n\n(No extended writeup—just list what you did.)"
+  },
+  {
+    "objectID": "week03/Homework_03.html#tools-exceltableau",
+    "href": "week03/Homework_03.html#tools-exceltableau",
+    "title": "Homework 3: Visualizing Data",
+    "section": "2) Tools (Excel/Tableau)",
+    "text": "2) Tools (Excel/Tableau)\n\nBuild visuals in Excel and/or Tableau (mixing is fine).\nExport images (PNG) at reasonable resolution for pasting into your document.\nYou may build visuals in posit.cloud if you choose, but that is hard mode."
+  },
+  {
+    "objectID": "week03/Homework_03.html#three-visuals-one-from-each-module-below",
+    "href": "week03/Homework_03.html#three-visuals-one-from-each-module-below",
+    "title": "Homework 3: Visualizing Data",
+    "section": "3) Three Visuals — One From Each Module Below",
+    "text": "3) Three Visuals — One From Each Module Below\nProduce exactly three visuals, selecting one from each module (A, B, C). Avoid repeating the same frame.\n\nA. Comparison (pick one)\n\nNominal comparison (e.g., side‑by‑side bars) or\nRanking (sorted bars; horizontal recommended)\n\nDesign tips: labeled axes, clear units, sorted categories when ranking.\n\n\nB. Composition or Difference (pick one)\n\nPart‑to‑Whole → Percentages as a bar graph or\nTime series of a single metric (line, honest scale) or\nDeviation vs a benchmark (bars around zero; clearly label/explain the benchmark)\n\nDesign tips: Part to Whole needs to add to 100%, add a zero baseline for deviation, and annotate the benchmark.\n\n\nC. Distribution or Relationship (pick one)\n\nFrequency distribution (histogram with sensible binning; or boxplot) or\nCorrelation (scatter; add a simple regression line if appropriate)\n\nDesign tips: show units, avoid overplotting marks(alpha if dense), call out outliers"
+  },
+  {
+    "objectID": "week03/Homework_03.html#brief-writeup-under-each-visual-35-sentences",
+    "href": "week03/Homework_03.html#brief-writeup-under-each-visual-35-sentences",
+    "title": "Homework 3: Visualizing Data",
+    "section": "4) Brief Writeup Under Each Visual (3–5 sentences)",
+    "text": "4) Brief Writeup Under Each Visual (3–5 sentences)\nProvide a tight paragraph for each image that includes:\n\nStory: What story are you trying to tell?\nFrame & Encoding: Which analytical frame (e.g., part‑to‑whole) and which chart type did you choose—and why is it a fit for this story?\nData Scope: Groupings/filters used; any important denominators or eligibility rules.\nDesign Principles Applied: Name at least two (e.g., reduced non‑data‑ink; minimal axes; ordered categories; purposeful color; 100% normalization; honest baselines; avoided 3D; judicious regression line)."
+  },
+  {
+    "objectID": "week03/Homework_03.html#design-checklist-encouraged",
+    "href": "week03/Homework_03.html#design-checklist-encouraged",
+    "title": "Homework 3: Visualizing Data",
+    "section": "5) Design Checklist (Encouraged)",
+    "text": "5) Design Checklist (Encouraged)\n\nChart type matches the analytical frame\nAxes and units labeled; baselines honest; scales legible\nAppropriate ordering (e.g., sorted bars for ranking)\nColor used sparingly (subtle default; vivid only when meaningful)\nNo 3D or distortions; avoid unnecessary decoration\nFor composition: 100% normalization, periods sum to 100%\nFor deviation: benchmark labeled; zero line shown\nFor correlation: considered trend line; noted limitations\n\n(You are encouraged to follow these checks for each chart; not required to paste the list under every visual.)"
+  },
+  {
+    "objectID": "week03/Homework_03.html#summary-200-words",
+    "href": "week03/Homework_03.html#summary-200-words",
+    "title": "Homework 3: Visualizing Data",
+    "section": "6) Summary (≤ 200 words)",
+    "text": "6) Summary (≤ 200 words)\nWrite a concise summary that synthesizes what your three visuals reveal. Address whether the story aligns with expectations or surfaces something unexpected."
+  },
+  {
+    "objectID": "week03/Homework_03.html#submission",
+    "href": "week03/Homework_03.html#submission",
+    "title": "Homework 3: Visualizing Data",
+    "section": "7) Submission",
+    "text": "7) Submission\nUpload to Canvas:\n\nA Word or PDF document that includes:\n\nYour three visuals (A, B, C) and their brief writeups (3–5 sentences each)\nYour Summary (≤ 200 words)\n\nSupporting files as applicable:\n\nExcel: .xlsx\nTableau: .twbx"
+  },
+  {
+    "objectID": "week03/Homework_03.html#grading-focus-what-im-look-for",
+    "href": "week03/Homework_03.html#grading-focus-what-im-look-for",
+    "title": "Homework 3: Visualizing Data",
+    "section": "8) Grading Focus (What I’m Look For)",
+    "text": "8) Grading Focus (What I’m Look For)\n\nFit‑for‑purpose chart selection given the story & frame\nPerceptual clarity: clean baselines, readable scales, sensible color\nSound communication: succinct captions, explicit denominators/assumptions\nOverall quality: coherence across the three stories"
+  },
+  {
     "objectID": "week01/Homework_01.html",
     "href": "week01/Homework_01.html",
     "title": "Homework 1: Data Anatomy & Responsible AI Use",
@@ -25,7 +347,7 @@
     "href": "week01/Homework_01.html#choose-and-download-your-dataset",
     "title": "Homework 1: Data Anatomy & Responsible AI Use",
     "section": "1) Choose and Download Your Dataset",
-    "text": "1) Choose and Download Your Dataset\n\nSelect one dataset from your Posit Cloud project or the fallback links below.\n\nDownload the .csv file.\n\nSave a working copy as .xlsx.\n\n\n\n\nDataset\nDownload\n\n\n\n\nChicago traffic crashes, 2024\ntraffic_chicago_2024.csv\n\n\nMidwest airport departures, 2024\nairline_midwest_2024.csv\n\n\nBrazilian marketplace orders, 2017\nolist_southeast_2017.csv\n\n\nNFL regular-season plays, 2024\nnfl_plays_2024.csv\n\n\nSynthetic Wisconsin healthcare appointments, 2023-2025\nhealth_wisconsin_appointments_2023_2025.csv\n\n\n\nUse these links if the Posit Cloud project is unavailable or does not finish setting up. The files are identical to the copies provided in the project.\n(No written response required.)"
+    "text": "1) Choose and Download Your Dataset\n\nSelect one dataset from your Posit Cloud project or the fallback links below.\n\nDownload the .csv file.\n\nSave a working copy as .xlsx.\n\n\n\n\nDataset\nData description\nDownload\n\n\n\n\nChicago traffic crashes, 2024\nReview the Chicago traffic data\ntraffic_chicago_2024.csv\n\n\nMidwest airport departures, 2024\nReview the airline data\nairline_midwest_2024.csv\n\n\nBrazilian marketplace orders, 2017\nReview the Olist marketplace data\nolist_southeast_2017.csv\n\n\nNFL regular-season plays, 2024\nReview the NFL data\nnfl_plays_2024.csv\n\n\nSynthetic Wisconsin healthcare appointments, 2023-2025\nReview the synthetic health data\nhealth_wisconsin_appointments_2023_2025.csv\n\n\n\nUse these links if the Posit Cloud project is unavailable or does not finish setting up. The files are identical to the copies provided in the project.\n(No written response required.)"
   },
   {
     "objectID": "week01/Homework_01.html#is-your-data-tidy-why-or-why-not",
@@ -677,6 +999,517 @@
     "title": "ECO 230: Data Analysis for Business Applications",
     "section": "Summary and Prime Directive",
     "text": "Summary and Prime Directive\n\nBefore running any statistics, what are the three questions you must answer about a dataset?\n 1. What does one row represent?  2. What kind of variables do I have?  3. What question can this data answer?"
+  },
+  {
+    "objectID": "week02/Homework_02.html",
+    "href": "week02/Homework_02.html",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "",
+    "text": "NotePurpose\n\n\n\nThis assignment helps you practice the Week 2 question:\n\nHow do we clearly describe the data we have?\n\nYou will build summary tables only (no charts yet) to describe:\n\nSize (counts, missingness)\nCenter (mean or median)\nShape (spread: SD or IQR; optional percentiles)\nRelationships (categorical ↔︎ categorical; continuous ↔︎ categorical)\n\nYou will also reflect briefly on how to use AI responsibly to accelerate—not replace—your thinking."
+  },
+  {
+    "objectID": "week02/Homework_02.html#objectives",
+    "href": "week02/Homework_02.html#objectives",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "Objectives",
+    "text": "Objectives\n\nProduce clean summary tables (no charts)\nChoose statistics that match the measurement scale (NOIR)\nKeep denominators straight (N, n_eligible, n_non-missing)\nDescribe relationships using group summaries and cross-tabs\nCommunicate results clearly with labels, units, and stated assumptions\nReflect on responsible AI use in data work"
+  },
+  {
+    "objectID": "week02/Homework_02.html#resources",
+    "href": "week02/Homework_02.html#resources",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "Resources",
+    "text": "Resources\n\nOpen Homework 2 in Posit Cloud\nWeek 2 slides (Size, Center, Shape, Relationships; Percentage Problems)\nWeek 1 slides (Unit of Analysis / Grain; Dimensions vs Measures; Tidy Data)\nDataset description files on Canvas\n\n\n\n\n\n\n\nTipImportant\n\n\n\nThis assignment is graded for clear, careful completion.\n\nNo charts this week.\nYour job is to be explicit and disciplined about what one row represents, what your denominators are, and which summaries are meaningful."
+  },
+  {
+    "objectID": "week02/Homework_02.html#choose-your-dataset-week-1",
+    "href": "week02/Homework_02.html#choose-your-dataset-week-1",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "1) Choose Your Dataset (Week 1)",
+    "text": "1) Choose Your Dataset (Week 1)\n\nSelect one of the five Week 1 datasets.\nYou may keep the same dataset from Homework 1 or switch.\nIn your submission, state:\n\n\nWhich dataset you used\nAny filters or cleaning steps (e.g., removing blanks, focusing on a date range)\n\n(No written response required beyond the brief notes above.)"
+  },
+  {
+    "objectID": "week02/Homework_02.html#tools-you-may-mix-and-match",
+    "href": "week02/Homework_02.html#tools-you-may-mix-and-match",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "2) Tools (You May Mix and Match)",
+    "text": "2) Tools (You May Mix and Match)\nComplete the tables using Excel, Tableau, posit.cloud, or any combination.\n\nThis does not all have to be in one tool.\nChoose the tool(s) that best support the table you are trying to build.\n\n(No written response required.)"
+  },
+  {
+    "objectID": "week02/Homework_02.html#table-1-frequency-table-one-categorical-variable",
+    "href": "week02/Homework_02.html#table-1-frequency-table-one-categorical-variable",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "3) Table 1 — Frequency Table (One Categorical Variable)",
+    "text": "3) Table 1 — Frequency Table (One Categorical Variable)\nCreate a frequency table for one categorical variable (≥ 3–4 categories recommended).\nYour table must include:\n\nCategory\nCount (n)\nPercent of total\nAny other information you feel is relevant.\n\nGoal: Describe the distribution. What shows up a lot? What is rare?"
+  },
+  {
+    "objectID": "week02/Homework_02.html#table-2-continuous-categorical-choose-the-right-summary",
+    "href": "week02/Homework_02.html#table-2-continuous-categorical-choose-the-right-summary",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "4) Table 2 — Continuous ↔︎ Categorical (Choose the Right Summary)",
+    "text": "4) Table 2 — Continuous ↔︎ Categorical (Choose the Right Summary)\nCreate a grouped summary table using:\n\nOne continuous measure (a numeric variable where arithmetic is meaningful)\nOne categorical dimension (≥ 3 categories)\n\nYour table must include:\n\nGroup name\nn_non-missing for the measure\nA measure of center and/or measure of spread that matches your choice\nAny other information you feel is relevant.\n\nBelow the table, write 1–2 sentences explaining why your choices are meaningful.\n\nTables 2–3 are intentionally flexible: your job is to decide what summary is most meaningful for your variables and explain why.\n\nHint from Week 2:\n\nMean/SD are most useful when the variable behaves like interval/ratio data with limited outliers.\nMedian/IQR are most useful when data are skewed, have outliers, or when “typical” is better captured by the middle."
+  },
+  {
+    "objectID": "week02/Homework_02.html#table-3-another-continuous-categorical-relationship-different-angle",
+    "href": "week02/Homework_02.html#table-3-another-continuous-categorical-relationship-different-angle",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "5) Table 3 — Another Continuous ↔︎ Categorical Relationship (Different Angle)",
+    "text": "5) Table 3 — Another Continuous ↔︎ Categorical Relationship (Different Angle)\nCreate a second grouped summary table, changing at least one of the following:\n\nA different continuous measure, or\nA different categorical grouping, or\nA different summary choice (mean/SD vs median/IQR), or\nA different filter or frame (e.g., weekday vs weekend, before vs after a date)\n\nRequirements are the same as Table 2:\n\nGroup name\nn_non-missing for the measure\nA measure of center and/or measure of spread that matches your choice\nAny other information you feel is relevant.\n\nGoal: Answer a different question than Table 2."
+  },
+  {
+    "objectID": "week02/Homework_02.html#table-4-cross-tab-categorical-categorical-percentages",
+    "href": "week02/Homework_02.html#table-4-cross-tab-categorical-categorical-percentages",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "6) Table 4 — Cross-Tab (Categorical ↔︎ Categorical) + Percentages",
+    "text": "6) Table 4 — Cross-Tab (Categorical ↔︎ Categorical) + Percentages\nCreate a cross-tab using two categorical variables, each with ≥ 3 categories.\nYour table must include:\n\nCell counts\nOne percentage type (choose one and label it clearly):\n\nRow % (conditional on row)\nColumn % (conditional on column)\nTable % (overall share)\n\nRow and column totals (margins)\n\nBelow the table, write one sentence that states the denominator clearly:\n\n“These percentages are calculated as ________, so each ______ totals to 100%.”\n\nRemember from Week 2:\n\nSimilar-sounding percentages can answer different questions. Make the numerator and denominator explicit."
+  },
+  {
+    "objectID": "week02/Homework_02.html#optional-continuous-continuous-correlation-table",
+    "href": "week02/Homework_02.html#optional-continuous-continuous-correlation-table",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "(Optional) Continuous ↔︎ Continuous (Correlation Table)",
+    "text": "(Optional) Continuous ↔︎ Continuous (Correlation Table)\nIf your dataset includes two continuous variables that might be related, you may include one small correlation table.\nThis is not required, but it is a strong way to explore whether two measures move together.\nIf you choose to include it, report:\n\nn_non-missing (pairs)\nCorrelation r\n1 sentence interpretation (direction + strength)\n\n(Still no charts.)"
+  },
+  {
+    "objectID": "week02/Homework_02.html#findings-summary-required",
+    "href": "week02/Homework_02.html#findings-summary-required",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "7) Findings Summary (Required)",
+    "text": "7) Findings Summary (Required)\nWrite 3 key takeaways (about 5–10 sentences total).\nEach takeaway must:\n\nReference a specific table and at least one number (value + category)\nInterpret what it implies (not just restate a statistic)\n\nStrong examples:\n\n“Group A has a higher median than Group B (Table 2), suggesting…”\n“Under row %, Category X is concentrated in Y (Table 4), meaning…”\n“Mean and median disagree (Table 3), which suggests skew/outliers…”"
+  },
+  {
+    "objectID": "week02/Homework_02.html#responsible-use-of-ai-brief-reflection-required",
+    "href": "week02/Homework_02.html#responsible-use-of-ai-brief-reflection-required",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "8) Responsible Use of AI (Brief Reflection — Required)",
+    "text": "8) Responsible Use of AI (Brief Reflection — Required)\nAI can help you move faster, but it must not make analytical decisions for you. Use AI only for clarification, rewriting, or troubleshooting.\nWrite 4–6 sentences responding to:\nA. How did you use AI on this assignment? (If not at all, say so.)\nB. What did AI help with (specific steps)?\nC. What did AI miss, oversimplify, or get wrong?\nD. Include one prompt you used and briefly note how it helped and where it fell short.\nRemember our goal:\n\n“Can you use AI responsibly to accelerate—not replace—your thinking?”"
+  },
+  {
+    "objectID": "week02/Homework_02.html#submission",
+    "href": "week02/Homework_02.html#submission",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "9) Submission",
+    "text": "9) Submission\nUpload to Canvas:\n\nA PDF or Word document containing:\n\nTables 1–4 (and the optional correlation table if included)\nYour 3 takeaways\nYour brief AI reflection\n\nYour supporting files (as applicable):\n\nExcel: .xlsx\nTableau: .twbx\nposit.cloud: knitted output (.html or .pdf) and your source file"
+  },
+  {
+    "objectID": "week02/Homework_02.html#alignment-to-course-outcomes",
+    "href": "week02/Homework_02.html#alignment-to-course-outcomes",
+    "title": "Homework 2: Exploratory Analysis",
+    "section": "Alignment to Course Outcomes",
+    "text": "Alignment to Course Outcomes\n\nChoose the right analysis: You match summaries to measurement scales (NOIR) and keep denominators explicit.\nInterpret results in context: Your takeaways connect tables to real questions the data can answer.\nExplain limitations, assumptions, and uncertainty: Your justifications and AI reflection surface constraints before conclusions."
+  },
+  {
+    "objectID": "week04/Homework_04.html",
+    "href": "week04/Homework_04.html",
+    "title": "Homework 4: Project Story Planning",
+    "section": "",
+    "text": "NotePurpose\n\n\n\nThis assignment practices the Week 4 goal:\n\nTurn descriptive statistics and visuals into a story someone can act on.\n\nYou will propose five candidate data stories and turn each into a short analysis-plan outline your group can combine next week."
+  },
+  {
+    "objectID": "week04/Homework_04.html#objectives",
+    "href": "week04/Homework_04.html#objectives",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Objectives",
+    "text": "Objectives\n\nWrite takeaway-first headlines (not topics)\nTranslate a story across writing / visuals / speaking\nIdentify variables, derived fields, and data gaps/joins\nDraft testable hypotheses and a feasible analysis outline"
+  },
+  {
+    "objectID": "week04/Homework_04.html#resources",
+    "href": "week04/Homework_04.html#resources",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Resources",
+    "text": "Resources\n\nOpen Homework 4 in Posit Cloud\nThe course .csv extract in Posit Cloud that matches your project domain\nWeek 4 readings on writing/presenting with data (Canvas → Week 4)\nWeek 4 slides: Telling Stories with Data\n\n\n\n\n\n\n\nTipImportant\n\n\n\n\nThis is planning, not execution. You are not running tests yet.\nBullets and notes are expected. Full paragraphs are not required.\nAim for clarity and feasibility: ideas should be testable (or clearly explain what data is missing)."
+  },
+  {
+    "objectID": "week04/Homework_04.html#confirm-your-dataset-project",
+    "href": "week04/Homework_04.html#confirm-your-dataset-project",
+    "title": "Homework 4: Project Story Planning",
+    "section": "1) Confirm Your Dataset (Project)",
+    "text": "1) Confirm Your Dataset (Project)\n\nName the dataset you plan to use for the project.\nList any quick filters you expect to apply (e.g., date range, excluding blanks, limiting to U.S. only).\n\n(No long writeup—just bullets.)"
+  },
+  {
+    "objectID": "week04/Homework_04.html#write-5-data-headlines-takeaways",
+    "href": "week04/Homework_04.html#write-5-data-headlines-takeaways",
+    "title": "Homework 4: Project Story Planning",
+    "section": "2) Write 5 Data Headlines (Takeaways)",
+    "text": "2) Write 5 Data Headlines (Takeaways)\nWrite five potential data headlines your dataset could support.\nEach headline should:\n\nbe a complete sentence\nstate a takeaway (a claim), not a topic\navoid numbers and test statistics\n\nGood headlines (claims)\n\nChicago crashes are more likely to involve injuries under some road and lighting conditions.\nLate Olist deliveries receive lower review scores than on-time deliveries.\nReminder use and scheduling lead time are related to synthetic appointment no-shows.\n\nWeak headlines (topics)\n\nCrash injuries and lighting\nOlist delivery and reviews\nAppointment no-shows"
+  },
+  {
+    "objectID": "week04/Homework_04.html#for-each-headline-3-relationships-variables",
+    "href": "week04/Homework_04.html#for-each-headline-3-relationships-variables",
+    "title": "Homework 4: Project Story Planning",
+    "section": "3) For Each Headline: 3 Relationships + Variables",
+    "text": "3) For Each Headline: 3 Relationships + Variables\nFor each of your 5 headlines, list:\n\nA) Three relationships you could investigate\nRelationships describe what you would compare/examine, not results.\nExample relationships (for the Chicago crash headline):\n\nInjury proportion by lighting condition\nInjury proportion by reported road surface\nMedian injury count by time period\n\n\n\nB) Variables needed for each relationship\nFor each relationship:\n\nlist the variables involved\nlabel each variable as:\n\nExists (already in the dataset)\nDerived (you will calculate/recategorize it)\nExternal (you would need to join a new data source)\n\n\nExample:\n\nSeverity (Exists)\nState (Exists)\nRegion: North vs South (Derived)\nTemperature (Exists)\nPopulation by zip code (External)"
+  },
+  {
+    "objectID": "week04/Homework_04.html#analysis-plan-outline-do-this-for-all-5-stories",
+    "href": "week04/Homework_04.html#analysis-plan-outline-do-this-for-all-5-stories",
+    "title": "Homework 4: Project Story Planning",
+    "section": "4) Analysis Plan Outline (Do This for ALL 5 Stories)",
+    "text": "4) Analysis Plan Outline (Do This for ALL 5 Stories)\nFor each of your 5 stories, complete the outline below.\nThese outlines are designed to be easy to combine into a group analysis plan next week.\n\nFor each story, include:\n\nA) 3-second version (≤ 7 words, no numbers)\nThis is your “headline headline.”\nExample: Low visibility increases crash severity.\n\n\nB) 30-second version (1–2 sentences)\nInclude:\n\nthe takeaway\nwho should care and why\n\n\n\nC) Hypotheses (at least 2)\nWrite as testable statements.\nExamples:\n\nAverage crash severity is higher when visibility &lt; 10 miles than when visibility ≥ 10 miles.\nThe proportion of severe crashes is higher during precipitation than clear conditions.\n\n\n\nD) Data requirements and gaps\n\nVariables already present\nDerived fields you will create (how?)\nExternal data you would need to join (what source? what key?)\nAny obvious data quality issues you anticipate (missingness, outliers, mis-coded categories)\n\n\n\nE) Planned analyses (bullets)\nExamples (choose what fits):\n\ngroup means / medians\nproportions and rate comparisons\ntime trends\nt-test / chi-square / ANOVA (later—just list what you might use)\nsimple regression (if appropriate)\n\n\n\nF) One visual you would use\nName a chart type and what it would compare. You are encouraged to recycle analysis from HW2 & HW3 here\nExamples:\n\nSorted bar chart of rates by group\nLine chart of a metric over time (consistent denominators)\nBoxplot comparing distributions across categories\nScatterplot with a trend line for relationships"
+  },
+  {
+    "objectID": "week04/Homework_04.html#suggested-submission-format-copypaste-template",
+    "href": "week04/Homework_04.html#suggested-submission-format-copypaste-template",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Suggested Submission Format (Copy/Paste Template)",
+    "text": "Suggested Submission Format (Copy/Paste Template)\n\nStory 1\nHeadline (sentence):"
+  },
+  {
+    "objectID": "week04/Homework_04.html#relationships-3",
+    "href": "week04/Homework_04.html#relationships-3",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Relationships (3):",
+    "text": "Relationships (3):"
+  },
+  {
+    "objectID": "week04/Homework_04.html#variables-for-each-relationship-exists-derived-external",
+    "href": "week04/Homework_04.html#variables-for-each-relationship-exists-derived-external",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Variables for each relationship (Exists / Derived / External):",
+    "text": "Variables for each relationship (Exists / Derived / External):\n3-second headline (≤7 words):\n30-second story (1–2 sentences):"
+  },
+  {
+    "objectID": "week04/Homework_04.html#hypotheses-2",
+    "href": "week04/Homework_04.html#hypotheses-2",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Hypotheses (2+):",
+    "text": "Hypotheses (2+):"
+  },
+  {
+    "objectID": "week04/Homework_04.html#data-requirements-gaps",
+    "href": "week04/Homework_04.html#data-requirements-gaps",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Data requirements & gaps:",
+    "text": "Data requirements & gaps:"
+  },
+  {
+    "objectID": "week04/Homework_04.html#planned-analyses",
+    "href": "week04/Homework_04.html#planned-analyses",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Planned analyses:",
+    "text": "Planned analyses:"
+  },
+  {
+    "objectID": "week04/Homework_04.html#planned-visual",
+    "href": "week04/Homework_04.html#planned-visual",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Planned visual:",
+    "text": "Planned visual:\n\n\nStory 2\n(repeat)\n\n\n\nStory 3\n(repeat)\n\n\n\nStory 4\n(repeat)\n\n\n\nStory 5\n(repeat)"
+  },
+  {
+    "objectID": "week04/Homework_04.html#group-prep-next-week",
+    "href": "week04/Homework_04.html#group-prep-next-week",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Group Prep (Next Week)",
+    "text": "Group Prep (Next Week)\nBe prepared to share at least one of your stories with your group:\n\n3 seconds: your ≤7-word headline\n30 seconds: your short story + why it matters\n1 visual idea: what you would show\n\nAlso: have a ranking in your head of your top three strongest stories (the ones your group should consider first)."
+  },
+  {
+    "objectID": "week04/Homework_04.html#quick-checklist-before-submitting",
+    "href": "week04/Homework_04.html#quick-checklist-before-submitting",
+    "title": "Homework 4: Project Story Planning",
+    "section": "Quick Checklist (Before Submitting)",
+    "text": "Quick Checklist (Before Submitting)\n\nI included 5 headlines written as takeaways (not topics)\nEach headline has 3 relationships that actually support it\nI listed variables and labeled them Exists / Derived / External\nI outlined all 5 stories (3s, 30s, hypotheses, plan, visual)\nI identified at least one data gap/join if needed\nI can present at least one story clearly in 30 seconds\nI know my top 3 strongest story ideas"
+  },
+  {
+    "objectID": "week01/readings/data-literacy-terminology.html",
+    "href": "week01/readings/data-literacy-terminology.html",
+    "title": "Data Literacy Terminology",
+    "section": "",
+    "text": "Unit of analysis: the kind of entity or event being studied, such as a customer, transaction, listing, crash, patient encounter, or survey response.\nGrain: the precise meaning of one row, including entity, event, time period, and any filtering conditions.\nObservation: one row in a dataset.\nVariable: an attribute or measurement recorded in a column.\nValue: the entry for one variable in one observation.\nIdentifier: a label used to distinguish or join entities. An identifier may contain digits without being a meaningful numeric measure.\n\n\n\n\n\n\n\nImportantStart with the row\n\n\n\nBefore calculating a statistic, complete this sentence: One row represents one _____ for one _____ during one _____."
+  },
+  {
+    "objectID": "week01/readings/data-literacy-terminology.html#anatomy-of-a-structured-dataset",
+    "href": "week01/readings/data-literacy-terminology.html#anatomy-of-a-structured-dataset",
+    "title": "Data Literacy Terminology",
+    "section": "",
+    "text": "Unit of analysis: the kind of entity or event being studied, such as a customer, transaction, listing, crash, patient encounter, or survey response.\nGrain: the precise meaning of one row, including entity, event, time period, and any filtering conditions.\nObservation: one row in a dataset.\nVariable: an attribute or measurement recorded in a column.\nValue: the entry for one variable in one observation.\nIdentifier: a label used to distinguish or join entities. An identifier may contain digits without being a meaningful numeric measure.\n\n\n\n\n\n\n\nImportantStart with the row\n\n\n\nBefore calculating a statistic, complete this sentence: One row represents one _____ for one _____ during one _____."
+  },
+  {
+    "objectID": "week01/readings/data-literacy-terminology.html#variable-roles-and-measurement-scales",
+    "href": "week01/readings/data-literacy-terminology.html#variable-roles-and-measurement-scales",
+    "title": "Data Literacy Terminology",
+    "section": "Variable roles and measurement scales",
+    "text": "Variable roles and measurement scales\n\n\n\n\n\n\n\n\nScale\nMeaning\nUseful summaries\n\n\n\n\nNominal\nCategories with no natural order\nCounts, percentages, mode\n\n\nBinary\nA nominal variable with two categories\nCounts, percentages, proportions\n\n\nOrdinal\nCategories with a meaningful order but unknown or unequal spacing\nCounts, percentages, median, ordered displays\n\n\nInterval\nNumeric values with meaningful differences but no meaningful zero\nMean, median, range, IQR, standard deviation\n\n\nRatio\nNumeric values with meaningful differences and a meaningful zero\nMean, median, range, IQR, standard deviation, ratios\n\n\n\nA variable’s storage type in software is not necessarily its analytical role. For example, a ZIP code may be stored as a number but should be treated as a geographic identifier, not averaged."
+  },
+  {
+    "objectID": "week01/readings/data-literacy-terminology.html#time-variables",
+    "href": "week01/readings/data-literacy-terminology.html#time-variables",
+    "title": "Data Literacy Terminology",
+    "section": "Time variables",
+    "text": "Time variables\n\nA duration, such as minutes required to complete a task, is quantitative.\nA date or timestamp can be sorted, filtered, or used to calculate elapsed time.\nA calendar category, such as month, quarter, or day of the week, is often used to group observations and must retain its natural order.\nA year can represent time in a trend or act as a grouping category. Its treatment depends on the question.\n\nFor worked examples using current course data, see Understanding Data."
+  },
+  {
+    "objectID": "week01/readings/understanding-data.html",
+    "href": "week01/readings/understanding-data.html",
+    "title": "Understanding Data",
+    "section": "",
+    "text": "Before calculating an average or making a graph, state the unit of analysis: the person, listing, transaction, day, crash, or other thing represented by one row.\nIf you misunderstand the row, every summary that follows can be wrong.\n\n\n\nEight rows from the ECO 230 sleep-tracking data\n\n\n\n\n\n\n\n\n\n\nDate\nPersonName\nLocation\nSleepEventType\nTotalMinutes\nSleepQuality\n\n\n\n\n2025-01-01\nCam\nHome\nMain\n421\n0.561\n\n\n2025-01-01\nJohn\nHome\nMain\n418\n0.450\n\n\n2025-01-01\nLucas\nHome\nMain\n439\n0.576\n\n\n2025-01-01\nLydia\nHome\nMain\n499\n0.527\n\n\n2025-01-01\nMike\nHome\nMain\n494\n0.478\n\n\n2025-01-01\nSloane\nHome\nMain\n456\n0.566\n\n\n2025-01-02\nCam\nHome\nNap\n44\n0.432\n\n\n2025-01-02\nCam\nHome\nMain\n410\n0.559\n\n\n\n\n\nIn this file, one row is one recorded sleep event for one person. A person can have a main sleep event and a nap on the same date, so the grain is not simply “one person per day.” If an analysis should include only main sleep, filter SleepEventType == \"Main\" before summarizing.\n\n\n\n\n\n\nImportantWrite the grain as a sentence\n\n\n\nUse this pattern: One row represents one [unit] for one [entity] during one [time period].\nInclude any conditions created by filtering or aggregation."
+  },
+  {
+    "objectID": "week01/readings/understanding-data.html#the-first-question-what-does-one-row-represent",
+    "href": "week01/readings/understanding-data.html#the-first-question-what-does-one-row-represent",
+    "title": "Understanding Data",
+    "section": "",
+    "text": "Before calculating an average or making a graph, state the unit of analysis: the person, listing, transaction, day, crash, or other thing represented by one row.\nIf you misunderstand the row, every summary that follows can be wrong.\n\n\n\nEight rows from the ECO 230 sleep-tracking data\n\n\n\n\n\n\n\n\n\n\nDate\nPersonName\nLocation\nSleepEventType\nTotalMinutes\nSleepQuality\n\n\n\n\n2025-01-01\nCam\nHome\nMain\n421\n0.561\n\n\n2025-01-01\nJohn\nHome\nMain\n418\n0.450\n\n\n2025-01-01\nLucas\nHome\nMain\n439\n0.576\n\n\n2025-01-01\nLydia\nHome\nMain\n499\n0.527\n\n\n2025-01-01\nMike\nHome\nMain\n494\n0.478\n\n\n2025-01-01\nSloane\nHome\nMain\n456\n0.566\n\n\n2025-01-02\nCam\nHome\nNap\n44\n0.432\n\n\n2025-01-02\nCam\nHome\nMain\n410\n0.559\n\n\n\n\n\nIn this file, one row is one recorded sleep event for one person. A person can have a main sleep event and a nap on the same date, so the grain is not simply “one person per day.” If an analysis should include only main sleep, filter SleepEventType == \"Main\" before summarizing.\n\n\n\n\n\n\nImportantWrite the grain as a sentence\n\n\n\nUse this pattern: One row represents one [unit] for one [entity] during one [time period].\nInclude any conditions created by filtering or aggregation."
+  },
+  {
+    "objectID": "week01/readings/understanding-data.html#observations-and-variables",
+    "href": "week01/readings/understanding-data.html#observations-and-variables",
+    "title": "Understanding Data",
+    "section": "Observations and variables",
+    "text": "Observations and variables\n\nAn observation is one row.\nA variable is one column that records an attribute or measurement.\nAn identifier distinguishes entities but is not automatically a quantity worth averaging.\n\n\n\n\n\n\n\n\n\nVariable\nRole or type\nUseful treatment\n\n\n\n\nDate\nDate/time\nSort, filter, group by week or month\n\n\nPersonName\nNominal identifier\nGroup or count; do not average\n\n\nLocation\nNominal category\nFrequencies, percentages, comparisons\n\n\nSleepEventType\nNominal category\nFilter or compare main sleep and naps\n\n\nTotalMinutes\nQuantitative, ratio\nMean, median, range, IQR, standard deviation\n\n\nSleepQuality\nQuantitative score\nCompare distributions; interpret using its documented scale\n\n\nZipCode\nGeographic identifier\nJoin or group; do not treat as a measured number\n\n\n\nAn all-numeric column is not necessarily quantitative. ZIP codes, product codes, and patient IDs are labels even when stored as numbers."
+  },
+  {
+    "objectID": "week01/readings/understanding-data.html#data-structure-changes-the-question",
+    "href": "week01/readings/understanding-data.html#data-structure-changes-the-question",
+    "title": "Understanding Data",
+    "section": "Data structure changes the question",
+    "text": "Data structure changes the question\n\nCross-sectional data\nA cross-section compares many entities at one point or period in time. For example, a single Airbnb snapshot can compare listings across neighborhoods.\n\n\nTime-series data\nA time series follows one measure for one entity or aggregate over time. Daily average sleep duration for the entire sample is a time series.\n\n\nPanel data\nPanel data follows multiple entities over time. The main-sleep records form a panel because the same people appear on many dates.\n\nmain_sleep &lt;- sleep[sleep$SleepEventType == \"Main\", ]\nperson_days &lt;- aggregate(Date ~ PersonName, main_sleep, function(x) length(unique(x)))\nnames(person_days)[2] &lt;- \"RecordedDays\"\nknitr::kable(person_days, caption = \"Repeated observations make this a panel data set\")\n\n\nRepeated observations make this a panel data set\n\n\nPersonName\nRecordedDays\n\n\n\n\nCam\n181\n\n\nJohn\n181\n\n\nLucas\n181\n\n\nLydia\n181\n\n\nMike\n181\n\n\nSloane\n181"
+  },
+  {
+    "objectID": "week01/readings/understanding-data.html#wide-and-long-are-descriptions-not-judgments",
+    "href": "week01/readings/understanding-data.html#wide-and-long-are-descriptions-not-judgments",
+    "title": "Understanding Data",
+    "section": "Wide and long are descriptions, not judgments",
+    "text": "Wide and long are descriptions, not judgments\nThe sleep-stage columns (REMMinutes, DeepMinutes, and LightMinutes) are stored wide: each stage has its own column. The same information could be made long with one Stage column and one Minutes column.\nWide data can be convenient for a report. Long data is often easier for grouped summaries and graphs. Choose the structure that supports the analysis, while keeping the grain explicit."
+  },
+  {
+    "objectID": "week01/readings/understanding-data.html#a-second-example-airbnb-listings",
+    "href": "week01/readings/understanding-data.html#a-second-example-airbnb-listings",
+    "title": "Understanding Data",
+    "section": "A second example: Airbnb listings",
+    "text": "A second example: Airbnb listings\n\n\n\nSelected fields from the Chicago Airbnb data\n\n\n\n\n\n\n\n\n\n\nid\nroom_type\nneighbourhood\naccommodates\nlisted_price\nreview_scores_rating\n\n\n\n\n6226658\nPrivate room\nHumboldt Park\n2\n60\nNA\n\n\n7499179\nPrivate room\nWicker Park\n2\n75\n91\n\n\n19813606\nEntire home/apt\nSouth Loop/Printers Row\n5\n250\nNA\n\n\n13435559\nPrivate room\nPilsen\n2\n64\n96\n\n\n19692298\nEntire home/apt\n\n3\n110\n97\n\n\n235281\nEntire home/apt\nLakeview\n9\n199\n96\n\n\n\n\n\nHere, one row represents one listing in the source snapshot. listed_price is a quantitative measure; room_type is categorical; id is an identifier. If you calculate one row per neighborhood, you have created a new, aggregated data set with a different grain."
+  },
+  {
+    "objectID": "week01/readings/understanding-data.html#a-five-question-data-check",
+    "href": "week01/readings/understanding-data.html#a-five-question-data-check",
+    "title": "Understanding Data",
+    "section": "A five-question data check",
+    "text": "A five-question data check\nBefore analysis, answer:\n\nWhat does one row represent?\nWhat population and time period are covered?\nWhich columns are identifiers, categories, dates, and quantities?\nCan the same entity appear more than once? If so, why?\nWhat filtering, joining, or aggregation would change the grain?\n\n\n\n\n\n\n\nTipA useful habit\n\n\n\nPut the grain in a code comment immediately after loading data. When the grain changes, add another comment before the summary or join."
+  },
+  {
+    "objectID": "week01/readings/understanding-data.html#background",
+    "href": "week01/readings/understanding-data.html#background",
+    "title": "Understanding Data",
+    "section": "Background",
+    "text": "Background\nThis page replaces an earlier ECO 230 handout that used a CEO-compensation spreadsheet. The concepts and examples have been rewritten around current course data."
+  },
+  {
+    "objectID": "week02/readings/measures-of-variability.html",
+    "href": "week02/readings/measures-of-variability.html",
+    "title": "Measures of Variability",
+    "section": "",
+    "text": "Two groups can have the same average and still behave very differently. Measures of variability describe how tightly observations cluster and how far they extend.\nThis example uses minutes of main sleep from the ECO 230 sleep-tracking data.\n\n\n\n\n\nMeasure\nValue\n\n\n\n\nNumber of records\n1086.0\n\n\nMinimum\n322.0\n\n\nFirst quartile\n428.0\n\n\nMedian\n453.0\n\n\nThird quartile\n476.0\n\n\nMaximum\n540.0\n\n\nRange\n218.0\n\n\nIQR\n48.0\n\n\nMean\n450.6\n\n\nSample standard deviation\n37.1"
+  },
+  {
+    "objectID": "week02/readings/measures-of-variability.html#why-spread-matters",
+    "href": "week02/readings/measures-of-variability.html#why-spread-matters",
+    "title": "Measures of Variability",
+    "section": "",
+    "text": "Two groups can have the same average and still behave very differently. Measures of variability describe how tightly observations cluster and how far they extend.\nThis example uses minutes of main sleep from the ECO 230 sleep-tracking data.\n\n\n\n\n\nMeasure\nValue\n\n\n\n\nNumber of records\n1086.0\n\n\nMinimum\n322.0\n\n\nFirst quartile\n428.0\n\n\nMedian\n453.0\n\n\nThird quartile\n476.0\n\n\nMaximum\n540.0\n\n\nRange\n218.0\n\n\nIQR\n48.0\n\n\nMean\n450.6\n\n\nSample standard deviation\n37.1"
+  },
+  {
+    "objectID": "week02/readings/measures-of-variability.html#range",
+    "href": "week02/readings/measures-of-variability.html#range",
+    "title": "Measures of Variability",
+    "section": "Range",
+    "text": "Range\nThe range is the distance from the smallest observation to the largest:\n[ = - ]\n\ndiff(range(x))\n\n[1] 218\n\n\nThe range is easy to explain, but it uses only two observations. A single unusual value can change it dramatically."
+  },
+  {
+    "objectID": "week02/readings/measures-of-variability.html#interquartile-range",
+    "href": "week02/readings/measures-of-variability.html#interquartile-range",
+    "title": "Measures of Variability",
+    "section": "Interquartile range",
+    "text": "Interquartile range\nThe interquartile range (IQR) describes the width of the middle 50% of observations:\n[ = Q_3 - Q_1 ]\n\nquantile(x, c(.25, .50, .75))\n\n25% 50% 75% \n428 453 476 \n\nIQR(x)\n\n[1] 48\n\n\nBecause it focuses on the middle half, the IQR is more resistant to unusually high or low values than the range. It is a natural companion to the median and the box plot."
+  },
+  {
+    "objectID": "week02/readings/measures-of-variability.html#standard-deviation",
+    "href": "week02/readings/measures-of-variability.html#standard-deviation",
+    "title": "Measures of Variability",
+    "section": "Standard deviation",
+    "text": "Standard deviation\nStandard deviation describes typical distance from the mean. Larger values indicate more spread around the mean.\n\nmean(x)\n\n[1] 450.5912\n\nsd(x)\n\n[1] 37.12756\n\n\nR’s sd() calculates the sample standard deviation, using (n-1) in the denominator. If the observations are the entire population of interest rather than a sample, the population calculation is:\n\npopulation_sd &lt;- sqrt(mean((x - mean(x))^2))\npopulation_sd\n\n[1] 37.11046\n\n\nAlways state which population you want to describe. A complete course data file is not automatically the complete real-world population."
+  },
+  {
+    "objectID": "week02/readings/measures-of-variability.html#what-an-outlier-changes",
+    "href": "week02/readings/measures-of-variability.html#what-an-outlier-changes",
+    "title": "Measures of Variability",
+    "section": "What an outlier changes",
+    "text": "What an outlier changes\nThe next comparison adds one implausible 1,200-minute sleep record to illustrate sensitivity. This is a diagnostic example, not a recommendation to delete high values.\n\nx_with_outlier &lt;- c(x, 1200)\n\noutlier_comparison &lt;- data.frame(\n  Measure = c(\"Mean\", \"Median\", \"Range\", \"IQR\", \"Sample SD\"),\n  Original = c(mean(x), median(x), diff(range(x)), IQR(x), sd(x)),\n  WithOutlier = c(mean(x_with_outlier), median(x_with_outlier),\n                  diff(range(x_with_outlier)), IQR(x_with_outlier),\n                  sd(x_with_outlier))\n)\nknitr::kable(outlier_comparison, digits = 1)\n\n\n\n\nMeasure\nOriginal\nWithOutlier\n\n\n\n\nMean\n450.6\n451.3\n\n\nMedian\n453.0\n453.0\n\n\nRange\n218.0\n878.0\n\n\nIQR\n48.0\n48.0\n\n\nSample SD\n37.1\n43.5\n\n\n\n\n\nAn unusual value may be a data-entry error, a correctly measured rare event, or evidence that the population is more varied than expected. Investigate before changing it."
+  },
+  {
+    "objectID": "week02/readings/measures-of-variability.html#choosing-a-measure",
+    "href": "week02/readings/measures-of-variability.html#choosing-a-measure",
+    "title": "Measures of Variability",
+    "section": "Choosing a measure",
+    "text": "Choosing a measure\n\n\n\n\n\n\n\n\n\nSituation\nUseful center\nUseful spread\nWhy\n\n\n\n\nRoughly symmetric, no influential outliers\nMean\nStandard deviation\nBoth use every observation\n\n\nSkewed or outlier-prone\nMedian\nIQR\nBoth resist extreme values\n\n\nNeed to communicate full observed span\nAny\nRange\nShows minimum-to-maximum extent\n\n\nComparing distributions\nMean and median\nSD, IQR, and a graph\nNo single number tells the whole story\n\n\n\n\n\n\n\n\n\nWarningThe empirical rule has conditions\n\n\n\nThe familiar 68%, 95%, and 99.7% rule applies only to distributions that are approximately normal. Do not use it simply because a mean and standard deviation are available."
+  },
+  {
+    "objectID": "week02/readings/measures-of-variability.html#report-spread-with-context",
+    "href": "week02/readings/measures-of-variability.html#report-spread-with-context",
+    "title": "Measures of Variability",
+    "section": "Report spread with context",
+    "text": "Report spread with context\nA useful written result includes:\n\nthe variable and unit;\nthe population or sample being described;\nthe center and spread;\nthe number of nonmissing observations; and\nany meaningful skew, gaps, or unusual observations visible in a graph."
+  },
+  {
+    "objectID": "week02/readings/measures-of-variability.html#source-note",
+    "href": "week02/readings/measures-of-variability.html#source-note",
+    "title": "Measures of Variability",
+    "section": "Source note",
+    "text": "Source note\nThis is a new ECO 230 replacement for the University of Leicester Student Learning Development handout Measures of variability: the range, inter-quartile range and standard deviation (2009). The explanation and examples have been rewritten for R and current course data; outdated spreadsheet instructions were not reproduced."
+  },
+  {
+    "objectID": "week03/readings/advanced-interpretation.html",
+    "href": "week03/readings/advanced-interpretation.html",
+    "title": "Interpreting Data Visualizations",
+    "section": "",
+    "text": "A strong interpretation connects visible evidence to the question being asked without claiming more than the data can support.\nUse this sequence:\n\nObservation: What pattern, comparison, or unusual feature is visible?\nEvidence: Which values, groups, or time periods support the observation?\nExplanation: What plausible mechanisms could produce it?\nLimitation: What else could explain it, and what can the graph not establish?\nImplication: What decision or next analysis does the result support?"
+  },
+  {
+    "objectID": "week03/readings/advanced-interpretation.html#interpretation-is-more-than-description",
+    "href": "week03/readings/advanced-interpretation.html#interpretation-is-more-than-description",
+    "title": "Interpreting Data Visualizations",
+    "section": "",
+    "text": "A strong interpretation connects visible evidence to the question being asked without claiming more than the data can support.\nUse this sequence:\n\nObservation: What pattern, comparison, or unusual feature is visible?\nEvidence: Which values, groups, or time periods support the observation?\nExplanation: What plausible mechanisms could produce it?\nLimitation: What else could explain it, and what can the graph not establish?\nImplication: What decision or next analysis does the result support?"
+  },
+  {
+    "objectID": "week03/readings/advanced-interpretation.html#example-1-a-distribution",
+    "href": "week03/readings/advanced-interpretation.html#example-1-a-distribution",
+    "title": "Interpreting Data Visualizations",
+    "section": "Example 1: a distribution",
+    "text": "Example 1: a distribution\n\n\n\n\n\nDistribution of main-sleep duration in the course data\n\n\n\n\nWeak: Most people sleep around the average.\nStronger: Main-sleep duration is concentrated in the middle of the observed range, with fewer records at both extremes. Before using the mean as the only summary, compare it with the median and inspect the unusual low and high values. The graph describes recorded sleep events in this sample; it does not establish how much sleep people need.\nThe stronger version identifies the shape, names a useful follow-up, and limits the population claim."
+  },
+  {
+    "objectID": "week03/readings/advanced-interpretation.html#example-2-group-comparisons",
+    "href": "week03/readings/advanced-interpretation.html#example-2-group-comparisons",
+    "title": "Interpreting Data Visualizations",
+    "section": "Example 2: group comparisons",
+    "text": "Example 2: group comparisons\n\n\n\n\n\nListed price by room type, excluding values above $500 so the central distributions remain visible\n\n\n\n\nObservation: The price distributions differ by room type, and each group contains substantial variation.\nEvidence: Compare medians, IQRs, and the degree of overlap rather than focusing only on the most expensive listing.\nLimitation: Room type is not the only difference among listings. Neighborhood, capacity, amenities, review history, and timing may all be related to price. Filtering at $500 improves readability but means the graph does not display the full upper tail.\nImplication: Room type is a useful starting segmentation variable, but a pricing recommendation should examine additional variables and the unfiltered data."
+  },
+  {
+    "objectID": "week03/readings/advanced-interpretation.html#example-3-relationships",
+    "href": "week03/readings/advanced-interpretation.html#example-3-relationships",
+    "title": "Interpreting Data Visualizations",
+    "section": "Example 3: relationships",
+    "text": "Example 3: relationships\n\n\n\n\n\nListed price and guest capacity for Chicago listings priced at $500 or less\n\n\n\n\nA reasonable interpretation is that listings with greater capacity tend to have higher listed prices, while prices still vary greatly at the same capacity. This is an association, not proof that increasing capacity causes price to rise.\n\nWhat the scatterplot does not establish\n\nwhether the pattern is statistically reliable in a larger population;\nwhether omitted variables explain the relationship;\nwhether price was actually paid;\nwhether the source snapshot represents another market or season; or\nwhether the relationship remains after accounting for room type and neighborhood."
+  },
+  {
+    "objectID": "week03/readings/advanced-interpretation.html#interpret-the-visual-encoding-too",
+    "href": "week03/readings/advanced-interpretation.html#interpret-the-visual-encoding-too",
+    "title": "Interpreting Data Visualizations",
+    "section": "Interpret the visual encoding too",
+    "text": "Interpret the visual encoding too\nBefore interpreting the subject matter, check how the graph was built.\n\n\n\n\n\n\n\nCheck\nWhy it matters\n\n\n\n\nAxis limits and transformations\nTruncation or a log scale changes visual distance\n\n\nCounts versus percentages\nDifferent denominators can reverse a comparison\n\n\nAggregation\nA monthly average can hide daily variation\n\n\nFilters and exclusions\nThe displayed population may be narrower than the title suggests\n\n\nColor and size\nEncodings may imply importance or magnitude\n\n\nMissing values\nUnshown observations may not be missing at random\n\n\nSample size\nA dramatic pattern based on a few records may be unstable"
+  },
+  {
+    "objectID": "week03/readings/advanced-interpretation.html#avoid-common-overclaims",
+    "href": "week03/readings/advanced-interpretation.html#avoid-common-overclaims",
+    "title": "Interpreting Data Visualizations",
+    "section": "Avoid common overclaims",
+    "text": "Avoid common overclaims\n\n\n\n\n\n\n\nAvoid\nPrefer\n\n\n\n\n“X causes Y” from an observational graph\n“X and Y are associated in these data”\n\n\n“The groups are significantly different” from visual separation\n“The displayed distributions differ; a formal test is needed for statistical significance”\n\n\n“Most customers prefer…” without a denominator\n“Among the respondents shown, X of N (Y%) selected…”\n\n\n“Sales increased because of the campaign”\n“Sales increased after the campaign; seasonality and other changes remain possible explanations”\n\n\n“There is no relationship”\n“No clear relationship is visible at this scale”"
+  },
+  {
+    "objectID": "week03/readings/advanced-interpretation.html#a-reusable-interpretation-paragraph",
+    "href": "week03/readings/advanced-interpretation.html#a-reusable-interpretation-paragraph",
+    "title": "Interpreting Data Visualizations",
+    "section": "A reusable interpretation paragraph",
+    "text": "A reusable interpretation paragraph\n\nThe graph shows [pattern] for [population and period]. The clearest evidence is [specific comparison or value]. One plausible explanation is [mechanism], although [alternative explanation or data limitation] means the graph does not establish [unsupported claim]. The result suggests [decision or next analysis].\n\n\n\n\n\n\n\nTipRead the title last\n\n\n\nFirst inspect the axes, units, legend, filters, and source. Then read the title and decide whether its claim matches the evidence actually displayed."
+  },
+  {
+    "objectID": "week03/readings/advanced-interpretation.html#background",
+    "href": "week03/readings/advanced-interpretation.html#background",
+    "title": "Interpreting Data Visualizations",
+    "section": "Background",
+    "text": "Background\nThis page replaces an earlier ECO 230 slide export about advanced interpretation. Its examples have been rebuilt with current course data and an explicit evidence-limitations-implications framework."
+  },
+  {
+    "objectID": "week12/readings/bias-error-survey-research.html",
+    "href": "week12/readings/bias-error-survey-research.html",
+    "title": "Bias and Error in Survey Research",
+    "section": "",
+    "text": "A survey estimate will rarely match the population exactly. Some differences arise from random chance; others arise because the survey process systematically includes, excludes, measures, or influences particular people.\nThe useful question is not simply, “Is this survey biased?” Instead ask:\n\nAt what stage could error enter, in which direction might it move the result, and what evidence would help us assess it?"
+  },
+  {
+    "objectID": "week12/readings/bias-error-survey-research.html#error-is-part-of-the-survey-process",
+    "href": "week12/readings/bias-error-survey-research.html#error-is-part-of-the-survey-process",
+    "title": "Bias and Error in Survey Research",
+    "section": "",
+    "text": "A survey estimate will rarely match the population exactly. Some differences arise from random chance; others arise because the survey process systematically includes, excludes, measures, or influences particular people.\nThe useful question is not simply, “Is this survey biased?” Instead ask:\n\nAt what stage could error enter, in which direction might it move the result, and what evidence would help us assess it?"
+  },
+  {
+    "objectID": "week12/readings/bias-error-survey-research.html#sampling-and-assignment-answer-different-questions",
+    "href": "week12/readings/bias-error-survey-research.html#sampling-and-assignment-answer-different-questions",
+    "title": "Bias and Error in Survey Research",
+    "section": "Sampling and assignment answer different questions",
+    "text": "Sampling and assignment answer different questions\nSurvey research is usually observational: researchers measure people without assigning them to treatments. Two different forms of randomization have different purposes.\n\n\n\n\n\n\n\n\nDesign feature\nPrimary purpose\nWhat it can support when well executed\n\n\n\n\nRandom sampling from a defined population\nMake the sample resemble the population in expectation\nGeneralization to that population\n\n\nRandom assignment to conditions\nMake treatment groups comparable in expectation\nCausal conclusions about the assigned treatment\n\n\n\nA random sample does not turn an observational relationship into a causal effect. Random assignment does not automatically make the participants representative of everyone else.\n\n\n\n\n\n\nWarningTwo separate claims\n\n\n\nGeneralizability: Do the observed respondents represent the target population?\nCausality: Does the study design rule out plausible alternative explanations for an observed effect?"
+  },
+  {
+    "objectID": "week12/readings/bias-error-survey-research.html#random-sampling-error",
+    "href": "week12/readings/bias-error-survey-research.html#random-sampling-error",
+    "title": "Bias and Error in Survey Research",
+    "section": "Random sampling error",
+    "text": "Random sampling error\nDifferent random samples from the same population produce different estimates. That chance variation is random sampling error.\nLarger probability samples generally reduce random sampling error. Standard errors, confidence intervals, and margins of error describe this uncertainty when the sampling design supports those calculations.\nRandom sampling error does not consistently push estimates high or low. Increasing sample size can reduce it, but a very large biased sample can still be confidently wrong."
+  },
+  {
+    "objectID": "week12/readings/bias-error-survey-research.html#systematic-error-and-bias",
+    "href": "week12/readings/bias-error-survey-research.html#systematic-error-and-bias",
+    "title": "Bias and Error in Survey Research",
+    "section": "Systematic error and bias",
+    "text": "Systematic error and bias\nBias is systematic error: some feature of the design or data-collection process tends to move estimates away from the population value.\nBias is not the same thing as:\n\npersonal prejudice;\nan unusual observation;\na skewed distribution; or\nordinary random variation from one sample to another.\n\nA distribution may be strongly skewed and still accurately describe its population. Conversely, a survey result may look smooth and precise while systematically missing part of the population."
+  },
+  {
+    "objectID": "week12/readings/bias-error-survey-research.html#follow-the-survey-pipeline",
+    "href": "week12/readings/bias-error-survey-research.html#follow-the-survey-pipeline",
+    "title": "Bias and Error in Survey Research",
+    "section": "Follow the survey pipeline",
+    "text": "Follow the survey pipeline\nBias can enter at several stages.\n\n\n\n\n\n\n\n\nStage\nQuestion\nCommon risk\n\n\n\n\nTarget population\nWho do we want to understand?\nThe population is vaguely or conveniently defined\n\n\nSampling frame\nWho could actually be selected?\nCoverage or sample-selection bias\n\n\nRecruitment\nWho is contacted and invited?\nContact differences, inaccessible modes\n\n\nParticipation\nWho responds?\nUnit nonresponse and self-selection\n\n\nQuestionnaire\nWhat is asked and how?\nWording, order, recall, or response-option problems\n\n\nResponse\nHow do people answer?\nSocial desirability, acquiescence, interviewer or mode effects\n\n\nProcessing\nHow are responses handled?\nCoding, weighting, cleaning, or transcription errors\n\n\nReporting\nWhat is communicated?\nSelective emphasis, missing uncertainty, or overgeneralization"
+  },
+  {
+    "objectID": "week12/readings/bias-error-survey-research.html#coverage-and-sample-selection-bias",
+    "href": "week12/readings/bias-error-survey-research.html#coverage-and-sample-selection-bias",
+    "title": "Bias and Error in Survey Research",
+    "section": "Coverage and sample-selection bias",
+    "text": "Coverage and sample-selection bias\nCoverage error occurs when the sampling frame does not adequately cover the target population. The risk becomes bias when the omitted or overrepresented people differ on an outcome that matters.\nExamples:\n\nUsing property-tax records to study all residents can omit renters.\nSurveying only current customers cannot directly describe people who considered the product and left.\nPosting a public survey link on one social platform overrepresents people who use that platform and encounter the post.\n\nDiagnostic: Compare the target population, the sampling frame, and the final sample. Which groups can never enter the sample? Which groups have very different probabilities of selection?\nPossible mitigation: Improve the frame, recruit through multiple channels, use probability sampling when feasible, and document groups that remain uncovered."
+  },
+  {
+    "objectID": "week12/readings/bias-error-survey-research.html#nonresponse-and-self-selection",
+    "href": "week12/readings/bias-error-survey-research.html#nonresponse-and-self-selection",
+    "title": "Bias and Error in Survey Research",
+    "section": "Nonresponse and self-selection",
+    "text": "Nonresponse and self-selection\nThese ideas are related but not identical.\n\nNonresponse occurs when selected sample members do not provide usable responses.\nSelf-selection occurs when willingness or ability to participate helps determine who enters the respondent group, especially in opt-in samples.\nNonresponse bias occurs only when response is related to the survey outcome after considering the adjustments used in analysis.\n\nA low response rate raises concern, but it does not by itself measure the size or direction of nonresponse bias. Respondents and nonrespondents must differ in a way that matters for the estimate.\nCustomer-satisfaction surveys illustrate the risk: customers with especially good or bad experiences may be more motivated to respond than customers with routine experiences.\nPossible mitigation: Make participation accessible, reduce respondent burden, use reminders and appropriate incentives, compare respondents with known population benchmarks, and apply transparent weighting when justified."
+  },
+  {
+    "objectID": "week12/readings/bias-error-survey-research.html#response-and-measurement-bias",
+    "href": "week12/readings/bias-error-survey-research.html#response-and-measurement-bias",
+    "title": "Bias and Error in Survey Research",
+    "section": "Response and measurement bias",
+    "text": "Response and measurement bias\nAfter agreeing to participate, respondents can still provide systematically distorted measurements.\n\nSocial desirability\nPeople may report what seems acceptable rather than what is true, especially for sensitive behaviors, status, health, money, or ethics.\n\n\nAcquiescence\nSome respondents tend to agree with statements regardless of content. A page filled with similarly worded agree/disagree items can amplify this tendency.\n\n\nRecall error\nPeople may not accurately remember frequency, timing, or amount. “How many purchases did you make last year?” demands more memory than a shorter, clearly bounded period.\n\n\nMode and interviewer effects\nAnswers can differ across online, telephone, text, or in-person administration. An interviewer, perceived anonymity, device, or visual layout may change what people report.\n\n\nQuestion wording and options\nLeading, loaded, double-barreled, ambiguous, or assumption-based questions create measurement error. Response options that overlap or omit plausible answers force poor measurements.\nPossible mitigation: Use neutral language, ask one idea at a time, provide exhaustive and mutually exclusive choices, permit “don’t know” or “prefer not to answer” when appropriate, pretest the questionnaire, and disclose the survey mode."
+  },
+  {
+    "objectID": "week12/readings/bias-error-survey-research.html#a-practical-example",
+    "href": "week12/readings/bias-error-survey-research.html#a-practical-example",
+    "title": "Bias and Error in Survey Research",
+    "section": "A practical example",
+    "text": "A practical example\nSuppose ECO 230 students send an online campus-dining survey through their own social networks.\n\nCoverage risk: Students outside those networks have no realistic chance to see the survey.\nSelf-selection risk: Students with strong dining opinions may be more likely to participate.\nMeasurement risk: A question such as “How dissatisfied are you with overpriced campus food?” assumes dissatisfaction and uses loaded language.\nReporting risk: Calling the respondents “UWL students” implies population coverage the design did not provide.\n\nA more defensible report would describe the respondents and recruitment method, avoid a population-wide claim, show counts with percentages, and identify what a stronger sampling plan would require."
+  },
+  {
+    "objectID": "week12/readings/bias-error-survey-research.html#evaluate-a-published-survey",
+    "href": "week12/readings/bias-error-survey-research.html#evaluate-a-published-survey",
+    "title": "Bias and Error in Survey Research",
+    "section": "Evaluate a published survey",
+    "text": "Evaluate a published survey\nBefore trusting the headline, look for:\n\nthe target population and dates;\nthe sampling or recruitment method;\nsample size and, when applicable, margin of sampling error;\nresponse rate and evidence about nonresponse;\nthe exact question wording and response choices;\nsurvey mode;\nweighting variables and benchmarks;\nsponsor and field organization; and\nlimitations stated by the researchers.\n\n\n\n\n\n\n\nTipAcknowledge, then respond\n\n\n\nNaming a possible bias is the start of analysis, not the end. Explain its likely direction, whether it threatens the specific conclusion, what was done to reduce it, and what additional evidence would help."
+  },
+  {
+    "objectID": "week12/readings/bias-error-survey-research.html#key-distinctions",
+    "href": "week12/readings/bias-error-survey-research.html#key-distinctions",
+    "title": "Bias and Error in Survey Research",
+    "section": "Key distinctions",
+    "text": "Key distinctions\n\n\n\nDo not confuse\nWith\n\n\n\n\nRandom sampling error\nSystematic bias\n\n\nLow response rate\nProven nonresponse bias\n\n\nSelf-selection\nEvery form of nonresponse\n\n\nSkewness\nInaccuracy\n\n\nAssociation\nCausation\n\n\nSurvey respondents\nThe entire target population"
+  },
+  {
+    "objectID": "week12/readings/bias-error-survey-research.html#sources-and-background",
+    "href": "week12/readings/bias-error-survey-research.html#sources-and-background",
+    "title": "Bias and Error in Survey Research",
+    "section": "Sources and background",
+    "text": "Sources and background\nThis page replaces an earlier ECO 230 handout titled Error / Bias in Survey Research. Its examples and wording have been rewritten, and several distinctions have been clarified.\n\nAAPOR: Best Practices for Survey Research\nPew Research Center: What Low Response Rates Mean for Telephone Surveys\nCurrent Week 12 sampling and survey slides"
   },
   {
     "objectID": "syllabus_section_4.html",
