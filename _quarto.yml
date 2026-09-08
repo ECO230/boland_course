@@ -18,6 +18,22 @@ project:
     - syllabus/syllabus.qmd
     - week01/week_01.qmd
     - week01/Homework_01.qmd
+    # Canvas-native source HTML. These outputs are intentionally unlisted: the
+    # website navigation exposes only the current public materials above.
+    - week02/Homework_02.qmd
+    - week03/Homework_03.qmd
+    - week04/Homework_04.qmd
+    - week01/readings/data-literacy.qmd
+    - week01/readings/data-literacy-terminology.qmd
+    - week01/readings/data-sources.qmd
+    - week01/readings/understanding-data.qmd
+    - week02/readings/descriptive-statistics.qmd
+    - week02/readings/measures-of-variability.qmd
+    - week02/readings/working-with-percentages.qmd
+    - week03/readings/advanced-interpretation.qmd
+    - week05/readings/problem-definition-examples.qmd
+    - week12/readings/bias-error-survey-research.qmd
+    - admin/final/Practice_Practicum_Guidelines.qmd
   resources:
     - shared/styles/accesibility.css
     # Shared lab downloads are published once with the course website and used
