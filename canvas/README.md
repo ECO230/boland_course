@@ -58,3 +58,17 @@ and prints a tagged Letter-landscape PDF with backgrounds. Outputs and a SHA-256
 manifest are written under the ignored `canvas/work/slide-pdfs/` directory.
 It uses the Codex-bundled `playwright-core` when available. On another machine,
 run `npm install` in `canvas/scripts/` once before exporting.
+
+Set a staged weekly module release without deleting Canvas content with:
+
+```powershell
+& .\canvas\scripts\set-module-visibility.ps1 -CourseId 870634 -ExpectedModuleCount 16
+& .\canvas\scripts\set-module-visibility.ps1 -CourseId 870634 -ExpectedModuleCount 16 -Execute
+```
+
+The first command is read-only and writes a proposed before-state audit. The
+second command publishes only `Course Info and Resources` and `Week 1: Intro to
+Data Analysis`, unpublishes every other module, and verifies the live result.
+Pass a different `-PublishedModuleNames` list as additional weeks are released.
+The script changes module visibility only; underlying assignments, pages, and
+module items retain their own Canvas publication states.

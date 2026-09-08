@@ -1,0 +1,142 @@
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory = $true)]
+    [long]$CourseId,
+
+    [string[]]$PublishedModuleNames = @(
+        "Course Info and Resources",
+        "Week 1: Intro to Data Analysis"
+    ),
+
+    [int]$ExpectedModuleCount = 0,
+
+    [string]$TokenEnvironmentVariable = "CANVAS_TOKEN",
+
+    [string]$AuditDirectory,
+
+    [switch]$Execute
+)
+
+$ErrorActionPreference = "Stop"
+Set-StrictMode -Version Latest
+
+$token = [Environment]::GetEnvironmentVariable($TokenEnvironmentVariable, "Process")
+if ([string]::IsNullOrWhiteSpace($token)) {
+    throw "The $TokenEnvironmentVariable environment variable is not set in this PowerShell session."
+}
+
+if ($PublishedModuleNames.Count -eq 0) {
+    throw "At least one published module name is required."
+}
+
+$duplicateNames = @(
+    $PublishedModuleNames |
+        Group-Object |
+        Where-Object { $_.Count -gt 1 } |
+        ForEach-Object { $_.Name }
+)
+if ($duplicateNames.Count -gt 0) {
+    throw "PublishedModuleNames contains duplicates: $($duplicateNames -join ', ')"
+}
+
+$scriptDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
+$repository = [System.IO.Path]::GetFullPath((Join-Path $scriptDirectory "..\.."))
+
+if (-not $AuditDirectory) {
+    $stamp = Get-Date -Format "yyyyMMdd-HHmmss"
+    $AuditDirectory = Join-Path $repository "canvas\work\module-visibility\course-$CourseId-$stamp"
+}
+$AuditDirectory = [System.IO.Path]::GetFullPath($AuditDirectory)
+New-Item -ItemType Directory -Force -Path $AuditDirectory | Out-Null
+
+$headers = @{ Authorization = "Bearer $token" }
+$canvasBase = "https:" + "//uwlac.instructure.com"
+$moduleUri = "$canvasBase/api/v1/courses/$CourseId/modules?per_page=100"
+$courseUri = "$canvasBase/api/v1/courses/$CourseId"
+
+$modules = @(Invoke-RestMethod -Method Get -Uri $moduleUri -Headers $headers)
+if ($modules.Count -eq 0) {
+    throw "Canvas returned no modules for course $CourseId."
+}
+if ($ExpectedModuleCount -gt 0 -and $modules.Count -ne $ExpectedModuleCount) {
+    throw "Expected $ExpectedModuleCount Canvas modules; found $($modules.Count). No changes made."
+}
+
+$moduleNames = @($modules | ForEach-Object { [string]$_.name })
+$missingNames = @($PublishedModuleNames | Where-Object { $_ -notin $moduleNames })
+if ($missingNames.Count -gt 0) {
+    throw "Modules requested for publication were not found: $($missingNames -join ', '). No changes made."
+}
+
+$ambiguousNames = @(
+    $PublishedModuleNames |
+        Where-Object { @($modules | Where-Object { $_.name -eq $_ }).Count -gt 1 }
+)
+if ($ambiguousNames.Count -gt 0) {
+    throw "Module names are ambiguous in Canvas: $($ambiguousNames -join ', '). No changes made."
+}
+
+$before = @(
+    $modules |
+        Sort-Object position |
+        ForEach-Object {
+            [pscustomobject]@{
+                id = $_.id
+                position = $_.position
+                name = $_.name
+                published = [bool]$_.published
+                desired_published = $_.name -in $PublishedModuleNames
+            }
+        }
+)
+$before | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $AuditDirectory "before.json")
+
+$changes = @($before | Where-Object { $_.published -ne $_.desired_published })
+$before | Format-Table position, name, published, desired_published -AutoSize
+
+if (-not $Execute) {
+    Write-Output "Plan only: $($changes.Count) module publication state change(s)."
+    Write-Output "Run again with -Execute after reviewing the table."
+    Write-Output "Audit directory: $AuditDirectory"
+    return
+}
+
+foreach ($change in $changes) {
+    $updateUri = "$canvasBase/api/v1/courses/$CourseId/modules/$($change.id)"
+    $desiredState = if ($change.desired_published) { "true" } else { "false" }
+    Invoke-RestMethod `
+        -Method Put `
+        -Uri $updateUri `
+        -Headers $headers `
+        -ContentType "application/x-www-form-urlencoded" `
+        -Body @{ "module[published]" = $desiredState } |
+        Out-Null
+}
+
+$verifiedModules = @(Invoke-RestMethod -Method Get -Uri $moduleUri -Headers $headers)
+$after = @(
+    $verifiedModules |
+        Sort-Object position |
+        ForEach-Object {
+            [pscustomobject]@{
+                id = $_.id
+                position = $_.position
+                name = $_.name
+                published = [bool]$_.published
+                desired_published = $_.name -in $PublishedModuleNames
+            }
+        }
+)
+$after | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $AuditDirectory "after.json")
+
+$mismatches = @($after | Where-Object { $_.published -ne $_.desired_published })
+if ($mismatches.Count -gt 0) {
+    throw "Canvas verification found $($mismatches.Count) module publication-state mismatch(es)."
+}
+
+$course = Invoke-RestMethod -Method Get -Uri $courseUri -Headers $headers
+$after | Format-Table position, name, published -AutoSize
+Write-Output "Verified published modules: $(@($after | Where-Object { $_.published }).Count)"
+Write-Output "Course state: $($course.workflow_state)"
+Write-Output "Audit directory: $AuditDirectory"
+
