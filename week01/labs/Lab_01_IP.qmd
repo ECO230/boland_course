@@ -1,0 +1,72 @@
+---
+title: "Lab 1: Posit Cloud Certificate"
+subtitle: "In-Person Sections"
+format:
+  typst:
+    toc: false
+    papersize: us-letter
+    fontsize: 10pt
+    linestretch: 1
+    margin:
+      x: 1in
+      y: 1in
+    number-sections: false
+    page-numbering: "1"
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(eco230r)
+```
+
+## Purpose
+
+Use this short lab to confirm that you can edit an R value, run code, and render
+a Quarto document in Posit Cloud.
+
+## 1) Personalize the certificate
+
+Replace the example values below. Enter the last four digits of your student ID
+as a number, your current comfort level from 0 to 10, and your name as text.
+
+```{r}
+my_id <- 1234
+my_comfort <- 5
+my_name <- "Your Name"
+```
+
+## 2) Validate your setup
+
+Run this code. If it reports an error, confirm `my_id` contains four digits and
+ask for help before continuing.
+
+```{r}
+my_validation <- validate(my_id)
+my_validation
+```
+
+## 3) Render your certificate
+
+Let it be known that **`r my_name`** successfully edited and ran an ECO 230
+Quarto document. Their current comfort level is **`r my_comfort` out of 10**.
+
+```{r}
+#| echo: false
+#| fig-align: left
+#| out-width: "45%"
+knitr::include_graphics("media/images/Hats_Off.jpg")
+```
+
+The setup check returned: *"`r my_validation`"*
+
+## Completion checklist
+
+- [ ] I replaced all three example values.
+- [ ] I ran the validation code successfully.
+- [ ] I rendered `Lab_01_IP.pdf`.
+- [ ] I can locate the PDF in the Files pane.

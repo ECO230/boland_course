@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "lab_05_ip",
+  "title": "Lab 5: Practice R Coding (In Person)",
+  "output_directory": ".assignment-build/lab_05_ip",
+  "files": [
+    {"source": "week05/labs/Practice_R_Coding_IP.qmd", "destination": "Practice_R_Coding_IP.qmd"},
+    {"source": "week05/labs/Practice_R_Coding_Solutions.qmd", "destination": "Practice_R_Coding_Solutions.qmd"},
+    {"source": "week05/labs/Practice_R_Coding_README.md", "destination": "README.md"},
+    {"source": "shared/data/airbnb_chicago.csv", "destination": "data/airbnb_chicago.csv"},
+    {"source": "shared/posit-cloud/.Rprofile", "destination": ".Rprofile"},
+    {"source": "shared/posit-cloud/.gitignore", "destination": ".gitignore"},
+    {"source": "shared/posit-cloud/project.Rproj", "destination": "Lab_05_IP.Rproj"},
+    {"source": "shared/posit-cloud/project_setup.R", "destination": "project_setup.R"},
+    {"source": "shared/posit-cloud/renv.lock", "destination": "renv.lock"},
+    {"source": "shared/posit-cloud/renv/activate.R", "destination": "renv/activate.R"},
+    {"source": "shared/posit-cloud/renv/settings.json", "destination": "renv/settings.json"}
+  ],
+  "required_files": [
+    "Practice_R_Coding_IP.qmd",
+    "Practice_R_Coding_Solutions.qmd",
+    "Lab_05_IP.Rproj",
+    "README.md",
+    "data/airbnb_chicago.csv",
+    "renv.lock"
+  ],
+  "render": "Practice_R_Coding_IP.qmd"
+}

@@ -1,0 +1,90 @@
+---
+title: "Lab 5: Practice R Coding"
+subtitle: "Worked Examples"
+format:
+  html:
+    toc: true
+    number-sections: false
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(lubridate)
+library(eco230r)
+library(knitr)
+
+airbnb <- read_csv("data/airbnb_chicago.csv", show_col_types = FALSE)
+```
+
+## Select and calculate
+
+```{r}
+listing_data <- airbnb |>
+  select(
+    property_type, room_type, host_since, number_of_reviews,
+    beds, bedrooms, bathrooms, listed_price, review_scores_rating
+  ) |>
+  mutate(
+    reviews_per_bed = if_else(
+      !is.na(beds) & beds > 0,
+      number_of_reviews / beds,
+      NA_real_
+    )
+  )
+```
+
+## Summarize groups
+
+```{r}
+listing_data |>
+  group_by(room_type) |>
+  summarise(
+    listings = n(),
+    median_price = median(listed_price, na.rm = TRUE),
+    mean_review_score = mean(review_scores_rating, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  kable(digits = 1)
+```
+
+## Filter and categorize
+
+```{r}
+listing_data <- listing_data |>
+  filter(!is.na(reviews_per_bed), reviews_per_bed >= 1) |>
+  mutate(
+    price_category = cut(
+      listed_price,
+      breaks = c(0, 100, 200, 300, 400, Inf),
+      labels = c("$1-$100", "$101-$200", "$201-$300", "$301-$400", "$401+")
+    )
+  )
+```
+
+## Parse dates and combine steps
+
+```{r}
+analysis <- listing_data |>
+  mutate(
+    host_since_date = mdy(host_since),
+    host_since_year = year(host_since_date)
+  ) |>
+  filter(!is.na(host_since_year), !is.na(review_scores_rating)) |>
+  group_by(property_type) |>
+  summarise(
+    listings = n(),
+    median_price = median(listed_price, na.rm = TRUE),
+    mean_review_score = mean(review_scores_rating, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  filter(listings >= 30) |>
+  arrange(desc(listings))
+
+analysis |> kable(digits = 1)
+```

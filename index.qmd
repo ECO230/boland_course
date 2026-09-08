@@ -1,11 +1,11 @@
 ---
-title: "ECO 230 — Section 012"
+title: "ECO 230"
 format:
   html:
     toc: false
 ---
 
-# Welcome to ECO 230 (Section 012)
+# Welcome to ECO 230
 
 This website hosts:
 

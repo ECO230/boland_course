@@ -43,8 +43,7 @@ source(here("shared","scripts","gt_boland.R"), local = TRUE)
 `%||%` <- function(a, b) if (!is.null(a)) a else b
 
 # ---- Load data ONCE at startup (LIMITED + DERIVED FIELDS) ----
-COURSE_ROOT <- "/data/junior/boland_course"
-acc_path <- file.path(COURSE_ROOT, "shared", "data", "accident_wi.csv")
+acc_path <- here("shared", "data", "accident_wi.csv")
 
 acc_mast <- read_csv(acc_path, show_col_types = FALSE) %>%
   mutate(
@@ -296,8 +295,7 @@ library(ggplot2)
 library(patchwork)
 
 # ---- Load + trim outliers (your rule) ----
-COURSE_ROOT <- "/data/junior/boland_course"
-acc_path <- file.path(COURSE_ROOT, "shared", "data", "accident_wi.csv")
+acc_path <- here("shared", "data", "accident_wi.csv")
 
 acc <- read_csv(acc_path, show_col_types = FALSE) %>%
   filter(`Distance(mi)` <= 4)

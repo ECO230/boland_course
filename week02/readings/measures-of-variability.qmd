@@ -1,0 +1,134 @@
+---
+title: "Measures of Variability"
+subtitle: "Range, interquartile range, and standard deviation"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## Why spread matters
+
+Two groups can have the same average and still behave very differently. Measures of variability describe how tightly observations cluster and how far they extend.
+
+This example uses minutes of main sleep from the ECO 230 sleep-tracking data.
+
+```{r}
+#| label: load-main-sleep
+#| echo: false
+sleep <- read.csv(
+  here::here("week01", "data", "sleep_tracking_Jan-Jun_2025_with_zip.csv"),
+  check.names = FALSE
+)
+x <- sleep$TotalMinutes[sleep$SleepEventType == "Main" & !is.na(sleep$TotalMinutes)]
+
+summary_values <- data.frame(
+  Measure = c("Number of records", "Minimum", "First quartile", "Median",
+              "Third quartile", "Maximum", "Range", "IQR",
+              "Mean", "Sample standard deviation"),
+  Value = c(length(x), min(x), unname(quantile(x, .25)), median(x),
+            unname(quantile(x, .75)), max(x), diff(range(x)), IQR(x),
+            mean(x), sd(x))
+)
+knitr::kable(summary_values, digits = 1)
+```
+
+## Range
+
+The range is the distance from the smallest observation to the largest:
+
+\[
+\text{Range} = \text{Maximum} - \text{Minimum}
+\]
+
+```{r}
+diff(range(x))
+```
+
+The range is easy to explain, but it uses only two observations. A single unusual value can change it dramatically.
+
+## Interquartile range
+
+The interquartile range (IQR) describes the width of the middle 50% of observations:
+
+\[
+\text{IQR} = Q_3 - Q_1
+\]
+
+```{r}
+quantile(x, c(.25, .50, .75))
+IQR(x)
+```
+
+Because it focuses on the middle half, the IQR is more resistant to unusually high or low values than the range. It is a natural companion to the median and the box plot.
+
+## Standard deviation
+
+Standard deviation describes typical distance from the mean. Larger values indicate more spread around the mean.
+
+```{r}
+mean(x)
+sd(x)
+```
+
+R's `sd()` calculates the **sample standard deviation**, using \(n-1\) in the denominator. If the observations are the entire population of interest rather than a sample, the population calculation is:
+
+```{r}
+population_sd <- sqrt(mean((x - mean(x))^2))
+population_sd
+```
+
+Always state which population you want to describe. A complete course data file is not automatically the complete real-world population.
+
+## What an outlier changes
+
+The next comparison adds one implausible 1,200-minute sleep record to illustrate sensitivity. This is a diagnostic example, not a recommendation to delete high values.
+
+```{r}
+x_with_outlier <- c(x, 1200)
+
+outlier_comparison <- data.frame(
+  Measure = c("Mean", "Median", "Range", "IQR", "Sample SD"),
+  Original = c(mean(x), median(x), diff(range(x)), IQR(x), sd(x)),
+  WithOutlier = c(mean(x_with_outlier), median(x_with_outlier),
+                  diff(range(x_with_outlier)), IQR(x_with_outlier),
+                  sd(x_with_outlier))
+)
+knitr::kable(outlier_comparison, digits = 1)
+```
+
+An unusual value may be a data-entry error, a correctly measured rare event, or evidence that the population is more varied than expected. Investigate before changing it.
+
+## Choosing a measure
+
+| Situation | Useful center | Useful spread | Why |
+|---|---|---|---|
+| Roughly symmetric, no influential outliers | Mean | Standard deviation | Both use every observation |
+| Skewed or outlier-prone | Median | IQR | Both resist extreme values |
+| Need to communicate full observed span | Any | Range | Shows minimum-to-maximum extent |
+| Comparing distributions | Mean and median | SD, IQR, and a graph | No single number tells the whole story |
+
+::: {.callout-warning}
+## The empirical rule has conditions
+
+The familiar 68%, 95%, and 99.7% rule applies only to distributions that are approximately normal. Do not use it simply because a mean and standard deviation are available.
+:::
+
+## Report spread with context
+
+A useful written result includes:
+
+- the variable and unit;
+- the population or sample being described;
+- the center and spread;
+- the number of nonmissing observations; and
+- any meaningful skew, gaps, or unusual observations visible in a graph.
+
+## Source note
+
+This is a new ECO 230 replacement for the University of Leicester Student Learning Development handout *Measures of variability: the range, inter-quartile range and standard deviation* (2009). The explanation and examples have been rewritten for R and current course data; outdated spreadsheet instructions were not reproduced.

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "final_practicum_ip",
+  "title": "Final Practicum (In Person)",
+  "output_directory": ".assignment-build/final_practicum_ip",
+  "files": [
+    {"source": "admin/final/Final_Practicum_IP.qmd", "destination": "Final_Practicum_IP.qmd"},
+    {"source": "admin/final/Final_Practicum_README.md", "destination": "README.md"},
+    {"source": "admin/final/Practicum_Prompt.qmd", "destination": "prompt/Practicum_Prompt.qmd"},
+    {"source": "shared/posit-cloud/.Rprofile", "destination": ".Rprofile"},
+    {"source": "shared/posit-cloud/.gitignore", "destination": ".gitignore"},
+    {"source": "shared/posit-cloud/project.Rproj", "destination": "Final_Practicum_IP.Rproj"},
+    {"source": "shared/posit-cloud/project_setup.R", "destination": "project_setup.R"},
+    {"source": "shared/posit-cloud/renv.lock", "destination": "renv.lock"},
+    {"source": "shared/posit-cloud/renv/activate.R", "destination": "renv/activate.R"},
+    {"source": "shared/posit-cloud/renv/settings.json", "destination": "renv/settings.json"}
+  ],
+  "required_files": [
+    "Final_Practicum_IP.qmd",
+    "Final_Practicum_IP.Rproj",
+    "README.md",
+    "prompt/Practicum_Prompt.qmd",
+    "renv.lock"
+  ],
+  "render": "Final_Practicum_IP.qmd"
+}

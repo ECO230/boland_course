@@ -1,0 +1,115 @@
+---
+title: "Lab 5: Practice R Coding"
+subtitle: "In-Person Sections - Student Version"
+format:
+  typst:
+    toc: false
+    papersize: us-letter
+    fontsize: 10pt
+    linestretch: 1
+    margin:
+      x: 1in
+      y: 1in
+    number-sections: false
+    page-numbering: "1"
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(lubridate)
+library(eco230r)
+library(knitr)
+```
+
+## Purpose
+
+Practice adapting working R examples. Complete at least 3 changes that help you
+understand importing, selecting, transforming, summarizing, filtering, or
+working with dates.
+
+```{r}
+airbnb <- read_csv("data/airbnb_chicago.csv", show_col_types = FALSE)
+```
+
+## 1) Select useful columns
+
+Create `listing_data` containing `property_type`, `room_type`, `host_since`,
+`number_of_reviews`, `beds`, `bedrooms`, `bathrooms`, `listed_price`, and
+`review_scores_rating`.
+
+```{r}
+
+```
+
+## 2) Calculate a field
+
+Add `reviews_per_bed`. Decide how to handle listings with zero or missing beds.
+
+```{r}
+
+```
+
+## 3) Summarize groups
+
+Create a summary by `room_type` with a row count, median price, and mean review
+score. Handle missing values explicitly.
+
+```{r}
+
+```
+
+## 4) Filter rows
+
+Keep listings with a finite `reviews_per_bed` value of at least 1.
+
+```{r}
+
+```
+
+## 5) Create categories
+
+Create a clearly labeled price category from `listed_price`. Explain why you
+selected those breakpoints.
+
+```{r}
+
+```
+
+*Your explanation:*
+
+## 6) Parse a date
+
+Convert `host_since` to a date and extract the host-start year.
+
+```{r}
+
+```
+
+## 7) Combine several steps
+
+Build one analysis that uses `select()`, `mutate()`, `filter()`, `group_by()`,
+and `summarise()`. Print the result with `kable()`.
+
+```{r}
+
+```
+
+## 8) Reflect
+
+Which 3 examples did you alter successfully? Which 3 concepts were most
+difficult or still need clarification?
+
+*Your response:*
+
+## Completion checklist
+
+- [ ] I completed at least 3 meaningful code changes.
+- [ ] I ran each completed chunk and examined its output.
+- [ ] I explained any unresolved error or question.
+- [ ] I rendered `Practice_R_Coding_IP.pdf`.

@@ -1,0 +1,120 @@
+---
+title: "Guided Notes 2: Descriptive Statistics and Data Literacy"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+Use this guide with the Week 2 readings and class activities. Your completed
+notes should help you select and interpret descriptive statistics based on the
+question, variable type, and distribution.
+:::
+
+## Objectives
+
+- choose appropriate measures of center and spread;
+- identify the denominator used in a percentage;
+- distinguish frequency, cross-tabulation, and grouped-summary tables;
+- compare measures of association; and
+- explain why a summary is or is not meaningful for a variable.
+
+## Resources
+
+- [Descriptive Statistics](readings/descriptive-statistics.qmd)
+- [Measures of Variability](readings/measures-of-variability.qmd)
+- [Working with Percentages](readings/working-with-percentages.qmd)
+- Week 2 slides and class examples
+
+::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
+This work is graded for thoughtful completion. Use your own examples and explain
+the reasoning behind each choice rather than listing formulas alone.
+:::
+
+## 1) Compare measures of center
+
+| Measure | Measurement scale needed | When it is useful | Important limitation |
+|---|---|---|---|
+| Mean |  |  |  |
+| Median |  |  |  |
+| Mode |  |  |  |
+
+Describe one distribution for which the mean and median would tell noticeably
+different stories.
+
+---
+
+## 2) Explain percentages
+
+For each use, write the calculation in words and provide an example.
+
+| Use | Numerator and denominator | Example |
+|---|---|---|
+| Compare groups with different totals |  |  |
+| Describe one category's share of a whole |  |  |
+| Quantify change from an earlier value |  |  |
+| Express the probability of an event |  |  |
+| Summarize a binary variable |  |  |
+
+Explain the difference between a percentage-point change and a percent change.
+
+---
+
+## 3) Compare measures of spread
+
+| Measure | How it is calculated conceptually | When it is useful | Sensitivity to unusual values |
+|---|---|---|---|
+| Range |  |  |  |
+| Interquartile range |  |  |  |
+| Standard deviation |  |  |  |
+
+Draw or describe two distributions with the same center but different amounts
+of spread.
+
+---
+
+## 4) Match tables to questions
+
+For each table type, write one business question it could answer.
+
+- Frequency table:
+- Relative-frequency table:
+- Cross-tabulation:
+- Grouped-summary table:
+
+For your cross-tabulation example, state whether row, column, or table
+percentages would best answer the question and explain why.
+
+---
+
+## 5) Compare measures of association
+
+| Method | Variable types | What the result describes | What it cannot establish by itself |
+|---|---|---|---|
+| Cross-tabulation |  |  |  |
+| Correlation |  |  |  |
+| Regression |  |  |  |
+
+## Submission
+
+Submit your completed notes in Canvas. Upload the completed document or legible
+scans or photographs of handwritten pages in one of the file formats permitted
+by the Canvas assignment.
+
+## Checklist
+
+- [ ] I completed all 5 sections.
+- [ ] I included course-relevant examples.
+- [ ] I named the denominator in each percentage example.
+- [ ] I distinguished association from causation.
+
+## Grading focus
+
+Credit is based on complete, accurate notes that explain why each statistic or
+table is appropriate. Unsupported labels or copied definitions are incomplete.

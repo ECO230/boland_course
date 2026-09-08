@@ -43,6 +43,7 @@ execute:
 
 ```{r setup, include=FALSE}
 library(dplyr)
+library(tidyr)
 library(stringr)
 library(purrr)
 library(eco230r)

@@ -1,0 +1,373 @@
+---
+title: "Week 14 - Ethics in Business Analytics"
+author: "Mike Boland, MBA"
+format:
+  revealjs:
+    theme:
+      - default
+      - ../shared/styles/boland-reveal.scss
+    css: week_14.css
+    slide-number: true
+    hash: true
+    center: false
+    transition: fade
+    controls: true
+    pdf-export: true
+    toc: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+# Would you use data you were never meant to see?
+
+<br>
+
+::: {.callout-note title="Today's question"}
+How do we make a defensible decision when data creates value **and** creates risk for someone else?
+:::
+
+::: notes
+Open by asking students for a fast yes/no reaction. Do not define ethics yet. Ask what fact would be most likely to change their answer.
+
+[Sources]
+- Legacy `D14_Slides.pptx`, slide 1.
+:::
+
+## Ethics is a relationship
+
+<br>
+
+::::: {.w14-roles}
+::: {.w14-role}
+<div class="w14-role-title">People represented</div>
+
+Provide data, behavior, or experiences.
+:::
+
+::: {.w14-role}
+<div class="w14-role-title">Analysts and researchers</div>
+
+Choose what to collect, combine, model, and report.
+:::
+
+::: {.w14-role}
+<div class="w14-role-title">Decision makers</div>
+
+Act on the result and distribute its consequences.
+:::
+:::::
+
+<br>
+
+**Every analytical choice changes at least one of these relationships.**
+
+::: notes
+Connect "respondents" from the old deck to the broader category of people represented in administrative, transactional, sensor, and platform data.
+
+[Sources]
+- Legacy `D14_Slides.pptx`, slide 2.
+:::
+
+## Consent defines the relationship
+
+<br>
+
+:::: {.columns}
+::: {.column width="48%"}
+<div class="w14-subhead">Meaningful consent</div>
+
+- understandable purpose;
+- realistic choice;
+- known uses and recipients;
+- proportionate risks; and
+- a way to ask questions or withdraw when feasible.
+:::
+
+::: {.column width="48%"}
+<div class="w14-subhead">A checkbox is not enough when...</div>
+
+- the new use is unexpected;
+- refusal carries a hidden penalty;
+- data will be combined or inferred;
+- consequences reach beyond the original service; or
+- the explanation is technically true but practically unreadable.
+:::
+::::
+
+::: {.callout-important title="Prime directive"}
+Permission for one purpose is not automatic permission for every profitable purpose.
+:::
+
+::: notes
+Ask students to distinguish legal acceptance of terms from meaningful, informed consent. The course goal is recognizing the ethical question, not providing legal advice.
+
+[Sources]
+- Legacy `D14_Slides.pptx`, slide 2.
+:::
+
+## Test the decision through six lenses
+
+<br>
+
+| Lens | Ask |
+|---|---|
+| Purpose | What problem are we solving, and is this use necessary? |
+| Permission | Would the people represented reasonably expect this use? |
+| Privacy | What could be revealed, linked, or reidentified? |
+| Fairness | Who benefits, who bears risk, and who could be excluded? |
+| Transparency | Can we explain the data, method, limitations, and decision? |
+| Accountability | Who can stop, correct, appeal, or repair a harmful outcome? |
+
+::: notes
+Use these six lenses for every scenario. Students should learn that an ethics review is a structured analysis, not a search for a magic yes/no rule.
+:::
+
+# Four decisions
+
+## Who gets to reuse driving data? {background-color="#000000"}
+
+::: {.w14-scenario}
+::: {.w14-scenario-kicker}
+CONNECTED VEHICLE DATA
+:::
+
+An automaker records speed, braking, acceleration, and other driving signals. An insurer offers to buy access so it can price policies and investigate disputed claims.
+
+::: {.w14-question}
+Should the automaker sell the data to the insurer?
+:::
+:::
+
+::: notes
+Ask groups to identify the original purpose, the proposed secondary use, affected parties, and one condition that would change their decision.
+
+[Sources]
+- Legacy `D14_Slides.pptx`, slide 4.
+:::
+
+## Secondary use changes the bargain
+
+<br>
+
+:::: {.columns}
+::: {.column width="47%"}
+<div class="w14-subhead">Potential value</div>
+
+- better evidence about a claim;
+- pricing that reflects measured behavior;
+- incentives for safer driving; and
+- faster fraud investigation.
+:::
+
+::: {.column width="47%"}
+<div class="w14-subhead">Potential harm</div>
+
+- unexpected surveillance;
+- inaccurate or context-free signals;
+- higher prices without meaningful appeal; and
+- exposure of passengers or household members who never agreed.
+:::
+::::
+
+::: {.callout-tip title="Before deciding"}
+Specify consent, data minimization, retention, validation, access controls, allowed uses, and an appeal process.
+:::
+
+::: notes
+Emphasize that a plausible benefit does not erase governance requirements. Ask whether the same data should be available for claim investigation and routine pricing.
+
+[Sources]
+- Scenario adapted from legacy `D14_Slides.pptx`, slide 4.
+:::
+
+## Can a company reveal a pseudonymous user? {background-color="#000000"}
+
+::: {.w14-scenario}
+::: {.w14-scenario-kicker}
+IDENTITY INFERENCE
+:::
+
+A messaging user chooses a pseudonym. Other users have stored the person's real name in their contacts, allowing the platform to infer the identity and attach additional demographic information.
+
+::: {.w14-question}
+Should the platform uncover and use the person's real identity?
+:::
+:::
+
+::: notes
+Ask whether a real-name clause in the terms of service resolves the ethical problem. Then ask what the user's behavior communicates about their expectations.
+
+[Sources]
+- Legacy `D14_Slides.pptx`, slide 5.
+:::
+
+## De-identified does not mean harmless
+
+<br>
+
+**Direct identifiers removed**
+
+<div class="w14-arrow" aria-hidden="true">↓</div>
+
+**Records linked with contacts, location, behavior, or public information**
+
+<div class="w14-arrow" aria-hidden="true">↓</div>
+
+**A person or household may become recognizable again**
+
+::: {.callout-warning title="Expectation gap"}
+What a system can infer may exceed what a person believed they disclosed.
+:::
+
+::: notes
+Separate pseudonymity from anonymity. Ask which combinations of otherwise ordinary fields could make a person recognizable.
+
+[Sources]
+- Scenario adapted from legacy `D14_Slides.pptx`, slide 5.
+:::
+
+## Access does not create permission {background-color="#000000"}
+
+::: {.w14-scenario}
+::: {.w14-scenario-kicker}
+CONFLICT OF INTEREST
+:::
+
+An intern can edit automated risk tags used by colleges. The intern discovers unfavorable tags attached to a family member's profile and has valid credentials to change them.
+
+::: {.w14-question}
+Should the intern alter the family member's records?
+:::
+:::
+
+::: notes
+The original scenario used a younger brother and named example tags. The replacement keeps the conflict but removes distracting details.
+
+[Sources]
+- Legacy `D14_Slides.pptx`, slide 6.
+:::
+
+## The ethical action fixes the system
+
+<br>
+
+The intern should **not secretly alter one record**.
+
+Instead:
+
+1. preserve the audit trail;
+2. disclose the conflict of interest;
+3. use the documented correction or appeal process;
+4. test whether similar tags are inaccurate for other people; and
+5. escalate a systemic problem rather than creating a private exception.
+
+::: {.callout-important title="Access versus authority"}
+Technical capability answers "Can I?" Governance answers "Am I authorized, accountable, and acting consistently?"
+:::
+
+::: notes
+Connect this to database credentials, shared Posit projects, grading data, and any other environment where permission is broader than the legitimate purpose.
+
+[Sources]
+- Scenario adapted from legacy `D14_Slides.pptx`, slide 6.
+:::
+
+## A helpful model can still cause harm {background-color="#000000"}
+
+::: {.w14-scenario}
+::: {.w14-scenario-kicker}
+HEALTHCARE PAYMENT RISK
+:::
+
+A healthcare organization predicts who may have trouble paying a bill. The score could connect patients with assistance, but it uses demographic and medical factors and may also affect access before services occur.
+
+::: {.w14-question}
+Should the organization use the model?
+:::
+:::
+
+::: notes
+Do not let students answer only by pointing to good intentions. Ask them to distinguish a supportive intervention from a punitive one.
+
+[Sources]
+- Legacy `D14_Slides.pptx`, slide 7.
+:::
+
+## The same score can support or punish
+
+<br>
+
+| Supportive use | Punitive use |
+|---|---|
+| Offer financial counseling | Delay or deny care |
+| Simplify payment options | Increase scrutiny without explanation |
+| Connect people with assistance | Use health information unrelated to ability to pay |
+| Let staff review context | Treat the score as an unquestionable fact |
+
+::: {.callout-note title="The model is only part of the system"}
+Evaluate the outcome, training data, error rates, affected groups, intervention, human review, and appeal process together.
+:::
+
+::: notes
+Ask who experiences false positives and false negatives. A model can be statistically accurate overall and still create unacceptable consequences for a subgroup or use case.
+
+[Sources]
+- Scenario adapted from legacy `D14_Slides.pptx`, slide 7.
+:::
+
+# Make the reasoning visible
+
+## Write an ethical decision record
+
+<br>
+
+1. **Purpose:** What decision or benefit justifies the analysis?
+2. **People:** Who is represented, affected, excluded, or able to object?
+3. **Data:** What was collected, inferred, joined, and retained?
+4. **Evidence:** How well does the method work, and for whom?
+5. **Risks:** What foreseeable misuse, error, or unequal consequence exists?
+6. **Controls:** What consent, minimization, review, security, and appeal are required?
+7. **Decision:** Proceed, redesign, restrict, or stop - and who owns that choice?
+
+::: notes
+This converts the old closing checklist into a record that can be reviewed later. Point out that ethical analysis should be reproducible just like statistical analysis.
+
+[Sources]
+- Expanded from legacy `D14_Slides.pptx`, slide 8.
+:::
+
+## Defend one decision
+
+<br>
+
+Choose one scenario and prepare:
+
+- a **decision**: proceed, redesign, restrict, or stop;
+- the **two strongest reasons** supporting it;
+- the **person most at risk** if you are wrong;
+- one **control or safeguard** you would require; and
+- one **new fact** that could change your answer.
+
+::: {.callout-tip title="Your output"}
+A 60-second recommendation that a decision maker and an affected person could both understand.
+:::
+
+::: notes
+Give small groups a scenario. After reports, ask another group to identify one missing stakeholder or consequence.
+:::
+
+## Can you defend the decision to the people affected?
+
+<br>
+
+::: {.w14-closing}
+Good analysis is not only accurate.
+
+It is **purposeful, proportionate, explainable, contestable, and accountable**.
+:::
+
+::: notes
+Return to the opening question. Ask students which lens changed their first reaction and why.
+:::

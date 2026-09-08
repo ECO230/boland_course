@@ -1,0 +1,139 @@
+---
+title: "Problem Definition Examples"
+subtitle: "Turn a broad business concern into an answerable analysis question"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Begin with the decision, not the chart
+
+A data project is useful when it helps a stakeholder make a decision. A broad concern such as "traffic safety is getting worse" may motivate the work, but it is not yet an analysis question.
+
+Use this chain:
+
+> **Symptom or concern** -> **stakeholder and decision** -> **focused question** -> **measurable objectives** -> **evidence and limitations**
+
+## A framing worksheet
+
+Answer these questions before writing code:
+
+1. What symptom, opportunity, or decision created the request?
+2. Who will use the result, and what can that person or organization change?
+3. What population, geography, and time period are in scope?
+4. What outcome matters, and how is it represented in the data?
+5. What explanatory or segmentation variables are available?
+6. What resources, deadlines, and ethical constraints limit the project?
+7. What related work or prior evidence should inform the analysis?
+8. What would count as an actionable result?
+
+::: {.callout-tip}
+## A useful scope test
+
+A strong question is simultaneously **interesting**, **actionable**, and **answerable with the available data**. Anything outside that overlap belongs in a limitation or a future-data recommendation.
+:::
+
+## Example: traffic crashes
+
+**Too broad:** Why do crashes happen?
+
+**Better decision frame:** A transportation safety team must decide which conditions and locations deserve targeted investigation.
+
+**Focused question:** Among reported Chicago crashes from 2018 through 2025, which combinations of roadway conditions, weather, location, and time are associated with severe outcomes?
+
+**Possible objectives:**
+
+- Describe crash counts and severity rates by year, season, and time of day.
+- Compare severe-outcome percentages across selected roadway and weather conditions.
+- Identify geographic areas with unusually high severe-crash counts after considering traffic volume if a suitable denominator is available.
+- Recommend two conditions or locations for deeper investigation.
+
+**Boundary:** Crash records can show reported associations. They do not by themselves prove that a condition caused a crash or measure risk without an exposure denominator.
+
+## Example: short-term rentals
+
+**Too broad:** What affects Airbnb prices?
+
+**Better decision frame:** A tourism analyst wants to understand how the mix and pricing of listings differs across markets or neighborhoods.
+
+**Focused question:** How do listed price and future availability differ by room type, capacity, and geography in the selected market snapshot?
+
+**Possible objectives:**
+
+- Compare median listed price and IQR across room types.
+- Estimate how price changes with guest capacity while acknowledging other listing differences.
+- Describe the geographic distribution of listing types.
+- Identify segments that warrant a more detailed pricing analysis.
+
+**Boundary:** Listed price is not necessarily the price paid. An unavailable calendar date is not necessarily a booked stay.
+
+## Example: appointments and satisfaction
+
+**Too broad:** How can the clinic improve?
+
+**Better decision frame:** A clinic manager needs to decide where a limited scheduling-improvement effort should begin.
+
+**Focused question:** Which appointment characteristics are associated with no-shows, and how do satisfaction measures differ across operational segments in the synthetic, de-identified EHR data?
+
+**Possible objectives:**
+
+- Measure no-show rates by appointment type, lead time, and time of day.
+- Compare satisfaction distributions across selected service groups.
+- Identify segments with both operational volume and unfavorable outcomes.
+- Recommend a pilot intervention and state what would be measured after implementation.
+
+**Boundary:** The course EHR data supports analysis practice, not clinical decisions. Associations must not be interpreted as patient blame or medical causation.
+
+## Use specific objective verbs
+
+Prefer verbs that make the expected result visible.
+
+| Purpose | Useful verbs |
+|---|---|
+| Summarize | Describe, measure, estimate, categorize |
+| Compare | Compare, rank, assess |
+| Explore relationships | Identify, examine, explore |
+| Anticipate | Forecast, predict |
+| Support action | Recommend, prioritize |
+
+Avoid using only "analyze" or "understand." Those words do not tell the reader what evidence you will produce.
+
+## Turn expectations into hypotheses
+
+A hypothesis is a specific, testable expectation. It should name variables and a direction or benchmark when a defensible direction exists.
+
+### Relationship
+
+> Listings that accommodate more guests tend to have higher listed prices.
+
+### Difference between groups
+
+> The severe-crash percentage differs between daylight and darkness conditions.
+
+### Comparison with a benchmark
+
+> The no-show rate for appointments scheduled more than 30 days in advance exceeds the overall no-show rate.
+
+These hypotheses concern variables. "Chicago will differ from Milwaukee" is incomplete until you say **which measured outcome** will differ and how.
+
+## Check the finished problem statement
+
+- Is the stakeholder named?
+- Is the decision or action clear?
+- Are the population, time, and geography bounded?
+- Is the outcome measurable with the available data?
+- Do the objectives collectively answer the question?
+- Are causal words avoided unless the design supports causality?
+- Are privacy, missingness, selection, and measurement risks acknowledged?
+
+## Source and course alignment
+
+This page replaces an earlier ECO 230 worksheet. Its problem-framing approach is adapted from Chapter 2 of Thomas H. Davenport and Jinho Kim's *Keeping Up with the Quants*. Examples and wording have been newly developed for current course projects.
+
+For current Project 1 requirements and dates, use the [Project 1 prompt](../../syllabus/project_1_prompt.qmd) and [Project 1 timeline](../../syllabus/project_1_timeline.qmd). This supplemental page does not create additional deliverables.

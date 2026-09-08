@@ -1,0 +1,187 @@
+---
+title: "Analysis Plan Outline"
+subtitle: "A practical blueprint for a business data project"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## What an analysis plan does
+
+An analysis plan connects a decision problem to the data, methods, and communication needed to answer it. Writing the plan first exposes missing variables, ambiguous definitions, and unrealistic claims before they become expensive.
+
+This page is a planning aid. The [Project 1 prompt](../../syllabus/project_1_prompt.qmd) and [Project 1 timeline](../../syllabus/project_1_timeline.qmd) remain the authoritative sources for required deliverables and dates.
+
+## 1. Decision context
+
+State:
+
+- the stakeholder or audience;
+- the decision, action, or opportunity;
+- why the decision matters; and
+- what is outside the stakeholder's control.
+
+**Template:** `[Stakeholder] needs to decide [decision] because [business consequence].`
+
+## 2. Research question
+
+Write one focused question that names the outcome, population, time, and important comparison.
+
+**Template:** `Among [population] during [period], how does [outcome] vary with or across [explanatory variables/groups], for the purpose of [decision]?`
+
+Avoid a question that assumes its conclusion or requires data you do not have.
+
+## 3. Objectives
+
+List concrete analytical products. Useful verbs include describe, compare, estimate, identify, assess, rank, forecast, and recommend.
+
+Example:
+
+1. Describe monthly crash volume and severity.
+2. Compare severe-outcome percentages across selected conditions.
+3. Identify geographic and temporal segments for deeper review.
+4. Recommend a limited next step supported by the evidence.
+
+Each objective should help answer the research question. Remove interesting side analyses that do not.
+
+## 4. Data and grain
+
+For every input table, record:
+
+| Planning item | What to write |
+|---|---|
+| Source | Publisher, file or URL, snapshot/version |
+| Grain | What one row represents |
+| Coverage | Population, geography, and period |
+| Join keys | Exact fields and expected relationship |
+| Outcome | Variable and operational definition |
+| Explanatory variables | Fields used for grouping or modeling |
+| Missingness | Important unavailable or incomplete fields |
+| Ethics/privacy | Risks, restrictions, and necessary exclusions |
+
+::: {.callout-warning}
+## Check joins before analysis
+
+State whether each join should be one-to-one, many-to-one, or one-to-many. Compare row counts and key uniqueness before and after joining. Unexpected row multiplication can invalidate every result.
+:::
+
+## 5. Data preparation
+
+Plan the transformations before doing them:
+
+- parse dates and numeric fields;
+- define missing-value treatment;
+- resolve duplicates at the intended grain;
+- standardize category labels;
+- create documented derived fields;
+- identify implausible values without automatically deleting them; and
+- save a clean analysis table separately from raw source files.
+
+Every derived field should have a plain-language definition and reproducible code.
+
+## 6. Descriptive analysis
+
+Specify the tables and graphs needed to understand:
+
+- volume and missingness;
+- distributions and outliers;
+- differences among important groups;
+- change over time; and
+- geographic patterns when location is meaningful.
+
+For each planned visual, write the question it answers. "Make a bar chart" is not an analytical objective.
+
+## 7. Hypotheses and methods
+
+For each hypothesis, identify:
+
+1. the outcome variable;
+2. the explanatory variable or groups;
+3. the expected direction, if justified;
+4. the descriptive evidence;
+5. the statistical method and why it fits; and
+6. assumptions and diagnostics.
+
+Choose methods based on the variables, design, and question - not on which function is easiest to run.
+
+## 8. Risks and limitations
+
+Consider:
+
+- selection and nonresponse bias;
+- measurement error and proxies;
+- missing exposure denominators;
+- confounding and causal overclaiming;
+- small groups and unstable estimates;
+- time, geography, and population limits; and
+- synthetic or displaced geographic data.
+
+Write what each limitation changes about the interpretation, not merely that limitations exist.
+
+## 9. Communication plan
+
+Decide in advance:
+
+- the primary audience;
+- the decision-oriented takeaway;
+- the few figures or tables needed to support it;
+- which technical details belong in documentation rather than presentation slides; and
+- how assumptions and uncertainty will be communicated.
+
+A business presentation and technical documentation may use the same analysis, but they serve different readers.
+
+## 10. Reproducibility and reflection
+
+The final work should make it possible to trace a claim back to data and code.
+
+- Keep raw and derived data separate.
+- Use relative paths and scripted transformations.
+- Record source versions and filters.
+- Use meaningful object names and comments.
+- Render the document from a clean session.
+- Revisit early assumptions after seeing the data.
+
+## Copyable short-form plan
+
+Use this outline when drafting:
+
+```text
+Stakeholder and decision:
+
+Research question:
+
+Population, geography, and period:
+
+Objectives:
+1.
+2.
+3.
+
+Data sources and grain:
+
+Outcome and explanatory variables:
+
+Required joins and validation checks:
+
+Data preparation steps:
+
+Planned descriptive tables and graphs:
+
+Hypotheses and methods:
+
+Risks, ethics, and limitations:
+
+Communication plan:
+
+Reproducibility checks:
+```
+
+## Background
+
+This page replaces the earlier ECO 230 *Planning a Data Analysis Project for Business* outline. It has been revised to emphasize grain, join validation, reproducibility, and the distinction between evidence and decisions.

@@ -1257,9 +1257,8 @@ Circle B - 25
 library(tidyverse)
 library(patchwork)
 
-# ---- Load (as requested) ----
-COURSE_ROOT <- "/data/junior/boland_course"
-nfl_path <- file.path(COURSE_ROOT, "shared", "data", "nfl_special_MasonCrosby.csv")
+# ---- Load ----
+nfl_path <- here::here("shared", "data", "nfl_special_MasonCrosby.csv")
 df <- readr::read_csv(nfl_path, show_col_types = FALSE)  # [1](https://uwlax-my.sharepoint.com/personal/mboland_uwlax_edu/_layouts/15/Doc.aspx?sourcedoc=%7B9C535DD1-7535-401A-A565-7B8E2DD9C41D%7D&file=nfl_special_MasonCrosby.csv&action=default&mobileredirect=true)
 
 # ---- Prep: filter + summarise ----
@@ -1384,9 +1383,8 @@ library(patchwork)
 if (!requireNamespace("ggplotify", quietly = TRUE)) install.packages("ggplotify")
 library(ggplotify)
 
-# ---- Load (your path) ----
-COURSE_ROOT <- "/data/junior/boland_course"
-nfl_path <- file.path(COURSE_ROOT, "shared", "data", "nfl_special_MasonCrosby.csv")
+# ---- Load ----
+nfl_path <- here::here("shared", "data", "nfl_special_MasonCrosby.csv")
 df <- readr::read_csv(nfl_path, show_col_types = FALSE)  # columns exist in file [1](https://www.rdocumentation.org/packages/barplot3d/versions/1.0.1/topics/bar3d)
 
 # ---- Weeks: 1-6 and 8 (replace week 7 with week 8) ----
@@ -1627,8 +1625,7 @@ p_bar_ranked
 
 ```{r}
 # ----- Setup & data -----
-COURSE_ROOT <- "/data/junior/boland_course"
-nfl_path <- file.path(COURSE_ROOT, "shared", "data", "nfl_special_MasonCrosby.csv")
+nfl_path <- here::here("shared", "data", "nfl_special_MasonCrosby.csv")
 
 library(readr)
 library(dplyr)
@@ -1730,8 +1727,7 @@ p_overall
 
 ```{r}
 # ----- Setup & data -----
-COURSE_ROOT <- "/data/junior/boland_course"
-nfl_path <- file.path(COURSE_ROOT, "shared", "data", "nfl_special_MasonCrosby.csv")
+nfl_path <- here::here("shared", "data", "nfl_special_MasonCrosby.csv")
 
 library(readr)
 library(dplyr)
@@ -1795,8 +1791,7 @@ p_deviation
 ```{r}
 
 # ----- Setup & data -----
-COURSE_ROOT <- "/data/junior/boland_course"
-nfl_path <- file.path(COURSE_ROOT, "shared", "data", "nfl_special_MasonCrosby.csv")
+nfl_path <- here::here("shared", "data", "nfl_special_MasonCrosby.csv")
 
 library(readr)
 library(dplyr)
@@ -1847,8 +1842,7 @@ p_hist
 
 ```{r}
 # ----- Setup & data -----
-COURSE_ROOT <- "/data/junior/boland_course"
-nfl_path <- file.path(COURSE_ROOT, "shared", "data", "nfl_special_MasonCrosby.csv")
+nfl_path <- here::here("shared", "data", "nfl_special_MasonCrosby.csv")
 
 library(readr)
 library(dplyr)

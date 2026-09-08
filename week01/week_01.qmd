@@ -1,5 +1,5 @@
 ---
-title: "ECO 230 Section 012"
+title: "ECO 230: Data Analysis for Business Applications"
 author: "Mike Boland, MBA"
 format:
   revealjs:

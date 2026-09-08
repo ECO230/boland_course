@@ -1,0 +1,180 @@
+---
+title: "Bias and Error in Survey Research"
+subtitle: "Where survey conclusions can go wrong - and what researchers can do about it"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Error is part of the survey process
+
+A survey estimate will rarely match the population exactly. Some differences arise from random chance; others arise because the survey process systematically includes, excludes, measures, or influences particular people.
+
+The useful question is not simply, "Is this survey biased?" Instead ask:
+
+> **At what stage could error enter, in which direction might it move the result, and what evidence would help us assess it?**
+
+## Sampling and assignment answer different questions
+
+Survey research is usually observational: researchers measure people without assigning them to treatments. Two different forms of randomization have different purposes.
+
+| Design feature | Primary purpose | What it can support when well executed |
+|---|---|---|
+| Random sampling from a defined population | Make the sample resemble the population in expectation | Generalization to that population |
+| Random assignment to conditions | Make treatment groups comparable in expectation | Causal conclusions about the assigned treatment |
+
+A random sample does not turn an observational relationship into a causal effect. Random assignment does not automatically make the participants representative of everyone else.
+
+::: {.callout-warning}
+## Two separate claims
+
+**Generalizability:** Do the observed respondents represent the target population?
+
+**Causality:** Does the study design rule out plausible alternative explanations for an observed effect?
+:::
+
+## Random sampling error
+
+Different random samples from the same population produce different estimates. That chance variation is **random sampling error**.
+
+Larger probability samples generally reduce random sampling error. Standard errors, confidence intervals, and margins of error describe this uncertainty when the sampling design supports those calculations.
+
+Random sampling error does not consistently push estimates high or low. Increasing sample size can reduce it, but a very large biased sample can still be confidently wrong.
+
+## Systematic error and bias
+
+**Bias** is systematic error: some feature of the design or data-collection process tends to move estimates away from the population value.
+
+Bias is not the same thing as:
+
+- personal prejudice;
+- an unusual observation;
+- a skewed distribution; or
+- ordinary random variation from one sample to another.
+
+A distribution may be strongly skewed and still accurately describe its population. Conversely, a survey result may look smooth and precise while systematically missing part of the population.
+
+## Follow the survey pipeline
+
+Bias can enter at several stages.
+
+| Stage | Question | Common risk |
+|---|---|---|
+| Target population | Who do we want to understand? | The population is vaguely or conveniently defined |
+| Sampling frame | Who could actually be selected? | Coverage or sample-selection bias |
+| Recruitment | Who is contacted and invited? | Contact differences, inaccessible modes |
+| Participation | Who responds? | Unit nonresponse and self-selection |
+| Questionnaire | What is asked and how? | Wording, order, recall, or response-option problems |
+| Response | How do people answer? | Social desirability, acquiescence, interviewer or mode effects |
+| Processing | How are responses handled? | Coding, weighting, cleaning, or transcription errors |
+| Reporting | What is communicated? | Selective emphasis, missing uncertainty, or overgeneralization |
+
+## Coverage and sample-selection bias
+
+Coverage error occurs when the sampling frame does not adequately cover the target population. The risk becomes bias when the omitted or overrepresented people differ on an outcome that matters.
+
+Examples:
+
+- Using property-tax records to study all residents can omit renters.
+- Surveying only current customers cannot directly describe people who considered the product and left.
+- Posting a public survey link on one social platform overrepresents people who use that platform and encounter the post.
+
+**Diagnostic:** Compare the target population, the sampling frame, and the final sample. Which groups can never enter the sample? Which groups have very different probabilities of selection?
+
+**Possible mitigation:** Improve the frame, recruit through multiple channels, use probability sampling when feasible, and document groups that remain uncovered.
+
+## Nonresponse and self-selection
+
+These ideas are related but not identical.
+
+- **Nonresponse** occurs when selected sample members do not provide usable responses.
+- **Self-selection** occurs when willingness or ability to participate helps determine who enters the respondent group, especially in opt-in samples.
+- **Nonresponse bias** occurs only when response is related to the survey outcome after considering the adjustments used in analysis.
+
+A low response rate raises concern, but it does not by itself measure the size or direction of nonresponse bias. Respondents and nonrespondents must differ in a way that matters for the estimate.
+
+Customer-satisfaction surveys illustrate the risk: customers with especially good or bad experiences may be more motivated to respond than customers with routine experiences.
+
+**Possible mitigation:** Make participation accessible, reduce respondent burden, use reminders and appropriate incentives, compare respondents with known population benchmarks, and apply transparent weighting when justified.
+
+## Response and measurement bias
+
+After agreeing to participate, respondents can still provide systematically distorted measurements.
+
+### Social desirability
+
+People may report what seems acceptable rather than what is true, especially for sensitive behaviors, status, health, money, or ethics.
+
+### Acquiescence
+
+Some respondents tend to agree with statements regardless of content. A page filled with similarly worded agree/disagree items can amplify this tendency.
+
+### Recall error
+
+People may not accurately remember frequency, timing, or amount. "How many purchases did you make last year?" demands more memory than a shorter, clearly bounded period.
+
+### Mode and interviewer effects
+
+Answers can differ across online, telephone, text, or in-person administration. An interviewer, perceived anonymity, device, or visual layout may change what people report.
+
+### Question wording and options
+
+Leading, loaded, double-barreled, ambiguous, or assumption-based questions create measurement error. Response options that overlap or omit plausible answers force poor measurements.
+
+**Possible mitigation:** Use neutral language, ask one idea at a time, provide exhaustive and mutually exclusive choices, permit "don't know" or "prefer not to answer" when appropriate, pretest the questionnaire, and disclose the survey mode.
+
+## A practical example
+
+Suppose ECO 230 students send an online campus-dining survey through their own social networks.
+
+1. **Coverage risk:** Students outside those networks have no realistic chance to see the survey.
+2. **Self-selection risk:** Students with strong dining opinions may be more likely to participate.
+3. **Measurement risk:** A question such as "How dissatisfied are you with overpriced campus food?" assumes dissatisfaction and uses loaded language.
+4. **Reporting risk:** Calling the respondents "UWL students" implies population coverage the design did not provide.
+
+A more defensible report would describe the respondents and recruitment method, avoid a population-wide claim, show counts with percentages, and identify what a stronger sampling plan would require.
+
+## Evaluate a published survey
+
+Before trusting the headline, look for:
+
+- the target population and dates;
+- the sampling or recruitment method;
+- sample size and, when applicable, margin of sampling error;
+- response rate and evidence about nonresponse;
+- the exact question wording and response choices;
+- survey mode;
+- weighting variables and benchmarks;
+- sponsor and field organization; and
+- limitations stated by the researchers.
+
+::: {.callout-tip}
+## Acknowledge, then respond
+
+Naming a possible bias is the start of analysis, not the end. Explain its likely direction, whether it threatens the specific conclusion, what was done to reduce it, and what additional evidence would help.
+:::
+
+## Key distinctions
+
+| Do not confuse | With |
+|---|---|
+| Random sampling error | Systematic bias |
+| Low response rate | Proven nonresponse bias |
+| Self-selection | Every form of nonresponse |
+| Skewness | Inaccuracy |
+| Association | Causation |
+| Survey respondents | The entire target population |
+
+## Sources and background
+
+This page replaces an earlier ECO 230 handout titled *Error / Bias in Survey Research*. Its examples and wording have been rewritten, and several distinctions have been clarified.
+
+- [AAPOR: Best Practices for Survey Research](https://aapor.org/standards-and-ethics/best-practices/)
+- [Pew Research Center: What Low Response Rates Mean for Telephone Surveys](https://www.pewresearch.org/methods/2017/05/15/what-low-response-rates-mean-for-telephone-surveys/)
+- [Current Week 12 sampling and survey slides](../week_12.qmd)

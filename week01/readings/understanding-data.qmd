@@ -1,0 +1,131 @@
+---
+title: "Understanding Data"
+subtitle: "Start with the row, then understand the variables"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## The first question: what does one row represent?
+
+Before calculating an average or making a graph, state the **unit of analysis**: the person, listing, transaction, day, crash, or other thing represented by one row.
+
+If you misunderstand the row, every summary that follows can be wrong.
+
+```{r}
+#| label: load-sleep-data
+#| echo: false
+sleep <- read.csv(
+  here::here("week01", "data", "sleep_tracking_Jan-Jun_2025_with_zip.csv"),
+  check.names = FALSE
+)
+
+sleep$Date <- as.Date(sleep$Date)
+knitr::kable(
+  head(sleep[c("Date", "PersonName", "Location", "SleepEventType",
+               "TotalMinutes", "SleepQuality")], 8),
+  caption = "Eight rows from the ECO 230 sleep-tracking data"
+)
+```
+
+In this file, one row is one recorded sleep event for one person. A person can have a main sleep event and a nap on the same date, so the grain is not simply "one person per day." If an analysis should include only main sleep, filter `SleepEventType == "Main"` before summarizing.
+
+::: {.callout-important}
+## Write the grain as a sentence
+
+Use this pattern: **One row represents one [unit] for one [entity] during one [time period].**
+
+Include any conditions created by filtering or aggregation.
+:::
+
+## Observations and variables
+
+- An **observation** is one row.
+- A **variable** is one column that records an attribute or measurement.
+- An **identifier** distinguishes entities but is not automatically a quantity worth averaging.
+
+| Variable | Role or type | Useful treatment |
+|---|---|---|
+| `Date` | Date/time | Sort, filter, group by week or month |
+| `PersonName` | Nominal identifier | Group or count; do not average |
+| `Location` | Nominal category | Frequencies, percentages, comparisons |
+| `SleepEventType` | Nominal category | Filter or compare main sleep and naps |
+| `TotalMinutes` | Quantitative, ratio | Mean, median, range, IQR, standard deviation |
+| `SleepQuality` | Quantitative score | Compare distributions; interpret using its documented scale |
+| `ZipCode` | Geographic identifier | Join or group; do not treat as a measured number |
+
+An all-numeric column is not necessarily quantitative. ZIP codes, product codes, and patient IDs are labels even when stored as numbers.
+
+## Data structure changes the question
+
+### Cross-sectional data
+
+A cross-section compares many entities at one point or period in time. For example, a single Airbnb snapshot can compare listings across neighborhoods.
+
+### Time-series data
+
+A time series follows one measure for one entity or aggregate over time. Daily average sleep duration for the entire sample is a time series.
+
+### Panel data
+
+Panel data follows multiple entities over time. The main-sleep records form a panel because the same people appear on many dates.
+
+```{r}
+#| label: panel-check
+main_sleep <- sleep[sleep$SleepEventType == "Main", ]
+person_days <- aggregate(Date ~ PersonName, main_sleep, function(x) length(unique(x)))
+names(person_days)[2] <- "RecordedDays"
+knitr::kable(person_days, caption = "Repeated observations make this a panel data set")
+```
+
+## Wide and long are descriptions, not judgments
+
+The sleep-stage columns (`REMMinutes`, `DeepMinutes`, and `LightMinutes`) are stored wide: each stage has its own column. The same information could be made long with one `Stage` column and one `Minutes` column.
+
+Wide data can be convenient for a report. Long data is often easier for grouped summaries and graphs. Choose the structure that supports the analysis, while keeping the grain explicit.
+
+## A second example: Airbnb listings
+
+```{r}
+#| label: airbnb-example
+#| echo: false
+airbnb <- read.csv(
+  here::here("shared", "data", "airbnb_chicago.csv"),
+  check.names = FALSE
+)
+
+knitr::kable(
+  head(airbnb[c("id", "room_type", "neighbourhood", "accommodates",
+                 "listed_price", "review_scores_rating")], 6),
+  digits = 1,
+  caption = "Selected fields from the Chicago Airbnb data"
+)
+```
+
+Here, one row represents one listing in the source snapshot. `listed_price` is a quantitative measure; `room_type` is categorical; `id` is an identifier. If you calculate one row per neighborhood, you have created a new, aggregated data set with a different grain.
+
+## A five-question data check
+
+Before analysis, answer:
+
+1. What does one row represent?
+2. What population and time period are covered?
+3. Which columns are identifiers, categories, dates, and quantities?
+4. Can the same entity appear more than once? If so, why?
+5. What filtering, joining, or aggregation would change the grain?
+
+::: {.callout-tip}
+## A useful habit
+
+Put the grain in a code comment immediately after loading data. When the grain changes, add another comment before the summary or join.
+:::
+
+## Background
+
+This page replaces an earlier ECO 230 handout that used a CEO-compensation spreadsheet. The concepts and examples have been rewritten around current course data.

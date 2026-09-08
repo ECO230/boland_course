@@ -1,0 +1,136 @@
+---
+title: "Working with Percentages"
+subtitle: "Choose the denominator before interpreting the result"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## Why percentages help
+
+Counts answer "how many?" Percentages answer "how large relative to what?" They are especially useful when groups have different totals.
+
+Every percentage has a numerator and a denominator:
+
+\[
+\text{Percentage} = \frac{\text{part}}{\text{whole}} \times 100
+\]
+
+Name the denominator in words before calculating.
+
+## Part of a whole
+
+The Airbnb example below calculates each room type's share of listings. The denominator is **all listings in this Chicago data file with a recorded room type**.
+
+```{r}
+#| label: room-type-share
+#| echo: false
+airbnb <- read.csv(
+  here::here("shared", "data", "airbnb_chicago.csv"),
+  check.names = FALSE
+)
+
+room_counts <- sort(table(airbnb$room_type, useNA = "no"), decreasing = TRUE)
+room_share <- data.frame(
+  RoomType = names(room_counts),
+  Listings = as.integer(room_counts),
+  Percent = 100 * as.numeric(prop.table(room_counts))
+)
+knitr::kable(room_share, digits = 1)
+```
+
+If the question instead concerned only reviewed listings or only listings below a price threshold, both the numerator and denominator would change.
+
+## Row, column, and table percentages
+
+A crosstab can support three different questions. The example compares room type with instant-booking status.
+
+```{r}
+#| label: crosstab-percentages
+booking_table <- table(
+  RoomType = airbnb$room_type,
+  InstantBookable = airbnb$instant_bookable,
+  useNA = "no"
+)
+booking_table
+```
+
+- **Row percentage:** Within each room type, what percentage is instantly bookable? Use `prop.table(booking_table, 1)`.
+- **Column percentage:** Within each instant-booking category, what percentage is each room type? Use `prop.table(booking_table, 2)`.
+- **Table percentage:** What percentage of all listings is in each combination? Use `prop.table(booking_table)`.
+
+```{r}
+#| label: row-percentages
+round(100 * prop.table(booking_table, 1), 1)
+```
+
+Do not label a table merely "percent." Say whether it contains row, column, or total percentages.
+
+## Percentage change
+
+Percentage change compares a change with its starting value:
+
+\[
+\text{Percentage change} =
+\frac{\text{New value} - \text{Old value}}{\text{Old value}} \times 100
+\]
+
+```{r}
+#| label: sleep-percentage-change
+#| echo: false
+sleep <- read.csv(
+  here::here("week01", "data", "sleep_tracking_Jan-Jun_2025_with_zip.csv"),
+  check.names = FALSE
+)
+main_sleep <- sleep[sleep$SleepEventType == "Main", ]
+monthly_mean <- aggregate(TotalMinutes ~ Month, main_sleep, mean, na.rm = TRUE)
+
+old_value <- monthly_mean$TotalMinutes[monthly_mean$Month == "January"]
+new_value <- monthly_mean$TotalMinutes[monthly_mean$Month == "June"]
+change <- 100 * (new_value - old_value) / old_value
+
+knitr::kable(
+  data.frame(
+    Comparison = "Average main-sleep minutes: January to June",
+    January = old_value,
+    June = new_value,
+    PercentChange = change
+  ),
+  digits = 1
+)
+```
+
+A negative result indicates a decrease. The starting value is the denominator, so reversing the comparison produces a different percentage.
+
+## Percentage points are not percent change
+
+Suppose a response rate rises from 40% to 50%.
+
+- It increased by **10 percentage points**: \(50\% - 40\%\).
+- It increased by **25% relative to the old rate**: \((50 - 40) / 40 \times 100\).
+
+These statements are both correct, but they answer different questions.
+
+## Common denominator mistakes
+
+1. Comparing counts when group sizes differ.
+2. Dividing by the new value instead of the starting value for percentage change.
+3. Ignoring missing values that shrink the denominator.
+4. Mixing row and column percentages in one interpretation.
+5. Reporting a large percentage change from a very small starting value without giving the counts.
+
+::: {.callout-tip}
+## Report counts and percentages together
+
+Write "18 of 60 listings (30%)" rather than only "30%." The count reveals the scale and makes the denominator auditable.
+:::
+
+## Source note
+
+This is a new ECO 230 replacement for the University of Leicester Student Learning Development handout *Working with percentages* (2009). The explanation and examples have been rewritten using current course data.

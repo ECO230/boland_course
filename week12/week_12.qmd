@@ -535,8 +535,8 @@ How old are you?
 - 25+
 :::
 
-![](media/images/w12_birthday.jpeg){.food fig-alt="Birthday cake"}
 ::: {.frame}
+![](media/images/w12_birthday.jpeg){.food fig-alt="Birthday cake"}
 :::
 ::::
 

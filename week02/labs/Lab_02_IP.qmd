@@ -1,0 +1,114 @@
+---
+title: "Lab 2: Descriptive Statistics, Cross-Tabulations, and Joins"
+subtitle: "In-Person Sections"
+format:
+  typst:
+    toc: false
+    papersize: us-letter
+    fontsize: 10pt
+    linestretch: 1
+    margin:
+      x: 1in
+      y: 1in
+    number-sections: false
+    page-numbering: "1"
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(eco230r)
+library(knitr)
+options(scipen = 999)
+```
+
+## Purpose
+
+Use two related NFL tables to practice identifying grain, checking keys,
+joining data, and reproducing descriptive summaries across Excel, Tableau, and
+R. The extract contains 2025 Minnesota regular-season games and their plays.
+
+## 1) Load and inspect the tables
+
+```{r}
+games <- read_csv("data/nfl_games.csv", show_col_types = FALSE)
+plays <- read_csv("data/nfl_plays.csv", show_col_types = FALSE)
+
+glimpse(games)
+glimpse(plays)
+```
+
+State the grain of each table and identify its key.
+
+*Your response:*
+
+## 2) Verify the relationship
+
+Confirm that `game_id` is unique in `games` and repeated in `plays`. Explain
+what those results imply about the relationship between the tables.
+
+```{r}
+games |> count(game_id) |> count(n)
+plays |> count(game_id) |> arrange(desc(n))
+```
+
+*Your response:*
+
+## 3) Join game information to plays
+
+Use `left_join()` to add selected game-level fields. Verify that the join does
+not change the number of play rows and investigate unmatched keys.
+
+```{r}
+plays_joined <- plays |>
+  left_join(
+    games |> select(game_id, week, game_date, home_team, away_team, total_points),
+    by = "game_id"
+  )
+
+tibble(
+  before = nrow(plays),
+  after = nrow(plays_joined),
+  unmatched = sum(is.na(plays_joined$week))
+)
+```
+
+## 4) Build descriptive summaries
+
+Create at least one count, one percentage, and one appropriate quantitative
+summary by a categorical variable. Reproduce one summary in Excel and Tableau.
+
+```{r}
+plays_joined |>
+  filter(!is.na(play_type)) |>
+  group_by(play_type) |>
+  summarise(
+    plays = n(),
+    mean_yards = mean(yards_gained, na.rm = TRUE),
+    success_rate = mean(successful_play, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(plays)) |>
+  kable(digits = 2)
+```
+
+## 5) Reconcile the tools
+
+Compare the R, Excel, and Tableau results. If they differ, check filters,
+missing-value handling, aggregation, and the join before deciding which result
+is correct.
+
+*Your response:*
+
+## Completion checklist
+
+- [ ] I stated each table's grain and key.
+- [ ] I verified the join without multiplying play rows.
+- [ ] I created a count, percentage, and quantitative summary.
+- [ ] I reproduced and reconciled a summary across the required tools.
+- [ ] I rendered `Lab_02_IP.pdf`.

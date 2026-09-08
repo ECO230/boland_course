@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "lab_14_ip",
+  "title": "Lab 14: Practice Practicum (In Person)",
+  "output_directory": ".assignment-build/lab_14_ip",
+  "files": [
+    {"source": "week14/labs/Practicum_Practice_IP.qmd", "destination": "Practicum_Practice_IP.qmd"},
+    {"source": "week14/labs/Practicum_Practice_README.md", "destination": "README.md"},
+    {"source": "week14/labs/data/studentathletes.csv", "destination": "data/studentathletes.csv"},
+    {"source": "admin/final/Practice_Practicum_Prompt.qmd", "destination": "prompt/Practice_Practicum_Prompt.qmd"},
+    {"source": "admin/final/Practice_Practicum_Guidelines.qmd", "destination": "prompt/Practice_Practicum_Guidelines.qmd"},
+    {"source": "shared/posit-cloud/.Rprofile", "destination": ".Rprofile"},
+    {"source": "shared/posit-cloud/.gitignore", "destination": ".gitignore"},
+    {"source": "shared/posit-cloud/project.Rproj", "destination": "Lab_14_IP.Rproj"},
+    {"source": "shared/posit-cloud/project_setup.R", "destination": "project_setup.R"},
+    {"source": "shared/posit-cloud/renv.lock", "destination": "renv.lock"},
+    {"source": "shared/posit-cloud/renv/activate.R", "destination": "renv/activate.R"},
+    {"source": "shared/posit-cloud/renv/settings.json", "destination": "renv/settings.json"}
+  ],
+  "required_files": [
+    "Practicum_Practice_IP.qmd",
+    "Lab_14_IP.Rproj",
+    "README.md",
+    "data/studentathletes.csv",
+    "prompt/Practice_Practicum_Prompt.qmd",
+    "prompt/Practice_Practicum_Guidelines.qmd",
+    "renv.lock"
+  ],
+  "render": "Practicum_Practice_IP.qmd"
+}

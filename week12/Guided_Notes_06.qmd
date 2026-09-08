@@ -1,0 +1,176 @@
+---
+title: "Guided Notes 6: Survey Research Methods"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+    anchor-sections: true
+    smooth-scroll: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+Use this guide with the Week 12 lecture, readings, videos, and sampling lab. It
+connects sampling decisions, sources of survey error, and question design to
+the claims a researcher can responsibly make.
+
+Keep the completed guide as a reference for Project 2 and the survey research
+quiz.
+:::
+
+## Objectives
+
+- distinguish populations, sampling frames, samples, and response pools;
+- compare probability and nonprobability sampling methods;
+- distinguish randomness, representativeness, sampling error, and bias;
+- identify common sources of survey error;
+- evaluate question wording and response options; and
+- state conclusions that fit the sampling and data-collection process.
+
+## Resources
+
+- [Week 12 slides](week_12.qmd)
+- [Bias and Error in Survey Research](readings/bias-error-survey-research.qmd)
+- [Survey Design chapter from *Data and Design*](https://trinachi.github.io/data-design-builds/ch03.html)
+- the Pew Research Center Methods 101 videos in Canvas
+
+## 1) Map the survey process
+
+Complete each definition for the class survey or another survey discussed in
+class.
+
+| Term | Definition | Example from the survey |
+|---|---|---|
+| Target population | The complete group the researcher wants to understand |  |
+| Sampling frame | The people who had a realistic chance to be selected or invited |  |
+| Sample | The people selected or invited from the frame |  |
+| Response pool | The people who supplied usable responses |  |
+| Observational unit | What one row of the resulting dataset represents |  |
+
+Why might the response pool differ from the intended sample?
+
+*Your response:*
+
+---
+
+## 2) Compare sampling methods
+
+Complete the method, selection rule, and likely risk.
+
+| Method | Probability or nonprobability? | How units enter the sample | One likely risk or limitation |
+|---|---|---|---|
+| Simple random sample |  |  |  |
+| Systematic sample |  |  |  |
+| Stratified sample |  |  |  |
+| Cluster sample |  |  |  |
+| Multistage area sample |  |  |  |
+| Convenience sample |  |  |  |
+| Quota sample |  |  |  |
+| Judgment sample |  |  |  |
+| Snowball sample |  |  |  |
+
+Choose one method and describe a business setting in which it would be useful.
+Identify the population, frame, and selection rule.
+
+*Your response:*
+
+---
+
+## 3) Separate randomness, representativeness, error, and bias
+
+| Concept | What it means | What it does not guarantee |
+|---|---|---|
+| Random selection |  |  |
+| Representative sample |  |  |
+| Random sampling error |  |  |
+| Sample-selection bias |  |  |
+| Nonresponse bias |  |  |
+| Self-selection bias |  |  |
+
+Explain why a large sample can still produce a misleading result.
+
+*Your response:*
+
+Explain why a low response rate is a warning sign but is not, by itself, proof
+of nonresponse bias.
+
+*Your response:*
+
+---
+
+## 4) Diagnose question-wording problems
+
+For each problem, write a short definition and an original example. Then
+rewrite the example as a clearer, more neutral question.
+
+| Problem | Definition | Flawed example | Improved version |
+|---|---|---|---|
+| Ambiguous or unclear wording |  |  |  |
+| Double-barreled question |  |  |  |
+| Leading question |  |  |  |
+| Loaded question |  |  |  |
+| Assumption-based question |  |  |  |
+
+---
+
+## 5) Evaluate response options
+
+Define each design goal and explain how it improves the resulting data.
+
+| Design goal | Definition | Example or revision |
+|---|---|---|
+| Mutually exclusive |  |  |
+| Collectively exhaustive |  |  |
+| Appropriate sensitivity |  |  |
+| Neutral scale anchors |  |  |
+
+When would an `Other, please specify` option be useful? When might `Not
+applicable`, `I don't know`, or `Prefer not to answer` be necessary?
+
+*Your response:*
+
+---
+
+## 6) Compare survey modes
+
+List one advantage and one possible source of error for each mode.
+
+| Mode | Advantage | Possible error or mode effect |
+|---|---|---|
+| Online |  |  |
+| Telephone |  |  |
+| In person |  |  |
+| Mail |  |  |
+
+Why might the same person answer a sensitive question differently online and
+by telephone?
+
+*Your response:*
+
+---
+
+## 7) Evaluate a survey claim
+
+Choose one published survey result or one result from the class survey.
+
+1. State the claim and intended population.
+2. Describe the sampling frame, selection method, and response pool.
+3. Identify one possible source of random error and one possible source of
+   systematic bias.
+4. Identify one question-design or mode concern.
+5. Rewrite the conclusion so it does not claim more than the design supports.
+
+*Your response:*
+
+## Completion checklist
+
+- [ ] I distinguished the population, frame, sample, and response pool.
+- [ ] I compared probability and nonprobability sampling methods.
+- [ ] I separated random sampling error from systematic bias.
+- [ ] I diagnosed question-wording and response-option problems.
+- [ ] I evaluated a survey conclusion using its design and limitations.
+

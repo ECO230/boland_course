@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "purpose": "Lab 1 preparation: Excel import, table, sort, and filter practice",
+  "dataset_id": "olist_marketplace_2016_2018",
+  "release_version": "2026-fall-v1",
+  "source_url": "https://data.60land.com/project1/2026-fall/v1/olist/olist_order_analysis.parquet",
+  "sampling": "100 delivered orders from each of SP, RJ, MG, RS, PR, and SC, selected deterministically by order key hash",
+  "artifact": {
+    "filename": "olist_orders_sample.csv",
+    "rows": 600,
+    "sha256": "8ac626cd5fd7fd8f2e9f59d01ce8396093a5456259a724c99a8b1eb994d04e5a"
+  }
+}

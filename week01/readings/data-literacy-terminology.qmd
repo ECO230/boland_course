@@ -1,0 +1,56 @@
+---
+title: "Data Literacy Terminology"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Anatomy of a structured dataset
+
+- **Unit of analysis:** the kind of entity or event being studied, such as a
+  customer, transaction, listing, crash, patient encounter, or survey response.
+- **Grain:** the precise meaning of one row, including entity, event, time
+  period, and any filtering conditions.
+- **Observation:** one row in a dataset.
+- **Variable:** an attribute or measurement recorded in a column.
+- **Value:** the entry for one variable in one observation.
+- **Identifier:** a label used to distinguish or join entities. An identifier
+  may contain digits without being a meaningful numeric measure.
+
+::: {.callout-important appearance="minimal" icon="false" title="Start with the row"}
+Before calculating a statistic, complete this sentence: **One row represents
+one _____ for one _____ during one _____.**
+:::
+
+## Variable roles and measurement scales
+
+| Scale | Meaning | Useful summaries |
+|---|---|---|
+| Nominal | Categories with no natural order | Counts, percentages, mode |
+| Binary | A nominal variable with two categories | Counts, percentages, proportions |
+| Ordinal | Categories with a meaningful order but unknown or unequal spacing | Counts, percentages, median, ordered displays |
+| Interval | Numeric values with meaningful differences but no meaningful zero | Mean, median, range, IQR, standard deviation |
+| Ratio | Numeric values with meaningful differences and a meaningful zero | Mean, median, range, IQR, standard deviation, ratios |
+
+A variable's storage type in software is not necessarily its analytical role.
+For example, a ZIP code may be stored as a number but should be treated as a
+geographic identifier, not averaged.
+
+## Time variables
+
+- A **duration**, such as minutes required to complete a task, is quantitative.
+- A **date or timestamp** can be sorted, filtered, or used to calculate elapsed
+  time.
+- A **calendar category**, such as month, quarter, or day of the week, is often
+  used to group observations and must retain its natural order.
+- A **year** can represent time in a trend or act as a grouping category. Its
+  treatment depends on the question.
+
+For worked examples using current course data, see
+[Understanding Data](understanding-data.qmd).

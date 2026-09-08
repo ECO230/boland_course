@@ -1,0 +1,72 @@
+---
+title: "Final Practicum"
+subtitle: "In-Person Sections"
+author: "Your Name"
+format:
+  typst:
+    toc: false
+    papersize: us-letter
+    fontsize: 10pt
+    linestretch: 1
+    margin:
+      x: 1in
+      y: 1in
+    number-sections: false
+    page-numbering: "1"
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(eco230r)
+library(knitr)
+final_load()
+```
+
+## Load the dataset
+
+Run the chunk below after the project setup finishes. Do not rename or move the
+downloaded data file.
+
+```{r}
+practicum_data <- read_csv("pbgc_clean.csv", show_col_types = FALSE)
+glimpse(practicum_data)
+```
+
+## Analysis
+
+Document your analysis here. Follow the current prompt and submission
+requirements in Canvas.
+
+```{r}
+
+```
+
+## Findings and limitations
+
+- Finding:
+- Finding:
+- Limitation:
+
+<!-- Do not edit the validation section below. -->
+
+## Validation
+
+`r final_elapsed()[1]`
+
+`r final_elapsed()[2]`
+
+`r final_elapsed()[3]`
+
+`r final_elapsed()[4]`
+
+`r final_user()`
+
+`r final_file()[1]`
+
+`r final_file()[2]`

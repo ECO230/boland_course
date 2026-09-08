@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "lab_02_ip",
+  "title": "Lab 2: Descriptive Statistics, Cross-Tabulations, and Joins (In Person)",
+  "output_directory": ".assignment-build/lab_02_ip",
+  "files": [
+    {"source": "week02/labs/Lab_02_IP.qmd", "destination": "Lab_02_IP.qmd"},
+    {"source": "week02/labs/Lab_02_README.md", "destination": "README.md"},
+    {"source": "week02/labs/data/nfl_games.csv", "destination": "data/nfl_games.csv"},
+    {"source": "week02/labs/data/nfl_plays.csv", "destination": "data/nfl_plays.csv"},
+    {"source": "week02/labs/data/source.json", "destination": "data/source.json"},
+    {"source": "shared/posit-cloud/.Rprofile", "destination": ".Rprofile"},
+    {"source": "shared/posit-cloud/.gitignore", "destination": ".gitignore"},
+    {"source": "shared/posit-cloud/project.Rproj", "destination": "Lab_02_IP.Rproj"},
+    {"source": "shared/posit-cloud/project_setup.R", "destination": "project_setup.R"},
+    {"source": "shared/posit-cloud/renv.lock", "destination": "renv.lock"},
+    {"source": "shared/posit-cloud/renv/activate.R", "destination": "renv/activate.R"},
+    {"source": "shared/posit-cloud/renv/settings.json", "destination": "renv/settings.json"}
+  ],
+  "required_files": [
+    "Lab_02_IP.qmd",
+    "Lab_02_IP.Rproj",
+    "README.md",
+    "data/nfl_games.csv",
+    "data/nfl_plays.csv",
+    "data/source.json",
+    "renv.lock"
+  ],
+  "render": "Lab_02_IP.qmd"
+}

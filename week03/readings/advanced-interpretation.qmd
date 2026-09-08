@@ -1,0 +1,160 @@
+---
+title: "Interpreting Data Visualizations"
+subtitle: "Move from what the graph shows to a defensible business conclusion"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Interpretation is more than description
+
+A strong interpretation connects visible evidence to the question being asked without claiming more than the data can support.
+
+Use this sequence:
+
+1. **Observation:** What pattern, comparison, or unusual feature is visible?
+2. **Evidence:** Which values, groups, or time periods support the observation?
+3. **Explanation:** What plausible mechanisms could produce it?
+4. **Limitation:** What else could explain it, and what can the graph not establish?
+5. **Implication:** What decision or next analysis does the result support?
+
+## Example 1: a distribution
+
+```{r}
+#| label: load-data
+sleep <- read.csv(
+  here::here("week01", "data", "sleep_tracking_Jan-Jun_2025_with_zip.csv"),
+  check.names = FALSE
+)
+main_sleep <- sleep[sleep$SleepEventType == "Main", ]
+
+airbnb <- read.csv(
+  here::here("shared", "data", "airbnb_chicago.csv"),
+  check.names = TRUE
+)
+```
+
+```{r}
+#| label: sleep-histogram
+#| fig-cap: "Distribution of main-sleep duration in the course data"
+#| fig-width: 8
+#| fig-height: 4.5
+hist(
+  main_sleep$TotalMinutes,
+  breaks = 20,
+  col = "#4C78A8",
+  border = "white",
+  main = NULL,
+  xlab = "Total sleep (minutes)"
+)
+```
+
+**Weak:** Most people sleep around the average.
+
+**Stronger:** Main-sleep duration is concentrated in the middle of the observed range, with fewer records at both extremes. Before using the mean as the only summary, compare it with the median and inspect the unusual low and high values. The graph describes recorded sleep events in this sample; it does not establish how much sleep people need.
+
+The stronger version identifies the shape, names a useful follow-up, and limits the population claim.
+
+## Example 2: group comparisons
+
+```{r}
+#| label: airbnb-boxplot
+#| fig-cap: "Listed price by room type, excluding values above $500 so the central distributions remain visible"
+#| fig-width: 8
+#| fig-height: 5
+airbnb_plot <- airbnb[
+  !is.na(airbnb$listed_price) & airbnb$listed_price <= 500 &
+    !is.na(airbnb$room_type),
+]
+
+boxplot(
+  listed_price ~ room_type,
+  data = airbnb_plot,
+  horizontal = TRUE,
+  col = "#72B7B2",
+  las = 1,
+  main = NULL,
+  xlab = "Listed price ($)",
+  ylab = ""
+)
+```
+
+**Observation:** The price distributions differ by room type, and each group contains substantial variation.
+
+**Evidence:** Compare medians, IQRs, and the degree of overlap rather than focusing only on the most expensive listing.
+
+**Limitation:** Room type is not the only difference among listings. Neighborhood, capacity, amenities, review history, and timing may all be related to price. Filtering at $500 improves readability but means the graph does not display the full upper tail.
+
+**Implication:** Room type is a useful starting segmentation variable, but a pricing recommendation should examine additional variables and the unfiltered data.
+
+## Example 3: relationships
+
+```{r}
+#| label: price-capacity-scatter
+#| fig-cap: "Listed price and guest capacity for Chicago listings priced at $500 or less"
+#| fig-width: 8
+#| fig-height: 5
+plot(
+  airbnb_plot$accommodates,
+  airbnb_plot$listed_price,
+  pch = 16,
+  col = grDevices::adjustcolor("#4C78A8", alpha.f = 0.25),
+  xlab = "Guests accommodated",
+  ylab = "Listed price ($)",
+  main = NULL
+)
+```
+
+A reasonable interpretation is that listings with greater capacity **tend** to have higher listed prices, while prices still vary greatly at the same capacity. This is an association, not proof that increasing capacity causes price to rise.
+
+### What the scatterplot does not establish
+
+- whether the pattern is statistically reliable in a larger population;
+- whether omitted variables explain the relationship;
+- whether price was actually paid;
+- whether the source snapshot represents another market or season; or
+- whether the relationship remains after accounting for room type and neighborhood.
+
+## Interpret the visual encoding too
+
+Before interpreting the subject matter, check how the graph was built.
+
+| Check | Why it matters |
+|---|---|
+| Axis limits and transformations | Truncation or a log scale changes visual distance |
+| Counts versus percentages | Different denominators can reverse a comparison |
+| Aggregation | A monthly average can hide daily variation |
+| Filters and exclusions | The displayed population may be narrower than the title suggests |
+| Color and size | Encodings may imply importance or magnitude |
+| Missing values | Unshown observations may not be missing at random |
+| Sample size | A dramatic pattern based on a few records may be unstable |
+
+## Avoid common overclaims
+
+| Avoid | Prefer |
+|---|---|
+| "X causes Y" from an observational graph | "X and Y are associated in these data" |
+| "The groups are significantly different" from visual separation | "The displayed distributions differ; a formal test is needed for statistical significance" |
+| "Most customers prefer..." without a denominator | "Among the respondents shown, X of N (Y%) selected..." |
+| "Sales increased because of the campaign" | "Sales increased after the campaign; seasonality and other changes remain possible explanations" |
+| "There is no relationship" | "No clear relationship is visible at this scale" |
+
+## A reusable interpretation paragraph
+
+> The graph shows **[pattern]** for **[population and period]**. The clearest evidence is **[specific comparison or value]**. One plausible explanation is **[mechanism]**, although **[alternative explanation or data limitation]** means the graph does not establish **[unsupported claim]**. The result suggests **[decision or next analysis]**.
+
+::: {.callout-tip}
+## Read the title last
+
+First inspect the axes, units, legend, filters, and source. Then read the title and decide whether its claim matches the evidence actually displayed.
+:::
+
+## Background
+
+This page replaces an earlier ECO 230 slide export about advanced interpretation. Its examples have been rebuilt with current course data and an explicit evidence-limitations-implications framework.

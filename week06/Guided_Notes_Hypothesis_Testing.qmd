@@ -1,0 +1,181 @@
+---
+title: "Guided Notes: Hypothesis Testing"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+    anchor-sections: true
+    smooth-scroll: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+Use this guide with the Week 6 readings and class activities. Your completed
+notes should help you select an appropriate hypothesis test, state formal
+hypotheses, and distinguish a statistical result from its practical meaning.
+
+Keep the finished guide as a reference for later homework, quizzes, projects,
+and the practicum.
+:::
+
+## Objectives
+
+- explain why sample estimates require an uncertainty check;
+- interpret p-values, confidence intervals, and Bayes factors correctly;
+- state null and alternative hypotheses in context;
+- match an analytical story and its variables to an appropriate test; and
+- separate statistical evidence from practical importance.
+
+## Resources
+
+- [Week 6 slides](week_06.qmd)
+- the **Statistics Refresher** readings in Canvas
+- the *Stats Jargon* excerpt provided privately in Canvas
+
+::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
+Complete each response in your own words. Use a business example whenever the
+prompt asks for an interpretation; definitions alone are not enough to show
+how a concept affects a decision.
+:::
+
+## 1) Why hypothesis tests are needed
+
+Explain why an apparent difference or relationship in a sample might not
+represent the population.
+
+*Your response:*
+
+
+Describe the role of random sampling variation in one business example.
+
+*Your response:*
+
+---
+
+## 2) Core evidence and uncertainty concepts
+
+Complete the table without defining a p-value as the probability that a
+hypothesis is true.
+
+| Concept | Meaning in your words | What it contributes to a decision | Common misinterpretation |
+|---|---|---|---|
+| P-value |  |  |  |
+| Alpha level |  |  |  |
+| Confidence interval |  |  |  |
+| Bayes factor |  |  |  |
+
+How do an estimate and its confidence interval work together?
+
+*Your response:*
+
+---
+
+## 3) Write formal hypotheses
+
+Complete the missing alternative hypotheses. State hypotheses about population
+parameters or population relationships, not about the observed sample.
+
+| Analytical story | Null hypothesis | Alternative hypothesis |
+|---|---|---|
+| Difference between 2 population means | $H_0: \mu_A = \mu_B$ |  |
+| Difference between 2 population medians | $H_0$: The population medians are equal. |  |
+| Difference among more than 2 population means | $H_0: \mu_1 = \mu_2 = \cdots = \mu_k$ |  |
+| One population mean compared with a benchmark $\mu_0$ | $H_0: \mu = \mu_0$ |  |
+| Distribution compared with expected proportions | $H_0$: The population distribution matches the expected proportions. |  |
+| Relationship between 2 categorical variables | $H_0$: The variables are independent in the population. |  |
+| Linear relationship between 2 quantitative variables | $H_0: \rho = 0$ |  |
+| Linear change in an outcome as a predictor changes | $H_0: \beta_1 = 0$ |  |
+
+---
+
+## 4) Use the five-step analysis process
+
+Summarize what belongs in each step.
+
+1. **Statistical story:**
+
+2. **Estimate or plot:**
+
+3. **Test and hypotheses:**
+
+4. **Statistical interpretation:**
+
+5. **Practical interpretation:**
+
+---
+
+## 5) Match the story to a test
+
+Complete the test and evidence columns as each method is introduced in class.
+
+| Analytical story | Variables and design | Useful estimate or plot | Appropriate test | Evidence reported |
+|---|---|---|---|---|
+| Compare means for 2 independent groups | 1 quantitative outcome; 1 categorical grouping variable with 2 independent groups | Group means and confidence intervals |  |  |
+| Compare means for paired observations | 1 quantitative outcome measured twice or in matched pairs | Mean paired difference and confidence interval |  |  |
+| Compare medians for 2 independent groups | Quantitative or ordinal outcome with 2 independent groups; mean is inappropriate | Group medians and boxplots |  |  |
+| Compare medians for paired observations | Quantitative or ordinal outcome measured twice or in matched pairs | Median paired difference |  |  |
+| Compare means across more than 2 groups | 1 quantitative outcome; 1 categorical grouping variable with more than 2 groups | Group means and confidence intervals |  |  |
+| Compare one mean with a benchmark | 1 quantitative variable and a meaningful benchmark | Sample mean and confidence interval |  |  |
+| Compare observed and expected category distributions | 1 categorical variable and expected proportions | Observed and expected counts or percentages |  |  |
+| Examine a relationship between categorical variables | 2 categorical variables | Cross-tabulation and clustered or stacked bar chart |  |  |
+| Examine a linear relationship | 2 quantitative variables | Correlation and scatterplot |  |  |
+| Estimate change in an outcome | Quantitative outcome and quantitative predictor | Scatterplot with fitted line and slope |  |  |
+
+---
+
+## 6) Interpret statistical evidence
+
+Write a 2-3 sentence statistical interpretation for a hypothetical analysis
+with a p-value of 0.027, an estimate of a 12.5-point increase, and a 95%
+confidence interval from 3.2 to 21.8 points. Assume $\alpha = 0.05$.
+
+Your response must identify the result in context, compare the p-value with
+alpha, and use the confidence interval to describe uncertainty.
+
+*Your response:*
+
+
+List 3 claims that a p-value of 0.027 does **not** justify.
+
+1.
+2.
+3.
+
+---
+
+## 7) Interpret practical importance
+
+Using the same hypothetical result, identify at least 2 pieces of business
+context needed to decide whether the increase is useful enough to act on.
+
+1.
+2.
+
+
+Explain how a result could be statistically significant but not practically
+important.
+
+*Your response:*
+
+---
+
+## 8) One-tailed and two-tailed tests
+
+Explain the difference between a one-tailed and two-tailed alternative
+hypothesis. Why must the direction be selected before examining the results?
+
+*Your response:*
+
+## Completion checklist
+
+- [ ] I explained sampling variation in context.
+- [ ] I distinguished p-values, confidence intervals, and Bayes factors.
+- [ ] I completed the formal alternative hypotheses.
+- [ ] I recorded the appropriate tests as they were introduced.
+- [ ] I separated statistical evidence from practical importance.
+- [ ] I explained one-tailed versus two-tailed testing.
+

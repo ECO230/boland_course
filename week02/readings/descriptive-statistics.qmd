@@ -1,0 +1,72 @@
+---
+title: "Descriptive Statistics"
+subtitle: "Summarize the size, center, spread, and relationships in data"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## What descriptive statistics do
+
+Descriptive statistics organize and summarize observed data. They help an
+analyst describe what is typical, how much observations vary, how categories
+are distributed, and whether variables appear to move together.
+
+A summary does not automatically generalize beyond the data that were observed,
+and an association does not establish causation.
+
+## Measures of center
+
+- **Mean:** the arithmetic average. It is useful for quantitative data but can
+  be pulled toward unusually high or low values.
+- **Median:** the middle ordered value. It is useful for ordinal or quantitative
+  data and is resistant to extreme values.
+- **Mode:** the most frequent value or category. It is available for categorical
+  data but may not be unique.
+
+Choose the measure based on the variable's meaning and distribution, not merely
+on which calculation is available in the software.
+
+## Frequency and grouped-summary tables
+
+- A **frequency table** reports counts for the categories of one variable.
+- A **relative-frequency table** adds percentages or proportions.
+- A **cross-tabulation** reports combinations of two categorical variables.
+- A **grouped-summary table** combines a categorical grouping variable with a
+  quantitative measure, such as median listing price by room type.
+
+For every percentage, name the denominator. Row, column, and table percentages
+answer different questions.
+
+## Measures of spread
+
+- **Minimum and maximum:** the observed endpoints.
+- **Range:** maximum minus minimum.
+- **Interquartile range (IQR):** the width of the middle 50% of observations.
+- **Standard deviation:** typical distance from the mean, expressed in the
+  variable's original units.
+
+The median and IQR are often useful for skewed or outlier-prone data. The mean
+and standard deviation are most informative when the distribution is reasonably
+symmetric and unusual values have been investigated.
+
+## Measures of association
+
+A cross-tabulation can reveal association between categorical variables.
+Correlation summarizes the direction and strength of a linear relationship
+between two quantitative variables on a scale from -1 to +1. Regression can
+describe how an outcome changes with one or more explanatory variables.
+
+None of these methods proves that one variable caused another to change.
+
+## Related Week 2 resources
+
+- [Measures of Variability](measures-of-variability.qmd)
+- [Working with Percentages](working-with-percentages.qmd)
+- [Week 2 slides](../week_02.qmd)

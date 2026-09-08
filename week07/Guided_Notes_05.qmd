@@ -1,0 +1,177 @@
+---
+title: "Guided Notes 5: Inferential Statistical Tests"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+    anchor-sections: true
+    smooth-scroll: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+Use this guide with the Week 7-9 lectures and R demonstrations. It connects a
+business question and its variables to the appropriate inferential test,
+`eco230r` function, null hypothesis, and evidence needed for interpretation.
+
+Keep the completed guide as a reference for homework, project analysis,
+quizzes, and the practicum.
+:::
+
+## Objectives
+
+- match analytical stories and variable types to inferential tests;
+- write an appropriate `eco230r` function call;
+- state null and alternative hypotheses in context;
+- interpret p-values, effect sizes, Bayes factors, and confidence intervals;
+- use method-specific follow-up evidence appropriately; and
+- identify limitations that affect a practical conclusion.
+
+## Resources
+
+- [Week 7 slides](week_07.qmd)
+- [Interpreting Chi-Square Tests](interpretation_x2.qmd)
+- the Week 8 t-test and Wilcoxon interpretation guide in Canvas
+- the Week 9 ANOVA and regression interpretation guide in Canvas
+
+::: {.callout-tip appearance="minimal" icon="false" title="Using eco230r"}
+Load the functions with `library(eco230r)`. In most course examples, pipe the
+dataset into the selected function and replace the placeholder variables with
+real column names from your dataset.
+:::
+
+## 1) Tests for differences and benchmarks
+
+Complete the final column as each method is introduced.
+
+| Analytical story | Variables and design | Test and `eco230r` function | Null hypothesis | Your decision rule or notes |
+|---|---|---|---|---|
+| Compare means for 2 independent groups | 1 quantitative outcome; 1 categorical variable with 2 independent groups | Independent-samples t-test: `idt(y ~ group)` | $H_0: \mu_A = \mu_B$ |  |
+| Compare paired means | 1 quantitative outcome measured twice or in matched pairs | Paired-samples t-test: `pst(~ before, ~ after)` | $H_0: \mu_D = 0$ |  |
+| Compare distributions or medians for 2 independent groups | Quantitative or ordinal outcome; 2 independent groups; mean is inappropriate | Wilcoxon rank-sum test: `idw(y ~ group)` | $H_0$: The population distributions are equal. |  |
+| Compare paired distributions or median differences | Quantitative or ordinal paired measurements | Wilcoxon signed-rank test: `psw(~ before, ~ after)` | $H_0$: The population distribution of paired differences is centered at 0. |  |
+| Compare means across more than 2 groups | 1 quantitative outcome; 1 categorical variable with more than 2 groups | One-way ANOVA: `ano(y ~ group)` | $H_0: \mu_1 = \mu_2 = \cdots = \mu_k$ |  |
+| Compare one mean with a benchmark | 1 quantitative variable and benchmark $\mu_0$ | One-sample t-test: `ost(~ y, mu = mu_0)` | $H_0: \mu = \mu_0$ |  |
+
+For one row, describe a business question that fits the test and identify the
+observational unit.
+
+*Your response:*
+
+---
+
+## 2) Tests for categorical distributions and relationships
+
+| Analytical story | Variables and design | Test and `eco230r` function | Null hypothesis | Your decision rule or notes |
+|---|---|---|---|---|
+| Rank or compare category frequencies against equal proportions | 1 categorical variable | Chi-square goodness-of-fit test: `csf(~ category)` | $H_0$: The population proportions are equal across categories. |  |
+| Compare an observed distribution with specified benchmark proportions | 1 categorical variable and expected proportions | Chi-square goodness-of-fit test: `csf(~ category, probs = c(...))` | $H_0$: The population distribution matches the expected proportions. |  |
+| Examine association between categorical variables | 2 categorical variables | Chi-square test of independence: `csi(outcome ~ group)` | $H_0$: The variables are independent in the population. |  |
+
+When using `probs = c(...)`, list expected proportions as decimals in the same
+order as the variable's categories. The proportions must sum to 1.
+
+Write one example in which a chi-square goodness-of-fit test is appropriate and
+one in which a chi-square test of independence is appropriate.
+
+*Goodness-of-fit example:*
+
+
+*Independence example:*
+
+---
+
+## 3) Tests for quantitative relationships and change
+
+| Analytical story | Variables and design | Test and R function | Null hypothesis | Your decision rule or notes |
+|---|---|---|---|---|
+| Examine direction and strength of a linear relationship | 2 quantitative variables | Pearson correlation: `cor.test(x, y, method = "pearson")` | $H_0: \rho = 0$ |  |
+| Examine a monotonic relationship when rank correlation is appropriate | 2 variables that can be ranked | Spearman correlation: `cor.test(x, y, method = "spearman")` | $H_0: \rho_s = 0$ |  |
+| Estimate linear change in an outcome | Quantitative outcome and quantitative predictor | Simple linear regression: `slr(y ~ x)` | $H_0: \beta_1 = 0$ |  |
+| Examine a trend over time | Aggregated quantitative outcome and ordered date or time variable | Simple linear regression: `slr(y ~ time)` | $H_0: \beta_1 = 0$ |  |
+
+Explain the difference between correlation and a causal claim.
+
+*Your response:*
+
+---
+
+## 4) Read the results object
+
+Consider this example result:
+
+```text
+t(250.94) = 0.619, p = 0.537, r = 0.039, bf10 = 0.364
+```
+
+Complete the table.
+
+| Output | What it measures | How it contributes to the conclusion | What it does not establish |
+|---|---|---|---|
+| Test statistic and degrees of freedom |  |  |  |
+| `p = 0.537` |  |  |  |
+| `r = 0.039` |  |  |  |
+| `bf10 = 0.364` |  |  |  |
+
+How would your interpretation change if the p-value were small but the effect
+size remained close to 0?
+
+*Your response:*
+
+---
+
+## 5) Use method-specific follow-up evidence
+
+### One-way ANOVA
+
+Why is post-hoc analysis needed after a statistically significant omnibus
+ANOVA result? When should post-hoc comparisons not be interpreted?
+
+*Your response:*
+
+### Chi-square analysis
+
+What do standardized residuals reveal after a chi-square test? Record the
+course rule of thumb used to identify cells that contribute meaningfully to the
+overall result.
+
+*Your response:*
+
+### Simple linear regression
+
+List the model and data considerations you should check before making a
+practical claim from a linear regression.
+
+1.
+2.
+3.
+4.
+
+---
+
+## 6) Connect results to the five-step process
+
+Choose one method from this guide and outline a complete analysis.
+
+1. **Statistical story:**
+
+2. **Estimate or plot:**
+
+3. **Test and hypotheses:**
+
+4. **Statistical interpretation:**
+
+5. **Practical interpretation:**
+
+## Completion checklist
+
+- [ ] I matched each analytical story to a test and function.
+- [ ] I recorded a null hypothesis for each method family.
+- [ ] I distinguished statistical evidence, effect size, and Bayes-factor evidence.
+- [ ] I completed the method-specific follow-up notes.
+- [ ] I outlined one complete five-step analysis.
+

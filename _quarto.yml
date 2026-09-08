@@ -2,6 +2,34 @@
 project:
   type: website
   output-dir: _site
+  post-render:
+    - scripts/render_section_syllabi.R
+  render:
+    # Public course-site sources only. Canvas-native content, data publishing
+    # documentation, development notes, instructor versions, and standalone
+    # assignment-repository sources must not be discovered automatically.
+    - index.qmd
+    - datasets/*.qmd
+    - syllabus/*.qmd
+    - admin/final/Practice_Practicum_Guidelines.qmd
+    - admin/final/Practice_Practicum_Prompt.qmd
+    - admin/final/Practicum_Prompt.qmd
+    - week*/week_*.qmd
+    - "!week*/week_*_DEP.qmd"
+    - week*/Homework_*.qmd
+    - "!week*/Homework_*_assignment.qmd"
+    - week*/Guided_Notes*.qmd
+    - week*/interpretation*.qmd
+    - week*/readings/*.qmd
+    - week08/other_effects.qmd
+    - week03/labs/lab-3-hints.qmd
+  resources:
+    # Shared lab downloads are published once with the course website and used
+    # by every Canvas section.
+    - week01/lab-prep/data/olist_orders_sample.csv
+    - week02/labs/data/Lab_02_NFL_Files.zip
+    - week03/lab-prep/Lab_03_Chart_Practice.xlsx
+    - week03/labs/data/chicago_traffic_crashes_sample.csv
   preview:
     browser: true
 
@@ -12,7 +40,31 @@ website:
       - text: "Home"
         file: index.qmd
       - text: "Syllabus"
-        file: syllabus/syllabus.qmd
+        menu:
+          - text: "Section 4"
+            href: syllabus_section_4.html
+          - text: "Section 11"
+            href: syllabus_section_11.html
+          - text: "Section 12"
+            href: syllabus_section_12.html
+      - text: "Datasets"
+        menu:
+          - text: "Dataset Catalog"
+            file: datasets/index.qmd
+          - text: "Chicago Traffic Crashes"
+            file: datasets/chicago-traffic.qmd
+          - text: "U.S. Airline Marketplace"
+            file: datasets/airline.qmd
+          - text: "NFL Games and Plays"
+            file: datasets/nfl.qmd
+          - text: "Olist Marketplace"
+            file: datasets/olist.qmd
+          - text: "Synthetic Health Records"
+            file: datasets/health.qmd
+          - text: "Legacy U.S. Accidents Sample"
+            file: datasets/legacy-traffic.qmd
+          - text: "Legacy CMS Inpatient Charges"
+            file: datasets/legacy-hospital.qmd
       - text: "Slides"
         menu:
           - text: "Week 1"
@@ -32,54 +84,6 @@ website:
           - text: "Week 12"
             file: week12/week_12.qmd
             
-      - text: "Interpretation"
-        menu:
-          - text: "Chi-square Tests"
-            file: week07/interpretation_x2.qmd
-          - text: "t-Tests & Wilcoxon Tests"
-            file: week08/interpretation_tw.qmd
-          - text: "ANOVA & Simple Linear Regression"
-            file: week09/interpretation_anlr.qmd
-      - text: "Homework"
-        menu:
-          - text: "Homework 1"
-            file: week01/Homework_01.qmd
-          - text: "Homework 2"
-            file: week02/Homework_02.qmd
-          - text: "Homework 3"
-            file: week03/Homework_03.qmd
-          - text: "Homework 4"
-            file: week04/Homework_04.qmd
-          - text: "Homework 5"
-            file: week06/Homework_05.qmd
-          - text: "Homework 6"
-            file: week07/Homework_06.qmd
-          - text: "Homework 7"
-            file: week08/Homework_07.qmd
-          - text: "Homework 8"
-            file: week09/Homework_08.qmd
-      - text: "Project 1"
-        menu:
-          - text: "Project Prompt"
-            file: syllabus/project_1_prompt.qmd
-          - text: "Project Timeline"
-            file: syllabus/project_1_timeline.qmd
-          - text: "In Person Presentation"
-            file: syllabus/project_1_presentation_in_person.qmd
-          - text: "Peer Review"
-            file: week09/week_09.qmd
-      - text: "Project 2"
-        menu:
-          - text: "Project Prompt"
-            file: syllabus/project_2_prompt.qmd
-      - text: "Practicum"
-        menu:
-          - text: "Rubric and Guidelines"
-            file: admin/final/Practice_Practicum_Guidelines.qmd
-          - text: "Practice Practicum"
-            file: admin/final/Practice_Practicum_Prompt.qmd
-          - text: "Final Practicum"
-            file: admin/final/Practicum_Prompt.qmd
 
 format:
   html:

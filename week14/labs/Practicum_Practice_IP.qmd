@@ -1,0 +1,75 @@
+---
+title: "Practice Practicum"
+subtitle: "In-Person Sections"
+format:
+  typst:
+    toc: false
+    papersize: us-letter
+    fontsize: 10pt
+    linestretch: 1
+    margin:
+      x: 1in
+      y: 1in
+    number-sections: false
+    page-numbering: "1"
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(eco230r)
+library(knitr)
+```
+
+## Purpose
+
+Use this practice project to rehearse the applied-analysis portion of the final.
+Read `prompt/Practice_Practicum_Prompt.qmd` and
+`prompt/Practice_Practicum_Guidelines.qmd` before beginning.
+
+## Load the dataset
+
+```{r}
+student_athletes <- read_csv(
+  "data/studentathletes.csv",
+  show_col_types = FALSE
+)
+
+glimpse(student_athletes)
+```
+
+State the unit of analysis and identify which fields address the question you
+selected from the prompt.
+
+*Your response:*
+
+## Analysis
+
+Build at least one appropriate table, one graph, and one hypothesis test. Keep
+the analysis focused on one question if that produces a clearer result.
+
+```{r}
+
+```
+
+## Findings and limitations
+
+Summarize the most useful findings and important limitations in concise bullet
+points for the decision maker described in the prompt.
+
+- Finding:
+- Finding:
+- Limitation:
+
+## Completion checklist
+
+- [ ] I used at least two required software tools.
+- [ ] I created a table, graph, and appropriate hypothesis test.
+- [ ] I interpreted the result in context.
+- [ ] I identified at least one limitation.
+- [ ] I rendered `Practicum_Practice_IP.pdf`.

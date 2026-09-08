@@ -1,0 +1,66 @@
+---
+title: "Data Sources"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Where data come from
+
+Data may be created as part of an organization's normal operations, collected
+specifically to answer a question, or obtained from an outside source.
+
+### Process-generated and administrative data
+
+Organizations routinely create data through their operations, including:
+
+- sales transactions and inventory records;
+- customer, employee, payroll, and accounting systems;
+- website traffic and marketing-platform activity;
+- patient encounters and appointment systems; and
+- student enrollment and course records.
+
+These data were often created to run a process rather than to support the
+analyst's current question. Definitions, missing values, repeated records, and
+changes in business rules require careful review.
+
+### Purpose-generated data
+
+Surveys, experiments, interviews, observations, and measurements can be
+designed specifically for a research or business question. Purpose-generated
+data provide more control over what is measured, but collection choices can
+introduce sampling, nonresponse, measurement, or response bias.
+
+### Secondary and external data
+
+Analysts also reuse data collected by governments, nonprofits, researchers,
+vendors, and public platforms. Examples include the Census Bureau, economic
+agencies, transportation departments, and open-data portals. Before using an
+external dataset, inspect its provenance, definitions, time coverage, license,
+and update schedule.
+
+## Structured and unstructured data
+
+**Structured data** are organized into defined fields, commonly rows and
+columns in a spreadsheet, database table, or Parquet file. **Unstructured data**
+include free text, images, audio, video, email, and other content without a
+single tabular schema.
+
+ECO 230 primarily uses structured data. Some course datasets are large, messy,
+or assembled from several tables, but size alone does not make data
+unstructured.
+
+## Questions to ask before analysis
+
+1. Who created the data, and for what original purpose?
+2. What does one row represent?
+3. Which people, places, events, or time periods are included or excluded?
+4. How were variables defined and measured?
+5. What transformations occurred before you received the file?
+6. Are there privacy, licensing, or redistribution restrictions?

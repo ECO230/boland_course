@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "dataset_id": "nfl_complete_2021_2025",
+  "release_version": "2026-fall-v1",
+  "filter": "2025 regular-season games involving MIN",
+  "join_key": "game_id",
+  "source_urls": {
+    "games": "https://data.60land.com/project1/2026-fall/v1/nfl/nfl_games.parquet",
+    "plays": "https://data.60land.com/project1/2026-fall/v1/nfl/nfl_plays.parquet"
+  },
+  "artifacts": [
+    {
+      "filename": "nfl_games.csv",
+      "rows": 17,
+      "sha256": "5933099a959f2fb3123c811946e2dd060774685074a0b1c7098cc93228906379"
+    },
+    {
+      "filename": "nfl_plays.csv",
+      "rows": 2791,
+      "sha256": "ec199625f3997730434f7e9e2b0a9dc3d796b782c75517c764da84a9ae52199c"
+    }
+  ]
+}

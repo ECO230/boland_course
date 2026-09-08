@@ -1,0 +1,197 @@
+---
+title: "Guided Notes 7: Machine Learning and Experimental Research"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+    anchor-sections: true
+    smooth-scroll: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+Use this guide with the Week 13 readings, videos, demonstrations, and lecture.
+It connects advanced analytics and machine-learning concepts to the design
+choices that make causal evidence more or less credible.
+
+Keep the completed guide as a reference for Project 2, quizzes, and the final.
+:::
+
+## Objectives
+
+- distinguish descriptive, diagnostic, predictive, and prescriptive analytics;
+- explain how training data, test data, features, and labels are used;
+- compare classification, clustering, and regression tasks;
+- explain generalization, overfitting, and model validation;
+- identify treatments, outcomes, controls, confounds, and demand characteristics;
+- compare common experimental and quasi-experimental designs; and
+- distinguish internal validity from external validity.
+
+## Resources
+
+- the Week 13 slides in Canvas
+- [TensorFlow Playground](https://playground.tensorflow.org/)
+- the Week 13 machine-learning videos and readings in Canvas
+
+## 1) Climb the analytics ladder
+
+Complete the table using one business problem as a running example.
+
+| Type of analytics | Question it answers | Typical output | Example using your business problem |
+|---|---|---|---|
+| Descriptive | What happened? |  |  |
+| Diagnostic | Why did it happen? |  |  |
+| Predictive | What is likely to happen? |  |  |
+| Prescriptive | What should we do? |  |  |
+
+Why does moving up the analytics ladder usually require stronger assumptions
+or additional information?
+
+*Your response:*
+
+---
+
+## 2) Connect regression to machine learning
+
+| Concept | Define or describe | Example |
+|---|---|---|
+| Outcome or target |  |  |
+| Predictor or feature |  |  |
+| Simple linear regression |  |  |
+| Multiple regression |  |  |
+| Feature engineering |  |  |
+
+What is the difference between simple and multiple regression analysis? What
+additional decisions and risks appear when a model includes several features?
+
+*Your response:*
+
+---
+
+## 3) Prepare data for a model
+
+Explain the role of each part of a supervised machine-learning workflow.
+
+| Term | Role in the workflow | Risk if handled poorly |
+|---|---|---|
+| Labeled data |  |  |
+| Training data |  |  |
+| Test data |  |  |
+| Validation or tuning data |  |  |
+| Features |  |  |
+
+Why must the test data remain separate from the data used to fit or tune the
+model?
+
+*Your response:*
+
+---
+
+## 4) Compare model tasks
+
+| Task | Typical outcome | Supervised or unsupervised? | Business application |
+|---|---|---|---|
+| Regression |  |  |  |
+| Classification |  |  |  |
+| Clustering |  |  |  |
+
+Write one classification example and one clustering example. For each, state
+what one row represents and what information the model receives.
+
+*Classification example:*
+
+*Clustering example:*
+
+---
+
+## 5) Judge model performance
+
+Define the following terms in plain language.
+
+| Concept | Meaning | Evidence or diagnostic |
+|---|---|---|
+| Generalization |  |  |
+| Overfitting |  |  |
+| Underfitting |  |  |
+| Training loss |  |  |
+| Test loss |  |  |
+
+Use TensorFlow Playground to fit a model. Record the dataset, features, hidden
+layers, and training/test split you used. Then describe what happened to
+training and test loss as the model became more complex.
+
+*Your response:*
+
+---
+
+## 6) Identify the logic of an experiment
+
+For an experiment discussed in class, identify each component.
+
+| Component | Definition | Example from the experiment |
+|---|---|---|
+| Treatment or independent variable |  |  |
+| Outcome or dependent variable |  |  |
+| Experimental group |  |  |
+| Control or comparison group |  |  |
+| Random assignment |  |  |
+| Extraneous variable |  |  |
+| Confounding variable |  |  |
+
+Why does a control group help estimate what would have happened without the
+treatment?
+
+*Your response:*
+
+---
+
+## 7) Protect the validity of an experiment
+
+| Threat or goal | Define or describe | Example or mitigation |
+|---|---|---|
+| Demand characteristics |  |  |
+| Internal validity |  |  |
+| External validity |  |  |
+| Blinding |  |  |
+| Random assignment |  |  |
+
+Explain why a study can have strong internal validity but limited external
+validity.
+
+*Your response:*
+
+---
+
+## 8) Compare research designs
+
+Complete the table. State what each design adds and which alternative
+explanations can remain.
+
+| Design | Groups and measurements | Main strength | Important limitation |
+|---|---|---|---|
+| One-shot design |  |  |  |
+| One-group pretest-posttest |  |  |  |
+| Static-group comparison |  |  |  |
+| Pretest-posttest control group |  |  |  |
+| Posttest-only control group |  |  |  |
+| Factorial design |  |  |  |
+
+Draw or describe the strongest design you could realistically use to evaluate
+one business intervention. Identify the treatment, control condition, outcome,
+assignment process, and timing of measurements.
+
+*Your response:*
+
+## Completion checklist
+
+- [ ] I distinguished the four types of analytics.
+- [ ] I explained the roles of training, validation, and test data.
+- [ ] I compared regression, classification, and clustering.
+- [ ] I connected generalization to evidence from new data.
+- [ ] I identified the components and validity threats of an experiment.
+- [ ] I compared common experimental and quasi-experimental designs.
+

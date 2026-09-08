@@ -1,0 +1,130 @@
+---
+title: "Guided Notes 3: Data Visualization"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+Use this guide with the Week 3 readings and class activities. Your completed
+notes should help you choose a visualization that matches the analytical
+question and explain the design choices that make it easier to interpret.
+:::
+
+## Objectives
+
+- match common analytical questions to appropriate chart types;
+- distinguish comparison, composition, distribution, time, and relationship
+  views;
+- evaluate visual encodings, ordering, color, labels, and clutter;
+- identify misleading or unnecessary design choices; and
+- justify a visualization for a specific audience and purpose.
+
+## Resources
+
+- [Week 3 slides](week_03.qmd)
+- [Interpreting Data Visualizations](readings/advanced-interpretation.qmd)
+- the assigned Week 3 readings and graph-choice resources in Canvas
+
+::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
+This work is graded for thoughtful completion. Write enough to show why a chart
+or design choice fits the question; a chart name by itself is incomplete.
+:::
+
+## 1) Design for quick, accurate interpretation
+
+Complete the table with a practical rule and one reason it matters.
+
+| Design choice | Practical rule | Why it matters |
+|---|---|---|
+| Descriptive title |  |  |
+| Axes, units, and labels |  |  |
+| Ordering and sorting |  |  |
+| Color |  |  |
+| Gridlines, legends, and decoration |  |  |
+| Font and text size |  |  |
+
+Explain what *chart junk* means and give 2 examples.
+
+---
+
+## 2) Compare effective and ineffective choices
+
+For each visual form, record one useful practice and one common problem.
+
+| Visual form or feature | Useful practice | Common problem |
+|---|---|---|
+| Bar chart |  |  |
+| Line chart |  |  |
+| Scatterplot |  |  |
+| Use of color |  |  |
+| 3D effects |  |  |
+
+Why can a graph that is technically correct still be difficult or misleading
+to interpret?
+
+---
+
+## 3) Evaluate part-to-whole displays
+
+List at least 3 reasons pie charts are often difficult to read accurately.
+
+1. Reason:
+2. Reason:
+3. Reason:
+
+Describe one situation in which a part-to-whole display is appropriate. State
+the denominator and explain how you would verify that the displayed parts sum
+to 100%.
+
+---
+
+## 4) Match the question to the chart
+
+Complete the missing chart choices and notes. More than one chart may be
+defensible, but your choice must match the variables and comparison.
+
+| Message or question | Chart choice | Data and design notes |
+|---|---|---|
+| Frequency distribution of categories |  | Use counts or percentages; order categories intentionally. |
+| Ranking or nominal comparison |  | Use at least one categorical variable and a count or quantitative summary. |
+| Part-to-whole |  | Define one whole; percentages must total 100%. |
+| Distribution of one quantitative variable |  | Show shape, center, spread, and unusual values. |
+| Change over time |  | Put time on the horizontal axis and preserve chronological order. |
+| Relationship between 2 quantitative variables |  | Each mark should represent a meaningful observational unit. |
+
+---
+
+## 5) Justify one choice
+
+Choose a question from a current ECO 230 dataset. In 4-6 sentences:
+
+1. state the question and intended audience;
+2. name the variables and their measurement types;
+3. select a chart and explain why its visual encoding fits the comparison;
+4. identify 2 design decisions you would apply; and
+5. name one limitation the visualization would not resolve.
+
+## Submission
+
+Submit your completed notes in Canvas. Upload the completed document or legible
+scans or photographs of handwritten pages in one of the file formats permitted
+by the Canvas assignment.
+
+## Checklist
+
+- [ ] I completed all 5 sections.
+- [ ] I explained why each chart or design choice fits the question.
+- [ ] I identified a denominator for the part-to-whole example.
+- [ ] I distinguished what a visualization shows from what it cannot establish.
+
+## Grading focus
+
+Credit is based on complete, accurate notes that connect analytical questions,
+variable types, visual encodings, and design choices.

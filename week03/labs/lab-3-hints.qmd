@@ -1,0 +1,148 @@
+---
+title: "Lab 3 Hints"
+subtitle: "Building and checking seven Chicago traffic-crash views"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## How to use this guide
+
+This page explains the analytical structure of each view rather than depending on screenshots from one Tableau version. Field pills may appear in slightly different places, but the role of each field is stable.
+
+The examples use the classroom extract of the Chicago traffic crash analysis
+table. It contains one row per crash. Confirm each field's data type before
+building a view:
+
+- dimensions such as `primary_contributory_cause`, `most_severe_injury`,
+  `time_period`, and `reported_weather_condition`;
+- measures such as `injuries_total`, `temperature_f`, `dew_point_f`, and
+  `visibility_miles`;
+- date/time fields such as `crash_datetime`, `crash_year`, and `crash_month`;
+  and
+- geographic coordinates `latitude` and `longitude`.
+
+::: {.callout-important}
+## Start with the question
+
+Do not copy a shelf arrangement without understanding it. For every view, say what one mark represents and whether Tableau is showing a count, sum, or average.
+:::
+
+## 1. Ranking
+
+**Question:** Which primary contributory causes appear most often?
+
+1. Place `primary_contributory_cause` on Rows.
+2. Place the row count measure on Text.
+3. Sort descending by the count.
+4. Exclude missing and not-applicable values.
+5. Apply a Top 10 filter.
+
+**Check:** The values should be integer record counts. If Tableau displays `SUM(Number of Records)`, that is the count of rows at the current grain.
+
+## 2. Nominal comparison
+
+**Question:** How does average injury count compare across the selected causes?
+
+1. Keep the same selected causes from the ranking view.
+2. Place `primary_contributory_cause` on Rows.
+3. Place `injuries_total` on Columns.
+4. Change the measure aggregation to **Average**.
+5. Use bars and sort by the average.
+
+**Check:** The axis should say average injuries per crash, not total injuries.
+Because most crashes have no reported injury, also inspect the distribution and
+the number of crashes in each group.
+
+## 3. Time series
+
+**Question:** How does crash count change over time?
+
+1. Confirm that `crash_datetime` is a recognized date/time field.
+2. Place `crash_datetime` on Columns and choose a chronological month or
+   year-month level.
+3. Place the row count on Rows.
+4. Use line marks and filter the date range if the full view is too dense.
+
+**Check:** Determine whether the date pill is discrete or continuous. A continuous date creates a time axis; a discrete date creates headers. Do not connect unrelated categories with a line.
+
+## 4. Part-to-whole comparison
+
+**Question:** Within each time period, what share of crashes falls in each most-severe-injury category?
+
+1. Place `time_period` and `most_severe_injury` on Columns.
+2. Place the row count on Rows.
+3. Place `most_severe_injury` on Color.
+4. Apply a **Percent of Total** table calculation if percentages are required.
+5. Set the calculation direction so the percentages total 100% **within each
+   time period**.
+
+**Check:** Add the percentages for one time period. If they do not total
+approximately 100%, the table calculation is addressing the wrong direction or
+partition.
+
+## 5. Scatterplot
+
+**Question:** How are observed temperature and dew point related?
+
+1. Place `temperature_f` on Columns.
+2. Place `dew_point_f` on Rows.
+3. Place `weather_station_name` on Color or Filter.
+4. Add `crash_record_id` to Detail, or turn off aggregate measures, so a mark
+   represents a crash rather than one overall average.
+5. Use transparency or a narrower date filter if overplotting hides the pattern.
+
+**Check:** Many crashes can share the same hourly airport observation. A dense
+cluster does not mean each crash received an independent weather measurement.
+If the view contains only one or two marks, Tableau is aggregating the data.
+
+## 6. Distribution
+
+**Question:** How does visibility differ across reported weather conditions?
+
+1. Filter `reported_weather_condition` to several meaningful categories.
+2. Place `reported_weather_condition` on Rows.
+3. Place `visibility_miles` on Columns.
+4. Add a box plot from the Analytics pane or Show Me, or create separate
+   histograms using consistent bins.
+5. Keep individual marks visible when useful for seeing unusual values.
+
+**Check:** Compare medians, IQRs, and overlap. The officer-reported condition
+and airport observation are related but distinct measures; neither is a direct
+measurement at the exact crash location.
+
+## 7. Map
+
+**Question:** Where are crashes in the selected analytical subset located?
+
+1. Assign `longitude` to Columns and `latitude` to Rows.
+2. Use a map or circle mark.
+3. Add `crash_record_id` to Detail so separate crashes remain separate marks.
+4. Place a meaningful category on Color only if it supports the question.
+5. Filter to a manageable date, cause, injury, or geographic subset.
+
+**Check:** Latitude belongs on Rows and longitude on Columns. Explain what the
+filter removes; a filtered map does not show the distribution of all crashes.
+
+## Final quality check
+
+- Give every sheet a question-based title.
+- Include units in axes and tooltips.
+- Confirm every aggregation: count, sum, average, or percentage.
+- Verify filters apply to the intended worksheets.
+- Use consistent colors for the same categories across views.
+- Avoid interpreting unavailable or missing values as a known outcome.
+- Test at least one tooltip against the source row.
+
+## Background
+
+This accessible guide replaces the legacy `Lab3_Hints.pptx` screenshots. It
+preserves the intended chart-building practice while using the current Chicago
+traffic crash analysis extract and making the reasoning and verification steps
+explicit.

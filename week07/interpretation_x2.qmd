@@ -48,16 +48,17 @@ Comparing Categorical Variables
 
 ```{r setup, include=FALSE}
 library(dplyr)
+library(tidyr)
 library(stringr)
 library(purrr)
 library(eco230r)
 library(here)
 library(readr)
 
-get("t_tall", envir = asNamespace("eco230r"))
-get("t_wide", envir = asNamespace("eco230r"))
-get("tea_tab", envir = asNamespace("eco230r"))
-get("napData", envir = asNamespace("eco230r"))
+load(system.file("data", "t_tall.Rda", package = "eco230r"))
+load(system.file("data", "t_wide.Rda", package = "eco230r"))
+load(system.file("data", "tea_tab.Rda", package = "eco230r"))
+load(system.file("data", "napData.Rda", package = "eco230r"))
 
 ```
 

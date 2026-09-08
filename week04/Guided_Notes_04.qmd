@@ -1,0 +1,137 @@
+---
+title: "Guided Notes 4: Communicating Data"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+Use this guide with the Week 4 readings and class activities. The goal is to
+turn descriptive statistics and visuals into a clear story that a specific
+audience can understand and act on.
+:::
+
+## Objectives
+
+- identify the central message in a quantitative story;
+- reduce unnecessary cognitive load in writing and slides;
+- make important comparisons visually and verbally obvious;
+- provide context that gives a number meaning; and
+- adapt statistical communication for a nontechnical business audience.
+
+## Resources
+
+- [Week 4 slides](week_04.qmd)
+- the Week 4 communication readings in Canvas
+- [Homework 4: Project Story Planning](Homework_04.qmd)
+
+::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
+This work is graded for thoughtful completion. Define each idea in your own
+words and use an example that shows how you would apply it.
+:::
+
+## Big picture
+
+In 2-3 sentences, explain what it means to turn descriptive statistics and
+visuals into a story someone can act on.
+
+---
+
+## 1) One message directs attention
+
+| Concept | Source | What it means in your words | Example or application |
+|---|---|---|---|
+| Salience | Stephen Few |  |  |
+| Headline or lead | UNECE, *Making Data Meaningful* |  |  |
+| Inverted pyramid | UNECE, *Making Data Meaningful* |  |  |
+| Claim rather than topic | Statistical narrative |  |  |
+
+Write one topic-style title and revise it into a takeaway-first headline.
+
+---
+
+## 2) Reduce cognitive load
+
+| Concept | Source | What it means in your words | Example or application |
+|---|---|---|---|
+| Cognitive load | Cognitive psychology |  |  |
+| Short sentences and paragraphs | UNECE, *Making Data Meaningful* |  |  |
+| Everyday language | UNECE, *Making Data Meaningful* |  |  |
+| One main idea per paragraph or slide | Business communication |  |  |
+
+Name one detail you would remove from an overloaded slide and one detail you
+would keep. Explain the difference.
+
+---
+
+## 3) Make differences obvious
+
+| Concept | Source | What it means in your words | Example or application |
+|---|---|---|---|
+| Discriminability | Stephen Few |  |  |
+| Informative change | Stephen Few |  |  |
+| Consistent denominators | UNECE, *Making Data Meaningful* |  |  |
+| Rates and rounded numbers | UNECE, *Making Data Meaningful* |  |  |
+
+Describe one comparison that would become misleading if its groups used
+different denominators.
+
+---
+
+## 4) Context creates meaning
+
+| Concept | Source | What it means in your words | Example or application |
+|---|---|---|---|
+| Relevance | UNECE, *Making Data Meaningful* |  |  |
+| Focus on people | UNECE, *Making Data Meaningful* |  |  |
+| Appropriate background knowledge | Business communication |  |  |
+| Actionable insight | Stephen Few |  |  |
+
+Choose one number from a current course dataset. Identify the comparison,
+benchmark, time period, population, or other context an audience would need
+before deciding whether that number is large, small, good, or bad.
+
+---
+
+## 5) Connect the principles
+
+Choose one concept from the tables above and explain how it supports at least 2
+of the four principles.
+
+- Concept:
+- First principle and connection:
+- Second principle and connection:
+
+---
+
+## 6) Apply the ideas to Homework 4
+
+- Possible project story:
+- Intended decision maker:
+- Most important communication principle for this story:
+- One reading concept that would improve the story:
+- One visual or comparison that would support the message:
+
+## Submission
+
+Submit your completed notes in Canvas. Upload the completed document or legible
+scans or photographs of handwritten pages in one of the file formats permitted
+by the Canvas assignment.
+
+## Checklist
+
+- [ ] I completed all 6 sections.
+- [ ] I defined concepts in my own words.
+- [ ] I included an audience and decision context.
+- [ ] I connected the notes to a possible Project 1 story.
+
+## Grading focus
+
+Credit is based on complete, accurate notes that connect communication
+principles to specific writing, visual, and presentation decisions.

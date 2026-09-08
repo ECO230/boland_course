@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "purpose": "In-class Lab 3 visualization dataset",
+  "dataset_id": "chicago_traffic_crashes_2018_2025",
+  "release_version": "2026-fall-v1",
+  "source_url": "https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_crash_analysis.parquet",
+  "sampling": "Deterministic 12,000-row sample ordered by crash-record-key hash; source identifiers replaced with sample-local crash IDs",
+  "limitations": "Sample counts are suitable for learning visualization techniques but are not official Chicago crash totals.",
+  "artifact": {
+    "filename": "chicago_traffic_crashes_sample.csv",
+    "rows": 12000,
+    "sha256": "bdb45877b36f4e117a40d20fb8427b7cd43e1fb1326d17178f90b3a7657ec45f"
+  }
+}

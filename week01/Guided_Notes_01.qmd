@@ -1,0 +1,122 @@
+---
+title: "Guided Notes 1: Data Literacy"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+Use this guide while completing the Week 1 readings and participating in class.
+Your notes should help you recognize common data-structure mistakes before you
+begin calculating statistics.
+:::
+
+## Objectives
+
+- identify the unit of analysis and grain;
+- distinguish observations, variables, values, and identifiers;
+- evaluate whether a table follows tidy-data principles;
+- distinguish dimensions from measures; and
+- classify variables using appropriate measurement scales.
+
+## Resources
+
+- Week 1 slides
+- [What Is Data Literacy?](readings/data-literacy.qmd)
+- [Data Literacy Terminology](readings/data-literacy-terminology.qmd)
+- [Data Sources](readings/data-sources.qmd)
+- [Understanding Data](readings/understanding-data.qmd)
+
+::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
+This work is graded for thoughtful completion. Record definitions in your own
+words and add examples from the readings, class discussion, or course datasets.
+:::
+
+## 1) What can go wrong before statistics?
+
+Record at least 3 examples of decisions that can make an analysis incorrect
+before a statistical method is selected.
+
+*Your notes:*
+
+
+## 2) Define the row
+
+Complete the statements below for an example discussed in class.
+
+- **Dataset:**
+- **One row represents:**
+- **Unit of analysis:**
+- **Why the grain matters:**
+
+Add one example in which confusing the grain would produce a misleading result.
+
+## 3) Describe structured data elements
+
+| Concept | Definition in your own words | Example |
+|---|---|---|
+| Observation |  |  |
+| Variable |  |  |
+| Value |  |  |
+| Identifier |  |  |
+| Unit of analysis / grain |  |  |
+
+## 4) Explain tidy data
+
+State the core tidy-data principles. Then describe one problem caused by a
+table that violates them.
+
+*Your notes:*
+
+
+## 5) Distinguish dimensions and measures
+
+- **Dimensions:** categories or identifiers used to group, filter, or label
+  observations.
+- **Measures:** numeric values that can be meaningfully summarized.
+
+Record at least 2 examples of each from a course dataset.
+
+## 6) Classify measurement scales
+
+| Scale | Definition | Useful summaries | Example | Invalid or misleading calculation |
+|---|---|---|---|---|
+| Nominal |  |  |  |  |
+| Binary |  |  |  |  |
+| Ordinal |  |  |  |  |
+| Interval |  |  |  |  |
+| Ratio |  |  |  |  |
+
+## 7) Identify common analysis mistakes
+
+For each mistake, explain how you would detect or prevent it:
+
+- wrong unit of analysis;
+- wrong data structure;
+- wrong variable type;
+- incorrect aggregation; and
+- assuming a field means something without checking its documentation.
+
+## Submission
+
+Submit your completed notes in Canvas using one of the formats allowed by the
+assignment. Typed notes, a completed document, or legible scans of handwritten
+pages are acceptable unless Canvas states otherwise.
+
+## Checklist
+
+- [ ] I defined the row and unit of analysis.
+- [ ] I completed the terminology and measurement-scale tables.
+- [ ] I included examples from course data.
+- [ ] I explained how to detect common data mistakes.
+
+## Grading focus
+
+Credit is based on complete, course-relevant notes that demonstrate your own
+reasoning. Definitions copied without examples or explanation are incomplete.

@@ -11,23 +11,7 @@ execute:
   message: false
 ---
 
-```{r}
-#| include: false
-library(tidyverse)
-library(tidyr)
-library(eco230r)
-library(ggplot2)
-library(knitr)
-library(Hmisc)
-load("grading_1.RData")
-load("grading_2.RData")
-# I'm going to turn off scientific notation:
-options(scipen = 999)
-# If you want to turn it back on you can uncomment and run this line:
-# options(scipen = 0)
-```
-
-## ECO 230 PRACTICUM - SPRING 2026
+## ECO 230 PRACTICUM
 
 *This prompt is for the Practicum portion of your final exam. Please review it carefully before you arrive for the exam. The scenario and data description are included here. You will receive the actual data at the start of the exam period. This exercise is open note, book, Google etc., but is not a team exercise. You must complete your work without communicating with others. However, you are welcome to discuss the prompt and your strategy with others before class. The rubric does include points for originality of work.*
 
@@ -73,11 +57,20 @@ Upload your knit RMarkdown .pdf, your Excel ***Workbook (.xlsx)*** and/or your T
 :::
 
 ::: {.callout-note title="Formal Grading Criteria: The Practicum Counts for 40% of Your Final Exam Grade"}
-```{r}
-kable(grading_1)
-```
+| Basic criterion | If yes | If no |
+|---|---|---:|
+| At least one graph, one table, and one hypothesis test | Continue grading | 30/100 |
+| Bullet-point interpretations are generally correct | Continue grading | 50/100 |
+| At least two software tools are used | Continue grading | 60/100 |
+| The graph is appropriate for the data | Continue grading | 65/100 |
+| The statistical test is appropriate for the data | Continue grading | 65/100 |
+| The analysis is related to the prompt | Continue grading | 65/100 |
 
-```{r}
-kable(grading_2)
-```
+| Additional criterion | Points |
+|---|---:|
+| Data visualization best practices | 0-10 |
+| Excel workbook organization | 0-5 |
+| R code organization and annotation | 0-5 |
+| Statistical interpretation is clear and correct | 0-5 |
+| Originality of the approach | 0-10 |
 :::

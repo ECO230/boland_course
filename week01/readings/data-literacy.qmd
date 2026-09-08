@@ -1,0 +1,51 @@
+---
+title: "What Is Data Literacy?"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Working definition
+
+Data literacy is the ability to **read, work with, analyze, and communicate
+with data to inform decisions**. It includes understanding what data represent,
+choosing appropriate methods, recognizing limitations, and explaining results
+to an audience.
+
+In ECO 230, data literacy includes the ability to:
+
+1. identify the source, structure, and unit of analysis of a dataset;
+2. distinguish variable types and levels of measurement;
+3. choose appropriate descriptive summaries and introductory inferential
+   methods;
+4. select and create effective, ethical data visualizations;
+5. interpret statistical output in context; and
+6. communicate evidence clearly in writing, visuals, and presentations.
+
+## Data literacy in the workplace
+
+Effective analysts combine three kinds of knowledge:
+
+- **subject-matter knowledge** to ask useful questions and recognize implausible
+  results;
+- **statistical and technical skills** to prepare, summarize, visualize, and
+  analyze data; and
+- **communication skills** to explain what the evidence means for a decision.
+
+Data literacy also requires technological agility. Specific software will
+change, but the ability to inspect unfamiliar data, learn a new tool, verify
+results, and communicate limitations remains valuable across industries.
+
+## Scope of this course
+
+The course emphasizes descriptive and introductory inferential analysis using
+structured data. Later weeks introduce survey research, experimental design,
+and machine learning, but the central goal remains sound reasoning: understand
+the row, ask a defensible question, use an appropriate method, and communicate
+what the evidence does and does not support.
