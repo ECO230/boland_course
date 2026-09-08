@@ -137,24 +137,32 @@ if ($PublishSelectedContent) {
         }
 
         foreach ($item in $moduleItems) {
-            $contentKey = "$($item.type):$($item.content_id):$($item.page_url)"
+            $contentId = $null
+            if ($item.PSObject.Properties.Name -contains "content_id") {
+                $contentId = $item.content_id
+            }
+            $pageSlug = $null
+            if ($item.PSObject.Properties.Name -contains "page_url") {
+                $pageSlug = $item.page_url
+            }
+            $contentKey = "$($item.type):${contentId}:${pageSlug}"
             if ($publishedContentKeys.Add($contentKey)) {
                 $contentResponse = $null
                 if ($item.type -eq "Assignment") {
-                    $contentUri = "$canvasBase/api/v1/courses/$CourseId/assignments/$($item.content_id)"
+                    $contentUri = "$canvasBase/api/v1/courses/$CourseId/assignments/$contentId"
                     $contentResponse = Invoke-RestMethod -Method Put -Uri $contentUri -Headers $headers -ContentType "application/x-www-form-urlencoded" -Body @{ "assignment[published]" = "true" }
                 }
                 elseif ($item.type -eq "Page") {
-                    $pageUrl = [Uri]::EscapeDataString([string]$item.page_url)
+                    $pageUrl = [Uri]::EscapeDataString([string]$pageSlug)
                     $contentUri = "$canvasBase/api/v1/courses/$CourseId/pages/$pageUrl"
                     $contentResponse = Invoke-RestMethod -Method Put -Uri $contentUri -Headers $headers -ContentType "application/x-www-form-urlencoded" -Body @{ "wiki_page[published]" = "true" }
                 }
                 elseif ($item.type -eq "Discussion") {
-                    $contentUri = "$canvasBase/api/v1/courses/$CourseId/discussion_topics/$($item.content_id)"
+                    $contentUri = "$canvasBase/api/v1/courses/$CourseId/discussion_topics/$contentId"
                     $contentResponse = Invoke-RestMethod -Method Put -Uri $contentUri -Headers $headers -ContentType "application/x-www-form-urlencoded" -Body @{ "published" = "true" }
                 }
                 elseif ($item.type -eq "Quiz") {
-                    $contentUri = "$canvasBase/api/v1/courses/$CourseId/quizzes/$($item.content_id)"
+                    $contentUri = "$canvasBase/api/v1/courses/$CourseId/quizzes/$contentId"
                     $contentResponse = Invoke-RestMethod -Method Put -Uri $contentUri -Headers $headers -ContentType "application/x-www-form-urlencoded" -Body @{ "quiz[published]" = "true" }
                 }
 
