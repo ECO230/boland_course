@@ -77,7 +77,7 @@ assignments:
       published_url: "https://eco230.github.io/boland_course/syllabus/project_1_timeline.html"
       match_method: "course_project_rule"
   - key: "technology-set-up"
-    title: "Technology Set-Up"
+    title: "Lab 1: Technology Setup"
     group: "participation-score"
     points_possible: 10.0
     management: "repository"
@@ -85,6 +85,7 @@ assignments:
     source:
       path: "canvas/content/assignments/technology-setup.md"
       kind: "canvas_markdown_template"
+      refresh_existing: true
       match_method: "approved_canvas_native_migration"
   - key: "guided-notes-1-data-literacy"
     title: "Guided Notes 1 - Data Literacy"
@@ -721,13 +722,13 @@ modules:
         title: "Lab 1: Posit Cloud Certificate"
         position: 20
         management: "external_service"
-        publish_action: "synchronize_link"
+        publish_action: "omit_duplicate"
         source:
           kind: "posit_cloud"
           published_url: "{{ lab_01_posit_cloud_url }}"
       - key: "technology-set-up"
         type: "Assignment"
-        title: "Technology Set-Up"
+        title: "Lab 1: Technology Setup"
         position: 21
         management: "repository"
         publish_action: "synchronize"

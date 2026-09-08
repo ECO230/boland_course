@@ -5,12 +5,20 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
+import stat
 import sys
 from pathlib import Path, PurePosixPath
 
 
 FORBIDDEN_PARTS = {".git", ".Rproj.user", ".Rhistory", ".RData"}
+
+
+def remove_readonly(function, path, _error_info) -> None:
+    """Allow generated Windows checkouts with read-only Git files to rebuild."""
+    os.chmod(path, stat.S_IWRITE)
+    function(path)
 
 
 def parse_args() -> argparse.Namespace:
@@ -83,7 +91,7 @@ def main() -> int:
         planned.append((source, destination))
 
     if output_path.exists():
-        shutil.rmtree(output_path)
+        shutil.rmtree(output_path, onerror=remove_readonly)
     output_path.mkdir(parents=True)
 
     total_bytes = 0

@@ -11,7 +11,7 @@ assignments:
   final-letter-grade:
     submission_types: [none]
   homework-1-choose-your-own-data-adventure:
-    submission_types: [online_upload]
+    submission_types: [online_text_entry, online_upload]
   prep-work-analysis-plan:
     submission_types: [online_text_entry, online_upload]
   technology-set-up:

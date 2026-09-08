@@ -9,20 +9,15 @@ project:
     # documentation, development notes, instructor versions, and standalone
     # assignment-repository sources must not be discovered automatically.
     - index.qmd
-    - datasets/*.qmd
-    - syllabus/*.qmd
-    - admin/final/Practice_Practicum_Guidelines.qmd
-    - admin/final/Practice_Practicum_Prompt.qmd
-    - admin/final/Practicum_Prompt.qmd
-    - week*/week_*.qmd
-    - "!week*/week_*_DEP.qmd"
-    - week*/Homework_*.qmd
-    - "!week*/Homework_*_assignment.qmd"
-    - week*/Guided_Notes*.qmd
-    - week*/interpretation*.qmd
-    - week*/readings/*.qmd
-    - week08/other_effects.qmd
-    - week03/labs/lab-3-hints.qmd
+    - datasets/index.qmd
+    - datasets/chicago-traffic.qmd
+    - datasets/airline.qmd
+    - datasets/nfl.qmd
+    - datasets/olist.qmd
+    - datasets/health.qmd
+    - syllabus/syllabus.qmd
+    - week01/week_01.qmd
+    - week01/Homework_01.qmd
   resources:
     - shared/styles/accesibility.css
     # Shared lab downloads are published once with the course website and used
@@ -31,6 +26,13 @@ project:
     - week02/labs/data/Lab_02_NFL_Files.zip
     - week03/lab-prep/Lab_03_Chart_Practice.xlsx
     - week03/labs/data/chicago_traffic_crashes_sample.csv
+    # Homework 1 fallback downloads. These are the same deterministic samples
+    # distributed inside the Posit Cloud assignment project.
+    - shared/data/early-homework-v1/traffic_chicago_2024.csv
+    - shared/data/early-homework-v1/airline_midwest_2024.csv
+    - shared/data/early-homework-v1/olist_southeast_2017.csv
+    - shared/data/early-homework-v1/nfl_plays_2024.csv
+    - shared/data/early-homework-v1/health_wisconsin_appointments_2023_2025.csv
   preview:
     browser: true
 
@@ -62,28 +64,10 @@ website:
             file: datasets/olist.qmd
           - text: "Synthetic Health Records"
             file: datasets/health.qmd
-          - text: "Legacy U.S. Accidents Sample"
-            file: datasets/legacy-traffic.qmd
-          - text: "Legacy CMS Inpatient Charges"
-            file: datasets/legacy-hospital.qmd
-      - text: "Slides"
-        menu:
-          - text: "Week 1"
-            file: week01/week_01.qmd
-          - text: "Week 2"
-            file: week02/week_02.qmd
-          - text: "Week 3"
-            file: week03/week_03.qmd
-          - text: "Week 4"
-            file: week04/week_04.qmd
-          - text: "Week 5"
-            file: week05/week_05.qmd
-          - text: "Week 6"
-            file: week06/week_06.qmd
-          - text: "Week 7"
-            file: week07/week_07.qmd
-          - text: "Week 12"
-            file: week12/week_12.qmd
+      - text: "Week 1 Slides"
+        file: week01/week_01.qmd
+      - text: "Homework 1"
+        file: week01/Homework_01.qmd
             
 
 format:

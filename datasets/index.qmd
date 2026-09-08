@@ -29,15 +29,6 @@ your assignment; you do not need to retrieve the underlying course data.
 | [Olist Marketplace](olist.qmd) | Brazil, 2016--2018 | E-commerce, delivery, pricing, reviews, marketing funnel | 8 |
 | [Great Lakes Synthetic Health Records](health.qmd) | Simulated Wisconsin and Minnesota patients through 2025 | Appointments, satisfaction, utilization, costs, clinical operations | 18 |
 
-## Legacy backup datasets
-
-These smaller single-file datasets remain available for projects that need a simpler structure. They are suitable for backup use, but their age and scope limitations should be part of the analysis.
-
-| Dataset | Scope | Rows |
-|---|---|---:|
-| [Legacy U.S. Accidents Sample](legacy-traffic.qmd) | Nationwide 100,000-row sample | 100,000 |
-| [Legacy CMS Inpatient Charges](legacy-hospital.qmd) | FY2011 hospital and MS-DRG summaries | 163,065 |
-
 ## General joining rule
 
 Before joining two files, answer three questions:

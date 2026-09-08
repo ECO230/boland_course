@@ -7,13 +7,14 @@ format:
 
 # Welcome to ECO 230
 
-This website hosts:
+This website currently hosts:
 
--   **Syllabus**\
--   **Weekly Slides (Reveal.js)**\
--   **Homework Assignments & Handouts**\
--   Additional course materials as the semester progresses.
+-   section-specific syllabi;
+-   descriptions of the current project datasets;
+-   Week 1 slides; and
+-   the Homework 1 prompt.
 
-Use the navigation bar at the top to access each item.
+Additional weekly materials will appear as the semester progresses. Use the
+navigation bar at the top to access currently released items.
 
 If you are viewing this inside Canvas, links will open in a new window or in an embedded iframe depending on your instructor setup.

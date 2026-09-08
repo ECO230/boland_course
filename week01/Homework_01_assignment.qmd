@@ -42,7 +42,7 @@ By the end of this assignment, you will be able to:
 
 - Week 1 slides on tidy data, unit of analysis, and variable types
 - Data-description files in Canvas
-- The five `.csv` files in the `data` folder
+- The five downloadable `.csv` files listed below
 - Excel for the table and pivot-table tasks
 
 ::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
@@ -52,15 +52,16 @@ step and document any difficulty you encounter.
 
 ## 1) Choose and Download Your Dataset
 
-Choose one project dataset from the `data` folder.
+Choose one project dataset from the `data` folder. If the project files do not
+open correctly, use the fallback download links below.
 
-| Project dataset | Filename |
+| Project dataset | Download |
 |---|---|
-| Chicago traffic crashes, 2024 | `traffic_chicago_2024.csv` |
-| Midwest airport departures, 2024 | `airline_midwest_2024.csv` |
-| Brazilian marketplace orders, 2017 | `olist_southeast_2017.csv` |
-| NFL regular-season plays, 2024 | `nfl_plays_2024.csv` |
-| Synthetic Wisconsin healthcare appointments, 2023-2025 | `health_wisconsin_appointments_2023_2025.csv` |
+| Chicago traffic crashes, 2024 | [`traffic_chicago_2024.csv`](data/traffic_chicago_2024.csv) |
+| Midwest airport departures, 2024 | [`airline_midwest_2024.csv`](data/airline_midwest_2024.csv) |
+| Brazilian marketplace orders, 2017 | [`olist_southeast_2017.csv`](data/olist_southeast_2017.csv) |
+| NFL regular-season plays, 2024 | [`nfl_plays_2024.csv`](data/nfl_plays_2024.csv) |
+| Synthetic Wisconsin healthcare appointments, 2023-2025 | [`health_wisconsin_appointments_2023_2025.csv`](data/health_wisconsin_appointments_2023_2025.csv) |
 
 Download the `.csv` file from Posit Cloud and save a working copy as an Excel
 workbook (`.xlsx`).

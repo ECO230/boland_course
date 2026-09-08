@@ -46,7 +46,7 @@ You will work with real microdata, evaluate its structure, and reflect on how to
 ## Resources
 
 -   [Open Homework 1 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765400)\
--   Datasets in Posit Cloud\
+-   The five downloadable `.csv` files listed below\
 -   Data Description files on Canvas\
 -   Week 1 slides (Unit of Analysis, Tidy Data, Dimensions vs Measures)
 
@@ -59,17 +59,20 @@ Try every step. Bring questions to class. We will review solutions together.
 
 ## 1) Choose and Download Your Dataset
 
-1.  Select **one** dataset from your Posit Cloud project.\
-2.  Download it as a `.csv`.\
+1.  Select **one** dataset from your Posit Cloud project or the fallback links below.\
+2.  Download the `.csv` file.\
 3.  Save a working copy as `.xlsx`.
 
-| Dataset | Filename |
+| Dataset | Download |
 |---|---|
-| Chicago traffic crashes, 2024 | `traffic_chicago_2024.csv` |
-| Midwest airport departures, 2024 | `airline_midwest_2024.csv` |
-| Brazilian marketplace orders, 2017 | `olist_southeast_2017.csv` |
-| NFL regular-season plays, 2024 | `nfl_plays_2024.csv` |
-| Synthetic Wisconsin healthcare appointments, 2023-2025 | `health_wisconsin_appointments_2023_2025.csv` |
+| Chicago traffic crashes, 2024 | [`traffic_chicago_2024.csv`](../shared/data/early-homework-v1/traffic_chicago_2024.csv) |
+| Midwest airport departures, 2024 | [`airline_midwest_2024.csv`](../shared/data/early-homework-v1/airline_midwest_2024.csv) |
+| Brazilian marketplace orders, 2017 | [`olist_southeast_2017.csv`](../shared/data/early-homework-v1/olist_southeast_2017.csv) |
+| NFL regular-season plays, 2024 | [`nfl_plays_2024.csv`](../shared/data/early-homework-v1/nfl_plays_2024.csv) |
+| Synthetic Wisconsin healthcare appointments, 2023-2025 | [`health_wisconsin_appointments_2023_2025.csv`](../shared/data/early-homework-v1/health_wisconsin_appointments_2023_2025.csv) |
+
+Use these links if the Posit Cloud project is unavailable or does not finish
+setting up. The files are identical to the copies provided in the project.
 
 *(No written response required.)*
 
