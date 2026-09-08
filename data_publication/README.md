@@ -49,6 +49,10 @@ Current tracked definitions include:
   tables built from existing instructor utility extracts for simple R joins.
   The local candidate is verified separately, but public redistribution remains
   gated until the extracts' source provenance and license are documented.
+- `course_samples/`: deterministic, instructor-run SQL and Python pipeline for
+  the 15,000-row `.csv` extracts used in Homework 1-4. These files are built
+  from approved local release artifacts and distributed through the assignment
+  projects; students do not connect to the publication service directly.
 
 As of September 6, 2026, Traffic, Airline, NFL, and Olist are publicly
 available under `https://data.60land.com/project1/2026-fall/v1/`. The server
