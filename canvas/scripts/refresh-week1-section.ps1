@@ -86,6 +86,26 @@ function Assert-ReadyPlan {
     }
 }
 
+function Get-ActionCount {
+    param(
+        [Parameter(Mandatory = $true)]$Plan,
+        [Parameter(Mandatory = $true)][string[]]$Names
+    )
+
+    $total = 0
+    $counts = $Plan.summary.planned_action_counts
+    if ($null -eq $counts) {
+        return 0
+    }
+    foreach ($name in $Names) {
+        $property = $counts.PSObject.Properties[$name]
+        if ($null -ne $property) {
+            $total += [int]$property.Value
+        }
+    }
+    return $total
+}
+
 $course = Invoke-RestMethod -Method Get -Uri $courseUri -Headers $headers
 if ([string]$course.id -ne [string]$CourseId) {
     throw "Canvas returned course $($course.id), not $CourseId."
@@ -133,12 +153,32 @@ $requiredPageTitles = @(
     "Student Hours Zoom Link"
 )
 $selectedPages = @()
+$missingPageTitles = @()
 foreach ($pageTitle in $requiredPageTitles) {
     $matches = @($pages | Where-Object { $_.title -eq $pageTitle })
-    if ($matches.Count -ne 1) {
+    if ($matches.Count -gt 1) {
         throw "Expected exactly one Canvas page titled '$pageTitle'; found $($matches.Count). No changes made."
     }
-    $selectedPages += $matches[0]
+    if ($matches.Count -eq 1) {
+        $selectedPages += $matches[0]
+    }
+    else {
+        $missingPageTitles += $pageTitle
+    }
+}
+
+$courseInfoModule = @($modules | Where-Object { $_.name -eq "Course Info and Resources" })[0]
+$courseInfoItemsUri = "$canvasBase/api/v1/courses/$CourseId/modules/$($courseInfoModule.id)/items?per_page=100"
+$courseInfoItems = ConvertTo-FlatArray (Invoke-RestMethod -Method Get -Uri $courseInfoItemsUri -Headers $headers)
+$obsoleteSyllabusLinks = @(
+    $courseInfoItems |
+        Where-Object {
+            $_.type -eq "ExternalUrl" -and
+            $_.title -eq "Syllabus - Link"
+        }
+)
+if ($obsoleteSyllabusLinks.Count -gt 1) {
+    throw "Found more than one obsolete syllabus link. No changes made."
 }
 
 $weekOneModule = @($modules | Where-Object { $_.name -eq "Week 1: Intro to Data Analysis" })[0]
@@ -162,7 +202,9 @@ $planSummary = [pscustomobject]@{
     modules_found = $modules.Count
     modules_prepared_for_manual_publication = $selectedModuleNames
     assignments_to_refresh = @($labAssignment.name, $homeworkAssignment.name)
-    pages_to_refresh = $requiredPageTitles
+    existing_pages_to_refresh = @($selectedPages | ForEach-Object { $_.title })
+    missing_pages_to_create = $missingPageTitles
+    obsolete_syllabus_links_to_remove = $obsoleteSyllabusLinks.Count
     obsolete_lab_links_to_remove = $obsoleteLabLinks.Count
     course_will_be_published = $false
 }
@@ -250,11 +292,50 @@ Invoke-CanvasCtl -CliArguments (@(
     "--execute"
 ))
 
-# Remove only the redundant module placement. The underlying external link is
-# not a Canvas content object, and no assignment, page, file, or submission is deleted.
-foreach ($obsoleteLink in $obsoleteLabLinks) {
-    $obsoleteItemUri = "$canvasBase/api/v1/courses/$CourseId/modules/$($weekOneModule.id)/items/$($obsoleteLink.id)"
-    Invoke-RestMethod -Method Delete -Uri $obsoleteItemUri -Headers $headers | Out-Null
+# Reconcile the new native syllabus placement and remove only module items that
+# the manifest explicitly classifies as obsolete duplicates. Underlying Canvas
+# assignments, pages, files, and submissions are not deleted.
+$placementPlanDirectory = Join-Path $runRoot "05-placement-plan"
+Invoke-CanvasCtl -CliArguments (@(
+    "-m", "eco230_canvas.cli", "placement", "plan"
+) + $common + @(
+    "--output", $placementPlanDirectory
+))
+$placementPlanPath = Join-Path $placementPlanDirectory "placement-plan.json"
+$placementPlan = Read-JsonFile -Path $placementPlanPath
+Assert-ReadyPlan -Plan $placementPlan -Label "Placement plan"
+
+$placementMutationCount = Get-ActionCount -Plan $placementPlan -Names @(
+    "create_unpublished",
+    "update_unpublished",
+    "remove_omitted"
+)
+if ($placementMutationCount -gt 0) {
+    $placementReceiptDirectory = Join-Path $runRoot "06-placement-apply"
+    $placementApplyArguments = @(
+        "-m", "eco230_canvas.cli", "placement", "apply"
+    ) + $common + @(
+        "--plan", $placementPlanPath,
+        "--output", $placementReceiptDirectory,
+        "--confirm-destination-course-id", [string]$CourseId,
+        "--execute"
+    )
+    if ((Get-ActionCount -Plan $placementPlan -Names @("remove_omitted")) -gt 0) {
+        $placementApplyArguments += "--remove-omitted"
+    }
+    Invoke-CanvasCtl -CliArguments $placementApplyArguments
+
+    $placementVerifyDirectory = Join-Path $placementReceiptDirectory "verification"
+    Invoke-CanvasCtl -CliArguments (@(
+        "-m", "eco230_canvas.cli", "placement", "verify"
+    ) + $common + @(
+        "--receipt", (Join-Path $placementReceiptDirectory "apply-receipt.json"),
+        "--output", $placementVerifyDirectory
+    ))
+    $placementVerify = Read-JsonFile -Path (Join-Path $placementVerifyDirectory "placement-verification.json")
+    if (@($placementVerify.blockers).Count -gt 0) {
+        throw "Placement verification has blockers: $($placementVerify.blockers -join '; ')"
+    }
 }
 
 & (Join-Path $scriptDirectory "set-module-visibility.ps1") `
@@ -262,18 +343,21 @@ foreach ($obsoleteLink in $obsoleteLabLinks) {
     -ExpectedModuleCount $ExpectedModuleCount `
     -PublishSelectedContent `
     -KeepModulesUnpublished `
-    -AuditDirectory (Join-Path $runRoot "05-module-visibility") `
+    -AuditDirectory (Join-Path $runRoot "07-module-visibility") `
     -Execute
 
 $verifiedCourse = Invoke-RestMethod -Method Get -Uri $courseUri -Headers $headers
 $verifiedModules = ConvertTo-FlatArray (Invoke-RestMethod -Method Get -Uri $moduleUri -Headers $headers)
 $verifiedAssignments = ConvertTo-FlatArray (Invoke-RestMethod -Method Get -Uri $assignmentUri -Headers $headers)
 $verifiedPages = ConvertTo-FlatArray (Invoke-RestMethod -Method Get -Uri $pageUri -Headers $headers)
+$verifiedCourseInfoItems = ConvertTo-FlatArray (Invoke-RestMethod -Method Get -Uri $courseInfoItemsUri -Headers $headers)
 $verifiedWeekOneItems = ConvertTo-FlatArray (Invoke-RestMethod -Method Get -Uri $weekOneItemsUri -Headers $headers)
 
 $remainingOldLabAssignments = @($verifiedAssignments | Where-Object { $_.name -eq "Technology Set-Up" })
 $verifiedLabAssignments = @($verifiedAssignments | Where-Object { $_.name -eq "Lab 1: Technology Setup" })
 $verifiedHomeworkAssignments = @($verifiedAssignments | Where-Object { $_.name -eq "Homework 1: Choose Your Own Data Adventure" })
+$remainingObsoleteSyllabusLinks = @($verifiedCourseInfoItems | Where-Object { $_.type -eq "ExternalUrl" -and $_.title -eq "Syllabus - Link" })
+$verifiedSyllabusPlacements = @($verifiedCourseInfoItems | Where-Object { $_.type -eq "Page" -and $_.title -eq "Syllabus" })
 $remainingObsoleteLinks = @($verifiedWeekOneItems | Where-Object { $_.type -eq "ExternalUrl" -and $_.title -eq "Lab 1: Posit Cloud Certificate" })
 $publishedModules = @($verifiedModules | Where-Object { $_.published -eq $true })
 $verifiedSelectedPages = @($verifiedPages | Where-Object { $_.title -in $requiredPageTitles })
@@ -300,6 +384,9 @@ if (@($verifiedHomeworkAssignments[0].submission_types | Where-Object { $_ -eq "
 }
 if ($remainingObsoleteLinks.Count -ne 0) {
     throw "The redundant Lab 1 Posit module link still exists."
+}
+if ($remainingObsoleteSyllabusLinks.Count -ne 0 -or $verifiedSyllabusPlacements.Count -ne 1) {
+    throw "The native Syllabus module placement did not converge."
 }
 if ($publishedModules.Count -ne 0) {
     throw "Expected every module to remain unpublished for manual release."
