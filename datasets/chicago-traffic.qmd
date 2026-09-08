@@ -1,0 +1,76 @@
+---
+title: "Chicago Traffic Crashes"
+subtitle: "Crashes, vehicles, people, and numerical weather, 2018--2025"
+description: "A relational release of Chicago police-reported crashes with NOAA weather enrichment"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-copy: true
+---
+
+::: {.callout-note}
+**Release:** `project1/2026-fall/v1/traffic`  
+**Coverage:** January 1, 2018 through December 31, 2025  
+**Geography:** City of Chicago  
+**License:** City of Chicago Data Portal terms; NOAA observations are U.S. government data
+:::
+
+## About this dataset
+
+This release combines Chicago's police-reported crash, vehicle, and person records with a one-row-per-crash analysis table containing calendar fields, geographic keys, and the nearest qualifying NOAA observation from O'Hare or Midway. It is useful for questions about crash frequency, injury severity, contributing factors, vehicle and driver characteristics, weather, time, and place.
+
+The base files deliberately do not contain Census demographics or other ready-made enrichments. Students should choose compatible external data, justify the geography and vintage, and validate the resulting join.
+
+## Files
+
+| File | Rows | One row represents | Primary key |
+|---|---:|---|---|
+| [`chicago_traffic_crashes.parquet`](https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_crashes.parquet) | 877,920 | One crash | `crash_record_id` |
+| [`chicago_traffic_vehicles.parquet`](https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_vehicles.parquet) | 1,792,368 | One crash unit, usually a vehicle, pedestrian, or cyclist | `crash_unit_id` |
+| [`chicago_traffic_people.parquet`](https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_people.parquet) | 1,927,651 | One person represented in a crash report | `person_id` |
+| [`chicago_traffic_crash_analysis.parquet`](https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_crash_analysis.parquet) | 877,920 | One crash with time, geography, and numeric weather | `crash_record_id` |
+
+## How the files relate
+
+| From | To | Join key | Relationship |
+|---|---|---|---|
+| Crashes | Crash analysis | `crash_record_id` | One-to-one |
+| Crashes | Vehicles | `crash_record_id` | One-to-many |
+| Crashes | People | `crash_record_id` | One-to-many |
+| Vehicles | People | `vehicle_id` | One-to-many when the person is linked to a unit |
+
+Do not join vehicles and people directly to crashes and then total crash-level measures. A crash with three units and four people can become as many as twelve rows. Summarize the many-side table first unless person- or unit-level records are the intended result.
+
+Useful geographic fields include `state_fips`, `city_geoid`, `zip5`, `police_beat`, `latitude`, and `longitude`. ZIP codes are routing regions rather than Census geographies; for demographic analysis, a documented spatial join to a Census geography is generally stronger.
+
+## Example: crash-level vehicle counts
+
+```r
+library(arrow)
+library(dplyr)
+
+base_url <- "https://data.60land.com/project1/2026-fall/v1/traffic/"
+
+crashes <- read_parquet(paste0(base_url, "chicago_traffic_crashes.parquet"))
+vehicles <- read_parquet(paste0(base_url, "chicago_traffic_vehicles.parquet"))
+
+vehicle_summary <- vehicles |>
+  count(crash_record_id, name = "vehicle_rows")
+
+crash_level <- crashes |>
+  left_join(vehicle_summary, by = "crash_record_id")
+```
+
+## Important limitations
+
+- These are police-reported crashes, not every collision or traffic hazard.
+- `reported_weather_condition` is an officer-reported category. NOAA fields in the analysis table are numerical observations from an airport station and may not reproduce conditions at the exact crash location.
+- Crash timestamps are converted to Central Standard Time before selecting the closest NOAA observation within 90 minutes because NOAA LCD does not use daylight saving time.
+- Coordinates are source coordinates. Missing values and source `0,0` placeholders are represented as missing.
+- Officer-assigned contributing causes should not be interpreted as experimental evidence of causation.
+
+## Provenance and privacy
+
+Source records come from the City of Chicago Traffic Crashes--Crashes, Vehicles, and People datasets, the City's ZIP boundary lookup, and NOAA Local Climatological Data. Driver-license fields, home geography, hospital/EMS identifiers, and selected carrier, permit, towing, and hazardous-material identifiers are excluded from the public course release.
+

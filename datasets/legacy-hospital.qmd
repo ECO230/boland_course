@@ -1,0 +1,69 @@
+---
+title: "Legacy CMS Inpatient Charges"
+subtitle: "Hospital and MS-DRG summaries for federal fiscal year 2011"
+description: "A single-file CMS public-use dataset retained as a project backup"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    code-copy: true
+---
+
+::: {.callout-warning}
+**Legacy backup dataset.** This release is useful for a simpler hospital pricing project, but it describes FY2011 and should not be presented as current healthcare performance.
+:::
+
+::: {.callout-note}
+**Release:** `project1/2026-fall/v1/legacy-hospital`  
+**Rows:** 163,065  
+**Coverage:** Federal fiscal year 2011  
+**License:** U.S. federal government public data
+:::
+
+## About this dataset
+
+This CMS public-use file compares inpatient discharges, average covered charges, average total payments, and average Medicare payments across hospitals and common Medicare Severity Diagnosis Related Groups (MS-DRGs). It is useful for questions about geographic variation, hospital variation, charges versus payments, and service mix.
+
+## File
+
+| File | Rows | One row represents | Primary key |
+|---|---:|---|---|
+| [`legacy_cms_inpatient_charges_fy2011.parquet`](https://data.60land.com/project1/2026-fall/v1/legacy-hospital/legacy_cms_inpatient_charges_fy2011.parquet) | 163,065 | One hospital and MS-DRG combination with at least 11 discharges | `legacy_source_index` |
+
+Provider fields identify the billing hospital and its location. `drg_definition` contains the MS-DRG code and description. Monetary columns are stored as numeric decimal values rather than currency-formatted text.
+
+## Example
+
+```r
+library(arrow)
+library(dplyr)
+
+hospital <- read_parquet(
+  "https://data.60land.com/project1/2026-fall/v1/legacy-hospital/legacy_cms_inpatient_charges_fy2011.parquet"
+)
+
+hospital |>
+  group_by(provider_state) |>
+  summarize(
+    hospital_drg_rows = n(),
+    median_payment = median(average_total_payments, na.rm = TRUE),
+    .groups = "drop"
+  )
+```
+
+## Joining and enrichment
+
+Use provider identifiers for hospital-level reference data only after checking that identifier definitions and time periods match. State fields support broad comparisons. Geographic or population reference files should be aggregated to a compatible area before joining.
+
+## Important limitations
+
+- The source contains only FY2011's 100 most frequently billed MS-DRGs.
+- Hospital/MS-DRG combinations with 10 or fewer discharges are suppressed.
+- The data do not describe all hospital services, all patients, commercial insurance, or current prices.
+- Covered charges are not the same as negotiated prices, patient bills, hospital cost, or profit.
+- An observational comparison of hospitals does not establish that a hospital caused a payment difference.
+
+## Provenance and privacy
+
+The source is the CMS Medicare Provider Charge Inpatient public-use file. It contains hospital-level aggregates and no student records or patient-level protected health information.
+

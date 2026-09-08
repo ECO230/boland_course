@@ -1,0 +1,32 @@
+Olist marketplace data license and attribution
+================================================
+
+Sources
+-------
+
+Brazilian E-Commerce Public Dataset by Olist
+https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+
+Marketing Funnel by Olist
+https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist
+
+The source datasets are real, anonymized commercial data published by Olist
+on Kaggle and identified there as licensed under Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0):
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+Adapted release
+---------------
+
+The ECO 230 release is an adaptation that selects, renames, types, aggregates,
+and privacy-reduces source fields. It is distributed for noncommercial course
+use under CC BY-NC-SA 4.0. Users must credit Olist and ECO 230, must not use the
+data for commercial purposes, and must distribute adaptations under the same
+license.
+
+The release excludes source identifiers, review text, exact coordinates,
+customer and seller addresses, and sales-representative identifiers. Stable
+release-local pseudonymous keys are provided only to support relational joins.
+
+No warranty is made regarding completeness, accuracy, fitness for a particular
+purpose, or continued availability of the upstream Kaggle downloads.

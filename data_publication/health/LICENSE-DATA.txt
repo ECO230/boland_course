@@ -1,0 +1,57 @@
+GREAT LAKES SYNTHETIC LONGITUDINAL HEALTH RECORDS
+
+This course dataset is generated with Synthea 4.0.0, the Synthetic Patient
+Population Simulator developed by The MITRE Corporation and contributors.
+
+Synthea source code is licensed under the Apache License, Version 2.0:
+https://github.com/synthetichealth/synthea/blob/v4.0.0/LICENSE
+
+Synthea documentation describes its generated records as synthetic, not real,
+and available without patient privacy or security restrictions:
+https://synthea.mitre.org/downloads
+
+The ECO 230 schema, transformations, field documentation, and adapted release
+are licensed under the Creative Commons Attribution 4.0 International License:
+https://creativecommons.org/licenses/by/4.0/
+
+CLINICAL TERMINOLOGY NOTICES
+
+This material contains content from LOINC (http://loinc.org). LOINC is
+copyright © Regenstrief Institute, Inc. and the Logical Observation
+Identifiers Names and Codes (LOINC) Committee and is available at no cost under
+the license at http://loinc.org/license. LOINC® is a registered United States
+trademark of Regenstrief Institute, Inc.
+
+This product uses publicly available data courtesy of the U.S. National
+Library of Medicine (NLM), National Institutes of Health, Department of Health
+and Human Services; NLM is not responsible for the product and does not endorse
+or recommend this or any other product. RxNorm normalized names and RXCUI codes
+created by NLM are public domain. This fixed course release reflects the
+terminology embedded in Synthea 4.0.0 and is not represented as the latest
+RxNorm release.
+
+The private source data and local DuckDB work database contain SNOMED CT and CDT
+codes and display descriptions. Public diagnosis and procedure facts replace
+those source concepts with independently authored, broad ECO 230 category/group
+labels; encounter reasons, medication reasons, allergies, care plans, claim
+diagnoses, and claim-line services are grouped on the same private side of the
+boundary. The private terminology crosswalk is not a release artifact. The
+terminology audit was completed for the 2026-fall-v1 public schema: the public
+tables retain LOINC observation identifiers and descriptions, NLM-created
+RxNorm normalized names and RXCUIs, and CDC CVX identifiers and descriptions
+under the notices above and their source terms. See:
+https://loinc.org/license
+https://www.nlm.nih.gov/research/umls/rxnorm/docs/termsofservice.html
+https://www.cdc.gov/iis/code-sets/index.html
+https://www.snomed.org/get-snomed
+https://www.ada.org/publications/ada-store-products/licensing-for-commercial-users
+
+Required attribution:
+
+  Synthea(TM), The MITRE Corporation and contributors; Great Lakes Synthetic
+  Longitudinal Health Records, ECO 230 course adaptation.
+
+All patients and clinical histories are simulated. This dataset contains no
+real patient records, student data, or protected health information. It must
+not be represented as evidence about real clinical populations, prevalence,
+treatment effectiveness, safety, or causality.

@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "dataset_id": "olist_marketplace_2016_2018",
+  "title": "Olist Marketplace Orders, Customer Experience, and Marketing Funnel",
+  "description": "A privacy-reduced relational course release of real anonymized Olist marketplace orders, items, payments, review scores, products, sellers, and marketing leads.",
+  "project": "project1",
+  "topic": "olist",
+  "release_version": "2026-fall-v1",
+  "release_status": "candidate",
+  "coverage": {
+    "commerce_period": "2016-09 through 2018-10, with the main order concentration in 2017-2018",
+    "marketing_period": "2017-06-01 through 2018-06-01 sampled marketing-qualified leads",
+    "note": "The source is a historical anonymized sample, not a current census of Brazilian e-commerce."
+  },
+  "join_keys": {
+    "relational": ["order_key", "customer_key", "product_key", "seller_key", "lead_key"],
+    "geographic": ["customer_state", "customer_city", "customer_zip_prefix", "seller_state", "seller_city", "seller_zip_prefix"],
+    "design_note": "Normalized tables are intentionally retained. Students must identify table grain before joining and must prevent repeated order-, payment-, and freight-level values."
+  },
+  "sources": [
+    {
+      "name": "Brazilian E-Commerce Public Dataset by Olist",
+      "publisher": "Olist",
+      "url": "https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce",
+      "kaggle_id": "olistbr/brazilian-ecommerce"
+    },
+    {
+      "name": "Marketing Funnel by Olist",
+      "publisher": "Olist",
+      "url": "https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist",
+      "kaggle_id": "olistbr/marketing-funnel-olist"
+    }
+  ],
+  "privacy": {
+    "contains_student_data": false,
+    "contains_person_names": false,
+    "contains_review_text": false,
+    "contains_exact_coordinates": false,
+    "contains_pseudonymous_keys": true,
+    "course_redactions": [
+      "all source order, customer, product, seller, review, lead, landing-page, SDR, and sales-representative identifiers",
+      "review titles and comments",
+      "exact geolocation coordinates and full address information"
+    ],
+    "assessment": "Olist describes the source as anonymized. The course release further replaces source identifiers with deterministic release-local keys and retains only city, state, and postal-prefix geography."
+  },
+  "license": {
+    "source_license": "CC BY-NC-SA 4.0",
+    "adapted_release_license": "CC BY-NC-SA 4.0",
+    "public_redistribution_approved": true,
+    "restrictions": ["noncommercial use only", "attribution required", "adaptations must use the same license"],
+    "notice_file": "LICENSE-DATA.txt"
+  },
+  "transformation": {"engine": "DuckDB", "tested_version": "1.5.2", "sql_directory": "sql"},
+  "artifacts": [
+    {"name":"orders","grain":"One marketplace order","primary_key":"order_key","relative_path":"project1/2026-fall/v1/olist/olist_orders.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/olist/olist_orders.parquet"},
+    {"name":"order_items","grain":"One item sequence within an order","primary_key":"order_key, order_item_number","relative_path":"project1/2026-fall/v1/olist/olist_order_items.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/olist/olist_order_items.parquet"},
+    {"name":"payments","grain":"One payment sequence within an order","primary_key":"order_key, payment_sequence","relative_path":"project1/2026-fall/v1/olist/olist_payments.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/olist/olist_payments.parquet"},
+    {"name":"reviews","grain":"One order with aggregated submitted review scores","primary_key":"order_key","relative_path":"project1/2026-fall/v1/olist/olist_reviews.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/olist/olist_reviews.parquet"},
+    {"name":"products","grain":"One product","primary_key":"product_key","relative_path":"project1/2026-fall/v1/olist/olist_products.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/olist/olist_products.parquet"},
+    {"name":"sellers","grain":"One marketplace seller","primary_key":"seller_key","relative_path":"project1/2026-fall/v1/olist/olist_sellers.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/olist/olist_sellers.parquet"},
+    {"name":"marketing_leads","grain":"One sampled marketing-qualified lead","primary_key":"lead_key","relative_path":"project1/2026-fall/v1/olist/olist_marketing_leads.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/olist/olist_marketing_leads.parquet"},
+    {"name":"order_analysis","grain":"One order with selected commercial, review, and delivery summaries","primary_key":"order_key","relative_path":"project1/2026-fall/v1/olist/olist_order_analysis.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/olist/olist_order_analysis.parquet"}
+  ]
+}

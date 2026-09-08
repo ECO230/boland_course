@@ -1,0 +1,13 @@
+LEGACY AIRBNB LISTINGS IN MAJOR U.S. CITIES
+
+Source copy:
+https://www.kaggle.com/datasets/stevezhenghp/airbnb-price-prediction
+
+PUBLIC REDISTRIBUTION IS NOT APPROVED.
+
+The Kaggle metadata API identifies the dataset license as "Unknown." The local
+Parquet conversion may be retained as a private course backup, but it must not
+be publicly imported at data.60land.com without written redistribution rights
+or replacement with a clearly licensed source. Listing names, descriptions,
+and image URLs have been removed from this candidate; that privacy reduction
+does not resolve the license issue.

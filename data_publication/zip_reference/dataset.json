@@ -1,0 +1,80 @@
+{
+  "schema_version": 2,
+  "dataset_id": "us_zip_reference_2025",
+  "title": "U.S. ZIP Geography and Community Context Reference",
+  "description": "Clean ZIP-keyed reference tables prepared from existing ECO 230 utility extracts for simple R joins.",
+  "project": "common",
+  "topic": "zip-reference",
+  "release_version": "2026-fall-v1",
+  "release_status": "candidate",
+  "coverage": {
+    "geography_vintage": "2025",
+    "population_vintage": "2023",
+    "median_age_vintage": "2023",
+    "housing_vintage": "2022",
+    "density_population_vintage": "2010",
+    "ruca_vintage": "2010",
+    "commute_vintage": "Not documented in the supplied archive"
+  },
+  "join_keys": {
+    "zip": ["zip5"],
+    "county": ["county_fips"],
+    "cbsa": ["cbsa_fips"],
+    "design_note": "zip5 is stored as a five-character string. Both artifacts contain one row per zip5 and can be joined directly in R."
+  },
+  "sources": [
+    {
+      "name": "ECO 230 Group_Utilities ZIP geography extract",
+      "source_file": "zip_cbsa_meta_2025.csv",
+      "upstream_reference": "Internal dim.Geography query retained in the source archive",
+      "provenance_status": "Incomplete for public redistribution"
+    },
+    {
+      "name": "ECO 230 Group_Utilities community context extracts",
+      "source_files": [
+        "zip_population_by_zip_2023.csv",
+        "zip_median_age_2023.csv",
+        "zip_med_commute.csv",
+        "zip_pop_density.csv",
+        "median_housing_age_by_zip_2022.csv",
+        "zip_rucca_2010.csv"
+      ],
+      "upstream_reference": "Instructor-prepared ZIP-level extracts; some related archive queries reference PlanMktIntel",
+      "provenance_status": "Incomplete for public redistribution"
+    }
+  ],
+  "privacy": {
+    "contains_student_data": false,
+    "contains_personal_data": false,
+    "contains_credentials": false,
+    "assessment": "Only aggregate geographic and community attributes are selected. The source archive is never included because it contains unrelated state and a plaintext credential."
+  },
+  "license": {
+    "source_license": "Not documented in the supplied archive",
+    "public_redistribution_approved": false,
+    "publication_gate": "Confirm ownership, source attribution, and public redistribution rights for every selected extract before infrastructure handoff.",
+    "notice_file": "LICENSE-DATA.txt"
+  },
+  "transformation": {
+    "engine": "DuckDB",
+    "tested_version": "1.5.2",
+    "student_interface": "R with arrow::read_parquet() and dplyr::left_join()",
+    "sql_directory": "sql"
+  },
+  "artifacts": [
+    {
+      "name": "zip_geography",
+      "grain": "One supported U.S. ZIP reference record",
+      "primary_key": "zip5",
+      "relative_path": "common/2026-fall/v1/zip-reference/us_zip_geography.parquet",
+      "public_url": "https://data.60land.com/common/2026-fall/v1/zip-reference/us_zip_geography.parquet"
+    },
+    {
+      "name": "zip_context",
+      "grain": "One supported U.S. ZIP reference record",
+      "primary_key": "zip5",
+      "relative_path": "common/2026-fall/v1/zip-reference/us_zip_context.parquet",
+      "public_url": "https://data.60land.com/common/2026-fall/v1/zip-reference/us_zip_context.parquet"
+    }
+  ]
+}

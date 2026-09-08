@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "dataset_id": "nfl_complete_2021_2025",
+  "title": "NFL Games, Plays, Players, and Team Performance, 2021-2025",
+  "description": "A curated relational release covering complete NFL regular and postseason games without frame-by-frame player tracking.",
+  "project": "project1",
+  "topic": "nfl",
+  "release_version": "2026-fall-v1",
+  "release_status": "candidate",
+  "coverage": {
+    "seasons": "2021 through 2025",
+    "season_types": "Regular season and postseason",
+    "scope_note": "The 2021 season began the NFL's 17-game regular-season era; incomplete 2026 data are excluded."
+  },
+  "join_keys": {
+    "game": ["game_id"],
+    "play": ["game_id", "play_id"],
+    "player": ["player_id"],
+    "team": ["team_abbr"],
+    "design_note": "Keep each table at its documented grain. Aggregate plays or player-game rows before joining when the analysis target is a game or team-game."
+  },
+  "sources": [
+    {
+      "name": "nflverse-data",
+      "publisher": "nflverse",
+      "url": "https://github.com/nflverse/nflverse-data",
+      "access_method": "Canonical Parquet release assets used by nflreadpy"
+    }
+  ],
+  "privacy": {
+    "contains_student_data": false,
+    "contains_private_person_data": false,
+    "contains_public_player_names": true,
+    "contains_public_player_birth_dates": true,
+    "excludes_images_and_profile_urls": true,
+    "assessment": "The release contains public professional-sports records, player names, and public biographical fields needed for age and player-characteristic analysis. Headshots, profile URLs, and unrelated cross-platform account identifiers are excluded."
+  },
+  "license": {
+    "source_license": "Creative Commons Attribution 4.0 for nflverse-data",
+    "public_redistribution_approved": true,
+    "attribution": "nflverse; original NFL data remain subject to applicable owner terms",
+    "notice_file": "LICENSE-DATA.txt"
+  },
+  "transformation": {
+    "engine": "DuckDB",
+    "tested_version": "1.5.2",
+    "sql_directory": "sql"
+  },
+  "artifacts": [
+    {
+      "name": "games",
+      "grain": "One NFL regular-season or postseason game",
+      "primary_key": "game_id",
+      "relative_path": "project1/2026-fall/v1/nfl/nfl_games.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/nfl/nfl_games.parquet"
+    },
+    {
+      "name": "plays",
+      "grain": "One recorded play within an NFL game",
+      "primary_key": "game_id, play_id",
+      "relative_path": "project1/2026-fall/v1/nfl/nfl_plays.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/nfl/nfl_plays.parquet"
+    },
+    {
+      "name": "player_game_stats",
+      "grain": "One player, team, and game statistical record",
+      "primary_key": "game_id, player_id, team",
+      "relative_path": "project1/2026-fall/v1/nfl/nfl_player_game_stats.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/nfl/nfl_player_game_stats.parquet"
+    },
+    {
+      "name": "team_game_stats",
+      "grain": "One team statistical record per game",
+      "primary_key": "game_id, team",
+      "relative_path": "project1/2026-fall/v1/nfl/nfl_team_game_stats.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/nfl/nfl_team_game_stats.parquet"
+    },
+    {
+      "name": "players",
+      "grain": "One player represented in the 2021-2025 release",
+      "primary_key": "player_id",
+      "relative_path": "project1/2026-fall/v1/nfl/nfl_players.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/nfl/nfl_players.parquet"
+    },
+    {
+      "name": "rosters",
+      "grain": "One player-team-season roster record",
+      "primary_key": "season, team, player_id",
+      "relative_path": "project1/2026-fall/v1/nfl/nfl_rosters.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/nfl/nfl_rosters.parquet"
+    },
+    {
+      "name": "teams",
+      "grain": "One current NFL team lookup record",
+      "primary_key": "team_abbr",
+      "relative_path": "project1/2026-fall/v1/nfl/nfl_teams.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/nfl/nfl_teams.parquet"
+    }
+  ]
+}

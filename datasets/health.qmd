@@ -1,0 +1,106 @@
+---
+title: "Great Lakes Synthetic Health Records"
+subtitle: "Longitudinal records for simulated Wisconsin and Minnesota patients"
+description: "A fully synthetic relational health-record dataset for operational and analytical practice"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-copy: true
+---
+
+::: {.callout-warning}
+Every patient and event is synthetic. Results describe a simulation, not real people, disease prevalence, treatment effectiveness, clinical quality, or population health.
+:::
+
+::: {.callout-note}
+**Release:** `project1/2026-fall/v1/health`  
+**Coverage:** Simulated histories through December 31, 2025  
+**Geography:** Wisconsin and Minnesota  
+**Patients:** 5,694  
+**License:** Synthea software, Apache 2.0; adapted release, CC BY 4.0
+:::
+
+## About this dataset
+
+This release resembles a vendor-neutral relational electronic health-record warehouse. It supports operational questions about appointments and no-shows, patient-satisfaction response, utilization, encounters, costs, payers, service mix, and longitudinal care. It is not a copy of Epic Clarity or Caboodle.
+
+The appointment and satisfaction tables are ECO 230 teaching extensions. They intentionally contain plausible relationships and data-quality issues students can investigate, but those relationships are not estimates from a real health system.
+
+## Core and analysis files
+
+| File | Rows | One row represents | Primary key |
+|---|---:|---|---|
+| [`ehr_patients.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_patients.parquet) | 5,694 | One synthetic patient | `patient_key` |
+| [`ehr_encounters.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_encounters.parquet) | 326,567 | One healthcare encounter | `encounter_key` |
+| [`ehr_appointments.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_appointments.parquet) | 330,884 | One scheduled appointment | `appointment_key` |
+| [`ehr_patient_satisfaction.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_patient_satisfaction.parquet) | 145,694 | One survey invitation, including nonresponses | `survey_key` |
+| [`ehr_encounter_analysis.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_encounter_analysis.parquet) | 326,567 | One encounter with selected utilization and follow-up summaries | `encounter_key` |
+
+## Clinical fact files
+
+| File | Rows | One row represents | Primary key |
+|---|---:|---|---|
+| [`ehr_diagnoses.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_diagnoses.parquet) | 195,399 | One condition episode documented at an encounter | `diagnosis_key` |
+| [`ehr_procedures.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_procedures.parquet) | 693,823 | One procedure event | `procedure_key` |
+| [`ehr_medications.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_medications.parquet) | 251,127 | One medication episode | `medication_key` |
+| [`ehr_observations.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_observations.parquet) | 4,102,071 | One lab, vital-sign, or assessment result | `observation_key` |
+| [`ehr_allergies.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_allergies.parquet) | 4,986 | One allergy or intolerance episode | `allergy_key` |
+| [`ehr_immunizations.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_immunizations.parquet) | 83,945 | One administered immunization | `immunization_key` |
+| [`ehr_careplans.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_careplans.parquet) | 18,482 | One care-plan episode | `careplan_key` |
+
+## Financial and reference files
+
+| File | Rows | One row represents | Primary key |
+|---|---:|---|---|
+| [`ehr_claims.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_claims.parquet) | 577,694 | One healthcare claim | `claim_key` |
+| [`ehr_claim_transactions.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_claim_transactions.parquet) | 4,311,052 | One transaction on a claim | `claim_transaction_key` |
+| [`ehr_coverage_periods.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_coverage_periods.parquet) | 206,219 | One continuous payer-coverage period | `coverage_period_key` |
+| [`ehr_organizations.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_organizations.parquet) | 2,049 | One simulated organization | `organization_key` |
+| [`ehr_providers.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_providers.parquet) | 2,049 | One synthetic clinician | `provider_key` |
+| [`ehr_payers.parquet`](https://data.60land.com/project1/2026-fall/v1/health/ehr_payers.parquet) | 10 | One payer organization | `payer_key` |
+
+## How the files relate
+
+- `patient_key` connects a fictional patient across time.
+- `encounter_key` connects clinical facts, appointments that became encounters, surveys, and claims to a visit.
+- `organization_key`, `provider_key`, and `payer_key` connect encounters to facilities, clinicians, and insurers.
+- `claim_key` connects claims to claim transactions.
+- `county_fips` supports a join from patients to compatible county-level population or geographic reference data.
+
+One encounter may have many diagnoses, procedures, medications, observations, and claim transactions. Aggregate each fact table independently before joining it to encounters.
+
+## Example: encounter-level diagnosis counts
+
+```r
+library(arrow)
+library(dplyr)
+
+base_url <- "https://data.60land.com/project1/2026-fall/v1/health/"
+
+encounters <- read_parquet(paste0(base_url, "ehr_encounters.parquet"))
+diagnoses <- read_parquet(paste0(base_url, "ehr_diagnoses.parquet"))
+
+diagnosis_summary <- diagnoses |>
+  count(encounter_key, name = "diagnosis_count")
+
+encounter_level <- encounters |>
+  left_join(diagnosis_summary, by = "encounter_key") |>
+  mutate(diagnosis_count = coalesce(diagnosis_count, 0L))
+```
+
+## Important limitations and designed issues
+
+- A blank appointment `encounter_key` does not automatically mean no-show; use `appointment_status` to distinguish no-shows, cancellations, and rescheduling.
+- Satisfaction includes invited nonrespondents. Ratings exist only when `response_status == "responded"`, so response bias can be analyzed.
+- Encounter facts occur at different times. Results recorded after an encounter begins may leak future information into a prediction model.
+- Follow-up is censored at the simulation end date.
+- A small number of source encounters occur after a recorded synthetic death date. They are intentionally preserved as a discoverable quality issue.
+- Costs, coverage, outcomes, and utilization are simulated.
+
+## Terminology, privacy, and provenance
+
+The records were generated with [Synthea 4.0.0](https://github.com/synthetichealth/synthea/releases/tag/v4.0.0). No record describes a real person, and names, addresses, phone numbers, exact coordinates, source UUIDs, device identifiers, and free-text notes are removed.
+
+Diagnosis and procedure records use broad, independently authored two-level ECO 230 teaching groups. Individual ICD-10-CM, CPT, HCPCS, CDT, SNOMED CT, and private crosswalk content is not released. The private build retains auditable source-to-group mappings; those mappings are not part of the student dataset.
+

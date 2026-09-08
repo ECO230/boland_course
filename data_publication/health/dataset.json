@@ -1,0 +1,101 @@
+{
+  "schema_version": 2,
+  "dataset_id": "great_lakes_synthetic_ehr_2026",
+  "title": "Great Lakes Synthetic Longitudinal Health Records",
+  "description": "A privacy-reduced, fully synthetic relational course dataset generated with Synthea for Wisconsin and Minnesota patients.",
+  "project": "project1",
+  "topic": "health",
+  "release_version": "2026-fall-v1",
+  "release_status": "candidate",
+  "coverage": {
+    "geography": "Synthetic patients assigned to Wisconsin and Minnesota",
+    "simulation_end_date": "2025-12-31",
+    "pilot_population": "Target living population of 2,500 patients per state, plus retained deceased histories; total generated population recorded in source_manifest.json",
+    "interpretation": "Records describe a simulated health system and cannot support claims about real patients, clinical effectiveness, or population prevalence."
+  },
+  "synthetic_extensions": {
+    "appointments": "Deterministically generated from eligible completed Synthea encounters plus additional fictional no-show, cancellation, and rescheduling records that have no encounter.",
+    "patient_satisfaction": "Deterministically generated survey invitations and numeric responses tied to encounters. Nonresponse, wait-time effects, mode effects, and response bias are intentionally retained.",
+    "provenance_rule": "Extension rows are labeled course_generated_extension and must not be represented as native Synthea output or real operational records."
+  },
+  "terminology_boundary": {
+    "public_model": "Diagnosis and procedure concepts are released only as independent ECO 230 category and group labels. Source descriptions and SNOMED CT, ICD-10-CM, CDT, CPT, or HCPCS identifiers are not included in those public fields.",
+    "private_model": "The ignored local DuckDB work database retains source concepts and an optional reviewed crosswalk to internal ICD-10-CM, CPT, HCPCS, or other standard codes. Private crosswalk files and internal tables are never release artifacts.",
+    "taxonomy_note": "ECO 230 labels are an independently authored teaching taxonomy inspired by common two-level service-line analysis. They are not Sg2 group assignments and must not be represented as an Sg2 product."
+  },
+  "join_keys": {
+    "relational": [
+      "patient_key",
+      "encounter_key",
+      "organization_key",
+      "provider_key",
+      "payer_key",
+      "claim_key"
+    ],
+    "geographic": ["patient_state", "patient_county", "county_fips"],
+    "design_note": "Natural table grains are intentionally retained. Students must aggregate repeated diagnoses, procedures, medications, observations, and claim transactions before joining them to encounter- or patient-level measures."
+  },
+  "sources": [
+    {
+      "name": "Synthea Synthetic Patient Population Simulator",
+      "publisher": "The MITRE Corporation and contributors",
+      "version": "4.0.0",
+      "url": "https://github.com/synthetichealth/synthea/releases/tag/v4.0.0",
+      "documentation_url": "https://github.com/synthetichealth/synthea/wiki/CSV-File-Data-Dictionary"
+    }
+  ],
+  "privacy": {
+    "contains_student_data": false,
+    "contains_real_patient_data": false,
+    "contains_phi": false,
+    "contains_person_names": false,
+    "contains_free_text_notes": false,
+    "contains_exact_coordinates": false,
+    "contains_source_identifiers": false,
+    "course_redactions": [
+      "synthetic patient and provider names",
+      "synthetic SSNs, driver's-license numbers, passport numbers, member IDs, and device identifiers",
+      "street addresses, phone numbers, ZIP codes, cities, birthplaces, and exact coordinates",
+      "source UUIDs and claim line notes"
+    ],
+    "assessment": "Every clinical record is generated and describes no real person. Identifier-like synthetic fields are nevertheless removed to model privacy-minimizing health-data practice. The release must always be labeled fully synthetic, never deidentified real data."
+  },
+  "license": {
+    "source_software_license": "Apache License 2.0",
+    "adapted_release_license": "CC BY 4.0",
+    "public_redistribution_approved": true,
+    "approval_gate": null,
+    "restrictions": [
+      "attribute Synthea and the ECO 230 adaptation",
+      "include the required LOINC and requested RxNorm notices",
+      "keep SNOMED CT, CDT, CPT, HCPCS, ICD-10-CM, and private crosswalk content out of public artifacts",
+      "do not represent simulated findings as evidence about real patients or clinical effectiveness"
+    ],
+    "notice_file": "LICENSE-DATA.txt"
+  },
+  "transformation": {
+    "engine": "DuckDB",
+    "tested_version": "1.5.2",
+    "sql_directory": "sql"
+  },
+  "artifacts": [
+    {"name":"patients","grain":"One fully synthetic patient","primary_key":"patient_key","relative_path":"project1/2026-fall/v1/health/ehr_patients.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_patients.parquet"},
+    {"name":"encounters","grain":"One healthcare encounter","primary_key":"encounter_key","relative_path":"project1/2026-fall/v1/health/ehr_encounters.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_encounters.parquet"},
+    {"name":"appointments","grain":"One scheduled appointment, including appointments that did not result in encounters","primary_key":"appointment_key","relative_path":"project1/2026-fall/v1/health/ehr_appointments.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_appointments.parquet"},
+    {"name":"satisfaction_surveys","grain":"One patient-satisfaction survey invitation, including nonresponses","primary_key":"survey_key","relative_path":"project1/2026-fall/v1/health/ehr_patient_satisfaction.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_patient_satisfaction.parquet"},
+    {"name":"diagnoses","grain":"One condition episode documented at an encounter","primary_key":"diagnosis_key","relative_path":"project1/2026-fall/v1/health/ehr_diagnoses.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_diagnoses.parquet"},
+    {"name":"procedures","grain":"One procedure event","primary_key":"procedure_key","relative_path":"project1/2026-fall/v1/health/ehr_procedures.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_procedures.parquet"},
+    {"name":"medications","grain":"One medication episode associated with an encounter","primary_key":"medication_key","relative_path":"project1/2026-fall/v1/health/ehr_medications.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_medications.parquet"},
+    {"name":"observations","grain":"One laboratory, vital-sign, or assessment result","primary_key":"observation_key","relative_path":"project1/2026-fall/v1/health/ehr_observations.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_observations.parquet"},
+    {"name":"allergies","grain":"One allergy or intolerance episode","primary_key":"allergy_key","relative_path":"project1/2026-fall/v1/health/ehr_allergies.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_allergies.parquet"},
+    {"name":"immunizations","grain":"One administered immunization","primary_key":"immunization_key","relative_path":"project1/2026-fall/v1/health/ehr_immunizations.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_immunizations.parquet"},
+    {"name":"careplans","grain":"One care-plan episode","primary_key":"careplan_key","relative_path":"project1/2026-fall/v1/health/ehr_careplans.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_careplans.parquet"},
+    {"name":"claims","grain":"One healthcare claim","primary_key":"claim_key","relative_path":"project1/2026-fall/v1/health/ehr_claims.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_claims.parquet"},
+    {"name":"claim_transactions","grain":"One charge, payment, adjustment, or transfer transaction on a claim","primary_key":"claim_transaction_key","relative_path":"project1/2026-fall/v1/health/ehr_claim_transactions.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_claim_transactions.parquet"},
+    {"name":"coverage_periods","grain":"One continuous payer-coverage period for a patient","primary_key":"coverage_period_key","relative_path":"project1/2026-fall/v1/health/ehr_coverage_periods.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_coverage_periods.parquet"},
+    {"name":"organizations","grain":"One healthcare organization used in the simulation","primary_key":"organization_key","relative_path":"project1/2026-fall/v1/health/ehr_organizations.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_organizations.parquet"},
+    {"name":"providers","grain":"One synthetic clinician","primary_key":"provider_key","relative_path":"project1/2026-fall/v1/health/ehr_providers.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_providers.parquet"},
+    {"name":"payers","grain":"One payer organization","primary_key":"payer_key","relative_path":"project1/2026-fall/v1/health/ehr_payers.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_payers.parquet"},
+    {"name":"encounter_analysis","grain":"One encounter with selected utilization and follow-up summaries","primary_key":"encounter_key","relative_path":"project1/2026-fall/v1/health/ehr_encounter_analysis.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/health/ehr_encounter_analysis.parquet"}
+  ]
+}

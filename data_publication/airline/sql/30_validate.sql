@@ -1,0 +1,11 @@
+SELECT CASE WHEN (SELECT count(*) FROM curated.flights) BETWEEN 7000000 AND 8000000 THEN true ELSE error('Unexpected 2024 marketing-carrier flight count') END;
+SELECT CASE WHEN (SELECT min(flight_date) FROM curated.flights) = DATE '2024-01-01' AND (SELECT max(flight_date) FROM curated.flights) = DATE '2024-12-31' THEN true ELSE error('Flight coverage is not full calendar 2024') END;
+SELECT CASE WHEN (SELECT count(DISTINCT month_number) FROM curated.flights) = 12 THEN true ELSE error('Missing flight month') END;
+SELECT CASE WHEN (SELECT count(*) = count(DISTINCT flight_key) FROM curated.flights) THEN true ELSE error('Duplicate flight_key') END;
+SELECT CASE WHEN (SELECT count(*) = count(DISTINCT airport_id) FROM curated.airports) THEN true ELSE error('Duplicate airport_id') END;
+SELECT CASE WHEN (SELECT count(*) = count(DISTINCT (year, quarter, origin_airport_code, destination_airport_code, ticketing_carrier_code)) FROM curated.route_quarter) THEN true ELSE error('Duplicate route-quarter key') END;
+SELECT CASE WHEN (SELECT count(*) = count(DISTINCT (month, marketing_carrier_code)) FROM curated.carrier_month) THEN true ELSE error('Duplicate carrier-month key') END;
+SELECT CASE WHEN NOT EXISTS (SELECT 1 FROM curated.flights WHERE distance_miles <= 0 OR quarter NOT BETWEEN 1 AND 4 OR month_number NOT BETWEEN 1 AND 12 OR day_of_week NOT BETWEEN 1 AND 7) THEN true ELSE error('Invalid flight range') END;
+SELECT CASE WHEN NOT EXISTS (SELECT 1 FROM curated.route_quarter WHERE sampled_passengers <= 0 OR weighted_mean_market_fare_usd < 0 OR nonstop_passenger_share NOT BETWEEN 0 AND 1 OR bulk_fare_passenger_share NOT BETWEEN 0 AND 1) THEN true ELSE error('Invalid route-quarter range') END;
+SELECT CASE WHEN (SELECT count(*) FROM curated.route_quarter) > 50000 THEN true ELSE error('Unexpectedly few route-quarter rows') END;
+SELECT CASE WHEN (SELECT count(*) FROM curated.carrier_month) >= 100 THEN true ELSE error('Unexpectedly few carrier-month rows') END;

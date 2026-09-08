@@ -1,0 +1,35 @@
+Chicago and Twin Cities Airbnb local course candidate
+
+Inside Airbnb source data
+-------------------------
+
+The source snapshots are published by Inside Airbnb:
+
+https://insideairbnb.com/get-the-data/
+https://insideairbnb.com/data-policies/
+
+Inside Airbnb states that its data is licensed under Creative Commons
+Attribution 4.0 International (CC BY 4.0):
+
+https://creativecommons.org/licenses/by/4.0/
+
+Inside Airbnb's Data Policies page also instructs users not to republish the
+data. Because those statements create an unresolved redistribution condition,
+this transformed release is a local evaluation candidate only. It must not be
+uploaded to data.60land.com or distributed to students until written approval
+or another documented resolution is obtained.
+
+Course transformation
+---------------------
+
+ECO 230 combines the June 2026 Chicago and Twin Cities MSA snapshots; selects
+structured analytical fields; replaces source listing identifiers with
+release-local keys; excludes host and reviewer identity fields and free text;
+aggregates reviews to listing-month counts; derives snapshot-price benchmarks,
+listed-availability and stay-restriction summaries; and adds documented
+geographic keys. The source calendars do not contain daily prices.
+
+The source's approximate coordinates are retained. Inside Airbnb says listing
+locations are anonymized by displacement of up to 150 metres from the actual
+address. No warranty is made for source completeness, positional accuracy, or
+the course transformations.

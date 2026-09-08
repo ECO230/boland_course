@@ -1,0 +1,124 @@
+{
+  "schema_version": 2,
+  "dataset_id": "chicago_traffic_crashes_2018_2025",
+  "title": "Chicago Traffic Crashes, Vehicles, People, and Weather",
+  "description": "A course-ready snapshot of Chicago police-reported traffic crashes from complete calendar years 2018 through 2025, with normalized vehicle and person tables and a one-row-per-crash NOAA weather analysis table.",
+  "project": "project1",
+  "topic": "traffic",
+  "release_version": "2026-fall-v1",
+  "release_status": "candidate",
+  "coverage": {
+    "start_inclusive": "2018-01-01T00:00:00",
+    "end_exclusive": "2026-01-01T00:00:00",
+    "note": "Only complete calendar years are included. Later source amendments require a new immutable course release."
+  },
+  "join_keys": {
+    "relational": [
+      "crash_record_id",
+      "vehicle_id"
+    ],
+    "geographic": [
+      "state_fips",
+      "city_geoid",
+      "zip5",
+      "police_beat",
+      "latitude",
+      "longitude"
+    ],
+    "design_note": "The release supplies stable join handles but does not prejoin Census, ACS, neighborhood, roadway, transit, or other contextual attributes. Students choose and justify those enrichments."
+  },
+  "sources": [
+    {
+      "name": "Traffic Crashes - Crashes",
+      "publisher": "City of Chicago",
+      "dataset_id": "85ca-t3if",
+      "url": "https://data.cityofchicago.org/d/85ca-t3if"
+    },
+    {
+      "name": "Traffic Crashes - Vehicles",
+      "publisher": "City of Chicago",
+      "dataset_id": "68nd-jvt3",
+      "url": "https://data.cityofchicago.org/d/68nd-jvt3"
+    },
+    {
+      "name": "Traffic Crashes - People",
+      "publisher": "City of Chicago",
+      "dataset_id": "u6pd-qa9d",
+      "url": "https://data.cityofchicago.org/d/u6pd-qa9d"
+    },
+    {
+      "name": "Boundaries - ZIP Codes",
+      "publisher": "City of Chicago",
+      "dataset_id": "rpca-8um6",
+      "url": "https://data.cityofchicago.org/d/rpca-8um6"
+    },
+    {
+      "name": "Local Climatological Data",
+      "publisher": "NOAA National Centers for Environmental Information",
+      "stations": [
+        "72530094846",
+        "72534014819"
+      ],
+      "url": "https://www.ncei.noaa.gov/products/land-based-station/local-climatological-data"
+    }
+  ],
+  "weather_method": {
+    "reported_weather": "The crash table preserves the categorical condition recorded by the reporting officer.",
+    "numerical_weather": "Each geocoded crash is assigned to the nearer of Chicago O'Hare and Chicago Midway airport. The nearest NOAA FM-15/FM-16 observation within 90 minutes is attached to the analysis table.",
+    "time_basis": "NOAA LCD timestamps use Local Standard Time without daylight saving time. Chicago crash wall-clock timestamps are converted to Central Standard Time before matching.",
+    "caution": "Airport observations are contextual measurements, not conditions measured at the exact crash location."
+  },
+  "privacy": {
+    "contains_student_data": false,
+    "contains_person_names": false,
+    "contains_exact_crash_coordinates": true,
+    "source_excludes_personally_identifiable_information": true,
+    "course_redactions": [
+      "person home city, state, and ZIP",
+      "hospital and EMS identifiers",
+      "driver-license fields",
+      "vehicle carrier, permit, and towing identifiers"
+    ],
+    "assessment": "The person table retains public categorical crash attributes such as age, sex, injury classification, safety equipment, and BAC result. It must not be treated as a roster of identifiable individuals."
+  },
+  "license": {
+    "city_of_chicago": "See City of Chicago Data Portal Terms of Use; source and modifications must be identified.",
+    "noaa": "United States government data; cite NOAA NCEI and the Local Climatological Data product.",
+    "notice_file": "LICENSE-DATA.txt"
+  },
+  "transformation": {
+    "engine": "DuckDB",
+    "tested_version": "1.5.2",
+    "sql_directory": "sql"
+  },
+  "artifacts": [
+    {
+      "name": "crashes",
+      "grain": "One row per crash",
+      "primary_key": "crash_record_id",
+      "relative_path": "project1/2026-fall/v1/traffic/chicago_traffic_crashes.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_crashes.parquet"
+    },
+    {
+      "name": "vehicles",
+      "grain": "One row per crash unit, normally a vehicle, pedestrian, or pedal cyclist",
+      "primary_key": "crash_unit_id",
+      "relative_path": "project1/2026-fall/v1/traffic/chicago_traffic_vehicles.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_vehicles.parquet"
+    },
+    {
+      "name": "people",
+      "grain": "One row per person represented in a crash report",
+      "primary_key": "person_id",
+      "relative_path": "project1/2026-fall/v1/traffic/chicago_traffic_people.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_people.parquet"
+    },
+    {
+      "name": "crash_analysis",
+      "grain": "One row per crash with time, geographic keys, and numerical weather",
+      "primary_key": "crash_record_id",
+      "relative_path": "project1/2026-fall/v1/traffic/chicago_traffic_crash_analysis.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/traffic/chicago_traffic_crash_analysis.parquet"
+    }
+  ]
+}

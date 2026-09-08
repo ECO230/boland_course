@@ -1,0 +1,27 @@
+U.S. airline marketplace data notice
+====================================
+
+Sources
+-------
+
+Bureau of Transportation Statistics, Marketing Carrier On-Time Performance
+(Beginning January 2018):
+https://www.transtats.bts.gov/
+
+Bureau of Transportation Statistics, Origin and Destination Survey DB1B
+Market:
+https://www.bts.gov/topics/airlines-and-airports/origin-and-destination-survey-data
+
+These data are works of the United States federal government. Under 17 U.S.C.
+section 105, copyright protection is generally unavailable for works prepared
+by federal employees as part of their official duties. The files are published
+by BTS for public analysis and redistribution. Attribution to BTS and the U.S.
+Department of Transportation is requested.
+
+The ECO 230 release selects, types, pseudonymizes aircraft tail numbers,
+aggregates ticket-market observations, and documents limitations. It contains
+no student data, passenger identities, customer names, ticket numbers, booking
+records, or complaint narratives.
+
+No warranty is made regarding completeness, accuracy, fitness for a particular
+purpose, or continued availability of the source files.

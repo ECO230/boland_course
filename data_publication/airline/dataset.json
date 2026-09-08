@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "dataset_id": "us_airline_marketplace_2024",
+  "title": "U.S. Airline Pricing, Demand, and Operational Quality, 2024",
+  "description": "A curated relational release of 2024 domestic marketing-carrier flights and aggregated DB1B ticket-market sample records.",
+  "project": "project1",
+  "topic": "airline",
+  "release_version": "2026-fall-v1",
+  "release_status": "candidate",
+  "coverage": {
+    "flight_period": "2024-01-01 through 2024-12-31",
+    "fare_period": "2024 quarters 1 through 4",
+    "geography": "Domestic U.S. scheduled passenger markets represented in the respective BTS reporting systems"
+  },
+  "join_keys": {
+    "flight": ["flight_key", "flight_date", "marketing_carrier_code", "origin_airport_code", "destination_airport_code"],
+    "pricing": ["year", "quarter", "ticketing_carrier_code", "origin_airport_code", "destination_airport_code"],
+    "design_note": "Flight operations and sampled ticket markets are not row-level joinable. Aggregate flights to carrier-route-quarter before joining to fare summaries. Marketing and ticketing carrier definitions may not be identical for every itinerary."
+  },
+  "sources": [
+    {"name":"Marketing Carrier On-Time Performance","publisher":"Bureau of Transportation Statistics","url":"https://www.transtats.bts.gov/","files":"12 monthly 2024 pre-zipped CSV archives"},
+    {"name":"Origin and Destination Survey DB1B Market","publisher":"Bureau of Transportation Statistics","url":"https://www.bts.gov/topics/airlines-and-airports/origin-and-destination-survey-data","files":"4 quarterly 2024 pre-zipped CSV archives","sample_rate":"10 percent"}
+  ],
+  "privacy": {
+    "contains_student_data": false,
+    "contains_person_names": false,
+    "contains_passenger_records": false,
+    "contains_raw_aircraft_tail_numbers": false,
+    "assessment": "The federal public sources contain operational and aggregated ticket-market records, not passenger identities. Aircraft tail numbers are replaced with release-local keys."
+  },
+  "license": {
+    "source_license": "U.S. federal government public data",
+    "public_redistribution_approved": true,
+    "attribution": "Bureau of Transportation Statistics, U.S. Department of Transportation",
+    "notice_file": "LICENSE-DATA.txt"
+  },
+  "transformation": {"engine":"DuckDB","tested_version":"1.5.2","sql_directory":"sql"},
+  "artifacts": [
+    {"name":"flights","grain":"One reported scheduled domestic marketing-carrier flight","primary_key":"flight_key","relative_path":"project1/2026-fall/v1/airline/airline_flights.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/airline/airline_flights.parquet"},
+    {"name":"airports","grain":"One BTS airport identifier represented in 2024 flights","primary_key":"airport_id","relative_path":"project1/2026-fall/v1/airline/airline_airports.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/airline/airline_airports.parquet"},
+    {"name":"route_quarter","grain":"One directional route, ticketing carrier, year, and quarter","primary_key":"year, quarter, origin_airport_code, destination_airport_code, ticketing_carrier_code","relative_path":"project1/2026-fall/v1/airline/airline_route_quarter.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/airline/airline_route_quarter.parquet"},
+    {"name":"carrier_month","grain":"One marketing carrier and calendar month","primary_key":"month, marketing_carrier_code","relative_path":"project1/2026-fall/v1/airline/airline_carrier_month.parquet","public_url":"https://data.60land.com/project1/2026-fall/v1/airline/airline_carrier_month.parquet"}
+  ]
+}

@@ -1,0 +1,47 @@
+Chicago Traffic course release
+
+City of Chicago source data
+---------------------------
+
+Crash, vehicle, person, and ZIP-region records are provided by the City of
+Chicago through the Chicago Data Portal:
+
+https://data.cityofchicago.org/d/85ca-t3if
+https://data.cityofchicago.org/d/68nd-jvt3
+https://data.cityofchicago.org/d/u6pd-qa9d
+https://data.cityofchicago.org/d/rpca-8um6
+
+Use is subject to the City of Chicago Data Portal Terms of Use. The City makes
+the data available as-is and does not warrant its accuracy, timeliness, or
+completeness. This course release identifies the source vintage and describes
+its modifications in metadata.json, source_manifest.json, and
+DATA-DICTIONARY.md.
+
+City data terms and disclaimer:
+https://www.chicago.gov/city/en/narr/foia/data_disclaimer.html
+
+NOAA numerical weather
+----------------------
+
+Numerical weather observations come from NOAA National Centers for
+Environmental Information Local Climatological Data for Chicago O'Hare
+International Airport (station 72530094846) and Chicago Midway Airport
+(station 72534014819).
+
+https://www.ncei.noaa.gov/products/land-based-station/local-climatological-data
+https://doi.org/10.25921/96dw-mb77
+
+Suggested citation:
+
+National Centers for Environmental Information. Local Climatological Data,
+subset for Chicago O'Hare and Chicago Midway, 2018-2025. Access date and exact
+source-file checksums are recorded in source_manifest.json.
+
+Course transformation
+---------------------
+
+ECO 230 selects complete calendar years 2018-2025; applies stable names and
+types; removes selected location and administrative identifiers from the
+person and vehicle tables; maps the portal's ZIP-region identifier to ZIP5;
+and attaches the nearest qualifying NOAA observation to the one-row-per-crash
+analysis table. No warranty is made for the adapted files.

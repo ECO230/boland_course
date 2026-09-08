@@ -1,0 +1,72 @@
+---
+title: "U.S. Airline Marketplace"
+subtitle: "Pricing, demand, and operational quality in 2024"
+description: "A relational release of domestic flights and aggregated ticket-market records"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-copy: true
+---
+
+::: {.callout-note}
+**Release:** `project1/2026-fall/v1/airline`  
+**Coverage:** Calendar year 2024  
+**Geography:** Domestic U.S. scheduled passenger markets  
+**License:** U.S. federal government public data
+:::
+
+## About this dataset
+
+This release combines two Bureau of Transportation Statistics systems: individual scheduled domestic flights and the quarterly DB1B 10% ticket-market sample. It supports analysis of delays, cancellations, routes, carriers, demand, fares, and operational quality.
+
+Flights and fares are not row-level joinable. They describe different processes and use different carrier concepts. Analyses that combine them must first aggregate flights to a compatible route, carrier, and quarter.
+
+## Files
+
+| File | Rows | One row represents | Primary key |
+|---|---:|---|---|
+| [`airline_flights.parquet`](https://data.60land.com/project1/2026-fall/v1/airline/airline_flights.parquet) | 7,546,968 | One reported scheduled domestic marketing-carrier flight | `flight_key` |
+| [`airline_airports.parquet`](https://data.60land.com/project1/2026-fall/v1/airline/airline_airports.parquet) | 359 | One BTS airport represented in the flight table | `airport_id` |
+| [`airline_route_quarter.parquet`](https://data.60land.com/project1/2026-fall/v1/airline/airline_route_quarter.parquet) | 606,970 | One directional route, ticketing carrier, year, and quarter | route + carrier + quarter |
+| [`airline_carrier_month.parquet`](https://data.60land.com/project1/2026-fall/v1/airline/airline_carrier_month.parquet) | 120 | One marketing carrier and calendar month | `month`, `marketing_carrier_code` |
+
+## How the files relate
+
+| Analysis | Recommended connection |
+|---|---|
+| Airport characteristics | Join airport lookup twice: once to origin and once to destination |
+| Carrier operational trend | Aggregate flights or use `airline_carrier_month`; join by month and marketing carrier |
+| Fare and route service | Aggregate flights to directional route, quarter, and an explicitly chosen carrier definition before joining to route-quarter fares |
+
+Ticketing, marketing, and operating carriers are not interchangeable. A ticket may be sold by one carrier and a flight marketed or operated by another. State which carrier concept your question uses.
+
+## Example: carrier-month performance
+
+```r
+library(arrow)
+library(dplyr)
+
+base_url <- "https://data.60land.com/project1/2026-fall/v1/airline/"
+
+carrier_month <- read_parquet(paste0(base_url, "airline_carrier_month.parquet"))
+
+carrier_month |>
+  arrange(desc(cancellation_rate)) |>
+  select(month, marketing_carrier_code, scheduled_flights,
+         cancellation_rate, delayed_15_rate, mean_arrival_delay_minutes)
+```
+
+## Important limitations
+
+- DB1B is a 10% ticket sample, not a complete passenger census. `estimated_passengers` is a simple expansion.
+- A DB1B market is directional and is not necessarily a nonstop flight.
+- Canceled flights lack realized arrival time and delay; excluding them can make service quality appear better.
+- Delay-cause fields are reported only for qualifying delayed flights. Missing does not always mean zero.
+- Actual outcomes and delay causes occur after departure and create leakage in prediction models meant to run before departure.
+- Operational quality is not a direct customer-satisfaction survey.
+
+## Provenance
+
+The flight records come from BTS Marketing Carrier On-Time Performance monthly files. Fare and demand summaries come from the BTS Origin and Destination Survey DB1B Market quarterly files. Raw tail numbers are replaced with release-local aircraft keys.
+

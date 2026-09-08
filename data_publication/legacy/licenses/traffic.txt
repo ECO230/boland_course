@@ -1,0 +1,22 @@
+LEGACY U.S. ACCIDENTS 100,000-ROW SAMPLE
+
+Source: US-Accidents (2016-2023), Sobhan Moosavi et al.
+https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents
+
+License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+International (CC BY-NC-SA 4.0).
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+This adapted Parquet release is distributed for noncommercial academic and
+research use under CC BY-NC-SA 4.0. Attribution and ShareAlike obligations
+apply. Cite the two papers listed on the source data card:
+
+Moosavi, S., Samavatian, M. H., Parthasarathy, S., and Ramnath, R. (2019),
+"A Countrywide Traffic Accident Dataset."
+
+Moosavi, S., Samavatian, M. H., Parthasarathy, S., Teodorescu, R., and
+Ramnath, R. (2019), "Accident Risk Prediction based on Heterogeneous Sparse
+Data: New Dataset and Insights," ACM SIGSPATIAL 2019.
+
+The source is a sample of traffic-event feeds and is not a complete census of
+crashes. Severity measures traffic disruption, not injury severity.

@@ -1,0 +1,26 @@
+NFLVERSE DATA NOTICE
+
+This ECO 230 release is derived from data distributed by the nflverse project:
+
+https://github.com/nflverse/nflverse-data
+
+The nflverse-data repository distributes its data under the Creative Commons
+Attribution 4.0 International license (CC BY 4.0):
+
+https://creativecommons.org/licenses/by/4.0/
+
+Attribution: nflverse contributors, nflverse-data.
+
+This course release selects columns, standardizes types and names, removes
+image/profile fields and unrelated external identifiers, limits coverage to
+the 2021-2025 regular seasons and postseasons, and exports new compressed
+Parquet artifacts. Those modifications are described in DATA-DICTIONARY.md
+and source_manifest.json.
+
+The nflreadr project notes that NFL data accessed through its tools belong to
+their respective owners and remain governed by applicable owner terms. NFL and
+team names are used descriptively. This course release is not sponsored by,
+endorsed by, or affiliated with the National Football League or its teams.
+
+No FTN charting, frame-by-frame Next Gen Stats tracking, PFR advanced-stat
+tables, headshots, team logos, or profile URLs are included.

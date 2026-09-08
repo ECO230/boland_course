@@ -1,0 +1,21 @@
+ECO 230 U.S. ZIP reference local candidate
+
+This candidate is derived from selected aggregate ZIP-level files in the
+instructor-supplied Group_Utilities.zip archive. The selected files contain no
+student records, direct personal identifiers, free text, or credentials.
+
+The archive does not document the license or public redistribution terms for
+the selected extracts. Retained query files indicate that at least some
+geography and demographic fields were derived from internal dim.Geography and
+PlanMktIntel tables. Ownership, attribution requirements, and permission for
+worldwide public redistribution have therefore not been established.
+
+This candidate may be built and evaluated locally, but it is NOT approved for
+publication at data.60land.com. Do not send it to the infrastructure importer
+until the source provenance and redistribution rights are documented. If the
+rights cannot be confirmed, the same public schema can be populated from
+documented public sources without changing the student-facing R workflow.
+
+The source archive itself must never be published. It contains unrelated
+project state and a plaintext credential that are deliberately excluded from
+the extraction and release processes.

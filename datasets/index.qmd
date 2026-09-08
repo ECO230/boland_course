@@ -1,0 +1,60 @@
+---
+title: "ECO 230 Dataset Catalog"
+description: "Course-ready datasets for analysis projects and labs"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+These datasets are curated for ECO 230. Each release is immutable: the files at a versioned URL will not be silently replaced. Download only the tables your question requires, preserve their row grain, and validate every join.
+
+::: {.callout-tip}
+## Start here
+
+Each dataset page explains the available files, what one row represents, the useful join keys, common analytical mistakes, and a short R example. Parquet files are smaller and faster than equivalent CSV files and preserve dates and numeric types.
+:::
+
+## Current project datasets
+
+| Dataset | Scope | Best suited for | Tables |
+|---|---|---|---:|
+| [Chicago Traffic Crashes](chicago-traffic.qmd) | Chicago, 2018--2025 | Safety, weather, geography, causes, injuries | 4 |
+| [U.S. Airline Marketplace](airline.qmd) | Domestic U.S., 2024 | Price, demand, delays, cancellations, service quality | 4 |
+| [NFL Games and Plays](nfl.qmd) | Regular and postseason, 2021--2025 | Team/player performance, play selection, game outcomes | 7 |
+| [Olist Marketplace](olist.qmd) | Brazil, 2016--2018 | E-commerce, delivery, pricing, reviews, marketing funnel | 8 |
+| [Great Lakes Synthetic Health Records](health.qmd) | Simulated Wisconsin and Minnesota patients through 2025 | Appointments, satisfaction, utilization, costs, clinical operations | 18 |
+
+## Legacy backup datasets
+
+These smaller single-file datasets remain available for projects that need a simpler structure. They are suitable for backup use, but their age and scope limitations should be part of the analysis.
+
+| Dataset | Scope | Rows |
+|---|---|---:|
+| [Legacy U.S. Accidents Sample](legacy-traffic.qmd) | Nationwide 100,000-row sample | 100,000 |
+| [Legacy CMS Inpatient Charges](legacy-hospital.qmd) | FY2011 hospital and MS-DRG summaries | 163,065 |
+
+## Reading Parquet in R
+
+Install `arrow` once if it is not already in the project, then read a file directly from the course data service.
+
+```r
+install.packages("arrow")
+
+library(arrow)
+
+data <- read_parquet("https://data.60land.com/project1/2026-fall/v1/olist/olist_order_analysis.parquet")
+```
+
+For reproducible work, keep the versioned URL in your script. Do not replace it with an unversioned "latest" link.
+
+## General joining rule
+
+Before joining two files, answer three questions:
+
+1. What does one row represent in each file?
+2. Is the join one-to-one, one-to-many, or many-to-many?
+3. What should one row represent after the join?
+
+If either side has multiple rows per join key, aggregate it to the intended analysis grain before joining. A larger row count after a join is sometimes correct, but it must be understood and documented.
+

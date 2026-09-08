@@ -1,0 +1,63 @@
+---
+title: "Legacy U.S. Accidents Sample"
+subtitle: "A portable 100,000-row nationwide traffic-event sample"
+description: "Legacy backup dataset based on the U.S. Accidents source"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    code-copy: true
+---
+
+::: {.callout-warning}
+**Legacy backup dataset.** Prefer the current [Chicago Traffic Crashes](chicago-traffic.qmd) release when its scope fits the research question.
+:::
+
+::: {.callout-note}
+**Release:** `project1/2026-fall/v1/legacy-traffic`  
+**Rows:** 100,000  
+**Geography:** United States  
+**License:** CC BY-NC-SA 4.0
+:::
+
+## About this dataset
+
+This is a portable sample of reported U.S. traffic incidents from the U.S. Accidents dataset. It contains event timestamps and coordinates, traffic-impact severity, weather observations, mapped road features, and day/night or twilight classifications. It is useful when a project needs a single moderately large file rather than a relational system.
+
+## File
+
+| File | Rows | One row represents | Primary key |
+|---|---:|---|---|
+| [`legacy_us_accidents_100k.parquet`](https://data.60land.com/project1/2026-fall/v1/legacy-traffic/legacy_us_accidents_100k.parquet) | 100,000 | One sampled traffic incident | `legacy_source_index` |
+
+`id` retains the source incident identifier. Column names have been normalized to snake case.
+
+## Example
+
+```r
+library(arrow)
+library(dplyr)
+
+accidents <- read_parquet(
+  "https://data.60land.com/project1/2026-fall/v1/legacy-traffic/legacy_us_accidents_100k.parquet"
+)
+
+accidents |>
+  count(state, severity, sort = TRUE)
+```
+
+## Joining and enrichment
+
+This is a single-file release. Coordinates can support spatial joins, while state, county, city, or postal fields may support tabular enrichment when their definitions and vintages are compatible. Validate that the proposed key is unique in the reference table before joining.
+
+## Important limitations
+
+- `severity` describes reported impact on traffic flow from 1 (least) to 4 (greatest); it is not injury severity.
+- This 100,000-row sample is not the full source dataset and is not guaranteed to be nationally representative.
+- Weather describes a nearby station observation rather than necessarily the exact incident location.
+- Reporting systems and coverage differ across places and time.
+
+## Provenance
+
+The source is the [U.S. Accidents dataset](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents) assembled by Moosavi and collaborators. Use is noncommercial, attribution is required, and adaptations retain the same license.
+

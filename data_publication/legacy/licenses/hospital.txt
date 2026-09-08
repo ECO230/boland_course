@@ -1,0 +1,15 @@
+LEGACY CMS INPATIENT CHARGES FY2011
+
+Source: Centers for Medicare & Medicaid Services, Medicare Inpatient Hospitals
+by Provider and Service, FY2011 top-100 MS-DRG public-use file.
+https://data.cms.gov/provider-summary-by-type-of-service/medicare-inpatient-hospitals/medicare-inpatient-hospitals-by-provider-and-service
+
+This is a U.S. federal government public-use dataset. U.S. government works
+are generally not subject to copyright protection in the United States.
+https://www.usa.gov/government-copyright
+
+Please attribute the Centers for Medicare & Medicaid Services. CMS does not
+endorse ECO 230 or this Parquet conversion. The file contains aggregate
+provider/service data, not patient records. FY2011 includes only the top 100
+most frequently billed MS-DRGs and suppresses provider/DRG cells with 10 or
+fewer discharges.

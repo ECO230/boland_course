@@ -45,10 +45,20 @@ __pycache__/
 # Generated assignment releases
 # -----------------------------
 .assignment-build/
+.data-build/
+
+# Local source archives and data-publishing work products
+/posit_group/
+/data_publication/local/
 
 # Local Posit Cloud exports and review artifacts
 /posit_assignments/
 /tmp/
+
+# Local Canvas exports and runtime state; manifests remain tracked
+/canvas/*.imscc
+/canvas/work/
+/canvas/state/
 
 # -----------------------------
 # Local Codex private context

@@ -1,0 +1,127 @@
+{
+  "schema_version": 2,
+  "dataset_id": "inside_airbnb_chicago_twin_cities_2026_06",
+  "title": "Chicago and Twin Cities Airbnb Listings, Calendar, and Reviews",
+  "description": "A privacy-reduced course snapshot of active Inside Airbnb listings in Chicago and the Twin Cities MSA, with availability-only future calendars, monthly review counts, and a one-row-per-listing analysis table.",
+  "project": "project1",
+  "topic": "airbnb",
+  "release_version": "2026-fall-v1",
+  "release_status": "candidate",
+  "coverage": {
+    "chicago_snapshot": "2026-06-24",
+    "twin_cities_msa_snapshot": "2026-06-27",
+    "note": "These are cross-sectional listing snapshots. Reviews reach backward for listings visible in the snapshot; calendars describe approximately one future year. Listings absent from the snapshot are not represented."
+  },
+  "source_limitations": {
+    "calendar_price_status": "unavailable",
+    "finding": "The June 2026 source calendars contain availability and stay restrictions but no daily price columns.",
+    "design_effect": "Snapshot listing price is retained. No future-price, weekday/weekend-price, price-variability, occupancy, booking, or revenue measure is asserted."
+  },
+  "source_exclusions": {
+    "method": "Calendar and review rows are retained only when the same market snapshot contains a detailed-listings row from which a release-local listing_key can be created.",
+    "calendar": {
+      "listing_ids_without_detailed_listing": 48,
+      "rows_excluded": 17520,
+      "chicago_rows": 16060,
+      "twin_cities_msa_rows": 1460
+    },
+    "reviews": {
+      "listing_ids_without_detailed_listing": 46,
+      "rows_excluded": 6031,
+      "chicago_rows": 5950,
+      "twin_cities_msa_rows": 81
+    },
+    "privacy_note": "Raw excluded identifiers are not written to the release bundle."
+  },
+  "join_keys": {
+    "relational": [
+      "listing_key",
+      "market_id",
+      "snapshot_date"
+    ],
+    "geographic": [
+      "state_fips",
+      "county_fips",
+      "grid_0_01deg",
+      "local_area_name",
+      "latitude",
+      "longitude"
+    ],
+    "design_note": "The release supplies geographic handles but does not prejoin Census, ACS, tourism, transit, or other contextual attributes. Students choose and justify enrichments and must verify their join grain."
+  },
+  "sources": [
+    {
+      "name": "Inside Airbnb Chicago",
+      "publisher": "Inside Airbnb",
+      "snapshot_date": "2026-06-24",
+      "url": "https://insideairbnb.com/get-the-data/",
+      "data_root": "https://data.insideairbnb.com/united-states/il/chicago/2026-06-24/"
+    },
+    {
+      "name": "Inside Airbnb Twin Cities MSA",
+      "publisher": "Inside Airbnb",
+      "snapshot_date": "2026-06-27",
+      "url": "https://insideairbnb.com/get-the-data/",
+      "data_root": "https://data.insideairbnb.com/united-states/mn/twin-cities-msa/2026-06-27/"
+    }
+  ],
+  "privacy": {
+    "contains_student_data": false,
+    "contains_person_names": false,
+    "contains_profile_information": false,
+    "contains_review_text": false,
+    "contains_approximate_coordinates": true,
+    "source_location_displacement": "Inside Airbnb documents that listing coordinates are anonymized by displacement of up to 150 metres from the actual address.",
+    "course_redactions": [
+      "raw listing and host identifiers",
+      "listing, host, and picture URLs",
+      "listing names and all free-text descriptions",
+      "host name, location, biography, verification details, and profile fields",
+      "raw license values",
+      "review identifiers, reviewer identifiers and names, and review comments"
+    ],
+    "assessment": "The curated tables use a deterministic release-local listing key so they can be joined to each other without exposing source listing IDs. Coordinates remain approximate public-source coordinates and must not be treated as exact addresses."
+  },
+  "license": {
+    "inside_airbnb_license_statement": "CC BY 4.0",
+    "data_policy": "Inside Airbnb's Data Policies page says not to republish the data.",
+    "public_redistribution_approved": false,
+    "publication_gate": "Do not transfer or publish until written redistribution approval or another documented resolution is recorded.",
+    "notice_file": "LICENSE-DATA.txt"
+  },
+  "transformation": {
+    "engine": "DuckDB",
+    "tested_version": "1.5.2",
+    "sql_directory": "sql"
+  },
+  "artifacts": [
+    {
+      "name": "listings",
+      "grain": "One listing in one market snapshot",
+      "primary_key": "listing_key",
+      "relative_path": "project1/2026-fall/v1/airbnb/airbnb_listings.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/airbnb/airbnb_listings.parquet"
+    },
+    {
+      "name": "calendar",
+      "grain": "One listing and calendar date with listed availability and stay restrictions",
+      "primary_key": "listing_key, calendar_date",
+      "relative_path": "project1/2026-fall/v1/airbnb/airbnb_calendar.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/airbnb/airbnb_calendar.parquet"
+    },
+    {
+      "name": "reviews_monthly",
+      "grain": "One listing and review month",
+      "primary_key": "listing_key, review_month",
+      "relative_path": "project1/2026-fall/v1/airbnb/airbnb_reviews_monthly.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/airbnb/airbnb_reviews_monthly.parquet"
+    },
+    {
+      "name": "listing_analysis",
+      "grain": "One listing with snapshot-price benchmarks, availability, stay-restriction, and recent-review summaries",
+      "primary_key": "listing_key",
+      "relative_path": "project1/2026-fall/v1/airbnb/airbnb_listing_analysis.parquet",
+      "public_url": "https://data.60land.com/project1/2026-fall/v1/airbnb/airbnb_listing_analysis.parquet"
+    }
+  ]
+}

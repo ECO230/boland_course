@@ -1,0 +1,13 @@
+LEGACY NFL BIG DATA BOWL 2022 SPECIAL TEAMS
+
+Source:
+https://www.kaggle.com/competitions/nfl-big-data-bowl-2022
+
+PUBLIC REDISTRIBUTION IS NOT APPROVED.
+
+The competition permits noncommercial and academic use by participants but
+requires reasonable measures to keep the competition data from people who have
+not formally accepted its rules. It explicitly prohibits transmitting,
+duplicating, publishing, or redistributing the competition data to such
+parties. Keep this Parquet conversion in private operator storage unless the
+National Football League grants separate redistribution permission.
