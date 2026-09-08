@@ -23,6 +23,13 @@ placeholders such as `{{ canvas_file_example_pdf_url }}`; the publisher builds
 those values from the selected destination course's file inventory, so they do
 not belong in the semester configuration.
 
+Week 1 keeps the before-class `LabPrep for Lab 1` page separate from the
+in-class assignment. The former `Technology Set-Up` assignment and standalone
+Posit Cloud certificate link are represented by one assignment named `Lab 1:
+Technology Setup`. That assignment links the Posit Cloud project, accepts the
+certificate PDF, and asks students to report checklist results or setup
+problems in Canvas.
+
 Shared lab downloads are also published once with the public course website,
 not copied into each Canvas course. Their source paths, stable public URLs, and
 template keys are declared in `canvas/manifests/shared-resources.yml`. Quarto's
