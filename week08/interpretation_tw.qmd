@@ -55,10 +55,10 @@ library(eco230r)
 library(here)
 library(readr)
 
-load(system.file("data", "t_tall.Rda", package = "eco230r"))
-load(system.file("data", "t_wide.Rda", package = "eco230r"))
-load(system.file("data", "tea_tab.Rda", package = "eco230r"))
-load(system.file("data", "napData.Rda", package = "eco230r"))
+load(system.file("data", "t_tall.rda", package = "eco230r"))
+load(system.file("data", "t_wide.rda", package = "eco230r"))
+load(system.file("data", "tea_tab.rda", package = "eco230r"))
+load(system.file("data", "napData.rda", package = "eco230r"))
 
 ```
 
