@@ -10,6 +10,8 @@ param(
 
     [int]$ExpectedModuleCount = 16,
 
+    [string]$ResumeRunRoot,
+
     [switch]$Execute
 )
 
@@ -38,12 +40,15 @@ foreach ($requiredPath in @($config, $python)) {
 }
 
 function Invoke-CanvasCtl {
-    param([Parameter(Mandatory = $true)][string[]]$CliArguments)
+    param(
+        [Parameter(Mandatory = $true)][string[]]$CliArguments,
+        [int[]]$AllowedExitCodes = @(0)
+    )
 
     Write-Host ""
     Write-Host ("canvasctl " + ($CliArguments -join " ")) -ForegroundColor Cyan
     & $python @CliArguments
-    if ($LASTEXITCODE -ne 0) {
+    if ($LASTEXITCODE -notin $AllowedExitCodes) {
         throw "canvasctl exited with code $LASTEXITCODE"
     }
 }
@@ -92,9 +97,21 @@ function Get-ActionCount {
     return $total
 }
 
-$stamp = Get-Date -Format "yyyyMMdd-HHmmss"
-$runRoot = Join-Path $ops "work\section-provisioning\fall-2026-$Section-$stamp"
-New-Item -ItemType Directory -Force -Path $runRoot | Out-Null
+$provisioningRoot = [System.IO.Path]::GetFullPath((Join-Path $ops "work\section-provisioning"))
+if ($ResumeRunRoot) {
+    $runRoot = [System.IO.Path]::GetFullPath($ResumeRunRoot)
+    if (-not $runRoot.StartsWith($provisioningRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw "ResumeRunRoot must be inside $provisioningRoot"
+    }
+    if (-not (Test-Path -LiteralPath $runRoot -PathType Container)) {
+        throw "ResumeRunRoot does not exist: $runRoot"
+    }
+}
+else {
+    $stamp = Get-Date -Format "yyyyMMdd-HHmmss"
+    $runRoot = Join-Path $provisioningRoot "fall-2026-$Section-$stamp"
+    New-Item -ItemType Directory -Force -Path $runRoot | Out-Null
+}
 
 $common = @(
     "--course-repo", $courseRepo,
@@ -104,30 +121,37 @@ $common = @(
 
 # 1. Copy the Canvas-native quizzes, attachments, and assignments that cannot
 # be reconstructed safely from repository sources.
-$seedPlanDirectory = Join-Path $runRoot "01-seed-plan"
-Invoke-CanvasCtl -CliArguments (@("-m", "eco230_canvas.cli", "seed", "plan") + $common + @("--output", $seedPlanDirectory))
-$seedPlanPath = Join-Path $seedPlanDirectory "seed-plan.json"
-$seedPlan = Read-JsonFile -Path $seedPlanPath
-Assert-PlanReady -Plan $seedPlan -Label "Seed plan" -AllowedStatuses @("ready")
+$seedReceiptDirectory = Join-Path $runRoot "02-seed-apply"
+$seedReceiptPath = Join-Path $seedReceiptDirectory "apply-receipt.json"
+$seedMigrationStarted = Test-Path -LiteralPath $seedReceiptPath -PathType Leaf
 
-if ((Get-ActionCount -Plan $seedPlan -Names @("copy_from_source")) -gt 0) {
-    $seedReceiptDirectory = Join-Path $runRoot "02-seed-apply"
-    Invoke-CanvasCtl -CliArguments (@(
-        "-m", "eco230_canvas.cli", "seed", "apply"
-    ) + $common + @(
-        "--plan", $seedPlanPath,
-        "--output", $seedReceiptDirectory,
-        "--source-course-id", [string]$SourceCourseId,
-        "--confirm-destination-course-id", [string]$CourseId,
-        "--execute"
-    ))
+if (-not $seedMigrationStarted) {
+    $seedPlanDirectory = Join-Path $runRoot "01-seed-plan"
+    Invoke-CanvasCtl -CliArguments (@("-m", "eco230_canvas.cli", "seed", "plan") + $common + @("--output", $seedPlanDirectory))
+    $seedPlanPath = Join-Path $seedPlanDirectory "seed-plan.json"
+    $seedPlan = Read-JsonFile -Path $seedPlanPath
+    Assert-PlanReady -Plan $seedPlan -Label "Seed plan" -AllowedStatuses @("ready")
 
-    $seedReceiptPath = Join-Path $seedReceiptDirectory "apply-receipt.json"
+    if ((Get-ActionCount -Plan $seedPlan -Names @("copy_from_source")) -gt 0) {
+        Invoke-CanvasCtl -CliArguments (@(
+            "-m", "eco230_canvas.cli", "seed", "apply"
+        ) + $common + @(
+            "--plan", $seedPlanPath,
+            "--output", $seedReceiptDirectory,
+            "--source-course-id", [string]$SourceCourseId,
+            "--confirm-destination-course-id", [string]$CourseId,
+            "--execute"
+        ))
+        $seedMigrationStarted = $true
+    }
+}
+
+if ($seedMigrationStarted) {
     $seedStatusDirectory = Join-Path $seedReceiptDirectory "verification"
     $seedStatus = $null
     for ($attempt = 1; $attempt -le 48; $attempt++) {
         Start-Sleep -Seconds 10
-        Invoke-CanvasCtl -CliArguments (@(
+        Invoke-CanvasCtl -AllowedExitCodes @(0, 2) -CliArguments (@(
             "-m", "eco230_canvas.cli", "seed", "status"
         ) + $common + @(
             "--receipt", $seedReceiptPath,
