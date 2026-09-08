@@ -199,22 +199,30 @@ if ((Get-ActionCount -Plan $structureVerify -Names @("create_unpublished")) -gt 
 }
 
 # 3. Upload the repository-owned editable guided notes.
-$filePlanDirectory = Join-Path $runRoot "06-file-plan"
-Invoke-CanvasCtl -CliArguments (@("-m", "eco230_canvas.cli", "files", "plan") + $common + @("--output", $filePlanDirectory))
-$filePlanPath = Join-Path $filePlanDirectory "file-plan.json"
-$filePlan = Read-JsonFile -Path $filePlanPath
-Assert-PlanReady -Plan $filePlan -Label "File plan" -AllowedStatuses @("ready")
+$fileReceiptDirectory = Join-Path $runRoot "07-file-apply"
+$fileReceiptPath = Join-Path $fileReceiptDirectory "apply-receipt.json"
+$filesApplied = Test-Path -LiteralPath $fileReceiptPath -PathType Leaf
 
-if ((Get-ActionCount -Plan $filePlan -Names @("upload")) -gt 0) {
-    $fileReceiptDirectory = Join-Path $runRoot "07-file-apply"
-    Invoke-CanvasCtl -CliArguments (@(
-        "-m", "eco230_canvas.cli", "files", "apply"
-    ) + $common + @(
-        "--plan", $filePlanPath,
-        "--output", $fileReceiptDirectory,
-        "--confirm-destination-course-id", [string]$CourseId,
-        "--execute"
-    ))
+if (-not $filesApplied) {
+    $filePlanDirectory = Join-Path $runRoot "06-file-plan"
+    Invoke-CanvasCtl -CliArguments (@("-m", "eco230_canvas.cli", "files", "plan") + $common + @("--output", $filePlanDirectory))
+    $filePlanPath = Join-Path $filePlanDirectory "file-plan.json"
+    $filePlan = Read-JsonFile -Path $filePlanPath
+    Assert-PlanReady -Plan $filePlan -Label "File plan" -AllowedStatuses @("ready")
+
+    if ((Get-ActionCount -Plan $filePlan -Names @("upload")) -gt 0) {
+        Invoke-CanvasCtl -CliArguments (@(
+            "-m", "eco230_canvas.cli", "files", "apply"
+        ) + $common + @(
+            "--plan", $filePlanPath,
+            "--output", $fileReceiptDirectory,
+            "--confirm-destination-course-id", [string]$CourseId,
+            "--execute"
+        ))
+    }
+}
+else {
+    Write-Host "Reusing successful guided-notes upload receipt: $fileReceiptPath" -ForegroundColor DarkGreen
 }
 
 # 4. Create assignments, assignment groups and weights, rubrics, pages, and
