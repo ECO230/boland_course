@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="OpenAI Codex Smoke Test">
+
+<title>MGT 308 Smoke-Test Report – ECO 230 — Section 12</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-30e33b9170478032341da2de80696f6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<link rel="stylesheet" href="styles/accessibility.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ECO 230 — Section 12</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus/syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../week01/week_01.html">
+ <span class="dropdown-text">Week 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week02/week_02.html">
+ <span class="dropdown-text">Week 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week03/week_03.html">
+ <span class="dropdown-text">Week 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week04/week_04.html">
+ <span class="dropdown-text">Week 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week05/week_05.html">
+ <span class="dropdown-text">Week 5</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week06/week_06.html">
+ <span class="dropdown-text">Week 6</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week07/week_07.html">
+ <span class="dropdown-text">Week 7</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week12/week_12.html">
+ <span class="dropdown-text">Week 12</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-interpretation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Interpretation</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-interpretation">    
+        <li>
+    <a class="dropdown-item" href="../week07/interpretation_x2.html">
+ <span class="dropdown-text">Chi-square Tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week08/interpretation_tw.html">
+ <span class="dropdown-text">t-Tests &amp; Wilcoxon Tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week09/interpretation_anlr.html">
+ <span class="dropdown-text">ANOVA &amp; Simple Linear Regression</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-homework" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Homework</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-homework">    
+        <li>
+    <a class="dropdown-item" href="../week01/Homework_01.html">
+ <span class="dropdown-text">Homework 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week02/Homework_02.html">
+ <span class="dropdown-text">Homework 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week03/Homework_03.html">
+ <span class="dropdown-text">Homework 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week04/Homework_04.html">
+ <span class="dropdown-text">Homework 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week06/Homework_05.html">
+ <span class="dropdown-text">Homework 5</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week07/Homework_06.html">
+ <span class="dropdown-text">Homework 6</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week08/Homework_07.html">
+ <span class="dropdown-text">Homework 7</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week09/Homework_08.html">
+ <span class="dropdown-text">Homework 8</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project-1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project 1</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-project-1">    
+        <li>
+    <a class="dropdown-item" href="../syllabus/project_1_prompt.html">
+ <span class="dropdown-text">Project Prompt</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../syllabus/project_1_timeline.html">
+ <span class="dropdown-text">Project Timeline</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../syllabus/project_1_presentation_in_person.html">
+ <span class="dropdown-text">In Person Presentation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week09/week_09.html">
+ <span class="dropdown-text">Peer Review</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project-2" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project 2</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-project-2">    
+        <li>
+    <a class="dropdown-item" href="../syllabus/project_2_prompt.html">
+ <span class="dropdown-text">Project Prompt</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-practicum" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Practicum</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-practicum">    
+        <li>
+    <a class="dropdown-item" href="../admin/final/Practice_Practicum_Guidelines.html">
+ <span class="dropdown-text">Rubric and Guidelines</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../admin/final/Practice_Practicum_Prompt.html">
+ <span class="dropdown-text">Practice Practicum</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../admin/final/Practicum_Prompt.html">
+ <span class="dropdown-text">Final Practicum</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary"><span class="header-section-number">1</span> Executive Summary</a></li>
+  <li><a href="#ask-core-problem-and-purpose" id="toc-ask-core-problem-and-purpose" class="nav-link" data-scroll-target="#ask-core-problem-and-purpose"><span class="header-section-number">2</span> Ask: Core Problem and Purpose</a></li>
+  <li><a href="#acquire-stakeholder-evidence" id="toc-acquire-stakeholder-evidence" class="nav-link" data-scroll-target="#acquire-stakeholder-evidence"><span class="header-section-number">3</span> Acquire: Stakeholder Evidence</a></li>
+  <li><a href="#acquire-scientific-literature-review" id="toc-acquire-scientific-literature-review" class="nav-link" data-scroll-target="#acquire-scientific-literature-review"><span class="header-section-number">4</span> Acquire: Scientific Literature Review</a></li>
+  <li><a href="#acquire-practitioner-evidence" id="toc-acquire-practitioner-evidence" class="nav-link" data-scroll-target="#acquire-practitioner-evidence"><span class="header-section-number">5</span> Acquire: Practitioner Evidence</a></li>
+  <li><a href="#appraise-hypotheses-and-model" id="toc-appraise-hypotheses-and-model" class="nav-link" data-scroll-target="#appraise-hypotheses-and-model"><span class="header-section-number">6</span> Appraise: Hypotheses and Model</a></li>
+  <li><a href="#aggregate-methods" id="toc-aggregate-methods" class="nav-link" data-scroll-target="#aggregate-methods"><span class="header-section-number">7</span> Aggregate: Methods</a>
+  <ul class="collapse">
+  <li><a href="#participants" id="toc-participants" class="nav-link" data-scroll-target="#participants"><span class="header-section-number">7.1</span> Participants</a></li>
+  <li><a href="#procedure" id="toc-procedure" class="nav-link" data-scroll-target="#procedure"><span class="header-section-number">7.2</span> Procedure</a></li>
+  <li><a href="#measures-used-in-this-report" id="toc-measures-used-in-this-report" class="nav-link" data-scroll-target="#measures-used-in-this-report"><span class="header-section-number">7.3</span> Measures Used in This Report</a></li>
+  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import"><span class="header-section-number">7.4</span> Data Import</a></li>
+  <li><a href="#data-quality-check" id="toc-data-quality-check" class="nav-link" data-scroll-target="#data-quality-check"><span class="header-section-number">7.5</span> Data Quality Check</a></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">8</span> Results</a>
+  <ul class="collapse">
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics"><span class="header-section-number">8.1</span> Descriptive Statistics</a></li>
+  <li><a href="#correlations" id="toc-correlations" class="nav-link" data-scroll-target="#correlations"><span class="header-section-number">8.2</span> Correlations</a></li>
+  <li><a href="#visual-check" id="toc-visual-check" class="nav-link" data-scroll-target="#visual-check"><span class="header-section-number">8.3</span> Visual Check</a></li>
+  <li><a href="#regression-based-path-components" id="toc-regression-based-path-components" class="nav-link" data-scroll-target="#regression-based-path-components"><span class="header-section-number">8.4</span> Regression-Based Path Components</a>
+  <ul class="collapse">
+  <li><a href="#model-1-performance-predicted-by-job-satisfaction" id="toc-model-1-performance-predicted-by-job-satisfaction" class="nav-link" data-scroll-target="#model-1-performance-predicted-by-job-satisfaction"><span class="header-section-number">8.4.1</span> Model 1: Performance Predicted by Job Satisfaction</a></li>
+  <li><a href="#model-2-union-support-predicted-by-job-satisfaction" id="toc-model-2-union-support-predicted-by-job-satisfaction" class="nav-link" data-scroll-target="#model-2-union-support-predicted-by-job-satisfaction"><span class="header-section-number">8.4.2</span> Model 2: Union Support Predicted by Job Satisfaction</a></li>
+  <li><a href="#model-3-accidents-predicted-by-job-satisfaction-and-performance" id="toc-model-3-accidents-predicted-by-job-satisfaction-and-performance" class="nav-link" data-scroll-target="#model-3-accidents-predicted-by-job-satisfaction-and-performance"><span class="header-section-number">8.4.3</span> Model 3: Accidents Predicted by Job Satisfaction and Performance</a></li>
+  </ul></li>
+  <li><a href="#path-model-in-lavaan" id="toc-path-model-in-lavaan" class="nav-link" data-scroll-target="#path-model-in-lavaan"><span class="header-section-number">8.5</span> Path Model in <code>lavaan</code></a></li>
+  <li><a href="#path-diagram" id="toc-path-diagram" class="nav-link" data-scroll-target="#path-diagram"><span class="header-section-number">8.6</span> Path Diagram</a></li>
+  <li><a href="#sensitivity-check-on-the-30-unique-cases" id="toc-sensitivity-check-on-the-30-unique-cases" class="nav-link" data-scroll-target="#sensitivity-check-on-the-30-unique-cases"><span class="header-section-number">8.7</span> Sensitivity Check on the 30 Unique Cases</a></li>
+  </ul></li>
+  <li><a href="#apply-discussion-and-recommendations" id="toc-apply-discussion-and-recommendations" class="nav-link" data-scroll-target="#apply-discussion-and-recommendations"><span class="header-section-number">9</span> Apply: Discussion and Recommendations</a>
+  <ul class="collapse">
+  <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations"><span class="header-section-number">9.1</span> Recommendations</a></li>
+  <li><a href="#evaluation-plan" id="toc-evaluation-plan" class="nav-link" data-scroll-target="#evaluation-plan"><span class="header-section-number">9.2</span> Evaluation Plan</a></li>
+  </ul></li>
+  <li><a href="#limitations-and-future-research" id="toc-limitations-and-future-research" class="nav-link" data-scroll-target="#limitations-and-future-research"><span class="header-section-number">10</span> Limitations and Future Research</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11</span> References</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="assignment_smoketest_report.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MGT 308 Smoke-Test Report</h1>
+<p class="subtitle lead">Looking at Consequences of Job Satisfaction at Amazon</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>OpenAI Codex Smoke Test </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="executive-summary" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Executive Summary</h1>
+<p>This report applies an evidence-based decision-making framework to Amazon-style warehouse work using three kinds of evidence: stakeholder evidence from the assigned PBS Frontline video segment, scientific evidence from peer-reviewed organizational behavior research, and practitioner evidence from HR and management publications. I focus on <strong>job satisfaction</strong> as the core exogenous variable and test relationships with <strong>job performance</strong>, <strong>support for unionization</strong>, and <strong>accidents</strong>. The central claim is that visible problems such as accidents, disengagement, and pro-union sentiment may reflect a deeper job satisfaction problem rather than isolated operational issues.</p>
+<p>Using the provided hypothetical dataset, job satisfaction is positively related to supervisor-rated performance and negatively related to support for unionization, accidents, absences, and turnover. A small path-style model suggests that job satisfaction predicts higher performance, job satisfaction predicts lower union support, and performance helps explain why job satisfaction is related to accidents. In practical terms, this implies that improving the daily work experience should matter not only for morale, but also for safety, behavior, and labor relations.</p>
+</section>
+<section id="ask-core-problem-and-purpose" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Ask: Core Problem and Purpose</h1>
+<p>The visible problems in the Amazon case are worker frustration, fear of injury, emotional exhaustion, high pressure, distrust of management, and openness to unionization. The broader organizational behavior problem appears to be a work system that combines high surveillance, strong pace pressure, and limited dignity or control. If that interpretation is correct, then absenteeism, accidents, weaker extra-role behavior, and union support are consequences of a deeper attitudinal problem.</p>
+<p>The purpose of this report is to evaluate that interpretation by integrating stakeholder evidence, scientific evidence, practitioner evidence, and the provided dataset, then recommending evidence-based actions leaders could test.</p>
+</section>
+<section id="acquire-stakeholder-evidence" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Acquire: Stakeholder Evidence</h1>
+<p>The assigned PBS Frontline segment, <em>“You’re Just Disposable”: Former Amazon Workers Speak Out</em>, presents warehouse work as tightly monitored, quota-driven, and emotionally dehumanizing. Even without heavy quotation, the segment points to a stable pattern:</p>
+<ul>
+<li>workers describe feeling interchangeable rather than valued;</li>
+<li>monitoring and output expectations shape the pace of work;</li>
+<li>workers connect the pace of work to fatigue and injury concerns;</li>
+<li>low trust in management increases interest in collective employee voice.</li>
+</ul>
+<p>Taken together, the stakeholder evidence suggests a plausible causal chain: if workers feel disposable, job satisfaction should decline; if job satisfaction declines, performance quality and discretionary effort may also fall; and if work feels both unfair and unsafe, support for unionization should rise.</p>
+</section>
+<section id="acquire-scientific-literature-review" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Acquire: Scientific Literature Review</h1>
+<p>I selected <strong>job satisfaction</strong> as the exogenous variable because it is well-supported in the literature and fits the stakeholder evidence closely.</p>
+<p>Harrison, Newman, and Roth (2006) show in a major meta-analysis that job attitudes are meaningfully related to outcomes such as performance, absenteeism, turnover, and citizenship-related behavior. This is important because it supports the idea that one underlying attitudinal problem can generate several downstream organizational problems at once.</p>
+<p>Riketta (2008) strengthens the directional argument by showing in a meta-analysis of panel studies that job attitudes predict later performance more strongly than performance predicts later attitudes. That makes it more defensible to treat job satisfaction as a starting point in the model rather than only a reaction to outcomes.</p>
+<p>Judge and Kammeyer-Mueller (2012) summarize job attitudes research and argue that employee attitudes matter because they shape attachment, motivation, and withdrawal. Their review helps explain why low job satisfaction should be connected to weaker effort, lower trust, and stronger desire to exit or resist the employment relationship.</p>
+<p>Judge, Weiss, Kammeyer-Mueller, and Hulin (2017) further argue that job satisfaction remains central because it reflects employees’ broader evaluation of the total work experience. In an Amazon-like environment, that matters because the problem is likely cumulative rather than isolated to one policy.</p>
+</section>
+<section id="acquire-practitioner-evidence" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Acquire: Practitioner Evidence</h1>
+<p>Practitioner-oriented sources generally point in the same direction as the scientific literature.</p>
+<p>Gallup argues that low engagement and low satisfaction are expensive because they are associated with lower productivity, higher stress, and weaker retention. Although Gallup uses the term <em>engagement</em> more often than <em>job satisfaction</em>, the practical implication is similar: employee attitudes carry business consequences.</p>
+<p>Harvard Business Review has emphasized that employee engagement improves when organizations provide clarity, support, and a sense that leaders care about employee experience. This directly contrasts with the Amazon stakeholder evidence, where workers describe a system focused heavily on control and output.</p>
+<p>SHRM’s coverage of toxic workplace culture likewise highlights that organizations pay a real price when employees experience work as disrespectful, unsafe, or psychologically draining. In that environment, turnover risk and interest in collective protection become more understandable.</p>
+</section>
+<section id="appraise-hypotheses-and-model" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Appraise: Hypotheses and Model</h1>
+<p>Based on the literature and stakeholder evidence, I tested the following hypotheses:</p>
+<p><strong>H1.</strong> Higher job satisfaction will be associated with higher supervisor-rated job performance.</p>
+<p><strong>H2.</strong> Higher job satisfaction will be associated with lower support for unionization.</p>
+<p><strong>H3.</strong> Higher job satisfaction will be associated with fewer accidents partly through better job performance.</p>
+<p>This is intentionally different from the instructor’s work-rates example. I use job satisfaction as the exogenous variable because it better fits the literature base and still speaks directly to the worker experience described in the video.</p>
+</section>
+<section id="aggregate-methods" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Aggregate: Methods</h1>
+<section id="participants" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="participants"><span class="header-section-number">7.1</span> Participants</h2>
+<p>The assignment instructions describe <strong>60 current and former Amazon warehouse employees</strong>, along with corresponding supervisor ratings.</p>
+</section>
+<section id="procedure" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="procedure"><span class="header-section-number">7.2</span> Procedure</h2>
+<p>Employees completed measures of job satisfaction, affective commitment, and support for unionization. Supervisors rated performance and organizational citizenship behaviors. HR records supplied absences, turnover, productivity rates, and accidents.</p>
+</section>
+<section id="measures-used-in-this-report" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="measures-used-in-this-report"><span class="header-section-number">7.3</span> Measures Used in This Report</h2>
+<ul>
+<li><code>JS</code>: Job Satisfaction</li>
+<li><code>Perf</code>: Job Performance</li>
+<li><code>Union</code>: Support for Unionization</li>
+<li><code>Accidents</code>: Number of accidents per quarter</li>
+</ul>
+</section>
+<section id="data-import" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="data-import"><span class="header-section-number">7.4</span> Data Import</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"amazon_warehouse_data.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 60
+Columns: 9
+$ JS        &lt;dbl&gt; 7, 7, 7, 7, 6, 6, 6, 6, 5, 5, 5, 5, 4, 4, 4, 3, 3, 3, 3, 2, …
+$ AC        &lt;dbl&gt; 4, 6, 6, 5, 7, 6, 5, 5, 4, 5, 3, 4, 5, 3, 4, 4, 3, 6, 7, 3, …
+$ Perf      &lt;dbl&gt; 4, 6, 5, 5, 7, 5, 5, 5, 4, 5, 5, 3, 7, 3, 2, 5, 6, 5, 3, 2, …
+$ OCB       &lt;dbl&gt; 4, 6, 6, 5, 6, 6, 3, 3, 2, 5, 3, 4, 6, 3, 3, 7, 6, 4, 3, 4, …
+$ Absences  &lt;dbl&gt; 3, 1, 2, 2, 1, 1, 1, 1, 1, 0, 0, 2, 3, 4, 2, 1, 1, 2, 0, 2, …
+$ Turnover  &lt;dbl&gt; 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, …
+$ Rates     &lt;dbl&gt; 2, 1, 2, 1, 1, 3, 2, 2, 1, 2, 3, 3, 2, 2, 2, 2, 1, 2, 2, 3, …
+$ Union     &lt;dbl&gt; 1, 2, 3, 2, 1, 5, 3, 4, 4, 3, 7, 3, 3, 4, 4, 5, 5, 5, 6, 6, …
+$ Accidents &lt;dbl&gt; 1, 1, 2, 1, 2, 3, 1, 1, 2, 1, 4, 2, 1, 3, 3, 2, 1, 2, 3, 2, …</code></pre>
+</div>
+</div>
+</section>
+<section id="data-quality-check" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="data-quality-check"><span class="header-section-number">7.5</span> Data Quality Check</h2>
+<p>The decoded CSV reveals that the 60-row file contains an exact duplicate of the first 30 rows in rows 31-60.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 60</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">distinct</span>(df))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>duplication_summary <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">provided_rows =</span> <span class="fu">nrow</span>(df),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">unique_rows =</span> <span class="fu">nrow</span>(<span class="fu">distinct</span>(df)),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">duplicated_rows =</span> <span class="fu">nrow</span>(df) <span class="sc">-</span> <span class="fu">nrow</span>(<span class="fu">distinct</span>(df))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(duplication_summary, <span class="at">caption =</span> <span class="st">"Duplicate-row smoke test"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Duplicate-row smoke test</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">provided_rows</th>
+<th style="text-align: right;">unique_rows</th>
+<th style="text-align: right;">duplicated_rows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">30</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>For the main analysis, I keep all 60 rows to mirror the provided assignment file. I also create a 30-case unique dataset for sensitivity checking.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df60 <span class="ot">&lt;-</span> df</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df30 <span class="ot">&lt;-</span> <span class="fu">distinct</span>(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="results" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Results</h1>
+<section id="descriptive-statistics" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="descriptive-statistics"><span class="header-section-number">8.1</span> Descriptive Statistics</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>desc_tbl <span class="ot">&lt;-</span> df60 <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(JS, Perf, Union, Accidents, Absences, Turnover),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">Mean =</span> <span class="sc">~</span> <span class="fu">mean</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">SD =</span> <span class="sc">~</span> <span class="fu">sd</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">Min =</span> <span class="sc">~</span> <span class="fu">min</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">Max =</span> <span class="sc">~</span> <span class="fu">max</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">.names =</span> <span class="st">"{.col}_{.fn}"</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>desc_long <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variable =</span> <span class="fu">c</span>(<span class="st">"JS"</span>, <span class="st">"Perf"</span>, <span class="st">"Union"</span>, <span class="st">"Accidents"</span>, <span class="st">"Absences"</span>, <span class="st">"Turnover"</span>),</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean =</span> <span class="fu">c</span>(<span class="fu">mean</span>(df60<span class="sc">$</span>JS), <span class="fu">mean</span>(df60<span class="sc">$</span>Perf), <span class="fu">mean</span>(df60<span class="sc">$</span>Union), <span class="fu">mean</span>(df60<span class="sc">$</span>Accidents), <span class="fu">mean</span>(df60<span class="sc">$</span>Absences), <span class="fu">mean</span>(df60<span class="sc">$</span>Turnover)),</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">SD =</span> <span class="fu">c</span>(<span class="fu">sd</span>(df60<span class="sc">$</span>JS), <span class="fu">sd</span>(df60<span class="sc">$</span>Perf), <span class="fu">sd</span>(df60<span class="sc">$</span>Union), <span class="fu">sd</span>(df60<span class="sc">$</span>Accidents), <span class="fu">sd</span>(df60<span class="sc">$</span>Absences), <span class="fu">sd</span>(df60<span class="sc">$</span>Turnover)),</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">Min =</span> <span class="fu">c</span>(<span class="fu">min</span>(df60<span class="sc">$</span>JS), <span class="fu">min</span>(df60<span class="sc">$</span>Perf), <span class="fu">min</span>(df60<span class="sc">$</span>Union), <span class="fu">min</span>(df60<span class="sc">$</span>Accidents), <span class="fu">min</span>(df60<span class="sc">$</span>Absences), <span class="fu">min</span>(df60<span class="sc">$</span>Turnover)),</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">Max =</span> <span class="fu">c</span>(<span class="fu">max</span>(df60<span class="sc">$</span>JS), <span class="fu">max</span>(df60<span class="sc">$</span>Perf), <span class="fu">max</span>(df60<span class="sc">$</span>Union), <span class="fu">max</span>(df60<span class="sc">$</span>Accidents), <span class="fu">max</span>(df60<span class="sc">$</span>Absences), <span class="fu">max</span>(df60<span class="sc">$</span>Turnover))</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>desc_long <span class="sc">|&gt;</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">round</span>(.x, <span class="dv">2</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Descriptive statistics"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Descriptive statistics</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">Min</th>
+<th style="text-align: right;">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">JS</td>
+<td style="text-align: right;">4.03</td>
+<td style="text-align: right;">1.94</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Perf</td>
+<td style="text-align: right;">4.13</td>
+<td style="text-align: right;">1.47</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Union</td>
+<td style="text-align: right;">3.83</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Accidents</td>
+<td style="text-align: right;">2.07</td>
+<td style="text-align: right;">1.07</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Absences</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">1.30</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Turnover</td>
+<td style="text-align: right;">1.30</td>
+<td style="text-align: right;">0.46</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="correlations" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="correlations"><span class="header-section-number">8.2</span> Correlations</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cor_vars <span class="ot">&lt;-</span> df60 <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(JS, Perf, Union, Accidents, Absences, Turnover, OCB, Rates, AC)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">cor</span>(cor_vars), <span class="dv">3</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(cor_mat, <span class="at">caption =</span> <span class="st">"Correlation matrix"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Correlation matrix</caption>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">JS</th>
+<th style="text-align: right;">Perf</th>
+<th style="text-align: right;">Union</th>
+<th style="text-align: right;">Accidents</th>
+<th style="text-align: right;">Absences</th>
+<th style="text-align: right;">Turnover</th>
+<th style="text-align: right;">OCB</th>
+<th style="text-align: right;">Rates</th>
+<th style="text-align: right;">AC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">JS</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">0.451</td>
+<td style="text-align: right;">-0.514</td>
+<td style="text-align: right;">-0.376</td>
+<td style="text-align: right;">-0.483</td>
+<td style="text-align: right;">-0.427</td>
+<td style="text-align: right;">0.389</td>
+<td style="text-align: right;">-0.369</td>
+<td style="text-align: right;">0.594</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Perf</td>
+<td style="text-align: right;">0.451</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">-0.200</td>
+<td style="text-align: right;">-0.416</td>
+<td style="text-align: right;">-0.337</td>
+<td style="text-align: right;">-0.260</td>
+<td style="text-align: right;">0.374</td>
+<td style="text-align: right;">-0.426</td>
+<td style="text-align: right;">0.410</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Union</td>
+<td style="text-align: right;">-0.514</td>
+<td style="text-align: right;">-0.200</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">0.385</td>
+<td style="text-align: right;">0.026</td>
+<td style="text-align: right;">0.495</td>
+<td style="text-align: right;">-0.305</td>
+<td style="text-align: right;">0.480</td>
+<td style="text-align: right;">-0.367</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Accidents</td>
+<td style="text-align: right;">-0.376</td>
+<td style="text-align: right;">-0.416</td>
+<td style="text-align: right;">0.385</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">0.267</td>
+<td style="text-align: right;">0.575</td>
+<td style="text-align: right;">-0.371</td>
+<td style="text-align: right;">0.352</td>
+<td style="text-align: right;">-0.460</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Absences</td>
+<td style="text-align: right;">-0.483</td>
+<td style="text-align: right;">-0.337</td>
+<td style="text-align: right;">0.026</td>
+<td style="text-align: right;">0.267</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">0.507</td>
+<td style="text-align: right;">-0.366</td>
+<td style="text-align: right;">0.146</td>
+<td style="text-align: right;">-0.580</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Turnover</td>
+<td style="text-align: right;">-0.427</td>
+<td style="text-align: right;">-0.260</td>
+<td style="text-align: right;">0.495</td>
+<td style="text-align: right;">0.575</td>
+<td style="text-align: right;">0.507</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">-0.446</td>
+<td style="text-align: right;">0.484</td>
+<td style="text-align: right;">-0.626</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OCB</td>
+<td style="text-align: right;">0.389</td>
+<td style="text-align: right;">0.374</td>
+<td style="text-align: right;">-0.305</td>
+<td style="text-align: right;">-0.371</td>
+<td style="text-align: right;">-0.366</td>
+<td style="text-align: right;">-0.446</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">-0.218</td>
+<td style="text-align: right;">0.457</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rates</td>
+<td style="text-align: right;">-0.369</td>
+<td style="text-align: right;">-0.426</td>
+<td style="text-align: right;">0.480</td>
+<td style="text-align: right;">0.352</td>
+<td style="text-align: right;">0.146</td>
+<td style="text-align: right;">0.484</td>
+<td style="text-align: right;">-0.218</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">-0.319</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AC</td>
+<td style="text-align: right;">0.594</td>
+<td style="text-align: right;">0.410</td>
+<td style="text-align: right;">-0.367</td>
+<td style="text-align: right;">-0.460</td>
+<td style="text-align: right;">-0.580</td>
+<td style="text-align: right;">-0.626</td>
+<td style="text-align: right;">0.457</td>
+<td style="text-align: right;">-0.319</td>
+<td style="text-align: right;">1.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The most relevant zero-order relationships for the focal model are:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>key_corrs <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Pair =</span> <span class="fu">c</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JS with Perf"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JS with Union"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JS with Accidents"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Perf with Accidents"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JS with Absences"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JS with Turnover"</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">r =</span> <span class="fu">c</span>(</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cor</span>(df60<span class="sc">$</span>JS, df60<span class="sc">$</span>Perf),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cor</span>(df60<span class="sc">$</span>JS, df60<span class="sc">$</span>Union),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cor</span>(df60<span class="sc">$</span>JS, df60<span class="sc">$</span>Accidents),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cor</span>(df60<span class="sc">$</span>Perf, df60<span class="sc">$</span>Accidents),</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cor</span>(df60<span class="sc">$</span>JS, df60<span class="sc">$</span>Absences),</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cor</span>(df60<span class="sc">$</span>JS, df60<span class="sc">$</span>Turnover)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>key_corrs <span class="sc">|&gt;</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">round</span>(.x, <span class="dv">3</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Key focal correlations"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Key focal correlations</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Pair</th>
+<th style="text-align: right;">r</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">JS with Perf</td>
+<td style="text-align: right;">0.451</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">JS with Union</td>
+<td style="text-align: right;">-0.514</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">JS with Accidents</td>
+<td style="text-align: right;">-0.376</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Perf with Accidents</td>
+<td style="text-align: right;">-0.416</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">JS with Absences</td>
+<td style="text-align: right;">-0.483</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">JS with Turnover</td>
+<td style="text-align: right;">-0.427</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="visual-check" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="visual-check"><span class="header-section-number">8.3</span> Visual Check</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df60, <span class="fu">aes</span>(<span class="at">x =</span> JS, <span class="at">y =</span> Union)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.15</span>, <span class="at">height =</span> <span class="fl">0.15</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#2C3E50"</span>) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Job Satisfaction"</span>, <span class="at">y =</span> <span class="st">"Support for Unionization"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_smoketest_report_files/figure-html/scatterplot-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Job satisfaction and union support</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="regression-based-path-components" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="regression-based-path-components"><span class="header-section-number">8.4</span> Regression-Based Path Components</h2>
+<section id="model-1-performance-predicted-by-job-satisfaction" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="model-1-performance-predicted-by-job-satisfaction"><span class="header-section-number">8.4.1</span> Model 1: Performance Predicted by Job Satisfaction</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mod_perf <span class="ot">&lt;-</span> <span class="fu">lm</span>(Perf <span class="sc">~</span> JS, <span class="at">data =</span> df60)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_perf)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Perf ~ JS, data = df60)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.4632 -0.7807  0.0487  0.8543  2.8780 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  2.75698    0.39599   6.962 3.39e-09 ***
+JS           0.34124    0.08862   3.851 0.000296 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.32 on 58 degrees of freedom
+Multiple R-squared:  0.2036,    Adjusted R-squared:  0.1899 
+F-statistic: 14.83 on 1 and 58 DF,  p-value: 0.0002965</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(mod_perf)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"2.7569841","3":"0.39598727","4":"6.962305","5":"3.391001e-09"},{"1":"JS","2":"0.3412436","3":"0.08861933","4":"3.850668","5":"2.964522e-04"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(mod_perf)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0.2035991","2":"0.1898681","3":"1.3202","4":"14.82765","5":"0.0002964522","6":"1","7":"-100.7863","8":"207.5725","9":"213.8555","10":"101.0898","11":"58","12":"60"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="model-2-union-support-predicted-by-job-satisfaction" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="model-2-union-support-predicted-by-job-satisfaction"><span class="header-section-number">8.4.2</span> Model 2: Union Support Predicted by Job Satisfaction</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mod_union <span class="ot">&lt;-</span> <span class="fu">lm</span>(Union <span class="sc">~</span> JS, <span class="at">data =</span> df60)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_union)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Union ~ JS, data = df60)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.9114 -1.2604  0.1792  1.2094  3.6792 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   5.9718     0.5194  11.497  &lt; 2e-16 ***
+JS           -0.5302     0.1162  -4.561 2.69e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.732 on 58 degrees of freedom
+Multiple R-squared:  0.264, Adjusted R-squared:  0.2513 
+F-statistic:  20.8 on 1 and 58 DF,  p-value: 2.687e-05</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(mod_union)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"5.9717633","3":"0.5194418","4":"11.496501","5":"1.375818e-16"},{"1":"JS","2":"-0.5301892","3":"0.1162476","4":"-4.560861","5":"2.686529e-05"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(mod_union)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0.2639729","2":"0.2512828","3":"1.731791","4":"20.80145","5":"2.686529e-05","6":"1","7":"-117.0686","8":"240.1372","9":"246.4203","10":"173.9477","11":"58","12":"60"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="model-3-accidents-predicted-by-job-satisfaction-and-performance" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="model-3-accidents-predicted-by-job-satisfaction-and-performance"><span class="header-section-number">8.4.3</span> Model 3: Accidents Predicted by Job Satisfaction and Performance</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mod_acc <span class="ot">&lt;-</span> <span class="fu">lm</span>(Accidents <span class="sc">~</span> JS <span class="sc">+</span> Perf, <span class="at">data =</span> df60)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_acc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Accidents ~ JS + Perf, data = df60)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.6465 -0.7083 -0.1011  0.5425  2.2553 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.52664    0.39190   8.999 1.55e-12 ***
+JS          -0.13094    0.07253  -1.805   0.0763 .  
+Perf        -0.22545    0.09591  -2.351   0.0222 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.9643 on 57 degrees of freedom
+Multiple R-squared:  0.2174,    Adjusted R-squared:   0.19 
+F-statistic: 7.919 on 2 and 57 DF,  p-value: 0.0009231</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(mod_acc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"3.5266367","3":"0.39189663","4":"8.998895","5":"1.550385e-12"},{"1":"JS","2":"-0.1309371","3":"0.07253468","4":"-1.805165","5":"7.633130e-02"},{"1":"Perf","2":"-0.2254493","3":"0.09591116","4":"-2.350605","5":"2.222629e-02"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(mod_acc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["r.squared"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["adj.r.squared"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["logLik"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[11],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[12],"type":["int"],"align":["right"]}],"data":[{"1":"0.2174391","2":"0.1899809","3":"0.9643237","4":"7.918893","5":"0.0009231378","6":"2","7":"-81.41782","8":"170.8356","9":"179.213","10":"53.00546","11":"57","12":"60"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="path-model-in-lavaan" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="path-model-in-lavaan"><span class="header-section-number">8.5</span> Path Model in <code>lavaan</code></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>path_model <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="st">  Perf ~ a*JS</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="st">  Union ~ c*JS</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="st">  Accidents ~ cprime*JS + b*Perf</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="st">  indirect_JS_Acc := a*b</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="st">  total_JS_Acc := cprime + (a*b)</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>fit60 <span class="ot">&lt;-</span> <span class="fu">sem</span>(path_model, <span class="at">data =</span> df60)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit60, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">rsquare =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6-21 ended normally after 14 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                         8
+
+  Number of observations                            60
+
+Model Test User Model:
+                                                      
+  Test statistic                                 0.103
+  Degrees of freedom                                 1
+  P-value (Chi-square)                           0.749
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Regressions:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  Perf ~                                                                
+    JS         (a)    0.341    0.087    3.916    0.000    0.341    0.451
+  Union ~                                                               
+    JS         (c)   -0.530    0.114   -4.639    0.000   -0.530   -0.514
+  Accidents ~                                                           
+    JS      (cprm)   -0.128    0.070   -1.827    0.068   -0.128   -0.231
+    Perf       (b)   -0.233    0.090   -2.589    0.010   -0.233   -0.319
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+ .Union ~~                                                              
+   .Accidents         0.425    0.214    1.987    0.047    0.425    0.265
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .Perf              1.685    0.308    5.477    0.000    1.685    0.796
+   .Union             2.899    0.529    5.477    0.000    2.899    0.736
+   .Accidents         0.884    0.161    5.477    0.000    0.884    0.778
+
+R-Square:
+                   Estimate
+    Perf              0.204
+    Union             0.264
+    Accidents         0.222
+
+Defined Parameters:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+    indirct_JS_Acc   -0.080    0.037   -2.160    0.031   -0.080   -0.144
+    total_JS_Acc     -0.208    0.066   -3.136    0.002   -0.208   -0.375</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parameterEstimates</span>(fit60, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["label"],"name":[4],"type":["chr"],"align":["left"]},{"label":["est"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["z"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["pvalue"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["ci.lower"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["ci.upper"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["std.lv"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["std.all"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["std.nox"],"name":[13],"type":["dbl"],"align":["right"]}],"data":[{"1":"Perf","2":"~","3":"JS","4":"a","5":"0.34124362","6":"0.08712982","7":"3.916496","8":"8.984518e-05","9":"0.170472310","10":"0.512014924","11":"0.34124362","12":"0.4512196","13":"0.23461313"},{"1":"Union","2":"~","3":"JS","4":"c","5":"-0.53018924","6":"0.11429375","7":"-4.638830","8":"3.503878e-06","9":"-0.754200884","10":"-0.306177606","11":"-0.53018924","12":"-0.5137830","13":"-0.26714315"},{"1":"Accidents","2":"~","3":"JS","4":"cprime","5":"-0.12822346","6":"0.07019345","7":"-1.826716","8":"6.774255e-02","9":"-0.265800082","10":"0.009353169","11":"-0.12822346","12":"-0.2314610","13":"-0.12034891"},{"1":"Accidents","2":"~","3":"Perf","4":"b","5":"-0.23340151","6":"0.09013508","7":"-2.589464","8":"9.612558e-03","9":"-0.410063015","10":"-0.056740000","11":"-0.23340151","12":"-0.3186329","13":"-0.31863285"},{"1":"Perf","2":"~~","3":"Perf","4":"","5":"1.68483028","6":"0.30760652","7":"5.477226","8":"4.320463e-08","9":"1.081932586","10":"2.287727973","11":"1.68483028","12":"0.7964009","13":"0.79640087"},{"1":"Union","2":"~~","3":"Union","4":"","5":"2.89912887","6":"0.52930609","7":"5.477226","8":"4.320463e-08","9":"1.861707992","10":"3.936549752","11":"2.89912887","12":"0.7360271","13":"0.73602708"},{"1":"Accidents","2":"~~","3":"Accidents","4":"","5":"0.88353081","6":"0.16130992","7":"5.477226","8":"4.320463e-08","9":"0.567369177","10":"1.199692434","11":"0.88353081","12":"0.7783431","13":"0.77834305"},{"1":"Union","2":"~~","3":"Accidents","4":"","5":"0.42479646","6":"0.21377253","7":"1.987142","8":"4.690662e-02","9":"0.005809998","10":"0.843782922","11":"0.42479646","12":"0.2654216","13":"0.26542161"},{"1":"JS","2":"~~","3":"JS","4":"","5":"3.69888889","6":"0.00000000","7":"NA","8":"NA","9":"3.698888889","10":"3.698888889","11":"3.69888889","12":"1.0000000","13":"3.69888889"},{"1":"indirect_JS_Acc","2":":=","3":"a*b","4":"indirect_JS_Acc","5":"-0.07964677","6":"0.03687300","7":"-2.160030","8":"3.077037e-02","9":"-0.151916526","10":"-0.007377023","11":"-0.07964677","12":"-0.1437734","13":"-0.07475545"},{"1":"total_JS_Acc","2":":=","3":"cprime+(a*b)","4":"total_JS_Acc","5":"-0.20787023","6":"0.06629198","7":"-3.135677","8":"1.714579e-03","9":"-0.337800120","10":"-0.077940342","11":"-0.20787023","12":"-0.3752344","13":"-0.19510436"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="path-diagram" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="path-diagram"><span class="header-section-number">8.6</span> Path Diagram</h2>
+<p>The chunk below uses <code>semPlot::semPaths()</code> to produce a diagram similar to the path figure shown in the assignment. If <code>semPlot</code> is not installed yet, run <code>install.packages("semPlot")</code> once in R.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">requireNamespace</span>(<span class="st">"semPlot"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  semPlot<span class="sc">::</span><span class="fu">semPaths</span>(</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    fit60,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">what =</span> <span class="st">"std"</span>,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">whatLabels =</span> <span class="st">"std"</span>,</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">layout =</span> <span class="st">"tree"</span>,</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="st">"ram"</span>,</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">residuals =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">intercepts =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">edge.label.cex =</span> <span class="dv">1</span>,</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">sizeMan =</span> <span class="dv">8</span>,</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">nCharNodes =</span> <span class="dv">0</span>,</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot.new</span>()</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text</span>(</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.5</span>, <span class="fl">0.5</span>,</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Install the 'semPlot' package to render the path diagram:</span><span class="sc">\n</span><span class="st">install.packages('semPlot')"</span>,</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">cex =</span> <span class="fl">1.1</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_smoketest_report_files/figure-html/path-diagram-1.png" class="img-fluid figure-img" width="768"></p>
+<figcaption>Path diagram for the job satisfaction model</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sensitivity-check-on-the-30-unique-cases" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="sensitivity-check-on-the-30-unique-cases"><span class="header-section-number">8.7</span> Sensitivity Check on the 30 Unique Cases</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>fit30 <span class="ot">&lt;-</span> <span class="fu">sem</span>(path_model, <span class="at">data =</span> df30)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit30, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">rsquare =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6-21 ended normally after 14 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                         8
+
+  Number of observations                            30
+
+Model Test User Model:
+                                                      
+  Test statistic                                 0.051
+  Degrees of freedom                                 1
+  P-value (Chi-square)                           0.821
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Regressions:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  Perf ~                                                                
+    JS         (a)    0.341    0.123    2.769    0.006    0.341    0.451
+  Union ~                                                               
+    JS         (c)   -0.530    0.162   -3.280    0.001   -0.530   -0.514
+  Accidents ~                                                           
+    JS      (cprm)   -0.128    0.099   -1.292    0.196   -0.128   -0.231
+    Perf       (b)   -0.233    0.127   -1.831    0.067   -0.233   -0.319
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+ .Union ~~                                                              
+   .Accidents         0.425    0.302    1.405    0.160    0.425    0.265
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .Perf              1.685    0.435    3.873    0.000    1.685    0.796
+   .Union             2.899    0.749    3.873    0.000    2.899    0.736
+   .Accidents         0.884    0.228    3.873    0.000    0.884    0.778
+
+R-Square:
+                   Estimate
+    Perf              0.204
+    Union             0.264
+    Accidents         0.222
+
+Defined Parameters:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+    indirct_JS_Acc   -0.080    0.052   -1.527    0.127   -0.080   -0.144
+    total_JS_Acc     -0.208    0.094   -2.217    0.027   -0.208   -0.375</code></pre>
+</div>
+</div>
+<p>The sensitivity check is useful because the duplicated rows make the 60-row file look more precise than it really is. The main value of the analysis is therefore in the <strong>direction and relative size of the effects</strong>, not just in whether p-values cross a threshold.</p>
+</section>
+</section>
+<section id="apply-discussion-and-recommendations" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Apply: Discussion and Recommendations</h1>
+<p>The stakeholder evidence, scientific literature, and dataset all point in a similar direction. Workers describe pressure, surveillance, and low dignity. The research literature says job attitudes predict consequential outcomes. The dataset shows that lower job satisfaction is associated with lower performance, higher union support, more accidents, more absences, and more turnover.</p>
+<p>That does not prove that job satisfaction is the only cause. However, it does support treating job satisfaction as a serious operational indicator rather than a cosmetic morale variable. If leaders improve the work experience, they should expect effects that extend beyond attitude into performance, safety, and labor relations.</p>
+<section id="recommendations" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="recommendations"><span class="header-section-number">9.1</span> Recommendations</h2>
+<ol type="1">
+<li><p><strong>Redesign work pace around sustainable performance.</strong><br>
+Leaders should audit whether quotas and monitoring systems create chronic fatigue or unsafe shortcuts.</p></li>
+<li><p><strong>Increase employee voice and procedural fairness.</strong><br>
+Workers need credible ways to raise concerns about pace, safety, and treatment without retaliation.</p></li>
+<li><p><strong>Treat job satisfaction as an operating metric.</strong><br>
+Satisfaction should be reviewed alongside throughput, defects, safety incidents, and turnover.</p></li>
+<li><p><strong>Target safety through system design.</strong><br>
+Because accidents are tied to performance and satisfaction, leaders should not frame safety solely as an individual compliance issue.</p></li>
+</ol>
+</section>
+<section id="evaluation-plan" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="evaluation-plan"><span class="header-section-number">9.2</span> Evaluation Plan</h2>
+<p>Amazon should evaluate any intervention using pre/post metrics on:</p>
+<ul>
+<li>job satisfaction;</li>
+<li>absences;</li>
+<li>accidents;</li>
+<li>turnover;</li>
+<li>support for unionization;</li>
+<li>performance ratings.</li>
+</ul>
+<p>The best evaluation design would be a pilot comparison between intervention sites and matched control sites.</p>
+</section>
+</section>
+<section id="limitations-and-future-research" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Limitations and Future Research</h1>
+<p>This smoke-test report has several limitations:</p>
+<ul>
+<li>the dataset is hypothetical;</li>
+<li>the 60-row file appears to duplicate the first 30 rows;</li>
+<li>several measures are single-item indicators;</li>
+<li>the design is correlational rather than experimental;</li>
+<li>the stakeholder evidence is strong on work pace and surveillance, but this report chose job satisfaction as the exogenous variable to align with the strongest literature base.</li>
+</ul>
+<p>Future work could test a broader model in which <strong>Rates</strong> predicts <strong>JS</strong>, and <strong>JS</strong> then predicts accidents, absenteeism, turnover, and union support.</p>
+</section>
+<section id="references" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> References</h1>
+<p>Ahearn, T. (2019, September 27). <em>SHRM report reveals one in five Americans leave job due to toxic workplace</em>. SHRM.</p>
+<p>Frontline. (2020, February 18). <em>“You’re Just Disposable”: Former Amazon Workers Speak Out | “Amazon Empire”</em>. YouTube. https://www.youtube.com/watch?v=3-KMXng5Cp0</p>
+<p>Gallup. (2022, June 13). <em>Employee engagement strategies: Fixing the world’s $8.8 trillion problem</em>. Gallup.</p>
+<p>Harrison, D. A., Newman, D. A., &amp; Roth, P. L. (2006). How important are job attitudes? Meta-analytic comparisons of integrative behavioral outcomes and time sequences. <em>Academy of Management Journal, 49</em>(2), 305-325. https://doi.org/10.5465/amj.2006.20786077</p>
+<p>Judge, T. A., &amp; Kammeyer-Mueller, J. D. (2012). Job attitudes. <em>Annual Review of Psychology, 63</em>(1), 341-367. https://doi.org/10.1146/annurev-psych-120710-100511</p>
+<p>Judge, T. A., Weiss, H. M., Kammeyer-Mueller, J. D., &amp; Hulin, C. L. (2017). Job attitudes, job satisfaction, and job affect: A century of continuity and of change. <em>Journal of Applied Psychology, 102</em>(3), 356-374. https://doi.org/10.1037/apl0000181</p>
+<p>Riketta, M. (2008). The causal relation between job attitudes and performance: A meta-analysis of panel studies. <em>Journal of Applied Psychology, 93</em>(2), 472-481. https://doi.org/10.1037/0021-9010.93.2.472</p>
+<p>Stein, D., Hobson, N., Jachimowicz, J. M., &amp; Whillans, A. (2021, October 13). <em>How companies can improve employee engagement right now</em>. <em>Harvard Business Review</em>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

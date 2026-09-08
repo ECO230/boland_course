@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <title>ECO 230 – Interpreting ANOVA &amp; Simple Linear Regression</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -94,7 +97,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-7de2922f2d1fbf696a6ae0955d43c603.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-e5bb095cac77e7bd9454063090bef903.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -326,7 +329,7 @@
 <div class="fragment">
 <h3 id="step-4-do-we-believe-it">Step 4: Do we believe it?</h3>
 <p><code>h8$results</code></p>
-<p>F(2,12) = 5.119, p = 0.025, w = 0.595, bf10 = 3.071</p>
+<p>F(2,12) = 5.119, p = 0.025, ω² = 0.354, bf10 = 3.071</p>
 <p><br></p>
 <p><strong>Decision Rule:</strong></p>
 <ul>
@@ -348,7 +351,7 @@ p = 0.025 &lt; 0.05 → <strong>Reject H<sub>0</sub></strong></p>
 <!-- LEFT: test output -->
 <div style="display:flex; justify-content:flex-start; align-items:center;">
 <div style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;">
-<p><strong>F(2,12) = 5.119, p = 0.025, w = 0.595, bf10 = 3.071</strong></p>
+<p><strong>F(2,12) = 5.119, p = 0.025, ω² = 0.354, bf10 = 3.071</strong></p>
 </div>
 </div>
 <!-- RIGHT: Bayes factor anchor -->
@@ -734,7 +737,7 @@ timestamp   0.2285714 0.08941931 2.556175 0.02391157</code></pre>
 </ul>
 </div>
 <div style="position:absolute; bottom:40px; right:60px; font-size:.7em; color:#6b7280; text-align:right;">
-<p>F(2,12) = 5.119, p = 0.025, w = 0.595, bf10 = 3.071</p>
+<p>F(2,12) = 5.119, p = 0.025, ω² = 0.354, bf10 = 3.071</p>
 </div>
 
 
@@ -955,80 +958,42 @@ timestamp   0.2285714 0.08941931 2.556175 0.02391157</code></pre>
       });
     </script>
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
