@@ -37,6 +37,21 @@ if (!nzchar(quarto_bin)) {
   stop("Could not locate the Quarto executable for section syllabus renders.")
 }
 
+# These renders use a source file under syllabus/ but deliberately place the
+# finished pages at the website root. Quarto therefore writes asset and navbar
+# links with one unnecessary "../" prefix. Normalize only href/src attributes;
+# leave prose and any other generated content untouched.
+normalize_root_links <- function(path) {
+  html <- readLines(path, warn = FALSE, encoding = "UTF-8")
+  html <- gsub(
+    "((?:href|src)=[\"'])\\.\\./",
+    "\\1",
+    html,
+    perl = TRUE
+  )
+  writeLines(html, path, useBytes = TRUE)
+}
+
 for (section in c(4, 11, 12)) {
   output_name <- sprintf("syllabus_section_%s.html", section)
   status <- system2(
@@ -51,4 +66,10 @@ for (section in c(4, 11, 12)) {
   if (!identical(status, 0L)) {
     stop("Section ", section, " syllabus render failed with status ", status, ".")
   }
+
+  output_path <- file.path("_site", output_name)
+  if (!file.exists(output_path)) {
+    stop("Section ", section, " syllabus output was not created at ", output_path, ".")
+  }
+  normalize_root_links(output_path)
 }

@@ -24,6 +24,7 @@ project:
     - week08/other_effects.qmd
     - week03/labs/lab-3-hints.qmd
   resources:
+    - shared/styles/accesibility.css
     # Shared lab downloads are published once with the course website and used
     # by every Canvas section.
     - week01/lab-prep/data/olist_orders_sample.csv
@@ -89,7 +90,7 @@ format:
   html:
     toc: false            # default for normal pages (we'll turn on ToC in syllabus.qmd only)
     number-sections: false
-    css: styles/accessibility.css
+    css: shared/styles/accesibility.css
 
 execute:
   echo: false
