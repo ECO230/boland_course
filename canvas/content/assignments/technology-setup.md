@@ -19,10 +19,10 @@ that produces your Lab 1 certificate: Excel, Tableau, and Posit Cloud.
    and confirm that you can open the desktop version of Excel. Excel for the
    web may work for some activities, but classroom demonstrations use the
    desktop application.
-2. Create a free [Tableau Public](https://www.tableau.com/products/public)
-   profile and install the Tableau application if it is not already available
-   on your computer. Do not publish confidential, restricted, or personally
-   identifiable data to Tableau Public.
+2. On that UWL software page, find **Tableau** and follow the **Tableau for
+   Students** link. Use that route to create or activate your student
+   account/license and install Tableau on your computer. Tableau is also
+   installed on campus PCs if you cannot install it locally.
 3. Create or sign in to your [Posit Cloud](https://posit.cloud/) account using
    your UWL email address.
 4. [Join the ECO 230 Posit Cloud space]({{ posit_cloud_join_url }}).
@@ -43,7 +43,8 @@ explain the upload problem and attach the certificate on a later attempt.
 ## Checklist
 
 - [ ] I can open Excel.
-- [ ] I created a Tableau Public profile and can open Tableau.
+- [ ] I followed UWL's Tableau for Students instructions and can open Tableau,
+      or I confirmed that I can use Tableau on a campus PC.
 - [ ] I joined the ECO 230 Posit Cloud space with my UWL email address.
 - [ ] I completed Lab 1 in Posit Cloud and generated my certificate PDF.
 - [ ] I uploaded the certificate and described any setup problems in Canvas.
