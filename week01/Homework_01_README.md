@@ -13,5 +13,5 @@ Open `Homework_01_IP.qmd`, complete the response fields, and render the finished
 document to `Homework_01_IP.pdf`. Submit the PDF and the required Excel workbook
 in Canvas.
 
-The `data` folder contains all four project datasets. Select the dataset assigned
+The `data` folder contains all five course dataset extracts. Select the dataset assigned
 to your project or approved by your instructor.

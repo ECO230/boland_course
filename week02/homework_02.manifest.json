@@ -13,20 +13,24 @@
       "destination": "README.md"
     },
     {
-      "source": "shared/data/accident_wi.csv",
-      "destination": "data/accident_wi.csv"
+      "source": "shared/data/early-homework-v1/traffic_chicago_2024.csv",
+      "destination": "data/traffic_chicago_2024.csv"
     },
     {
-      "source": "shared/data/airbnb_chicago.csv",
-      "destination": "data/airbnb_chicago.csv"
+      "source": "shared/data/early-homework-v1/airline_midwest_2024.csv",
+      "destination": "data/airline_midwest_2024.csv"
     },
     {
-      "source": "shared/data/hospital_charges_wi.csv",
-      "destination": "data/hospital_charges_wi.csv"
+      "source": "shared/data/early-homework-v1/olist_southeast_2017.csv",
+      "destination": "data/olist_southeast_2017.csv"
     },
     {
-      "source": "shared/data/nfl_special_MasonCrosby.csv",
-      "destination": "data/nfl_special_MasonCrosby.csv"
+      "source": "shared/data/early-homework-v1/nfl_plays_2024.csv",
+      "destination": "data/nfl_plays_2024.csv"
+    },
+    {
+      "source": "shared/data/early-homework-v1/health_wisconsin_appointments_2023_2025.csv",
+      "destination": "data/health_wisconsin_appointments_2023_2025.csv"
     },
     {
       "source": "shared/posit-cloud/.Rprofile",
@@ -61,10 +65,11 @@
     "Homework_02_IP.qmd",
     "Homework_02_IP.Rproj",
     "README.md",
-    "data/accident_wi.csv",
-    "data/airbnb_chicago.csv",
-    "data/hospital_charges_wi.csv",
-    "data/nfl_special_MasonCrosby.csv",
+    "data/traffic_chicago_2024.csv",
+    "data/airline_midwest_2024.csv",
+    "data/olist_southeast_2017.csv",
+    "data/nfl_plays_2024.csv",
+    "data/health_wisconsin_appointments_2023_2025.csv",
     "renv.lock"
   ],
   "render": "Homework_02_IP.qmd"

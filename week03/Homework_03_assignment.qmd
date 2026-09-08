@@ -40,7 +40,7 @@ By the end of this assignment, you will be able to:
 
 - Week 3 slides on visual perception and analytical frames
 - Week 1-2 slides on grain, NOIR, and descriptive summaries
-- The four `.csv` files in the `data` folder
+- The five `.csv` files in the `data` folder
 - Excel, Tableau, or R in Posit Cloud
 
 ::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}

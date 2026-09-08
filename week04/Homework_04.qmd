@@ -30,7 +30,7 @@ You will propose **five** candidate data stories and turn **each** into a short 
 
 ## Resources
 
--   Your project dataset in **posit.cloud** (the one you plan to use for the group project)
+-   The course `.csv` extract in Posit Cloud that matches your project domain
 -   Week 4 readings on writing/presenting with data (Canvas → Week 4)
 -   Week 4 slides: *Telling Stories with Data*
 
@@ -63,15 +63,15 @@ Each headline should:
 
 **Good headlines (claims)**
 
--   Drivers in northern states experience fewer accidents during freezing conditions than drivers in southern states.
--   San Francisco offers better Airbnb value (price relative to ratings) than other major U.S. cities.
--   Visiting kickers miss field goals more often at Raymond James Stadium than at other stadiums.
+-   Chicago crashes are more likely to involve injuries under some road and lighting conditions.
+-   Late Olist deliveries receive lower review scores than on-time deliveries.
+-   Reminder use and scheduling lead time are related to synthetic appointment no-shows.
 
 **Weak headlines (topics)**
 
--   Accident severity and temperature
--   Airbnb prices by city
--   Field goal analysis
+-   Crash injuries and lighting
+-   Olist delivery and reviews
+-   Appointment no-shows
 
 ------------------------------------------------------------------------
 
@@ -83,11 +83,11 @@ For **each** of your 5 headlines, list:
 
 Relationships describe **what you would compare/examine**, not results.
 
-Example relationships (for the accident headline):
+Example relationships (for the Chicago crash headline):
 
--   Average accident severity by region when temperature \< 32°F
--   Number of accidents before vs. after winter weather events by region
--   Accident rate per capita by region during winter months
+-   Injury proportion by lighting condition
+-   Injury proportion by reported road surface
+-   Median injury count by time period
 
 ### B) Variables needed for each relationship
 

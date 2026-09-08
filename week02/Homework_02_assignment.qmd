@@ -41,7 +41,7 @@ By the end of this assignment, you will be able to:
 
 - Week 2 slides on size, center, shape, relationships, and percentages
 - Week 1 slides on grain, tidy data, dimensions, and measures
-- The four `.csv` files in the `data` folder
+- The five `.csv` files in the `data` folder
 - Excel, Tableau, or R in Posit Cloud
 
 ::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
@@ -62,7 +62,7 @@ you apply.
 If you are working in R, change `project_file` to the appropriate filename.
 
 ```{r}
-project_file <- "accident_wi.csv"
+project_file <- "traffic_chicago_2024.csv"
 df <- read.csv(file.path("data", project_file), check.names = FALSE)
 
 cat(
@@ -102,10 +102,10 @@ variables from your selected dataset in your final table.
 
 ```{r}
 #| eval: false
-example_df <- read.csv(file.path("data", "airbnb_chicago.csv"))
+example_df <- read.csv(file.path("data", "olist_southeast_2017.csv"))
 
 example_df |>
-  count(cancellation_policy, name = "n") |>
+  count(customer_state, name = "n") |>
   mutate(percent = n / sum(n)) |>
   arrange(desc(n))
 ```

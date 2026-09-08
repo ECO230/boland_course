@@ -40,7 +40,8 @@ By the end of this assignment, you will be able to:
 
 ## Resources
 
-- Your project dataset in the `data` folder
+- The course `.csv` extract in the `data` folder that matches your project
+  domain
 - Homework 2 tables and Homework 3 visuals
 - Week 4 readings and slides on telling stories with data
 
@@ -69,18 +70,17 @@ does not need numbers or test statistics at this planning stage.
 
 **Strong examples:**
 
-- Drivers in northern states experience fewer accidents during freezing
-  conditions than drivers in southern states.
-- San Francisco offers better Airbnb value relative to ratings than other major
-  cities.
-- Visiting kickers miss field goals more often at Raymond James Stadium than at
-  other stadiums.
+- Chicago crashes are more likely to involve injuries under some road and
+  lighting conditions.
+- Late Olist deliveries receive lower review scores than on-time deliveries.
+- Reminder use and scheduling lead time are related to synthetic appointment
+  no-shows.
 
 **Weak examples:**
 
-- Accident severity and temperature
-- Airbnb prices by city
-- Field-goal analysis
+- Crash injuries and lighting
+- Olist delivery and reviews
+- Appointment no-shows
 
 The weak examples name topics but do not state a takeaway someone could evaluate.
 
@@ -105,34 +105,34 @@ For every story, provide:
 
 ### Worked Example
 
-**Headline:** Drivers in northern states experience fewer severe accidents
-during freezing conditions than drivers in southern states.
+**Headline:** Chicago crashes are more likely to involve injuries under some
+road and lighting conditions.
 
-**Relationships:** Average severity by region below 32 degrees; severe-accident
-proportion by region during precipitation; accident count before and after a
-winter-weather event.
+**Relationships:** Injury proportion by lighting condition; injury proportion
+by road surface; median injury count by time period.
 
-**Variables:** Severity (**Exists**); State (**Exists**); North/South region
-(**Derived**); Temperature (**Exists**); Population by ZIP code (**External**).
+**Variables:** Injuries total (**Exists**); lighting condition (**Exists**);
+road surface (**Exists**); any-injury indicator (**Derived**); traffic volume
+by location (**External**).
 
-**3-second version:** Freezing crashes differ by region.
+**3-second version:** Crash injury risk varies by conditions.
 
-**30-second version:** Transportation planners should compare freezing-weather
-crash severity across regions so they can target preparation and messaging where
-the risk is greatest.
+**30-second version:** Chicago transportation planners should compare injury
+patterns across lighting and road conditions to identify where safety responses
+may deserve closer investigation.
 
-**Hypotheses:** Mean severity differs between northern and southern states below
-32 degrees. The proportion of severe crashes during precipitation differs by
-region.
+**Hypotheses:** The proportion of crashes involving injuries differs by lighting
+condition. Injury counts differ across reported road-surface conditions.
 
-**Data requirements and gaps:** Define the regional classification; review
-missing temperature and severity values; obtain population by ZIP code for
-rates.
+**Data requirements and gaps:** Define the injury indicator; review missing
+lighting and road-surface values; obtain compatible traffic-volume data before
+describing crash rates.
 
-**Planned analyses:** Group summaries, rate comparisons, t-test or Wilcoxon
-test, and chi-square test.
+**Planned analyses:** Group summaries, proportion comparisons, chi-square test,
+and ANOVA or a nonparametric comparison.
 
-**Planned visual:** A sorted bar chart of severe-crash rates by region.
+**Planned visual:** A sorted bar chart of injury proportions by lighting
+condition.
 
 ---
 

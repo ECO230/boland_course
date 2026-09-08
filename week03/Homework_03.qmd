@@ -49,7 +49,7 @@ You will produce **three small visuals** (from three different frames) and **bri
 
 ## 1) Choose Your Dataset (Week 1)
 
-1. Use one of the four Week 1 datasets (you may keep the same as HW1 & HW2 or change to a different dataset).
+1. Use one of the five Week 1 datasets (you may keep the same as HW1 & HW2 or change to a different dataset).
 2. Note any filters/cleaning (e.g., date window, excluding blanks).
 
 *(No extended writeup—just list what you did.)*

@@ -63,7 +63,7 @@ This assignment is graded for **clear, careful completion**.
 
 ## 1) Choose Your Dataset (Week 1)
 
-1.  Select **one** of the **four Week 1 datasets**.
+1.  Select **one** of the **five Week 1 datasets**.
 2.  You may keep the same dataset from Homework 1 or switch.
 3.  In your submission, state:
 

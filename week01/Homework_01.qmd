@@ -62,6 +62,14 @@ Try every step. Bring questions to class. We will review solutions together.
 2.  Download it as a `.csv`.\
 3.  Save a working copy as `.xlsx`.
 
+| Dataset | Filename |
+|---|---|
+| Chicago traffic crashes, 2024 | `traffic_chicago_2024.csv` |
+| Midwest airport departures, 2024 | `airline_midwest_2024.csv` |
+| Brazilian marketplace orders, 2017 | `olist_southeast_2017.csv` |
+| NFL regular-season plays, 2024 | `nfl_plays_2024.csv` |
+| Synthetic Wisconsin healthcare appointments, 2023-2025 | `health_wisconsin_appointments_2023_2025.csv` |
+
 *(No written response required.)*
 
 ------------------------------------------------------------------------
