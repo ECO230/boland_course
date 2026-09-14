@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Shiny app supports Week 2 instruction on continuous-to-continuous relationships using the Wisconsin accidents dataset and synthetic examples.
+This Shiny app supports Week 2 instruction on continuous-to-continuous relationships using a reproducible sample of Chicago traffic crashes and synthetic examples.
 
 The app teaches that correlation measures linear association, not slope, steepness, or every kind of relationship.
 
@@ -25,28 +25,32 @@ It combines:
 
 ## Data Source
 
-The app loads:
+The app loads the repository source:
 
 ```r
-/data/junior/boland_course/shared/data/accident_wi.csv
+/data/junior/boland_course/shared/data/early-homework-v1/traffic_chicago_2024.csv
 ```
 
-It parses:
+Shared preparation is defined in:
 
-- `Start_Time`
-- `End_Time`
-- `Duration_min`
+```r
+/data/junior/boland_course/week02/scripts/accident_clean.R
+```
+
+The loader uses seed `230` to sample exactly 7,900 rows, retains missing values, parses `crash_datetime`, and derives the shared teaching fields.
 
 Candidate numeric variables include:
 
-- `Distance(mi)`
-- `Temperature(F)`
-- `Humidity(%)`
-- `Wind_Speed(mph)`
-- `Visibility(mi)`
-- `Pressure(in)`
-- `Precipitation(in)`
-- `Duration_min`
+- `temperature_f`
+- `relative_humidity_percent`
+- `wind_speed_mph`
+- `visibility_miles`
+- `precipitation_inches`
+- `posted_speed_limit_mph`
+- `unit_count`
+- `injuries_total`
+
+The default scatterplot compares `temperature_f` with `relative_humidity_percent`. In the current seeded sample, their paired Pearson correlation is approximately -0.35, providing a visible but imperfect negative association.
 
 ## UI Structure
 
@@ -142,7 +146,7 @@ When modifying:
 
 ## Known Constraints
 
-- The app is tied to the deployment path `/data/junior/boland_course`.
-- It is built around the WI accidents dataset.
+- The deployed app defaults to `/data/junior/boland_course`; set `ECO230_COURSE_ROOT` for local validation.
+- It is built around the tracked Chicago 2024 traffic-crash extract and the shared seeded loader.
 - The canned examples are synthetic and intentionally stylized.
 - The app does not attempt multivariable regression or causal interpretation.

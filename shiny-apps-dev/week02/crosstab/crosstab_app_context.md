@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Shiny app supports Week 2 instruction on frequency tables, cross-tabs, and percentage interpretation using the Wisconsin accidents dataset.
+This Shiny app supports Week 2 instruction on frequency tables, cross-tabs, and percentage interpretation using a reproducible sample of Chicago traffic crashes.
 
 The app helps students compare:
 
@@ -25,28 +25,32 @@ The main teaching goal is denominator clarity.
 
 ## Data Source
 
-The app loads:
+The app loads the repository source:
 
 ```r
-/data/junior/boland_course/shared/data/accident_wi.csv
+/data/junior/boland_course/shared/data/early-homework-v1/traffic_chicago_2024.csv
 ```
 
-It derives:
+Shared preparation is defined in:
 
-- `start_time`
-- `end_time`
-- `season`
-- `time_of_day`
-- `duration_mins`
+```r
+/data/junior/boland_course/week02/scripts/accident_clean.R
+```
+
+The loader uses seed `230` to sample exactly 7,900 rows, retains missing values, and derives `crash_datetime`, `season`, ordered `time_period`, `weather_status`, and ordered `injury_severity`.
 
 The teaching-friendly categorical variables are:
 
-- `Severity`
-- `Wind_Direction`
-- `Weather_Condition`
-- `Sunrise_Sunset`
+- `reported_weather_condition`
+- `reported_lighting_condition`
+- `crash_type`
+- `injury_severity`
+- `intersection_related`
+- `hit_and_run`
 - `season`
-- `time_of_day`
+- `time_period`
+
+The default comparison is `time_period` by `season`, which supports discussion of both row and column denominators.
 
 ## UI Structure
 
@@ -131,7 +135,7 @@ When modifying:
 
 ## Known Constraints
 
-- The app is tied to the deployment path `/data/junior/boland_course`.
-- It is built around the WI accidents dataset.
+- The deployed app defaults to `/data/junior/boland_course`; set `ECO230_COURSE_ROOT` for local validation.
+- It is built around the tracked Chicago 2024 traffic-crash extract and the shared seeded loader.
 - Large categorical variables are simplified with top-N collapsing.
 - The app uses HTML table rendering rather than `gt` or reactable.

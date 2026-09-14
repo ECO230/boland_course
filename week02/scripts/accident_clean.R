@@ -1,62 +1,108 @@
-library(tidyverse)
-library(lubridate)
-library(gt)
+WEEK02_SAMPLE_SIZE <- 7900L
+WEEK02_SAMPLE_SEED <- 230L
 
-# Reusable GT slide theme
-source(here("shared","scripts","gt_boland.R"), local = TRUE)
+load_week02_crashes <- function(
+    course_root,
+    sample_size = WEEK02_SAMPLE_SIZE,
+    seed = WEEK02_SAMPLE_SEED) {
+  crash_path <- file.path(
+    course_root,
+    "shared",
+    "data",
+    "early-homework-v1",
+    "traffic_chicago_2024.csv"
+  )
 
-# ---- Load data ONCE at startup ----
-COURSE_ROOT <- "/data/junior/boland_course"
-acc_path <- file.path(COURSE_ROOT, "shared", "data", "accident_wi.csv")
+  crashes <- readr::read_csv(
+    crash_path,
+    na = c("", "NA"),
+    show_col_types = FALSE
+  )
 
-accidents_wi <- read_csv(acc_path, show_col_types = FALSE)  %>%
-  mutate(
-    # Clean raw time strings (handle blanks + extra whitespace)
-    Start_Time_clean = na_if(str_squish(Start_Time), ""),
-    End_Time_clean   = na_if(str_squish(End_Time), ""),
-    
-    # Robust parse (handles "m/d/Y H:M" and "m/d/Y H:M:S")
-    start_time = parse_date_time(
-      Start_Time_clean,
-      orders = c("mdy HM", "mdy HMS"),
-      tz = "America/Chicago"
-    ),
-    end_time = parse_date_time(
-      End_Time_clean,
-      orders = c("mdy HM", "mdy HMS"),
-      tz = "America/Chicago"
-    ),
-    
-    # ---- Season from start_time ----
-    season = case_when(
-      month(start_time) %in% 3:5  ~ "spring",
-      month(start_time) %in% 6:8  ~ "summer",
-      month(start_time) %in% 9:11 ~ "fall",
-      TRUE                        ~ "winter"
-    ),
-    
-    # ---- Time-of-day bins from start_time ----
-    time_of_day = case_when(
-      hour(start_time) >= 6  & hour(start_time) < 12 ~ "morning",  # 06:00–11:59
-      hour(start_time) >= 12 & hour(start_time) < 18 ~ "daytime",  # 12:00–17:59
-      hour(start_time) >= 18 & hour(start_time) < 24 ~ "evening",  # 18:00–23:59
-      TRUE                                           ~ "night"     # 00:00–05:59
-    ),
-    
-    # ---- Duration: end_time - start_time ----
-    duration = end_time - start_time,                       # difftime
-    duration_mins = as.numeric(duration, units = "mins"),    # numeric minutes
-    duration_hrs  = as.numeric(duration, units = "hours"),   # numeric hours
-    
-    # Optional: ordered factors for nicer plots
-    season = factor(season, levels = c("spring", "summer", "fall", "winter")),
-    time_of_day = factor(time_of_day, levels = c("night", "morning", "daytime", "evening"))
-  ) %>%
-  select(ID,Severity,`Distance(mi)`,`Temperature(F)`,`Wind_Chill(F)`,`Humidity(%)`,`Pressure(in)`,`Visibility(mi)`,
-         Wind_Direction,`Wind_Speed(mph)`,`Precipitation(in)`,Weather_Condition,Sunrise_Sunset,season,time_of_day,duration_mins)
+  required <- c(
+    "crash_id",
+    "crash_datetime",
+    "time_period",
+    "reported_weather_condition",
+    "temperature_f",
+    "relative_humidity_percent",
+    "wind_speed_mph"
+  )
+  missing_fields <- setdiff(required, names(crashes))
+  if (length(missing_fields) > 0) {
+    stop(
+      "Chicago crash source is missing required fields: ",
+      paste(missing_fields, collapse = ", ")
+    )
+  }
+  if (nrow(crashes) < sample_size) {
+    stop(
+      "Chicago crash source contains ", nrow(crashes),
+      " rows; Week 2 requires ", sample_size, "."
+    )
+  }
 
+  set.seed(seed)
 
-accidents_wi %>%
-  head(30) %>%
-  gt() %>%
-  gt_boland(base_size = 6.25, tight = TRUE)
+  crashes %>%
+    dplyr::slice_sample(n = sample_size) %>%
+    dplyr::mutate(
+      crash_datetime = lubridate::ymd_hms(
+        crash_datetime,
+        tz = "America/Chicago",
+        quiet = TRUE
+      ),
+      season = dplyr::case_when(
+        lubridate::month(crash_datetime) %in% 3:5 ~ "Spring",
+        lubridate::month(crash_datetime) %in% 6:8 ~ "Summer",
+        lubridate::month(crash_datetime) %in% 9:11 ~ "Fall",
+        TRUE ~ "Winter"
+      ),
+      season = factor(
+        season,
+        levels = c("Winter", "Spring", "Summer", "Fall"),
+        ordered = TRUE
+      ),
+      time_period = factor(
+        time_period,
+        levels = c(
+          "Night or early morning",
+          "Morning commute",
+          "Daytime",
+          "Evening commute"
+        ),
+        ordered = TRUE
+      ),
+      weather_status = factor(
+        dplyr::if_else(
+          is.na(reported_weather_condition) |
+            reported_weather_condition == "UNKNOWN",
+          "Unknown",
+          "Reported"
+        ),
+        levels = c("Reported", "Unknown")
+      ),
+      injury_severity = factor(
+        dplyr::case_when(
+          is.na(injuries_total) &
+            is.na(injuries_fatal) &
+            is.na(injuries_incapacitating) &
+            is.na(injuries_non_incapacitating) ~ NA_character_,
+          injuries_fatal > 0 ~ "Fatal",
+          injuries_incapacitating > 0 ~ "Incapacitating",
+          injuries_non_incapacitating > 0 ~ "Non-incapacitating",
+          injuries_total > 0 ~ "Other reported injury",
+          TRUE ~ "No reported injury"
+        ),
+        levels = c(
+          "No reported injury",
+          "Other reported injury",
+          "Non-incapacitating",
+          "Incapacitating",
+          "Fatal"
+        ),
+        ordered = TRUE
+      )
+    ) %>%
+    dplyr::arrange(crash_datetime, crash_id)
+}

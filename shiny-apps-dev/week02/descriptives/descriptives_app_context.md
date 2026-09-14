@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Shiny app supports Week 2 instruction on descriptive measures using the Wisconsin accidents dataset.
+This Shiny app supports Week 2 instruction on descriptive measures using a reproducible sample of Chicago traffic crashes.
 
 The app lets students filter a shared accident dataset and explore:
 
@@ -25,19 +25,27 @@ The main teaching goal is to make "N vs usable n" visible before students interp
 
 ## Data Source
 
-The app loads:
+The app loads the repository source:
 
 ```r
-/data/junior/boland_course/shared/data/accident_wi.csv
+/data/junior/boland_course/shared/data/early-homework-v1/traffic_chicago_2024.csv
 ```
 
-It derives:
+Shared preparation is defined in:
 
-- `start_time`
-- `end_time`
+```r
+/data/junior/boland_course/week02/scripts/accident_clean.R
+```
+
+The loader uses seed `230` to sample exactly 7,900 rows. It deliberately retains missing values and derives:
+
+- `crash_datetime`
 - `season`
-- `time_of_day`
-- `duration_mins`
+- ordered `time_period`
+- `weather_status`
+- ordered `injury_severity`
+
+The default view uses `temperature_f` and keeps records whose weather is reported. In the current source, the expected teaching sequence is 7,900 total rows, 7,336 after the default filter, 81 missing temperatures within the filtered rows, and 7,255 usable temperatures.
 
 The app keeps a limited teaching-friendly set of numeric and categorical fields.
 
@@ -145,7 +153,7 @@ When modifying:
 
 ## Known Constraints
 
-- The app is tied to the deployment path `/data/junior/boland_course`.
-- It is built around the WI accidents dataset.
+- The deployed app defaults to `/data/junior/boland_course`; set `ECO230_COURSE_ROOT` for local validation.
+- It is built around the tracked Chicago 2024 traffic-crash extract and the shared seeded loader.
 - It uses base Shiny and ggplot2 rather than a broader component framework.
-- Missing/invalid values are handled for teaching clarity rather than advanced data validation.
+- Missing/invalid values must remain visible because the N-versus-usable-n demonstration depends on them.

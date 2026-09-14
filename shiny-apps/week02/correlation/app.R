@@ -1,6 +1,11 @@
 # MUST be at the very top of app.R, before any library(...)
+COURSE_ROOT <- Sys.getenv(
+  "ECO230_COURSE_ROOT",
+  unset = "/data/junior/boland_course"
+)
+
 if (requireNamespace("renv", quietly = TRUE)) {
-  renv::load("/data/junior/boland_course")
+  renv::load(COURSE_ROOT)
 }
 
 library(shiny)
@@ -11,30 +16,33 @@ library(ggplot2)
 
 `%||%` <- function(a, b) if (!is.null(a)) a else b
 
-# ---- Load data ONCE at startup ----
-COURSE_ROOT <- "/data/junior/boland_course"
-acc_path <- file.path(COURSE_ROOT, "shared", "data", "accident_wi.csv")
-
-acc <- read_csv(acc_path, show_col_types = FALSE) %>%
-  mutate(
-    Start_Time = mdy_hm(Start_Time),
-    End_Time   = mdy_hm(End_Time),
-    Duration_min = as.numeric(difftime(End_Time, Start_Time, units = "mins"))
-  )
+# ---- Load the shared seeded Chicago sample once at startup ----
+source(file.path(COURSE_ROOT, "week02", "scripts", "accident_clean.R"))
+acc <- load_week02_crashes(COURSE_ROOT)
 
 # Candidate numeric variables (match your descriptives app)
 num_vars <- c(
-  "Distance(mi)",
-  "Temperature(F)",
-  "Humidity(%)",
-  "Wind_Speed(mph)",
-  "Visibility(mi)",
-  "Pressure(in)",
-  "Precipitation(in)",
-  "Duration_min"
+  "temperature_f",
+  "relative_humidity_percent",
+  "wind_speed_mph",
+  "visibility_miles",
+  "precipitation_inches",
+  "posted_speed_limit_mph",
+  "unit_count",
+  "injuries_total"
 )
 num_vars <- intersect(num_vars, names(acc))
 if (length(num_vars) < 2) stop("Need at least 2 numeric variables in the dataset to run this app.")
+
+start_min <- suppressWarnings(as.Date(min(acc$crash_datetime, na.rm = TRUE)))
+start_max <- suppressWarnings(as.Date(max(acc$crash_datetime, na.rm = TRUE)))
+
+keep_in_date_range <- function(x, range, full_min, full_max) {
+  dates <- as.Date(x)
+  full_range <- range[1] <= full_min && range[2] >= full_max
+  (!is.na(dates) & dates >= range[1] & dates <= range[2]) |
+    (is.na(dates) & full_range)
+}
 
 # ---- Helpers ----
 safe_num <- function(x) {
@@ -156,7 +164,7 @@ ui <- fluidPage(
     }
   "),
   
-  h2("WI Accidents — Correlation (Linearity ≠ Slope)"),
+  h2("Chicago Traffic Crashes — Correlation (Linearity ≠ Slope)"),
   div(class="small",
       "Compare two numeric measures from the same filtered dataset, and use examples to see why r measures linearity—not 'steepness'."),
   hr(),
@@ -177,21 +185,21 @@ ui <- fluidPage(
             
             tabPanel(
               "Your Data",
-              selectInput("x_var", "X variable", choices = num_vars, selected = num_vars[1]),
-              selectInput("y_var", "Y variable", choices = num_vars, selected = num_vars[min(2, length(num_vars))]),
+              selectInput("x_var", "X variable", choices = num_vars, selected = "temperature_f"),
+              selectInput("y_var", "Y variable", choices = num_vars, selected = "relative_humidity_percent"),
               
               selectInput(
-                "sev_filter", "Severity filter",
-                choices = c("All", sort(unique(acc$Severity))),
+                "sev_filter", "Injury severity filter",
+                choices = c("All", levels(acc$injury_severity)),
                 selected = "All"
               ),
               
               dateRangeInput(
                 "dates", "Start date range",
-                start = as.Date(min(acc$Start_Time, na.rm = TRUE)),
-                end   = as.Date(max(acc$Start_Time, na.rm = TRUE)),
-                min   = as.Date(min(acc$Start_Time, na.rm = TRUE)),
-                max   = as.Date(max(acc$Start_Time, na.rm = TRUE))
+                start = start_min,
+                end   = start_max,
+                min   = start_min,
+                max   = start_max
               ),
               
               checkboxInput("drop_na", "Drop missing/invalid values (recommended)", TRUE),
@@ -299,12 +307,11 @@ server <- function(input, output, session) {
   filtered <- reactive({
     dat <- acc
     if (!is.null(input$sev_filter) && input$sev_filter != "All") {
-      dat <- dat %>% filter(Severity == as.integer(input$sev_filter))
+      dat <- dat %>% filter(as.character(injury_severity) == input$sev_filter)
     }
     if (!is.null(input$dates)) {
       dat <- dat %>%
-        filter(as.Date(Start_Time) >= input$dates[1],
-               as.Date(Start_Time) <= input$dates[2])
+        filter(keep_in_date_range(crash_datetime, input$dates, start_min, start_max))
     }
     dat
   })

@@ -1,5 +1,5 @@
 # ============================================================
-# Accident dataset: 4 views for Distance & Temperature
+# Chicago crash dataset: 4 views for Temperature & Wind Speed
 #   1) Base (hist + μ/σ)
 #   2) Percentiles (P10/P25/P75/P90)
 #   3) IQR shading (P25–P75)
@@ -10,12 +10,14 @@ library(tidyverse)
 library(ggplot2)
 library(patchwork)
 
-# ---- Load + trim outliers (your rule) ----
-COURSE_ROOT <- "/data/junior/boland_course"
-acc_path <- file.path(COURSE_ROOT, "shared", "data", "accident_wi.csv")
-
-acc <- read_csv(acc_path, show_col_types = FALSE) %>%
-  filter(`Distance(mi)` <= 4)
+# ---- Use the shared seeded Week 2 sample ----
+if (!exists("COURSE_ROOT")) {
+  COURSE_ROOT <- "/data/junior/boland_course"
+}
+if (!exists("load_week02_crashes")) {
+  source(file.path(COURSE_ROOT, "week02", "scripts", "accident_clean.R"))
+}
+acc <- if (exists("acc_mast")) acc_mast else load_week02_crashes(COURSE_ROOT)
 
 # ---- Parameters ----
 bins    <- 12                 # consistent binning across histogram views
@@ -23,15 +25,15 @@ pct_vec <- c(10, 25, 75, 90)  # percentiles to display (Pxx)
 
 # Title/label spacing (more room for Pxx labels)
 TITLE_GAP_B <- 18             # whitespace between title and panel
-LABEL_VJUST <- -0.7           # label height above plot (more negative = higher)
+LABEL_VJUST <- 1.2            # keep labels inside the panel for reliable rendering
 
 # Boxplot controls
 SHOW_INLIER_DOTS <- FALSE     # FALSE matches your screenshot (only tails/outliers)
 MAX_INLIERS      <- 3500      # subsample cap if inlier dots are on
 
 # Colors
-COL_DISTANCE <- "#59A14F"
 COL_TEMP     <- "#4C78A8"
+COL_WIND     <- "#59A14F"
 COL_LINE     <- "#D62728"
 COL_IQR_FILL <- "#E15759"
 ALPHA_IQR    <- 0.22
@@ -70,7 +72,7 @@ make_hist_with_stats <- function(data, var, title,
   
   p_hist <- ggplot(tibble(x = x), aes(x)) +
     geom_histogram(bins = bins, fill = fill, color = "white") +
-    labs(title = title, x = var, y = "Count") +
+    labs(title = title, x = title, y = "Count") +
     theme_title_spaced(base_size = 13) +
     theme(plot.margin = margin(10, 10, 0, 10))  # tighter to stats block
   
@@ -78,8 +80,8 @@ make_hist_with_stats <- function(data, var, title,
     annotate(
       "text", x = 0, y = 0,
       label = paste0(
-        "μ = ", format(round(mu, mean_digits), nsmall = mean_digits), "\n",
-        "σ = ", format(round(sig, sd_digits),   nsmall = sd_digits)
+        "Mean = ", format(round(mu, mean_digits), nsmall = mean_digits), "\n",
+        "SD = ", format(round(sig, sd_digits), nsmall = sd_digits)
       ),
       size = 7
     ) +
@@ -103,7 +105,15 @@ make_hist_percentiles <- function(data, var, title,
   x <- x[is.finite(x)]
   
   qs <- as.numeric(quantile(x, probs = pcts/100, na.rm = TRUE, type = 7))
-  df_q <- tibble(pct = pcts, q = qs)
+  hist_probe <- ggplot_build(
+    ggplot(tibble(x = x), aes(x)) + geom_histogram(bins = bins)
+  )
+  y_max <- max(hist_probe$data[[1]]$count, na.rm = TRUE)
+  df_q <- tibble(
+    pct = pcts,
+    q = qs,
+    label_y = y_max * rep(c(0.97, 0.88), length.out = length(pcts))
+  )
   
   ggplot(tibble(x = x), aes(x)) +
     geom_histogram(bins = bins, fill = fill, color = "white") +
@@ -111,12 +121,11 @@ make_hist_percentiles <- function(data, var, title,
                color = line_col, linewidth = 1.0, alpha = 0.9) +
     geom_text(
       data = df_q,
-      aes(x = q, y = Inf, label = paste0("P", pct)),
-      vjust = LABEL_VJUST, size = 4, color = "black"
+      aes(x = q, y = label_y, label = paste0("P", pct)),
+      vjust = 0.5, size = 4, color = "black"
     ) +
-    labs(title = title, x = var, y = "Count") +
-    theme_title_spaced(base_size = 13) +
-    coord_cartesian(clip = "off")
+    labs(title = title, x = title, y = "Count") +
+    theme_title_spaced(base_size = 13)
 }
 
 # ------------------------------------------------------------
@@ -148,7 +157,7 @@ make_hist_iqr <- function(data, var, title,
       aes(x = q, y = Inf, label = lab),
       vjust = LABEL_VJUST, size = 4, color = "black"
     ) +
-    labs(title = title, x = var, y = "Count") +
+    labs(title = title, x = title, y = "Count") +
     theme_title_spaced(base_size = 13) +
     coord_cartesian(clip = "off")
 }
@@ -178,7 +187,7 @@ make_boxplot_shiny_style <- function(data, var, title,
       ggplot(data.frame(x = x, y = 1), aes(x, y)) +
         geom_point(color = color, size = 2) +
         scale_y_continuous(NULL, breaks = NULL) +
-        labs(title = title, x = var, y = NULL) +
+        labs(title = title, x = title, y = NULL) +
         theme_title_spaced(base_size = 13)
     )
   }
@@ -235,79 +244,79 @@ make_boxplot_shiny_style <- function(data, var, title,
   
   p +
     scale_y_continuous(NULL, breaks = NULL, limits = c(y0 - 0.28, y0 + 0.28)) +
-    labs(title = title, x = var, y = NULL) +
+    labs(title = title, x = title, y = NULL) +
     theme_title_spaced(base_size = 13) +
     theme(panel.grid.major.y = element_blank(),
           panel.grid.minor = element_blank())
 }
 
 # ============================================================
-# Build the 4 views (each is two-panel: Distance | Temperature)
+# Build the 4 views (each is two-panel: Temperature | Wind Speed)
 # ============================================================
 
 # --- 1) Base (μ/σ under each) ---
-p_distance_base <- make_hist_with_stats(
-  acc, "Distance(mi)", "Distance (mi)",
-  bins = bins, fill = COL_DISTANCE,
-  mean_digits = 3, sd_digits = 2
-)
-
 p_temp_base <- make_hist_with_stats(
-  acc, "Temperature(F)", "Temperature (F)",
+  acc, "temperature_f", "Temperature (F)",
   bins = bins, fill = COL_TEMP,
   mean_digits = 2, sd_digits = 2
 )
 
-plot_base <- p_distance_base | p_temp_base
+p_wind_base <- make_hist_with_stats(
+  acc, "wind_speed_mph", "Wind speed (mph)",
+  bins = bins, fill = COL_WIND,
+  mean_digits = 2, sd_digits = 2
+)
+
+plot_base <- p_temp_base | p_wind_base
 
 # --- 2) Percentiles ---
-p_distance_pct <- make_hist_percentiles(
-  acc, "Distance(mi)", "Distance Percentiles",
-  bins = bins, fill = COL_DISTANCE,
-  pcts = pct_vec, line_col = COL_LINE
-)
-
 p_temp_pct <- make_hist_percentiles(
-  acc, "Temperature(F)", "Temperature Percentiles",
+  acc, "temperature_f", "Temperature (F)",
   bins = bins, fill = COL_TEMP,
   pcts = pct_vec, line_col = COL_LINE
 )
 
-plot_percentiles <- p_distance_pct | p_temp_pct
+p_wind_pct <- make_hist_percentiles(
+  acc, "wind_speed_mph", "Wind speed (mph)",
+  bins = bins, fill = COL_WIND,
+  pcts = pct_vec, line_col = COL_LINE
+)
+
+plot_percentiles <- p_temp_pct | p_wind_pct
 
 # --- 3) IQR shading ---
-p_distance_iqr <- make_hist_iqr(
-  acc, "Distance(mi)", "Distance IQR",
-  bins = bins, fill = COL_DISTANCE,
-  shade_fill = COL_IQR_FILL, shade_alpha = ALPHA_IQR,
-  line_col = COL_LINE
-)
-
 p_temp_iqr <- make_hist_iqr(
-  acc, "Temperature(F)", "Temperature IQR",
+  acc, "temperature_f", "Temperature (F)",
   bins = bins, fill = COL_TEMP,
   shade_fill = COL_IQR_FILL, shade_alpha = ALPHA_IQR,
   line_col = COL_LINE
 )
 
-plot_iqr <- p_distance_iqr | p_temp_iqr
-
-# --- 4) Box + tails (Shiny-style) ---
-p_distance_box <- make_boxplot_shiny_style(
-  acc, "Distance(mi)", "Distance — Boxplot + tails",
-  color = COL_DISTANCE,
-  show_inlier_dots = SHOW_INLIER_DOTS,
-  max_inliers = MAX_INLIERS
+p_wind_iqr <- make_hist_iqr(
+  acc, "wind_speed_mph", "Wind speed (mph)",
+  bins = bins, fill = COL_WIND,
+  shade_fill = COL_IQR_FILL, shade_alpha = ALPHA_IQR,
+  line_col = COL_LINE
 )
 
+plot_iqr <- p_temp_iqr | p_wind_iqr
+
+# --- 4) Box + tails (Shiny-style) ---
 p_temp_box <- make_boxplot_shiny_style(
-  acc, "Temperature(F)", "Temperature — Boxplot + tails",
+  acc, "temperature_f", "Temperature (F)",
   color = COL_TEMP,
   show_inlier_dots = SHOW_INLIER_DOTS,
   max_inliers = MAX_INLIERS
 )
 
-plot_box <- p_distance_box | p_temp_box
+p_wind_box <- make_boxplot_shiny_style(
+  acc, "wind_speed_mph", "Wind speed (mph)",
+  color = COL_WIND,
+  show_inlier_dots = SHOW_INLIER_DOTS,
+  max_inliers = MAX_INLIERS
+)
+
+plot_box <- p_temp_box | p_wind_box
 
 # ============================================================
 # Display whichever view you want:

@@ -1,6 +1,11 @@
 # MUST be at the very top of app.R, before any library(...)
+COURSE_ROOT <- Sys.getenv(
+  "ECO230_COURSE_ROOT",
+  unset = "/data/junior/boland_course"
+)
+
 if (requireNamespace("renv", quietly = TRUE)) {
-  renv::load("/data/junior/boland_course")
+  renv::load(COURSE_ROOT)
 }
 
 library(shiny)
@@ -12,89 +17,26 @@ library(stringr)
 
 `%||%` <- function(a, b) if (!is.null(a)) a else b
 
-# ---- Load data ONCE at startup (LIMITED + DERIVED FIELDS) ----
-COURSE_ROOT <- "/data/junior/boland_course"
-acc_path <- file.path(COURSE_ROOT, "shared", "data", "accident_wi.csv")
-
-acc <- read_csv(acc_path, show_col_types = FALSE) %>%
-  mutate(
-    # Clean raw time strings (handle blanks + extra whitespace)
-    Start_Time_clean = na_if(str_squish(Start_Time), ""),
-    End_Time_clean   = na_if(str_squish(End_Time), ""),
-    
-    # Robust parse (handles "m/d/Y H:M" and "m/d/Y H:M:S")
-    start_time = parse_date_time(
-      Start_Time_clean,
-      orders = c("mdy HM", "mdy HMS"),
-      tz = "America/Chicago"
-    ),
-    end_time = parse_date_time(
-      End_Time_clean,
-      orders = c("mdy HM", "mdy HMS"),
-      tz = "America/Chicago"
-    ),
-    
-    # ---- Season from start_time ----
-    season = case_when(
-      month(start_time) %in% 3:5  ~ "spring",
-      month(start_time) %in% 6:8  ~ "summer",
-      month(start_time) %in% 9:11 ~ "fall",
-      TRUE                        ~ "winter"
-    ),
-    
-    # ---- Time-of-day bins from start_time ----
-    time_of_day = case_when(
-      hour(start_time) >= 6  & hour(start_time) < 12 ~ "morning",  # 06:00–11:59
-      hour(start_time) >= 12 & hour(start_time) < 18 ~ "daytime",  # 12:00–17:59
-      hour(start_time) >= 18 & hour(start_time) < 24 ~ "evening",  # 18:00–23:59
-      TRUE                                           ~ "night"     # 00:00–05:59
-    ),
-    
-    # ---- Duration (minutes) ----
-    duration = end_time - start_time,
-    duration_mins = as.numeric(duration, units = "mins"),
-    
-    # Optional: ordered factors for nicer plots
-    season = factor(season, levels = c("spring", "summer", "fall", "winter")),
-    time_of_day = factor(time_of_day, levels = c("night", "morning", "daytime", "evening"))
-  ) %>%
-  # Keep ONLY the limited set you specified (PLUS start_time for date filtering)
-  select(
-    ID, Severity,
-    start_time,
-    `Distance(mi)`,
-    `Temperature(F)`,
-    `Wind_Chill(F)`,
-    `Humidity(%)`,
-    `Pressure(in)`,
-    `Visibility(mi)`,
-    Wind_Direction,
-    `Wind_Speed(mph)`,
-    `Precipitation(in)`,
-    Weather_Condition,
-    Sunrise_Sunset,
-    season,
-    time_of_day,
-    duration_mins
-  )
+# ---- Load the shared seeded Chicago sample once at startup ----
+source(file.path(COURSE_ROOT, "week02", "scripts", "accident_clean.R"))
+acc <- load_week02_crashes(COURSE_ROOT)
 
 # ---- Unique ID column ----
-ID_COL <- "ID"
+ID_COL <- "crash_id"
 if (!ID_COL %in% names(acc)) {
   stop(paste0("Expected a unique ID column named '", ID_COL, "' but it was not found in the dataset."))
 }
 
 # Candidate numeric variables (UPDATED for limited dataset)
 num_vars <- c(
-  "Distance(mi)",
-  "Temperature(F)",
-  "Wind_Chill(F)",
-  "Humidity(%)",
-  "Wind_Speed(mph)",
-  "Visibility(mi)",
-  "Pressure(in)",
-  "Precipitation(in)",
-  "duration_mins"
+  "temperature_f",
+  "relative_humidity_percent",
+  "wind_speed_mph",
+  "visibility_miles",
+  "precipitation_inches",
+  "posted_speed_limit_mph",
+  "unit_count",
+  "injuries_total"
 )
 num_vars <- intersect(num_vars, names(acc))
 
@@ -149,8 +91,15 @@ safe_max_date <- function(x) {
   if (length(x) == 0) Sys.Date() else as.Date(max(x))
 }
 
-min_date <- safe_min_date(acc$start_time)
-max_date <- safe_max_date(acc$start_time)
+min_date <- safe_min_date(acc$crash_datetime)
+max_date <- safe_max_date(acc$crash_datetime)
+
+keep_in_date_range <- function(x, range, full_min, full_max) {
+  dates <- as.Date(x)
+  full_range <- range[1] <= full_min && range[2] >= full_max
+  (!is.na(dates) & dates >= range[1] & dates <= range[2]) |
+    (is.na(dates) & full_range)
+}
 
 # ---- UI ----
 ui <- fluidPage(
@@ -178,8 +127,8 @@ ui <- fluidPage(
     }
   "),
   
-  h2("WI Accidents — Descriptive Stats"),
-  div(class="small", "Size (N vs n), central tendency, spread, and boxplots — all from the same filtered data."),
+  h2("Chicago Traffic Crashes — Descriptive Statistics"),
+  div(class="small", "A reproducible 7,900-row sample with missing values retained for N-versus-n demonstrations."),
   hr(),
   
   fluidRow(
@@ -193,7 +142,7 @@ ui <- fluidPage(
         div(
           class = "content",
           
-          selectInput("var", "Numeric variable", choices = num_vars),
+          selectInput("var", "Numeric variable", choices = num_vars, selected = "temperature_f"),
           
           # Pick which categorical field to filter
           selectInput(
@@ -201,20 +150,21 @@ ui <- fluidPage(
             "Categorical filter field",
             choices = c(
               "None",
-              "Severity",
-              "Wind_Direction",
-              "Weather_Condition",
-              "Sunrise_Sunset",
+              "weather_status",
+              "reported_weather_condition",
+              "reported_lighting_condition",
+              "crash_type",
+              "injury_severity",
               "season",
-              "time_of_day"
+              "time_period"
             ),
-            selected = "None"
+            selected = "weather_status"
           ),
           
           # levels picker appears dynamically
           uiOutput("cat_level_ui"),
           
-          # Date filter (uses derived start_time)
+          # Date filter (uses parsed crash_datetime)
           dateRangeInput(
             "dates", "Start date range",
             start = min_date,
@@ -366,19 +316,22 @@ server <- function(input, output, session) {
     dat0 <- acc
     if (!is.null(input$dates)) {
       dat0 <- dat0 %>%
-        filter(as.Date(start_time) >= input$dates[1],
-               as.Date(start_time) <= input$dates[2])
+        filter(keep_in_date_range(crash_datetime, input$dates, min_date, max_date))
     }
     
     vals <- dat0[[input$cat_var]]
     vals <- vals[!is.na(vals)]
     vals <- sort(unique(as.character(vals)))
     
+    default_levels <- if (
+      identical(input$cat_var, "weather_status") && "Reported" %in% vals
+    ) "Reported" else "All"
+
     selectizeInput(
       "cat_levels",
       "Include levels (leave 'All' to disable filtering)",
       choices = c("All", vals),
-      selected = "All",
+      selected = default_levels,
       multiple = TRUE,
       options = list(
         plugins = list("remove_button"),
@@ -404,8 +357,7 @@ server <- function(input, output, session) {
     # Date filter
     if (!is.null(input$dates)) {
       dat <- dat %>%
-        filter(as.Date(start_time) >= input$dates[1],
-               as.Date(start_time) <= input$dates[2])
+        filter(keep_in_date_range(crash_datetime, input$dates, min_date, max_date))
     }
     
     # Categorical filter (optional)
