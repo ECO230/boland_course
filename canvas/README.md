@@ -10,6 +10,18 @@ Local `.imscc` exports are reference inputs only and are ignored by Git. Do not
 store Canvas tokens, student submissions, grades, comments, or API responses in
 this directory.
 
+To persist `CANVAS_TOKEN` for the current Windows user without placing it in
+PowerShell history or the repository, run:
+
+```powershell
+& .\canvas\scripts\set-canvas-token.ps1
+```
+
+Enter the token at the masked prompt. Windows stores user environment variables
+as plaintext in the current user's registry, so use this only on a trusted
+single-user computer. The guarded wrappers check both the current process and
+the persistent user environment.
+
 See `manifests/README.md` for the role of each generated file. Development and
 operational commands live in `C:\Users\bolan\Documents\eco230-canvas-ops`.
 
@@ -47,6 +59,46 @@ synchronized to Fall 2026 Section 4 and visually reviewed on September 7, 2026.
 The native Canvas body retained its headings, callouts, lists, and tables with
 no external-page stub or executable scripts. The course remained unpublished.
 
+Provision a new Fall 2026 section through the complete guarded workflow with:
+
+```powershell
+& .\canvas\scripts\provision-section.ps1 -Section 12 -CourseId 870121 -Execute
+```
+
+The script selectively seeds protected Canvas assessments and private files,
+creates and verifies the repository-managed course structure and content,
+applies the reviewed Week 1 repairs, moves the graded quizzes, Lab 6, practice
+activity, and traditional final into their required assignment groups, and
+publishes only `Course Info and Resources` and `Week 1: Intro to Data Analysis`.
+It refuses to run without the exact section/course mapping and leaves the Canvas
+course itself unpublished.
+
+Resume an interrupted run by passing its existing work directory so successful
+plans, applies, uploads, and verifications are not repeated:
+
+```powershell
+& .\canvas\scripts\provision-section.ps1 -Section 12 -CourseId 870121 -ResumeRunRoot "C:\Users\bolan\Documents\eco230-canvas-ops\work\section-provisioning\fall-2026-12-<timestamp>" -Execute
+```
+
+Copied New Quizzes have a Canvas-specific edge case: the assignment can be
+visible while its quiz-service API record returns 404. Do not burn retries on
+the generic Assignments endpoint or alternate quiz IDs, and do not edit Canvas
+through the browser. Stop, add and test the required API support in the
+repository tooling, then resume the same run. The wrapper will reuse its
+completed checkpoints and continue the remaining validation.
+
+Refresh the repository-owned Week 2 video pages in every Fall 2026 section with
+one guarded API workflow:
+
+```powershell
+& .\canvas\scripts\refresh-week2-video-pages.ps1 -Sections 4,11,12 -Execute
+```
+
+The wrapper renders all three pages from their tracked Markdown metadata,
+updates them through the Canvas Pages API, verifies every player and fallback
+link, and confirms that course, module, and page publication states did not
+change.
+
 Generate static PDFs for the current Week 1-7 Reveal decks with:
 
 ```powershell
@@ -75,6 +127,18 @@ the script should publish the named modules after verification. Pass a
 different `-PublishedModuleNames` list as additional weeks are released.
 
 ## Fall 2026 operational status
+
+Section 12 (`870121`) completed provisioning on September 9, 2026. Canvas was
+validated with `Course Info and Resources` and `Week 1: Intro to Data Analysis`
+as the only published modules; modules 3-16 and the course remained
+unpublished. Graded Quiz 1-5 were verified in `Quizzes`, Lab 6 and the practice
+activity in `Participation Score`, and the traditional final in
+`Final Traditional Portion: Raw Grade`. `Imported Assignments` was empty.
+The Week 2 video-page renderer was repaired and its three live pages were
+refreshed from repository source through the Canvas API on September 10, 2026,
+in sections 4, 11, and 12. Each section was verified with 11 Kaltura players
+and 11 matching fallback links. Page, module, and course publication states
+were preserved; Section 12 remained unpublished.
 
 Section 11 (`869206`) completed the full provisioning workflow on September 8,
 2026. The selective Week 1 refresh then updated the section-aware syllabus and
@@ -119,3 +183,24 @@ modify a published course.
 - Course-file name conflicts require deliberate comparison or overwrite
   approval. Do not assume that a same-named Canvas file matches the repository
   source.
+- The guarded wrappers check `CANVAS_TOKEN` first in the current process and
+  then in the persistent Windows user environment. Use
+  `scripts/set-canvas-token.ps1` only in a terminal the user can see; avoid
+  hidden prompts that cannot be observed.
+- When the New Quizzes API returns 404 for a copied quiz that is visible in the
+  Canvas UI, stop endpoint retries and extend the API tooling. Do not use the UI
+  to bypass the repository publishing workflow.
+- Canvas video metadata is not student-facing by itself. For every `videos`
+  entry in Canvas Markdown front matter, verify that the published body contains
+  one Kaltura iframe and one matching fallback link. A successful API update
+  with prose but no players is not a successful video-page migration.
+- Canvas browser access is for read-only visual verification. All mutations
+  must originate in repository content and run through the API wrappers.
+- An available course remains protected from general content applies. A repair
+  to an existing unpublished repository page requires a reviewed
+  `content plan --only-page <manifest-key>` and the explicit
+  `--allow-available-course-page-refresh` apply guard. Verify the selected page
+  and confirm that page, module, and course publication states did not change.
+- Windows PowerShell 5 can corrupt multiline Python supplied through
+  `python -c`. Cross-language wrappers must call a tracked Python helper file
+  and be tested with the Windows PowerShell 5 executable used by the operator.
