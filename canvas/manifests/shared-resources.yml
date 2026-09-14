@@ -12,10 +12,22 @@ resources:
     template_value: "lab_01_data_url"
     use: "before-class preparation"
 
-  - key: "lab-02-nfl-files"
-    source_path: "week02/labs/data/Lab_02_NFL_Files.zip"
-    public_url: "https://eco230.github.io/boland_course/week02/labs/data/Lab_02_NFL_Files.zip"
-    template_value: "lab_02_download_url"
+  - key: "lab-02-games-csv"
+    source_path: "week02/labs/data/nfl_games.csv"
+    public_url: "https://eco230.github.io/boland_course/week02/labs/data/nfl_games.csv"
+    template_value: "lab_02_games_url"
+    use: "in-class lab"
+
+  - key: "lab-02-plays-csv"
+    source_path: "week02/labs/data/nfl_plays.csv"
+    public_url: "https://eco230.github.io/boland_course/week02/labs/data/nfl_plays.csv"
+    template_value: "lab_02_plays_url"
+    use: "in-class lab"
+
+  - key: "lab-02-excel-starter"
+    source_path: "week02/labs/data/Lab_02_Excel_Starter.xlsx"
+    public_url: "https://eco230.github.io/boland_course/week02/labs/data/Lab_02_Excel_Starter.xlsx"
+    template_value: "lab_02_excel_url"
     use: "in-class lab"
 
   - key: "lab-03-airline-prep-workbook"

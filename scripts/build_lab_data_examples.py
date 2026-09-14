@@ -6,8 +6,6 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
-from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
-
 import duckdb
 
 
@@ -249,28 +247,12 @@ def build_lab_3_in_class(connection: duckdb.DuckDBPyConnection) -> None:
     )
 
 
-def build_lab_2_download() -> None:
-    data_dir = ROOT / "week02" / "labs" / "data"
-    members = ["nfl_games.csv", "nfl_plays.csv", "source.json"]
-    output = data_dir / "Lab_02_NFL_Files.zip"
-    with ZipFile(output, "w", compression=ZIP_DEFLATED, compresslevel=9) as archive:
-        for name in members:
-            source = data_dir / name
-            if not source.is_file():
-                raise FileNotFoundError(source)
-            info = ZipInfo(name, date_time=(2026, 9, 6, 0, 0, 0))
-            info.compress_type = ZIP_DEFLATED
-            info.external_attr = 0o644 << 16
-            archive.writestr(info, source.read_bytes())
-
-
 def main() -> int:
     connection = duckdb.connect()
     build_lab_1_prep(connection)
     build_lab_3_prep(connection)
     build_lab_3_in_class(connection)
-    build_lab_2_download()
-    print("Built Lab 1 prep, Lab 2 in-class, Lab 3 prep, and Lab 3 in-class examples")
+    print("Built Lab 1 prep, Lab 3 prep, and Lab 3 in-class examples")
     return 0
 
 

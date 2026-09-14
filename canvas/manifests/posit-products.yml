@@ -16,7 +16,7 @@ products:
     repository: "ECO230/lab-02-ip"
     visibility: private
     canvas_template_value: "lab_02_posit_cloud_url"
-    download_template_value: "lab_02_download_url"
+    download_template_value: "lab_02_excel_url"
     source_status: ready
     github_status: published
     posit_cloud_status: source_project_verified

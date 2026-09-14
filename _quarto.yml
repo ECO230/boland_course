@@ -39,7 +39,9 @@ project:
     # Shared lab downloads are published once with the course website and used
     # by every Canvas section.
     - week01/lab-prep/data/olist_orders_sample.csv
-    - week02/labs/data/Lab_02_NFL_Files.zip
+    - week02/labs/data/nfl_games.csv
+    - week02/labs/data/nfl_plays.csv
+    - week02/labs/data/Lab_02_Excel_Starter.xlsx
     - week03/lab-prep/Lab_03_Chart_Practice.xlsx
     - week03/labs/data/chicago_traffic_crashes_sample.csv
     # Homework 1 fallback downloads. These are the same deterministic samples
