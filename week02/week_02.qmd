@@ -80,13 +80,13 @@ acc_mast %>%
 
 ## Measurement Scales
 
-![](media/images/NOIR.svg){width="100%" height="700px" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+![](../shared/images/NOIR.svg){width="100%" height="700px" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 
 ## Measurement Scales
 
 ::::: columns
 ::: {.column width="30%"}
-![](media/images/NOIR.svg){width="100%" height="700px" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+![](../shared/images/NOIR.svg){width="100%" height="700px" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 :::
 
 ::: {.column width="70%"}
@@ -216,7 +216,7 @@ Can you add two rows together and keep the same meaning + units?
 
 <br>
 
-[![](media/images/shiny_size.png){width="75%"}](https://shiny.60land.com/week02/descriptives/)
+[![](media/images/shiny_size.png)](https://shiny.60land.com/week02/descriptives/)
 
 # Measures of Center {background-image="../shared/images/mean_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Average notation for population greek symbol mu, for sample x-bar, sometimes median notated with greek symbol eta."}
 
@@ -609,7 +609,7 @@ plot_iqr
 plot_box
 ```
 
-# Relationships: Discrete to Discrete {background-image="media/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+# Relationships: Discrete to Discrete {background-image="../shared/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 
 ## Cross Tabs or Contingency Tables
 
@@ -617,7 +617,7 @@ plot_box
 
 <br>
 
--   Frequency Table - \***One** Categorical Variable
+-   Frequncy Table - \***One** Categorical Variable
 -   Cross Tab - **Two** Categorical Variables
 -   Count how many rows **n**
 -   Add **marginal totals**
@@ -638,7 +638,9 @@ plot_box
 
 [![](media/images/shiny_cross.png)](https://shiny.60land.com/week02/crosstabs/)
 
-## Confusing similar-sounding percentages
+::: fragment
+**Confusing similar-sounding percentages**:
+:::
 
 ::: fragment
 -   \% of incidents that happened in Spring **and** in the Morning?
@@ -658,13 +660,13 @@ Make sure you are clear on what the numerator and denominator are and communicat
 :::
 ::::
 
-# Relationships - Continuous to Continuous {background-image="media/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+# Relationships - Continuous to Continuous {background-image="../shared/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 
 ## Correlation {background-image="../shared/images/correlation_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Coefficient of correlation notation for population greek symbol capital rho or r, for sample lower case rho or r"}
 
 -   **Correlation (r):** standardized between -1 and +1
 -   Shows strength of *linear* pattern.
--   +1 means positive relationship, -1 means negative relationship
+-   +1 means positive relationship, -1 means netagive relationship
 -   Does not determine the slope of the line
 -   Regression analysis needed for full understanding
 
@@ -677,32 +679,12 @@ Make sure you are clear on what the numerator and denominator are and communicat
 ::::: columns
 :::: {.column width="70%"}
 ::: fragment
-```{r fig.width=8, fig.height=3.4}
-corr_data <- acc_mast %>%
-  select(temperature_f, relative_humidity_percent) %>%
-  filter(is.finite(temperature_f), is.finite(relative_humidity_percent))
-
-ggplot(corr_data, aes(temperature_f, relative_humidity_percent)) +
-  geom_point(alpha = 0.18, size = 0.7, color = "#4C78A8") +
-  geom_smooth(method = "lm", se = FALSE, color = "black", linewidth = 0.8) +
-  labs(
-    x = "Temperature (F)",
-    y = "Relative humidity (%)",
-    subtitle = paste0(
-      "Complete pairs: n = ", scales::comma(nrow(corr_data)),
-      " | Pearson r = ",
-      sprintf("%.3f", cor(corr_data$temperature_f, corr_data$relative_humidity_percent))
-    )
-  ) +
-  theme_minimal(base_size = 12)
-```
-
-[Open the interactive correlation app](https://shiny.60land.com/week02/correlation/)
+[![](media/images/shiny_correlation.png)](https://shiny.60land.com/week02/correlation/)
 :::
 ::::
 :::::
 
-# Relationships: Discrete to Continuous {background-image="media/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+# Relationships: Discrete to Continuous {background-image="../shared/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 
 ## **Analytics** is the **art** of finding out what is in your data.
 
