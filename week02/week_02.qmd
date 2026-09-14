@@ -80,18 +80,30 @@ acc_mast %>%
 
 ## Measurement Scales
 
-![](../shared/images/NOIR.svg){width="100%" height="700px" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+![](media/images/NOIR.svg){width="100%" height="700px" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 
 ## Measurement Scales
 
 ::::: columns
 ::: {.column width="30%"}
-![](../shared/images/NOIR.svg){width="100%" height="700px" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+![](media/images/NOIR.svg){width="100%" height="700px" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 :::
 
 ::: {.column width="70%"}
 ```{r}
-acc_mast %>%
+set.seed(230)
+
+weather_examples <- acc_mast %>%
+  filter(!is.na(reported_weather_condition)) %>%
+  group_by(reported_weather_condition) %>%
+  slice_sample(n = 1) %>%
+  ungroup()
+
+weather_fill <- acc_mast %>%
+  filter(!crash_id %in% weather_examples$crash_id) %>%
+  slice_sample(n = 20 - nrow(weather_examples))
+
+bind_rows(weather_examples, weather_fill) %>%
   slice_sample(n = 20) %>%
   select(
     reported_weather_condition,
@@ -203,8 +215,6 @@ Can you add two rows together and keep the same meaning + units?
 -   **n — Actual usable values** for our analysis
 
 <br>
-
-**Current default:** 7,900 total → 7,336 with reported weather → 81 missing temperatures → **7,255 usable**.
 
 [![](media/images/shiny_size.png){width="75%"}](https://shiny.60land.com/week02/descriptives/)
 
@@ -599,7 +609,7 @@ plot_iqr
 plot_box
 ```
 
-# Relationships: Discrete to Discrete {background-image="../shared/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+# Relationships: Discrete to Discrete {background-image="media/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 
 ## Cross Tabs or Contingency Tables
 
@@ -626,35 +636,9 @@ plot_box
 
 ## What can go wrong?
 
-```{r}
-cross_counts <- with(acc_mast, table(time_period, season, useNA = "no"))
-cross_pct <- 100 * prop.table(cross_counts)
+[![](media/images/shiny_cross.png)](https://shiny.60land.com/week02/crosstabs/)
 
-cross_display <- cbind(
-  cross_pct,
-  Total = 100 * rowSums(cross_counts) / sum(cross_counts)
-)
-cross_display <- rbind(
-  cross_display,
-  Total = c(100 * colSums(cross_counts) / sum(cross_counts), 100)
-)
-
-as.data.frame.matrix(cross_display) %>%
-  tibble::rownames_to_column("Time period") %>%
-  mutate(across(-`Time period`, ~ sprintf("%.1f%%", .x))) %>%
-  gt() %>%
-  tab_header(
-    title = "Time period by season",
-    subtitle = paste0("Table percentages; usable N = ", sum(cross_counts))
-  ) %>%
-  tab_options(table.font.size = 13, data_row.padding = px(3))
-```
-
-[Open the interactive cross-tab app](https://shiny.60land.com/week02/crosstabs/)
-
-::: fragment
-**Confusing similar-sounding percentages**:
-:::
+## Confusing similar-sounding percentages
 
 ::: fragment
 -   \% of incidents that happened in Spring **and** in the Morning?
@@ -674,7 +658,7 @@ Make sure you are clear on what the numerator and denominator are and communicat
 :::
 ::::
 
-# Relationships - Continuous to Continuous {background-image="../shared/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+# Relationships - Continuous to Continuous {background-image="media/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 
 ## Correlation {background-image="../shared/images/correlation_notation.svg" background-position="right 24px bottom 42px" background-size="240px" background-repeat="no-repeat" fig-alt="Coefficient of correlation notation for population greek symbol capital rho or r, for sample lower case rho or r"}
 
@@ -718,7 +702,7 @@ ggplot(corr_data, aes(temperature_f, relative_humidity_percent)) +
 ::::
 :::::
 
-# Relationships: Discrete to Continuous {background-image="../shared/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
+# Relationships: Discrete to Continuous {background-image="media/images/NOIR.svg" background-position="right 24px bottom 42px" background-size="480px" background-repeat="no-repeat" fig-alt="Visual representing measurement scales Nominal, Ordinal, Interval, Ratio and their common uses."}
 
 ## **Analytics** is the **art** of finding out what is in your data.
 
@@ -727,7 +711,11 @@ acc_mast %>%
   select(temperature_f, season) %>%
   filter(!is.na(temperature_f), !is.na(season)) %>%
   group_by(season) %>%
-  summarise(mean_temp = mean(temperature_f), median_temp = median(temperature_f))
+  summarise(
+    n = n(),
+    mean_temp = mean(temperature_f),
+    median_temp = median(temperature_f)
+  )
 ```
 
 ::: fragment
@@ -736,7 +724,11 @@ acc_sum <- acc_mast %>%
   select(temperature_f, season) %>%
   filter(!is.na(temperature_f), !is.na(season)) %>%
   group_by(season) %>%
-  summarise(mean_temp = mean(temperature_f), median_temp = median(temperature_f))
+  summarise(
+    n = n(),
+    mean_temp = mean(temperature_f),
+    median_temp = median(temperature_f)
+  )
 
 
   acc_sum %>%
