@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Homework 2: Exploratory Analysis – ECO 230</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,14 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dcec9e325294c483a23600e495d490cd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c247dbc93d9c9a530af69dcb874a9fb6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,6 +80,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">ECO 230</span>
     </a>
@@ -138,6 +138,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../week01/Homework_01.html">
  <span class="dropdown-text">Homework 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week02/Homework_02.html">
+ <span class="dropdown-text">Homework 2</span></a>
   </li>  
     </ul>
   </li>
@@ -234,8 +238,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
 <ul>
 <li>Produce clean <strong>summary tables</strong> (no charts)</li>
-<li>Choose statistics that match the <strong>measurement scale (NOIR)</strong></li>
-<li>Keep denominators straight (<strong>N</strong>, <em>n_eligible</em>, <em>n_non-missing</em>)</li>
+<li>Choose statistics that match the <strong>measurement scale (NOIR)</strong> and the data</li>
+<li>Decide which summaries and comparisons are meaningful for your variables</li>
 <li>Describe relationships using <strong>group summaries</strong> and <strong>cross-tabs</strong></li>
 <li>Communicate results clearly with labels, units, and stated assumptions</li>
 <li>Reflect on <strong>responsible AI use</strong> in data work</li>
@@ -244,10 +248,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <ul>
-<li><a href="https://posit.cloud/spaces/3173/content/12765365">Open Homework 2 in Posit Cloud</a></li>
 <li>Week 2 slides (Size, Center, Shape, Relationships; Percentage Problems)</li>
 <li>Week 1 slides (Unit of Analysis / Grain; Dimensions vs Measures; Tidy Data)</li>
 <li>Dataset description files on Canvas</li>
+<li><a href="https://posit.cloud/spaces/3173/content/12765365">Optional R workspace: Open Homework 2 in Posit Cloud</a>. Use this instead of Excel or Tableau if you choose R.</li>
 </ul>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Important">
 <div class="callout-header d-flex align-content-center">
@@ -262,7 +266,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This assignment is graded for <strong>clear, careful completion</strong>.</p>
 <ul>
 <li><strong>No charts</strong> this week.</li>
-<li>Your job is to be explicit and disciplined about <strong>what one row represents</strong>, <strong>what your denominators are</strong>, and <strong>which summaries are meaningful</strong>.</li>
+<li>Choose and explain summaries that are <strong>meaningful for the variables you compare</strong>.</li>
 </ul>
 </div>
 </div>
@@ -284,12 +288,26 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="tools-you-may-mix-and-match" class="level2">
 <h2 class="anchored" data-anchor-id="tools-you-may-mix-and-match">2) Tools (You May Mix and Match)</h2>
-<p>Complete the tables using <strong>Excel</strong>, <strong>Tableau</strong>, <strong>posit.cloud</strong>, or any combination.</p>
+<p>Complete the tables using <strong>Excel</strong>, <strong>Tableau</strong>, <strong>R</strong>, or any combination. The Posit Cloud project in Resources is an optional workspace for the R option.</p>
 <ul>
 <li>This does <strong>not</strong> all have to be in one tool.</li>
 <li>Choose the tool(s) that best support the table you are trying to build.</li>
 </ul>
 <p><em>(No written response required.)</em></p>
+<hr>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="You choose the analysis">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>You choose the analysis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All four tables are intentionally flexible. Choose variables and comparisons you find interesting, select an appropriate summary, and explain what the result shows.</p>
+</div>
+</div>
 <hr>
 </section>
 <section id="table-1-frequency-table-one-categorical-variable" class="level2">
@@ -320,9 +338,6 @@ ul.task-list li input[type="checkbox"] {
 <li>Any other information you feel is relevant.</li>
 </ul>
 <p>Below the table, write <strong>1–2 sentences</strong> explaining why your choices are meaningful.</p>
-<blockquote class="blockquote">
-<p><strong>Tables 2–3 are intentionally flexible:</strong> your job is to decide what summary is most meaningful for your variables and explain why.</p>
-</blockquote>
 <p>Hint from Week 2:</p>
 <ul>
 <li>Mean/SD are most useful when the variable behaves like interval/ratio data with limited outliers.</li>
@@ -351,19 +366,17 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="table-4-cross-tab-categorical-categorical-percentages" class="level2">
 <h2 class="anchored" data-anchor-id="table-4-cross-tab-categorical-categorical-percentages">6) Table 4 — Cross-Tab (Categorical ↔︎ Categorical) + Percentages</h2>
-<p>Create a cross-tab using <strong>two categorical variables</strong>, each with <strong>≥ 3 categories</strong>.</p>
-<p>Your table must include:</p>
-<ul>
-<li><p>Cell <strong>counts</strong></p></li>
-<li><p><strong>One</strong> percentage type (choose one and label it clearly):</p>
+<p>Create a cross-tab using <strong>two categorical variables</strong>, each with <strong>≥ 3 categories</strong>. Present the same cross-tab in two versions:</p>
+<ol type="1">
+<li><p>A <strong>counts table</strong> with cell counts and row and column totals (margins).</p></li>
+<li><p>A <strong>percentage table</strong> using one appropriate percentage type, labeled clearly:</p>
 <ul>
 <li><strong>Row %</strong> (conditional on row)</li>
 <li><strong>Column %</strong> (conditional on column)</li>
 <li><strong>Table %</strong> (overall share)</li>
 </ul></li>
-<li><p>Row and column <strong>totals</strong> (margins)</p></li>
-</ul>
-<p>Below the table, write <strong>one sentence</strong> that states the denominator clearly:</p>
+</ol>
+<p>Below the percentage table, write <strong>one sentence</strong> that states the denominator clearly:</p>
 <blockquote class="blockquote">
 <p>“These percentages are calculated as ________, so each ______ totals to 100%.”</p>
 </blockquote>
@@ -371,19 +384,6 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 <p>Similar-sounding percentages can answer <em>different questions</em>. Make the numerator and denominator explicit.</p>
 </blockquote>
-<hr>
-</section>
-<section id="optional-continuous-continuous-correlation-table" class="level2">
-<h2 class="anchored" data-anchor-id="optional-continuous-continuous-correlation-table">(Optional) Continuous ↔︎ Continuous (Correlation Table)</h2>
-<p>If your dataset includes <strong>two continuous variables that might be related</strong>, you may include <strong>one small correlation table</strong>.</p>
-<p>This is <strong>not required</strong>, but it is a strong way to explore whether two measures move together.</p>
-<p>If you choose to include it, report:</p>
-<ul>
-<li><strong>n_non-missing</strong> (pairs)</li>
-<li>Correlation <strong>r</strong></li>
-<li>1 sentence interpretation (direction + strength)</li>
-</ul>
-<p><em>(Still no charts.)</em></p>
 <hr>
 </section>
 <section id="findings-summary-required" class="level2">
@@ -422,7 +422,7 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><p>A <strong>PDF or Word</strong> document containing:</p>
 <ul>
-<li>Tables 1–4 (and the optional correlation table if included)</li>
+<li>Tables 1–4, including the count and percentage versions of Table 4</li>
 <li>Your 3 takeaways</li>
 <li>Your brief AI reflection</li>
 </ul></li>
@@ -430,7 +430,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Excel: <code>.xlsx</code></li>
 <li>Tableau: <code>.twbx</code></li>
-<li>posit.cloud: knitted output (<code>.html</code> or <code>.pdf</code>) and your source file</li>
+<li>R/Posit Cloud: rendered output (<code>.html</code> or <code>.pdf</code>) and your source file</li>
 </ul></li>
 </ol>
 <hr>
@@ -438,7 +438,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="alignment-to-course-outcomes" class="level2">
 <h2 class="anchored" data-anchor-id="alignment-to-course-outcomes">Alignment to Course Outcomes</h2>
 <ul>
-<li><strong>Choose the right analysis:</strong> You match summaries to measurement scales (NOIR) and keep denominators explicit.</li>
+<li><strong>Choose the right analysis:</strong> You select summaries that are meaningful for the measurement scales (NOIR), variables, and comparisons.</li>
 <li><strong>Interpret results in context:</strong> Your takeaways connect tables to real questions the data can answer.</li>
 <li><strong>Explain limitations, assumptions, and uncertainty:</strong> Your justifications and AI reflection surface constraints <em>before</em> conclusions.</li>
 </ul>
@@ -520,7 +520,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
