@@ -29,6 +29,9 @@ Run `source("project_setup.R")` once, open `Lab_02_IP.qmd`, and render it before
 making changes. Keep `game_id` as the join key. Do not sum game-level values
 after joining them onto plays unless you first return to the intended grain.
 
+There is nothing to submit for Lab 2. Keep the workbook, notes, and rendered
+Quarto document for reference when completing similar analysis in Homework 2.
+
 Source: nflverse data, distributed under CC BY 4.0 and curated for ECO 230.
 
 ## Rebuild from the repository

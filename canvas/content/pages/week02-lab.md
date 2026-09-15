@@ -50,7 +50,8 @@ This is the in-class lab dataset, not a lab-preparation example.
 - Create a `Cross Tab` PivotTable and compare percentages of the grand total,
   column total, and row total.
 - Reproduce the join and selected summaries in Tableau when available and in
-  R with `left_join()`, `filter()`, `count()`, `group_by()`, and `summarise()`.
+  R with `left_join()`, `filter()`, `count()`, `group_by()`, `summarise()`, and
+  `csi()`.
 - Reconcile any differences across the tools before deciding which result is
   correct.
 
@@ -68,7 +69,15 @@ This is the in-class lab dataset, not a lab-preparation example.
   not sum scores, total points, or similar game-level values from the joined
   play table.
 
-### Completion check
+### Keep your work for reference
 
-Keep the Excel workbook and rendered Quarto document available for class. Only
-upload them if the accompanying Canvas assignment requests a submission.
+There is nothing to submit for Lab 2. Keep your Excel workbook, notes, and
+rendered Quarto document for reference. Homework 2 requires similar analysis
+with your selected dataset, so these files provide examples you can revisit.
+
+- [ ] I identified each table's grain and key.
+- [ ] I inspected and verified the join.
+- [ ] I created a count and frequency table.
+- [ ] I compared means and medians.
+- [ ] I created and interpreted a cross-tabulation with percentages.
+- [ ] I reproduced at least one result in Excel, Tableau when available, and R.

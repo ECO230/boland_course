@@ -106,8 +106,22 @@ updates them through the Canvas Pages API, verifies every player and fallback
 link, and confirms that course, module, and page publication states did not
 change.
 
-After refreshing the repository-owned Lab 2 page, publish only that page and
-its existing Week 2 module item with:
+Refresh the already-published repository-owned Lab 2 page in every Fall 2026
+section with:
+
+```powershell
+& .\canvas\scripts\refresh-lab2-page.ps1 -Sections 4,11,12
+& .\canvas\scripts\refresh-lab2-page.ps1 -Sections 4,11,12 -Execute
+```
+
+The first run is read-only. The execute run renders the tracked Canvas Markdown
+with section configuration values, updates only the page body through the
+Canvas Pages API, and verifies the expected content. It requires the page,
+module item, and Week 2 module to already be published, and preserves every
+page, module-item, module, and course publication state.
+
+If the Lab 2 page and its existing Week 2 module item are still unpublished,
+publish only those two objects with:
 
 ```powershell
 & .\canvas\scripts\publish-lab2-page.ps1 -Sections @(4,11,12)

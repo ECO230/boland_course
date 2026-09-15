@@ -271,9 +271,18 @@ keys and row count, creates a frequency table, contrasts counts with missing
 values, calculates mean and median yards for pass and run plays, and builds a
 cross-tabulation with within-quarter percentages.
 
+For the cross-tabulation, load `eco230r` and use
+`csi(play_type ~ quarter)`. Keep the returned object so the observed counts,
+row percentages, column percentages, and table percentages can be displayed
+from one consistent calculation.
+
 The point is not that code is inherently better than a PivotTable. Pointing,
 clicking, and dragging are helpful while exploring. Once the intended order and
 analysis are known, code and Quarto provide a repeatable record that can be
 rerun when the data changes. That record also helps a reviewer understand the
 steps behind a report or assess whether an agent-generated analysis follows the
 intended logic.
+
+There is nothing to submit for Lab 2. Students should keep the workbook, notes,
+and rendered Quarto document because Homework 2 requires similar descriptive
+analysis with their selected datasets.

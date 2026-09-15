@@ -213,6 +213,21 @@ In R, the sequence is explicit and repeatable:
 - `group_by()` defines the comparison groups; and
 - `summarise()` calculates counts, means, medians, or other measures.
 
+Use `csi()` from `eco230r` to produce the count table and all three percentage
+views from the same cross-tabulation:
+
+```r
+library(eco230r)
+
+csi_output <- plays_joined |>
+  csi(play_type ~ quarter)
+
+csi_output$observed |> kable(digits = 0)
+csi_output$row_percentages |> kable(digits = 2)
+csi_output$column_percentages |> kable(digits = 2)
+csi_output$table_percentages |> kable(digits = 2)
+```
+
 Once the steps are written in the correct order, rerunning the Quarto document
 reproduces the full analysis. That makes code useful for checking an agent's
 work and for maintaining a report when the source data changes.
@@ -227,3 +242,9 @@ work and for maintaining a report when the source data changes.
 - Did a join repeat a game-level value across plays?
 - What pattern can you state with certainty?
 - What explanation remains uncertain and requires additional analysis?
+
+## Keep your work for reference
+
+There is nothing to submit for Lab 2. Keep your Excel workbook, notes, and
+rendered Quarto document for reference. Homework 2 requires similar analysis
+with your selected dataset, so these files provide examples you can revisit.

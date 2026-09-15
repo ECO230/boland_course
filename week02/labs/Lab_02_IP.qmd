@@ -9,7 +9,7 @@ format:
     linestretch: 1
     margin:
       x: 1in
-      y: 1in
+      y: 0.9in
     number-sections: false
     page-numbering: "1"
 execute:
@@ -22,6 +22,7 @@ execute:
 #| label: setup
 #| include: false
 library(tidyverse)
+library(eco230r)
 library(knitr)
 options(scipen = 999)
 ```
@@ -191,17 +192,22 @@ Create a third PivotTable on a new worksheet named `Cross Tab`.
 Use percentages primarily with counts. Applying **Show Values As** to a mean
 can create percentages that do not add to 100% and are difficult to explain.
 
-This R version calculates the percentage of plays within each quarter:
+Use `csi()` from `eco230r` to create the complete cross-tabulation. Its returned
+object contains the observed counts plus row, column, and table percentages:
 
 ```{r}
-quarter_crosstab <- plays_joined |>
-  filter(!is.na(play_type), !is.na(quarter)) |>
-  count(quarter, play_type, name = "plays") |>
-  group_by(quarter) |>
-  mutate(percent_within_quarter = plays / sum(plays)) |>
-  ungroup()
+library(eco230r)
 
-quarter_crosstab |> kable(digits = 3)
+csi_output <- plays_joined |>
+  csi(play_type ~ quarter)
+
+csi_output$observed |> kable(digits = 0)
+
+csi_output$row_percentages |> kable(digits = 2)
+
+csi_output$column_percentages |> kable(digits = 2)
+
+csi_output$table_percentages |> kable(digits = 2)
 ```
 
 ## 5) Reproduce the analysis in Tableau
@@ -234,7 +240,13 @@ require more data or analysis.
 
 *Your response:*
 
-## Completion checklist
+## Keep your work for reference
+
+There is nothing to submit for Lab 2. Keep your Excel workbook, notes, and
+rendered Quarto document for reference. Homework 2 requires similar analysis
+with your selected dataset, so these files provide examples you can revisit.
+
+### Completion checklist
 
 - [ ] I identified each table's grain and key.
 - [ ] I inspected and verified the join.
