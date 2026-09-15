@@ -59,6 +59,13 @@ synchronized to Fall 2026 Section 4 and visually reviewed on September 7, 2026.
 The native Canvas body retained its headings, callouts, lists, and tables with
 no external-page stub or executable scripts. The course remained unpublished.
 
+Quarto callouts require an additional Canvas conversion step. The publisher
+replaces Bootstrap-dependent callout markup with inline-styled Canvas-safe
+blocks and removes Quarto's hidden screen-reader label before upload. Verify
+that each callout title appears once; flattened text such as `TipImportant`
+means the renderer failed and must be repaired in the API tooling rather than
+edited in Canvas.
+
 Provision a new Fall 2026 section through the complete guarded workflow with:
 
 ```powershell
