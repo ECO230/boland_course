@@ -15,3 +15,6 @@ supporting files in Canvas.
 
 The `data` folder contains all five course dataset extracts. Change `project_file` in
 the assignment to the filename associated with your project.
+
+The Table 4 R example uses `eco230r::csi()` to produce the observed cross-tab
+and its row, column, and table percentages from one consistent calculation.

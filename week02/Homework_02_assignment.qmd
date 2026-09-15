@@ -217,15 +217,45 @@ useful categories. Present the same cross-tabulation in two versions:
 
 Below the percentage table, write a sentence that states the denominator.
 
+Use `addmargins()` with the observed counts to include row and column totals:
+
 ```{r}
 #| eval: false
-xt <- table(df$your_row_variable, df$your_column_variable)
-xt
+library(eco230r)
+library(knitr)
 
-# Choose one percentage calculation:
-prop.table(xt, margin = 1)  # row percentages
-prop.table(xt, margin = 2)  # column percentages
-prop.table(xt)              # overall percentages
+csi_output <- df |>
+  csi(your_row_variable ~ your_column_variable)
+```
+
+The observed output keeps the row-category labels in its first column. Move
+those labels to the row names before adding the numeric margins:
+
+```{r}
+#| eval: false
+observed_counts <- csi_output$observed
+rownames(observed_counts) <- observed_counts[[1]]
+observed_counts[[1]] <- NULL
+
+observed_counts |>
+  as.matrix() |>
+  addmargins() |>
+  kable(digits = 0)
+```
+
+Review all three percentage denominators, then insert the one that answers your
+question:
+
+```{r}
+#| eval: false
+csi_output$row_percentages |>
+  kable(digits = 2)
+
+csi_output$column_percentages |>
+  kable(digits = 2)
+
+csi_output$table_percentages |>
+  kable(digits = 2)
 ```
 
 **Table 4A counts code, table, or inserted output:**
@@ -257,6 +287,10 @@ B, suggesting that...
 
 
 ---
+
+```{=typst}
+#pagebreak()
+```
 
 ## 8) Reflect on Responsible AI Use
 
