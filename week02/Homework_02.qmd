@@ -40,24 +40,24 @@ You will also reflect briefly on how to use AI responsibly to **accelerate—not
 ## Objectives
 
 -   Produce clean **summary tables** (no charts)
--   Choose statistics that match the **measurement scale (NOIR)**
--   Keep denominators straight (**N**, *n_eligible*, *n_non-missing*)
+-   Choose statistics that match the **measurement scale (NOIR)** and the data
+-   Decide which summaries and comparisons are meaningful for your variables
 -   Describe relationships using **group summaries** and **cross-tabs**
 -   Communicate results clearly with labels, units, and stated assumptions
 -   Reflect on **responsible AI use** in data work
 
 ## Resources
 
--   [Open Homework 2 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765365)
 -   Week 2 slides (Size, Center, Shape, Relationships; Percentage Problems)
 -   Week 1 slides (Unit of Analysis / Grain; Dimensions vs Measures; Tidy Data)
 -   Dataset description files on Canvas
+-   [Optional R workspace: Open Homework 2 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765365). Use this instead of Excel or Tableau if you choose R.
 
 ::: {.callout-tip appearance="minimal" icon="false" title="Important"}
 This assignment is graded for **clear, careful completion**.
 
 -   **No charts** this week.
--   Your job is to be explicit and disciplined about **what one row represents**, **what your denominators are**, and **which summaries are meaningful**.
+-   Choose and explain summaries that are **meaningful for the variables you compare**.
 :::
 
 ------------------------------------------------------------------------
@@ -77,12 +77,18 @@ This assignment is graded for **clear, careful completion**.
 
 ## 2) Tools (You May Mix and Match)
 
-Complete the tables using **Excel**, **Tableau**, **posit.cloud**, or any combination.
+Complete the tables using **Excel**, **Tableau**, **R**, or any combination. The Posit Cloud project in Resources is an optional workspace for the R option.
 
 -   This does **not** all have to be in one tool.
 -   Choose the tool(s) that best support the table you are trying to build.
 
 *(No written response required.)*
+
+------------------------------------------------------------------------
+
+::: {.callout-tip appearance="minimal" icon="false" title="You choose the analysis"}
+All four tables are intentionally flexible. Choose variables and comparisons you find interesting, select an appropriate summary, and explain what the result shows.
+:::
 
 ------------------------------------------------------------------------
 
@@ -117,8 +123,6 @@ Your table must include:
 
 Below the table, write **1–2 sentences** explaining why your choices are meaningful.
 
-> **Tables 2–3 are intentionally flexible:** your job is to decide what summary is most meaningful for your variables and explain why.
-
 Hint from Week 2:
 
 -   Mean/SD are most useful when the variable behaves like interval/ratio data with limited outliers.
@@ -148,43 +152,22 @@ Requirements are the same as Table 2:
 
 ## 6) Table 4 — Cross-Tab (Categorical ↔ Categorical) + Percentages
 
-Create a cross-tab using **two categorical variables**, each with **≥ 3 categories**.
+Create a cross-tab using **two categorical variables**, each with **≥ 3 categories**. Present the same cross-tab in two versions:
 
-Your table must include:
-
--   Cell **counts**
-
--   **One** percentage type (choose one and label it clearly):
+1.  A **counts table** with cell counts and row and column totals (margins).
+2.  A **percentage table** using one appropriate percentage type, labeled clearly:
 
     -   **Row %** (conditional on row)
     -   **Column %** (conditional on column)
     -   **Table %** (overall share)
 
--   Row and column **totals** (margins)
-
-Below the table, write **one sentence** that states the denominator clearly:
+Below the percentage table, write **one sentence** that states the denominator clearly:
 
 > “These percentages are calculated as \_\_\_\_\_\_\_\_, so each \_\_\_\_\_\_ totals to 100%.”
 
 Remember from Week 2:
 
 > Similar-sounding percentages can answer *different questions*. Make the numerator and denominator explicit.
-
-------------------------------------------------------------------------
-
-## (Optional) Continuous ↔ Continuous (Correlation Table)
-
-If your dataset includes **two continuous variables that might be related**, you may include **one small correlation table**.
-
-This is **not required**, but it is a strong way to explore whether two measures move together.
-
-If you choose to include it, report:
-
--   **n_non-missing** (pairs)
--   Correlation **r**
--   1 sentence interpretation (direction + strength)
-
-*(Still no charts.)*
 
 ------------------------------------------------------------------------
 
@@ -228,7 +211,7 @@ Upload to Canvas:
 
 1.  A **PDF or Word** document containing:
 
-    -   Tables 1–4 (and the optional correlation table if included)
+    -   Tables 1–4, including the count and percentage versions of Table 4
     -   Your 3 takeaways
     -   Your brief AI reflection
 
@@ -236,12 +219,12 @@ Upload to Canvas:
 
     -   Excel: `.xlsx`
     -   Tableau: `.twbx`
-    -   posit.cloud: knitted output (`.html` or `.pdf`) and your source file
+    -   R/Posit Cloud: rendered output (`.html` or `.pdf`) and your source file
 
 ------------------------------------------------------------------------
 
 ## Alignment to Course Outcomes
 
--   **Choose the right analysis:** You match summaries to measurement scales (NOIR) and keep denominators explicit.
+-   **Choose the right analysis:** You select summaries that are meaningful for the measurement scales (NOIR), variables, and comparisons.
 -   **Interpret results in context:** Your takeaways connect tables to real questions the data can answer.
 -   **Explain limitations, assumptions, and uncertainty:** Your justifications and AI reflection surface constraints *before* conclusions.

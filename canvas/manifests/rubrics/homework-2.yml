@@ -85,22 +85,22 @@ criteria:
         long_description: "Analysis is not included/performed"
         points: 0.0
   - key: "table-4-cross-tab-categorical-categorical-with-percents-4"
-    description: "Table 4 — Cross-Tab (Categorical ↔︎ Categorical With Percents)"
-    long_description: "Create a cross-tab using two categorical variables, each with ≥ 3 categories.<br/>\n<br/>\nYour table must include:<br/>\n<br/>\nCell counts<br/>\n<br/>\nOne percentage type (choose one and label it clearly):<br/>\n<br/>\nRow % (conditional on row)<br/>\nColumn % (conditional on column)<br/>\nTable % (overall share)<br/>\nRow and column totals (margins)<br/>\n<br/>\nBelow the table, write one sentence that states the denominator clearly"
+    description: "Table 4 — Cross-Tab (Counts and Percentages)"
+    long_description: "Create a cross-tab using two categorical variables, each with ≥ 3 categories.<br/>\n<br/>\nPresent the same cross-tab in two versions:<br/>\n<br/>\nA counts table with cell counts and row and column totals (margins)<br/>\nA percentage table using one clearly labeled percentage type: row %, column %, or table %<br/>\n<br/>\nBelow the percentage table, write one sentence that states the denominator clearly."
     points: 20.0
     use_range: true
     ratings:
       - key: "professional-quality"
         description: "Professional Quality"
-        long_description: "Two categorical variables (≥3 categories each).\nTable includes: cell counts, one clearly labeled percentage type (row %, column %, or table %), and margins.\nPercentages correctly computed and denominators clearly stated.\nFormatting clean; categories meaningful and interpretable."
+        long_description: "Two categorical variables (≥3 categories each).\nThe counts version includes cell counts and margins.\nThe percentage version uses one clearly labeled percentage type (row %, column %, or table %).\nPercentages are correctly computed and the denominator is clearly stated.\nFormatting is clean; categories are meaningful and interpretable."
         points: 20.0
       - key: "high-quality-with-minor-issues"
         description: "High Quality with Minor Issues"
-        long_description: "Variables appropriate; minor issues with formatting, labeling, or percent clarity.\nDenominator statement present but slightly unclear."
+        long_description: "Variables are appropriate; both versions are present with minor issues in formatting, labeling, totals, or percentage clarity.\nDenominator statement is present but slightly unclear."
         points: 15.0
       - key: "medium-quality-with-significant-issues"
         description: "Medium Quality with Significant Issues"
-        long_description: "Uses variables with too few categories or mismatched types.\nSummary includes incorrect percentages or unclear denominators.\nMissing row/column totals."
+        long_description: "Uses variables with too few categories or mismatched types.\nOne version is missing, percentages are incorrect, or denominators are unclear.\nCounts table is missing row or column totals."
         points: 10.0
       - key: "low-quality-with-major-issues"
         description: "Low Quality with Major Issues"
@@ -164,13 +164,13 @@ criteria:
         points: 0.0
   - key: "file-submission-tables-supporting-files-7"
     description: "File Submission (Tables + Supporting Files)"
-    long_description: "A PDF or Word document containing:<br/>\n<br/>\nTables 1–4 (and the optional correlation table if included)<br/>\nYour 3 takeaways<br/>\nYour brief AI reflection<br/>\nYour supporting files (as applicable):<br/>\n<br/>\nExcel: .xlsx<br/>\nTableau: .twbx<br/>\n<a href='http://posit.cloud'>posit.cloud</a>: knitted output (.html or .pdf) and your source file"
+    long_description: "A PDF or Word document containing:<br/>\n<br/>\nTables 1–4, including the count and percentage versions of Table 4<br/>\nYour 3 takeaways<br/>\nYour brief AI reflection<br/>\nYour supporting file for the tool used, as applicable:<br/>\n<br/>\nExcel: .xlsx<br/>\nTableau: .twbx<br/>\nR / Posit Cloud: rendered output (.html or .pdf) and the source file"
     points: 5.0
     use_range: true
     ratings:
       - key: "professional-quality"
         description: "Professional Quality"
-        long_description: "All required files included (PDF/Word + Excel/Tableau/posit.cloud).\nTabs, labels, and filenames are clear and organized.\nTables are formatted cleanly (not screenshots of messy spreadsheets)."
+        long_description: "All required files are included (PDF/Word plus the supporting file for the tool used).\nTabs, labels, and filenames are clear and organized.\nTables are formatted cleanly (not screenshots of messy spreadsheets)."
         points: 5.0
       - key: "high-quality"
         description: "High Quality"

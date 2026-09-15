@@ -23,8 +23,9 @@ editor: source
 This assignment helps you describe the size, center, shape, and relationships in
 one project dataset before creating charts or running hypothesis tests.
 
-You will build four summary tables, explain the denominators and statistics you
-selected, identify three findings, and reflect on responsible AI use.
+You will build four summary tables, explain why the summaries you selected are
+meaningful for the variables you compare, identify three findings, and reflect
+on responsible AI use.
 :::
 
 ## Objectives
@@ -34,7 +35,7 @@ By the end of this assignment, you will be able to:
 - create frequency, grouped-summary, and cross-tabulation tables;
 - match measures of center and spread to the variable and distribution;
 - distinguish row, column, and overall percentages;
-- state denominators and missing-data rules; and
+- decide which summaries and comparisons are meaningful for your variables; and
 - interpret numerical summaries in context.
 
 ## Resources
@@ -42,12 +43,12 @@ By the end of this assignment, you will be able to:
 - Week 2 slides on size, center, shape, relationships, and percentages
 - Week 1 slides on grain, tidy data, dimensions, and measures
 - The five `.csv` files in the `data` folder
-- Excel, Tableau, or R in Posit Cloud
+- Excel, Tableau, or R
+- [Optional R workspace: Homework 2 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765365). Use this instead of Excel or Tableau if you choose R.
 
 ::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
 This assignment is graded for clear, careful completion. Do not create charts.
-Your tables must make their denominators, units, filters, and missing-data rules
-clear.
+Choose and explain summaries that are meaningful for the variables you compare.
 :::
 
 ## 1) Choose and Load Your Dataset
@@ -75,13 +76,22 @@ cat(
 
 ## 2) Select Your Tools
 
-You may complete the tables in Excel, Tableau, R, or a combination. Insert each
-finished table or its output in this document. Choose the tool that best supports
-the table you are building.
+You may complete the tables in Excel, Tableau, R, or a combination. Posit Cloud
+is an optional workspace for the R option. Insert each finished table or its
+output in this document. Choose the tool that best supports the table you are
+building.
 
 **Tools used:**
 
 
+
+---
+
+::: {.callout-tip appearance="minimal" icon="false" title="You choose the analysis"}
+All four tables are intentionally flexible. Choose variables and comparisons
+you find interesting, select an appropriate summary, and explain what the result
+shows.
+:::
 
 ---
 
@@ -199,14 +209,13 @@ different question.
 ## 6) Create Table 4 - Cross-Tabulation
 
 Create a cross-tabulation using two categorical variables, each with at least 3
-useful categories.
+useful categories. Present the same cross-tabulation in two versions:
 
-Your table must include:
+1. A counts table with cell counts and row and column totals.
+2. A percentage table using one appropriate percentage type: row, column, or
+   overall. Label the percentage type clearly.
 
-- cell counts;
-- one clearly labeled percentage type: row, column, or overall;
-- row and column totals; and
-- a sentence that states the denominator.
+Below the percentage table, write a sentence that states the denominator.
 
 ```{r}
 #| eval: false
@@ -219,25 +228,16 @@ prop.table(xt, margin = 2)  # column percentages
 prop.table(xt)              # overall percentages
 ```
 
-**Table 4 code, table, or inserted output:**
+**Table 4A counts code, table, or inserted output:**
+
+
+
+**Table 4B percentages code, table, or inserted output:**
 
 
 
 Complete this sentence: These percentages are calculated as __________, so each
 __________ totals to 100%.
-
----
-
-## Optional Correlation Table
-
-If your dataset has two relevant continuous variables, you may report the number
-of complete pairs, correlation `r`, and a one-sentence interpretation. This is
-not required and does not replace Tables 1-4.
-
-```{r}
-#| eval: false
-cor(df$your_numeric_variable_1, df$your_numeric_variable_2, use = "complete.obs")
-```
 
 ---
 
@@ -275,17 +275,18 @@ that directly.
 
 ## Submission
 
-Submit `Homework_02_IP.pdf` in Canvas. It must contain Tables 1-4, the three
-findings, and the AI reflection. Also submit the supporting file you used to
-create the tables when applicable: `.xlsx`, `.twbx`, or your Quarto source file.
+Submit `Homework_02_IP.pdf` in Canvas. It must contain Tables 1-4, including the
+count and percentage versions of Table 4, the three findings, and the AI
+reflection. Also submit the supporting file you used to create the tables when
+applicable: `.xlsx`, `.twbx`, or your Quarto source file.
 
 ## Checklist
 
 - [ ] I identified my dataset, filters, tools, and missing-data decisions.
-- [ ] I created four labeled tables and justified their summaries and denominators.
+- [ ] I created four labeled tables, including both versions of Table 4, and justified my summary choices.
 - [ ] I wrote three evidence-based findings and completed the AI reflection.
 - [ ] I reviewed and submitted the PDF and required supporting files.
 
-**Grading focus:** Your work will be evaluated for appropriate summaries,
-correct denominators, readable tables, and interpretations tied to specific
+**Grading focus:** Your work will be evaluated for meaningful summary choices,
+readable tables, appropriate percentages, and interpretations tied to specific
 evidence.

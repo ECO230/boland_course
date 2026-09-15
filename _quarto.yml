@@ -19,9 +19,9 @@ project:
     - week01/week_01.qmd
     - week02/week_02.qmd
     - week01/Homework_01.qmd
+    - week02/Homework_02.qmd
     # Canvas-native source HTML. These outputs are intentionally unlisted: the
     # website navigation exposes only the current public materials above.
-    - week02/Homework_02.qmd
     - week03/Homework_03.qmd
     - week04/Homework_04.qmd
     - week01/readings/data-literacy.qmd
@@ -79,6 +79,8 @@ website:
         menu:
           - text: "Homework 1"
             file: week01/Homework_01.qmd
+          - text: "Homework 2"
+            file: week02/Homework_02.qmd
       - text: "Datasets"
         menu:
           - text: "Dataset Catalog"
