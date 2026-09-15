@@ -1,0 +1,229 @@
+---
+title: "Lab 2 Analysis Walkthrough"
+subtitle: "Descriptive Statistics, Cross-Tabulations, and Joins"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-location: right
+    number-sections: false
+    anchor-sections: true
+    smooth-scroll: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+This page follows the order used during the in-class demonstration. Use it to
+keep the analysis steps and interpretation questions together while working in
+Excel, Tableau, or R.
+
+## Demonstration order
+
+1. Orient students to the `Plays` and `Games` tables.
+2. Explain the key and inspect the existing `XLOOKUP` formulas.
+3. Build a `Counts` PivotTable and frequency table.
+4. Compare counts, binary indicators, and missing values.
+5. Build a `Means` PivotTable and investigate useful groupings.
+6. Build a `Cross Tab` PivotTable and change the percentage denominator.
+7. Show the Excel Data Model workaround for medians.
+8. Reproduce the join and selected summaries in Tableau and R.
+
+## 1) Orient to the two tidy tables
+
+### Plays
+
+- One row represents one play.
+- The table has 2,791 rows and its original fields run from columns A-AF.
+- `game_id` identifies the game; `play_id` identifies a play within that game.
+  The pair is the unique key.
+- `quarter` and `game_clock` describe when the play occurred. Time fields need
+  care because spreadsheet and statistical programs may interpret a
+  minutes-and-seconds value as hours and minutes. Additional work would be
+  needed to calculate seconds remaining or elapsed game time.
+- `down`, `yards_to_go`, possession, defense, field side, and `yardline_100`
+  describe the situation. `yardline_100` places the ball on one 0-100 scale so
+  the two physical 20-yard or 30-yard lines are not ambiguous.
+- The play description is plain text. `play_type`, yards gained, formation,
+  pass, run, completion, first-down, sack, interception, fumble, penalty, and
+  touchdown fields provide analysis-ready details.
+- Many fields are intentionally missing because they apply only to certain
+  plays. A kickoff has no down; pass location does not apply to a run; penalty
+  yards are absent when there was no penalty.
+- Expected points added and win probability added change with the importance
+  of the play and the game situation. A short early-game gain usually moves
+  them less than a score or a late high-impact play.
+
+### Games
+
+- One row represents one game.
+- The table has 17 Minnesota regular-season games from 2025 and 18 fields in
+  columns A-R.
+- `game_id` is unique and is the join key.
+- Fields include season, week, date, weekday, teams, scores, total points,
+  overtime, roof, surface, temperature, wind, and stadium.
+- Weather is available only where it applies. Indoor games may not have an
+  outdoor temperature or wind value.
+
+## 2) Inspect the existing XLOOKUP join
+
+The starter workbook already places every non-key game field after the original
+play columns. Click one of the formulas and identify:
+
+- **Lookup value:** the play row's `game_id`, such as cell A2.
+- **Lookup array:** the `game_id` column on the `Games` worksheet.
+- **Return array:** the selected game field on the `Games` worksheet.
+- **If not found:** the optional result to return when no game key matches.
+
+Connect this to the fourth tidy-data principle: related tables need a shared
+key. `game_id` lets each play find the one game record to which it belongs.
+
+::: {.callout-warning appearance="minimal" icon="false" title="Do not sum repeated game values"}
+The join repeats the same temperature, final score, and total points on every
+play from a game. Summing those fields in the joined play table produces an
+inflated result because the game total is counted once per play. Return to the
+`Games` table when the analysis needs one observation per game.
+:::
+
+## 3) Build the Counts PivotTable
+
+First, click inside each source range and choose **Insert > Table**. Confirm that
+the range has headers, then name the tables `Plays` and `Games`. This makes the
+Data Model median formula and later references easier to explain.
+
+Insert a PivotTable from `Plays` on a new worksheet and rename it `Counts`. Use
+one worksheet per PivotTable. PivotTables expand and contract when fields or
+filters change, so placing several on one worksheet makes it easy for one to
+overwrite another.
+
+If the PivotTable Fields pane disappears, click inside the PivotTable and use
+**PivotTable Analyze > Field List** to restore it.
+
+### Count all plays
+
+1. Drag `play_type` to Rows.
+2. Drag `game_id` to Values.
+3. Confirm that Excel uses **Count**, not Sum.
+4. Add `game_id` to Values again.
+5. For the second copy, choose **Show Values As > % of Column Total**.
+
+This gives a frequency table: a count and a share of all included plays for
+each play type.
+
+### Use missingness deliberately
+
+Compare these fields in Values:
+
+- **Count of game_id** counts all play rows because the key is populated.
+- **Count of penalty_yards** counts only rows with a recorded penalty-yard
+  value.
+- **Count of penalty** counts every populated `TRUE` and `FALSE` value. A count
+  does not treat `FALSE` as zero; it counts it as a populated cell.
+- A sum of a 0/1 indicator counts the 1 values. If Excel imports the field as
+  `TRUE`/`FALSE` rather than 0/1, create or use a numeric indicator before
+  applying this shortcut.
+
+Filter `play_type` to `no_play` and inspect `play_description`. Records with a
+penalty are commonly pre-snap infractions such as false starts. Records without
+a penalty are commonly timeouts. This is a useful quick investigation, not a
+replacement for checking every distinct description when the distinction
+matters.
+
+## 4) Build the Means PivotTable
+
+Insert another PivotTable on a new worksheet and rename it `Means`.
+
+1. Drag `play_type` to Rows.
+2. Drag `quarter` to Columns.
+3. Drag `penalty_yards` to Values and change the calculation to **Average**.
+4. Use Number Format to display two decimal places for the entire value field.
+
+Try `yardline_100` or `play_id` in Rows or Columns briefly. PivotTables treat a
+field placed there as a set of discrete categories. A numeric field with many
+distinct values produces a very wide or long table that is little more than a
+rearranged copy of the raw data.
+
+For a more useful comparison:
+
+1. Replace the Values field with **Average of yards_gained**.
+2. Filter `play_type` to `pass` and `run`.
+3. Compare the average by play type and quarter.
+4. Add `shotgun` beneath `play_type` in Rows. Compare shotgun and non-shotgun
+   plays.
+5. Replace `shotgun` with `pass_location` and investigate left, middle, right,
+   and blank values.
+
+Use the table to separate what is certain from what remains uncertain. The
+sample can show that an average differs by quarter or location. It cannot, by
+itself, establish why that difference occurred or whether it would persist for
+other teams and seasons.
+
+## 5) Build the Cross Tab PivotTable
+
+Insert a third PivotTable on a new worksheet and rename it `Cross Tab`.
+
+1. Drag `play_type` to Rows.
+2. Drag `quarter` to Columns.
+3. Drag `game_id` to Values and summarize it by **Count**.
+4. Use **Show Values As > % of Grand Total** to ask what share of all plays is
+   in each play-type-and-quarter combination.
+5. Change to **% of Column Total** to compare play types within each quarter.
+6. Change to **% of Row Total** to compare quarters within each play type.
+
+State the denominator before interpreting any cell. The same count can support
+different percentages, and each version answers a different question.
+
+Use percentage table calculations mainly with counts. Applying a percentage
+calculation to an average can create a result that does not add to 100% and is
+hard to explain. Use it only when the resulting metric has a clear meaning.
+
+## 6) Calculate a median in Excel
+
+Median is not a standard PivotTable Value Field Setting. On supported Windows
+versions of Excel:
+
+1. Insert a new PivotTable.
+2. Select **Add this data to the Data Model**.
+3. Create a new measure in the Data Model.
+4. Name the measure `Med Yards` and use:
+
+   ```text
+   Med Yards := MEDIAN(Plays[yards_gained])
+   ```
+
+5. Add `quarter` and `play_type` to the PivotTable and use the measure in
+   Values.
+
+This is an awkward Excel workaround. Tableau and R provide median directly.
+Use the linked Excel median video for a slower demonstration of the interface.
+
+## 7) Reproduce the logic in Tableau and R
+
+In Tableau, relate the CSVs on `game_id`. Use `COUNT(game_id)` for counts,
+`AVG(yards_gained)` or `MEDIAN(yards_gained)` for grouped summaries, and a
+Percent of Total table calculation for a cross-tabulation. Always verify the
+direction in which the table calculation is computed.
+
+In R, the sequence is explicit and repeatable:
+
+- `left_join()` adds game information to plays;
+- `filter()` limits the records included in a question;
+- `count()` creates frequencies;
+- `group_by()` defines the comparison groups; and
+- `summarise()` calculates counts, means, medians, or other measures.
+
+Once the steps are written in the correct order, rerunning the Quarto document
+reproduces the full analysis. That makes code useful for checking an agent's
+work and for maintaining a report when the source data changes.
+
+## Closing questions
+
+- What does one row represent in the table being summarized?
+- Which field can count every intended row without dropping missing values?
+- Is a field in Rows or Columns a useful category, or merely a number with many
+  distinct values?
+- What is the denominator of the percentage?
+- Did a join repeat a game-level value across plays?
+- What pattern can you state with certainty?
+- What explanation remains uncertain and requires additional analysis?

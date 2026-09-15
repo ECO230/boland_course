@@ -22,93 +22,224 @@ execute:
 #| label: setup
 #| include: false
 library(tidyverse)
-library(eco230r)
 library(knitr)
 options(scipen = 999)
 ```
 
 ## Purpose
 
-Use two related NFL tables to practice identifying grain, checking keys,
-joining data, and reproducing descriptive summaries across Excel, Tableau, and
-R. The extract contains 2025 Minnesota regular-season games and their plays.
+Use two related NFL tables to practice joining data and producing the same
+descriptive analysis in Excel, Tableau, and R. The extract contains 17
+Minnesota regular-season games from 2025 and 2,791 plays from those games.
 
-## 1) Load and inspect the tables
+By the end of the lab, you should be able to:
+
+- identify the grain and key of each table;
+- explain how `XLOOKUP` or a relational join adds game information to plays;
+- create counts and a frequency table;
+- calculate and compare means and medians;
+- create a cross-tabulation with meaningful percentages; and
+- explain how missing values and repeated game-level values affect a summary.
+
+## Files
+
+- `data/Lab_02_Excel_Starter.xlsx` contains `Plays` and `Games` worksheets.
+  The game fields are already joined to the right side of `Plays` with
+  `XLOOKUP` formulas so you can inspect how the join works.
+- `data/nfl_plays.csv` and `data/nfl_games.csv` contain the same two tables as
+  individual files for Tableau and R.
+
+## 1) Understand the two tables and their join
+
+- `plays` has one row per play. The combination of `game_id` and `play_id` is
+  the unique key.
+- `games` has one row per game. Its unique key is `game_id`.
+- The tables have a many-to-one relationship: many plays belong to one game.
+- In Excel, inspect an existing `XLOOKUP` formula after the original play
+  columns. Identify its lookup value, lookup array, and return array.
+- Verify several returned values against the `Games` worksheet.
+
+::: {.callout-caution appearance="minimal" icon="false" title="Keep the grain in mind"}
+Joining game fields to plays repeats the same game-level value on every play in
+that game. Do not sum final scores, total points, or other game-level values in
+the joined play table. That would count each game's value once per play.
+:::
+
+Load and verify the two tables in R:
 
 ```{r}
 games <- read_csv("data/nfl_games.csv", show_col_types = FALSE)
 plays <- read_csv("data/nfl_plays.csv", show_col_types = FALSE)
 
-glimpse(games)
-glimpse(plays)
+games |> summarise(rows = n(), unique_games = n_distinct(game_id))
+
+plays |>
+  summarise(
+    rows = n(),
+    unique_game_play_keys = n_distinct(game_id, play_id)
+  )
 ```
 
-State the grain of each table and identify its key.
-
-*Your response:*
-
-## 2) Verify the relationship
-
-Confirm that `game_id` is unique in `games` and repeated in `plays`. Explain
-what those results imply about the relationship between the tables.
-
-```{r}
-games |> count(game_id) |> count(n)
-plays |> count(game_id) |> arrange(desc(n))
-```
-
-*Your response:*
-
-## 3) Join game information to plays
-
-Use `left_join()` to add selected game-level fields. Verify that the join does
-not change the number of play rows and investigate unmatched keys.
+Join all game fields to the plays table and confirm that the number of play
+rows does not change:
 
 ```{r}
 plays_joined <- plays |>
-  left_join(
-    games |> select(game_id, week, game_date, home_team, away_team, total_points),
-    by = "game_id"
-  )
+  left_join(games, by = "game_id")
 
 tibble(
   before = nrow(plays),
   after = nrow(plays_joined),
-  unmatched = sum(is.na(plays_joined$week))
+  unmatched_games = sum(is.na(plays_joined$season))
 )
 ```
 
-## 4) Build descriptive summaries
+## 2) Create counts and a frequency table
 
-Create at least one count, one percentage, and one appropriate quantitative
-summary by a categorical variable. Reproduce one summary in Excel and Tableau.
+In Excel, convert each source range to a Table with **Insert > Table**, confirm
+that the range has headers, and name the tables `Plays` and `Games`. Then insert
+a PivotTable from `Plays` on a new worksheet and rename the worksheet `Counts`.
+Keep one PivotTable per worksheet so a refresh or layout change does not
+overwrite another analysis.
+
+- Add `play_type` to Rows.
+- Add `game_id` to Values and summarize it by **Count**.
+- Add `game_id` to Values a second time. Use **Show Values As** to display a
+  percentage of the column total. The count and percentage together form a
+  frequency table.
+- Compare **Count of penalty_yards**, **Count of penalty**, and a summary of
+  the `penalty` indicator. Explain how blanks and `FALSE` values affect each
+  result.
+- Filter `play_type` to `no_play` and inspect the play descriptions. Determine
+  what distinguishes the records with a penalty from those without one.
+
+The same frequency table in R is:
+
+```{r}
+play_frequency <- plays_joined |>
+  filter(!is.na(play_type)) |>
+  count(play_type, name = "plays") |>
+  mutate(percent = plays / sum(plays)) |>
+  arrange(desc(plays))
+
+play_frequency |> kable(digits = 3)
+```
+
+Use a populated key when counting all rows. Counting a field with missing
+values answers a different question:
 
 ```{r}
 plays_joined |>
-  filter(!is.na(play_type)) |>
-  group_by(play_type) |>
+  summarise(
+    all_plays = n(),
+    populated_penalty_yards = sum(!is.na(penalty_yards)),
+    penalties = sum(penalty, na.rm = TRUE)
+  ) |>
+  kable()
+```
+
+## 3) Compare means and medians
+
+Create another PivotTable on a new worksheet named `Means`.
+
+- Add `play_type` to Rows and `quarter` to Columns.
+- Add `yards_gained` to Values and change the calculation to **Average**.
+- Format the results as numbers with two decimal places.
+- Filter `play_type` to `pass` and `run`, where yards gained is meaningful.
+- Add `shotgun` below `play_type` in Rows, then replace it with
+  `pass_location`. Look for expected patterns and results that need more
+  investigation.
+- Briefly drag `yardline_100` or `play_id` to Rows or Columns. Explain why a
+  high-cardinality numeric field produces an unwieldy table rather than a
+  useful summary.
+
+Excel PivotTables do not offer median as a standard Value Field Setting. To
+calculate a median, insert a new PivotTable with **Add this data to the Data
+Model** selected, then create a measure such as:
+
+```text
+Med Yards := MEDIAN(Plays[yards_gained])
+```
+
+The median is direct in R:
+
+```{r}
+yard_summaries <- plays_joined |>
+  filter(play_type %in% c("pass", "run")) |>
+  group_by(quarter, play_type) |>
   summarise(
     plays = n(),
     mean_yards = mean(yards_gained, na.rm = TRUE),
-    success_rate = mean(successful_play, na.rm = TRUE),
+    median_yards = median(yards_gained, na.rm = TRUE),
     .groups = "drop"
-  ) |>
-  arrange(desc(plays)) |>
-  kable(digits = 2)
+  )
+
+yard_summaries |> kable(digits = 2)
 ```
 
-## 5) Reconcile the tools
+## 4) Create a cross-tabulation
 
-Compare the R, Excel, and Tableau results. If they differ, check filters,
-missing-value handling, aggregation, and the join before deciding which result
-is correct.
+Create a third PivotTable on a new worksheet named `Cross Tab`.
+
+- Add `play_type` to Rows and `quarter` to Columns.
+- Add `game_id` to Values and summarize it by **Count**.
+- Use **Show Values As** to compare percent of grand total, percent of column
+  total, and percent of row total.
+- For each version, state the denominator in words before interpreting a
+  percentage.
+
+Use percentages primarily with counts. Applying **Show Values As** to a mean
+can create percentages that do not add to 100% and are difficult to explain.
+
+This R version calculates the percentage of plays within each quarter:
+
+```{r}
+quarter_crosstab <- plays_joined |>
+  filter(!is.na(play_type), !is.na(quarter)) |>
+  count(quarter, play_type, name = "plays") |>
+  group_by(quarter) |>
+  mutate(percent_within_quarter = plays / sum(plays)) |>
+  ungroup()
+
+quarter_crosstab |> kable(digits = 3)
+```
+
+## 5) Reproduce the analysis in Tableau
+
+If Tableau is available:
+
+- Connect to both CSV files and relate them on `game_id`.
+- Verify that the relationship preserves the play-level grain.
+- Create a text table with `play_type` on Rows and `COUNT(game_id)` on Text.
+- Apply a Percent of Total table calculation and verify its computation
+  direction before interpreting the denominator.
+- Create a second table with `play_type` on Rows, `quarter` on Columns, and
+  `AVG(yards_gained)` or `MEDIAN(yards_gained)` on Text.
+- Reproduce the play-type-by-quarter cross-tabulation and compare it with the
+  Excel and R results.
+
+## 6) Reconcile the tools
+
+Compare the Excel, Tableau, and R results. If they differ, check:
+
+- filters and included categories;
+- whether missing values were counted or removed;
+- whether the calculation is a count, sum, mean, median, or percentage;
+- the percentage denominator;
+- the table relationship or join; and
+- whether a game-level value was repeated across play rows.
+
+Record one pattern you can state with certainty and one question that would
+require more data or analysis.
 
 *Your response:*
 
 ## Completion checklist
 
-- [ ] I stated each table's grain and key.
-- [ ] I verified the join without multiplying play rows.
-- [ ] I created a count, percentage, and quantitative summary.
-- [ ] I reproduced and reconciled a summary across the required tools.
+- [ ] I identified each table's grain and key.
+- [ ] I inspected and verified the join.
+- [ ] I created a count and frequency table.
+- [ ] I compared means and medians.
+- [ ] I created and interpreted a cross-tabulation with percentages.
+- [ ] I reproduced at least one result in Excel, Tableau when available, and R.
 - [ ] I rendered `Lab_02_IP.pdf`.
