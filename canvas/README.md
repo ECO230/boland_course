@@ -106,6 +106,20 @@ updates them through the Canvas Pages API, verifies every player and fallback
 link, and confirms that course, module, and page publication states did not
 change.
 
+After refreshing the repository-owned Lab 2 page, publish only that page and
+its existing Week 2 module item with:
+
+```powershell
+& .\canvas\scripts\publish-lab2-page.ps1 -Sections @(4,11,12)
+& .\canvas\scripts\publish-lab2-page.ps1 -Sections @(4,11,12) -Execute
+```
+
+The first run is read-only. The execute run requires the exact section/course
+mapping, all 16 expected modules, one published `Week 2: Descriptive
+Statistics` module, and exactly one matching Lab 2 page and module item. It
+publishes neither the course nor a module and verifies that every course and
+module publication state is preserved.
+
 Generate static PDFs for the current Week 1-7 Reveal decks with:
 
 ```powershell
