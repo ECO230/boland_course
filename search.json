@@ -1131,14 +1131,14 @@
     "href": "week02/Homework_02.html#objectives",
     "title": "Homework 2: Exploratory Analysis",
     "section": "Objectives",
-    "text": "Objectives\n\nProduce clean summary tables (no charts)\nChoose statistics that match the measurement scale (NOIR)\nKeep denominators straight (N, n_eligible, n_non-missing)\nDescribe relationships using group summaries and cross-tabs\nCommunicate results clearly with labels, units, and stated assumptions\nReflect on responsible AI use in data work"
+    "text": "Objectives\n\nProduce clean summary tables (no charts)\nChoose statistics that match the measurement scale (NOIR) and the data\nDecide which summaries and comparisons are meaningful for your variables\nDescribe relationships using group summaries and cross-tabs\nCommunicate results clearly with labels, units, and stated assumptions\nReflect on responsible AI use in data work"
   },
   {
     "objectID": "week02/Homework_02.html#resources",
     "href": "week02/Homework_02.html#resources",
     "title": "Homework 2: Exploratory Analysis",
     "section": "Resources",
-    "text": "Resources\n\nOpen Homework 2 in Posit Cloud\nWeek 2 slides (Size, Center, Shape, Relationships; Percentage Problems)\nWeek 1 slides (Unit of Analysis / Grain; Dimensions vs Measures; Tidy Data)\nDataset description files on Canvas\n\n\n\n\n\n\n\nTipImportant\n\n\n\nThis assignment is graded for clear, careful completion.\n\nNo charts this week.\nYour job is to be explicit and disciplined about what one row represents, what your denominators are, and which summaries are meaningful."
+    "text": "Resources\n\nWeek 2 slides (Size, Center, Shape, Relationships; Percentage Problems)\nWeek 1 slides (Unit of Analysis / Grain; Dimensions vs Measures; Tidy Data)\nDataset description files on Canvas\nOptional R workspace: Open Homework 2 in Posit Cloud. Use this instead of Excel or Tableau if you choose R.\n\n\n\n\n\n\n\nTipImportant\n\n\n\nThis assignment is graded for clear, careful completion.\n\nNo charts this week.\nChoose and explain summaries that are meaningful for the variables you compare."
   },
   {
     "objectID": "week02/Homework_02.html#choose-your-dataset-week-1",
@@ -1152,7 +1152,7 @@
     "href": "week02/Homework_02.html#tools-you-may-mix-and-match",
     "title": "Homework 2: Exploratory Analysis",
     "section": "2) Tools (You May Mix and Match)",
-    "text": "2) Tools (You May Mix and Match)\nComplete the tables using Excel, Tableau, posit.cloud, or any combination.\n\nThis does not all have to be in one tool.\nChoose the tool(s) that best support the table you are trying to build.\n\n(No written response required.)"
+    "text": "2) Tools (You May Mix and Match)\nComplete the tables using Excel, Tableau, R, or any combination. The Posit Cloud project in Resources is an optional workspace for the R option.\n\nThis does not all have to be in one tool.\nChoose the tool(s) that best support the table you are trying to build.\n\n(No written response required.)\n\n\n\n\n\n\n\nTipYou choose the analysis\n\n\n\nAll four tables are intentionally flexible. Choose variables and comparisons you find interesting, select an appropriate summary, and explain what the result shows."
   },
   {
     "objectID": "week02/Homework_02.html#table-1-frequency-table-one-categorical-variable",
@@ -1166,7 +1166,7 @@
     "href": "week02/Homework_02.html#table-2-continuous-categorical-choose-the-right-summary",
     "title": "Homework 2: Exploratory Analysis",
     "section": "4) Table 2 — Continuous ↔︎ Categorical (Choose the Right Summary)",
-    "text": "4) Table 2 — Continuous ↔︎ Categorical (Choose the Right Summary)\nCreate a grouped summary table using:\n\nOne continuous measure (a numeric variable where arithmetic is meaningful)\nOne categorical dimension (≥ 3 categories)\n\nYour table must include:\n\nGroup name\nn_non-missing for the measure\nA measure of center and/or measure of spread that matches your choice\nAny other information you feel is relevant.\n\nBelow the table, write 1–2 sentences explaining why your choices are meaningful.\n\nTables 2–3 are intentionally flexible: your job is to decide what summary is most meaningful for your variables and explain why.\n\nHint from Week 2:\n\nMean/SD are most useful when the variable behaves like interval/ratio data with limited outliers.\nMedian/IQR are most useful when data are skewed, have outliers, or when “typical” is better captured by the middle."
+    "text": "4) Table 2 — Continuous ↔︎ Categorical (Choose the Right Summary)\nCreate a grouped summary table using:\n\nOne continuous measure (a numeric variable where arithmetic is meaningful)\nOne categorical dimension (≥ 3 categories)\n\nYour table must include:\n\nGroup name\nn_non-missing for the measure\nA measure of center and/or measure of spread that matches your choice\nAny other information you feel is relevant.\n\nBelow the table, write 1–2 sentences explaining why your choices are meaningful.\nHint from Week 2:\n\nMean/SD are most useful when the variable behaves like interval/ratio data with limited outliers.\nMedian/IQR are most useful when data are skewed, have outliers, or when “typical” is better captured by the middle."
   },
   {
     "objectID": "week02/Homework_02.html#table-3-another-continuous-categorical-relationship-different-angle",
@@ -1180,14 +1180,7 @@
     "href": "week02/Homework_02.html#table-4-cross-tab-categorical-categorical-percentages",
     "title": "Homework 2: Exploratory Analysis",
     "section": "6) Table 4 — Cross-Tab (Categorical ↔︎ Categorical) + Percentages",
-    "text": "6) Table 4 — Cross-Tab (Categorical ↔︎ Categorical) + Percentages\nCreate a cross-tab using two categorical variables, each with ≥ 3 categories.\nYour table must include:\n\nCell counts\nOne percentage type (choose one and label it clearly):\n\nRow % (conditional on row)\nColumn % (conditional on column)\nTable % (overall share)\n\nRow and column totals (margins)\n\nBelow the table, write one sentence that states the denominator clearly:\n\n“These percentages are calculated as ________, so each ______ totals to 100%.”\n\nRemember from Week 2:\n\nSimilar-sounding percentages can answer different questions. Make the numerator and denominator explicit."
-  },
-  {
-    "objectID": "week02/Homework_02.html#optional-continuous-continuous-correlation-table",
-    "href": "week02/Homework_02.html#optional-continuous-continuous-correlation-table",
-    "title": "Homework 2: Exploratory Analysis",
-    "section": "(Optional) Continuous ↔︎ Continuous (Correlation Table)",
-    "text": "(Optional) Continuous ↔︎ Continuous (Correlation Table)\nIf your dataset includes two continuous variables that might be related, you may include one small correlation table.\nThis is not required, but it is a strong way to explore whether two measures move together.\nIf you choose to include it, report:\n\nn_non-missing (pairs)\nCorrelation r\n1 sentence interpretation (direction + strength)\n\n(Still no charts.)"
+    "text": "6) Table 4 — Cross-Tab (Categorical ↔︎ Categorical) + Percentages\nCreate a cross-tab using two categorical variables, each with ≥ 3 categories. Present the same cross-tab in two versions:\n\nA counts table with cell counts and row and column totals (margins).\nA percentage table using one appropriate percentage type, labeled clearly:\n\nRow % (conditional on row)\nColumn % (conditional on column)\nTable % (overall share)\n\n\nBelow the percentage table, write one sentence that states the denominator clearly:\n\n“These percentages are calculated as ________, so each ______ totals to 100%.”\n\nRemember from Week 2:\n\nSimilar-sounding percentages can answer different questions. Make the numerator and denominator explicit."
   },
   {
     "objectID": "week02/Homework_02.html#findings-summary-required",
@@ -1208,14 +1201,14 @@
     "href": "week02/Homework_02.html#submission",
     "title": "Homework 2: Exploratory Analysis",
     "section": "9) Submission",
-    "text": "9) Submission\nUpload to Canvas:\n\nA PDF or Word document containing:\n\nTables 1–4 (and the optional correlation table if included)\nYour 3 takeaways\nYour brief AI reflection\n\nYour supporting files (as applicable):\n\nExcel: .xlsx\nTableau: .twbx\nposit.cloud: knitted output (.html or .pdf) and your source file"
+    "text": "9) Submission\nUpload to Canvas:\n\nA PDF or Word document containing:\n\nTables 1–4, including the count and percentage versions of Table 4\nYour 3 takeaways\nYour brief AI reflection\n\nYour supporting files (as applicable):\n\nExcel: .xlsx\nTableau: .twbx\nR/Posit Cloud: rendered output (.html or .pdf) and your source file"
   },
   {
     "objectID": "week02/Homework_02.html#alignment-to-course-outcomes",
     "href": "week02/Homework_02.html#alignment-to-course-outcomes",
     "title": "Homework 2: Exploratory Analysis",
     "section": "Alignment to Course Outcomes",
-    "text": "Alignment to Course Outcomes\n\nChoose the right analysis: You match summaries to measurement scales (NOIR) and keep denominators explicit.\nInterpret results in context: Your takeaways connect tables to real questions the data can answer.\nExplain limitations, assumptions, and uncertainty: Your justifications and AI reflection surface constraints before conclusions."
+    "text": "Alignment to Course Outcomes\n\nChoose the right analysis: You select summaries that are meaningful for the measurement scales (NOIR), variables, and comparisons.\nInterpret results in context: Your takeaways connect tables to real questions the data can answer.\nExplain limitations, assumptions, and uncertainty: Your justifications and AI reflection surface constraints before conclusions."
   },
   {
     "objectID": "week04/Homework_04.html",
