@@ -201,6 +201,17 @@ modify a published course.
   `content plan --only-page <manifest-key>` and the explicit
   `--allow-available-course-page-refresh` apply guard. Verify the selected page
   and confirm that page, module, and course publication states did not change.
+- A repair to one existing unpublished assignment in an available course uses
+  `content plan --only-assignment <manifest-key>` and the explicit
+  `--allow-available-course-assignment-refresh` apply guard. Add
+  `--refresh-existing-rubric` to the plan only when its existing associated
+  rubric must be synchronized too. The reviewed plan must not contain creates,
+  publication changes, group changes, or unrelated content.
+- To remove a duplicate module link already marked `omit_duplicate`, use a
+  reviewed `placement plan --only-omitted <manifest-item-key>` and apply with
+  both `--remove-omitted` and
+  `--allow-available-course-omitted-removal`. Confirm afterward that the target
+  placement is absent and every course/module publication state is unchanged.
 - Windows PowerShell 5 can corrupt multiline Python supplied through
   `python -c`. Cross-language wrappers must call a tracked Python helper file
   and be tested with the Windows PowerShell 5 executable used by the operator.
