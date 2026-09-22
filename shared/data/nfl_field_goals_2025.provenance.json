@@ -1,0 +1,19 @@
+{
+  "dataset_id": "nfl_complete_2021_2025",
+  "release_version": "2026-fall-v1",
+  "source_url": "https://data.60land.com/project1/2026-fall/v1/nfl/nfl_plays.parquet",
+  "source_sha256": "50909c92d67efa250dfb50f93d13c659480952a25ab8bfcc9fa145dcaae19a55",
+  "upstream": "https://github.com/nflverse/nflverse-data",
+  "scope": "2025 season; REG and POST; all teams; includes overtime and blocked attempts",
+  "rows": 1140,
+  "results": {
+    "blocked": 24,
+    "made": 976,
+    "missed": 140
+  },
+  "season_types": {
+    "POST": 52,
+    "REG": 1088
+  },
+  "output_sha256": "6d802064fb0b33b8582575666ca7eae54236003ff4bcc90b9a74bf47839ccc13"
+}
