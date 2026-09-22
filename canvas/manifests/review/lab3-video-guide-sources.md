@@ -6,13 +6,13 @@ The optional R project is `https://posit.cloud/spaces/3173/content/12970507`.
 The instructor walkthrough is Kaltura entry `1_lqzvbpkk` (12:39), with ready
 English automatic caption asset `1_0bq4p7w5`. The original captions are preserved
 at `week03/labs/transcripts/lab-03-r.en.srt`. The readable transcript is
-`week03/labs/Lab_03_R_Transcript.md`; the same paragraphs appear on the Canvas
-video guide. Caption wording is retained, with line breaks joined into timed
+`week03/labs/Lab_03_R_Transcript.md`; the Canvas video guide uses caption-derived bullet points without displaying
+the full transcript. Caption wording is retained, with line breaks joined into timed
 paragraphs and an automatic-transcription notice.
 
 Use `../eco230-canvas-ops/canvas/scripts/pull-lab3-captions.py --only posit`
 to retrieve captions and `build-lab3-r-transcript.py` in that scripts directory
-to rebuild both readable copies from the saved SRT. The guide has ten declared
+to rebuild the standalone readable transcript from the saved SRT. The guide has ten declared
 videos. Use `refresh-week3-prep-pages.py --r-companion` for a read-only plan
 covering only the Lab 3 instructions and video guide; add `--execute` to apply.
 

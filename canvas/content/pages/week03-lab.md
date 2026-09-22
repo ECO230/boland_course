@@ -21,7 +21,7 @@ injury counts, coordinates, and selected numerical weather measurements.
 - [Download the Lab 3 crash extract]({{ lab_03_data_url }})
 - [Lab 3 Video Guide: Tableau and Excel](/courses/{{ canvas_course_id }}/pages/lab-3-video-guide-tableau-and-excel)
 - [Optional Lab 3 R companion in Posit Cloud](https://posit.cloud/spaces/3173/content/12970507)
-- [R video walkthrough and transcript](/courses/{{ canvas_course_id }}/pages/lab-3-video-guide-tableau-and-excel#r-companion)
+- [R video walkthrough and key points](/courses/{{ canvas_course_id }}/pages/lab-3-video-guide-tableau-and-excel#r-companion)
 
 The optional R companion shows how to create similar charts with ggplot2.
 Open `Lab_03_R_Companion_IP.qmd` and choose **Render** to see the code and
