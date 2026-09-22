@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>What Is Data Literacy? – ECO 230</title>
+<title>Lab 2 Analysis Walkthrough – ECO 230</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -22,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -35,14 +67,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-cddd4d705d0f1816126855d2197e4081.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,6 +103,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="../../shared/styles/accesibility.css">
@@ -82,6 +116,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">ECO 230</span>
     </a>
@@ -127,10 +163,6 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../../week02/week_02.html">
  <span class="dropdown-text">Week 2</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../week03/week_03.html">
- <span class="dropdown-text">Week 3</span></a>
   </li>  
     </ul>
   </li>
@@ -196,9 +228,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#working-definition" id="toc-working-definition" class="nav-link active" data-scroll-target="#working-definition">Working definition</a></li>
-  <li><a href="#data-literacy-in-the-workplace" id="toc-data-literacy-in-the-workplace" class="nav-link" data-scroll-target="#data-literacy-in-the-workplace">Data literacy in the workplace</a></li>
-  <li><a href="#scope-of-this-course" id="toc-scope-of-this-course" class="nav-link" data-scroll-target="#scope-of-this-course">Scope of this course</a></li>
+  <li><a href="#demonstration-order" id="toc-demonstration-order" class="nav-link active" data-scroll-target="#demonstration-order">Demonstration order</a></li>
+  <li><a href="#orient-to-the-two-tidy-tables" id="toc-orient-to-the-two-tidy-tables" class="nav-link" data-scroll-target="#orient-to-the-two-tidy-tables">1) Orient to the two tidy tables</a></li>
+  <li><a href="#inspect-the-existing-xlookup-join" id="toc-inspect-the-existing-xlookup-join" class="nav-link" data-scroll-target="#inspect-the-existing-xlookup-join">2) Inspect the existing XLOOKUP join</a></li>
+  <li><a href="#build-the-counts-pivottable" id="toc-build-the-counts-pivottable" class="nav-link" data-scroll-target="#build-the-counts-pivottable">3) Build the Counts PivotTable</a></li>
+  <li><a href="#build-the-means-pivottable" id="toc-build-the-means-pivottable" class="nav-link" data-scroll-target="#build-the-means-pivottable">4) Build the Means PivotTable</a></li>
+  <li><a href="#build-the-cross-tab-pivottable" id="toc-build-the-cross-tab-pivottable" class="nav-link" data-scroll-target="#build-the-cross-tab-pivottable">5) Build the Cross Tab PivotTable</a></li>
+  <li><a href="#calculate-a-median-in-excel" id="toc-calculate-a-median-in-excel" class="nav-link" data-scroll-target="#calculate-a-median-in-excel">6) Calculate a median in Excel</a></li>
+  <li><a href="#reproduce-the-logic-in-tableau-and-r" id="toc-reproduce-the-logic-in-tableau-and-r" class="nav-link" data-scroll-target="#reproduce-the-logic-in-tableau-and-r">7) Reproduce the logic in Tableau and R</a></li>
+  <li><a href="#closing-questions" id="toc-closing-questions" class="nav-link" data-scroll-target="#closing-questions">Closing questions</a></li>
+  <li><a href="#keep-your-work-for-reference" id="toc-keep-your-work-for-reference" class="nav-link" data-scroll-target="#keep-your-work-for-reference">Keep your work for reference</a></li>
   </ul>
 </nav>
     </div>
@@ -207,7 +246,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">What Is Data Literacy?</h1>
+<h1 class="title">Lab 2 Analysis Walkthrough</h1>
+<p class="subtitle lead">Descriptive Statistics, Cross-Tabulations, and Joins</p>
 </div>
 
 
@@ -224,32 +264,183 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="working-definition" class="level2">
-<h2 class="anchored" data-anchor-id="working-definition">Working definition</h2>
-<p>Data literacy is the ability to <strong>read, work with, analyze, and communicate with data to inform decisions</strong>. It includes understanding what data represent, choosing appropriate methods, recognizing limitations, and explaining results to an audience.</p>
-<p>In ECO 230, data literacy includes the ability to:</p>
+<p>This page follows the order used during the in-class demonstration. Use it to keep the analysis steps and interpretation questions together while working in Excel, Tableau, or R.</p>
+<section id="demonstration-order" class="level2">
+<h2 class="anchored" data-anchor-id="demonstration-order">Demonstration order</h2>
 <ol type="1">
-<li>identify the source, structure, and unit of analysis of a dataset;</li>
-<li>distinguish variable types and levels of measurement;</li>
-<li>choose appropriate descriptive summaries and introductory inferential methods;</li>
-<li>select and create effective, ethical data visualizations;</li>
-<li>interpret statistical output in context; and</li>
-<li>communicate evidence clearly in writing, visuals, and presentations.</li>
+<li>Orient students to the <code>Plays</code> and <code>Games</code> tables.</li>
+<li>Explain the key and inspect the existing <code>XLOOKUP</code> formulas.</li>
+<li>Build a <code>Counts</code> PivotTable and frequency table.</li>
+<li>Compare counts, binary indicators, and missing values.</li>
+<li>Build a <code>Means</code> PivotTable and investigate useful groupings.</li>
+<li>Build a <code>Cross Tab</code> PivotTable and change the percentage denominator.</li>
+<li>Show the Excel Data Model workaround for medians.</li>
+<li>Reproduce the join and selected summaries in Tableau and R.</li>
 </ol>
 </section>
-<section id="data-literacy-in-the-workplace" class="level2">
-<h2 class="anchored" data-anchor-id="data-literacy-in-the-workplace">Data literacy in the workplace</h2>
-<p>Effective analysts combine three kinds of knowledge:</p>
+<section id="orient-to-the-two-tidy-tables" class="level2">
+<h2 class="anchored" data-anchor-id="orient-to-the-two-tidy-tables">1) Orient to the two tidy tables</h2>
+<section id="plays" class="level3">
+<h3 class="anchored" data-anchor-id="plays">Plays</h3>
 <ul>
-<li><strong>subject-matter knowledge</strong> to ask useful questions and recognize implausible results;</li>
-<li><strong>statistical and technical skills</strong> to prepare, summarize, visualize, and analyze data; and</li>
-<li><strong>communication skills</strong> to explain what the evidence means for a decision.</li>
+<li>One row represents one play.</li>
+<li>The table has 2,791 rows and its original fields run from columns A-AF.</li>
+<li><code>game_id</code> identifies the game; <code>play_id</code> identifies a play within that game. The pair is the unique key.</li>
+<li><code>quarter</code> and <code>game_clock</code> describe when the play occurred. Time fields need care because spreadsheet and statistical programs may interpret a minutes-and-seconds value as hours and minutes. Additional work would be needed to calculate seconds remaining or elapsed game time.</li>
+<li><code>down</code>, <code>yards_to_go</code>, possession, defense, field side, and <code>yardline_100</code> describe the situation. <code>yardline_100</code> places the ball on one 0-100 scale so the two physical 20-yard or 30-yard lines are not ambiguous.</li>
+<li>The play description is plain text. <code>play_type</code>, yards gained, formation, pass, run, completion, first-down, sack, interception, fumble, penalty, and touchdown fields provide analysis-ready details.</li>
+<li>Many fields are intentionally missing because they apply only to certain plays. A kickoff has no down; pass location does not apply to a run; penalty yards are absent when there was no penalty.</li>
+<li>Expected points added and win probability added change with the importance of the play and the game situation. A short early-game gain usually moves them less than a score or a late high-impact play.</li>
 </ul>
-<p>Data literacy also requires technological agility. Specific software will change, but the ability to inspect unfamiliar data, learn a new tool, verify results, and communicate limitations remains valuable across industries.</p>
 </section>
-<section id="scope-of-this-course" class="level2">
-<h2 class="anchored" data-anchor-id="scope-of-this-course">Scope of this course</h2>
-<p>The course emphasizes descriptive and introductory inferential analysis using structured data. Later weeks introduce survey research, experimental design, and machine learning, but the central goal remains sound reasoning: understand the row, ask a defensible question, use an appropriate method, and communicate what the evidence does and does not support.</p>
+<section id="games" class="level3">
+<h3 class="anchored" data-anchor-id="games">Games</h3>
+<ul>
+<li>One row represents one game.</li>
+<li>The table has 17 Minnesota regular-season games from 2025 and 18 fields in columns A-R.</li>
+<li><code>game_id</code> is unique and is the join key.</li>
+<li>Fields include season, week, date, weekday, teams, scores, total points, overtime, roof, surface, temperature, wind, and stadium.</li>
+<li>Weather is available only where it applies. Indoor games may not have an outdoor temperature or wind value.</li>
+</ul>
+</section>
+</section>
+<section id="inspect-the-existing-xlookup-join" class="level2">
+<h2 class="anchored" data-anchor-id="inspect-the-existing-xlookup-join">2) Inspect the existing XLOOKUP join</h2>
+<p>The starter workbook already places every non-key game field after the original play columns. Click one of the formulas and identify:</p>
+<ul>
+<li><strong>Lookup value:</strong> the play row’s <code>game_id</code>, such as cell A2.</li>
+<li><strong>Lookup array:</strong> the <code>game_id</code> column on the <code>Games</code> worksheet.</li>
+<li><strong>Return array:</strong> the selected game field on the <code>Games</code> worksheet.</li>
+<li><strong>If not found:</strong> the optional result to return when no game key matches.</li>
+</ul>
+<p>Connect this to the fourth tidy-data principle: related tables need a shared key. <code>game_id</code> lets each play find the one game record to which it belongs.</p>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Do not sum repeated game values">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Do not sum repeated game values
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The join repeats the same temperature, final score, and total points on every play from a game. Summing those fields in the joined play table produces an inflated result because the game total is counted once per play. Return to the <code>Games</code> table when the analysis needs one observation per game.</p>
+</div>
+</div>
+</section>
+<section id="build-the-counts-pivottable" class="level2">
+<h2 class="anchored" data-anchor-id="build-the-counts-pivottable">3) Build the Counts PivotTable</h2>
+<p>First, click inside each source range and choose <strong>Insert &gt; Table</strong>. Confirm that the range has headers, then name the tables <code>Plays</code> and <code>Games</code>. This makes the Data Model median formula and later references easier to explain.</p>
+<p>Insert a PivotTable from <code>Plays</code> on a new worksheet and rename it <code>Counts</code>. Use one worksheet per PivotTable. PivotTables expand and contract when fields or filters change, so placing several on one worksheet makes it easy for one to overwrite another.</p>
+<p>If the PivotTable Fields pane disappears, click inside the PivotTable and use <strong>PivotTable Analyze &gt; Field List</strong> to restore it.</p>
+<section id="count-all-plays" class="level3">
+<h3 class="anchored" data-anchor-id="count-all-plays">Count all plays</h3>
+<ol type="1">
+<li>Drag <code>play_type</code> to Rows.</li>
+<li>Drag <code>game_id</code> to Values.</li>
+<li>Confirm that Excel uses <strong>Count</strong>, not Sum.</li>
+<li>Add <code>game_id</code> to Values again.</li>
+<li>For the second copy, choose <strong>Show Values As &gt; % of Column Total</strong>.</li>
+</ol>
+<p>This gives a frequency table: a count and a share of all included plays for each play type.</p>
+</section>
+<section id="use-missingness-deliberately" class="level3">
+<h3 class="anchored" data-anchor-id="use-missingness-deliberately">Use missingness deliberately</h3>
+<p>Compare these fields in Values:</p>
+<ul>
+<li><strong>Count of game_id</strong> counts all play rows because the key is populated.</li>
+<li><strong>Count of penalty_yards</strong> counts only rows with a recorded penalty-yard value.</li>
+<li><strong>Count of penalty</strong> counts every populated <code>TRUE</code> and <code>FALSE</code> value. A count does not treat <code>FALSE</code> as zero; it counts it as a populated cell.</li>
+<li>A sum of a 0/1 indicator counts the 1 values. If Excel imports the field as <code>TRUE</code>/<code>FALSE</code> rather than 0/1, create or use a numeric indicator before applying this shortcut.</li>
+</ul>
+<p>Filter <code>play_type</code> to <code>no_play</code> and inspect <code>play_description</code>. Records with a penalty are commonly pre-snap infractions such as false starts. Records without a penalty are commonly timeouts. This is a useful quick investigation, not a replacement for checking every distinct description when the distinction matters.</p>
+</section>
+</section>
+<section id="build-the-means-pivottable" class="level2">
+<h2 class="anchored" data-anchor-id="build-the-means-pivottable">4) Build the Means PivotTable</h2>
+<p>Insert another PivotTable on a new worksheet and rename it <code>Means</code>.</p>
+<ol type="1">
+<li>Drag <code>play_type</code> to Rows.</li>
+<li>Drag <code>quarter</code> to Columns.</li>
+<li>Drag <code>penalty_yards</code> to Values and change the calculation to <strong>Average</strong>.</li>
+<li>Use Number Format to display two decimal places for the entire value field.</li>
+</ol>
+<p>Try <code>yardline_100</code> or <code>play_id</code> in Rows or Columns briefly. PivotTables treat a field placed there as a set of discrete categories. A numeric field with many distinct values produces a very wide or long table that is little more than a rearranged copy of the raw data.</p>
+<p>For a more useful comparison:</p>
+<ol type="1">
+<li>Replace the Values field with <strong>Average of yards_gained</strong>.</li>
+<li>Filter <code>play_type</code> to <code>pass</code> and <code>run</code>.</li>
+<li>Compare the average by play type and quarter.</li>
+<li>Add <code>shotgun</code> beneath <code>play_type</code> in Rows. Compare shotgun and non-shotgun plays.</li>
+<li>Replace <code>shotgun</code> with <code>pass_location</code> and investigate left, middle, right, and blank values.</li>
+</ol>
+<p>Use the table to separate what is certain from what remains uncertain. The sample can show that an average differs by quarter or location. It cannot, by itself, establish why that difference occurred or whether it would persist for other teams and seasons.</p>
+</section>
+<section id="build-the-cross-tab-pivottable" class="level2">
+<h2 class="anchored" data-anchor-id="build-the-cross-tab-pivottable">5) Build the Cross Tab PivotTable</h2>
+<p>Insert a third PivotTable on a new worksheet and rename it <code>Cross Tab</code>.</p>
+<ol type="1">
+<li>Drag <code>play_type</code> to Rows.</li>
+<li>Drag <code>quarter</code> to Columns.</li>
+<li>Drag <code>game_id</code> to Values and summarize it by <strong>Count</strong>.</li>
+<li>Use <strong>Show Values As &gt; % of Grand Total</strong> to ask what share of all plays is in each play-type-and-quarter combination.</li>
+<li>Change to <strong>% of Column Total</strong> to compare play types within each quarter.</li>
+<li>Change to <strong>% of Row Total</strong> to compare quarters within each play type.</li>
+</ol>
+<p>State the denominator before interpreting any cell. The same count can support different percentages, and each version answers a different question.</p>
+<p>Use percentage table calculations mainly with counts. Applying a percentage calculation to an average can create a result that does not add to 100% and is hard to explain. Use it only when the resulting metric has a clear meaning.</p>
+</section>
+<section id="calculate-a-median-in-excel" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-a-median-in-excel">6) Calculate a median in Excel</h2>
+<p>Median is not a standard PivotTable Value Field Setting. On supported Windows versions of Excel:</p>
+<ol type="1">
+<li><p>Insert a new PivotTable.</p></li>
+<li><p>Select <strong>Add this data to the Data Model</strong>.</p></li>
+<li><p>Create a new measure in the Data Model.</p></li>
+<li><p>Name the measure <code>Med Yards</code> and use:</p>
+<pre class="text"><code>Med Yards := MEDIAN(Plays[yards_gained])</code></pre></li>
+<li><p>Add <code>quarter</code> and <code>play_type</code> to the PivotTable and use the measure in Values.</p></li>
+</ol>
+<p>This is an awkward Excel workaround. Tableau and R provide median directly. Use the linked Excel median video for a slower demonstration of the interface.</p>
+</section>
+<section id="reproduce-the-logic-in-tableau-and-r" class="level2">
+<h2 class="anchored" data-anchor-id="reproduce-the-logic-in-tableau-and-r">7) Reproduce the logic in Tableau and R</h2>
+<p>In Tableau, relate the CSVs on <code>game_id</code>. Use <code>COUNT(game_id)</code> for counts, <code>AVG(yards_gained)</code> or <code>MEDIAN(yards_gained)</code> for grouped summaries, and a Percent of Total table calculation for a cross-tabulation. Always verify the direction in which the table calculation is computed.</p>
+<p>In R, the sequence is explicit and repeatable:</p>
+<ul>
+<li><code>left_join()</code> adds game information to plays;</li>
+<li><code>filter()</code> limits the records included in a question;</li>
+<li><code>count()</code> creates frequencies;</li>
+<li><code>group_by()</code> defines the comparison groups; and</li>
+<li><code>summarise()</code> calculates counts, means, medians, or other measures.</li>
+</ul>
+<p>Use <code>csi()</code> from <code>eco230r</code> to produce the count table and all three percentage views from the same cross-tabulation:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eco230r)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>csi_output <span class="ot">&lt;-</span> plays_joined <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">csi</span>(play_type <span class="sc">~</span> quarter)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>csi_output<span class="sc">$</span>observed <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">0</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>csi_output<span class="sc">$</span>row_percentages <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>csi_output<span class="sc">$</span>column_percentages <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>csi_output<span class="sc">$</span>table_percentages <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Once the steps are written in the correct order, rerunning the Quarto document reproduces the full analysis. That makes code useful for checking an agent’s work and for maintaining a report when the source data changes.</p>
+</section>
+<section id="closing-questions" class="level2">
+<h2 class="anchored" data-anchor-id="closing-questions">Closing questions</h2>
+<ul>
+<li>What does one row represent in the table being summarized?</li>
+<li>Which field can count every intended row without dropping missing values?</li>
+<li>Is a field in Rows or Columns a useful category, or merely a number with many distinct values?</li>
+<li>What is the denominator of the percentage?</li>
+<li>Did a join repeat a game-level value across plays?</li>
+<li>What pattern can you state with certainty?</li>
+<li>What explanation remains uncertain and requires additional analysis?</li>
+</ul>
+</section>
+<section id="keep-your-work-for-reference" class="level2">
+<h2 class="anchored" data-anchor-id="keep-your-work-for-reference">Keep your work for reference</h2>
+<p>There is nothing to submit for Lab 2. Keep your Excel workbook, notes, and rendered Quarto document for reference. Homework 2 requires similar analysis with your selected dataset, so these files provide examples you can revisit.</p>
 
 
 </section>
@@ -328,7 +519,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -660,4 +851,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
