@@ -1,0 +1,5 @@
+# Keep source text portable and preserve dataset provenance hashes on checkout.
+* text=auto eol=lf
+*.csv -text
+*.parquet -text
+*.xlsx -text

@@ -1,0 +1,426 @@
+---
+title: "Lab 3: Visualizing Data with ggplot2"
+subtitle: "R Companion - In-Person Sections"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    embed-resources: true
+    code-copy: true
+    number-sections: false
+execute:
+  echo: true
+  warning: false
+  message: false
+fig-width: 8
+fig-height: 5
+---
+
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+Use the same crash sample as the Tableau and Excel lab to make seven types of
+visuals in R. Concentrate on the question, the summary, and the chart type.
+The examples use a clean theme and a few deliberate design choices.
+
+This is a worked companion, not an additional graded assignment. Keep following
+the submission instructions for the main Lab 3 in Canvas.
+:::
+
+## Start here
+
+1. Run `source("project_setup.R")` in the Console once to restore the packages.
+2. Open `Lab_03_R_Companion_IP.qmd`. Run chunks from the top down, or click
+   **Render** to create the complete HTML guide with code and charts.
+3. Try one small change at a time. The **Try it** prompts are optional practice.
+
+You will practice counting and averaging before plotting, choosing appropriate
+geometries, and checking filters and percentage denominators. The data and its
+provenance are included in `data/`; no download is needed to run the examples
+after package setup. Use the Lab 3 video guide and hints in Canvas alongside
+this document.
+
+### Packages and a simple visual style
+
+```{r}
+#| label: packages-and-style
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(tidyr)
+library(lubridate)
+library(forcats)
+library(stringr)
+
+theme_set(
+  theme_minimal(base_size = 12) +
+    theme(panel.grid.minor = element_blank(),
+          plot.title.position = "plot")
+)
+
+# A familiar Tableau-like palette; no extra theme package is needed.
+tableau_colors <- c("#4E79A7", "#F28E2B", "#E15759", "#76B7B2",
+                    "#59A14F", "#EDC948", "#B07AA1", "#FF9DA7",
+                    "#9C755F", "#BAB0AC")
+```
+
+`theme_minimal()` supplies the overall style. We will also sort categories,
+label units, and use color for groups when it helps answer the question.
+Inside `aes()`, a column controls an appearance; outside `aes()`, a setting
+such as `fill = tableau_colors[1]` gives every mark the same appearance.
+
+### Read and check the data
+
+```{r}
+#| label: read-data
+crashes <- read_csv("data/chicago_traffic_crashes_sample.csv",
+                    show_col_types = FALSE) |>
+  mutate(
+    month = as.Date(floor_date(crash_datetime, "month")),
+    quarter = factor(paste0("Q", quarter(crash_datetime)),
+                     levels = c("Q1", "Q2", "Q3", "Q4"))
+  )
+
+nrow(crashes)
+n_distinct(crashes$crash_id)
+```
+
+Both counts should be **12,000**. One row represents one sampled crash.
+This deterministic classroom sample covers 2018-2025; its counts are not
+official Chicago totals or crash rates. Weather measurements can be shared
+by several crashes. Missing measurements stay missing, rather than becoming zero.
+
+Each example starts from `crashes`, so a filter for one chart does not silently
+carry into another. `|>` passes a result to the next step; `+` adds a plot layer.
+
+## 1) Ranking: count, sort, then plot
+
+**Question:** Which reported causes appear most often?
+
+Exclude missing causes, UNABLE TO DETERMINE, and NOT APPLICABLE before
+selecting the ten largest groups, matching the lab's ranking example.
+
+```{r}
+#| label: ranking
+ranking <- crashes |>
+  filter(!is.na(primary_contributory_cause),
+         !primary_contributory_cause %in%
+           c("UNABLE TO DETERMINE", "NOT APPLICABLE")) |>
+  count(primary_contributory_cause, name = "crash_count") |>
+  slice_max(crash_count, n = 10, with_ties = FALSE)
+
+ranking_plot <- ggplot(ranking,
+                      aes(x = crash_count,
+                          y = fct_reorder(primary_contributory_cause,
+                                          crash_count))) +
+  geom_col(fill = tableau_colors[1]) +
+  scale_y_discrete(labels = function(x) str_wrap(str_to_sentence(x), 32)) +
+  scale_x_continuous(labels = scales::label_comma()) +
+  labs(title = "Which reported causes appear most often?",
+       subtitle = "Ten most common causes after the stated exclusions",
+       x = "Sampled crashes", y = NULL)
+
+ranking_plot
+```
+
+`count()` makes one row per cause. `geom_col()` uses those already-calculated
+counts as bar lengths. `fct_reorder()` puts the largest bar at the top.
+
+**Check:** There are ten bars. Each bar summarizes crashes, rather than one crash.
+
+**Try it:** Change `n = 10` to `n = 5`.
+
+## 2) Nominal comparison: averages need group sizes
+
+**Question:** How does average injury count differ across causes?
+
+Start again from all crashes. Keep causes with at least 30 crashes and exclude
+NOT APPLICABLE and missing causes. UNABLE TO DETERMINE is retained here, as in
+the lab after removing the ranking selection.
+
+```{r}
+#| label: average-injuries
+#| fig-height: 10
+injury_summary <- crashes |>
+  filter(!is.na(primary_contributory_cause),
+         primary_contributory_cause != "NOT APPLICABLE") |>
+  group_by(primary_contributory_cause) |>
+  summarise(crash_count = n(),
+            measured_count = sum(!is.na(injuries_total)),
+            mean_injuries = mean(injuries_total, na.rm = TRUE),
+            .groups = "drop") |>
+  filter(crash_count >= 30, measured_count > 0)
+
+injury_plot <- ggplot(injury_summary,
+                     aes(x = mean_injuries,
+                         y = fct_reorder(primary_contributory_cause,
+                                         mean_injuries))) +
+  geom_col(fill = tableau_colors[2]) +
+  scale_y_discrete(labels = function(x) str_wrap(str_to_sentence(x), 34)) +
+  theme(axis.text.y = element_text(size = 10)) +
+  labs(title = "How does average injury count differ across causes?",
+       subtitle = "At least 30 sampled crashes per cause",
+       x = "Average injuries per crash with a recorded injury count", y = NULL)
+
+injury_plot
+```
+
+Unlike a Tableau tooltip, a static chart does not reveal the group count on
+hover. Inspect the supporting table:
+
+```{r}
+#| label: inspect-group-sizes
+injury_summary |>
+  arrange(desc(mean_injuries)) |>
+  select(primary_contributory_cause, crash_count, measured_count, mean_injuries) |>
+  knitr::kable(digits = 2)
+```
+
+**Check:** An average is not a total. The 30-crash cutoff does not make every
+group equally reliable. `measured_count` is the denominator of each average;
+missing injury counts are omitted from that calculation.
+
+**Try it:** Raise the cutoff to 100 and see which groups remain.
+
+## 3) Time series: keep month and year together
+
+**Question:** How do monthly counts differ across reported weather conditions?
+
+Exclude CLEAR and UNKNOWN for this version. Small multiples keep the remaining
+conditions readable without a crowded legend. Complete missing month-condition
+combinations with zero because the complete sample contains no crashes in those
+combinations; this is not a rule for filling missing weather measurements.
+
+```{r}
+#| label: monthly-counts
+#| fig-height: 7
+months <- seq(min(crashes$month), max(crashes$month), by = "month")
+
+monthly <- crashes |>
+  filter(!is.na(reported_weather_condition),
+         !reported_weather_condition %in% c("CLEAR", "UNKNOWN")) |>
+  count(month, reported_weather_condition, name = "crash_count") |>
+  complete(month = months, reported_weather_condition,
+           fill = list(crash_count = 0))
+
+time_plot <- ggplot(monthly, aes(x = month, y = crash_count)) +
+  geom_line(color = tableau_colors[1], linewidth = 0.5) +
+  facet_wrap(~ reported_weather_condition, ncol = 3,
+             scales = "free_y", labeller = label_wrap_gen(20)) +
+  scale_x_date(date_breaks = "4 years", date_labels = "%Y") +
+  labs(title = "How do monthly counts differ by weather?",
+       subtitle = "CLEAR and UNKNOWN excluded; each panel has its own vertical scale",
+       x = NULL, y = "Sampled crashes per month")
+
+time_plot
+```
+
+**Check:** January in one year stays separate from January in another year.
+Compare timing and shape within panels; their heights do not represent the same
+counts when `scales = "free_y"`.
+
+**Try it:** Change the facet setting to `scales = "fixed"` to compare magnitudes.
+
+## 4) Part-to-whole: make the denominator explicit
+
+**Question:** Within each quarter, what share belongs to each injury category?
+
+These Q1-Q4 groups pool the same quarter across years, matching the lab.
+Exclude missing injury categories, then divide by all remaining crashes in
+each quarter.
+
+```{r}
+#| label: quarterly-shares
+quarter_shares <- crashes |>
+  filter(!is.na(most_severe_injury)) |>
+  count(quarter, most_severe_injury, name = "crash_count") |>
+  group_by(quarter) |>
+  mutate(share = crash_count / sum(crash_count)) |>
+  ungroup()
+
+quarter_shares |>
+  group_by(quarter) |>
+  summarise(total_share = sum(share), .groups = "drop")
+
+injury_colors <- c("FATAL" = "#E15759",
+                   "INCAPACITATING INJURY" = "#F28E2B",
+                   "NONINCAPACITATING INJURY" = "#4E79A7",
+                   "REPORTED, NOT EVIDENT" = "#EDC948",
+                   "NO INDICATION OF INJURY" = "#BAB0AC")
+
+share_plot <- ggplot(quarter_shares,
+                     aes(x = quarter, y = share, fill = most_severe_injury)) +
+  geom_col(width = 0.7) +
+  scale_fill_manual(values = injury_colors,
+                    labels = function(x) str_wrap(str_to_sentence(x), 24)) +
+  scale_y_continuous(labels = scales::label_percent()) +
+  labs(title = "Within each quarter, how are injury categories divided?",
+       subtitle = "Q1-Q4 pooled across years; missing injury categories excluded",
+       x = NULL, y = "Share of sampled crashes in the quarter", fill = NULL)
+
+share_plot
+```
+
+Every `total_share` should equal 1 (100%). Now remove two categories from the
+display **after** calculating the shares:
+
+```{r}
+#| label: hidden-categories
+visible_shares <- quarter_shares |>
+  filter(!most_severe_injury %in%
+           c("NO INDICATION OF INJURY", "REPORTED, NOT EVIDENT"))
+
+hidden_plot <- ggplot(visible_shares,
+                      aes(x = quarter, y = share, fill = most_severe_injury)) +
+  geom_col(width = 0.7) +
+  scale_fill_manual(values = injury_colors,
+                    labels = function(x) str_wrap(str_to_sentence(x), 24)) +
+  scale_y_continuous(labels = scales::label_percent()) +
+  labs(title = "What share remains visible after hiding two categories?",
+       subtitle = "Denominator: all nonmissing injury categories within each quarter",
+       x = NULL, y = "Share of sampled crashes in the quarter", fill = NULL)
+
+hidden_plot
+```
+
+The named colors keep each injury category the same color in both charts. The
+visible stacks no longer reach 100%. Filtering the raw crashes **before** calculating
+shares would instead change the denominator. Do not use
+`position = "fill"` on this reduced table: it would rescale the visible groups
+back to 100%.
+
+**Try it:** Inspect `visible_shares` and explain the denominator of one row.
+
+## 5) Relationship: one point per crash
+
+**Question:** How are temperature and dew point related?
+
+```{r}
+#| label: weather-relationship
+weather_pairs <- crashes |>
+  filter(!is.na(weather_station_name),
+         !is.na(temperature_f), !is.na(dew_point_f))
+
+relationship_plot <- ggplot(weather_pairs,
+                            aes(x = temperature_f, y = dew_point_f)) +
+  geom_point(color = tableau_colors[1], alpha = 0.12, size = 0.8) +
+  facet_wrap(~ weather_station_name, labeller = label_wrap_gen(22)) +
+  labs(title = "How are temperature and dew point related?",
+       x = "Temperature (degrees F)", y = "Dew point (degrees F)")
+
+relationship_plot
+```
+
+**Check:** No `summarise()` occurs before plotting, so each point represents a
+crash with complete paired measurements and a station name. Repeated station-hour
+measurements can put several crashes at the same position. Transparency helps
+show overlap; these are not independent weather observations.
+
+**Try it:** Change `alpha` from 0.12 to 0.5 and compare how well you can see overlap.
+
+## 6) Distribution: bins and box plots
+
+**Question:** What temperatures occur in the sample, and how do they differ by
+reported weather condition?
+
+```{r}
+#| label: temperature-histogram
+temperatures <- crashes |>
+  filter(!is.na(temperature_f))
+
+histogram_plot <- ggplot(temperatures, aes(x = temperature_f)) +
+  geom_histogram(binwidth = 5, boundary = 0,
+                 fill = tableau_colors[1], color = "white") +
+  labs(title = "What temperatures occur in the sampled crashes?",
+       subtitle = "5-degree bins; crashes with missing temperature omitted",
+       x = "Temperature (degrees F)", y = "Sampled crashes")
+
+histogram_plot
+```
+
+Now summarize the individual temperatures within each weather category:
+
+```{r}
+#| label: temperature-boxplots
+box_data <- temperatures |>
+  filter(!is.na(reported_weather_condition))
+
+box_plot <- ggplot(box_data,
+                   aes(x = temperature_f,
+                       y = fct_reorder(reported_weather_condition,
+                                       temperature_f, .fun = median))) +
+  geom_boxplot(fill = tableau_colors[4], outlier.alpha = 0.3) +
+  scale_y_discrete(labels = function(x) str_to_sentence(x)) +
+  labs(title = "How do temperatures differ by reported weather?",
+       x = "Temperature (degrees F)", y = NULL)
+
+box_plot
+```
+
+**Check:** A box shows the middle 50% of observations and a line at the median.
+Points beyond the whiskers are unusual relative to that group, not necessarily
+errors. Small weather groups deserve caution. Both plots describe temperatures
+attached to sampled crashes, not the distribution of all Chicago weather.
+
+**Try it:** Compare histogram bin widths of 2, 5, and 10 degrees F.
+
+## 7) Point map: coordinates without a map service
+
+**Question:** Where are the sampled crashes located?
+
+This simple coordinate map needs no basemap download, spatial package, or API
+key. Missing coordinates are omitted. To keep the legend manageable, retain the
+four most frequent trafficway labels among mapped crashes and combine the rest.
+
+```{r}
+#| label: crash-map
+#| fig-height: 7
+map_data <- crashes |>
+  filter(!is.na(longitude), !is.na(latitude)) |>
+  mutate(trafficway_group = fct_lump_n(trafficway_type, n = 4,
+                                      other_level = "ALL OTHER TYPES"))
+
+nrow(crashes) - nrow(map_data) # Crashes omitted because coordinates are missing
+
+map_plot <- ggplot(map_data,
+                   aes(x = longitude, y = latitude, color = trafficway_group)) +
+  geom_point(alpha = 0.25, size = 0.6) +
+  coord_fixed(ratio = 1.34) +
+  scale_color_manual(values = tableau_colors,
+                     labels = function(x) str_wrap(str_to_sentence(x), 24)) +
+  guides(color = guide_legend(override.aes = list(alpha = 1, size = 3))) +
+  labs(title = "Where are the sampled crashes located?",
+       subtitle = "One point per crash with coordinates; no basemap",
+       x = "Longitude (degrees)", y = "Latitude (degrees)", color = "Trafficway")
+
+map_plot
+```
+
+`coord_fixed(ratio = 1.34)` approximately adjusts for longitude/latitude spacing
+near Chicago. This is a local display adjustment, not a projected map for measuring
+distances. Overlapping points can hide crashes. More sampled crashes in an area
+does not establish greater risk per traveler.
+
+**Try it:** Color by `reported_weather_condition` instead. Decide whether the
+additional categories help answer a clear question.
+
+## Save a chart and check your work
+
+Run this chunk to export the ranking chart as a PNG you can place in Word:
+
+```{r}
+#| label: save-chart
+#| eval: false
+ggsave("lab3-ranking.png", plot = ranking_plot,
+       width = 8, height = 5, dpi = 300)
+```
+
+Before reusing a chart, identify what one mark represents, check the aggregation,
+state exclusions, and name the denominator of any percentage. Explain one design
+choice that makes the comparison easier to read. There is no additional upload
+for this companion unless your instructor requests one.
+
+### Function references
+
+- [ggplot2 themes](https://ggplot2.tidyverse.org/reference/ggtheme.html)
+- [Bar charts with precomputed values](https://ggplot2.tidyverse.org/reference/geom_bar.html)
+- [Small multiples with facets](https://ggplot2.tidyverse.org/reference/facet_wrap.html)
+- [Fixed coordinate aspect ratios](https://ggplot2.tidyverse.org/reference/coord_fixed.html)
