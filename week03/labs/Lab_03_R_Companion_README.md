@@ -6,7 +6,7 @@ shares, relationships, distributions, and a point map.
 
 ## Open in Posit Cloud
 
-1. Create a project from the private `ECO230/lab-03-r-companion-ip` GitHub
+1. Create a project from the private `ECO230/lab-03-ip` GitHub
    repository. Your Posit Cloud GitHub connection needs access to that repository.
 2. Use R 4.6.1, matching the shared course lockfile.
 3. Run `source("project_setup.R")` once in the Console. After restoration,
