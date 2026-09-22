@@ -18,6 +18,7 @@ project:
     - syllabus/syllabus.qmd
     - week01/week_01.qmd
     - week02/week_02.qmd
+    - week03/week_03.qmd
     - week01/Homework_01.qmd
     - week02/Homework_02.qmd
     # Canvas-native source HTML. These outputs are intentionally unlisted: the
@@ -76,6 +77,8 @@ website:
             file: week01/week_01.qmd
           - text: "Week 2"
             file: week02/week_02.qmd
+          - text: "Week 3"
+            file: week03/week_03.qmd
       - text: "Homework"
         menu:
           - text: "Homework 1"
