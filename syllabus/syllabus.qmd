@@ -128,7 +128,8 @@ Meets in `r section_info$classroom` `r section_info$class_dow` `r section_info$c
 -   Mike Boland, MBA\
 -   Office Location: `r section_info$office_location`\
 -   Student Hours: `r section_info$office_hours`\
--   Class Webpage: <https://www.uwlax.edu/canvas>\
+-   Class Webpage: [Canvas](https://www.uwlax.edu/canvas)\
+-   Supplementary Website: [ECO 230 course materials](https://eco230.github.io/boland_course/)\
 -   Email: [mboland\@uwlax.edu](mailto:mboland@uwlax.edu){.email}\
 -   Cell Phone: 608-385-6497
 

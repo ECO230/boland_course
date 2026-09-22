@@ -7,14 +7,11 @@ format:
 
 # Welcome to ECO 230
 
-This website currently hosts:
+This is the supplementary website for ECO 230. It provides lecture slides,
+section-specific syllabi, dataset descriptions, and supporting course materials.
+Use the navigation bar to find available resources.
 
--   section-specific syllabi;
--   descriptions of the current project datasets;
--   Week 1 slides; and
--   the Homework 1 prompt.
-
-Additional weekly materials will appear as the semester progresses. Use the
-navigation bar at the top to access currently released items.
-
-If you are viewing this inside Canvas, links will open in a new window or in an embedded iframe depending on your instructor setup.
+[Canvas](https://www.uwlax.edu/canvas) is the primary course webpage. Go to your
+Canvas course for weekly agendas, assignment instructions and due dates,
+quizzes, submissions, grades, and announcements. When information differs,
+follow the current instructions in Canvas.

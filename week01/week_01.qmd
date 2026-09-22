@@ -39,7 +39,7 @@ source(here("shared","scripts","gt_boland.R"), local = TRUE)
 
 ## Use Instant Booking Wisely
 
-<br> Airbnb Owners should enable **Instant Booking** in Fall — it's the unequivocally best season for superior ratings and returns. <br><br>
+<br> Airbnb Owners should enable **Instant Booking** in Fall — it's the unequivocally best season for the highest **rate (average price × average rating)**. <br><br>
 
 ```{r airbnb}
 # --- Adjust the path to where your file lives ---
