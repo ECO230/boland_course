@@ -35,7 +35,7 @@ AI use that supports your work while keeping the analytical decisions yours.
 - Your Week 1-2 dataset or another of the five approved course datasets
 - [Course dataset descriptions and downloads](https://eco230.github.io/boland_course/datasets/)
 - [Lab 3 Hints](https://eco230.github.io/boland_course/week03/labs/lab-3-hints.html) and the Lab 3 video guide in Canvas
-- [Optional R workspace: Homework 3 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765402). Use this if you choose R or want a Quarto document template. Posit Cloud is optional; Homework 3 is required.
+- [Optional R workspace: Homework 3 in Posit Cloud](https://posit.cloud/spaces/3173/content/12969576). Use this if you choose R or want a Quarto document template. Posit Cloud is optional; Homework 3 is required.
 
 ::: {.callout-important appearance="minimal" icon="false" title="What to turn in"}
 Submit **one Word or PDF document with all three visuals embedded**, each
