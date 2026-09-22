@@ -40,6 +40,7 @@ project:
     - admin/final/Practice_Practicum_Guidelines.qmd
   resources:
     - shared/styles/accesibility.css
+    - shared/styles/accessibility.css
     # Shared lab downloads are published once with the course website and used
     # by every Canvas section.
     - week01/lab-prep/data/olist_orders_sample.csv
