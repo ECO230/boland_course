@@ -1,2 +1,3 @@
 shared/data/early-homework-v1/*.csv text eol=lf
 shared/data/early-homework-v1/manifest.json text eol=lf
+shared/data/nfl_field_goals_2025.csv text eol=lf
