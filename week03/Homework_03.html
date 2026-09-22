@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Homework 3: Visualizing Data – ECO 230</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,14 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dcec9e325294c483a23600e495d490cd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,6 +80,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">ECO 230</span>
     </a>
@@ -224,159 +224,195 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This assignment practices the Week 3 goal:</p>
+<p>This assignment helps you practice the Week 3 question:</p>
 <blockquote class="blockquote">
-<p><strong>Choose a visualization that matches the analytical frame</strong> (the kind of comparison you want the audience to make) <strong>and apply perception‑aware design.</strong></p>
+<p><strong>How do we choose a visual that clearly communicates the comparison we want to make?</strong></p>
 </blockquote>
-<p>You will produce <strong>three small visuals</strong> (from three different frames) and <strong>brief written justifications</strong> that explain:</p>
-<ul>
-<li>the <em>story</em> you are trying to tell,</li>
-<li><em>why</em> this chart type is the right encoding for that story, and</li>
-<li><em>which</em> design principles you intentionally applied.</li>
-</ul>
+<p>You will create <strong>three visuals</strong>, explain your analytical and design choices, and summarize what the visuals reveal. You will also reflect on responsible AI use that supports your work while keeping the analytical decisions yours.</p>
 </div>
 </div>
 <section id="objectives" class="level2">
 <h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
 <ul>
-<li>Map a <strong>data story</strong> to the correct <strong>analytical frame</strong> and chart form</li>
-<li>Apply <strong>perceptual design</strong> choices from lecture (lines, area, color, clutter)</li>
-<li>Communicate with <strong>succinct captions</strong>, clear scales, and explicit denominators</li>
+<li>Choose chart types that match the analytical question.</li>
+<li>Apply clear scales, category ordering, purposeful color, and readable labels.</li>
+<li>State the data scope, units, filters, and percentage denominators.</li>
+<li>Interpret evidence from your visuals in context.</li>
+<li>Evaluate and disclose your use of AI.</li>
 </ul>
 </section>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <ul>
-<li><a href="https://posit.cloud/spaces/3173/content/12765402">Open Homework 3 in Posit Cloud</a></li>
-<li><strong>Week 3 slides</strong> (visual perception; analytical frames)</li>
-<li>Week 1–2 slides (grain, NOIR, size/center/shape/relationships)</li>
-<li>Your <strong>Week 1-2 dataset</strong> (or any approved course dataset)</li>
-<li>Tools: <strong>Excel and/or Tableau</strong> (you may mix; no code required)</li>
+<li><a href="https://eco230.github.io/boland_course/week03/week_03.html">Week 3 slides: visual perception and analytical frames</a></li>
+<li>Week 1-2 slides on grain, measurement scales, and descriptive summaries</li>
+<li>Your Week 1-2 dataset or another of the five approved course datasets</li>
+<li><a href="https://eco230.github.io/boland_course/datasets/">Course dataset descriptions and downloads</a></li>
+<li><a href="https://eco230.github.io/boland_course/week03/labs/lab-3-hints.html">Lab 3 Hints</a> and the Lab 3 video guide in Canvas</li>
+<li><a href="https://posit.cloud/spaces/3173/content/12765402">Optional R workspace: Homework 3 in Posit Cloud</a>. Use this if you choose R or want a Quarto document template. Posit Cloud is optional; Homework 3 is required.</li>
 </ul>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Important">
+<div class="callout callout-style-simple callout-important no-icon callout-titled" title="What to turn in">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Important
+<span class="screen-reader-only">Important</span>What to turn in
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li>Your grade emphasizes <strong>fit‑for‑purpose</strong> encodings + <strong>clean design</strong>.</li>
-<li>Include a short <strong>brief writeup (3–5 sentences)</strong> for each chart.</li>
-<li>A <strong>Design Checklist</strong> is <strong>encouraged</strong> for each chart (not required).</li>
-</ul>
+<p>Submit <strong>one Word or PDF document with all three visuals embedded</strong>, each visual’s explanation, your summary, and your AI reflection. Also include the supporting files for the tools you used. Separate chart files or links do not replace the visuals inside your document.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="choose-your-dataset-week-1" class="level2">
-<h2 class="anchored" data-anchor-id="choose-your-dataset-week-1">1) Choose Your Dataset (Week 1)</h2>
+<section id="choose-your-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="choose-your-dataset">1) Choose Your Dataset</h2>
+<p>Choose one of the five Week 1 datasets. You may keep the dataset from Homework 1 and 2 or switch. Briefly state the dataset, what one row represents, and any filters or cleaning you applied, such as excluding blanks or limiting dates.</p>
+<p>Use the same dataset for all three visuals so your summary can connect them.</p>
+<hr>
+</section>
+<section id="choose-your-tools" class="level2">
+<h2 class="anchored" data-anchor-id="choose-your-tools">2) Choose Your Tools</h2>
+<p>Build the visuals using <strong>Excel, Tableau, R, or a combination</strong>. Choose the tool that supports the comparison you want to make; coding is not required.</p>
+<p>Export readable chart images and insert them into Word or your document editor. If you use the optional Posit Cloud template, upload the images and insert them in the QMD, or render your R charts directly into the document.</p>
+<hr>
+</section>
+<section id="visual-a---comparison" class="level2">
+<h2 class="anchored" data-anchor-id="visual-a---comparison">3) Visual A - Comparison</h2>
+<p>Choose <strong>one</strong> analytical frame:</p>
+<ul>
+<li><strong>Nominal comparison:</strong> Compare values across categories, such as side-by-side bars.</li>
+<li><strong>Ranking:</strong> Order categories by a measure, such as sorted horizontal bars.</li>
+</ul>
+<p>Label axes and units. Sort categories when rank is part of the question. Use a zero baseline for bars so their lengths represent the values honestly.</p>
+<p><strong>Include Visual A in your document.</strong> Directly below it, write <strong>3-5 sentences</strong> addressing:</p>
 <ol type="1">
-<li>Use one of the five Week 1 datasets (you may keep the same as HW1 &amp; HW2 or change to a different dataset).</li>
-<li>Note any filters/cleaning (e.g., date window, excluding blanks).</li>
-</ol>
-<p><em>(No extended writeup—just list what you did.)</em></p>
-<hr>
-</section>
-<section id="tools-exceltableau" class="level2">
-<h2 class="anchored" data-anchor-id="tools-exceltableau">2) Tools (Excel/Tableau)</h2>
-<ul>
-<li>Build visuals in <strong>Excel</strong> and/or <strong>Tableau</strong> (mixing is fine).</li>
-<li>Export images (PNG) at reasonable resolution for pasting into your document.</li>
-<li>You may build visuals in <strong>posit.cloud</strong> if you choose, but that is hard mode.</li>
-</ul>
-<hr>
-</section>
-<section id="three-visuals-one-from-each-module-below" class="level2">
-<h2 class="anchored" data-anchor-id="three-visuals-one-from-each-module-below">3) Three Visuals — One From <strong>Each</strong> Module Below</h2>
-<p>Produce exactly <strong>three</strong> visuals, selecting <strong>one</strong> from <strong>each</strong> module (A, B, C). Avoid repeating the same frame.</p>
-<section id="a.-comparison-pick-one" class="level3">
-<h3 class="anchored" data-anchor-id="a.-comparison-pick-one"><strong>A. Comparison (pick one)</strong></h3>
-<ul>
-<li><strong>Nominal comparison</strong> (e.g., side‑by‑side bars) <em>or</em></li>
-<li><strong>Ranking</strong> (sorted bars; horizontal recommended)</li>
-</ul>
-<p><strong>Design tips:</strong> labeled axes, clear units, sorted categories when ranking.</p>
-</section>
-<section id="b.-composition-or-difference-pick-one" class="level3">
-<h3 class="anchored" data-anchor-id="b.-composition-or-difference-pick-one"><strong>B. Composition or Difference (pick one)</strong></h3>
-<ul>
-<li><strong>Part‑to‑Whole</strong> → Percentages as a bar graph <em>or</em></li>
-<li><strong>Time series</strong> of a single metric (line, honest scale) <em>or</em></li>
-<li><strong>Deviation</strong> vs a <strong>benchmark</strong> (bars around zero; clearly label/explain the benchmark)</li>
-</ul>
-<p><strong>Design tips:</strong> Part to Whole needs to add to 100%, add a zero baseline for deviation, and annotate the benchmark.</p>
-</section>
-<section id="c.-distribution-or-relationship-pick-one" class="level3">
-<h3 class="anchored" data-anchor-id="c.-distribution-or-relationship-pick-one"><strong>C. Distribution or Relationship (pick one)</strong></h3>
-<ul>
-<li><strong>Frequency distribution</strong> (histogram with sensible binning; or boxplot) <em>or</em></li>
-<li><strong>Correlation</strong> (scatter; add a simple regression line if appropriate)</li>
-</ul>
-<p><strong>Design tips:</strong> show units, avoid overplotting marks(alpha if dense), call out outliers</p>
-<hr>
-</section>
-</section>
-<section id="brief-writeup-under-each-visual-35-sentences" class="level2">
-<h2 class="anchored" data-anchor-id="brief-writeup-under-each-visual-35-sentences">4) Brief Writeup Under Each Visual (3–5 sentences)</h2>
-<p>Provide a tight paragraph for each image that includes:</p>
-<ol type="1">
-<li><strong>Story:</strong> What story are you trying to tell?</li>
-<li><strong>Frame &amp; Encoding:</strong> Which analytical frame (e.g., <em>part‑to‑whole</em>) and which chart type did you choose—and <em>why is it a fit</em> for this story?</li>
-<li><strong>Data Scope:</strong> Groupings/filters used; any important denominators or eligibility rules.</li>
-<li><strong>Design Principles Applied:</strong> Name at least <strong>two</strong> (e.g., reduced non‑data‑ink; minimal axes; ordered categories; purposeful color; 100% normalization; honest baselines; avoided 3D; judicious regression line).</li>
+<li><strong>Story:</strong> What comparison or pattern are you highlighting?</li>
+<li><strong>Frame and encoding:</strong> Which analytical frame and chart type did you choose, and why do they fit?</li>
+<li><strong>Data scope:</strong> Which groupings, filters, units, and denominators matter?</li>
+<li><strong>Design:</strong> Name at least <strong>two design principles</strong> you applied and explain how they help the reader.</li>
 </ol>
 <hr>
 </section>
-<section id="design-checklist-encouraged" class="level2">
-<h2 class="anchored" data-anchor-id="design-checklist-encouraged">5) Design Checklist (Encouraged)</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Chart type matches the <strong>analytical frame</strong></label></li>
-<li><label><input type="checkbox">Axes and units labeled; baselines honest; scales legible</label></li>
-<li><label><input type="checkbox">Appropriate <strong>ordering</strong> (e.g., sorted bars for ranking)</label></li>
-<li><label><input type="checkbox">Color used sparingly (subtle default; vivid only when meaningful)</label></li>
-<li><label><input type="checkbox"><strong>No 3D</strong> or distortions; avoid unnecessary decoration</label></li>
-<li><label><input type="checkbox">For composition: <strong>100%</strong> normalization, periods sum to 100%</label></li>
-<li><label><input type="checkbox">For deviation: benchmark labeled; zero line shown</label></li>
-<li><label><input type="checkbox">For correlation: considered trend line; noted limitations</label></li>
+<section id="visual-b---composition-or-difference" class="level2">
+<h2 class="anchored" data-anchor-id="visual-b---composition-or-difference">4) Visual B - Composition or Difference</h2>
+<p>Choose <strong>one</strong> analytical frame:</p>
+<ul>
+<li><strong>Part-to-whole:</strong> Use percentage bars with a clearly stated denominator and complete categories totaling 100%.</li>
+<li><strong>Time series:</strong> Show one metric over time, using chronological dates and a readable, honest scale.</li>
+<li><strong>Deviation:</strong> Show differences from a clearly labeled benchmark, with a zero line for the deviations.</li>
 </ul>
-<p><em>(You are encouraged to follow these checks for each chart; not required to paste the list under every visual.)</em></p>
+<p><strong>Include Visual B in your document</strong>, followed by <strong>3-5 sentences</strong> using the same structure: story, frame and encoding, data scope, and at least two design principles.</p>
+<p><strong>Hint:</strong> State what your percentages divide by. For a time series, keep month-year combinations distinct unless you intentionally compare seasonality. For deviation, explain why the benchmark is meaningful.</p>
 <hr>
 </section>
-<section id="summary-200-words" class="level2">
-<h2 class="anchored" data-anchor-id="summary-200-words">6) Summary (≤ 200 words)</h2>
-<p>Write a concise summary that synthesizes what your three visuals reveal. Address whether the story aligns with expectations or surfaces something unexpected.</p>
+<section id="visual-c---distribution-or-relationship" class="level2">
+<h2 class="anchored" data-anchor-id="visual-c---distribution-or-relationship">5) Visual C - Distribution or Relationship</h2>
+<p>Choose <strong>one</strong> analytical frame:</p>
+<ul>
+<li><strong>Distribution:</strong> Use a histogram with sensible bins or a box plot to show a numerical variable’s distribution.</li>
+<li><strong>Relationship:</strong> Use a scatterplot of two numerical variables; a trend line is optional when appropriate.</li>
+</ul>
+<p><strong>Include Visual C in your document</strong>, followed by <strong>3-5 sentences</strong> using the same four-part structure. Label units, check what one mark represents, reduce overplotting when needed, and investigate unusual values before removing them. A relationship in the chart does not establish causation.</p>
+<hr>
+</section>
+<section id="review-your-design" class="level2">
+<h2 class="anchored" data-anchor-id="review-your-design">6) Review Your Design</h2>
+<p>Check all three visuals before assembling the final document:</p>
+<ul>
+<li>The chart type matches the analytical frame.</li>
+<li>Titles, axes, units, scales, and denominators are clear.</li>
+<li>Category ordering and color support the comparison.</li>
+<li>The chart avoids 3D effects and unnecessary decoration.</li>
+<li>Bins, percentage calculations, benchmarks, and aggregation match the question.</li>
+<li>Labels and values remain readable at the size used in the document.</li>
+</ul>
+<p>This checklist is a review aid; you do not need to paste it under every chart.</p>
+<hr>
+</section>
+<section id="summary-required" class="level2">
+<h2 class="anchored" data-anchor-id="summary-required">7) Summary (Required)</h2>
+<p>In <strong>no more than 200 words</strong>, synthesize what your three visuals reveal. Reference Visuals A, B, and C, interpret the evidence, and explain whether the results match your expectations or show something unexpected.</p>
+<p><strong>Your summary belongs in the same document as the three embedded visuals and their explanations.</strong> Submit the complete document, not a summary by itself. The 200-word limit applies only to this summary, not the chart explanations or AI reflection.</p>
+<hr>
+</section>
+<section id="responsible-use-of-ai-required-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="responsible-use-of-ai-required-reflection">8) Responsible Use of AI (Required Reflection)</h2>
+<p>AI may help with clarification, rewriting, or troubleshooting. It must not choose your analytical questions, make analytical decisions, or interpret results for you. You are responsible for checking every claim and submitting work you understand.</p>
+<p>Write <strong>4-6 sentences</strong> in your document:</p>
+<ul>
+<li>State whether you used AI and name the tool if you did.</li>
+<li>If you used it, describe a specific step it helped with, include one prompt you used, and explain what it missed, oversimplified, or got wrong. Describe how you checked or corrected its output.</li>
+<li>If you did not use AI, say so, explain how you checked one chart or analytical choice yourself, and identify a task where AI might help and a decision you would keep your own. You do not need to invent a prompt or use AI to earn credit.</li>
+</ul>
 <hr>
 </section>
 <section id="submission" class="level2">
-<h2 class="anchored" data-anchor-id="submission">7) Submission</h2>
-<p>Upload to Canvas:</p>
+<h2 class="anchored" data-anchor-id="submission">Submission</h2>
+<p>Upload to the <strong>Homework 3 assignment in Canvas</strong>:</p>
 <ol type="1">
-<li>A <strong>Word or PDF</strong> document that includes:
-<ul>
-<li>Your <strong>three visuals</strong> (A, B, C) and their <strong>brief writeups</strong> (3–5 sentences each)</li>
-<li>Your <strong>Summary</strong> (≤ 200 words)</li>
-</ul></li>
-<li>Supporting files as applicable:
-<ul>
-<li>Excel: <code>.xlsx</code></li>
-<li>Tableau: <code>.twbx</code></li>
-</ul></li>
+<li><strong>One Word (<code>.docx</code>) or PDF document</strong> containing your dataset/scope notes, Visuals A, B, and C embedded at a readable size, a 3-5 sentence explanation below each visual, the summary of no more than 200 words, and the 4-6 sentence AI reflection.</li>
+<li><strong>Supporting files for the tools you used:</strong> Excel <code>.xlsx</code>; Tableau packaged workbook <code>.twbx</code>; or R/Quarto source (<code>.R</code>, <code>.Rmd</code>, or <code>.qmd</code>) with any image files needed to reproduce the document. Submit the applicable files, not files from tools you did not use.</li>
 </ol>
-<hr>
+<p>If you use the optional Posit template, render <code>Homework_03_IP.qmd</code> to <code>Homework_03_IP.pdf</code> and submit that PDF as your complete document. Open the final Word or PDF file before submitting and confirm that all three visuals are visible without following links or opening a supporting workbook.</p>
 </section>
-<section id="grading-focus-what-im-look-for" class="level2">
-<h2 class="anchored" data-anchor-id="grading-focus-what-im-look-for">8) Grading Focus (What I’m Look For)</h2>
-<ul>
-<li><strong>Fit‑for‑purpose</strong> chart selection given the story &amp; frame</li>
-<li><strong>Perceptual clarity</strong>: clean baselines, readable scales, sensible color</li>
-<li><strong>Sound communication</strong>: succinct captions, explicit denominators/assumptions</li>
-<li><strong>Overall quality</strong>: coherence across the three stories</li>
+<section id="checklist" class="level2">
+<h2 class="anchored" data-anchor-id="checklist">Checklist</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">I chose one frame from each group: A, B, and C.</label></li>
+<li><label><input type="checkbox">All three visuals are embedded and readable in one Word or PDF document.</label></li>
+<li><label><input type="checkbox">Each visual has a 3-5 sentence explanation covering story, encoding, scope, and design.</label></li>
+<li><label><input type="checkbox">The document includes my summary and required AI reflection.</label></li>
+<li><label><input type="checkbox">I checked calculations, filters, units, denominators, and scales.</label></li>
+<li><label><input type="checkbox">I included supporting files for the tools I used.</label></li>
 </ul>
-<hr>
+</section>
+<section id="grading-focus" class="level2">
+<h2 class="anchored" data-anchor-id="grading-focus">Grading Focus</h2>
+<p>Your work is evaluated for appropriate chart selection, clear and honest design, explanations grounded in the data, and complete communication.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Criterion</th>
+<th style="text-align: right;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Visual A: comparison or ranking</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td>Visual B: composition, time series, or deviation</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td>Visual C: distribution or relationship</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td>Design principles and chart explanations</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="odd">
+<td>Summary across the three visuals</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td>Responsible AI reflection</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td>Complete document and supporting files</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>100</strong></td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
@@ -455,7 +491,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
