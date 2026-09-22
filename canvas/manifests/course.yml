@@ -1189,12 +1189,7 @@ modules:
         position: 22
         management: "structure"
         publish_action: "synchronize_structure"
-      - key: "graded-quiz-1-descriptive-statistics-data-literacy-classic"
-        type: "Quizzes::Quiz"
-        title: "Graded Quiz 1: Descriptive Statistics & Data Literacy (classic)"
-        position: 23
-        management: "canvas_assessment"
-        publish_action: "preserve"
+      # Quiz 1 Versions A/B are managed by the private quiz1-practical workflow.
   - key: "week-4-communicating-data"
     title: "Week 4: Communicating Data"
     position: 5
