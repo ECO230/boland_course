@@ -44,6 +44,8 @@ tracking-only fields from the old CSV are not fabricated.
 The lecture's existing filters remain unchanged: Q1-Q4 comparisons omit
 overtime; made-only plots use made attempts; the make-rate example includes
 blocked attempts in its denominator; the good/no-good comparison omits blocked
-attempts. The selected practice weeks, chart types, styles, scales, labels,
-and slide prose are unchanged. The old Crosby CSV remains available for the
+attempts. The nominal comparison and practice examples use all 22 weeks. The
+correlation example excludes overtime and converts the countdown clock to
+seconds elapsed in a 15-minute regulation quarter (900 minus seconds remaining).
+Chart types and the instructional slide prose are preserved. The old Crosby CSV remains available for the
 other lessons that still reference it.

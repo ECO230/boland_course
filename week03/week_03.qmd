@@ -23,7 +23,7 @@ bibliography: []
 
 ## Sensory Bandwidth {auto-animate="true" auto-animate-easing="ease-in-out" data-auto-animate-id="sense"}
 
-::::::::::::::: {data-id="stage" style="position:relative;             width:calc(100% + 380px);             height:calc(74vh + 0px );             margin-left:-190px;             margin-right:-220px;             margin-top:-100px;             margin-bottom:0px;             padding:0;"}
+::::::::::::::: {data-id="stage" style="position:relative;             width:calc(100% - 80px);             height:calc(74vh + 0px );             margin-left:40px;             margin-right:40px;             margin-top:-100px;             margin-bottom:0px;             padding:0;"}
 ::::: {data-id="vision" style="position:absolute; inset:0;             background:#558ED5; border-radius:2px;"}
 ::: {style="position:absolute; top:18px; right:18px; color:white; font-weight:700; font-size:30px;"}
 Sight
@@ -71,7 +71,7 @@ Smell
 
 ## Sensory Bandwidth — Proportional {auto-animate="true" auto-animate-easing="ease-in-out" data-auto-animate-id="sense"}
 
-::::::::::::::::: {data-id="stage" style="position:relative;             width:calc(100% + 380px);             height:calc(74vh + 0px );             margin-left:-190px;             margin-right:-220px;             margin-top:-100px;             margin-bottom:0px;             padding:0;"}
+::::::::::::::::: {data-id="stage" style="position:relative;             width:calc(100% - 80px);             height:calc(74vh + 0px );             margin-left:40px;             margin-right:40px;             margin-top:-100px;             margin-bottom:0px;             padding:0;"}
 <!-- Keep vision as a big background block, but shrink it so the others can be compared -->
 
 ::::: {data-id="vision" style="position:absolute; left:0; top:0;             width:54%; height:100%;             background:#558ED5; border-radius:1px;"}
@@ -1387,8 +1387,8 @@ library(ggplotify)
 nfl_path <- here::here("shared", "data", "nfl_field_goals_2025.csv")
 df <- readr::read_csv(nfl_path, show_col_types = FALSE)
 
-# ---- Weeks: 1-6 and 8 (replace week 7 with week 8) ----
-weeks_keep <- c(1:6, 8)
+# ---- All weeks in the 2025 season, including postseason ----
+weeks_keep <- sort(unique(df$week[!is.na(df$week)]))
 
 # ---- Data: mean yardlineNumber by week (Field Goal + Kick Attempt Good) ----
 week_df <- df %>%
@@ -1429,6 +1429,16 @@ pie_cols <- c(
   "W6" = "#f2c200",  # yellow/gold
   "W8" = "#6aa84f"   # green
 )
+
+# Extend the existing teaching palettes to every week; retain existing colors.
+week_labels <- paste0("W", weeks_keep)
+for (palette_name in c("bar_vivid_cols", "pie_cols")) {
+  palette <- get(palette_name)
+  missing_weeks <- setdiff(week_labels, names(palette))
+  palette <- c(palette, setNames(rep(unname(palette), length.out = length(missing_weeks)),
+                                 missing_weeks))
+  assign(palette_name, palette[week_labels])
+}
 
 subtle_col <- "#c7bf9b"
 
@@ -1851,25 +1861,28 @@ library(stringr)
 
 df <- readr::read_csv(nfl_path, show_col_types = FALSE)
 
-# Helper: parse "mm:ss:00" (e.g., "15:00:00") --> seconds elapsed in a 15-min quarter
+# Parse the countdown clock explicitly; malformed times remain missing.
+# Regulation quarters are 15 minutes, so elapsed = 900 - seconds remaining.
 sec_elapsed_from_clock <- function(clock_chr) {
-  mm <- suppressWarnings(as.integer(str_sub(clock_chr, 1, 2)))
-  ss <- suppressWarnings(as.integer(str_sub(clock_chr, 4, 5)))
-  mm[is.na(mm)] <- 0L
-  ss[is.na(ss)] <- 0L
-  # elapsed since quarter start
-  pmin(900L, mm * 60L + ss)
+  parts <- stringr::str_match(as.character(clock_chr), "^(\\d{2}):(\\d{2}):00$")
+  mm <- suppressWarnings(as.integer(parts[, 2]))
+  ss <- suppressWarnings(as.integer(parts[, 3]))
+  remaining <- mm * 60L + ss
+  ifelse(!is.na(remaining) & ss < 60L & remaining <= 900L,
+         900L - remaining, NA_integer_)
 }
 
 # Filter to made field goals + compute seconds elapsed
 fg_good <- df %>%
   filter(
+    quarter %in% 1:4,  # Keep the common 15-minute regulation-quarter clock.
     tolower(specialTeamsPlayType) == "field goal",
     tolower(specialTeamsResult) == "kick attempt good",
     !is.na(yardlineNumber),
     !is.na(gameClock)
   ) %>%
-  mutate(seconds_elapsed = sec_elapsed_from_clock(gameClock))
+  mutate(seconds_elapsed = sec_elapsed_from_clock(gameClock)) %>%
+  filter(!is.na(seconds_elapsed))
 
 # ----- XY scatter: seconds elapsed (x), yardline (y), with regression line -----
 blue_col <- "#2F6CFF"
