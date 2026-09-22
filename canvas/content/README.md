@@ -34,7 +34,7 @@ Shared lab downloads are also published once with the public course website,
 not copied into each Canvas course. Their source paths, stable public URLs, and
 template keys are declared in `canvas/manifests/shared-resources.yml`. Quarto's
 `project.resources` list in `_quarto.yml` ensures that each file is copied into
-the rendered site. The four shared URL values belong in the publisher's common
+the rendered site. The shared URL values belong in the publisher's common
 `template_values` block so every section resolves the same resource.
 
 ## Required template values
@@ -43,7 +43,9 @@ the rendered site. The four shared URL values belong in the publisher's common
 - `office_hours`
 - `student_hours_url`
 - `posit_cloud_join_url`
-- `lab_02_download_url`
+- `lab_02_games_url`
+- `lab_02_plays_url`
+- `lab_02_excel_url`
 - `lab_02_posit_cloud_url`
 - `lab_03_excel_training_url`
 - `lab_03_data_url`
@@ -74,8 +76,11 @@ manually. The refresh refuses to modify an already published course.
 
 Canvas-only video pages may declare `kaltura_partner_id` and a `videos` list in
 their YAML front matter. The publisher renders each `entry_id` using the current
-Canvas-compatible Kaltura embed component; generated iframe URLs are not stored
-as canonical content.
+Canvas-compatible Kaltura embed component and adds a matching open-in-new-tab
+fallback link; generated player URLs are not stored as canonical content. A
+successful verification must count both elements and confirm the entry IDs.
+If the Canvas page contains only the Markdown prose, treat that as a publisher
+regression even when the content apply itself reported success.
 
 Publication must fail if a required value is missing or still contains a
 literal `{{ ... }}` placeholder.

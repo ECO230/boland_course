@@ -12,13 +12,13 @@ the request.
 ## Start Here
 
 Read `canvas/README.md`, then inspect the relevant script before acting. For a
-new Fall 2026 section, use `canvas/scripts/provision-section.ps1`. Pass
+new Fall 2026 section, use `../eco230-canvas-ops/canvas/scripts/provision-section.ps1`. Pass
 `-ResumeRunRoot` after an interrupted run so completed plans, applies, uploads,
 and verifications are reused.
 
 The guarded wrappers resolve `CANVAS_TOKEN` from the current PowerShell process
 and then the Windows user environment. If the user explicitly requests
-persistence, have them run `canvas/scripts/set-canvas-token.ps1` in a terminal
+persistence, have them run `../eco230-canvas-ops/canvas/scripts/set-canvas-token.ps1` in a terminal
 they can see. It accepts the token through a masked prompt and saves a
 user-scoped environment variable. Explain that Windows stores this value as
 plaintext in the user's registry. Never print the token or store it in the
@@ -26,7 +26,7 @@ repository, receipts, command history, or logs. Do not rely on an interactive
 prompt or tab the agent cannot observe.
 
 For a targeted Week 2 video-page repair in sections 4, 11, and 12, use
-`canvas/scripts/refresh-week2-video-pages.ps1`. It renders the three tracked
+`../eco230-canvas-ops/canvas/scripts/refresh-week2-video-pages.ps1`. It renders the three tracked
 Markdown sources, updates Canvas through the Pages API, and verifies video IDs,
 player and fallback-link counts, and unchanged publication states.
 

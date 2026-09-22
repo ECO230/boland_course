@@ -11,6 +11,20 @@ files:
     template_value: "canvas_file_lab3_completed_twbx_url"
     use: "In-class Lab 3 completed example; release follows the existing solution item via sync-lab3-hints.ps1"
 
+  - key: "week03-considerations-in-dataviz"
+    display_name: "Considerations in DataViz.pdf"
+    source_path: "canvas/content/files/Considerations in DataViz.pdf"
+    content_type: "application/pdf"
+    template_value: "canvas_file_considerations_in_dataviz_pdf_url"
+    use: "Week 3 reading restored from the Canvas export"
+
+  - key: "week03-graph-choice-chart"
+    display_name: "Graph_Choice_Chart.pdf"
+    source_path: "canvas/content/files/Graph_Choice_Chart.pdf"
+    content_type: "application/pdf"
+    template_value: "canvas_file_graph_choice_chart_pdf_url"
+    use: "Week 3 reading restored from the Canvas export"
+
   - key: "guided-notes-01-data-literacy"
     display_name: "Guided Notes 1 - Data Literacy.docx"
     source_path: "shared/guided-notes/Guided_Notes_01_Data_Literacy.docx"

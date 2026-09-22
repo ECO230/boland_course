@@ -9,10 +9,10 @@ Week 1: Intro to Data Analysis,Data Organization in Spreadsheets.pdf,web_resourc
 Week 2: Descriptive Statistics,DataAggregation.pdf,web_resources/Readings/DataAggregation.pdf,replace_with_external_link,https://trinachi.github.io/data-design-builds/ch02.html
 Week 2: Descriptive Statistics,Measures Of Variability.pdf,web_resources/Readings/Measures Of Variability.pdf,recreate_qmd,week02/readings/measures-of-variability.qmd
 Week 2: Descriptive Statistics,Working with percentages.pdf,web_resources/Readings/Working with percentages.pdf,recreate_qmd,week02/readings/working-with-percentages.qmd
-Week 3: Data Visualization,Considerations in DataViz.pdf,web_resources/Readings/Considerations in DataViz.pdf,replace_with_external_link,https://trinachi.github.io/data-design-builds/
+Week 3: Data Visualization,Considerations in DataViz.pdf,web_resources/Readings/Considerations in DataViz.pdf,retain_course_copy,canvas/content/files/Considerations in DataViz.pdf
 Week 3: Data Visualization,The Right Graph.pdf,web_resources/Readings/The Right Graph.pdf,replace_with_external_link,https://www.perceptualedge.com/articles/ie/the_right_graph.pdf
 Week 3: Data Visualization,PieCharts_EXCERPT.pdf,web_resources/Readings/PieCharts_EXCERPT.pdf,replace_with_external_link,https://www.perceptualedge.com/articles/visual_business_intelligence/save_the_pies_for_dessert.pdf
-Week 3: Data Visualization,Graph_Choice_Chart.pdf,web_resources/Readings/Graph_Choice_Chart.pdf,replace_with_external_link,https://participatoryscience.org/file/graph-choice-chart
+Week 3: Data Visualization,Graph_Choice_Chart.pdf,web_resources/Readings/Graph_Choice_Chart.pdf,retain_course_copy,canvas/content/files/Graph_Choice_Chart.pdf
 Week 3: Data Visualization,DataVisGuide_EXCERPT.pdf,web_resources/Readings/DataVisGuide_EXCERPT.pdf,replace_with_external_link,https://cdn2.hubspot.net/hub/53/file-863940581-pdf/Data_Visualization_101_How_to_Design_Charts_and_Graphs.pdf
 Week 3: Data Visualization,AdvancedInterp.pdf,web_resources/Readings/AdvancedInterp.pdf,recreate_qmd,week03/readings/advanced-interpretation.qmd
 Week 3: Data Visualization,Lab3_Hints.pptx,web_resources/Labs/Lab3_Hints.pptx,recreate_qmd,week03/labs/lab-3-hints.qmd

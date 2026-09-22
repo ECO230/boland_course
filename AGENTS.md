@@ -26,6 +26,8 @@ The site config is `_quarto.yml`. Rendered output goes to `_site/`.
 - `shared/styles/boland-reveal.scss`: shared Reveal.js slide styling.
 - `shared/images/xkcd_*.png`: reusable xkcd-style character assets.
 - `admin/final/*.qmd`: practicum prompts/guidelines.
+- `canvas/`: repository-managed Canvas content, manifests, guarded PowerShell
+  workflows, and validation documentation.
 - `renv.lock` and `renv/`: R dependency management.
 
 ## Commands
@@ -69,6 +71,21 @@ rg --files
 
 ## Editing Conventions
 
+- Before drafting assignment grading comments, rubric feedback, or revision
+  notes, read `canvas/ASSIGNMENT-FEEDBACK-STYLE.md`. Use the instructor's
+  historical comment patterns as voice seeds, grounded in the current
+  submission and rubric.
+- For first-pass grading, read `canvas/GRADING-WORKFLOW.md` and the assignment's
+  private context in the separate `eco230-grading` directory. Keep submissions,
+  assessments, review workbooks, and upload receipts outside both repositories.
+  Instructor review precedes upload.
+- Before treating assignment work as missing, inspect student-authored submission
+  comments, comment attachments, and all earlier attempts (text and files),
+  including Canvas-hosted links in those sources. Use
+  `../eco230-canvas-ops/canvas/scripts/grading-probe-supplements.py` for the read-only fallback probe.
+  Keep source attempt, comment author, and timestamps with recovered evidence;
+  do not mistake instructor feedback for student work or overwrite a reviewed
+  workbook when new evidence is found.
 - Prefer small, focused edits that match existing Quarto style.
 - Before creating or updating a weekly slide deck, read
   `.codex/guides/SLIDE_STYLE_GUIDE.md` and follow its global/shared/local CSS
@@ -80,6 +97,10 @@ rg --files
   `.codex/guides/POSIT_CLOUD_ASSIGNMENT_WORKFLOW.md`.
 - Before creating or updating project prompts, timelines, presentation
   requirements, or rubrics, read `.codex/guides/PROJECT_STYLE_GUIDE.md`.
+- Before provisioning, repairing, or publishing Canvas course content, read
+  `.codex/skills/canvas-course-operations/SKILL.md` and use the existing
+  wrapper scripts instead of reconstructing the workflow from individual CLI
+  commands.
 - Do not reorganize navigation unless asked.
 - For Reveal.js decks, follow the Week 12 format:
   - `format: revealjs`
@@ -119,6 +140,22 @@ References to week numbers are acceptable because they are date agnostic.
 - The global `_quarto.yml` CSS path should be checked before whole-site renders; the shared styles live under `shared/styles/`.
 - Some older files may contain misspellings or legacy paths. Preserve them unless they affect the requested task.
 - Watch for character-encoding problems such as stray A-circumflex characters or replacement characters in rendered HTML after editing copied syllabus text.
+- A Canvas token set in the user's open PowerShell is not necessarily visible
+  to a separate Codex terminal. The guarded wrappers fall back to the Windows
+  user-scoped `CANVAS_TOKEN`. Persist it only when the user explicitly requests
+  that convenience, using `../eco230-canvas-ops/canvas/scripts/set-canvas-token.ps1` in a terminal
+  the user can see. Never print it or store it in repository files or logs.
+- A copied New Quiz can appear in Assignments while its quiz-service API route
+  returns 404. Do not retry alternate assignment or quiz endpoints repeatedly.
+  Stop and repair or extend the repository API tooling, then resume the same
+  provisioning run so completed checkpoints are reused.
+- Never mutate Canvas through browser automation. The repository is the source
+  of truth and all Canvas writes must use the reviewed API tooling or wrapper
+  scripts. Browser access is read-only validation unless the user explicitly
+  grants a one-time exception.
+- Canvas Markdown video pages store Kaltura IDs in YAML front matter. The
+  publisher must render every declared video as both an embedded player and a
+  fallback link; a prose-only page is a renderer failure, not complete content.
 
 ## Verification Checklist
 
@@ -129,3 +166,17 @@ Before handing off changes:
 - If changing syllabus data or parameters, render at least one section with `-P class_section:<section> --cache-refresh`.
 - Check rendered HTML for duplicated section rows and mojibake characters.
 - For slides, open or inspect the rendered deck enough to confirm image paths and slide flow.
+- For Canvas provisioning, verify assignment-group membership, module and
+  module-item publication separately, and the course workflow state. Unless
+  explicitly requested otherwise, the course itself must remain unpublished.
+- For Canvas video pages, count the rendered Kaltura iframes and fallback links,
+  confirm their entry IDs match the source metadata, and visually confirm at
+  least one player loads before handing off.
+
+## Repository ownership
+
+Public teaching sources and Canvas content belong here. Canvas operational
+code/tests belong in adjacent `eco230-canvas-ops/canvas/scripts`. Quizzes, tests,
+keys, and assessment datasets belong in adjacent private `eco230-assessments`.
+Student records stay in `eco230-grading` outside Git. Read
+`canvas/REPOSITORY-BOUNDARIES.md` before adding new sources.

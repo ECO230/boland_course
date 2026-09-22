@@ -19,9 +19,11 @@ injury counts, coordinates, and selected numerical weather measurements.
 ### Resources
 
 - [Download the Lab 3 crash extract]({{ lab_03_data_url }})
-- Open the Lab 3 Tableau packaged workbook (`.twbx`) supplied in this Canvas
-  module.
-- [Lab 3 Hints](https://eco230.github.io/boland_course/week03/labs/lab-3-hints.html)
+- [Lab 3 Video Guide: Tableau and Excel](/courses/{{ canvas_course_id }}/pages/lab-3-video-guide-tableau-and-excel)
+
+Follow the video guide as we build the workbook together in class. Start by
+connecting Tableau to the crash CSV and verifying the unfiltered count of
+12,000 records. Create a separate worksheet for each view below.
 
 The extract is a deterministic sample for learning visualization techniques.
 Its row counts are not official totals for Chicago crashes.
@@ -31,23 +33,42 @@ Its row counts are not official totals for Chicago crashes.
 Create the following views in Tableau. Reproduce at least 3 in Excel.
 
 1. **Ranking:** Rank the 10 most common `primary_contributory_cause` values by
-   crash count. Keep missing and not-applicable values out of the ranking.
-2. **Nominal comparison:** Compare average `injuries_total` across the selected
-   causes. Explain why this average should be interpreted cautiously.
-3. **Time series:** Plot monthly crash counts in chronological order. Decide
-   whether month, year-month, or a filtered date range best supports the
-   comparison.
+   crash count. Exclude missing causes, UNABLE TO DETERMINE, and NOT APPLICABLE,
+   sort descending, and keep the ten largest remaining causes. Keep this
+   selection local to the ranking sheet.
+2. **Nominal comparison:** Duplicate the ranking sheet, remove its cause
+   selection, and compare average `injuries_total` across causes. Put crash
+   count in the tooltip, filter to at least 30 crashes per cause, and exclude
+   NOT APPLICABLE. Explain why averages based on small groups need caution.
+3. **Time series:** Plot crash count by continuous month from `crash_datetime`,
+   keeping month-year combinations in chronological order. Color by
+   `reported_weather_condition`; examine the view without CLEAR and optionally
+   UNKNOWN. Document which conditions you exclude.
 4. **Part-to-whole:** Show the percentage of crashes in each
-   `most_severe_injury` category within each `time_period`. Verify that the
-   percentages total 100% within every time period.
+   `most_severe_injury` category within each discrete quarter of
+   `crash_datetime` (Q1-Q4 across years). Exclude null injury categories and
+   verify that the complete categories total 100% within every quarter.
+   Convert the text table to stacked bars, then practice hiding NO INDICATION
+   OF INJURY and REPORTED, NOT EVIDENT while retaining their contribution to
+   the denominator. Explain why the visible portions no longer total 100%
+   and how using Exclude instead would change the calculation.
 5. **Relationship:** Create a scatterplot of `temperature_f` and `dew_point_f`.
-   Use `weather_station_name` as a grouping or filter and describe what one mark
-   represents.
-6. **Distribution:** Compare the distribution of `visibility_miles` across
-   selected `reported_weather_condition` categories using box plots or
-   histograms.
-7. **Map:** Plot crashes using `longitude` and `latitude`. Filter the view to a
-   manageable subset and explain what the filter removes.
+   Turn off Aggregate Measures so each mark represents a crash with weather
+   values. Make separate panels by `weather_station_name`, exclude null station
+   names, and explain that crashes can share a weather observation.
+6. **Distribution:** Explore `temperature_f` with a histogram and experiment
+   with bin widths. Then compare temperature across
+   `reported_weather_condition` categories using box plots of individual
+   observations. Compare medians, spread, and unusual values.
+7. **Map:** Plot `longitude` on Columns and `latitude` on Rows, with `crash_id`
+   on Detail and `trafficway_type` on Color. Check that each mark represents a
+   crash. Optionally explore a geographic subset or a ZIP-code filled map;
+   explain any filtering or change in what one mark represents.
+
+Then open the same CSV in Excel and save it as `.xlsx`. Follow the guide's
+PivotChart examples to reproduce at least three views. Match the Tableau
+filters and aggregations. Use a regular XY Scatter chart from the raw paired
+measurements if you choose the relationship view.
 
 For every view, use a question-based title, display units where needed, verify
 the aggregation, remove unnecessary decoration, and use color only when it
@@ -55,5 +76,8 @@ communicates information.
 
 ### Completion check
 
-Keep the Excel workbook and Tableau Packaged Workbook available for class.
+Save and reopen the Tableau Packaged Workbook (`.twbx`) and Excel workbook
+(`.xlsx`). Check your seven Tableau views and at least three Excel views
+against the video guide's final checklist, including filters, aggregations,
+and percentage denominators. Keep both files available for class.
 Only upload them if the accompanying Canvas assignment requests a submission.

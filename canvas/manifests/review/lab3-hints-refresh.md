@@ -2,7 +2,7 @@
 
 `week03/labs/lab-3-hints.qmd` is the shared source for the website and native
 Canvas hints page. Render that document before running
-`canvas/scripts/sync-lab3-hints.ps1`; use `-Execute` to apply the reviewed
+`../eco230-canvas-ops/canvas/scripts/sync-lab3-hints.ps1`; use `-Execute` to apply the reviewed
 preflight and `-Execute -Resume` to resume its saved snapshot after interruption.
 
 The wrapper converts the rendered document using the Canvas-safe Quarto
@@ -26,5 +26,5 @@ unrelated item order, and unchanged course/module/page/item release states.
 The hints and completed workbook remain unpublished in all three sections.
 Receipts and returned native HTML are in ignored `canvas/work/lab3-hints/`.
 
-Validation: `canvas/scripts/tests/test_lab3_hints.py` verifies the native
+Validation: `../eco230-canvas-ops/canvas/scripts/tests/test_lab3_hints.py` verifies the native
 rendering and rejects missing transformations or executable content.

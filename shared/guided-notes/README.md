@@ -17,7 +17,7 @@ documents continue to match the course material.
 To reproduce these files from a local Canvas export, run:
 
 ```powershell
-& .\canvas\scripts\extract-guided-notes.ps1
+& ..\eco230-canvas-ops\canvas\scripts\extract-guided-notes.ps1
 ```
 
 The `.imscc` input is intentionally excluded from Git. The extracted `.docx`

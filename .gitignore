@@ -65,3 +65,10 @@ __pycache__/
 # -----------------------------
 .codex/private.md
 .codex/private/
+
+# Generated document caches and local review outputs
+**/*_cache/
+**/*_files/
+/output/
+/outputs/
+/week02/labs/Lab_02_IP.pdf

@@ -34,3 +34,20 @@ Do not copy private details from `.codex/private.md` into public docs, code comm
 - If `.codex/private.md` exists locally, read it only when server, deployment, or private operational context is relevant.
 - Treat `.codex/private.example.md` as the committed template for private notes.
 - Keep generated docs plain Markdown unless a specific Quarto feature is needed.
+- For Canvas section population, repair, assignment-group, or publication work,
+  read `.codex/skills/canvas-course-operations/SKILL.md` before acting. Start
+  with the repository PowerShell wrapper and reuse its run checkpoints.
+- Treat Canvas content publication, module-item publication, module
+  publication, and course publication as separate states. Validate each state
+  requested by the user and never publish the course by implication.
+- Treat this repository as the source of truth for Canvas. Every Canvas
+  mutation must originate in tracked repository content and run through the
+  reviewed API tooling or PowerShell wrappers. Browser access is read-only
+  validation unless the user explicitly grants a one-time exception.
+- If a copied New Quiz returns 404 from the documented quiz-service API, stop
+  endpoint retries. Repair or extend and test the repository API tooling, then
+  resume the same wrapper run so completed checkpoints are reused. Do not use
+  the browser as a mutation fallback.
+- For Canvas video pages, verify that every Kaltura `videos` entry renders as a
+  player plus a matching fallback link. Do not accept a prose-only page as a
+  successful content migration.

@@ -7,6 +7,10 @@ the Canvas migration workflow.
 ## Decision meanings
 
 - `remove`: omit the attachment without replacement.
+- `retain_course_copy`: upload the open-licensed export PDF and link from the
+  consolidated reading page. On September 16, 2026, the instructor requested
+  this for `Considerations in DataViz.pdf` and `Graph_Choice_Chart.pdf` because
+  their external links were inactive; this supersedes their decisions below.
 - `replace_with_external_link`: publish a Canvas module link to the identified
   source instead of copying the legacy attachment.
 - `recreate_qmd`: create a repository-owned Quarto replacement at the recorded

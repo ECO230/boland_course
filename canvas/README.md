@@ -1,5 +1,8 @@
 # Canvas course configuration
 
+See [repository boundaries](REPOSITORY-BOUNDARIES.md) for public content,
+private assessments, Canvas operations, and local grading records.
+
 The tracked configuration for ECO 230 Canvas publishing is under `manifests/`.
 It currently represents a migration draft based on the Spring 2026 Section 12
 course export. Final course publication is disabled while the Canvas delivery
@@ -14,7 +17,7 @@ To persist `CANVAS_TOKEN` for the current Windows user without placing it in
 PowerShell history or the repository, run:
 
 ```powershell
-& .\canvas\scripts\set-canvas-token.ps1
+& ..\eco230-canvas-ops\canvas\scripts\set-canvas-token.ps1
 ```
 
 Enter the token at the masked prompt. Windows stores user environment variables
@@ -69,7 +72,7 @@ edited in Canvas.
 Provision a new Fall 2026 section through the complete guarded workflow with:
 
 ```powershell
-& .\canvas\scripts\provision-section.ps1 -Section 12 -CourseId 870121 -Execute
+& ..\eco230-canvas-ops\canvas\scripts\provision-section.ps1 -Section 12 -CourseId 870121 -Execute
 ```
 
 The script selectively seeds protected Canvas assessments and private files,
@@ -80,11 +83,17 @@ publishes only `Course Info and Resources` and `Week 1: Intro to Data Analysis`.
 It refuses to run without the exact section/course mapping and leaves the Canvas
 course itself unpublished.
 
+Provisioning sets the course gradebook default to **Manually post grades**
+before creating repository assignments. It verifies the setting through a fresh
+API read and saves `grade-posting-policy-verification.json` in the run directory.
+Resumed runs also check the live setting. This sets the course default; existing
+assignment-specific posting policies remain separate.
+
 Resume an interrupted run by passing its existing work directory so successful
 plans, applies, uploads, and verifications are not repeated:
 
 ```powershell
-& .\canvas\scripts\provision-section.ps1 -Section 12 -CourseId 870121 -ResumeRunRoot "C:\Users\bolan\Documents\eco230-canvas-ops\work\section-provisioning\fall-2026-12-<timestamp>" -Execute
+& ..\eco230-canvas-ops\canvas\scripts\provision-section.ps1 -Section 12 -CourseId 870121 -ResumeRunRoot "C:\Users\bolan\Documents\eco230-canvas-ops\work\section-provisioning\fall-2026-12-<timestamp>" -Execute
 ```
 
 Copied New Quizzes have a Canvas-specific edge case: the assignment can be
@@ -98,7 +107,7 @@ Refresh the repository-owned Week 2 video pages in every Fall 2026 section with
 one guarded API workflow:
 
 ```powershell
-& .\canvas\scripts\refresh-week2-video-pages.ps1 -Sections 4,11,12 -Execute
+& ..\eco230-canvas-ops\canvas\scripts\refresh-week2-video-pages.ps1 -Sections 4,11,12 -Execute
 ```
 
 The wrapper renders all three pages from their tracked Markdown metadata,
@@ -110,8 +119,8 @@ Refresh the already-published repository-owned Lab 2 page in every Fall 2026
 section with:
 
 ```powershell
-& .\canvas\scripts\refresh-lab2-page.ps1 -Sections 4,11,12
-& .\canvas\scripts\refresh-lab2-page.ps1 -Sections 4,11,12 -Execute
+& ..\eco230-canvas-ops\canvas\scripts\refresh-lab2-page.ps1 -Sections 4,11,12
+& ..\eco230-canvas-ops\canvas\scripts\refresh-lab2-page.ps1 -Sections 4,11,12 -Execute
 ```
 
 The first run is read-only. The execute run renders the tracked Canvas Markdown
@@ -124,8 +133,8 @@ If the Lab 2 page and its existing Week 2 module item are still unpublished,
 publish only those two objects with:
 
 ```powershell
-& .\canvas\scripts\publish-lab2-page.ps1 -Sections @(4,11,12)
-& .\canvas\scripts\publish-lab2-page.ps1 -Sections @(4,11,12) -Execute
+& ..\eco230-canvas-ops\canvas\scripts\publish-lab2-page.ps1 -Sections @(4,11,12)
+& ..\eco230-canvas-ops\canvas\scripts\publish-lab2-page.ps1 -Sections @(4,11,12) -Execute
 ```
 
 The first run is read-only. The execute run requires the exact section/course
@@ -137,20 +146,20 @@ module publication state is preserved.
 Generate static PDFs for the current Week 1-7 Reveal decks with:
 
 ```powershell
-& .\canvas\scripts\export-slide-pdfs.ps1
+& ..\eco230-canvas-ops\canvas\scripts\export-slide-pdfs.ps1
 ```
 
 The script renders each QMD with Quarto, waits for Reveal through Playwright,
 and prints a tagged Letter-landscape PDF with backgrounds. Outputs and a SHA-256
 manifest are written under the ignored `canvas/work/slide-pdfs/` directory.
 It uses the Codex-bundled `playwright-core` when available. On another machine,
-run `npm install` in `canvas/scripts/` once before exporting.
+run `npm install` in `../eco230-canvas-ops/canvas/scripts/` once before exporting.
 
 Set a staged weekly module release without deleting Canvas content with:
 
 ```powershell
-& .\canvas\scripts\set-module-visibility.ps1 -CourseId 870634 -ExpectedModuleCount 16
-& .\canvas\scripts\set-module-visibility.ps1 -CourseId 870634 -ExpectedModuleCount 16 -PublishSelectedContent -KeepModulesUnpublished -Execute
+& ..\eco230-canvas-ops\canvas\scripts\set-module-visibility.ps1 -CourseId 870634 -ExpectedModuleCount 16
+& ..\eco230-canvas-ops\canvas\scripts\set-module-visibility.ps1 -CourseId 870634 -ExpectedModuleCount 16 -PublishSelectedContent -KeepModulesUnpublished -Execute
 ```
 
 The first command is read-only and writes a proposed before-state audit. The
@@ -162,6 +171,43 @@ the script should publish the named modules after verification. Pass a
 different `-PublishedModuleNames` list as additional weeks are released.
 
 ## Fall 2026 operational status
+
+### Publish linked reading pages together
+
+`set-module-visibility.ps1 -PublishSelectedContent` now preflights linked Canvas
+pages recursively and publishes the children before their parent pages. This
+includes repository readings intentionally omitted from the module item list.
+The read-only module plan also lists the pages that would be published.
+
+For an existing course, audit links from published repository pages with:
+
+```powershell
+& ..\eco230-canvas-ops\canvas\scripts\publish-page-dependencies.ps1 -CourseId 870121 -PublishedPages
+```
+
+To publish a specific reading page and its linked pages together:
+
+```powershell
+& ..\eco230-canvas-ops\canvas\scripts\publish-page-dependencies.ps1 -CourseId 870121 -RootPages @("week-3-reading-and-preparation")
+& ..\eco230-canvas-ops\canvas\scripts\publish-page-dependencies.ps1 -CourseId 870121 -RootPages @("week-3-reading-and-preparation") -Execute
+```
+
+The cascade follows same-course page links only and requires every reached page
+to match an approved repository page title in `manifests/course.yml`. Missing,
+unmanaged, cross-course, and scheduled unpublished pages block the full plan
+before any writes. Shared children and link cycles are visited once. Existing
+published pages are skipped. Each write is read back, and course, module, and
+module-item publication states are checked for changes. Audit receipts contain
+page slugs and link relationships, not page bodies or student data.
+
+This runs through the repository tools; clicking Publish in Canvas does not
+trigger it. Run the published-page audit after manual publishing, or use this
+wrapper to publish parents and children together. Files, assignments, quizzes,
+external links, and student-specific module locks are outside this page check.
+Publication does not guarantee access through a locked or unpublished module.
+
+Run its offline tests with the Canvas ops Python runtime:
+`python -m unittest discover -s ../eco230-canvas-ops/canvas/scripts/tests -p test_page_dependencies.py`.
 
 Section 12 (`870121`) completed provisioning on September 9, 2026. Canvas was
 validated with `Course Info and Resources` and `Week 1: Intro to Data Analysis`

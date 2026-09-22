@@ -14,7 +14,7 @@ explanations, summary, and reflection. Posit Cloud is optional and appears
 last in Resources. The 100-point rubric allocates 5 points to AI reflection
 and 5 to complete files; the other criterion weights remain unchanged.
 
-Render the website source, then run `canvas/scripts/refresh-homework3.ps1`
+Render the website source, then run `../eco230-canvas-ops/canvas/scripts/refresh-homework3.ps1`
 for a read-only preflight; append `-Execute` to apply. The wrapper validates
 native callouts, updates the existing unpublished assignment and its rubric,
 and orders the six existing lab items as LabPrep, Lab 3, Hints, Video Guide,
