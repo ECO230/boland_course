@@ -4,6 +4,13 @@ folder_path: "eco230-managed/guided-notes"
 # Each editable guided-notes file is uploaded once per Canvas course and reused
 # by its Canvas assignment wrapper and any supporting pages.
 files:
+  - key: "lab03-completed"
+    display_name: "Lab3_Completed.twbx"
+    source_path: "canvas/content/files/Lab3_Completed.twbx"
+    content_type: "application/octet-stream"
+    template_value: "canvas_file_lab3_completed_twbx_url"
+    use: "In-class Lab 3 completed example; release follows the existing solution item via sync-lab3-hints.ps1"
+
   - key: "guided-notes-01-data-literacy"
     display_name: "Guided Notes 1 - Data Literacy.docx"
     source_path: "shared/guided-notes/Guided_Notes_01_Data_Literacy.docx"
