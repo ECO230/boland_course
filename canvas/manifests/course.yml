@@ -1103,20 +1103,10 @@ modules:
         position: 13
         management: "structure"
         publish_action: "synchronize_structure"
-      - key: "video-tutorial-opening-a-tableau-file"
-        type: "WikiPage"
-        title: "Video Tutorial: Opening a Tableau File"
-        position: 14
-        management: "repository"
-        publish_action: "synchronize"
-        source:
-          path: "canvas/content/pages/week03-opening-tableau-file.md"
-          kind: "canvas_markdown"
-          match_method: "approved_canvas_native_migration"
       - key: "labprep-for-lab-3"
         type: "WikiPage"
         title: "LabPrep for Lab 3"
-        position: 15
+        position: 14
         management: "repository"
         publish_action: "synchronize"
         source:
@@ -1126,7 +1116,7 @@ modules:
       - key: "lab-3-creating-basic-visualizations-in-excel-and-tableau"
         type: "WikiPage"
         title: "Lab 3 Creating Basic Visualizations in Excel and Tableau"
-        position: 16
+        position: 15
         management: "repository"
         publish_action: "synchronize"
         source:
@@ -1136,7 +1126,7 @@ modules:
       - key: "lab3-hints-pptx"
         type: "WikiPage"
         title: "Lab 3 Hints"
-        position: 17
+        position: 16
         management: "repository"
         publish_action: "synchronize"
         source:
@@ -1145,6 +1135,16 @@ modules:
           rendered_path: "_site/week03/labs/lab-3-hints.html"
           published_url: "https://eco230.github.io/boland_course/week03/labs/lab-3-hints.html"
           match_method: "approved_canvas_native_quarto"
+      - key: "lab-3-video-guide-tableau-and-excel"
+        type: "WikiPage"
+        title: "Lab 3 Video Guide: Tableau and Excel"
+        position: 17
+        management: "repository"
+        publish_action: "synchronize"
+        source:
+          path: "canvas/content/pages/week03-lab-video-guide.md"
+          kind: "canvas_markdown_template"
+          match_method: "instructor_september_2026_video_guide"
       - key: "lab3-completed-ext-twbx"
         type: "Attachment"
         title: "Lab3_Completed.twbx"
@@ -1155,16 +1155,26 @@ modules:
           path: "canvas/content/files/Lab3_Completed.twbx"
           kind: "course_file"
           match_method: "sync_lab3_hints_wrapper"
+      - key: "video-tutorial-opening-a-tableau-file"
+        type: "WikiPage"
+        title: "Video Tutorial: Opening a Tableau File"
+        position: 19
+        management: "repository"
+        publish_action: "synchronize"
+        source:
+          path: "canvas/content/pages/week03-opening-tableau-file.md"
+          kind: "canvas_markdown"
+          match_method: "approved_canvas_native_migration"
       - key: "homework"
         type: "ContextModuleSubHeader"
         title: "Homework"
-        position: 19
+        position: 20
         management: "structure"
         publish_action: "synchronize_structure"
       - key: "homework-3-basic-data-visualization"
         type: "Assignment"
         title: "Homework 3: Basic Data Visualization"
-        position: 20
+        position: 21
         management: "repository"
         publish_action: "synchronize"
         source:
@@ -1176,13 +1186,13 @@ modules:
       - key: "quiz"
         type: "ContextModuleSubHeader"
         title: "Quiz"
-        position: 21
+        position: 22
         management: "structure"
         publish_action: "synchronize_structure"
       - key: "graded-quiz-1-descriptive-statistics-data-literacy-classic"
         type: "Quizzes::Quiz"
         title: "Graded Quiz 1: Descriptive Statistics & Data Literacy (classic)"
-        position: 22
+        position: 23
         management: "canvas_assessment"
         publish_action: "preserve"
   - key: "week-4-communicating-data"

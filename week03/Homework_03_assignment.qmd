@@ -20,201 +20,210 @@ editor: source
 ---
 
 ::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
-This assignment helps you choose visualizations that match the comparison you
-want an audience to make and apply perception-aware design.
+This assignment helps you practice the Week 3 question:
 
-You will create exactly three visuals from different analytical frames and
-justify the story, encoding, scope, and design choices for each one.
+> **How do we choose a visual that clearly communicates the comparison we want to make?**
+
+You will create **three visuals**, explain your analytical and design choices,
+and summarize what the visuals reveal. You will also reflect on responsible
+AI use that supports your work while keeping the analytical decisions yours.
 :::
 
 ## Objectives
 
-By the end of this assignment, you will be able to:
-
-- connect a data story to an appropriate analytical frame and chart type;
-- apply clear scales, ordering, color, and labeling;
-- state filters, units, and denominators; and
-- explain why an encoding supports the intended comparison.
+- Choose chart types that match the analytical question.
+- Apply clear scales, category ordering, purposeful color, and readable labels.
+- State the data scope, units, filters, and percentage denominators.
+- Interpret evidence from your visuals in context.
+- Evaluate and disclose your use of AI.
 
 ## Resources
 
-- Week 3 slides on visual perception and analytical frames
-- Week 1-2 slides on grain, NOIR, and descriptive summaries
-- The five `.csv` files in the `data` folder
-- Excel, Tableau, or R in Posit Cloud
+- [Week 3 slides: visual perception and analytical frames](https://eco230.github.io/boland_course/week03/week_03.html)
+- Week 1-2 slides on grain, measurement scales, and descriptive summaries
+- Your Week 1-2 dataset or another of the five approved course datasets
+- [Course dataset descriptions and downloads](https://eco230.github.io/boland_course/datasets/)
+- [Lab 3 Hints](https://eco230.github.io/boland_course/week03/labs/lab-3-hints.html) and the Lab 3 video guide in Canvas
+- [Optional R workspace: Homework 3 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765402). Use this if you choose R or want a Quarto document template. Posit Cloud is optional; Homework 3 is required.
 
-::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
-Create exactly three visuals: one from Module A, one from Module B, and one from
-Module C. Your grade emphasizes fit-for-purpose encodings, perceptual clarity,
-and concise explanations.
+::: {.callout-important appearance="minimal" icon="false" title="What to turn in"}
+Submit **one Word or PDF document with all three visuals embedded**, each
+visual's explanation, your summary, and your AI reflection. Also include the
+supporting files for the tools you used. Separate chart files or links do not
+replace the visuals inside your document.
 :::
-
-## 1) Identify Your Dataset and Scope
-
-Choose one project dataset and record the scope of your analysis.
-
-**Dataset:**
-
-**Filters or cleaning:**
-
-**Units and denominators:**
-
-
 
 ---
 
-## 2) Create and Insert Your Visuals
+## 1) Choose Your Dataset
 
-Build the visuals in Excel, Tableau, or R. Export each visual as a readable PNG
-and upload it to this Posit Cloud project.
+Choose one of the five Week 1 datasets. You may keep the dataset from Homework
+1 and 2 or switch. Briefly state the dataset, what one row represents, and any
+filters or cleaning you applied, such as excluding blanks or limiting dates.
 
-To insert a visual in this document, use Markdown like this after uploading the
-file:
+Use the same dataset for all three visuals so your summary can connect them.
+
+---
+
+## 2) Choose Your Tools
+
+The `data` folder contains the five course CSV files.
+
+Build the visuals using **Excel, Tableau, R, or a combination**. Choose the
+tool that supports the comparison you want to make; coding is not required.
+
+Export readable chart images and insert them into Word or your document
+editor. If you use the optional Posit Cloud template, upload the images and
+insert them in the QMD, or render your R charts directly into the document.
+
+To insert an exported chart, upload its PNG and use Markdown such as:
 
 ```markdown
-![Descriptive alternative text](visual_A.png)
+![Describe the chart for a reader](visual_A.png)
 ```
 
-Replace the example filename and alternative text with your own. Do not leave a
-broken image reference in the document you submit.
+Replace the filename and alternative text with your own. Repeat for B and C;
+check the rendered PDF for missing images. Keep the images with your QMD.
 
 ---
 
 ## 3) Visual A - Comparison
 
-Choose one frame:
+Choose **one** analytical frame:
 
-- nominal comparison, such as side-by-side bars; or
-- ranking, such as sorted horizontal bars.
+- **Nominal comparison:** Compare values across categories, such as side-by-side bars.
+- **Ranking:** Order categories by a measure, such as sorted horizontal bars.
 
-Use labeled axes and clear units. Sort categories when rank is part of the
-story.
+Label axes and units. Sort categories when rank is part of the question.
+Use a zero baseline for bars so their lengths represent the values honestly.
 
-**Insert Visual A below:**
+**Include Visual A in your document.** Directly below it, write **3-5 sentences** addressing:
 
-
-
-Write 3-5 sentences that address:
-
-1. **Story:** What comparison are you highlighting?
-2. **Frame and encoding:** Which frame and chart type did you choose, and why do
-   they fit?
-3. **Data scope:** What groups, filters, units, and denominators are shown?
-4. **Design:** Name at least two principles you applied.
-
-*Your response:*
-
-
+1. **Story:** What comparison or pattern are you highlighting?
+2. **Frame and encoding:** Which analytical frame and chart type did you choose, and why do they fit?
+3. **Data scope:** Which groupings, filters, units, and denominators matter?
+4. **Design:** Name at least **two design principles** you applied and explain how they help the reader.
 
 ---
 
 ## 4) Visual B - Composition or Difference
 
-Choose one frame:
+Choose **one** analytical frame:
 
-- part-to-whole, shown as percentages that total 100%;
-- a time series of one metric;
-- deviation from a clearly labeled benchmark.
+- **Part-to-whole:** Use percentage bars with a clearly stated denominator and complete categories totaling 100%.
+- **Time series:** Show one metric over time, using chronological dates and a readable, honest scale.
+- **Deviation:** Show differences from a clearly labeled benchmark, with a zero line for the deviations.
 
-Use an honest baseline for a time series. Show a zero line and explain the
-benchmark for deviation. Make the denominator explicit for part-to-whole.
+**Include Visual B in your document**, followed by **3-5 sentences** using the
+same structure: story, frame and encoding, data scope, and at least two design
+principles.
 
-**Insert Visual B below:**
-
-
-
-Write 3-5 sentences using the same four-part structure: story, frame and
-encoding, data scope, and at least two design principles.
-
-*Your response:*
-
-
+**Hint:** State what your percentages divide by. For a time series, keep
+month-year combinations distinct unless you intentionally compare seasonality.
+For deviation, explain why the benchmark is meaningful.
 
 ---
 
 ## 5) Visual C - Distribution or Relationship
 
-Choose one frame:
+Choose **one** analytical frame:
 
-- a frequency distribution, such as a histogram or boxplot; or
-- a relationship, such as a scatterplot with an optional trend line.
+- **Distribution:** Use a histogram with sensible bins or a box plot to show a numerical variable's distribution.
+- **Relationship:** Use a scatterplot of two numerical variables; a trend line is optional when appropriate.
 
-Use sensible bins, show units, reduce overplotting when needed, and identify
-important outliers without allowing them to distort the scale.
-
-**Insert Visual C below:**
-
-
-
-Write 3-5 sentences using the same four-part structure: story, frame and
-encoding, data scope, and at least two design principles.
-
-*Your response:*
-
-
+**Include Visual C in your document**, followed by **3-5 sentences** using the
+same four-part structure. Label units, check what one mark represents, reduce
+overplotting when needed, and investigate unusual values before removing them.
+A relationship in the chart does not establish causation.
 
 ---
 
-## Optional R Example
+## 6) Review Your Design
 
-If you choose to create a chart in R, adapt this scaffold. The example is not
-executed because the variable names must be replaced with variables from your
-dataset.
+Check all three visuals before assembling the final document:
 
-```{r}
-#| eval: false
-library(ggplot2)
+- The chart type matches the analytical frame.
+- Titles, axes, units, scales, and denominators are clear.
+- Category ordering and color support the comparison.
+- The chart avoids 3D effects and unnecessary decoration.
+- Bins, percentage calculations, benchmarks, and aggregation match the question.
+- Labels and values remain readable at the size used in the document.
 
-ggplot(df, aes(x = your_category, y = your_value)) +
-  geom_col(fill = "#4C78A8") +
-  coord_flip() +
-  labs(
-    title = "A Takeaway-First Title",
-    x = NULL,
-    y = "Units"
-  ) +
-  theme_minimal(base_size = 12)
-```
+This checklist is a review aid; you do not need to paste it under every chart.
 
 ---
 
-## 6) Review the Design
+## 7) Summary (Required)
 
-- [ ] Each chart matches its analytical frame.
-- [ ] Axes, units, scales, and denominators are clear.
-- [ ] Categories are ordered when order supports the story.
-- [ ] Color is used sparingly and intentionally.
-- [ ] The visuals avoid 3D effects and unnecessary decoration.
-- [ ] Composition totals 100%, deviation shows zero, and relationships show
-  appropriate scales when those frames are used.
-- [ ] Each visual has concise alternative text.
+In **no more than 200 words**, synthesize what your three visuals reveal.
+Reference Visuals A, B, and C, interpret the evidence, and explain whether the
+results match your expectations or show something unexpected.
+
+**Your summary belongs in the same document as the three embedded visuals and
+their explanations.** Submit the complete document, not a summary by itself.
+The 200-word limit applies only to this summary, not the chart explanations or
+AI reflection.
 
 ---
 
-## 7) Summarize the Three Visuals
+## 8) Responsible Use of AI (Required Reflection)
 
-In no more than 200 words, synthesize what the three visuals reveal. Explain
-whether the evidence matches your expectations or identifies something
-unexpected.
+AI may help with clarification, rewriting, or troubleshooting. It must not
+choose your analytical questions, make analytical decisions, or interpret
+results for you. You are responsible for checking every claim and submitting
+work you understand.
 
-*Your response:*
+Write **4-6 sentences** in your document:
 
+- State whether you used AI and name the tool if you did.
+- If you used it, describe a specific step it helped with, include one prompt
+  you used, and explain what it missed, oversimplified, or got wrong. Describe
+  how you checked or corrected its output.
+- If you did not use AI, say so, explain how you checked one chart or analytical
+  choice yourself, and identify a task where AI might help and a decision you
+  would keep your own. You do not need to invent a prompt or use AI to earn credit.
 
+---
 
 ## Submission
 
-Submit `Homework_03_IP.pdf` in Canvas. It must include all three visuals, the
-3-5 sentence explanation for each visual, and the summary. Also submit the
-supporting `.xlsx` or `.twbx` file when you used Excel or Tableau.
+Upload to the **Homework 3 assignment in Canvas**:
+
+1. **One Word (`.docx`) or PDF document** containing your dataset/scope notes,
+   Visuals A, B, and C embedded at a readable size, a 3-5 sentence explanation
+   below each visual, the summary of no more than 200 words, and the 4-6 sentence
+   AI reflection.
+2. **Supporting files for the tools you used:** Excel `.xlsx`; Tableau packaged
+   workbook `.twbx`; or R/Quarto source (`.R`, `.Rmd`, or `.qmd`) with any image
+   files needed to reproduce the document. Submit the applicable files, not
+   files from tools you did not use.
+
+If you use the optional Posit template, render `Homework_03_IP.qmd` to
+`Homework_03_IP.pdf` and submit that PDF as your complete document. Open the
+final Word or PDF file before submitting and confirm that all three visuals
+are visible without following links or opening a supporting workbook.
 
 ## Checklist
 
-- [ ] I used one frame from each module: A, B, and C.
-- [ ] I inserted three readable visuals with no broken paths.
-- [ ] I explained the story, encoding, scope, and design for each visual.
-- [ ] I completed the design review and the 200-word summary.
-- [ ] I reviewed and submitted `Homework_03_IP.pdf` and supporting files.
+- [ ] I chose one frame from each group: A, B, and C.
+- [ ] All three visuals are embedded and readable in one Word or PDF document.
+- [ ] Each visual has a 3-5 sentence explanation covering story, encoding, scope, and design.
+- [ ] The document includes my summary and required AI reflection.
+- [ ] I checked calculations, filters, units, denominators, and scales.
+- [ ] I included supporting files for the tools I used.
 
-**Grading focus:** Your work will be evaluated for chart selection, perceptual
-clarity, honest scales and denominators, and explanations that connect each
-visual to its intended story.
+## Grading Focus
+
+Your work is evaluated for appropriate chart selection, clear and honest
+design, explanations grounded in the data, and complete communication.
+
+| Criterion | Points |
+|---|---:|
+| Visual A: comparison or ranking | 20 |
+| Visual B: composition, time series, or deviation | 20 |
+| Visual C: distribution or relationship | 20 |
+| Design principles and chart explanations | 15 |
+| Summary across the three visuals | 15 |
+| Responsible AI reflection | 5 |
+| Complete document and supporting files | 5 |
+| **Total** | **100** |
