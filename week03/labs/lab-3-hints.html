@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Lab 3 Hints – ECO 230</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,14 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-cddd4d705d0f1816126855d2197e4081.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,6 +80,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">ECO 230</span>
     </a>
@@ -116,6 +116,40 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../../week01/week_01.html">
+ <span class="dropdown-text">Week 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../week02/week_02.html">
+ <span class="dropdown-text">Week 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../week03/week_03.html">
+ <span class="dropdown-text">Week 3</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-homework" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Homework</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-homework">    
+        <li>
+    <a class="dropdown-item" href="../../week01/Homework_01.html">
+ <span class="dropdown-text">Homework 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../week02/Homework_02.html">
+ <span class="dropdown-text">Homework 2</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-datasets" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Datasets</span>
     </a>
@@ -144,53 +178,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../datasets/health.html">
  <span class="dropdown-text">Synthetic Health Records</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../../datasets/legacy-traffic.html">
- <span class="dropdown-text">Legacy U.S. Accidents Sample</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../datasets/legacy-hospital.html">
- <span class="dropdown-text">Legacy CMS Inpatient Charges</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Slides</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
-        <li>
-    <a class="dropdown-item" href="../../week01/week_01.html">
- <span class="dropdown-text">Week 1</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../week02/week_02.html">
- <span class="dropdown-text">Week 2</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../week03/week_03.html">
- <span class="dropdown-text">Week 3</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../week04/week_04.html">
- <span class="dropdown-text">Week 4</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../week05/week_05.html">
- <span class="dropdown-text">Week 5</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../week06/week_06.html">
- <span class="dropdown-text">Week 6</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../week07/week_07.html">
- <span class="dropdown-text">Week 7</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../week12/week_12.html">
- <span class="dropdown-text">Week 12</span></a>
-  </li>  
     </ul>
   </li>
 </ul>
@@ -209,16 +196,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#how-to-use-this-guide" id="toc-how-to-use-this-guide" class="nav-link active" data-scroll-target="#how-to-use-this-guide">How to use this guide</a></li>
-  <li><a href="#ranking" id="toc-ranking" class="nav-link" data-scroll-target="#ranking">1. Ranking</a></li>
-  <li><a href="#nominal-comparison" id="toc-nominal-comparison" class="nav-link" data-scroll-target="#nominal-comparison">2. Nominal comparison</a></li>
-  <li><a href="#time-series" id="toc-time-series" class="nav-link" data-scroll-target="#time-series">3. Time series</a></li>
-  <li><a href="#part-to-whole-comparison" id="toc-part-to-whole-comparison" class="nav-link" data-scroll-target="#part-to-whole-comparison">4. Part-to-whole comparison</a></li>
-  <li><a href="#scatterplot" id="toc-scatterplot" class="nav-link" data-scroll-target="#scatterplot">5. Scatterplot</a></li>
-  <li><a href="#distribution" id="toc-distribution" class="nav-link" data-scroll-target="#distribution">6. Distribution</a></li>
-  <li><a href="#map" id="toc-map" class="nav-link" data-scroll-target="#map">7. Map</a></li>
-  <li><a href="#final-quality-check" id="toc-final-quality-check" class="nav-link" data-scroll-target="#final-quality-check">Final quality check</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#before-you-build" id="toc-before-you-build" class="nav-link active" data-scroll-target="#before-you-build">Before you build</a></li>
+  <li><a href="#ranking" id="toc-ranking" class="nav-link" data-scroll-target="#ranking">1) Ranking</a></li>
+  <li><a href="#nominal-comparison" id="toc-nominal-comparison" class="nav-link" data-scroll-target="#nominal-comparison">2) Nominal comparison</a></li>
+  <li><a href="#time-series" id="toc-time-series" class="nav-link" data-scroll-target="#time-series">3) Time series</a></li>
+  <li><a href="#part-to-whole" id="toc-part-to-whole" class="nav-link" data-scroll-target="#part-to-whole">4) Part-to-whole</a></li>
+  <li><a href="#relationship" id="toc-relationship" class="nav-link" data-scroll-target="#relationship">5) Relationship</a></li>
+  <li><a href="#distribution" id="toc-distribution" class="nav-link" data-scroll-target="#distribution">6) Distribution</a></li>
+  <li><a href="#map" id="toc-map" class="nav-link" data-scroll-target="#map">7) Map</a></li>
+  <li><a href="#excel-reminders" id="toc-excel-reminders" class="nav-link" data-scroll-target="#excel-reminders">Excel reminders</a></li>
+  <li><a href="#final-check" id="toc-final-check" class="nav-link" data-scroll-target="#final-check">Final check</a></li>
   </ul>
 </nav>
     </div>
@@ -228,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Lab 3 Hints</h1>
-<p class="subtitle lead">Building and checking seven Chicago traffic-crash views</p>
+<p class="subtitle lead">Field placements and checks for the in-class demo</p>
 </div>
 
 
@@ -245,128 +232,295 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="how-to-use-this-guide" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use-this-guide">How to use this guide</h2>
-<p>This page explains the analytical structure of each view rather than depending on screenshots from one Tableau version. Field pills may appear in slightly different places, but the role of each field is stable.</p>
-<p>The examples use the classroom extract of the Chicago traffic crash analysis table. It contains one row per crash. Confirm each field’s data type before building a view:</p>
-<ul>
-<li>dimensions such as <code>primary_contributory_cause</code>, <code>most_severe_injury</code>, <code>time_period</code>, and <code>reported_weather_condition</code>;</li>
-<li>measures such as <code>injuries_total</code>, <code>temperature_f</code>, <code>dew_point_f</code>, and <code>visibility_miles</code>;</li>
-<li>date/time fields such as <code>crash_datetime</code>, <code>crash_year</code>, and <code>crash_month</code>; and</li>
-<li>geographic coordinates <code>latitude</code> and <code>longitude</code>.</li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled">
+<section id="before-you-build" class="level2">
+<h2 class="anchored" data-anchor-id="before-you-build">Before you build</h2>
+<p>Use this quick reference alongside the <strong>Lab 3 Video Guide: Tableau and Excel</strong> in Canvas. The videos show the full click-by-click walkthrough; these hints show where fields go and which transformations to check.</p>
+<p>Connect to <code>chicago_traffic_crashes_sample.csv</code>. Keep <code>crash_id</code> as text, <code>crash_datetime</code> as date/time, and weather measurements and coordinates as numbers with decimal precision. Assign Latitude and Longitude geographic roles to the matching coordinate fields.</p>
+<p><strong>Crash count</strong> below means Tableau’s generated table <strong>Count</strong> measure. Place it on <strong>Text</strong> in a blank sheet: the unfiltered total should be <strong>12,000</strong>. Do not sum <code>crash_id</code>. Each row is one sampled crash.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Read the pill before the chart">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Start with the question
+<span class="screen-reader-only">Tip</span>Read the pill before the chart
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Do not copy a shelf arrangement without understanding it. For every view, say what one mark represents and whether Tableau is showing a count, sum, or average.</p>
+<p>Check the aggregation (Count, SUM, or AVG), date level, and filters on each sheet. Blue means discrete and green means continuous; this is separate from dimension versus measure. Keep sheet-specific filters local.</p>
 </div>
 </div>
 </section>
 <section id="ranking" class="level2">
-<h2 class="anchored" data-anchor-id="ranking">1. Ranking</h2>
-<p><strong>Question:</strong> Which primary contributory causes appear most often?</p>
-<ol type="1">
-<li>Place <code>primary_contributory_cause</code> on Rows.</li>
-<li>Place the row count measure on Text.</li>
-<li>Sort descending by the count.</li>
-<li>Exclude missing and not-applicable values.</li>
-<li>Apply a Top 10 filter.</li>
-</ol>
-<p><strong>Check:</strong> The values should be integer record counts. If Tableau displays <code>SUM(Number of Records)</code>, that is the count of rows at the current grain.</p>
+<h2 class="anchored" data-anchor-id="ranking">1) Ranking</h2>
+<p><strong>Question:</strong> Which reported causes appear most often?</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tableau location</th>
+<th>Field or setting</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rows</td>
+<td><code>primary_contributory_cause</code></td>
+</tr>
+<tr class="even">
+<td>Columns</td>
+<td>Crash count</td>
+</tr>
+<tr class="odd">
+<td>Marks</td>
+<td>Bar; crash count on Label if useful</td>
+</tr>
+<tr class="even">
+<td>Filters</td>
+<td>Exclude missing causes, UNABLE TO DETERMINE, and NOT APPLICABLE</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Transform:</strong> Sort by count descending. Select the ten largest remaining bars and <strong>Keep Only</strong>, as in the demo. This is a fixed selection, not a dynamic Top N rule.</p>
+<p><strong>Check:</strong> Ten causes remain; bar lengths are crash counts. Keep this selection on Ranking only.</p>
 </section>
 <section id="nominal-comparison" class="level2">
-<h2 class="anchored" data-anchor-id="nominal-comparison">2. Nominal comparison</h2>
-<p><strong>Question:</strong> How does average injury count compare across the selected causes?</p>
-<ol type="1">
-<li>Keep the same selected causes from the ranking view.</li>
-<li>Place <code>primary_contributory_cause</code> on Rows.</li>
-<li>Place <code>injuries_total</code> on Columns.</li>
-<li>Change the measure aggregation to <strong>Average</strong>.</li>
-<li>Use bars and sort by the average.</li>
-</ol>
-<p><strong>Check:</strong> The axis should say average injuries per crash, not total injuries. Because most crashes have no reported injury, also inspect the distribution and the number of crashes in each group.</p>
+<h2 class="anchored" data-anchor-id="nominal-comparison">2) Nominal comparison</h2>
+<p><strong>Question:</strong> How does average injury count differ across causes?</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tableau location</th>
+<th>Field or setting</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rows</td>
+<td><code>primary_contributory_cause</code></td>
+</tr>
+<tr class="even">
+<td>Columns</td>
+<td><code>AVG(injuries_total)</code></td>
+</tr>
+<tr class="odd">
+<td>Marks</td>
+<td>Bar; crash count on Tooltip</td>
+</tr>
+<tr class="even">
+<td>Filters</td>
+<td>Crash count: <strong>At least 30</strong>; exclude NOT APPLICABLE</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Transform:</strong> Duplicate Ranking, then <strong>remove its cause selection</strong>. Replace count with <code>injuries_total</code>, change <strong>Measure &gt; Average</strong>, and sort by average.</p>
+<p><strong>Check:</strong> The pill says AVG, not SUM. Label the axis <strong>Average injuries per crash</strong>. Inspect the count behind an average; the 30-crash cutoff does not make every group equally reliable.</p>
 </section>
 <section id="time-series" class="level2">
-<h2 class="anchored" data-anchor-id="time-series">3. Time series</h2>
-<p><strong>Question:</strong> How does crash count change over time?</p>
-<ol type="1">
-<li>Confirm that <code>crash_datetime</code> is a recognized date/time field.</li>
-<li>Place <code>crash_datetime</code> on Columns and choose a chronological month or year-month level.</li>
-<li>Place the row count on Rows.</li>
-<li>Use line marks and filter the date range if the full view is too dense.</li>
-</ol>
-<p><strong>Check:</strong> Determine whether the date pill is discrete or continuous. A continuous date creates a time axis; a discrete date creates headers. Do not connect unrelated categories with a line.</p>
+<h2 class="anchored" data-anchor-id="time-series">3) Time series</h2>
+<p><strong>Question:</strong> How do monthly crash counts change over time?</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tableau location</th>
+<th>Field or setting</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Columns</td>
+<td><code>crash_datetime</code>: continuous <strong>Month</strong> (green)</td>
+</tr>
+<tr class="even">
+<td>Rows</td>
+<td>Crash count</td>
+</tr>
+<tr class="odd">
+<td>Marks</td>
+<td>Line; <code>reported_weather_condition</code> on Color</td>
+</tr>
+<tr class="even">
+<td>Filters</td>
+<td>Exclude CLEAR to match the saved demo; UNKNOWN is an optional exclusion</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Transform:</strong> Use month-year positions on a continuous timeline. A discrete month name can combine January across different years.</p>
+<p><strong>Check:</strong> Dates run chronologically across years. State which weather conditions were excluded; counts in this sample are not crash rates.</p>
 </section>
-<section id="part-to-whole-comparison" class="level2">
-<h2 class="anchored" data-anchor-id="part-to-whole-comparison">4. Part-to-whole comparison</h2>
-<p><strong>Question:</strong> Within each time period, what share of crashes falls in each most-severe-injury category?</p>
-<ol type="1">
-<li>Place <code>time_period</code> and <code>most_severe_injury</code> on Columns.</li>
-<li>Place the row count on Rows.</li>
-<li>Place <code>most_severe_injury</code> on Color.</li>
-<li>Apply a <strong>Percent of Total</strong> table calculation if percentages are required.</li>
-<li>Set the calculation direction so the percentages total 100% <strong>within each time period</strong>.</li>
-</ol>
-<p><strong>Check:</strong> Add the percentages for one time period. If they do not total approximately 100%, the table calculation is addressing the wrong direction or partition.</p>
+<section id="part-to-whole" class="level2">
+<h2 class="anchored" data-anchor-id="part-to-whole">4) Part-to-whole</h2>
+<p><strong>Question:</strong> Within each quarter, what share belongs to each injury category?</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tableau location</th>
+<th>Start with a text table</th>
+<th>Then make stacked bars</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Columns</td>
+<td><code>crash_datetime</code>: discrete <strong>Quarter</strong> (blue)</td>
+<td>Keep Quarter</td>
+</tr>
+<tr class="even">
+<td>Rows</td>
+<td><code>most_severe_injury</code></td>
+<td>Crash count with Percent of Total</td>
+</tr>
+<tr class="odd">
+<td>Marks</td>
+<td>Crash count on Text</td>
+<td>Bar; <code>most_severe_injury</code> on Color</td>
+</tr>
+<tr class="even">
+<td>Filters</td>
+<td>Exclude null injury categories</td>
+<td>Keep the same exclusion</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Transform:</strong> Apply <strong>Quick Table Calculation &gt; Percent of Total</strong> to count. In the text table, compute <strong>Table (Down)</strong>. After moving fields, recheck: address <code>most_severe_injury</code> and partition by Quarter using <strong>Specific Dimensions</strong>. The denominator is the included crashes within each quarter.</p>
+<p><strong>Check:</strong> Every complete quarter totals approximately 100%. Discrete Q1-Q4 combines the same quarter across years.</p>
+<div class="callout callout-style-simple callout-important no-icon callout-titled" title="Hide is different from Exclude">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Hide is different from Exclude
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>First verify the complete 100% stacks. Then practice <strong>Hide</strong> on NO INDICATION OF INJURY and REPORTED, NOT EVIDENT, as in the demo. They still contribute to the table-calculation denominator, so visible portions total less than 100%. <strong>Exclude</strong> would instead recalculate shares among remaining records. Label the reduced display and show hidden categories again to check the full total.</p>
+</div>
+</div>
 </section>
-<section id="scatterplot" class="level2">
-<h2 class="anchored" data-anchor-id="scatterplot">5. Scatterplot</h2>
-<p><strong>Question:</strong> How are observed temperature and dew point related?</p>
-<ol type="1">
-<li>Place <code>temperature_f</code> on Columns.</li>
-<li>Place <code>dew_point_f</code> on Rows.</li>
-<li>Place <code>weather_station_name</code> on Color or Filter.</li>
-<li>Add <code>crash_record_id</code> to Detail, or turn off aggregate measures, so a mark represents a crash rather than one overall average.</li>
-<li>Use transparency or a narrower date filter if overplotting hides the pattern.</li>
-</ol>
-<p><strong>Check:</strong> Many crashes can share the same hourly airport observation. A dense cluster does not mean each crash received an independent weather measurement. If the view contains only one or two marks, Tableau is aggregating the data.</p>
+<section id="relationship" class="level2">
+<h2 class="anchored" data-anchor-id="relationship">5) Relationship</h2>
+<p><strong>Question:</strong> How are temperature and dew point related?</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tableau location</th>
+<th>Field or setting</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Columns</td>
+<td><code>weather_station_name</code>, then <code>temperature_f</code></td>
+</tr>
+<tr class="even">
+<td>Rows</td>
+<td><code>dew_point_f</code></td>
+</tr>
+<tr class="odd">
+<td>Marks</td>
+<td>Circle; reduce opacity</td>
+</tr>
+<tr class="even">
+<td>Filters</td>
+<td>Exclude null station names</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Transform:</strong> Turn off <strong>Analysis &gt; Aggregate Measures</strong> for individual observations, matching the demo. Alternatively, a unique <code>crash_id</code> on Detail separates crashes while keeping aggregation on.</p>
+<p><strong>Check:</strong> You should see many marks, not a single SUM point. Label both axes in degrees F. Several crashes can share the same station-hour observation.</p>
 </section>
 <section id="distribution" class="level2">
-<h2 class="anchored" data-anchor-id="distribution">6. Distribution</h2>
-<p><strong>Question:</strong> How does visibility differ across reported weather conditions?</p>
-<ol type="1">
-<li>Filter <code>reported_weather_condition</code> to several meaningful categories.</li>
-<li>Place <code>reported_weather_condition</code> on Rows.</li>
-<li>Place <code>visibility_miles</code> on Columns.</li>
-<li>Add a box plot from the Analytics pane or Show Me, or create separate histograms using consistent bins.</li>
-<li>Keep individual marks visible when useful for seeing unusual values.</li>
-</ol>
-<p><strong>Check:</strong> Compare medians, IQRs, and overlap. The officer-reported condition and airport observation are related but distinct measures; neither is a direct measurement at the exact crash location.</p>
+<h2 class="anchored" data-anchor-id="distribution">6) Distribution</h2>
+<p><strong>Question:</strong> How does temperature vary across reported weather conditions?</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tableau location</th>
+<th>Histogram exploration</th>
+<th>Box-plot comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Columns</td>
+<td><code>temperature_f (bin)</code></td>
+<td><code>temperature_f</code></td>
+</tr>
+<tr class="even">
+<td>Rows</td>
+<td>Crash count</td>
+<td><code>reported_weather_condition</code></td>
+</tr>
+<tr class="odd">
+<td>Marks</td>
+<td>Bar</td>
+<td>Individual observations with a box plot</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Transform:</strong> Select temperature and use <strong>Show Me &gt; Histogram</strong>; edit its bin size (try 5 degrees F). For box plots, start a fresh sheet, turn off <strong>Aggregate Measures</strong> or add <code>crash_id</code> to Detail, then add <strong>Box Plot</strong> from Analytics. Keep the histogram on a duplicate sheet if desired.</p>
+<p><strong>Check:</strong> Box plots summarize individual observations, not one average per category. Compare medians, the middle 50%, spread, and unusual points. Use <code>temperature_f</code>, not visibility, for this demo.</p>
 </section>
 <section id="map" class="level2">
-<h2 class="anchored" data-anchor-id="map">7. Map</h2>
-<p><strong>Question:</strong> Where are crashes in the selected analytical subset located?</p>
-<ol type="1">
-<li>Assign <code>longitude</code> to Columns and <code>latitude</code> to Rows.</li>
-<li>Use a map or circle mark.</li>
-<li>Add <code>crash_record_id</code> to Detail so separate crashes remain separate marks.</li>
-<li>Place a meaningful category on Color only if it supports the question.</li>
-<li>Filter to a manageable date, cause, injury, or geographic subset.</li>
-</ol>
-<p><strong>Check:</strong> Latitude belongs on Rows and longitude on Columns. Explain what the filter removes; a filtered map does not show the distribution of all crashes.</p>
+<h2 class="anchored" data-anchor-id="map">7) Map</h2>
+<p><strong>Question:</strong> Where are the sampled crashes located?</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tableau location</th>
+<th>Field or setting</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Columns</td>
+<td><code>longitude</code></td>
+</tr>
+<tr class="even">
+<td>Rows</td>
+<td><code>latitude</code></td>
+</tr>
+<tr class="odd">
+<td>Marks</td>
+<td>Map/circle; <code>crash_id</code> on Detail; <code>trafficway_type</code> on Color</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Transform:</strong> Keep aggregation on and use the crash ID to separate marks, as in the completed workbook. Adjust size and opacity. A ZIP-code filled map is an optional extension; it changes a mark from a crash to an area.</p>
+<p><strong>Check:</strong> Points fall around Chicago. Investigate null coordinates. Document any subset filter; more sampled crashes does not automatically mean greater risk per traveler.</p>
 </section>
-<section id="final-quality-check" class="level2">
-<h2 class="anchored" data-anchor-id="final-quality-check">Final quality check</h2>
+<section id="excel-reminders" class="level2">
+<h2 class="anchored" data-anchor-id="excel-reminders">Excel reminders</h2>
+<p>Reproduce at least three views using matching filters and aggregations.</p>
 <ul>
-<li>Give every sheet a question-based title.</li>
-<li>Include units in axes and tooltips.</li>
-<li>Confirm every aggregation: count, sum, average, or percentage.</li>
-<li>Verify filters apply to the intended worksheets.</li>
-<li>Use consistent colors for the same categories across views.</li>
-<li>Avoid interpreting unavailable or missing values as a known outcome.</li>
-<li>Test at least one tooltip against the source row.</li>
+<li><strong>Ranking:</strong> PivotTable Rows = cause; Values = <strong>Count of crash_id</strong>.</li>
+<li><strong>Nominal:</strong> Rows = cause; Values = <strong>Average of injuries_total</strong> plus crash count. Use the same count-at-least-30 and NOT APPLICABLE restrictions.</li>
+<li><strong>Time:</strong> Group dates by <strong>Years and Months</strong>; Values = crash count.</li>
+<li><strong>Relationship:</strong> Use a regular <strong>XY Scatter</strong> chart of raw temperature (X) and dew point (Y), not a PivotChart.</li>
 </ul>
 </section>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>This accessible guide replaces the legacy <code>Lab3_Hints.pptx</code> screenshots. It preserves the intended chart-building practice while using the current Chicago traffic crash analysis extract and making the reasoning and verification steps explicit.</p>
+<section id="final-check" class="level2">
+<h2 class="anchored" data-anchor-id="final-check">Final check</h2>
+<ul>
+<li>Save Tableau as a packaged <strong><code>.twbx</code></strong> and Excel as <strong><code>.xlsx</code></strong>; reopen both.</li>
+<li>Check seven Tableau views and at least three Excel views against the lab prompt.</li>
+<li>Give charts question-based titles and axes meaningful units.</li>
+<li>Explain what one mark represents, what each percentage divides by, and which filters or hidden categories affect the display.</li>
+<li>Use <strong>Lab3_Completed.twbx</strong> in the Canvas Week 3 module to compare field placements and settings with the in-class example.</li>
+</ul>
 
 
 </section>
@@ -445,7 +599,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
