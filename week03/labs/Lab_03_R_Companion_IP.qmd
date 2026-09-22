@@ -32,6 +32,10 @@ the submission instructions for the main Lab 3 in Canvas.
    **Render** to create the complete HTML guide with code and charts.
 3. Try one small change at a time. The **Try it** prompts are optional practice.
 
+- [Open the Lab 3 project in Posit Cloud](https://posit.cloud/spaces/3173/content/12970507)
+- [Watch the instructor's R walkthrough](https://mediaspace.wisconsin.edu/media/t/1_lqzvbpkk)
+- [Read the walkthrough transcript](Lab_03_R_Transcript.md)
+
 You will practice counting and averaging before plotting, choosing appropriate
 geometries, and checking filters and percentage denominators. The data and its
 provenance are included in `data/`; no download is needed to run the examples

@@ -20,6 +20,15 @@ injury counts, coordinates, and selected numerical weather measurements.
 
 - [Download the Lab 3 crash extract]({{ lab_03_data_url }})
 - [Lab 3 Video Guide: Tableau and Excel](/courses/{{ canvas_course_id }}/pages/lab-3-video-guide-tableau-and-excel)
+- [Optional Lab 3 R companion in Posit Cloud](https://posit.cloud/spaces/3173/content/12970507)
+- [R video walkthrough and transcript](/courses/{{ canvas_course_id }}/pages/lab-3-video-guide-tableau-and-excel#r-companion)
+
+The optional R companion shows how to create similar charts with ggplot2.
+Open `Lab_03_R_Companion_IP.qmd` and choose **Render** to see the code and
+charts together as an HTML guide. The video explains how the summary tables
+feed the plots and how to run individual code chunks. You are not expected
+to write this code from scratch; use it to explore how the same analysis
+works in R. The Tableau and Excel lab requirements below still apply.
 
 Follow the video guide as we build the workbook together in class. Start by
 connecting Tableau to the crash CSV and verifying the unfiltered count of

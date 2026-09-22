@@ -1,0 +1,1400 @@
+1
+00:00:00,410 --> 00:00:01,750
+Alright, so let's
+take a look at
+
+2
+00:00:01,750 --> 00:00:03,990
+what this looks
+like in R. So if
+
+3
+00:00:03,990 --> 00:00:07,910
+we open up our
+lab 3 R project,
+
+4
+00:00:08,010 --> 00:00:13,050
+we can see an example
+of what this would
+
+5
+00:00:13,330 --> 00:00:15,630
+potentially look
+like if it was coded
+
+6
+00:00:15,630 --> 00:00:20,290
+in R. And just like
+the lab 2, this is
+
+7
+00:00:20,290 --> 00:00:22,290
+just shown as an
+example to show, okay,
+
+8
+00:00:22,350 --> 00:00:24,440
+that same sort
+of analysis,
+
+9
+00:00:24,970 --> 00:00:27,130
+what does that
+code look like?
+
+10
+00:00:27,130 --> 00:00:30,150
+There's no expectation
+here yet that
+
+11
+00:00:30,150 --> 00:00:32,410
+you'd be writing
+this manually,
+
+12
+00:00:32,410 --> 00:00:35,230
+but if you wanted
+to try it in R,
+
+13
+00:00:36,750 --> 00:00:37,970
+there's some examples
+
+14
+00:00:37,970 --> 00:00:39,050
+here to get you started.
+
+15
+00:00:39,530 --> 00:00:43,830
+Also, any coding agent,
+ChatGPT, Copilot,
+
+16
+00:00:43,830 --> 00:00:45,990
+Claude, is going
+to do a pretty good
+
+17
+00:00:45,990 --> 00:00:49,950
+job at getting you
+started on that code
+
+18
+00:00:49,950 --> 00:00:51,790
+as well. I want a
+chart, a bar chart
+
+19
+00:00:51,790 --> 00:00:54,950
+that shows these
+categories, this metric.
+
+20
+00:00:56,290 --> 00:00:58,510
+Help me put
+that together.
+
+21
+00:00:59,050 --> 00:01:03,350
+is uh is a good way
+to get a feel for
+
+22
+00:01:03,350 --> 00:01:05,450
+what this looks like
+so we'll work in
+
+23
+00:01:05,450 --> 00:01:09,730
+lab 3 our companion
+here uh the q md
+
+24
+00:01:09,730 --> 00:01:13,310
+the q quarto markdown
+file uh we'll open
+
+25
+00:01:13,310 --> 00:01:16,110
+that up um and then
+if we hit render
+
+26
+00:01:17,720 --> 00:01:20,520
+uh right away we
+should be able to see
+
+27
+00:01:20,570 --> 00:01:23,710
+what that output looks
+like and this one is
+
+28
+00:01:23,710 --> 00:01:25,670
+a little bit different
+it renders to an
+
+29
+00:01:26,090 --> 00:01:29,910
+HTML web page instead
+of a PDF you could
+
+30
+00:01:29,910 --> 00:01:32,010
+render this as a PDF
+if you wanted but these
+
+31
+00:01:32,010 --> 00:01:33,770
+are I think these
+show up a little bit
+
+32
+00:01:33,770 --> 00:01:40,330
+better in in a browser
+so it'll take a
+
+33
+00:01:40,330 --> 00:01:43,390
+couple seconds here
+and you can kind of run
+
+34
+00:01:43,390 --> 00:01:46,530
+through and see what's
+happening here so
+
+35
+00:01:46,530 --> 00:01:49,440
+you know this stuff
+was already done you
+
+36
+00:01:49,650 --> 00:01:51,270
+know obviously if
+you're opening up the
+
+37
+00:01:51,270 --> 00:01:53,910
+file it's in there I've
+already gone through
+
+38
+00:01:53,910 --> 00:01:57,550
+it and loaded that
+setup information, so
+
+39
+00:01:57,550 --> 00:01:59,290
+you should be all be
+ready to go there.
+
+40
+00:01:59,410 --> 00:02:01,150
+And then this walks
+through what code it
+
+41
+00:02:01,150 --> 00:02:03,150
+ran. So it loaded
+the libraries that it
+
+42
+00:02:03,150 --> 00:02:06,910
+needed for this.
+So ggplot2 is the
+
+43
+00:02:06,910 --> 00:02:10,990
+library that most
+examples that you'll see,
+
+44
+00:02:11,670 --> 00:02:15,830
+it's kind of a go-to
+for visualizing data
+
+45
+00:02:15,830 --> 00:02:18,890
+in R. And then some
+of the other libraries
+
+46
+00:02:18,890 --> 00:02:21,340
+that we've loaded
+before, dplyr and tidy
+
+47
+00:02:21,340 --> 00:02:23,230
+are, you those things
+that make those
+
+48
+00:02:23,230 --> 00:02:25,410
+data pipelines work
+are in there as well.
+
+49
+00:02:25,750 --> 00:02:27,690
+It does a little
+bit of setup
+
+50
+00:02:27,690 --> 00:02:29,370
+work here to set a theme.
+
+51
+00:02:30,030 --> 00:02:32,190
+You know I asked it
+to do a theme similar
+
+52
+00:02:32,190 --> 00:02:35,570
+to Tableau, but
+there's all sorts of
+
+53
+00:02:35,570 --> 00:02:38,270
+different examples
+out there of different
+
+54
+00:02:38,270 --> 00:02:39,610
+kind of looks and
+feels that are
+
+55
+00:02:39,610 --> 00:02:41,530
+that are pretty easy
+to implement here.
+
+56
+00:02:42,030 --> 00:02:45,390
+And then this is
+also loading a color
+
+57
+00:02:45,390 --> 00:02:49,450
+palette similar to what
+tableau uses by default
+
+58
+00:02:49,450 --> 00:02:52,310
+and again all these
+options can be can
+
+59
+00:02:52,310 --> 00:02:55,730
+be changed if needed
+so first one here is
+
+60
+00:02:55,730 --> 00:02:58,530
+going to do some data
+setup so it's going
+
+61
+00:02:58,530 --> 00:03:03,090
+to read in our our
+sample file that we used
+
+62
+00:03:03,090 --> 00:03:06,110
+in in tableau and that
+we used in an excel
+
+63
+00:03:06,240 --> 00:03:09,060
+and it's going to
+create a couple of
+
+64
+00:03:10,260 --> 00:03:13,130
+data points that it
+needs for the chart so
+
+65
+00:03:13,130 --> 00:03:15,110
+you know here you can
+see it is creating a
+
+66
+00:03:15,110 --> 00:03:19,230
+month variable that
+doesn't exist in here
+
+67
+00:03:19,230 --> 00:03:22,450
+a little bit more
+work to get this going
+
+68
+00:03:22,450 --> 00:03:26,490
+in in R than it was in
+tableau tableau sees
+
+69
+00:03:26,490 --> 00:03:29,050
+that date automatically
+builds in you know
+
+70
+00:03:29,050 --> 00:03:30,530
+your year your month
+all that sort of
+
+71
+00:03:30,530 --> 00:03:35,440
+stuff in R you have to
+usually specifically
+
+72
+00:03:36,370 --> 00:03:39,870
+call those out but
+as you can see here
+
+73
+00:03:39,870 --> 00:03:41,470
+there's some built
+-in functions that are
+
+74
+00:03:41,470 --> 00:03:42,790
+able to do that. We
+don't have to go in
+
+75
+00:03:42,790 --> 00:03:44,750
+and manually try to
+figure out, okay,
+
+76
+00:03:44,750 --> 00:03:46,210
+what was September,
+what was October,
+
+77
+00:03:46,210 --> 00:03:49,090
+whatever. There's a
+month function that can
+
+78
+00:03:49,090 --> 00:03:51,110
+get at that same with
+our quarter function,
+
+79
+00:03:51,110 --> 00:03:54,550
+just to duplicate
+the views and
+
+80
+00:03:54,550 --> 00:03:58,190
+things that we're seeing
+in Tableau. And we
+
+81
+00:03:58,190 --> 00:04:00,870
+can see that we have
+12,000 rows here,
+
+82
+00:04:01,670 --> 00:04:03,130
+12,000 crash IDs,
+
+83
+00:04:03,370 --> 00:04:05,150
+you know, same sort
+of thing that we saw
+
+84
+00:04:05,330 --> 00:04:07,690
+in Tableau, because
+it's the exact same
+
+85
+00:04:07,690 --> 00:04:11,270
+file that's feeding
+this. So first one here,
+
+86
+00:04:11,510 --> 00:04:14,270
+skip past the code and
+go to the output, you
+
+87
+00:04:14,270 --> 00:04:15,390
+know, so you can see,
+okay, this is the
+
+88
+00:04:15,390 --> 00:04:18,290
+same sort of chart that
+we built in Tableau,
+
+89
+00:04:18,290 --> 00:04:20,410
+same sort of thing
+that we built in Excel.
+
+90
+00:04:20,890 --> 00:04:23,350
+And here's the code
+that's doing that.
+
+91
+00:04:23,350 --> 00:04:26,440
+So kind of two parts
+here. First part is
+
+92
+00:04:26,440 --> 00:04:28,510
+going to be building
+the actual data.
+
+93
+00:04:28,570 --> 00:04:30,410
+It's going to feed
+the chart. And when
+
+94
+00:04:30,410 --> 00:04:31,970
+you see examples
+or when you ask
+
+95
+00:04:32,240 --> 00:04:34,610
+an agent to do this,
+It's usually going
+
+96
+00:04:34,610 --> 00:04:40,550
+to follow a similar
+practice, which
+
+97
+00:04:40,550 --> 00:04:41,930
+makes sense if you
+think about it.
+
+98
+00:04:42,290 --> 00:04:43,890
+The only stuff
+that's showing
+
+99
+00:04:43,890 --> 00:04:46,010
+up in the chart
+is like the
+
+100
+00:04:46,010 --> 00:04:47,430
+summary that we're
+trying to show.
+
+101
+00:04:47,660 --> 00:04:49,430
+So it makes sense to
+kind of split that
+
+102
+00:04:49,430 --> 00:04:50,810
+out to say, okay,
+this is how we're
+
+103
+00:04:50,810 --> 00:04:52,450
+creating the summary.
+You know, same sort
+
+104
+00:04:52,450 --> 00:04:55,150
+of thing that we
+would see in a pivot
+
+105
+00:04:55,150 --> 00:04:59,130
+table or a tabular
+view of that data.
+
+106
+00:04:59,890 --> 00:05:01,350
+you know, this is
+basically building
+
+107
+00:05:01,350 --> 00:05:03,530
+the data that would
+feed that table
+
+108
+00:05:03,530 --> 00:05:04,910
+and then on top
+of that we're
+
+109
+00:05:04,910 --> 00:05:06,990
+layering to say, okay,
+instead of showing
+
+110
+00:05:06,990 --> 00:05:09,970
+that as a table,
+I want you to
+
+111
+00:05:09,970 --> 00:05:11,690
+show this as a
+plot, as a bar plot
+
+112
+00:05:11,850 --> 00:05:13,650
+you know, bar
+chart, you know,
+
+113
+00:05:13,650 --> 00:05:14,950
+here's how to set that up
+
+114
+00:05:15,170 --> 00:05:17,450
+so if we run through
+here we can see what's
+
+115
+00:05:17,450 --> 00:05:19,200
+happening, so we see
+our data pipes here
+
+116
+00:05:19,550 --> 00:05:22,090
+you know, saying,
+okay, remember, okay,
+
+117
+00:05:22,090 --> 00:05:23,070
+that pipe is saying,
+okay, whatever
+
+118
+00:05:23,070 --> 00:05:26,570
+happens in this line,
+take the result and
+
+119
+00:05:26,570 --> 00:05:28,530
+do you know, further
+action. It keeps
+
+120
+00:05:28,530 --> 00:05:30,450
+flowing down that
+pipe from one segment
+
+121
+00:05:30,480 --> 00:05:32,810
+to the other. So take
+our crashes data,
+
+122
+00:05:33,090 --> 00:05:35,370
+filter that to say okay,
+
+123
+00:05:35,630 --> 00:05:37,680
+you know, if there's
+any missing primary
+
+124
+00:05:40,610 --> 00:05:43,550
+cause, get rid of
+that. So this is NA
+
+125
+00:05:43,550 --> 00:05:45,870
+function is checking
+to see, okay, was
+
+126
+00:05:45,870 --> 00:05:47,690
+there null data
+there, missing data
+
+127
+00:05:47,690 --> 00:05:50,730
+there? And then this
+exclamation point
+
+128
+00:05:51,010 --> 00:05:52,510
+negates that to
+say, okay, the
+
+129
+00:05:52,510 --> 00:05:54,870
+opposite of that.
+So basically saying,
+
+130
+00:05:54,870 --> 00:05:56,930
+okay, anywhere
+where there is data.
+
+131
+00:05:57,610 --> 00:05:59,430
+Primary cause in,
+
+132
+00:06:00,230 --> 00:06:01,850
+you know, selecting
+from this list,
+
+133
+00:06:01,850 --> 00:06:03,430
+unable to determine,
+not applicable.
+
+134
+00:06:04,040 --> 00:06:06,970
+It is giving us a
+count of primary cause
+
+135
+00:06:06,970 --> 00:06:09,130
+and giving it the
+name crash count.
+
+136
+00:06:09,650 --> 00:06:13,850
+And then this slice
+max function is saying,
+
+137
+00:06:13,850 --> 00:06:18,270
+okay, give me the top
+10 and don't bring
+
+138
+00:06:18,270 --> 00:06:22,190
+in any ties. So basically
+the first 10 that
+
+139
+00:06:22,190 --> 00:06:24,710
+it sees. Next one here
+then is where that
+
+140
+00:06:25,270 --> 00:06:26,810
+ggplot2 library kicks in
+
+141
+00:06:26,810 --> 00:06:28,370
+is we are making
+this plot.
+
+142
+00:06:28,660 --> 00:06:29,850
+So these are always going
+
+143
+00:06:29,850 --> 00:06:31,770
+to go in the same order.
+
+144
+00:06:32,070 --> 00:06:34,770
+So it starts with our
+data. So take that
+
+145
+00:06:34,770 --> 00:06:36,750
+ranking data that
+we just built, you
+
+146
+00:06:36,750 --> 00:06:38,570
+know, all this,
+built this, and then
+
+147
+00:06:38,570 --> 00:06:40,420
+we assigned it to
+that variable ranking,
+
+148
+00:06:40,650 --> 00:06:42,950
+which is basically
+the data that would
+
+149
+00:06:42,950 --> 00:06:45,650
+fill that table. So
+saying take that.
+
+150
+00:06:46,530 --> 00:06:50,070
+This AES stands for
+like aesthetics,
+
+151
+00:06:50,550 --> 00:06:52,950
+you know, just say
+okay, this is the, this
+
+152
+00:06:52,950 --> 00:06:54,280
+is what we're going
+to show, basically.
+
+153
+00:06:54,730 --> 00:06:57,910
+What's your X variable?
+What's your Y, um,
+
+154
+00:06:58,610 --> 00:07:01,070
+or not variable,
+but what's your X
+
+155
+00:07:01,070 --> 00:07:03,270
+dimension? What's
+your Y dimension? So
+
+156
+00:07:03,270 --> 00:07:04,970
+in X, we're going
+to have crash count,
+
+157
+00:07:05,450 --> 00:07:08,580
+you know, our, our
+measure here, um,
+
+158
+00:07:08,810 --> 00:07:10,420
+you know, that we
+created up above.
+
+159
+00:07:10,420 --> 00:07:12,510
+And then here we're
+going to have,
+
+160
+00:07:12,770 --> 00:07:13,290
+um,
+
+161
+00:07:14,630 --> 00:07:18,410
+our primary contributory
+cause, and then
+
+162
+00:07:18,410 --> 00:07:21,150
+it's going to reorder
+it by crash count to say
+
+163
+00:07:21,150 --> 00:07:24,390
+okay you know sort
+it in in descending
+
+164
+00:07:24,390 --> 00:07:28,750
+order is going to make
+us our basic plot but
+
+165
+00:07:29,390 --> 00:07:32,410
+if you just ran this
+it would run without an
+
+166
+00:07:32,410 --> 00:07:34,080
+error but it's not
+going to show anything
+
+167
+00:07:36,360 --> 00:07:38,190
+nothing's going to show
+up in your plot it's
+
+168
+00:07:38,190 --> 00:07:40,540
+basically going to
+set that canvas when
+
+169
+00:07:40,690 --> 00:07:43,110
+these plus signs here
+are then adding different
+
+170
+00:07:43,110 --> 00:07:46,390
+layers onto that so
+how do we want to
+
+171
+00:07:46,390 --> 00:07:50,440
+visualize that we're
+going to add geometry and
+
+172
+00:07:50,790 --> 00:07:54,170
+this is a column you
+know there's geom line
+
+173
+00:07:54,170 --> 00:07:56,190
+geom point there's
+all sorts of different
+
+174
+00:07:56,190 --> 00:07:59,190
+options there but it's
+saying okay how do
+
+175
+00:07:59,190 --> 00:08:01,770
+you want to show this
+with a column what's
+
+176
+00:08:02,730 --> 00:08:04,550
+and then we can set our
+options there to say
+
+177
+00:08:04,550 --> 00:08:07,050
+okay fill it with
+tableau colors one which
+
+178
+00:08:07,050 --> 00:08:09,790
+is blue we change this
+to two it would change
+
+179
+00:08:09,790 --> 00:08:12,810
+to a different color
+on to that so that's
+
+180
+00:08:12,810 --> 00:08:14,530
+going to give us our
+bar chart onto that
+
+181
+00:08:14,530 --> 00:08:20,190
+add a scale for y you
+know with our labels
+
+182
+00:08:20,190 --> 00:08:26,330
+add a scale for x with
+our um you know our
+
+183
+00:08:26,330 --> 00:08:31,470
+um our count and then
+add a title onto that
+
+184
+00:08:32,410 --> 00:08:34,850
+you know with our you
+know whatever we want
+
+185
+00:08:34,850 --> 00:08:37,090
+to say there and
+then last one here is
+
+186
+00:08:37,090 --> 00:08:39,250
+and that then it gets
+assigned to this ranking
+
+187
+00:08:39,250 --> 00:08:41,310
+plot and then that's
+what it gets printed
+
+188
+00:08:41,310 --> 00:08:43,950
+out so a little bit
+more complex than
+
+189
+00:08:43,950 --> 00:08:48,350
+what we've been dealing
+with before but if
+
+190
+00:08:48,350 --> 00:08:49,630
+you kind of follow
+line by line and think
+
+191
+00:08:49,630 --> 00:08:51,910
+through okay how would
+I how would I build
+
+192
+00:08:51,910 --> 00:08:54,710
+this in in tableau or
+build this in in excel
+
+193
+00:08:54,710 --> 00:08:56,510
+you can kind of see
+where some of those
+
+194
+00:08:56,510 --> 00:08:59,430
+different elements
+are coming in you know
+
+195
+00:09:00,790 --> 00:09:02,790
+if any of these were
+confusing or you
+
+196
+00:09:02,790 --> 00:09:04,650
+know okay how to scale
+why discrete work
+
+197
+00:09:04,650 --> 00:09:06,830
+you know you can look
+them up any agent
+
+198
+00:09:06,830 --> 00:09:08,530
+is going to be able
+to kind of parse
+
+199
+00:09:08,530 --> 00:09:09,390
+that out and give
+you a description
+
+200
+00:09:09,390 --> 00:09:11,570
+okay here's how here's
+how that comes into
+
+201
+00:09:11,570 --> 00:09:14,590
+into play here uh
+nominal comparison
+
+202
+00:09:15,220 --> 00:09:17,110
+you know shown here
+you know it's going to
+
+203
+00:09:17,110 --> 00:09:19,330
+be a very similar
+process what's our data
+
+204
+00:09:19,330 --> 00:09:22,730
+you know what's that
+plot look like um you
+
+205
+00:09:22,730 --> 00:09:24,170
+know and then this
+is showing okay it
+
+206
+00:09:24,170 --> 00:09:26,910
+doesn't have that hover
+over you know functionality
+
+207
+00:09:26,910 --> 00:09:28,510
+that the tableau
+does where it's going
+
+208
+00:09:28,510 --> 00:09:30,210
+to show the actual
+value so it's building
+
+209
+00:09:30,210 --> 00:09:32,290
+you know this table
+here to show okay
+
+210
+00:09:32,290 --> 00:09:34,830
+here's what here's
+what's included with uh
+
+211
+00:09:34,830 --> 00:09:37,650
+with those different
+things uh time series
+
+212
+00:09:37,650 --> 00:09:40,750
+you know does a different
+approach here instead
+
+213
+00:09:40,750 --> 00:09:42,630
+of doing each line
+differently it does
+
+214
+00:09:42,630 --> 00:09:45,910
+a concept called small
+multiples where we're
+
+215
+00:09:45,910 --> 00:09:48,140
+taking okay all of
+our different um our
+
+216
+00:09:48,610 --> 00:09:52,730
+different um categories
+of weather here it
+
+217
+00:09:52,730 --> 00:09:55,490
+puts it on you know
+the same size graph
+
+218
+00:09:55,490 --> 00:09:57,710
+and just does a lot of
+them together so it's
+
+219
+00:09:57,710 --> 00:09:58,990
+easy to kind of scan
+through and see okay
+
+220
+00:09:58,990 --> 00:10:00,810
+which one which one
+is different which one
+
+221
+00:10:00,810 --> 00:10:02,470
+is trending up which
+one is trending down
+
+222
+00:10:02,710 --> 00:10:05,890
+uh part to whole you
+know it shows some
+
+223
+00:10:05,890 --> 00:10:08,390
+calculations there to
+you know figure out what
+
+224
+00:10:08,390 --> 00:10:11,370
+does that um what
+does that calculation
+
+225
+00:10:11,370 --> 00:10:15,330
+look like to get those
+categories um and then
+
+226
+00:10:15,940 --> 00:10:19,090
+you know from there
+shows okay how to how
+
+227
+00:10:19,090 --> 00:10:21,130
+to specifically call
+out okay here's here's
+
+228
+00:10:21,130 --> 00:10:22,550
+why I want these
+different things colored
+
+229
+00:10:22,550 --> 00:10:25,090
+so it's it's showing
+you know a couple
+
+230
+00:10:25,090 --> 00:10:27,490
+different options of
+how to you know how to
+
+231
+00:10:27,490 --> 00:10:29,530
+do this how to you know
+hide that data like
+
+232
+00:10:29,530 --> 00:10:33,690
+we did in tableau um
+you know how to do
+
+233
+00:10:33,690 --> 00:10:35,510
+bins how to do box
+plots you know some of
+
+234
+00:10:35,510 --> 00:10:37,270
+these are a little
+bit easier than others
+
+235
+00:10:37,270 --> 00:10:39,320
+because some of these
+are just built-in chart
+
+236
+00:10:39,470 --> 00:10:43,890
+types in ggplot too
+um so you can kind of
+
+237
+00:10:43,890 --> 00:10:46,820
+run through those you
+know for mapping you
+
+238
+00:10:46,820 --> 00:10:48,690
+know you can't do
+anything too wild here
+
+239
+00:10:48,690 --> 00:10:50,530
+unless you pull in like
+an external mapping
+
+240
+00:10:50,530 --> 00:10:52,030
+service like google
+maps or something like
+
+241
+00:10:52,030 --> 00:10:54,290
+that to get or open
+maps to get street view
+
+242
+00:10:54,450 --> 00:10:55,490
+or, um,
+
+243
+00:10:56,290 --> 00:10:58,130
+you know, streets and
+points of interest,
+
+244
+00:10:58,130 --> 00:11:01,790
+things like that. Um,
+but it is using, you
+
+245
+00:11:01,790 --> 00:11:03,750
+know, because we have
+that, um, latitude,
+
+246
+00:11:03,750 --> 00:11:05,170
+longitude, you know,
+it's kind of plotting out
+
+247
+00:11:05,170 --> 00:11:06,570
+what that looks like.
+And we can kind of
+
+248
+00:11:06,570 --> 00:11:08,330
+see what the, you know,
+that pattern makes
+
+249
+00:11:08,330 --> 00:11:10,170
+sense that, okay, these
+are, these are your
+
+250
+00:11:10,170 --> 00:11:13,190
+roads feeding into,
+uh, into downtown sort
+
+251
+00:11:13,190 --> 00:11:15,030
+of thing. You can plot,
+you know, right on
+
+252
+00:11:15,030 --> 00:11:17,430
+those, where, where are
+those accidents, um,
+
+253
+00:11:17,810 --> 00:11:18,570
+occurring.
+
+254
+00:11:19,550 --> 00:11:22,350
+Uh, so like I said,
+that's, you know just
+
+255
+00:11:22,350 --> 00:11:24,090
+meant as an example to
+show you know kind of
+
+256
+00:11:24,090 --> 00:11:26,270
+what's possible in
+tableau and you get much
+
+257
+00:11:26,270 --> 00:11:29,230
+more complex you know
+charts in this so you
+
+258
+00:11:29,230 --> 00:11:31,430
+know look through examples
+if you want to play
+
+259
+00:11:31,430 --> 00:11:34,820
+around with this you
+could um you know any
+
+260
+00:11:34,830 --> 00:11:37,390
+coding agent is going
+to be able to hop in
+
+261
+00:11:37,390 --> 00:11:39,090
+there and help you out
+with that as well um
+
+262
+00:11:39,090 --> 00:11:40,870
+you can kind of play
+with these as well you
+
+263
+00:11:40,870 --> 00:11:44,370
+know as with anything
+you can in that markdown
+
+264
+00:11:44,370 --> 00:11:46,990
+file itself you can
+run that code uh kind
+
+265
+00:11:46,990 --> 00:11:50,830
+of line by line here
+just remember that if you
+
+266
+00:11:50,830 --> 00:11:55,610
+try to run something
+here and these lines
+
+267
+00:11:55,610 --> 00:11:57,250
+haven't been loaded we
+don't have data loaded
+
+268
+00:11:57,250 --> 00:11:59,890
+yet it's going to
+fail you can run these
+
+269
+00:11:59,890 --> 00:12:02,210
+you have to go and run
+you know each of these
+
+270
+00:12:02,290 --> 00:12:05,090
+kind of individually
+to get that data loaded
+
+271
+00:12:05,160 --> 00:12:09,270
+or you can click that
+you know this button
+
+272
+00:12:09,270 --> 00:12:12,290
+here run all chunks
+above we'll load that in
+
+273
+00:12:12,290 --> 00:12:17,650
+and then when you
+run that it should uh
+
+274
+00:12:17,750 --> 00:12:19,920
+should come out here and
+then you can start to
+
+275
+00:12:19,920 --> 00:12:21,690
+start to play around
+with that so this is
+
+276
+00:12:21,690 --> 00:12:23,890
+provided as example you
+know this isn't going
+
+277
+00:12:23,890 --> 00:12:26,410
+to be you know something
+that is going to
+
+278
+00:12:26,410 --> 00:12:28,250
+be a main focus of the
+class but I did want
+
+279
+00:12:28,250 --> 00:12:29,970
+to you know kind of
+give you a feel for okay
+
+280
+00:12:29,970 --> 00:12:31,590
+what are the what are
+the libraries that come
+
+281
+00:12:31,590 --> 00:12:33,450
+into play what's kind
+of the process that
+
+282
+00:12:33,450 --> 00:12:35,810
+comes into play if
+we're running this in um
+
+283
+00:12:36,370 --> 00:12:37,430
+an arm.

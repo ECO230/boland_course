@@ -51,6 +51,10 @@
     {
       "source": "shared/posit-cloud/.gitattributes",
       "destination": ".gitattributes"
+    },
+    {
+      "source": "week03/labs/Lab_03_R_Transcript.md",
+      "destination": "Lab_03_R_Transcript.md"
     }
   ],
   "required_files": [
@@ -59,7 +63,8 @@
     "README.md",
     "data/chicago_traffic_crashes_sample.csv",
     "data/source.json",
-    "renv.lock"
+    "renv.lock",
+    "Lab_03_R_Transcript.md"
   ],
   "render": "Lab_03_R_Companion_IP.qmd"
 }

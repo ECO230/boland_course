@@ -4,6 +4,10 @@ An optional worked R companion to the Tableau and Excel lab. Use the same
 12,000-crash sample to explore ranking, averages, monthly trends, quarterly
 shares, relationships, distributions, and a point map.
 
+- [Open the Lab 3 project in Posit Cloud](https://posit.cloud/spaces/3173/content/12970507)
+- [Watch the instructor's R walkthrough](https://mediaspace.wisconsin.edu/media/t/1_lqzvbpkk)
+- [Read the walkthrough transcript](Lab_03_R_Transcript.md)
+
 ## Open in Posit Cloud
 
 1. Create a project from the private `ECO230/lab-03-ip` GitHub
