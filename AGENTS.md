@@ -170,8 +170,11 @@ Before handing off changes:
   module-item publication separately, and the course workflow state. Unless
   explicitly requested otherwise, the course itself must remain unpublished.
 - For Canvas video pages, count the rendered Kaltura iframes and fallback links,
-  confirm their entry IDs match the source metadata, and visually confirm at
-  least one player loads before handing off.
+  and confirm their entry IDs match the source metadata. For new or changed
+  video entries, embed markup, or embed renderer, visually confirm at least one
+  player loads before handing off. For prose-only updates with unchanged embeds,
+  reuse documented playback evidence while still verifying live content and
+  metadata-derived iframe/fallback IDs and counts.
 
 ## Repository ownership
 

@@ -1,0 +1,63 @@
+{
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634,
+      "course_code": "ECO 230-04"
+    },
+    {
+      "section": 11,
+      "course_id": 869206,
+      "course_code": "ECO 230-11"
+    },
+    {
+      "section": 12,
+      "course_id": 870121,
+      "course_code": "ECO 230-12"
+    }
+  ],
+  "objects": [
+    {
+      "kind": "page",
+      "id": "lab-3-creating-basic-visualizations-in-excel-and-tableau",
+      "source_path": "canvas/content/pages/week03-lab.md",
+      "targets": {
+        "4": {
+          "module_id": 4667279
+        },
+        "11": {
+          "module_id": 4677005
+        },
+        "12": {
+          "module_id": 4679323
+        }
+      },
+      "validation": {
+        "required_text": [
+          "12970507"
+        ]
+      }
+    },
+    {
+      "kind": "page",
+      "id": "lab-3-video-guide-tableau-and-excel",
+      "source_path": "canvas/content/pages/week03-lab-video-guide.md",
+      "targets": {
+        "4": {
+          "module_id": 4667279
+        },
+        "11": {
+          "module_id": 4677005
+        },
+        "12": {
+          "module_id": 4679323
+        }
+      },
+      "validation": {
+        "required_text": [
+          "12970507"
+        ]
+      }
+    }
+  ]
+}

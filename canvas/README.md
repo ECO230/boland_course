@@ -3,6 +3,13 @@
 See [repository boundaries](REPOSITORY-BOUNDARIES.md) for public content,
 private assessments, Canvas operations, and local grading records.
 
+For a small edit to existing Canvas pages or assignment descriptions, use the
+[targeted refresh workflow](../.codex/skills/canvas-course-operations/references/targeted-refresh.md).
+It plans affected objects, skips unchanged content, and verifies fresh live
+state with compact receipts. Full section provisioning remains the workflow
+below. Independent reviewers use the bounded
+[read-only verification protocol](../.codex/skills/canvas-course-operations/references/verification.md).
+
 The tracked configuration for ECO 230 Canvas publishing is under `manifests/`.
 It currently represents a migration draft based on the Spring 2026 Section 12
 course export. Final course publication is disabled while the Canvas delivery

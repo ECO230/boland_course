@@ -1,95 +1,55 @@
 ---
 name: canvas-course-operations
-description: Provision, repair, publish, and validate ECO 230 Canvas sections with the repository's guarded workflows. Use for Canvas section population, assignment-group placement, module visibility, or unpublished-course safety checks.
+description: Publish and verify repository-owned ECO 230 Canvas pages and assignment descriptions efficiently; provision or repair sections through guarded Canvas operations workflows.
 ---
 
 # Canvas Course Operations
 
-Use the existing Canvas automation and its receipts; do not reconstruct a long
-sequence of individual `canvasctl` commands when a repository wrapper covers
-the request.
+Use tracked sources and existing wrappers in `../eco230-canvas-ops/canvas/scripts/`.
+Keep one publisher. Never mutate Canvas through browser automation; browser
+access is read-only validation unless the user grants a one-time exception.
+If tooling cannot perform the operation, repair it and test before resuming.
 
-## Start Here
+## Choose the smallest workflow
 
-Read `canvas/README.md`, then inspect the relevant script before acting. For a
-new Fall 2026 section, use `../eco230-canvas-ops/canvas/scripts/provision-section.ps1`. Pass
-`-ResumeRunRoot` after an interrupted run so completed plans, applies, uploads,
-and verifications are reused.
+| Request | Route |
+| --- | --- |
+| Refresh existing Markdown/rendered Quarto pages or assignment descriptions | `refresh-content.ps1`; read [targeted refresh](references/targeted-refresh.md) |
+| Independently verify a completed refresh | Same wrapper with `-VerifyOnly`; use [verification protocol](references/verification.md) |
+| Create objects, provision sections, change groups or publication | Existing operation-specific wrapper; read [provisioning and repair](references/provisioning.md) and the relevant part of `canvas/README.md` |
+| Grade work or update quiz questions | Follow the grading/private assessment workflows; a description refresh cannot replace them |
 
-The guarded wrappers resolve `CANVAS_TOKEN` from the current PowerShell process
-and then the Windows user environment. If the user explicitly requests
-persistence, have them run `../eco230-canvas-ops/canvas/scripts/set-canvas-token.ps1` in a terminal
-they can see. It accepts the token through a masked prompt and saves a
-user-scoped environment variable. Explain that Windows stores this value as
-plaintext in the user's registry. Never print the token or store it in the
-repository, receipts, command history, or logs. Do not rely on an interactive
-prompt or tab the agent cannot observe.
+Do not load the full inventory, historical receipts, or every reference for a
+small refresh. Start with the manifest, affected sources, and compact receipt.
+Read detailed artifacts only for a failure or an unresolved requirement.
 
-For a targeted Week 2 video-page repair in sections 4, 11, and 12, use
-`../eco230-canvas-ops/canvas/scripts/refresh-week2-video-pages.ps1`. It renders the three tracked
-Markdown sources, updates Canvas through the Pages API, and verifies video IDs,
-player and fallback-link counts, and unchanged publication states.
+## Credentials and scope
 
-The operator uses Windows PowerShell 5. Do not pass multiline Python source to
-`python -c`; its native argument handling can strip the Python string quotes.
-Call a tracked Python helper file and validate the bridge with
-`C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe` before a live run.
-When passing multiple sections from a parent process, use a PowerShell array
-such as `@(4,11,12)` rather than a comma-containing `-File` argument.
+Wrappers resolve `CANVAS_TOKEN` from the process then Windows user environment.
+Never print it or store it in sources, logs, receipts, or command history.
+Persist it only on explicit request, using `set-canvas-token.ps1` in a visible
+terminal with its masked prompt; explain that Windows stores the user variable
+as plaintext in the registry.
 
-## Mutation Boundary
+Preserve object, module-item, module, and course publication states on refresh.
+Provisioning keeps the course unpublished unless explicitly authorized.
+Track public teaching sources here, operational code/tests in Canvas ops,
+quiz/test material in private assessments, and student records outside Git.
 
-The repository is the source of truth for Canvas. Never mutate Canvas through
-browser automation or direct UI editing. Every Canvas write must originate in
-tracked repository content and use the reviewed API tooling or a repository
-PowerShell wrapper. Browser access is limited to read-only visual validation
-unless the user explicitly grants a one-time exception.
+## Verification and reporting
 
-If the API tooling cannot perform a required operation, stop that mutation,
-repair or extend the tooling, add proportional tests and validation, and then
-resume the guarded workflow. Do not bypass an API limitation with a browser
-edit.
+A successful write is not verification. Require fresh live checks of affected
+content, links, metadata-derived video embeds/fallbacks, placement and applicable
+assignment groups, plus preserved publication states. Use receipts with source,
+configuration, and renderer identities; cached checkpoints never authorize
+skipping fresh concurrency or live verification checks.
 
-For a repository-page repair after a course is already available, use a
-reviewed `content plan --only-page <manifest-key>`. Apply it only with the
-explicit `--allow-available-course-page-refresh` guard. That path is restricted
-to existing unpublished pages and preserves the page, module, and course
-publication states; it must reject creation, published pages, other object
-types, and unscoped plans. Follow with selective `content verify` and a
-read-only body check for the expected links or embeds.
+For new or changed video embeds, or a changed embed renderer, visually confirm
+at least one player loads. Reuse documented playback evidence for unchanged
+embeds during a prose-only refresh; still check every declared ID and iframe/
+fallback count deterministically. Honor any broader task-specific verification
+requirement. A prose-only render of a declared video page is a failure.
 
-## Copied New Quiz 404
-
-A copied New Quiz may be listed in Canvas Assignments even though the
-quiz-service API returns 404 for its assignment ID. After that specific failure:
-
-1. Do not cycle through the generic Assignments endpoint or guessed quiz IDs.
-2. Stop before making any browser or UI mutation.
-3. Repair or extend the repository API tooling and test the new behavior.
-4. Resume the same provisioning run. The wrapper will skip successful
-   checkpoints and perform the remaining live API validations, including exact
-   assignment-group membership and absence from `Imported Assignments`.
-
-## Required Validation
-
-Validate live Canvas state, not just a successful command exit:
-
-- every requested assessment is in exactly one intended assignment group;
-- `Imported Assignments` is empty when the migration calls for it;
-- content objects, module items, modules, and the course are checked as separate
-  publication layers;
-- only the user-requested modules are published;
-- the course remains unpublished unless the user explicitly authorizes course
-  publication; and
-- the expected module count and names match before and after mutation.
-
-For Canvas Markdown pages with `kaltura_partner_id` and `videos` front matter,
-the rendered body must contain one playable Kaltura iframe and one matching
-open-in-new-tab fallback link for every declared `entry_id`. Count both, compare
-their IDs to the source metadata, and visually confirm at least one player
-loads. A page that contains only its prose is a renderer failure even if the
-content apply exited successfully.
-
-Keep status updates concise and checkpoint-oriented. Do not ask the user to
-rerun a completed phase merely to generate a cleaner receipt when the live
-state has already been independently verified.
+Report changed/unchanged/failed counts, receipt path, verification status, and
+API request count. Do not dump bodies or full receipts into conversation. Do not
+rerun a completed phase merely to produce a prettier report.
