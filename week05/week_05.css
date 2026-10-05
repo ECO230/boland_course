@@ -27,3 +27,10 @@
   background: transparent;
   padding: 0;
 }
+
+.reveal .w05-analysis pre,
+.reveal .w05-analysis pre code,
+.reveal .w05-analysis .w05-pseudo-step p {
+  line-height: 1.15;
+}
+
