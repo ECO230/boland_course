@@ -297,48 +297,68 @@ establish that time of day causes injuries.
 
 ## Pseudo Code to Real Code {.w05-code .w05-analysis}
 
+::: w05-pseudo-step
+`# Load the Chicago crash extract (one row per crash)`
+:::
+
+::: fragment
 ```{r analysis_load, echo=TRUE, results="hide"}
-# Load the Chicago crash extract (one row per crash)
 crashes <- read_csv(
   here("shared/data/early-homework-v1/traffic_chicago_2024.csv"),
   show_col_types = FALSE)
 ```
+:::
+
+::: w05-pseudo-step
+`# Keep daytime and night/early morning crashes`
+:::
 
 ::: fragment
 ```{r analysis_period, echo=TRUE, results="hide"}
-# Keep daytime and night/early morning crashes
 comparison <- crashes |>
   filter(time_period %in% c("Daytime", "Night or early morning"))
 ```
 :::
 
+::: w05-pseudo-step
+`# Keep known injury counts and positive unit counts`
+:::
+
 ::: fragment
 ```{r analysis_known, echo=TRUE, results="hide"}
-# Keep known injury counts and positive unit counts
 comparison <- comparison |>
   filter(!is.na(injuries_total), unit_count > 0)
 ```
 :::
 
+::: w05-pseudo-step
+`# Calculate injuries per unit = injuries / involved units`
+:::
+
 ::: fragment
 ```{r analysis_ratio, echo=TRUE, results="hide"}
-# Calculate injuries per unit = injuries / involved units
 comparison <- comparison |>
   mutate(injuries_per_unit = injuries_total / unit_count)
 ```
 :::
 
+::: w05-pseudo-step
+`# Compare injuries per unit between the two time periods`
+:::
+
 ::: fragment
 ```{r analysis_compare, echo=TRUE, results="hide"}
-# Compare injuries per unit between the two time periods
 comparison |>
   idt(injuries_per_unit ~ time_period)
 ```
 :::
 
+::: w05-pseudo-step
+`# Describe the pattern and assess the hypothesis`
+:::
+
 ::: fragment
 ```{r analysis_interpret, echo=TRUE, results="hide"}
-# Describe the pattern and assess the hypothesis
 # Compare group means: is the direction what we predicted?
 ```
 :::
@@ -346,8 +366,8 @@ comparison |>
 ::: notes
 Keep the pseudocode as the scaffold. Start with the six comments from the
 previous slide, then fill in the code beneath each comment as we figure out how
-to do that step. The loading step is visible first; each advance reveals one
-more pseudocode-and-code chunk. Run and inspect each step before moving on.
+to do that step. All six pseudocode comments are visible from the start. Each advance reveals
+only the R code for the next step beneath its comment. Run and inspect each step before moving on.
 The final comment is still a task for us: read the output and interpret it.
 The formula puts the dependent variable on the left and the independent variable
 on the right. Run this code to see the descriptive comparison and independent
