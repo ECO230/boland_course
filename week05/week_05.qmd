@@ -298,24 +298,31 @@ establish that time of day causes injuries.
 ## Pseudo Code to Real Code {.w05-code}
 
 ```{r pseudo_real, echo=TRUE, results="hide"}
+# Load the Chicago crash extract (one row per crash)
 crashes <- read_csv(
-  here("shared", "data", "early-homework-v1",
-       "traffic_chicago_2024.csv"),
-  show_col_types = FALSE
-)
-
+  here("shared/data/early-homework-v1/traffic_chicago_2024.csv"),
+  show_col_types = FALSE)
+# Keep daytime and night/early morning crashes
 comparison <- crashes |>
-  filter(time_period %in% c("Daytime", "Night or early morning"),
-         !is.na(injuries_total), unit_count > 0) |>
+  filter(time_period %in% c("Daytime", "Night or early morning"))
+# Keep known injury counts and positive unit counts
+comparison <- comparison |>
+  filter(!is.na(injuries_total), unit_count > 0)
+# Calculate injuries per unit = injuries / involved units
+comparison <- comparison |>
   mutate(injuries_per_unit = injuries_total / unit_count)
-
+# Compare injuries per unit between the two time periods
 comparison |>
   idt(injuries_per_unit ~ time_period)
+# Describe the pattern and assess the hypothesis
+# Compare group means: is the direction what we predicted?
 ```
 
-**Read the result:** Compare the group means. Is the direction consistent with our hypothesis?
-
 ::: notes
+Keep the pseudocode as the scaffold. Start with the six comments from the
+previous slide, then fill in the code beneath each comment as we figure out how
+to do that step. Run and inspect each step before moving to the next one.
+The final comment is still a task for us: read the output and interpret it.
 The formula puts the dependent variable on the left and the independent variable
 on the right. Run this code to see the descriptive comparison and independent
 difference test. Two-sided testing is the idt default; the stated hypothesis is
