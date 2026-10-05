@@ -43,7 +43,7 @@ piece_name <- function(pt) {
 piece_unicode <- function(p) {
   if (p == "") return("")
   mapping <- list(
-    wK="\u2654", wQ="\u2655", wR="\u2656", wB="\u2657", wN="\u2658", wP="\u2659",
+    wK="\u265A", wQ="\u265B", wR="\u265C", wB="\u265D", wN="\u265E", wP="\u265F",
     bK="\u265A", bQ="\u265B", bR="\u265C", bB="\u265D", bN="\u265E", bP="\u265F"
   )
   mapping[[p]] %||% ""
@@ -108,7 +108,12 @@ apply_uci_move <- function(board, uci) {
   list(board=board, info=info)
 }
 
-random_middle_square <- function() paste0(sample(c("c","d","e","f"),1), sample(3:6,1))
+MIDDLE_SQUARES <- as.vector(outer(letters[2:7], 2:7, paste0))
+random_middle_square <- function() sample(MIDDLE_SQUARES, 1)
+piece_content <- function(p) {
+  tags$span(class=paste("piece", if (piece_color(p) == "w") "white" else "black"),
+            piece_unicode(p))
+}
 
 # ----------------------------
 # Rendering (centered 1x1, centered 3x3, full 8x8)
@@ -159,11 +164,11 @@ render_board_any <- function(board, mode = c("dot","piece"),
         else tags$span(class="dot black", "\u25CF")
       }
     } else {
-      content <- tags$span(class="piece", piece_unicode(p))
+      content <- piece_content(p)
     }
     
     extra <- if (!is.null(highlight_sq) && sq == highlight_sq) " highlight" else ""
-    cell_divs[[length(cell_divs)+1]] <- tags$div(class=paste0(base_class, extra), content)
+    cell_divs[[length(cell_divs)+1]] <- tags$div(class=paste0(base_class, extra), id=if (show == "full") paste0("full-", sq) else NULL, content)
   }
   
   tags$div(
@@ -244,6 +249,17 @@ GAME_CHOICES <- setNames(as.character(seq_along(GAMES)), paste0("Game ", seq_alo
 ui <- navbarPage(
   title = "Game Simulator",
   header = tags$head(
+    tags$script(HTML("
+      Shiny.addCustomMessageHandler('board-patch', function(message) {
+        message.cells.forEach(function(cell) {
+          var square = document.getElementById('full-' + cell.square);
+          if (square) square.innerHTML = cell.html;
+        });
+        document.querySelectorAll('#board4 .sq').forEach(function(square) {
+          square.classList.toggle('highlight', square.id === 'full-' + message.target);
+        });
+      });
+    ")),
     tags$style(HTML("
       .app-wrap { max-width: 1200px; margin: 0 auto; }
       .board-wrap { display:flex; justify-content:center; align-items:center; min-height: 640px; }
@@ -271,7 +287,9 @@ ui <- navbarPage(
         outline-offset: -6px;
         box-shadow: inset 0 0 0 2px rgba(0,0,0,0.25);
       }
-      .piece { filter: drop-shadow(0 2px 2px rgba(0,0,0,0.25)); }
+      .piece.white { color:#fff; -webkit-text-stroke:1px #222; paint-order:stroke fill; }
+      .piece.black { color:#111; }
+      .piece { font-family: 'DejaVu Sans', 'Segoe UI Symbol', serif; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.25)); }
       .dot { font-size: 36px; }
       .dot.white { color:#f7f7f7; text-shadow:0 2px 2px rgba(0,0,0,0.35); }
       .dot.black { color:#111; text-shadow:0 2px 2px rgba(255,255,255,0.25); }
@@ -301,7 +319,10 @@ ui <- navbarPage(
             class="panel",
             div(class="controls-row",
                 selectInput("game1", "Select game", choices = GAME_CHOICES, selected = "1"),
+                selectInput("square1", "Square of interest", choices=MIDDLE_SQUARES, selected="e4"),
+                actionButton("random1", "Random square"),
                 actionButton("reset1", "Reset game"),
+                actionButton("previous1", "Previous move"),
                 actionButton("next1", "Next move")
             ),
             hr(),
@@ -322,7 +343,10 @@ ui <- navbarPage(
             class="panel",
             div(class="controls-row",
                 selectInput("game2", "Select game", choices = GAME_CHOICES, selected = "1"),
+                selectInput("square2", "Square of interest", choices=MIDDLE_SQUARES, selected="e4"),
+                actionButton("random2", "Random square"),
                 actionButton("reset2", "Reset game"),
+                actionButton("previous2", "Previous move"),
                 actionButton("next2", "Next move")
             ),
             hr(),
@@ -343,7 +367,10 @@ ui <- navbarPage(
             class="panel",
             div(class="controls-row",
                 selectInput("game3", "Select game", choices = GAME_CHOICES, selected = "1"),
+                selectInput("square3", "Square of interest", choices=MIDDLE_SQUARES, selected="e4"),
+                actionButton("random3", "Random square"),
                 actionButton("reset3", "Reset game"),
+                actionButton("previous3", "Previous move"),
                 actionButton("next3", "Next move")
             ),
             hr(),
@@ -364,7 +391,10 @@ ui <- navbarPage(
             class="panel",
             div(class="controls-row",
                 selectInput("game4", "Select game", choices = GAME_CHOICES, selected = "1"),
+                selectInput("square4", "Square of interest", choices=MIDDLE_SQUARES, selected="e4"),
+                actionButton("random4", "Random square"),
                 actionButton("reset4", "Reset game"),
+                actionButton("previous4", "Previous move"),
                 actionButton("next4", "Next move")
             ),
             hr(),
@@ -389,7 +419,7 @@ server <- function(input, output, session) {
     moves = GAMES[[1]]$moves,
     idx = 0L,
     # hidden until condition 4 UI displays it
-    target = random_middle_square(),
+    target = "e4",
     # logs
     log1 = data.frame(step=integer(0), seen=character(0), stringsAsFactors = FALSE),
     log2 = data.frame(step=integer(0), seen=character(0), stringsAsFactors = FALSE),
@@ -398,14 +428,25 @@ server <- function(input, output, session) {
     prev_target_piece = ""
   )
   
+  history <- list()
+  snapshot <- function() {
+    list(board=state$board, idx=state$idx, log1=state$log1, log2=state$log2,
+         log3=state$log3, log4=state$log4, prev_target_piece=state$prev_target_piece)
+  }
+  previous_one <- function() {
+    if (state$idx == 0L) return(invisible(FALSE))
+    saved <- history[[state$idx]]
+    for (name in names(saved)) state[[name]] <- saved[[name]]
+    invisible(TRUE)
+  }
   reset_game <- function(game_id) {
+    history <<- list()
     state$game_id <- as.integer(game_id)
     state$moves <- GAMES[[state$game_id]]$moves
     state$board <- initial_board()
     state$idx <- 0L
     
-    # keep same target for this game; new selection generates new target
-    state$target <- random_middle_square()
+    # Reset preserves the selected square.
     
     state$log1 <- data.frame(step=integer(0), seen=character(0), stringsAsFactors = FALSE)
     state$log2 <- data.frame(step=integer(0), seen=character(0), stringsAsFactors = FALSE)
@@ -421,6 +462,7 @@ server <- function(input, output, session) {
     n <- length(state$moves)
     if (state$idx >= n) return(invisible(FALSE))
     
+    history[[state$idx + 1L]] <<- snapshot()
     uci <- state$moves[state$idx + 1]
     
     # before-state
@@ -483,32 +525,32 @@ server <- function(input, output, session) {
     invisible(TRUE)
   }
   
-  # --- Wire each tab's controls to shared state
-  observeEvent(input$reset1, { reset_game(input$game1) })
-  observeEvent(input$reset2, { reset_game(input$game2) })
-  observeEvent(input$reset3, { reset_game(input$game3) })
-  observeEvent(input$reset4, { reset_game(input$game4) })
-  
-  observeEvent(input$game1, { reset_game(input$game1) }, ignoreInit = TRUE)
-  observeEvent(input$game2, { reset_game(input$game2) }, ignoreInit = TRUE)
-  observeEvent(input$game3, { reset_game(input$game3) }, ignoreInit = TRUE)
-  observeEvent(input$game4, { reset_game(input$game4) }, ignoreInit = TRUE)
-  
-  observeEvent(input$next1, { advance_one() })
-  observeEvent(input$next2, { advance_one() })
-  observeEvent(input$next3, { advance_one() })
-  observeEvent(input$next4, { advance_one() })
-  
-  # Disable "Next move" when game over (all tabs)
-  observe({
-    over <- state$idx >= length(state$moves)
-    shinyjs_needed <- FALSE
-    # Without shinyjs, we can still do it via updateActionButton style: not supported.
-    # Instead we do a simple UI hint by changing button label.
-    # (Button stays clickable but does nothing when over.)
-    # If you want true disable, add library(shinyjs) and use shinyjs::disable().
+  # All conditions share the same game, square, board, and history.
+  select_square <- function(square) {
+    if (is.null(square) || !square %in% MIDDLE_SQUARES || square == state$target) return()
+    state$target <- square
+    reset_game(state$game_id)
+  }
+  for (tab in 1:4) local({
+    i <- tab
+    observeEvent(input[[paste0("reset", i)]], reset_game(state$game_id))
+    observeEvent(input[[paste0("game", i)]], {
+      game <- as.integer(input[[paste0("game", i)]])
+      if (game != state$game_id) reset_game(game)
+    }, ignoreInit=TRUE)
+    observeEvent(input[[paste0("square", i)]],
+                 select_square(input[[paste0("square", i)]]), ignoreInit=TRUE)
+    observeEvent(input[[paste0("random", i)]],
+                 select_square(sample(setdiff(MIDDLE_SQUARES, state$target), 1)))
+    observeEvent(input[[paste0("next", i)]], advance_one())
+    observeEvent(input[[paste0("previous", i)]], previous_one())
   })
-  
+  observe({
+    for (i in 1:4) {
+      updateSelectInput(session, paste0("game", i), selected=as.character(state$game_id))
+      updateSelectInput(session, paste0("square", i), selected=state$target)
+    }
+  })
   # Meta UIs:
   meta_generic <- function() {
     tags$div(
@@ -541,9 +583,24 @@ server <- function(input, output, session) {
     render_board_any(state$board, mode="piece", show="three", target_sq=state$target, highlight_sq=state$target)
   })
   output$board4 <- renderUI({
-    render_board_any(state$board, mode="piece", show="full", target_sq=state$target, highlight_sq=state$target)
+    isolate(render_board_any(state$board, mode="piece", show="full", target_sq=state$target, highlight_sq=state$target))
   })
   
+  # Keep full-board cells mounted; send only pieces that changed.
+  last_board <- NULL
+  observe({
+    board <- state$board
+    target <- state$target
+    changed <- if (is.null(last_board)) which(matrix(TRUE, 8, 8), arr.ind=TRUE) else
+      which(board != last_board, arr.ind=TRUE)
+    cells <- lapply(seq_len(nrow(changed)), function(i) {
+      r <- changed[i, 1]; c <- changed[i, 2]
+      list(square=rc_to_square(r, c), html=as.character(piece_content(board[r, c])))
+    })
+    session$sendCustomMessage("board-patch", list(cells=unname(cells), target=target))
+    last_board <<- board
+  })
+
   # Tallies
   output$tally1 <- renderTable({ if (nrow(state$log1) == 0) data.frame() else state$log1 },
                                striped=TRUE, hover=TRUE, spacing="s")
