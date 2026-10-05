@@ -7,3 +7,13 @@
 .reveal .w05-code pre code {
   max-height: none;
 }
+
+/* Fragments reserve their space so earlier steps stay in place. */
+.reveal .w05-analysis div.sourceCode,
+.reveal .w05-analysis pre {
+  margin: 0.15em 0;
+}
+
+.reveal .w05-analysis pre code {
+  padding: 0.15em 0.7em;
+}
