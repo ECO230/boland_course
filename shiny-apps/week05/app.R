@@ -121,7 +121,7 @@ piece_content <- function(p) {
 render_board_any <- function(board, mode = c("dot","piece"),
                              show = c("full","one","three"),
                              target_sq,
-                             highlight_sq = NULL) {
+                             highlight_sq = NULL, id_prefix = "full-") {
   mode <- match.arg(mode)
   show <- match.arg(show)
   
@@ -168,7 +168,7 @@ render_board_any <- function(board, mode = c("dot","piece"),
     }
     
     extra <- if (!is.null(highlight_sq) && sq == highlight_sq) " highlight" else ""
-    cell_divs[[length(cell_divs)+1]] <- tags$div(class=paste0(base_class, extra), id=if (show == "full") paste0("full-", sq) else NULL, content)
+    cell_divs[[length(cell_divs)+1]] <- tags$div(class=paste0(base_class, extra), id=if (show == "full") paste0(id_prefix, sq) else NULL, content)
   }
   
   tags$div(
@@ -252,11 +252,13 @@ ui <- navbarPage(
     tags$script(HTML("
       Shiny.addCustomMessageHandler('board-patch', function(message) {
         message.cells.forEach(function(cell) {
-          var square = document.getElementById('full-' + cell.square);
-          if (square) square.innerHTML = cell.html;
+          ['full-', 'combined-'].forEach(function(prefix) {
+            var square = document.getElementById(prefix + cell.square);
+            if (square) square.innerHTML = cell.html;
+          });
         });
-        document.querySelectorAll('#board4 .sq').forEach(function(square) {
-          square.classList.toggle('highlight', square.id === 'full-' + message.target);
+        document.querySelectorAll('#board4 .sq, #board5full .sq').forEach(function(square) {
+          square.classList.toggle('highlight', square.id === 'full-' + message.target || square.id === 'combined-' + message.target);
         });
       });
     ")),
@@ -306,6 +308,17 @@ ui <- navbarPage(
         display:inline-block; padding: 6px 10px; border-radius: 999px;
         background: rgba(0,0,0,0.06);
         margin-left: 8px; font-size: 12px;
+      }
+      .combined-views { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px; }
+      .combined-view { min-width:0; text-align:center; }
+      .combined-views .board-wrap { min-height:280px; }
+      .combined-full { grid-column:1 / -1; }
+      .combined-views .board { gap:4px; padding:10px; max-width:100%; }
+      .combined-full .board { grid-template-columns:repeat(8, minmax(0, 1fr)) !important; grid-template-rows:repeat(8, auto) !important; width:min(100%, 620px); }
+      .combined-full .sq { width:100%; height:auto; aspect-ratio:1; border-radius:8px; font-size:clamp(22px, 4vw, 46px); }
+      @media (max-width:900px) {
+        .combined-views { grid-template-columns:1fr; }
+        .combined-views .board-wrap { min-height:120px; }
       }
       .controls-row { display:flex; gap: 10px; flex-wrap: wrap; }
     "))
@@ -405,9 +418,35 @@ ui <- navbarPage(
           mainPanel(class="panel", uiOutput("board4"))
         )
     )
+  ),
+  tabPanel(
+    "Condition 5 - All views",
+    div(class="app-wrap",
+      p("Each view shows the same game at the same step. Use the full board to explain what appears in the simpler views, then predict the next dot before advancing."),
+      sidebarLayout(
+        sidebarPanel(class="panel",
+          div(class="controls-row",
+            selectInput("game5", "Select game", choices=GAME_CHOICES, selected="1"),
+            selectInput("square5", "Square of interest", choices=MIDDLE_SQUARES, selected="e4"),
+            actionButton("random5", "Random square"),
+            actionButton("reset5", "Reset game"),
+            actionButton("previous5", "Previous move"),
+            actionButton("next5", "Next move")
+          ),
+          hr(), uiOutput("meta5"), hr(), uiOutput("connection5")
+        ),
+        mainPanel(class="panel",
+          div(class="combined-views",
+            div(class="combined-view", h4("Condition 1: Dot only"), uiOutput("board5dot")),
+            div(class="combined-view", h4("Condition 2: Piece shapes"), uiOutput("board5piece")),
+            div(class="combined-view", h4("Condition 3: Local perimeter"), uiOutput("board5local")),
+            div(class="combined-view combined-full", h4("Condition 4: Full board"), uiOutput("board5full"))
+          )
+        )
+      )
+    )
   )
 )
-
 # ----------------------------
 # Server
 # ----------------------------
@@ -531,7 +570,7 @@ server <- function(input, output, session) {
     state$target <- square
     reset_game(state$game_id)
   }
-  for (tab in 1:4) local({
+  for (tab in 1:5) local({
     i <- tab
     observeEvent(input[[paste0("reset", i)]], reset_game(state$game_id))
     observeEvent(input[[paste0("game", i)]], {
@@ -546,7 +585,7 @@ server <- function(input, output, session) {
     observeEvent(input[[paste0("previous", i)]], previous_one())
   })
   observe({
-    for (i in 1:4) {
+    for (i in 1:5) {
       updateSelectInput(session, paste0("game", i), selected=as.character(state$game_id))
       updateSelectInput(session, paste0("square", i), selected=state$target)
     }
@@ -572,6 +611,29 @@ server <- function(input, output, session) {
   output$meta3 <- renderUI(meta_generic())
   output$meta4 <- renderUI(meta_full())
   
+  output$meta5 <- renderUI(meta_full())
+  output$connection5 <- renderUI({
+    rc <- square_to_rc(state$target)
+    p <- state$board[rc["row"], rc["col"]]
+    description <- if (p == "") "empty" else
+      paste(if (piece_color(p) == "w") "a white" else "a black", piece_name(piece_type(p)))
+    dot <- if (p == "") "an empty square" else
+      paste("a", if (piece_color(p) == "w") "white" else "black", "dot")
+    tags$div(
+      tags$p(paste("On the full board,", state$target, "is", description,
+                   "- so Condition 1 shows", paste0(dot, "."))),
+      tags$p("Condition 2 adds the piece's identity. Condition 3 adds its neighbors. The full board provides the system that explains their changes."),
+      tags$p("Predict: will the next move enter or leave the highlighted square, or leave it unchanged?")
+    )
+  })
+  output$board5dot <- renderUI(render_board_any(state$board, "dot", "one", state$target, state$target))
+  output$board5piece <- renderUI(render_board_any(state$board, "piece", "one", state$target, state$target))
+  output$board5local <- renderUI(render_board_any(state$board, "piece", "three", state$target, state$target))
+  output$board5full <- renderUI({
+    isolate(render_board_any(state$board, "piece", "full", state$target, state$target,
+                             id_prefix="combined-"))
+  })
+
   # Boards
   output$board1 <- renderUI({
     render_board_any(state$board, mode="dot", show="one", target_sq=state$target, highlight_sq=state$target)
