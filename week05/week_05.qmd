@@ -1,5 +1,5 @@
 ---
-title: "Week 5 — Converting Stories to Hypotheses"
+title: "Week 5 - Converting Stories to Hypotheses"
 author: "Mike Boland"
 format:
   revealjs:
@@ -20,11 +20,11 @@ execute:
 ::: text-center
 <br><br><br>
 
-[ “If it disagrees with experiment, it’s ]{style="font-size: 2.1em; font-style: italic; line-height: 1.25;"}[WRONG]{style="color:#e31b23; font-weight:700;"}. In<br> that simple statement is the key to science”
+<p style="font-size: 2.1em; font-style: italic; line-height: 1.25;">"If it disagrees with experiment, it's <span style="color:#e31b23; font-weight:700;">WRONG</span>. In<br> that simple statement is the key to science"</p>
 
 <br><br>
 
-[—Richard Feynman]{style="font-size: 1.2em; opacity: 0.65;"}
+[Richard Feynman]{style="font-size: 1.2em; opacity: 0.65;"}
 :::
 
 ## Research Design
