@@ -213,7 +213,7 @@ Mike Boland
 “If it disagrees with experiment, it’s <span style="color:#e31b23; font-weight:700;">WRONG</span>. In<br> that simple statement is the key to science”
 </p>
 <p><br><br></p>
-<p><span style="font-size: 1.2em; opacity: 0.65;">Richard Feynman</span></p>
+<p><span style="font-size: 1.2em; opacity: 0.65;">- Richard Feynman</span></p>
 </div>
 </section>
 <section id="research-design" class="slide level2">
@@ -438,61 +438,60 @@ Exercise</p>
 </section>
 <section id="pseudo-code" class="slide level2">
 <h2>Pseudo Code</h2>
-<div class="columns">
-<div class="column" style="width:10%;">
-<p><img data-src="../shared/images/logo_R.png" style="width:100.0%" alt="R Language Logo"></p>
-</div><div class="column" style="width:90%;">
+<p><strong>Hypothesis:</strong> Night or early morning crashes have more injuries per involved unit than daytime crashes.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co">#load the raw data set</span></span>
-<span id="cb1-2"><a></a><span class="co">#Add population information by zip code</span></span>
-<span id="cb1-3"><a></a><span class="co">#Select Population, Duration, Temperature…</span></span>
-<span id="cb1-4"><a></a><span class="co">#Create a measure that is a ratio between temp/duration</span></span>
-<span id="cb1-5"><a></a><span class="co">#Test Hypothesis duration longer with higher population</span></span>
-<span id="cb1-6"><a></a><span class="co">#I tried idt(duration~population) it didn’t work</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Load the Chicago crash extract (one row per crash)</span></span>
+<span id="cb1-2"><a></a><span class="co"># Keep daytime and night/early morning crashes</span></span>
+<span id="cb1-3"><a></a><span class="co"># Keep known injury counts and positive unit counts</span></span>
+<span id="cb1-4"><a></a><span class="co"># Calculate injuries per unit = injuries / involved units</span></span>
+<span id="cb1-5"><a></a><span class="co"># Compare injuries per unit between the two time periods</span></span>
+<span id="cb1-6"><a></a><span class="co"># Describe the pattern and assess the hypothesis</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div></div>
+<aside class="notes">
+<p>Use the same Chicago 2024 extract as the early homework. The dependent variable is injuries per involved unit, a derived numerical measure. The independent variable is time period, a categorical measure. One involved unit can be a vehicle, pedestrian, or cyclist. This ratio describes injury burden within recorded crashes; it is not the probability of a crash or injury per trip. The observational comparison does not establish that time of day causes injuries.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="pseudo-code-to-real-code" class="slide level2">
 <h2>Pseudo Code to Real Code</h2>
-<div class="columns">
-<div class="column" style="width:10%;">
-<p><img data-src="../shared/images/logo_R.png" style="width:100.0%" alt="R Language Logo"></p>
-</div><div class="column" style="width:90%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co">#load the raw data set</span></span>
-<span id="cb2-2"><a></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../shared/data/accident_wi.csv"</span>)</span>
-<span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="co">#Add population information by zip code</span></span>
-<span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a><span class="co">#Select Population, Duration, Temperature…</span></span>
-<span id="cb2-7"><a></a></span>
-<span id="cb2-8"><a></a><span class="co">#Create a measure that is a ratio between temp/distance</span></span>
-<span id="cb2-9"><a></a></span>
-<span id="cb2-10"><a></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb2-11"><a></a>  <span class="fu">mutate</span>(<span class="at">temp_dist_ratio =</span> <span class="st">`</span><span class="at">Temperature(F)</span><span class="st">`</span><span class="sc">/</span><span class="st">`</span><span class="at">Distance(mi)</span><span class="st">`</span>)</span>
-<span id="cb2-12"><a></a></span>
-<span id="cb2-13"><a></a><span class="co">#Test Hypothesis duration longer with higher population</span></span>
-<span id="cb2-14"><a></a><span class="co">#I tried idt(duration~population) it didn’t work</span></span>
-<span id="cb2-15"><a></a></span>
-<span id="cb2-16"><a></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb2-17"><a></a>  <span class="fu">idt</span>(<span class="st">`</span><span class="at">Distance(mi)</span><span class="st">`</span><span class="sc">~</span>Sunrise_Sunset)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Independent variable converted to a factor using as.factor()"</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>crashes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb2-2"><a></a>  <span class="fu">here</span>(<span class="st">"shared"</span>, <span class="st">"data"</span>, <span class="st">"early-homework-v1"</span>,</span>
+<span id="cb2-3"><a></a>       <span class="st">"traffic_chicago_2024.csv"</span>),</span>
+<span id="cb2-4"><a></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-5"><a></a>)</span>
+<span id="cb2-6"><a></a></span>
+<span id="cb2-7"><a></a>comparison <span class="ot">&lt;-</span> crashes <span class="sc">|&gt;</span></span>
+<span id="cb2-8"><a></a>  <span class="fu">filter</span>(time_period <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Daytime"</span>, <span class="st">"Night or early morning"</span>),</span>
+<span id="cb2-9"><a></a>         <span class="sc">!</span><span class="fu">is.na</span>(injuries_total), unit_count <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-10"><a></a>  <span class="fu">mutate</span>(<span class="at">injuries_per_unit =</span> injuries_total <span class="sc">/</span> unit_count)</span>
+<span id="cb2-11"><a></a></span>
+<span id="cb2-12"><a></a>comparison <span class="sc">|&gt;</span></span>
+<span id="cb2-13"><a></a>  <span class="fu">idt</span>(injuries_per_unit <span class="sc">~</span> time_period)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$analysis_type
-[1] "Independent t-Test, Two Tailed test"
-
-$results
-[1] "t(3071.33) = -6.532, p = 0, r = 0.117, bf10 = 50424766540.957"
-
-$descriptive_statistics
-  Group        N     Mean Standard_Error
-1   Day 5.74e+03 6.41e-01       1.60e-02
-2 Night 2.17e+03 8.99e-01       3.61e-02</code></pre>
-</div>
-</div>
-</div></div>
+<p><strong>Read the result:</strong> Compare the group means. Is the direction consistent with our hypothesis?</p>
+<aside class="notes">
+<p>The formula puts the dependent variable on the left and the independent variable on the right. Run this code to see the descriptive comparison and independent difference test. Two-sided testing is the idt default; the stated hypothesis is directional, so assess the direction of the group means as well as the evidence. Missing injuries are not zero; unit_count must be positive before division. These are sampled, police-reported crashes, not all Chicago crashes. Any observed difference is an association, not evidence of causation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="group-project-template" class="slide level2" data-background-image="media/images/w5_posit_example.png" data-background-size="auto 80%" data-background-position="center" data-background-repeat="no-repeat">
 <h2>Group Project Template</h2>
