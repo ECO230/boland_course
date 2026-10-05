@@ -1,0 +1,36 @@
+/* Keep the two classroom code examples readable on the projector. */
+.reveal .w05-code pre {
+  font-size: 0.85em;
+  width: 100%;
+}
+
+.reveal .w05-code pre code {
+  max-height: none;
+}
+
+/* Fragments reserve their space so earlier steps stay in place. */
+.reveal .w05-analysis div.sourceCode,
+.reveal .w05-analysis pre {
+  margin: 0.15em 0;
+}
+
+.reveal .w05-analysis pre code {
+  padding: 0.15em 0.7em;
+}
+
+/* Keep the complete plan visible while its implementation is revealed. */
+.reveal .w05-analysis .w05-pseudo-step p {
+  margin: 0.15em 0 0;
+  font-size: 0.85em;
+}
+.reveal .w05-analysis .w05-pseudo-step code {
+  background: transparent;
+  padding: 0;
+}
+
+.reveal .w05-analysis pre,
+.reveal .w05-analysis pre code,
+.reveal .w05-analysis .w05-pseudo-step p {
+  line-height: 1.15;
+}
+
