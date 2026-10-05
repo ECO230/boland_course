@@ -24,7 +24,7 @@ execute:
 
 <br><br>
 
-[Richard Feynman]{style="font-size: 1.2em; opacity: 0.65;"}
+[- Richard Feynman]{style="font-size: 1.2em; opacity: 0.65;"}
 :::
 
 ## Research Design
@@ -265,64 +265,63 @@ An educated guess about how the **independent variable** affects the **dependent
 
 ## Pseudo Code
 
+**Hypothesis:** Night or early morning crashes have more injuries per involved unit than daytime crashes.
+
 ```{r setup_eco, echo=FALSE}
 library(eco230r)
 library(dplyr)
 library(readr)
 library(here)
-data_path     <- here("shared", "data", "accident_wi.csv")
-
-# 1) Load data --------------------------------------------------------------
-abnb <- read_csv(data_path, show_col_types = FALSE)
 ```
 
-::::: columns
-::: {.column width="10%"}
-![](../shared/images/logo_R.png){width="100%" fig-alt="R Language Logo"}
-:::
-
-::: {.column width="90%"}
 ```{r pseudo, echo=TRUE, results="hide"}
-#load the raw data set
-#Add population information by zip code
-#Select Population, Duration, Temperature…
-#Create a measure that is a ratio between temp/duration
-#Test Hypothesis duration longer with higher population
-#I tried idt(duration~population) it didn’t work
+# Load the Chicago crash extract (one row per crash)
+# Keep daytime and night/early morning crashes
+# Keep known injury counts and positive unit counts
+# Calculate injuries per unit = injuries / involved units
+# Compare injuries per unit between the two time periods
+# Describe the pattern and assess the hypothesis
 ```
+
+::: notes
+Use the same Chicago 2024 extract as the early homework.
+The dependent variable is injuries per involved unit, a derived numerical measure.
+The independent variable is time period, a categorical measure.
+One involved unit can be a vehicle, pedestrian, or cyclist.
+This ratio describes injury burden within recorded crashes; it is not the
+probability of a crash or injury per trip. The observational comparison does not
+establish that time of day causes injuries.
 :::
-:::::
 
 ## Pseudo Code to Real Code
 
-::::: columns
-::: {.column width="10%"}
-![](../shared/images/logo_R.png){width="100%" fig-alt="R Language Logo"}
-:::
+```{r pseudo_real, echo=TRUE, results="hide"}
+crashes <- read_csv(
+  here("shared", "data", "early-homework-v1",
+       "traffic_chicago_2024.csv"),
+  show_col_types = FALSE
+)
 
-::: {.column width="90%"}
-```{r pseudo_real, echo=TRUE, results="show"}
-#load the raw data set
-df <- read_csv("../shared/data/accident_wi.csv")
+comparison <- crashes |>
+  filter(time_period %in% c("Daytime", "Night or early morning"),
+         !is.na(injuries_total), unit_count > 0) |>
+  mutate(injuries_per_unit = injuries_total / unit_count)
 
-#Add population information by zip code
-
-#Select Population, Duration, Temperature…
-
-#Create a measure that is a ratio between temp/distance
-
-df <- df %>%
-  mutate(temp_dist_ratio = `Temperature(F)`/`Distance(mi)`)
-
-#Test Hypothesis duration longer with higher population
-#I tried idt(duration~population) it didn’t work
-
-df %>%
-  idt(`Distance(mi)`~Sunrise_Sunset)
-
+comparison |>
+  idt(injuries_per_unit ~ time_period)
 ```
+
+**Read the result:** Compare the group means. Is the direction consistent with our hypothesis?
+
+::: notes
+The formula puts the dependent variable on the left and the independent variable
+on the right. Run this code to see the descriptive comparison and independent
+difference test. Two-sided testing is the idt default; the stated hypothesis is
+directional, so assess the direction of the group means as well as the evidence.
+Missing injuries are not zero; unit_count must be positive before division.
+These are sampled, police-reported crashes, not all Chicago crashes.
+Any observed difference is an association, not evidence of causation.
 :::
-:::::
 
 ## Group Project Template {data-background-image="media/images/w5_posit_example.png" background-size="auto 80%" data-background-position="center" data-background-repeat="no-repeat"}
 
