@@ -185,16 +185,19 @@ render_board_any <- function(board, mode = c("dot","piece"),
 }
 
 # ----------------------------
-# Five famous games (UCI)
+# Five famous games (UCI), verified against the published scores.
+# Source scores and independent legality/position checks: tests/validate_games.py
+# Immortal Game includes the commonly published mating continuation.
 # ----------------------------
 GAMES <- list(
   list(
     name = "The Immortal Game (Anderssen–Kieseritzky, 1851)",
     moves = strsplit(
       paste(
-        "e2e4 e7e5 f2f4 e5f4 f1c4 d8h4 g1f3 h4h6 d2d4 h6h5",
-        "c1f4 g7g5 h2h4 h5g6 h4h5 g6g2 h1f1 g2e4 f3e5 d7d5 c4d5",
-        "f4c7 e8d8 d5e4 g8f6 c7e5 f6e4 f1f4 e4d6 e5d6 c7d6 f4f7 d8e8 d6e7"
+        "e2e4 e7e5 f2f4 e5f4 f1c4 d8h4 e1f1 b7b5 c4b5 g8f6 g1f3 h4h6",
+        "d2d3 f6h5 f3h4 h6g5 h4f5 c7c6 g2g4 h5f6 h1g1 c6b5 h2h4 g5g6",
+        "h4h5 g6g5 d1f3 f6g8 c1f4 g5f6 b1c3 f8c5 c3d5 f6b2 f4d6 c5g1",
+        "e4e5 b2a1 f1e2 b8a6 f5g7 e8d8 f3f6 g8f6 d6e7"
       ),
       " "
     )[[1]]
@@ -204,7 +207,8 @@ GAMES <- list(
     moves = strsplit(
       paste(
         "e2e4 e7e5 g1f3 d7d6 d2d4 c8g4 d4e5 g4f3 d1f3 d6e5 f1c4 g8f6",
-        "f3b3 d8e7 b1c3 c7c6 c1g5 b7b5 c3b5 c6b5 c4b5 b8d7 e1c1 a8d8 d1d7 d8d7 b3b8 d7d8 b8d8"
+        "f3b3 d8e7 b1c3 c7c6 c1g5 b7b5 c3b5 c6b5 c4b5 b8d7 e1c1 a8d8",
+        "d1d7 d8d7 h1d1 e7e6 b5d7 f6d7 b3b8 d7b8 d1d8"
       ),
       " "
     )[[1]]
@@ -213,8 +217,13 @@ GAMES <- list(
     name = "Game of the Century (Byrne–Fischer, 1956)",
     moves = strsplit(
       paste(
-        "g1f3 g8f6 c2c4 g7g6 b1c3 f8g7 d2d4 e8g8 c1f4 d7d5 d1b3 d5c4 b3c4 c7c6",
-        "e2e4 b7b5 c4c5 a7a6 a2a4 b5b4 c3e2 f6e4 f4e5 g7e5 c5e5 d8a5 e5f4 e4c3 b2c3 a5c3 e1e2 c3b2 e2e3 b2c3 f1d3 c3c1 a1c1"
+        "g1f3 g8f6 c2c4 g7g6 b1c3 f8g7 d2d4 e8g8 c1f4 d7d5 d1b3 d5c4",
+        "b3c4 c7c6 e2e4 b8d7 a1d1 d7b6 c4c5 c8g4 f4g5 b6a4 c5a3 a4c3",
+        "b2c3 f6e4 g5e7 d8b6 f1c4 e4c3 e7c5 f8e8 e1f1 g4e6 c5b6 e6c4",
+        "f1g1 c3e2 g1f1 e2d4 f1g1 d4e2 g1f1 e2c3 f1g1 a7b6 a3b4 a8a4",
+        "b4b6 c3d1 h2h3 a4a2 g1h2 d1f2 h1e1 e8e1 b6d8 g7f8 f3e1 c4d5",
+        "e1f3 f2e4 d8b8 b7b5 h3h4 h7h5 f3e5 g8g7 h2g1 f8c5 g1f1 e4g3",
+        "f1e1 c5b4 e1d1 d5b3 d1c1 g3e2 c1b1 e2c3 b1c1 a2c2"
       ),
       " "
     )[[1]]
@@ -223,8 +232,14 @@ GAMES <- list(
     name = "Kasparov–Topalov (Wijk aan Zee, 1999)",
     moves = strsplit(
       paste(
-        "e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1e3 f8g7 d1d2 c7c6 f2f3 b7b5 g1e2 b8d7",
-        "e3h6 g7h6 d2h6 a7a5 a2a3 a5a4 e2f4 e7e5 f4h5 e5d4 c3d5 c6d5 e4d5 f6h5 h6h5 g6h5 f1b5 e8f8 e1c1 d7f6 b5c4 f8g7"
+        "e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1e3 f8g7 d1d2 c7c6 f2f3 b7b5",
+        "g1e2 b8d7 e3h6 g7h6 d2h6 c8b7 a2a3 e7e5 e1c1 d8e7 c1b1 a7a6",
+        "e2c1 e8c8 c1b3 e5d4 d1d4 c6c5 d4d1 d7b6 g2g3 c8b8 b3a5 b7a8",
+        "f1h3 d6d5 h6f4 b8a7 h1e1 d5d4 c3d5 b6d5 e4d5 e7d6 d1d4 c5d4",
+        "e1e7 a7b6 f4d4 b6a5 b2b4 a5a4 d4c3 d6d5 e7a7 a8b7 a7b7 d5c4",
+        "c3f6 a4a3 f6a6 a3b4 c2c3 b4c3 a6a1 c3d2 a1b2 d2d1 h3f1 d8d2",
+        "b7d7 d2d7 f1c4 b5c4 b2h8 d7d3 h8a8 c4c3 a8a4 d1e1 f3f4 f7f5",
+        "b1c1 d3d2 a4a7"
       ),
       " "
     )[[1]]
@@ -233,8 +248,10 @@ GAMES <- list(
     name = "Deep Blue–Kasparov (1997, Game 6)",
     moves = strsplit(
       paste(
-        "e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 b8d7 f1d3 g8f6 d1e2 e7e6 g1f3 f8e7",
-        "e1g1 e8g8 c1g5 f6e4 g5e7 d8e7 e2e4 e7e4 d3e4 f7f5 e4c4 g8h8 a1e1 d7f6 c4e6"
+        "e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 b8d7 e4g5 g8f6 f1d3 e7e6",
+        "g1f3 h7h6 g5e6 d8e7 e1g1 f7e6 d3g6 e8d8 c1f4 b7b5 a2a4 c8b7",
+        "f1e1 f6d5 f4g3 d8c8 a4b5 c6b5 d1d3 b7c6 g6f5 e6f5 e1e7 f8e7",
+        "c2c4"
       ),
       " "
     )[[1]]
@@ -602,7 +619,10 @@ server <- function(input, output, session) {
       tags$div(tags$strong("Simulator")),
       tags$div(tags$strong("Game: "), GAMES[[state$game_id]]$name),
       tags$div(tags$strong("Square of interest: "), state$target),
-      tags$div(tags$strong("Step: "), paste0(state$idx, " / ", length(state$moves)))
+      tags$div(tags$strong("Step: "), paste0(state$idx, " / ", length(state$moves))),
+      tags$div(tags$strong("Next to move: "), if (state$idx %% 2 == 0) "White" else "Black"),
+      tags$div(class="small-muted", "Each step is one move by one player."),
+      if (state$game_id == 1L) tags$div(class="small-muted", "Includes the commonly published mating continuation.")
     )
   }
   
