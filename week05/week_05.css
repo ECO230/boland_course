@@ -1,0 +1,5 @@
+/* Keep the two classroom code examples readable on the projector. */
+.reveal .w05-code pre {
+  font-size: 0.85em;
+  width: 100%;
+}
