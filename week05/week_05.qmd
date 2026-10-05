@@ -6,7 +6,9 @@ format:
     theme:
       - default
       - ../shared/styles/boland-reveal.scss
-    css: ../shared/styles/accessibility.css
+    css:
+      - ../shared/styles/accessibility.css
+      - week_05.css
     slide-number: true
     hash: true
     center: false
@@ -263,7 +265,7 @@ Exercise
 An educated guess about how the **independent variable** affects the **dependent variable**.
 :::
 
-## Pseudo Code
+## Pseudo Code {.w05-code}
 
 **Hypothesis:** Night or early morning crashes have more injuries per involved unit than daytime crashes.
 
@@ -293,7 +295,7 @@ probability of a crash or injury per trip. The observational comparison does not
 establish that time of day causes injuries.
 :::
 
-## Pseudo Code to Real Code
+## Pseudo Code to Real Code {.w05-code}
 
 ```{r pseudo_real, echo=TRUE, results="hide"}
 crashes <- read_csv(
