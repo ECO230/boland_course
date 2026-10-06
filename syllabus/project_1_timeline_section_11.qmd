@@ -1,0 +1,15 @@
+---
+title: "Project 1: Timeline - Section 11"
+format:
+  html:
+    toc: false
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+params:
+  class_section: 11
+---
+
+{{< include _project_1_timeline_body.qmd >}}

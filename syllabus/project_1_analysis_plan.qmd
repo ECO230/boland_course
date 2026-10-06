@@ -1,0 +1,51 @@
+---
+title: "Project 1: Analysis Plan"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Purpose
+
+Prepare a plan that connects your team's statistical stories to the data and analyses needed to investigate them. Use the plan to organize your work before cleaning the dataset and testing hypotheses.
+
+## Resources
+
+- [Project 1 Prompt](project_1_prompt.qmd)
+- [Your Section's Project Timeline](project_1_timeline.qmd)
+- Your team's project in Posit Cloud and its analysis plan template.
+
+## Prepare Your Plan
+
+Complete the team analysis plan in your project. The original template is named `Group_Analysis_Plan.Rmd`; if your project uses a different filename, identify that file in your submission.
+
+For each story your team intends to investigate:
+
+1. State the question, the expected relationship or hypothesis, and why it matters to a decision maker.
+2. Identify the unit of observation and the variables used to investigate the relationship.
+3. Describe the filters, missing-value decisions, and derived variables needed to prepare the data.
+4. Plan the descriptive summaries and visualizations. Identify the inferential comparison you expect to use when appropriate; revise this as you learn additional methods.
+5. Assign responsibility and record the next steps for your teammates.
+
+This is a plan, so the analyses do not need to be complete yet. Use comments or pseudocode for steps you have not implemented.
+
+## Submission
+
+Submit in **Prep Work: Analysis Plan** in Canvas by the deadline on your section's timeline. Identify your team's project and the analysis plan filename. Use the Canvas text entry to identify the plan's location, or upload the plan file. One teammate may submit the team's plan; include the group number and teammate names.
+
+## Checklist
+
+- [ ] The plan names the team's statistical stories and hypotheses.
+- [ ] The variables, cleaning decisions, and planned analyses address those stories.
+- [ ] Teammates know their responsibilities and next steps.
+- [ ] The submission identifies where the instructor can find the plan.
+
+## Grading Basis
+
+This is the project preparation checkpoint described in the [Project 1 Prompt](project_1_prompt.qmd). See that prompt for the existing prep-work policy and the section timeline for deadlines.

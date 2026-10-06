@@ -16,6 +16,13 @@ project:
     - datasets/olist.qmd
     - datasets/health.qmd
     - syllabus/syllabus.qmd
+    - syllabus/project_1_prompt.qmd
+    - syllabus/project_1_timeline.qmd
+    - syllabus/project_1_timeline_section_4.qmd
+    - syllabus/project_1_timeline_section_11.qmd
+    - syllabus/project_1_timeline_section_12.qmd
+    - syllabus/project_1_analysis_plan.qmd
+    - syllabus/project_1_presentation_in_person.qmd
     - week01/week_01.qmd
     - week02/week_02.qmd
     - week03/week_03.qmd
@@ -92,6 +99,16 @@ website:
             file: week02/Homework_02.qmd
           - text: "Homework 3"
             file: week03/Homework_03.qmd
+      - text: "Project 1"
+        menu:
+          - text: "Project Prompt"
+            file: syllabus/project_1_prompt.qmd
+          - text: "Timeline by Section"
+            file: syllabus/project_1_timeline.qmd
+          - text: "Analysis Plan"
+            file: syllabus/project_1_analysis_plan.qmd
+          - text: "Presentation Guide"
+            file: syllabus/project_1_presentation_in_person.qmd
       - text: "Datasets"
         menu:
           - text: "Dataset Catalog"

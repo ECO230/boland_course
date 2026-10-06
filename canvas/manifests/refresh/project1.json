@@ -1,0 +1,164 @@
+{
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634
+    },
+    {
+      "section": 11,
+      "course_id": 869206
+    },
+    {
+      "section": 12,
+      "course_id": 870121
+    }
+  ],
+  "objects": [
+    {
+      "kind": "assignment",
+      "title": "Prep Work: Analysis Plan",
+      "source_path": "canvas/content/assignments/project1-analysis-plan.md",
+      "input_paths": [
+        "syllabus/project_1_prompt.qmd",
+        "syllabus/project_1_timeline.qmd",
+        "syllabus/_project_1_timeline_body.qmd"
+      ],
+      "targets": {
+        "4": {
+          "id": 11004585,
+          "module_id": 4667281,
+          "assignment_group_id": 1951718
+        },
+        "11": {
+          "id": 11024218,
+          "module_id": 4677007,
+          "assignment_group_id": 1955483
+        },
+        "12": {
+          "id": 11029537,
+          "module_id": 4679325,
+          "assignment_group_id": 1956664
+        }
+      },
+      "validation": {
+        "required_text": [
+          "Project Timeline",
+          "Project 1 Prompt",
+          "Group_Analysis_Plan.Rmd",
+          "Read the Analysis Plan instructions"
+        ]
+      },
+      "id": 11004585,
+      "module_id": 4667281,
+      "assignment_group_id": 1951718
+    },
+    {
+      "kind": "assignment",
+      "title": "Prep Work: Clean Data Set",
+      "source_path": "canvas/content/assignments/project1-clean-dataset.md",
+      "input_paths": [
+        "syllabus/project_1_prompt.qmd",
+        "syllabus/project_1_timeline.qmd",
+        "syllabus/_project_1_timeline_body.qmd"
+      ],
+      "targets": {
+        "4": {
+          "id": 11004589,
+          "module_id": 4667282,
+          "assignment_group_id": 1951718
+        },
+        "11": {
+          "id": 11024222,
+          "module_id": 4677008,
+          "assignment_group_id": 1955483
+        },
+        "12": {
+          "id": 11029542,
+          "module_id": 4679326,
+          "assignment_group_id": 1956664
+        }
+      },
+      "validation": {
+        "required_text": [
+          "Project Timeline",
+          "Project 1 Prompt"
+        ]
+      },
+      "id": 11004589,
+      "module_id": 4667282,
+      "assignment_group_id": 1951718
+    },
+    {
+      "kind": "assignment",
+      "title": "Prep Work: Pre-Coaching Presentation Draft",
+      "source_path": "canvas/content/assignments/project1-pre-coaching.md",
+      "input_paths": [
+        "syllabus/project_1_prompt.qmd",
+        "syllabus/project_1_timeline.qmd",
+        "syllabus/_project_1_timeline_body.qmd"
+      ],
+      "targets": {
+        "4": {
+          "id": 11004593,
+          "module_id": 4667283,
+          "assignment_group_id": 1951718
+        },
+        "11": {
+          "id": 11024226,
+          "module_id": 4677009,
+          "assignment_group_id": 1955483
+        },
+        "12": {
+          "id": 11029546,
+          "module_id": 4679327,
+          "assignment_group_id": 1956664
+        }
+      },
+      "validation": {
+        "required_text": [
+          "Project Timeline",
+          "Project 1 Prompt"
+        ]
+      },
+      "id": 11004593,
+      "module_id": 4667283,
+      "assignment_group_id": 1951718
+    },
+    {
+      "kind": "assignment",
+      "title": "Prep Work: Coaching Session Attendance",
+      "source_path": "canvas/content/assignments/project1-coaching.md",
+      "input_paths": [
+        "syllabus/project_1_prompt.qmd",
+        "syllabus/project_1_timeline.qmd",
+        "syllabus/_project_1_timeline_body.qmd"
+      ],
+      "targets": {
+        "4": {
+          "id": 11004596,
+          "module_id": 4667284,
+          "assignment_group_id": 1951718
+        },
+        "11": {
+          "id": 11024229,
+          "module_id": 4677010,
+          "assignment_group_id": 1955483
+        },
+        "12": {
+          "id": 11029549,
+          "module_id": 4679328,
+          "assignment_group_id": 1956664
+        }
+      },
+      "validation": {
+        "required_text": [
+          "Project Timeline",
+          "Project 1 Prompt"
+        ]
+      },
+      "id": 11004596,
+      "module_id": 4667284,
+      "assignment_group_id": 1951718
+    }
+  ]
+}

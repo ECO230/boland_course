@@ -1,6 +1,5 @@
 ---
-title: "GROUP PROJECT – IN PERSON PRESENTATION"
-subtitle: "Presentation Guidelines"
+title: "Project 1: In-Person Presentation"
 format:
   html:
     toc: true
@@ -76,6 +75,8 @@ Your audience may not be experts in statistics. Your goal is not to show everyth
 2.  Presentation materials submitted as a file
 3.  Additional time reserved for audience questions
 
+[Project Prompt](project_1_prompt.qmd) | [Your Section's Timeline](project_1_timeline.qmd)
+
 ## Logistical details
 
 ::: callout-note
@@ -85,7 +86,7 @@ Your audience may not be experts in statistics. Your goal is not to show everyth
 - Your team will present during class.
 - Email or submit your presentation slides to the instructor **at least one hour before class starts**.
 - Include your group number in the file name using this format:  
-  **ECO 230 Project 3_GroupX**
+  `ECO230_Project01_GroupX_Presentation.pptx` (or `.pdf`)
 - A file is preferred instead of, or in addition to, a link to Google Slides or PowerPoint online.
 - Acceptable file formats: **PowerPoint (.pptx)** or **PDF**
 

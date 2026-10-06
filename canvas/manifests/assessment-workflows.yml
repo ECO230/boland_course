@@ -5,11 +5,12 @@ project_1:
   instruction_sources:
     main_prompt: "syllabus/project_1_prompt.qmd"
     timeline: "syllabus/project_1_timeline.qmd"
+    analysis_plan: "syllabus/project_1_analysis_plan.qmd"
     presentation: "syllabus/project_1_presentation_in_person.qmd"
   assessments:
     - assignment: "prep-work-analysis-plan"
       workflow: "checkpoint"
-      instructions: "timeline"
+      instructions: "analysis_plan"
       submission: "canvas-text-or-file-upload"
     - assignment: "prep-work-clean-data-set"
       workflow: "checkpoint"

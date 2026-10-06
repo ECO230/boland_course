@@ -1,0 +1,63 @@
+```{r}
+library(readr)
+library(dplyr)
+library(lubridate)
+selected_section <- as.character(params$class_section)
+sections <- read_csv("data/sections.csv", show_col_types = FALSE)
+section_info <- sections |> filter(as.character(section) == selected_section)
+stopifnot(nrow(section_info) == 1)
+cd <- read_csv("data/section_class_dates.csv", show_col_types = FALSE) |>
+  mutate(section = as.character(section), code = trimws(code),
+         class_date = mdy(date), due_date = mdy(due_reg_dt)) |>
+  filter(section == selected_section)
+needed_codes <- c("C5", "C6", "C7", "C8", "C9", "C10", "C11")
+stopifnot(all(needed_codes %in% cd$code), !anyDuplicated(cd$code))
+fmt_date <- function(d) sub(" 0", " ", format(d, "%B %d, %Y"))
+get_date <- function(code, meeting = FALSE) {
+  row <- cd |> filter(.data$code == .env$code)
+  if (meeting) return(fmt_date(row$class_date))
+  time <- strptime(row$due_reg_tm, "%H:%M")
+  paste(fmt_date(row$due_date), "at", sub("^0", "", format(time, "%I:%M %p")))
+}
+```
+
+```{r section_label, results="asis"}
+cat(sprintf("**ECO 230 Section %s: %s %s**\n\n", selected_section,
+            section_info$semester_name, section_info$full_year))
+cat(sprintf("Regular class meetings: %s, %s-%s, %s.\n\n",
+            section_info$class_dow, section_info$class_start,
+            section_info$class_end, section_info$classroom))
+```
+
+All times are Central Time. Due dates below use the same regular deadlines as Canvas.
+For coaching and presentations, the meeting date is shown separately from the Canvas deadline.
+
+```{r timeline}
+timeline <- data.frame(
+  Stage = c("Launch (Week 5)", "Analysis Plan", "Clean Dataset",
+            "Pre-Coaching Presentation", "Coaching Session", "In-Person Presentation and Presentation Materials",
+            "Technical Documentation"),
+  `What the team should have ready` = c(
+    "Choose statistical stories and begin planning.",
+    "Hypotheses, variables, planned analyses, cleaning decisions, and teammate responsibilities.",
+    "A shared dataset prepared in R, with documented cleaning and derived variables.",
+    "A draft presentation with preliminary findings and questions for coaching.",
+    "The draft presentation and specific questions about your analysis and story.",
+    "A rehearsed business presentation and final slides. Have slides ready at least one hour before class.",
+    "Annotated R scripts, R Markdown, or Quarto sources that reproduce the presented analysis."),
+  `Due or meeting date` = c(
+    get_date("C5", TRUE), get_date("C5"), get_date("C6"), get_date("C7"),
+    paste("Class:", get_date("C9", TRUE), "| Canvas checkpoint:", get_date("C8")),
+    paste("Class:", get_date("C11", TRUE), "| Canvas deadline:", get_date("C10")),
+    get_date("C11")),
+  Submission = c("Discuss in class; no separate submission.",
+    "Submit in Prep Work: Analysis Plan in Canvas.",
+    "Submit in Prep Work: Clean Data Set in Canvas.",
+    "Upload in Prep Work: Pre-Coaching Presentation Draft in Canvas.",
+    "Attend your coaching session; use the Canvas attendance checkpoint as directed.",
+    "Present in class; upload final slides in Analysis Project - Slides in Canvas.",
+    "Upload in Analysis Project - Code in Canvas."), check.names = FALSE)
+knitr::kable(timeline, format = "html")
+```
+
+[Project Prompt](project_1_prompt.qmd) | [Analysis Plan Instructions](project_1_analysis_plan.qmd) | [Presentation Guide](project_1_presentation_in_person.qmd) | [Other Sections](project_1_timeline.qmd)

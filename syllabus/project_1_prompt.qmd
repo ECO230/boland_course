@@ -1,6 +1,5 @@
 ---
-title: "GROUP PROJECT – DATA ANALYSIS PROJECT"
-subtitle: "Project Prompt"
+title: "Project 1: Data Analysis Project"
 format:
   html:
     toc: true
@@ -42,6 +41,8 @@ kbl_course <- function(df, full_width = FALSE, longtable = FALSE) {
 
 ## Overview
 
+[Project Timeline by Section](project_1_timeline.qmd) | [Analysis Plan Instructions](project_1_analysis_plan.qmd) | [Presentation Guide](project_1_presentation_in_person.qmd)
+
 ::: {.callout-note}
 **OVERVIEW**
 :::
@@ -57,7 +58,7 @@ The purpose of this project is to introduce you to analysis of organizational da
 ```{r}
 alo <- tibble::tibble(
   `Assignment Learning Objective` = c(
-    "1. Apply scripting skills (in RStudio) to prepare visual and descriptive summaries of workforce aging and use inferential statistics (where appropriate) to address the case prompt and inform conclusions.",
+    "1. Apply scripting skills (in RStudio) to prepare visual and descriptive summaries of your chosen project dataset and use inferential statistics (where appropriate) to address the case prompt and inform conclusions.",
     "2. Organize main findings, clearly support conclusions with analysis, and translate in a professional business presentation to a nontechnical audience.",
     "3. Prepare thorough documentation of work (e.g., in annotated RScripts or RMarkdown) for a technical audience following best practices for organizing and annotating code."
   ),
@@ -82,10 +83,10 @@ kbl_course(alo, full_width = TRUE)
 **KEY DELIVERABLES**
 :::
 
-1. Prep work  
-2. 5–10 minute formal presentation  
-3. Presentation materials  
-4. Formal documentation of work in either RScripts or RMarkdown  
+1. Prep work: Analysis Plan, Clean Dataset, Pre-Coaching Presentation, and Coaching Session  
+2. In-Person Presentation: 8-10 minutes of content, plus audience questions  
+3. Presentation Materials  
+4. Technical Documentation in annotated R scripts, R Markdown, or Quarto documents  
 
 ## Prompt
 
@@ -132,10 +133,12 @@ Full data sets are provided in the project templates per topic. Some of these da
 
 Prep work will be due in weeks 6 through 9 to ensure you are keeping on track with the work needed to complete the project on time. Prep work is pass/fail and graded per-group. Attendance for coaching sessions is graded individually. Missing prep work will be subtracted from your final project score (e.g., if you do not have your clean data set prepared in time you will have 20 points subtracted from your final project score).
 
-1. Week 6 — Analysis Plan  
-2. Week 7 — Clean Data Set  
-3. Week 8 — Pre-Coaching Presentation Draft  
-4. Week 9 — Coaching Session Attendance  
+1. [Analysis Plan](project_1_analysis_plan.qmd)  
+2. Clean Dataset  
+3. Pre-Coaching Presentation  
+4. Coaching Session Attendance  
+
+Use [your section's timeline](project_1_timeline.qmd) for the due dates, coaching meeting, presentation, and Technical Documentation deadline. Submit each item in its named Canvas assignment.
 
 ::: {.callout-warning}
 **PRESENTATION MATERIALS**

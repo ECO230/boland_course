@@ -1,0 +1,52 @@
+{
+  "objects": [
+    {
+      "section": 4,
+      "course_id": 870634,
+      "module_id": 4667281,
+      "item_id": 33302156,
+      "title": "Project 1 Timeline",
+      "url": "https://eco230.github.io/boland_course/syllabus/project_1_timeline_section_4.html"
+    },
+    {
+      "section": 4,
+      "course_id": 870634,
+      "module_id": 4667281,
+      "item_id": 33302157,
+      "title": "Project 1: Data Analysis Project",
+      "url": "https://eco230.github.io/boland_course/syllabus/project_1_prompt.html"
+    },
+    {
+      "section": 11,
+      "course_id": 869206,
+      "module_id": 4677007,
+      "item_id": 33358238,
+      "title": "Project 1 Timeline",
+      "url": "https://eco230.github.io/boland_course/syllabus/project_1_timeline_section_11.html"
+    },
+    {
+      "section": 11,
+      "course_id": 869206,
+      "module_id": 4677007,
+      "item_id": 33358239,
+      "title": "Project 1: Data Analysis Project",
+      "url": "https://eco230.github.io/boland_course/syllabus/project_1_prompt.html"
+    },
+    {
+      "section": 12,
+      "course_id": 870121,
+      "module_id": 4679325,
+      "item_id": 33378014,
+      "title": "Project 1 Timeline",
+      "url": "https://eco230.github.io/boland_course/syllabus/project_1_timeline_section_12.html"
+    },
+    {
+      "section": 12,
+      "course_id": 870121,
+      "module_id": 4679325,
+      "item_id": 33378015,
+      "title": "Project 1: Data Analysis Project",
+      "url": "https://eco230.github.io/boland_course/syllabus/project_1_prompt.html"
+    }
+  ]
+}
