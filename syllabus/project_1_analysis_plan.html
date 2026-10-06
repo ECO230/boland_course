@@ -2,17 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Legacy backup dataset based on the U.S. Accidents source">
 
-<title>Legacy U.S. Accidents Sample – ECO 230</title>
+<title>Project 1: Analysis Plan – ECO 230</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -36,14 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9acfba23ab52edc3d4635f5dce2897b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -83,6 +80,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">ECO 230</span>
     </a>
@@ -94,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -113,6 +112,56 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../syllabus_section_12.html">
  <span class="dropdown-text">Section 12</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../week01/week_01.html">
+ <span class="dropdown-text">Week 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week02/week_02.html">
+ <span class="dropdown-text">Week 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week03/week_03.html">
+ <span class="dropdown-text">Week 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week04/week_04.html">
+ <span class="dropdown-text">Week 4</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week05/week_05.html">
+ <span class="dropdown-text">Week 5</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-homework" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Homework</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-homework">    
+        <li>
+    <a class="dropdown-item" href="../week01/Homework_01.html">
+ <span class="dropdown-text">Homework 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week02/Homework_02.html">
+ <span class="dropdown-text">Homework 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week03/Homework_03.html">
+ <span class="dropdown-text">Homework 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week04/Homework_04.html">
+ <span class="dropdown-text">Homework 4</span></a>
   </li>  
     </ul>
   </li>
@@ -153,53 +202,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../datasets/health.html">
  <span class="dropdown-text">Synthetic Health Records</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/legacy-traffic.html">
- <span class="dropdown-text">Legacy U.S. Accidents Sample</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/legacy-hospital.html">
- <span class="dropdown-text">Legacy CMS Inpatient Charges</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Slides</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
-        <li>
-    <a class="dropdown-item" href="../week01/week_01.html">
- <span class="dropdown-text">Week 1</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../week02/week_02.html">
- <span class="dropdown-text">Week 2</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../week03/week_03.html">
- <span class="dropdown-text">Week 3</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../week04/week_04.html">
- <span class="dropdown-text">Week 4</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../week05/week_05.html">
- <span class="dropdown-text">Week 5</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../week06/week_06.html">
- <span class="dropdown-text">Week 6</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../week07/week_07.html">
- <span class="dropdown-text">Week 7</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../week12/week_12.html">
- <span class="dropdown-text">Week 12</span></a>
-  </li>  
     </ul>
   </li>
 </ul>
@@ -218,11 +220,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#about-this-dataset" id="toc-about-this-dataset" class="nav-link active" data-scroll-target="#about-this-dataset">About this dataset</a></li>
-  <li><a href="#file" id="toc-file" class="nav-link" data-scroll-target="#file">File</a></li>
-  <li><a href="#joining-and-enrichment" id="toc-joining-and-enrichment" class="nav-link" data-scroll-target="#joining-and-enrichment">Joining and enrichment</a></li>
-  <li><a href="#important-limitations" id="toc-important-limitations" class="nav-link" data-scroll-target="#important-limitations">Important limitations</a></li>
-  <li><a href="#provenance" id="toc-provenance" class="nav-link" data-scroll-target="#provenance">Provenance</a></li>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link active" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#prepare-your-plan" id="toc-prepare-your-plan" class="nav-link" data-scroll-target="#prepare-your-plan">Prepare Your Plan</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#checklist" id="toc-checklist" class="nav-link" data-scroll-target="#checklist">Checklist</a></li>
+  <li><a href="#grading-basis" id="toc-grading-basis" class="nav-link" data-scroll-target="#grading-basis">Grading Basis</a></li>
   </ul>
 </nav>
     </div>
@@ -231,15 +234,9 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Legacy U.S. Accidents Sample</h1>
-<p class="subtitle lead">A portable 100,000-row nationwide traffic-event sample</p>
+<h1 class="title">Project 1: Analysis Plan</h1>
 </div>
 
-<div>
-  <div class="description">
-    Legacy backup dataset based on the U.S. Accidents source
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -254,82 +251,47 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Legacy backup dataset.</strong> Prefer the current <a href="../datasets/chicago-traffic.html">Chicago Traffic Crashes</a> release when its scope fits the research question.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Rows:</strong> 100,000<br>
-<strong>Geography:</strong> United States<br>
-<strong>License:</strong> CC BY-NC-SA 4.0</p>
-</div>
-</div>
-<section id="about-this-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="about-this-dataset">About this dataset</h2>
-<p>This is a portable sample of reported U.S. traffic incidents from the U.S. Accidents dataset. It contains event timestamps and coordinates, traffic-impact severity, weather observations, mapped road features, and day/night or twilight classifications. It is useful when a project needs a single moderately large file rather than a relational system.</p>
+<section id="purpose" class="level2">
+<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
+<p>Prepare a plan that connects your team’s statistical stories to the data and analyses needed to investigate them. Use the plan to organize your work before cleaning the dataset and testing hypotheses.</p>
 </section>
-<section id="file" class="level2">
-<h2 class="anchored" data-anchor-id="file">File</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 30%">
-<col style="width: 23%">
-<col style="width: 23%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Table</th>
-<th style="text-align: right;">Rows</th>
-<th>One row represents</th>
-<th>Primary key</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>legacy_us_accidents_100k</code></td>
-<td style="text-align: right;">100,000</td>
-<td>One sampled traffic incident</td>
-<td><code>legacy_source_index</code></td>
-</tr>
-</tbody>
-</table>
-<p><code>id</code> retains the source incident identifier. Column names have been normalized to snake case.</p>
-</section>
-<section id="joining-and-enrichment" class="level2">
-<h2 class="anchored" data-anchor-id="joining-and-enrichment">Joining and enrichment</h2>
-<p>This is a single-file release. Coordinates can support spatial joins, while state, county, city, or postal fields may support tabular enrichment when their definitions and vintages are compatible. Validate that the proposed key is unique in the reference table before joining.</p>
-</section>
-<section id="important-limitations" class="level2">
-<h2 class="anchored" data-anchor-id="important-limitations">Important limitations</h2>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <ul>
-<li><code>severity</code> describes reported impact on traffic flow from 1 (least) to 4 (greatest); it is not injury severity.</li>
-<li>This 100,000-row sample is not the full source dataset and is not guaranteed to be nationally representative.</li>
-<li>Weather describes a nearby station observation rather than necessarily the exact incident location.</li>
-<li>Reporting systems and coverage differ across places and time.</li>
+<li><a href="../syllabus/project_1_prompt.html">Project 1 Prompt</a></li>
+<li><a href="../syllabus/project_1_timeline.html">Your Section’s Project Timeline</a></li>
+<li>Your team’s project in Posit Cloud and its analysis plan template.</li>
 </ul>
 </section>
-<section id="provenance" class="level2">
-<h2 class="anchored" data-anchor-id="provenance">Provenance</h2>
-<p>The source is the <a href="https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents">U.S. Accidents dataset</a> assembled by Moosavi and collaborators. Use is noncommercial, attribution is required, and adaptations retain the same license.</p>
+<section id="prepare-your-plan" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-your-plan">Prepare Your Plan</h2>
+<p>Complete the team analysis plan in your project. The original template is named <code>Group_Analysis_Plan.Rmd</code>; if your project uses a different filename, identify that file in your submission.</p>
+<p>For each story your team intends to investigate:</p>
+<ol type="1">
+<li>State the question, the expected relationship or hypothesis, and why it matters to a decision maker.</li>
+<li>Identify the unit of observation and the variables used to investigate the relationship.</li>
+<li>Describe the filters, missing-value decisions, and derived variables needed to prepare the data.</li>
+<li>Plan the descriptive summaries and visualizations. Identify the inferential comparison you expect to use when appropriate; revise this as you learn additional methods.</li>
+<li>Assign responsibility and record the next steps for your teammates.</li>
+</ol>
+<p>This is a plan, so the analyses do not need to be complete yet. Use comments or pseudocode for steps you have not implemented.</p>
+</section>
+<section id="submission" class="level2">
+<h2 class="anchored" data-anchor-id="submission">Submission</h2>
+<p>Submit in <strong>Prep Work: Analysis Plan</strong> in Canvas by the deadline on your section’s timeline. Identify your team’s project and the analysis plan filename. Use the Canvas text entry to identify the plan’s location, or upload the plan file. One teammate may submit the team’s plan; include the group number and teammate names.</p>
+</section>
+<section id="checklist" class="level2">
+<h2 class="anchored" data-anchor-id="checklist">Checklist</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">The plan names the team’s statistical stories and hypotheses.</label></li>
+<li><label><input type="checkbox">The variables, cleaning decisions, and planned analyses address those stories.</label></li>
+<li><label><input type="checkbox">Teammates know their responsibilities and next steps.</label></li>
+<li><label><input type="checkbox">The submission identifies where the instructor can find the plan.</label></li>
+</ul>
+</section>
+<section id="grading-basis" class="level2">
+<h2 class="anchored" data-anchor-id="grading-basis">Grading Basis</h2>
+<p>This is the project preparation checkpoint described in the <a href="../syllabus/project_1_prompt.html">Project 1 Prompt</a>. See that prompt for the existing prep-work policy and the section timeline for deadlines.</p>
 
 
 </section>
@@ -408,7 +370,7 @@ Note
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

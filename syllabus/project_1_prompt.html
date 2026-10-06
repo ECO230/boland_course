@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>GROUP PROJECT – DATA ANALYSIS PROJECT – ECO 230</title>
+<title>Project 1: Data Analysis Project – ECO 230</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,14 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cddd4d705d0f1816126855d2197e4081.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,7 +70,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
 <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 
 <link rel="stylesheet" href="../shared/styles/accesibility.css">
@@ -85,6 +85,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">ECO 230</span>
     </a>
@@ -96,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -115,45 +117,6 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../syllabus_section_12.html">
  <span class="dropdown-text">Section 12</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-datasets" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Datasets</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-datasets">    
-        <li>
-    <a class="dropdown-item" href="../datasets/index.html">
- <span class="dropdown-text">Dataset Catalog</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/chicago-traffic.html">
- <span class="dropdown-text">Chicago Traffic Crashes</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/airline.html">
- <span class="dropdown-text">U.S. Airline Marketplace</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/nfl.html">
- <span class="dropdown-text">NFL Games and Plays</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/olist.html">
- <span class="dropdown-text">Olist Marketplace</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/health.html">
- <span class="dropdown-text">Synthetic Health Records</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/legacy-traffic.html">
- <span class="dropdown-text">Legacy U.S. Accidents Sample</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/legacy-hospital.html">
- <span class="dropdown-text">Legacy CMS Inpatient Charges</span></a>
   </li>  
     </ul>
   </li>
@@ -182,17 +145,67 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../week05/week_05.html">
  <span class="dropdown-text">Week 5</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-homework" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Homework</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-homework">    
         <li>
-    <a class="dropdown-item" href="../week06/week_06.html">
- <span class="dropdown-text">Week 6</span></a>
+    <a class="dropdown-item" href="../week01/Homework_01.html">
+ <span class="dropdown-text">Homework 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week07/week_07.html">
- <span class="dropdown-text">Week 7</span></a>
+    <a class="dropdown-item" href="../week02/Homework_02.html">
+ <span class="dropdown-text">Homework 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week12/week_12.html">
- <span class="dropdown-text">Week 12</span></a>
+    <a class="dropdown-item" href="../week03/Homework_03.html">
+ <span class="dropdown-text">Homework 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week04/Homework_04.html">
+ <span class="dropdown-text">Homework 4</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="nav-menu-project-1" role="link" data-bs-toggle="dropdown" aria-expanded="false"><span class="menu-text">Project 1</span></a>
+<ul class="dropdown-menu" aria-labelledby="nav-menu-project-1">
+<li><a class="dropdown-item" href="https://eco230.github.io/boland_course/syllabus/project_1_prompt.html"><span class="dropdown-text">Project Prompt</span></a></li>
+<li><a class="dropdown-item" href="https://eco230.github.io/boland_course/syllabus/project_1_timeline.html"><span class="dropdown-text">Timeline by Section</span></a></li>
+<li><a class="dropdown-item" href="https://eco230.github.io/boland_course/syllabus/project_1_analysis_plan.html"><span class="dropdown-text">Analysis Plan</span></a></li>
+<li><a class="dropdown-item" href="https://eco230.github.io/boland_course/syllabus/project_1_presentation_in_person.html"><span class="dropdown-text">Presentation Guide</span></a></li>
+</ul></li>
+<li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-datasets" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Datasets</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-datasets">    
+        <li>
+    <a class="dropdown-item" href="../datasets/index.html">
+ <span class="dropdown-text">Dataset Catalog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../datasets/chicago-traffic.html">
+ <span class="dropdown-text">Chicago Traffic Crashes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../datasets/airline.html">
+ <span class="dropdown-text">U.S. Airline Marketplace</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../datasets/nfl.html">
+ <span class="dropdown-text">NFL Games and Plays</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../datasets/olist.html">
+ <span class="dropdown-text">Olist Marketplace</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../datasets/health.html">
+ <span class="dropdown-text">Synthetic Health Records</span></a>
   </li>  
     </ul>
   </li>
@@ -232,8 +245,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">GROUP PROJECT – DATA ANALYSIS PROJECT</h1>
-<p class="subtitle lead">Project Prompt</p>
+<h1 class="title">Project 1: Data Analysis Project</h1>
 </div>
 
 
@@ -252,6 +264,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p><a href="../syllabus/project_1_timeline.html">Project Timeline by Section</a> | <a href="../syllabus/project_1_analysis_plan.html">Analysis Plan Instructions</a> | <a href="../syllabus/project_1_presentation_in_person.html">Presentation Guide</a></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -293,8 +306,8 @@ Note
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">1. Apply scripting skills (in RStudio) to prepare visual and descriptive summaries of workforce aging and use inferential statistics (where appropriate) to address the case prompt and inform conclusions.</td>
-<td style="text-align: left;">2. Describe, summarize, and interpret data using descriptive statistics, inferential statistics, and data visualization.&lt;br&gt;3. Develop foundational skills related to spreadsheets, interactive data visualization software, and scripting languages used for data analysis and visualization.&lt;br&gt;4. Apply research design and data analysis best practices to complete case-based projects and to critique others’ analyses.</td>
+<td style="text-align: left;">1. Apply scripting skills (in RStudio) to prepare visual and descriptive summaries of your chosen project dataset and use inferential statistics (where appropriate) to address the case prompt and inform conclusions.</td>
+<td style="text-align: left;">2. Describe, summarize, and interpret data using descriptive statistics, inferential statistics, and data visualization.&lt;br&gt;3. Develop foundational skills related to spreadsheets, interactive data visualization software, and scripting languages used for data analysis and visualization.&lt;br&gt;4. Apply research design and data analysis best practices to complete case-based projects and to critique others&lt;U+2019&gt; analyses.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2. Organize main findings, clearly support conclusions with analysis, and translate in a professional business presentation to a nontechnical audience.</td>
@@ -325,13 +338,13 @@ Note
 </div>
 </div>
 <ol type="1">
-<li>Prep work<br>
+<li>Prep work: Analysis Plan, Clean Dataset, Pre-Coaching Presentation, and Coaching Session<br>
 </li>
-<li>5–10 minute formal presentation<br>
+<li>In-Person Presentation: 8-10 minutes of content, plus audience questions<br>
 </li>
-<li>Presentation materials<br>
+<li>Presentation Materials<br>
 </li>
-<li>Formal documentation of work in either RScripts or RMarkdown</li>
+<li>Technical Documentation in annotated R scripts, R Markdown, or Quarto documents</li>
 </ol>
 </section>
 <section id="prompt" class="level2">
@@ -433,14 +446,15 @@ Warning
 </div>
 <p>Prep work will be due in weeks 6 through 9 to ensure you are keeping on track with the work needed to complete the project on time. Prep work is pass/fail and graded per-group. Attendance for coaching sessions is graded individually. Missing prep work will be subtracted from your final project score (e.g., if you do not have your clean data set prepared in time you will have 20 points subtracted from your final project score).</p>
 <ol type="1">
-<li>Week 6 — Analysis Plan<br>
+<li><a href="../syllabus/project_1_analysis_plan.html">Analysis Plan</a><br>
 </li>
-<li>Week 7 — Clean Data Set<br>
+<li>Clean Dataset<br>
 </li>
-<li>Week 8 — Pre-Coaching Presentation Draft<br>
+<li>Pre-Coaching Presentation<br>
 </li>
-<li>Week 9 — Coaching Session Attendance</li>
+<li>Coaching Session Attendance</li>
 </ol>
+<p>Use <a href="../syllabus/project_1_timeline.html">your section’s timeline</a> for the due dates, coaching meeting, presentation, and Technical Documentation deadline. Submit each item in its named Canvas assignment.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -551,10 +565,10 @@ Warning
 </tr>
 <tr class="even">
 <td style="text-align: left;">Verbal Delivery</td>
-<td style="text-align: left;">Speaker’s voice enhances the effectiveness of the presentation and pace of the presentation maintains the interest of the audience. Language in presentation is appropriate to audience.</td>
-<td style="text-align: left;">Speaker’s voice is always audible and appropriately expressive and pace of the presentation maintains the interest of the audience. Language in presentation is appropriate to audience.</td>
-<td style="text-align: left;">Speaker’s voice is generally audible with some expression and pace of the presentation is natural. Language in presentation is appropriate to audience.</td>
-<td style="text-align: left;">Speaker’s voice is inaudible or lacks expression and pace of the presentation is halting or too fast to understand. Language in presentation is not appropriate to audience.</td>
+<td style="text-align: left;">Speaker&lt;U+2019&gt;s voice enhances the effectiveness of the presentation and pace of the presentation maintains the interest of the audience. Language in presentation is appropriate to audience.</td>
+<td style="text-align: left;">Speaker&lt;U+2019&gt;s voice is always audible and appropriately expressive and pace of the presentation maintains the interest of the audience. Language in presentation is appropriate to audience.</td>
+<td style="text-align: left;">Speaker&lt;U+2019&gt;s voice is generally audible with some expression and pace of the presentation is natural. Language in presentation is appropriate to audience.</td>
+<td style="text-align: left;">Speaker&lt;U+2019&gt;s voice is inaudible or lacks expression and pace of the presentation is halting or too fast to understand. Language in presentation is not appropriate to audience.</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
@@ -610,7 +624,7 @@ Warning
 <th style="text-align: left;" data-quarto-table-cell-role="th">Professional Quality (4)</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Minor Revision Required (3)</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Major Revisions Required (2)</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Unacceptable or Missing (1–0)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Unacceptable or Missing (1&lt;U+2013&gt;0)</th>
 </tr>
 </thead>
 <tbody>
@@ -625,7 +639,7 @@ Warning
 <td style="text-align: left;">Design: Use of Text is Limited and Appropriate to Complement Oral Message, Not Compete With it</td>
 <td style="text-align: left;">Use of text is appropriately limited and effectively supports oral messages.</td>
 <td style="text-align: left;">Use of text is generally effective throughout all slides with few minor revisions needed to achieve professional quality.</td>
-<td style="text-align: left;">Effectiveness of text varies across slides—some may exhibit too much text or text is so limited that it is cryptic.</td>
+<td style="text-align: left;">Effectiveness of text varies across slides&lt;U+2014&gt;some may exhibit too much text or text is so limited that it is cryptic.</td>
 <td style="text-align: left;">Excessive use of text detracts from oral presentation, text is illegible, or text is wholly unrelated to oral message.</td>
 </tr>
 <tr class="odd">
@@ -772,7 +786,7 @@ Warning
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
