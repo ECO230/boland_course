@@ -1,6 +1,6 @@
 ---
 title: "Lab 5: Practice R Coding"
-subtitle: "In-Person Sections - Student Version"
+subtitle: "In-Person Sections - Practice Version"
 format:
   typst:
     toc: false
@@ -12,6 +12,9 @@ format:
       y: 1in
     number-sections: false
     page-numbering: "1"
+  html:
+    toc: true
+    number-sections: false
 execute:
   echo: true
   warning: false
@@ -23,93 +26,208 @@ execute:
 #| include: false
 library(tidyverse)
 library(lubridate)
-library(eco230r)
 library(knitr)
 ```
 
 ## Purpose
 
-Practice adapting working R examples. Complete at least 3 changes that help you
-understand importing, selecting, transforming, summarizing, filtering, or
-working with dates.
+Practice importing, selecting, calculating, summarizing, filtering, categorizing,
+and working with dates. Each section provides a working example followed by a
+prompt to adapt it. Use the Chicago Airbnb sample provided in this project, or
+adapt an example to your own project dataset.
+
+## Choose Your Learning Path
+
+- **Try it yourself:** open `Practice_R_Coding_IP.qmd`. All starter examples run;
+  the response chunks are empty for your changes.
+- **Follow a model:** open `Practice_R_Coding_Solutions.qmd`. It has the same
+  starter examples and prompts, plus worked responses. You may begin here,
+  run each response, and change it before trying the practice version.
+- **Watch and follow:** use the orientation and full walkthrough linked in
+  `README.md`. The recordings show the original R Markdown files: use
+  **Render** in these Quarto documents where the video says **Knit**.
+
+Run `source("project_setup.R")` once in the Console before starting. Render
+this document before editing it, then run chunks from top to bottom. The
+starter examples are separate from your responses, so the practice version
+renders before you have answered anything. The date strings in this release
+use month/day/year, so `mdy()` replaces the video's `ymd()`. `listed_price`
+is the price column used here. We guard against zero denominators and missing
+values so summaries remain useful.
+
+## Read a CSV file (.csv)
 
 ```{r}
-airbnb <- read_csv("data/airbnb_chicago.csv", show_col_types = FALSE)
+#| label: example-1
+library(readr)
+df <- read_csv("data/airbnb_chicago.csv", show_col_types = FALSE)
 ```
 
-## 1) Select useful columns
-
-Create `listing_data` containing `property_type`, `room_type`, `host_since`,
-`number_of_reviews`, `beds`, `bedrooms`, `bathrooms`, `listed_price`, and
-`review_scores_rating`.
+Alter the example above in the chunk below. Open airbnb_chicago.csv into a variable named my_data, or upload and open a csv or excel file to support your project. 
 
 ```{r}
-
+#| label: response-2
+# Write your adapted code here.
 ```
 
-## 2) Calculate a field
 
-Add `reviews_per_bed`. Decide how to handle listings with zero or missing beds.
+## Extract columns from a table as a new table
 
 ```{r}
+#| label: example-3
+library(dplyr)
 
+ef <- df %>%
+  select(property_type, bathrooms, bedrooms, first_review, listed_price)
 ```
 
-## 3) Summarize groups
-
-Create a summary by `room_type` with a row count, median price, and mean review
-score. Handle missing values explicitly.
+Alter the example above in the chunk below.  Select the columns property_type, room_type, host_since, number_of_reviews, beds and review_scores_rating into a data frame named new_data, or create your own example to support your project.
 
 ```{r}
-
+#| label: response-4
+# Write your adapted code here.
 ```
 
-## 4) Filter rows
 
-Keep listings with a finite `reviews_per_bed` value of at least 1.
+## Add a column to a table and compute its values
 
 ```{r}
-
+#| label: example-5
+ef <- ef %>%
+  mutate(bed_bath_ratio = if_else(!is.na(bathrooms) & bathrooms > 0, bedrooms / bathrooms, NA_real_))
 ```
 
-## 5) Create categories
-
-Create a clearly labeled price category from `listed_price`. Explain why you
-selected those breakpoints.
+Alter the example above in the chunk below.  Create and save to new_data a variable named reviews_per_bed containing the ratio of number_of_reviews to beds, or create your own example to support your project.
 
 ```{r}
-
+#| label: response-6
+# Write your adapted code here.
 ```
 
-*Your explanation:*
 
-## 6) Parse a date
-
-Convert `host_since` to a date and extract the host-start year.
+## Compute summary statistics for groups of rows within a table
 
 ```{r}
-
+#| label: example-7
+ef %>%
+  group_by(property_type) %>%
+  summarise(avg_bed_bath_ratio = mean(bed_bath_ratio, na.rm = TRUE), row_count = n())
 ```
 
-## 7) Combine several steps
-
-Build one analysis that uses `select()`, `mutate()`, `filter()`, `group_by()`,
-and `summarise()`. Print the result with `kable()`.
+Alter the example above in the chunk below.  Create a summary grouped by room_type that contains the mean reviews_per_bed and a row count using the function n() or create your own example to support your project.
 
 ```{r}
+#| label: response-8
+# Write your adapted code here.
+```
+
+
+## Filter your table to rows with specific values
+
+```{r}
+#| label: example-9
+ef %>%
+  filter(bed_bath_ratio >= 1 & bed_bath_ratio < Inf)
+```
+
+Alter the example above in the chunk below.  Filter reviews_per_bed to only include values greater than or equal to one and less than Infinity (Inf) or create your own example to support your project.
+
+```{r}
+#| label: response-10
+# Write your adapted code here.
+```
+
+
+## Group a continuous variable into categories
+
+```{r}
+#| label: example-11
+ef <- ef %>%
+  mutate(price_categories = cut(listed_price
+                                , breaks = c(0,100,200,300,400,Inf), include.lowest = TRUE
+                                ,labels = c('0-100','(100,200]','(200,300]','(300,400]','Over 400')))
+```
+
+Alter the example above in the chunk below.  Create and save to new_data a category named review_grades based off review_scores_rating where scores from 0 through 70 get an 'F', above 70 through 80 a 'D', above 80 through 85 a 'C', above 85 through 90 a 'B', above 90 through 95 an 'A', and above 95 through 100 an 'A+' or create your own example to support your project.
+
+```{r}
+#| label: response-12
+# Write your adapted code here.
+```
+
+## Parse a string to date or datetime
+
+```{r}
+#| label: example-13
+library(lubridate)
+
+ef <- ef %>%
+  mutate(first_review_dt = mdy(first_review))
 
 ```
 
-## 8) Reflect
+Alter the example above in the chunk below. Convert host_since to a date variable named host_since_dt and save it to new_data or create your own example to support your project.
 
-Which 3 examples did you alter successfully? Which 3 concepts were most
-difficult or still need clarification?
+```{r}
+#| label: response-14
+# Write your adapted code here.
+```
 
-*Your response:*
+## Extract components of dates and datetimes
 
-## Completion checklist
+```{r}
+#| label: example-15
+ef <- ef %>%
+  mutate(first_review_year = year(first_review_dt))
+```
 
-- [ ] I completed at least 3 meaningful code changes.
-- [ ] I ran each completed chunk and examined its output.
-- [ ] I explained any unresolved error or question.
-- [ ] I rendered `Practice_R_Coding_IP.pdf`.
+Alter the example above in the chunk below. Create and save a new variable to new_data named host_since_year containing the year the host joined or create your own example to support your project.
+
+```{r}
+#| label: response-16
+# Write your adapted code here.
+```
+
+## Combine different examples
+
+Starting with the raw data set, create a ratio of bedrooms to bathrooms, filter out missing or nonfinite ratios, determine what day of the week the first review was and filter out unknowns group by day of the week of the first review and summarise average bedroom/bathroom ratio, median price and give a row count for each. Save the analysis to a table named analysis_1 and print in a report friendly format using kable()
+
+```{r}
+#| label: example-17
+analysis_1 <- df %>%
+  select(bedrooms,bathrooms,listed_price,first_review) %>%
+  mutate(bed_bath_ratio = if_else(!is.na(bathrooms) & bathrooms > 0, bedrooms / bathrooms, NA_real_)) %>%
+  filter(bed_bath_ratio > 1 & bed_bath_ratio < Inf) %>%
+  mutate(first_review_dt = mdy(first_review)) %>%
+  mutate(first_review_wday = wday(first_review_dt, label = TRUE)) %>%
+  filter(!is.na(first_review_wday)) %>%
+  group_by(first_review_wday) %>%
+  summarise(avg_bed_bath_ratio = mean(bed_bath_ratio, na.rm = TRUE),med_price = median(listed_price, na.rm = TRUE), row_count = n()) 
+
+analysis_1 %>%
+  kable()
+```
+
+Alter the example above in the chunk below. Select property type, host_since and review scores rating, filter out missing reviews, convert host_since to a date and find the year owner has been a host since, filter host since year between 2011 and 2017 (the reference year for this historical sample), make a new variable, years_hosting, representing how long the owner has been a host (2017 - host since year). Group by property type and summarize mean years_hosting, mean review scores rating and row count, filter out any property types that have less than 30 rows.  Save the table to analysis_2 and print in a report friendly format using kable()
+
+Alternatively, prepare your own analysis that can be used for your project.
+
+
+```{r}
+#| label: response-18
+# Write your adapted code here.
+```
+
+## Submission
+
+Submit your short reflection to the **RStudio Recipes** assignment in Canvas:
+identify 3 examples you changed or attempted and 3 concepts that remain difficult.
+If you did not complete 3 changes, explain what you tried and what happened.
+Keep your edited Quarto document in your project; the Canvas submission is text.
+
+## Checklist
+
+- [ ] I ran the starter examples in order.
+- [ ] I tried adapting at least 3 examples, or documented where I became stuck.
+- [ ] I can explain what my changed code does.
+- [ ] I identified 3 concepts I want to practice further.

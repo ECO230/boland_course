@@ -1,0 +1,58 @@
+{
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634
+    },
+    {
+      "section": 11,
+      "course_id": 869206
+    },
+    {
+      "section": 12,
+      "course_id": 870121
+    }
+  ],
+  "objects": [
+    {
+      "kind": "assignment",
+      "title": "RStudio Recipes",
+      "source_path": "canvas/content/assignments/week05-rstudio-recipes.md",
+      "targets": {
+        "4": {
+          "id": 11012369,
+          "module_id": 4667281,
+          "assignment_group_id": 1951714
+        },
+        "11": {
+          "id": 11024252,
+          "module_id": 4677007,
+          "assignment_group_id": 1955479
+        },
+        "12": {
+          "id": 11029567,
+          "module_id": 4679325,
+          "assignment_group_id": 1956660
+        }
+      },
+      "validation": {
+        "required_text": [
+          "Practice_R_Coding_IP.qmd",
+          "Practice_R_Coding_Solutions.qmd",
+          "1_0t9ct8lt",
+          "1_6cn5y3xa",
+          "video-tutorials-r-slash-posit-dot-cloud",
+          "12850281"
+        ],
+        "forbidden_text": [
+          "634855",
+          "7322717",
+          "42909941"
+        ]
+      },
+      "id": 11012369,
+      "module_id": 4667281,
+      "assignment_group_id": 1951714
+    }
+  ]
+}
