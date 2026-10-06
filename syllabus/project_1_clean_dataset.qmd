@@ -1,0 +1,134 @@
+---
+title: "Project 1: Clean Dataset"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-location: right
+    number-sections: false
+    anchor-sections: true
+    smooth-scroll: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Purpose
+
+Prepare a shared dataset that fits your team's statistical stories. Document
+how you move from the supplied data to the observations and variables you will
+analyze, so teammates and a skilled analyst can reproduce those decisions.
+
+[Project Prompt](project_1_prompt.qmd) | [Analysis Plan](project_1_analysis_plan.qmd) | [Your Section's Timeline](project_1_timeline.qmd)
+
+## Your Role and Available Help
+
+You are **not expected to complete every cleaning, joining, or coding task on
+your own**. The instructor can help wherever needed to get the data prepared.
+Your responsibility is to outline your sources and data needs in the current
+`team/analysis_plan.qmd`: the story or hypothesis, observations and variables
+needed, source tables or additional sources, filters, derived measures, and any
+joins or coding tasks you need help with. Explain how those needs support your
+analysis, even when the implementation is not yet clear.
+
+The Analysis Plan is a **working document**. Changes since its checkpoint
+submission are fine: update the same plan as your questions, hypotheses, sources,
+or data needs develop. Preparation and requests for help should follow the
+current plan, not be constrained to the version originally submitted.
+
+::: {.callout-tip title="Outline the Need; Ask for Help"}
+Describe what data you need and why in your current Analysis Plan. Bring that
+plan and your questions to the instructor for help with preparation. You do
+not need to solve a difficult join or write unfamiliar code before asking.
+Document the resulting decisions and code in the preparation document,
+including steps completed with assistance.
+:::
+
+## Files for This Milestone
+
+These are paths inside your team's own Posit Cloud project, not links to another
+team's files. Work in `team/prepare_data.qmd`. Your named clean CSV and
+`team/prepare_data.pdf` will appear beside that document in `team/`.
+If your template uses different names, identify the equivalent files in your
+submission. Read `data/DATA_NOTES.md` for the supplied tables and scope.
+
+## Name Your Document and Dataset
+
+At the top of `team/prepare_data.qmd`, update the document title to identify your
+group. Set `clean_file` to a CSV filename identifying your team, such as
+`Group04_Traffic_clean.csv`. This is an example, not a required naming pattern.
+Replace `GroupXX`, keep the `.csv` extension, and enter a filename without a
+folder path. The template saves it in `team/` automatically.
+
+## Prepare and Explain the Data
+
+Use your current Analysis Plan to decide which observations and variables your
+stories need. With instructor help wherever needed, prepare the data and explain
+the decisions alongside the code:
+
+1. Identify the source tables, time coverage, and unit of observation.
+2. Select needed variables and document filters and excluded observations.
+3. Explain missing-value treatment and distinguish missing values from zero.
+4. Define derived variables and calculations, including units and denominators.
+5. If you combine tables, identify the keys and expected relationship. Check
+   unmatched records and row counts; summarize first when needed to preserve
+   your intended unit of observation.
+6. Check that the resulting variables and population address your hypotheses.
+
+Keep the supplied setup and final save chunks. Add readable R chunks and
+explanations between them. If you identify an additional-data gap, outline the needed
+variables, sources, unit, geography, time period, and possible keys in the
+current plan. The instructor or an assisting agent can help obtain and integrate
+that evidence.
+Record its source and limitations.
+
+## Render and Check the Saved Dataset
+
+Click **Render** in `team/prepare_data.qmd`. This intentionally runs import and
+preparation, writes the named CSV to `team/`, and creates the preparation PDF.
+Confirm that the CSV exists, has the expected rows and columns, and contains
+sensible values for the variables used in your stories.
+
+::: {.callout-important title="One Shared Dataset"}
+All teammates should analyze the same saved clean CSV. Render preparation again
+when its code or additional data changes. Hypothesis documents read the saved
+CSV as `clean_data`; rendering them does not repeat preparation.
+:::
+
+Download that named CSV directly from `team/` to use in Excel or Tableau.
+Record how each final external-tool chart, table, or descriptive finding was
+made in `team/descriptive_evidence.qmd`: source file, filters, calculations,
+grouping, and relevant visual choices. A skilled analyst should be able to
+recreate the final evidence from the notes; screenshots and click-by-click
+instructions are not required.
+
+## Submission
+
+Submit in **Clean Dataset** in Canvas by the deadline on your section's
+timeline. One teammate may submit for the team; include the group number and
+teammate names. Upload the clean CSV or identify its location in the team
+project as directed in the assignment. Include the exact CSV filename, the
+Posit Cloud project link when identifying its location, and
+`team/prepare_data.qmd` as the preparation source. The preparation PDF is useful
+for reviewing the explanations; keep the editable source in the project.
+
+This checkpoint does not require separately submitting each teammate's
+hypothesis document. Your final Technical Documentation will assemble the
+preparation explanation and code with the completed analyses.
+
+## Checklist
+
+- [ ] The document title and clean CSV filename identify the team.
+- [ ] The current Analysis Plan outlines the sources, data needs, and tasks needing help.
+- [ ] Preparation decisions connect to the current stories and hypotheses.
+- [ ] Filters, missing values, derived variables, and any joins are documented.
+- [ ] The preparation document renders and the saved CSV passes basic checks.
+- [ ] Teammates know which CSV to use and where to find it in `team/`.
+- [ ] The submission identifies the dataset and preparation source.
+
+## Grading Basis
+
+This is the preparation checkpoint described in the [Project Prompt](project_1_prompt.qmd).
+That prompt defines the existing prep-work policy; the section timeline defines
+the deadline.

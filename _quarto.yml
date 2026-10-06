@@ -22,6 +22,7 @@ project:
     - syllabus/project_1_timeline_section_11.qmd
     - syllabus/project_1_timeline_section_12.qmd
     - syllabus/project_1_analysis_plan.qmd
+    - syllabus/project_1_clean_dataset.qmd
     - syllabus/project_1_presentation_in_person.qmd
     - week01/week_01.qmd
     - week02/week_02.qmd

@@ -125,7 +125,7 @@ Each project template provides a fixed dataset for its topic. Read `data/DATA_NO
 Prep work will be due in weeks 6 through 9 to ensure you are keeping on track with the work needed to complete the project on time. Prep work is pass/fail and graded per-group. Attendance for coaching sessions is graded individually. Missing prep work will be subtracted from your final project score (e.g., if you do not have your clean data set prepared in time you will have 20 points subtracted from your final project score).
 
 1. [Analysis Plan](project_1_analysis_plan.qmd)  
-2. Clean Dataset  
+2. [Clean Dataset](project_1_clean_dataset.qmd)
 3. Pre-Coaching Presentation  
 4. Coaching Session Attendance  
 
@@ -136,6 +136,8 @@ Use [your section's timeline](project_1_timeline.qmd) for the due dates, coachin
 Complete `team/analysis_plan.qmd` together, following the [Analysis Plan instructions](project_1_analysis_plan.qmd). Rendering creates `team/analysis_plan.pdf` beside the source. Submit the plan or identify its location in your team project as directed in Canvas. One teammate may submit for the team; include the group number and teammate names. Continue updating this same plan after the checkpoint.
 
 ### Clean Dataset
+
+Follow the [Clean Dataset milestone instructions](project_1_clean_dataset.qmd). You are not expected to complete every cleaning, joining, or coding task on your own; the instructor can help wherever needed. Outline the sources and data needs in your current `team/analysis_plan.qmd`. Changes since the plan's checkpoint submission are fine: it is a working document, and preparation should follow its current version.
 
 Open `team/prepare_data.qmd`. First update the document title and `clean_file` setting to identify your team, for example `Group04_Traffic_clean.csv`. The example is not a required naming pattern: choose a filename identifying your group, replace `GroupXX`, and keep `.csv`. Document filters, missing-value decisions, joins, and derived variables alongside your code.
 
@@ -174,7 +176,14 @@ Your Technical Documentation must let a skilled analyst recreate your final pres
 
 For each final visual or table produced outside R, identify the slide, exact source CSV, variables, filters, missing-value decisions, calculations, and grouping. Explain chart type, axes, measures, color grouping, and other choices affecting interpretation. For an Excel pivot table, record rows, columns, values and aggregation, and filters. A high-level description enabling recreation is sufficient; screenshots, click-by-click instructions, and discarded drafts are not required. When existing R code already documents the evidence, identify its file and section rather than duplicate it.
 
-Keep code annotated and readable. For piped R code, start each step on a new line. Ensure documented populations, filters, and calculations match the final slides. **All teammates are responsible for the content of all documents submitted. If one is unsatisfactory, the entire team's grade will suffer.**
+Keep code annotated and readable. For piped R code, start each step on a new line. Ensure documented populations, filters, and calculations match the final slides.
+
+::: {.callout-important title="Shared Team Responsibility"}
+All teammates are responsible for the content of all documents submitted.
+If one is unsatisfactory, the entire team's grade will suffer. Review the
+combined report together before submission.
+:::
+
 
 #### Assemble and Submit Technical Documentation
 
