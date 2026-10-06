@@ -8,7 +8,7 @@ format:
       - ../shared/styles/boland-reveal.scss
     css:
       - ../shared/styles/accessibility.css
-      - week_05_analysis.css
+      - week_05_script.css
     slide-number: true
     hash: true
     center: false
@@ -74,7 +74,7 @@ Why? (Hypothesis)
 :::
 
 ::: {style="position:absolute; top: 305px; width:100%; text-align:center; font-size:1.8em; font-weight:700;"}
-Oh, that’s probably why. (Theory)
+Oh, thatâ€™s probably why. (Theory)
 :::
 
 ::: {style="position:absolute; bottom: 15px; width:100%; text-align:center; font-size:1.8em; font-weight:800;"}
@@ -99,7 +99,7 @@ Why? (Hypothesis)
 :::
 
 ::: {style="position:absolute; top: 305px; width:100%; text-align:center; font-size:1.8em; font-weight:700;"}
-Oh, that’s probably why. (Theory)
+Oh, thatâ€™s probably why. (Theory)
 :::
 
 ::: {style="position:absolute; bottom: 15px; width:100%; text-align:center; font-size:1.8em; font-weight:800;"}
@@ -124,7 +124,7 @@ Why? (Hypothesis)
 :::
 
 ::: {style="position:absolute; top: 305px; width:100%; text-align:center; font-size:1.8em; font-weight:700;"}
-Oh, that’s probably why. (Theory)
+Oh, thatâ€™s probably why. (Theory)
 :::
 
 ::: {style="position:absolute; bottom: 15px; width:100%; text-align:center; font-size:1.8em; font-weight:800;"}
@@ -149,7 +149,7 @@ Why? (Hypothesis)
 :::
 
 ::: {style="position:absolute; top: 305px; width:100%; text-align:center; font-size:1.8em; font-weight:700;"}
-Oh, that’s probably why. (Theory)
+Oh, thatâ€™s probably why. (Theory)
 :::
 
 ::: {style="position:absolute; bottom: 15px; width:100%; text-align:center; font-size:1.8em; font-weight:800;"}
@@ -174,7 +174,7 @@ Why? (Hypothesis)
 :::
 
 ::: {style="position:absolute; top: 305px; width:100%; text-align:center; font-size:1.8em; font-weight:700;"}
-Oh, that’s probably why. (Theory)
+Oh, thatâ€™s probably why. (Theory)
 :::
 
 ::: {style="position:absolute; bottom: 15px; width:100%; text-align:center; font-size:1.8em; font-weight:800;"}
@@ -199,7 +199,7 @@ Why? (Hypothesis)
 :::
 
 ::: {style="position:absolute; top: 305px; width:100%; text-align:center; font-size:1.8em; font-weight:700;"}
-Oh, that’s probably why. (Theory)
+Oh, thatâ€™s probably why. (Theory)
 :::
 
 ::: {style="position:absolute; bottom: 15px; width:100%; text-align:center; font-size:1.8em; font-weight:800;"}
@@ -297,71 +297,45 @@ establish that time of day causes injuries.
 
 ## Pseudo Code to Real Code {.w05-code .w05-analysis}
 
-::: w05-pseudo-step
-`# Load the Chicago crash extract (one row per crash)`
-:::
-
-::: fragment
-```{r analysis_load, echo=TRUE, results="hide"}
-crashes <- read_csv(
-  here("shared/data/early-homework-v1/traffic_chicago_2024.csv"),
-  show_col_types = FALSE)
+```{r analysis_script, echo=FALSE, results="asis"}
+# Build one displayed script, with comments visible and code revealed in groups.
+plan <- c(
+  "Load the Chicago crash extract (one row per crash)",
+  "Keep daytime and night/early morning crashes",
+  "Keep known injury counts and positive unit counts",
+  "Calculate injuries per unit = injuries / involved units",
+  "Compare injuries per unit between the two time periods",
+  "Describe the pattern and assess the hypothesis")
+analysis <- list(
+  c('crashes <- read_csv(',
+    '  here("shared/data/early-homework-v1/traffic_chicago_2024.csv"),',
+    '  show_col_types = FALSE)'),
+  c('comparison <- crashes |>',
+    '  filter(time_period %in% c("Daytime", "Night or early morning"))'),
+  c('comparison <- comparison |>',
+    '  filter(!is.na(injuries_total), unit_count > 0)'),
+  c('comparison <- comparison |>',
+    '  mutate(injuries_per_unit = injuries_total / unit_count)'),
+  c('comparison |>',
+    '  idt(injuries_per_unit ~ time_period)'),
+  '# Compare group means: is the direction what we predicted?')
+# Execute the exact displayed analysis during rendering to verify the script.
+invisible(capture.output(eval(parse(text = paste(
+  unlist(analysis), collapse = "\n")))))
+escape_code <- function(x) {
+  x <- gsub("&", "&amp;", x, fixed = TRUE)
+  x <- gsub("<", "&lt;", x, fixed = TRUE)
+  gsub(">", "&gt;", x, fixed = TRUE)
+}
+cat('<pre class="w05-script"><code class="language-r">')
+for (i in seq_along(plan)) {
+  cat(escape_code(paste0("# ", plan[i])), "\n", sep = "")
+  cat('<span class="fragment" data-fragment-index="', i - 1,
+      '">', escape_code(paste(analysis[[i]], collapse = "\n")),
+      '</span>\n', sep = "")
+}
+cat('</code></pre>\n')
 ```
-:::
-
-::: w05-pseudo-step
-`# Keep daytime and night/early morning crashes`
-:::
-
-::: fragment
-```{r analysis_period, echo=TRUE, results="hide"}
-comparison <- crashes |>
-  filter(time_period %in% c("Daytime", "Night or early morning"))
-```
-:::
-
-::: w05-pseudo-step
-`# Keep known injury counts and positive unit counts`
-:::
-
-::: fragment
-```{r analysis_known, echo=TRUE, results="hide"}
-comparison <- comparison |>
-  filter(!is.na(injuries_total), unit_count > 0)
-```
-:::
-
-::: w05-pseudo-step
-`# Calculate injuries per unit = injuries / involved units`
-:::
-
-::: fragment
-```{r analysis_ratio, echo=TRUE, results="hide"}
-comparison <- comparison |>
-  mutate(injuries_per_unit = injuries_total / unit_count)
-```
-:::
-
-::: w05-pseudo-step
-`# Compare injuries per unit between the two time periods`
-:::
-
-::: fragment
-```{r analysis_compare, echo=TRUE, results="hide"}
-comparison |>
-  idt(injuries_per_unit ~ time_period)
-```
-:::
-
-::: w05-pseudo-step
-`# Describe the pattern and assess the hypothesis`
-:::
-
-::: fragment
-```{r analysis_interpret, echo=TRUE, results="hide"}
-# Compare group means: is the direction what we predicted?
-```
-:::
 
 ::: notes
 Keep the pseudocode as the scaffold. Start with the six comments from the
@@ -411,7 +385,7 @@ it is due
 ::: {.fragment style="position:absolute; left:65%; top:455px; width:260px;
               font-size:1.1em; font-weight:600;"}
 ```         
-🔥🔥🔥
+ðŸ”¥ðŸ”¥ðŸ”¥
 ```
 :::
 ::::::
