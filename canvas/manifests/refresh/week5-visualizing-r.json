@@ -1,0 +1,52 @@
+{
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634
+    },
+    {
+      "section": 11,
+      "course_id": 869206
+    },
+    {
+      "section": 12,
+      "course_id": 870121
+    }
+  ],
+  "objects": [
+    {
+      "kind": "page",
+      "id": "visualizing-data-in-r-optional",
+      "title": "Visualizing Data in R (Optional)",
+      "source_path": "canvas/content/pages/week05-visualizing-data-in-r.md",
+      "targets": {
+        "4": {
+          "module_id": 4667281
+        },
+        "11": {
+          "module_id": 4677007
+        },
+        "12": {
+          "module_id": 4679325
+        }
+      },
+      "validation": {
+        "required_text": [
+          "Revisit Lab 3 with Our Course Dataset",
+          "Lab_03_R_Companion_IP.qmd",
+          "https://posit.cloud/spaces/3173/content/12970507",
+          "Posit Cloud recipes",
+          "VisualizeA1A",
+          "VisualizeA3",
+          "VisualizeA4",
+          "VisualizeA4a",
+          "VisualizeA5",
+          "VisualizeA6",
+          "VisualizeA7",
+          "VisualizeG"
+        ]
+      },
+      "module_id": 4667281
+    }
+  ]
+}
