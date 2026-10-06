@@ -1,0 +1,20 @@
+/* Keep the classroom scripts readable on the projector. */
+.reveal .w05-code pre {
+  font-size: 0.85em;
+  width: 100%;
+}
+.reveal .w05-code pre code {
+  max-height: none;
+}
+/* One script: reveal code spans while all planning comments stay visible. */
+.reveal .w05-analysis .w05-script {
+  line-height: 1.25;
+  padding: 0.6em 0.7em;
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+}
+.reveal .w05-analysis .w05-script code {
+  padding: 0;
+  line-height: inherit;
+  white-space: pre;
+}

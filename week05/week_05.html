@@ -97,7 +97,7 @@
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-7de2922f2d1fbf696a6ae0955d43c603.css">
   <link rel="stylesheet" href="../shared/styles/accessibility.css">
-  <link rel="stylesheet" href="week_05_analysis.css">
+  <link rel="stylesheet" href="week_05_script.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -464,60 +464,25 @@ Exercise</p>
 </section>
 <section id="pseudo-code-to-real-code" class="slide level2 w05-code w05-analysis">
 <h2>Pseudo Code to Real Code</h2>
-<div class="w05-pseudo-step">
-<p><code># Load the Chicago crash extract (one row per crash)</code></p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>crashes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
-<span id="cb2-2"><a></a>  <span class="fu">here</span>(<span class="st">"shared/data/early-homework-v1/traffic_chicago_2024.csv"</span>),</span>
-<span id="cb2-3"><a></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-<div class="w05-pseudo-step">
-<p><code># Keep daytime and night/early morning crashes</code></p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>comparison <span class="ot">&lt;-</span> crashes <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a></a>  <span class="fu">filter</span>(time_period <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Daytime"</span>, <span class="st">"Night or early morning"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-<div class="w05-pseudo-step">
-<p><code># Keep known injury counts and positive unit counts</code></p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>comparison <span class="ot">&lt;-</span> comparison <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(injuries_total), unit_count <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-<div class="w05-pseudo-step">
-<p><code># Calculate injuries per unit = injuries / involved units</code></p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>comparison <span class="ot">&lt;-</span> comparison <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a></a>  <span class="fu">mutate</span>(<span class="at">injuries_per_unit =</span> injuries_total <span class="sc">/</span> unit_count)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-<div class="w05-pseudo-step">
-<p><code># Compare injuries per unit between the two time periods</code></p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>comparison <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">idt</span>(injuries_per_unit <span class="sc">~</span> time_period)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-<div class="w05-pseudo-step">
-<p><code># Describe the pattern and assess the hypothesis</code></p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Compare group means: is the direction what we predicted?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
+<pre class="w05-script"><code class="language-r"># Load the Chicago crash extract (one row per crash)
+<span class="fragment" data-fragment-index="0">crashes &lt;- read_csv(
+  here("shared/data/early-homework-v1/traffic_chicago_2024.csv"),
+  show_col_types = FALSE)</span>
+# Keep daytime and night/early morning crashes
+<span class="fragment" data-fragment-index="1">comparison &lt;- crashes |&gt;
+  filter(time_period %in% c("Daytime", "Night or early morning"))</span>
+# Keep known injury counts and positive unit counts
+<span class="fragment" data-fragment-index="2">comparison &lt;- comparison |&gt;
+  filter(!is.na(injuries_total), unit_count &gt; 0)</span>
+# Calculate injuries per unit = injuries / involved units
+<span class="fragment" data-fragment-index="3">comparison &lt;- comparison |&gt;
+  mutate(injuries_per_unit = injuries_total / unit_count)</span>
+# Compare injuries per unit between the two time periods
+<span class="fragment" data-fragment-index="4">comparison |&gt;
+  idt(injuries_per_unit ~ time_period)</span>
+# Describe the pattern and assess the hypothesis
+<span class="fragment" data-fragment-index="5"># Compare group means: is the direction what we predicted?</span>
+</code></pre>
 <aside class="notes">
 <p>Keep the pseudocode as the scaffold. Start with the six comments from the previous slide, then fill in the code beneath each comment as we figure out how to do that step. All six pseudocode comments are visible from the start. Each advance reveals only the R code for the next step beneath its comment. Run and inspect each step before moving on. The final comment is still a task for us: read the output and interpret it. The formula puts the dependent variable on the left and the independent variable on the right. Run this code to see the descriptive comparison and independent difference test. Two-sided testing is the idt default; the stated hypothesis is directional, so assess the direction of the group means as well as the evidence. Missing injuries are not zero; unit_count must be positive before division. These are sampled, police-reported crashes, not all Chicago crashes. Any observed difference is an association, not evidence of causation.</p>
 <style type="text/css">
