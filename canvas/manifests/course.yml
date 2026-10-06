@@ -1514,24 +1514,30 @@ modules:
         management: "external"
         publish_action: "synchronize_link"
         external_url: "https://chatgpt.com/g/g-699b870e90c48191b249a4835310216e-reco-eco230r-code-helper"
+      - key: "reco-purpose"
+        type: "ContextModuleSubHeader"
+        title: "Reco helps you understand eco230r code and troubleshoot R errors. Ask it to explain each step, then run and check the code in your project."
+        position: 19
+        management: "structure"
+        publish_action: "synchronize_structure"
       - key: "why-learn-r-for-data-analysis"
         type: "ExternalUrl"
         title: "Why Learn R for Data Analysis"
-        position: 19
+        position: 20
         management: "external"
         publish_action: "synchronize_link"
         external_url: "https://medium.com/@UdacityINDIA/why-learn-r-for-data-analysis-a999b442fac9"
       - key: "help-with-r-studio-interface-adjustments"
         type: "ExternalUrl"
         title: "Help with R Studio Interface Adjustments"
-        position: 20
+        position: 21
         management: "external"
         publish_action: "synchronize_link"
         external_url: "https://www.pipinghotdata.com/posts/2020-09-07-introducing-the-rstudio-ide-and-r-markdown/"
       - key: "coding-tips-and-other-reminders"
         type: "WikiPage"
         title: "Coding Tips and Other Reminders"
-        position: 21
+        position: 22
         management: "repository"
         publish_action: "synchronize"
         source:
@@ -1540,22 +1546,22 @@ modules:
           match_method: "approved_canvas_native_migration"
       - key: "rmarkdown-cheat-sheet-pdf"
         type: "ExternalUrl"
-        title: "R Markdown Cheatsheet"
-        position: 22
+        title: "Quarto Cheatsheet"
+        position: 23
         management: "external"
         publish_action: "synchronize_link"
-        external_url: "https://rstudio.github.io/cheatsheets/html/rmarkdown.html"
+        external_url: "https://rstudio.github.io/cheatsheets/html/quarto.html"
       - key: "tidyverse-cheat-sheet-pdf"
         type: "ExternalUrl"
         title: "Posit Cheatsheets"
-        position: 23
+        position: 24
         management: "external"
         publish_action: "synchronize_link"
         external_url: "https://rstudio.github.io/cheatsheets/"
       - key: "visualizing-data-in-r-optional"
         type: "WikiPage"
         title: "Visualizing Data in R (Optional)"
-        position: 24
+        position: 25
         management: "repository"
         publish_action: "synchronize"
         source:

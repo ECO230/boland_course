@@ -1,0 +1,28 @@
+{
+  "description": "Reco helps you understand eco230r code and troubleshoot R errors. Ask it to explain each step, then run and check the code in your project.",
+  "cheatsheet_title": "Quarto Cheatsheet",
+  "cheatsheet_url": "https://rstudio.github.io/cheatsheets/html/quarto.html",
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634,
+      "module_id": 4667281,
+      "reco_item_id": 33302159,
+      "cheatsheet_item_id": 33302163
+    },
+    {
+      "section": 11,
+      "course_id": 869206,
+      "module_id": 4677007,
+      "reco_item_id": 33358242,
+      "cheatsheet_item_id": 33358247
+    },
+    {
+      "section": 12,
+      "course_id": 870121,
+      "module_id": 4679325,
+      "reco_item_id": 33378017,
+      "cheatsheet_item_id": 33378021
+    }
+  ]
+}
