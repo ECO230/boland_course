@@ -33,7 +33,7 @@ kbl_course <- function(df, full_width = FALSE, longtable = FALSE) {
     ) |>
       kable_styling(latex_options = c("hold_position"))
   } else {
-    kbl(df, format = "html") |>
+    kbl(df, format = "html", escape = FALSE) |>
       kable_paper("striped", full_width = full_width)
   }
 }
@@ -43,17 +43,11 @@ kbl_course <- function(df, full_width = FALSE, longtable = FALSE) {
 
 [Project Timeline by Section](project_1_timeline.qmd) | [Analysis Plan Instructions](project_1_analysis_plan.qmd) | [Presentation Guide](project_1_presentation_in_person.qmd)
 
-::: {.callout-note}
-**OVERVIEW**
-:::
 
 The purpose of this project is to introduce you to analysis of organizational data using descriptive statistics, data visualization, and inferential statistics. While completing this project, you will develop and practice the skills necessary to communicate findings. Communication will occur through an oral presentation, professionally prepared presentation, and documentation of your work in RScripts, RMarkdown or other formats as required by your instructor.
 
-## Assignment learning objectives
+## Assignment Learning Objectives
 
-::: {.callout-note}
-**ASSIGNMENT LEARNING OBJECTIVES MAPPED TO COURSE LEARNING OBJECTIVES**
-:::
 
 ```{r}
 alo <- tibble::tibble(
@@ -66,7 +60,7 @@ alo <- tibble::tibble(
     paste(
       "2. Describe, summarize, and interpret data using descriptive statistics, inferential statistics, and data visualization.",
       "3. Develop foundational skills related to spreadsheets, interactive data visualization software, and scripting languages used for data analysis and visualization.",
-      "4. Apply research design and data analysis best practices to complete case-based projects and to critique others’ analyses.",
+      "4. Apply research design and data analysis best practices to complete case-based projects and to critique others' analyses.",
       sep = "<br>"
     ),
     "5. Communicate the purpose, methods, and results of analysis to authentic audiences in appropriate written and oral formats.",
@@ -77,11 +71,8 @@ alo <- tibble::tibble(
 kbl_course(alo, full_width = TRUE)
 ```
 
-## Key deliverables
+## Key Deliverables
 
-::: {.callout-note}
-**KEY DELIVERABLES**
-:::
 
 1. Prep work: Analysis Plan, Clean Dataset, Pre-Coaching Presentation, and Coaching Session  
 2. In-Person Presentation: 8-10 minutes of content, plus audience questions  
@@ -105,21 +96,13 @@ names, identify the equivalent files in your submission.
 
 ## Prompt
 
-::: {.callout-note}
-**PROMPT**
-:::
 
 By this point you should have a pretty good understanding of what type of data is in your dataset and you should have some preliminary ideas of stories you might be able to tell with this data set. In this project you will come up with an analysis plan, develop hypotheses you want to test, clean up your data set and test your hypotheses statistically. You will also prepare descriptive and visual analysis of your data and prepare a formal presentation to summarize your key findings.
 
 ## Resources
 
-::: {.callout-note}
-**RESOURCES**
-:::
 
-::: {.callout-warning}
-**RECOMMENDATIONS FOR YOUR ANALYSIS**
-:::
+### Recommendations for Your Analysis
 
 1. Decide what stories you will be working on as soon as possible. Your story may evolve over time, but having an idea of what information you are trying to get out of your data set will assist in cleaning up your data set, defining and testing your hypotheses and developing your presentation.
 2. Have a discussion about how you want to divide work within your group. Are you each going to be working on one story, are some members going to specialize in data analysis while others specialize on developing the presentation.
@@ -128,23 +111,16 @@ By this point you should have a pretty good understanding of what type of data i
 5. Make good use of the multiple weeks you have to work on this project; you do not want to wait until the last minute.
 6. Pick stories that you think are interesting. It will make your presentation more compelling if you are actually invested in the story you are telling. It will also make your analysis seem like less of a chore.
 
-::: {.callout-warning}
-**DATA**
-:::
+### Provided Data
 
 Each project template provides a fixed dataset for its topic. Read `data/DATA_NOTES.md` for the supplied tables, time coverage, and definitions. Prepare the shared clean dataset in `team/prepare_data.qmd`. Filter observations and select variables needed for your hypotheses, and explain those decisions alongside the code. This reduces the work needed for later analysis and exports to Excel or Tableau.
 
-## General guidelines for deliverables
+## General Guidelines for Deliverables
 
-::: {.callout-note}
-**GENERAL GUIDELINES FOR DELIVERABLES**
-:::
 
 **Please follow specific guidance from your instructor as well as the guidance provided below.**
 
-::: {.callout-warning}
-**PREP WORK**
-:::
+### Prep Work
 
 Prep work will be due in weeks 6 through 9 to ensure you are keeping on track with the work needed to complete the project on time. Prep work is pass/fail and graded per-group. Attendance for coaching sessions is graded individually. Missing prep work will be subtracted from your final project score (e.g., if you do not have your clean data set prepared in time you will have 20 points subtracted from your final project score).
 
@@ -172,27 +148,21 @@ Render preparation again when its code or additional data changes. Hypothesis do
 Each teammate develops a story in one of `team/hypothesis_01.qmd` through `team/hypothesis_04.qmd`. Record your name and document descriptive evidence, the test, assumptions, interpretation, and limitations. Use `team/descriptive_evidence.qmd` to track how presentation charts, tables, and descriptive findings were produced, including work outside R. These are continuing work files, not separate submissions for every teammate. Bring the developing evidence, presentation, and unresolved questions to coaching; follow Canvas for the presentation and attendance checkpoints.
 
 
-::: {.callout-warning}
-**PRESENTATION MATERIALS**
-:::
+### Presentation Materials
 
 Your presentation may be prepared in either Google Slides or PowerPoint. If using PowerPoint, you are encouraged to use Office Online to enable all team members to access the presentation and contribute. Effective slide design will be covered in class, and the principles of effective design are reflected in the rubric included under Grading Criteria. All team members are responsible for the content of all slides and the presentation should be cohesive, even if you have delegated the design of certain sections to separate team members.
 
-::: {.callout-warning}
-**ORAL PRESENTATION**
-:::
+### In-Person Presentation
 
 All teams will present their work in a formal business presentation. Ask your instructor about the presentation location, times, and venue (e.g., seated conference room style vs. standing). The following expectations apply to all sections:
 
 1. No notecards  
 2. Dress is business casual or more formal  
 3. All team members must speak  
-4. The audience may interrupt to ask questions during the presentation. Plan for 8–10 minutes of content, not including questions.  
+4. The audience may interrupt to ask questions during the presentation. Plan for 8-10 minutes of content, not including questions.  
 5. Presentation content should be non-technical. Slides should not contain technical output of hypothesis tests and the oral delivery should not include detailed discussions of statistical tests. However, students should be prepared to answer technical questions if prompted and may choose to have supplemental content prepared at the end of the presentation materials in anticipation of technical questions.
 
-::: {.callout-warning}
-**DOCUMENTING YOUR ANALYSIS**
-:::
+### Technical Documentation
 
 Your Technical Documentation must let a skilled analyst recreate your final presentation findings from source data through preparation, analysis, and conclusions. Use the supplied documents to organize that work:
 
@@ -206,26 +176,20 @@ For each final visual or table produced outside R, identify the slide, exact sou
 
 Keep code annotated and readable. For piped R code, start each step on a new line. Ensure documented populations, filters, and calculations match the final slides. **All teammates are responsible for the content of all documents submitted. If one is unsatisfactory, the entire team's grade will suffer.**
 
-### Assemble and Submit Technical Documentation
+#### Assemble and Submit Technical Documentation
 
 After preparing the clean dataset and completing the analysis documents, open `team/technical_documentation.qmd` and click **Render**. Its separate file-inclusion chunks assemble the plan, preparation explanation and code, descriptive evidence, and teammate analyses. Update the matching path in the master if you rename or add a source document. Rendering the master displays preparation without rerunning it; analyses use the saved clean CSV. To reproduce the project from raw data, render preparation first, then the master.
 
 One teammate submits `team/technical_documentation.pdf` and `team/TechnicalDocumentation_sources.zip` for the team in the Technical Documentation Canvas assignment. You do not need to render and submit each hypothesis file separately. The ZIP is assembled automatically and contains editable source documents and supporting files. Clean CSVs up to 100 MiB are included; larger clean CSVs remain in `team/` in your Posit Cloud project. Include the project link and exact CSV filename so the instructor can access a dataset not in the ZIP. Use your section's timeline for the deadline.
 
-## Grading criteria
+## Grading Criteria
 
-::: {.callout-note}
-**GRADING CRITERIA**
-:::
 
-The rubrics below will be used to evaluate each of the 4 deliverables for this project and assign team grades. However, grades may be adjusted up or down by up to two letter grades based on the team’s independence of work and ingenuity in addressing the prompt using tools taught in the class. Please do not assume traits in this rubric are all weighted equally. Grades are not necessarily a linear function of your scores. Any 1s or 0s will substantially reduce the project grade.  
+The rubrics below will be used to evaluate each of the 4 deliverables for this project and assign team grades. However, grades may be adjusted up or down by up to two letter grades based on the team's independence of work and ingenuity in addressing the prompt using tools taught in the class. Please do not assume traits in this rubric are all weighted equally. Grades are not necessarily a linear function of your scores. Any 1s or 0s will substantially reduce the project grade.  
 **All team scores are multiplied by individual peer evaluation scores to achieve individual grades. See syllabus for details.**
 
-### Oral presentation rubric
+### Oral Presentation Rubric
 
-::: {.callout-warning}
-**ORAL PRESENTATION RUBRIC**
-:::
 
 ```{r}
 rb1 <- tibble::tribble(
@@ -237,10 +201,10 @@ rb1 <- tibble::tribble(
   "Organizational pattern (specific introduction and conclusion, sequenced material within the body, and transitions) is not observable within the presentation.",
   "",
   "Verbal Delivery",
-  "Speaker’s voice enhances the effectiveness of the presentation and pace of the presentation maintains the interest of the audience. Language in presentation is appropriate to audience.",
-  "Speaker’s voice is always audible and appropriately expressive and pace of the presentation maintains the interest of the audience. Language in presentation is appropriate to audience.",
-  "Speaker’s voice is generally audible with some expression and pace of the presentation is natural. Language in presentation is appropriate to audience.",
-  "Speaker’s voice is inaudible or lacks expression and pace of the presentation is halting or too fast to understand. Language in presentation is not appropriate to audience.",
+  "Speaker's voice enhances the effectiveness of the presentation and pace of the presentation maintains the interest of the audience. Language in presentation is appropriate to audience.",
+  "Speaker's voice is always audible and appropriately expressive and pace of the presentation maintains the interest of the audience. Language in presentation is appropriate to audience.",
+  "Speaker's voice is generally audible with some expression and pace of the presentation is natural. Language in presentation is appropriate to audience.",
+  "Speaker's voice is inaudible or lacks expression and pace of the presentation is halting or too fast to understand. Language in presentation is not appropriate to audience.",
   "",
   "Physical Delivery",
   "Delivery techniques (posture, gestures and eye contact) make the presentation compelling, and speaker appears polished and confident.",
@@ -265,15 +229,12 @@ rb1 <- tibble::tribble(
 kbl_course(rb1, full_width = TRUE, longtable = TRUE)
 ```
 
-### Presentation materials rubric
+### Presentation Materials Rubric
 
-::: {.callout-warning}
-**PRESENTATION MATERIALS RUBRIC**
-:::
 
 ```{r}
 rb2 <- tibble::tribble(
-  ~Trait, ~`Professional Quality (4)`, ~`Minor Revision Required (3)`, ~`Major Revisions Required (2)`, ~`Unacceptable or Missing (1–0)`,
+  ~Trait, ~`Professional Quality (4)`, ~`Minor Revision Required (3)`, ~`Major Revisions Required (2)`, ~`Unacceptable or Missing (1-0)`,
   "Design: Backgrounds, Layout, Theme and Images Enhance Understanding",
   "Design is effective and all best practices are followed. No revisions needed.",
   "Effective design is used; only a few slides need revisions in layout, font, or visual appeal to achieve professional quality.",
@@ -282,7 +243,7 @@ rb2 <- tibble::tribble(
   "Design: Use of Text is Limited and Appropriate to Complement Oral Message, Not Compete With it",
   "Use of text is appropriately limited and effectively supports oral messages.",
   "Use of text is generally effective throughout all slides with few minor revisions needed to achieve professional quality.",
-  "Effectiveness of text varies across slides—some may exhibit too much text or text is so limited that it is cryptic.",
+  "Effectiveness of text varies across slides-some may exhibit too much text or text is so limited that it is cryptic.",
   "Excessive use of text detracts from oral presentation, text is illegible, or text is wholly unrelated to oral message.",
   "Design: Use of Color Conveys Meaning",
   "Color is used to convey meaning throughout and consistent across slides to enable reader to connect key points or understand similar visuals.",
@@ -314,11 +275,8 @@ rb2 <- tibble::tribble(
 kbl_course(rb2, full_width = TRUE, longtable = TRUE)
 ```
 
-### Formal documentation of work
+### Technical Documentation Rubric
 
-::: {.callout-warning}
-**FORMAL DOCUMENTATION OF WORK**
-:::
 
 The following simple rubric will be used to assign grades for documentation of work. Please refer to any supplemental guidelines provided by your instructor.
 
