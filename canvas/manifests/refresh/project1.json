@@ -44,8 +44,13 @@
         "required_text": [
           "Project Timeline",
           "Project 1 Prompt",
-          "Group_Analysis_Plan.Rmd",
+          "team/analysis_plan.qmd",
+          "team/analysis_plan.pdf",
           "Read the Analysis Plan instructions"
+        ],
+        "forbidden_text": [
+          "Group_Analysis_Plan.Rmd",
+          "Group_Plan.Rmd"
         ]
       },
       "id": 11004585,

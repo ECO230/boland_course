@@ -1,0 +1,61 @@
+{
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634
+    },
+    {
+      "section": 11,
+      "course_id": 869206
+    },
+    {
+      "section": 12,
+      "course_id": 870121
+    }
+  ],
+  "objects": [
+    {
+      "kind": "assignment",
+      "title": "Prep Work: Analysis Plan",
+      "source_path": "canvas/content/assignments/project1-analysis-plan.md",
+      "input_paths": [
+        "syllabus/project_1_prompt.qmd",
+        "syllabus/project_1_timeline.qmd",
+        "syllabus/_project_1_timeline_body.qmd"
+      ],
+      "targets": {
+        "4": {
+          "id": 11004585,
+          "module_id": 4667281,
+          "assignment_group_id": 1951718
+        },
+        "11": {
+          "id": 11024218,
+          "module_id": 4677007,
+          "assignment_group_id": 1955483
+        },
+        "12": {
+          "id": 11029537,
+          "module_id": 4679325,
+          "assignment_group_id": 1956664
+        }
+      },
+      "validation": {
+        "required_text": [
+          "Project Timeline",
+          "Project 1 Prompt",
+          "team/analysis_plan.qmd",
+          "team/analysis_plan.pdf",
+          "Read the Analysis Plan instructions"
+        ],
+        "forbidden_text": [
+          "Group_Analysis_Plan.Rmd",
+          "Group_Plan.Rmd"
+        ]
+      },
+      "id": 11004585,
+      "module_id": 4667281,
+      "assignment_group_id": 1951718
+    }
+  ]
+}
