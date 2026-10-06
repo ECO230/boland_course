@@ -78,7 +78,7 @@ my_data <- read_csv("data/airbnb_chicago.csv", show_col_types = FALSE)
 #| label: example-3
 library(dplyr)
 
-ef <- df %>%
+ef <- df |>
   select(property_type, bathrooms, bedrooms, first_review, listed_price)
 ```
 
@@ -88,7 +88,7 @@ Alter the example above in the chunk below.  Select the columns property_type, r
 #| label: response-4
 library(dplyr)
 
-new_data <- df %>%
+new_data <- df |>
   select(property_type, room_type, host_since, number_of_reviews, beds, review_scores_rating)
 ```
 
@@ -97,7 +97,7 @@ new_data <- df %>%
 
 ```{r}
 #| label: example-5
-ef <- ef %>%
+ef <- ef |>
   mutate(bed_bath_ratio = if_else(!is.na(bathrooms) & bathrooms > 0, bedrooms / bathrooms, NA_real_))
 ```
 
@@ -105,7 +105,7 @@ Alter the example above in the chunk below.  Create and save to new_data a varia
 
 ```{r}
 #| label: response-6
-new_data <- new_data %>%
+new_data <- new_data |>
   mutate(reviews_per_bed = if_else(!is.na(beds) & beds > 0, number_of_reviews / beds, NA_real_))
 ```
 
@@ -114,8 +114,8 @@ new_data <- new_data %>%
 
 ```{r}
 #| label: example-7
-ef %>%
-  group_by(property_type) %>%
+ef |>
+  group_by(property_type) |>
   summarise(avg_bed_bath_ratio = mean(bed_bath_ratio, na.rm = TRUE), row_count = n())
 ```
 
@@ -123,8 +123,8 @@ Alter the example above in the chunk below.  Create a summary grouped by room_ty
 
 ```{r}
 #| label: response-8
-new_data %>%
-  group_by(room_type) %>%
+new_data |>
+  group_by(room_type) |>
   summarise(avg_reviews_per_bed = mean(reviews_per_bed, na.rm = TRUE), row_count = n())
 ```
 
@@ -133,7 +133,7 @@ new_data %>%
 
 ```{r}
 #| label: example-9
-ef %>%
+ef |>
   filter(bed_bath_ratio >= 1 & bed_bath_ratio < Inf)
 ```
 
@@ -141,7 +141,7 @@ Alter the example above in the chunk below.  Filter reviews_per_bed to only incl
 
 ```{r}
 #| label: response-10
-new_data %>%
+new_data |>
   filter(reviews_per_bed >= 1 & is.finite(reviews_per_bed))
 ```
 
@@ -150,7 +150,7 @@ new_data %>%
 
 ```{r}
 #| label: example-11
-ef <- ef %>%
+ef <- ef |>
   mutate(price_categories = cut(listed_price
                                 , breaks = c(0,100,200,300,400,Inf), include.lowest = TRUE
                                 ,labels = c('0-100','(100,200]','(200,300]','(300,400]','Over 400')))
@@ -160,7 +160,7 @@ Alter the example above in the chunk below.  Create and save to new_data a categ
 
 ```{r}
 #| label: response-12
-new_data <- new_data %>%
+new_data <- new_data |>
   mutate(review_grades = cut(review_scores_rating
                                 , breaks = c(0,70,80,85,90,95,100), include.lowest = TRUE
                                 ,labels = c('F','D','C','B','A','A+')))
@@ -172,7 +172,7 @@ new_data <- new_data %>%
 #| label: example-13
 library(lubridate)
 
-ef <- ef %>%
+ef <- ef |>
   mutate(first_review_dt = mdy(first_review))
 
 ```
@@ -183,7 +183,7 @@ Alter the example above in the chunk below. Convert host_since to a date variabl
 #| label: response-14
 library(lubridate)
 
-new_data <- new_data %>%
+new_data <- new_data |>
   mutate(host_since_dt = mdy(host_since))
 ```
 
@@ -191,7 +191,7 @@ new_data <- new_data %>%
 
 ```{r}
 #| label: example-15
-ef <- ef %>%
+ef <- ef |>
   mutate(first_review_year = year(first_review_dt))
 ```
 
@@ -199,7 +199,7 @@ Alter the example above in the chunk below. Create and save a new variable to ne
 
 ```{r}
 #| label: response-16
-new_data <- new_data %>%
+new_data <- new_data |>
   mutate(host_since_year = year(host_since_dt))
 ```
 
@@ -209,17 +209,17 @@ Starting with the raw data set, create a ratio of bedrooms to bathrooms, filter 
 
 ```{r}
 #| label: example-17
-analysis_1 <- df %>%
-  select(bedrooms,bathrooms,listed_price,first_review) %>%
-  mutate(bed_bath_ratio = if_else(!is.na(bathrooms) & bathrooms > 0, bedrooms / bathrooms, NA_real_)) %>%
-  filter(bed_bath_ratio > 1 & bed_bath_ratio < Inf) %>%
-  mutate(first_review_dt = mdy(first_review)) %>%
-  mutate(first_review_wday = wday(first_review_dt, label = TRUE)) %>%
-  filter(!is.na(first_review_wday)) %>%
-  group_by(first_review_wday) %>%
+analysis_1 <- df |>
+  select(bedrooms,bathrooms,listed_price,first_review) |>
+  mutate(bed_bath_ratio = if_else(!is.na(bathrooms) & bathrooms > 0, bedrooms / bathrooms, NA_real_)) |>
+  filter(bed_bath_ratio > 1 & bed_bath_ratio < Inf) |>
+  mutate(first_review_dt = mdy(first_review)) |>
+  mutate(first_review_wday = wday(first_review_dt, label = TRUE)) |>
+  filter(!is.na(first_review_wday)) |>
+  group_by(first_review_wday) |>
   summarise(avg_bed_bath_ratio = mean(bed_bath_ratio, na.rm = TRUE),med_price = median(listed_price, na.rm = TRUE), row_count = n()) 
 
-analysis_1 %>%
+analysis_1 |>
   kable()
 ```
 
@@ -230,20 +230,20 @@ Alternatively, prepare your own analysis that can be used for your project.
 
 ```{r}
 #| label: response-18
-analysis_2 <- df %>%
-  select(property_type,host_since,review_scores_rating) %>%
-  filter(!is.na(review_scores_rating)) %>%
-  mutate(host_since_dt = mdy(host_since)) %>%
-  mutate(host_since_yr = year(host_since_dt)) %>%
-  filter(host_since_yr >= 2011 & host_since_yr <= 2017) %>%
-  mutate(years_hosting = 2017 - host_since_yr) %>%
-  group_by(property_type) %>%
+analysis_2 <- df |>
+  select(property_type,host_since,review_scores_rating) |>
+  filter(!is.na(review_scores_rating)) |>
+  mutate(host_since_dt = mdy(host_since)) |>
+  mutate(host_since_yr = year(host_since_dt)) |>
+  filter(host_since_yr >= 2011 & host_since_yr <= 2017) |>
+  mutate(years_hosting = 2017 - host_since_yr) |>
+  group_by(property_type) |>
   summarise(avg_years_hosting = mean(years_hosting, na.rm = TRUE)
             , avg_review_scores_rating = mean(review_scores_rating, na.rm = TRUE)
-            , row_count = n()) %>%
+            , row_count = n()) |>
   filter(row_count >= 30)
   
-analysis_2 %>%
+analysis_2 |>
   kable()
 
 ```
