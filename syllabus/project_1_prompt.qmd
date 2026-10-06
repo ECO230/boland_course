@@ -88,6 +88,21 @@ kbl_course(alo, full_width = TRUE)
 3. Presentation Materials  
 4. Technical Documentation in annotated R scripts, R Markdown, or Quarto documents  
 
+### Files for Each Milestone
+
+These paths refer to files inside your team's own Posit Cloud project. Open
+`team/` for your work, clean CSV, and rendered PDFs. These are filename
+references, not links to another team's files. If your template uses different
+names, identify the equivalent files in your submission.
+
+| Milestone | Files to work in | What to have ready |
+|---|---|---|
+| Analysis Plan | `team/analysis_plan.qmd` | Stories, hypotheses, variables, preparation decisions, responsibilities, and next steps. |
+| Clean Dataset | `team/prepare_data.qmd` | Documented preparation and the resulting group-named CSV in `team/`. |
+| Pre-Coaching Presentation and Coaching Session | `team/hypothesis_01.qmd` through `team/hypothesis_04.qmd`; `team/descriptive_evidence.qmd` | Developing analyses, documented evidence, presentation slides, and questions for coaching. |
+| In-Person Presentation and Presentation Materials | Your PowerPoint or Google Slides presentation; supporting hypothesis and descriptive-evidence files | Final slides whose findings match the documented analysis. |
+| Technical Documentation | `team/technical_documentation.qmd` | One combined PDF and an automatically generated source ZIP, both in `team/`. |
+
 ## Prompt
 
 ::: {.callout-note}
@@ -117,7 +132,7 @@ By this point you should have a pretty good understanding of what type of data i
 **DATA**
 :::
 
-Full data sets are provided in the project templates per topic. Some of these data sets are quite large so a good early step is to filter out data that is not needed to address your hypotheses. It will make your analysis run faster and make the sizes of your files easier to deal with if you are doing analyses in Excel or Tableau. Some examples of common data cleaning tasks are included in your posit.cloud project; feel free to adapt them to your needs.
+Each project template provides a fixed dataset for its topic. Read `data/DATA_NOTES.md` for the supplied tables, time coverage, and definitions. Prepare the shared clean dataset in `team/prepare_data.qmd`. Filter observations and select variables needed for your hypotheses, and explain those decisions alongside the code. This reduces the work needed for later analysis and exports to Excel or Tableau.
 
 ## General guidelines for deliverables
 
@@ -139,6 +154,23 @@ Prep work will be due in weeks 6 through 9 to ensure you are keeping on track wi
 4. Coaching Session Attendance  
 
 Use [your section's timeline](project_1_timeline.qmd) for the due dates, coaching meeting, presentation, and Technical Documentation deadline. Submit each item in its named Canvas assignment.
+
+### Analysis Plan
+
+Complete `team/analysis_plan.qmd` together, following the [Analysis Plan instructions](project_1_analysis_plan.qmd). Rendering creates `team/analysis_plan.pdf` beside the source. Submit the plan or identify its location in your team project as directed in Canvas. One teammate may submit for the team; include the group number and teammate names. Continue updating this same plan after the checkpoint.
+
+### Clean Dataset
+
+Open `team/prepare_data.qmd`. First update the document title and `clean_file` setting to identify your team, for example `Group04_Traffic_clean.csv`. The example is not a required naming pattern: choose a filename identifying your group, replace `GroupXX`, and keep `.csv`. Document filters, missing-value decisions, joins, and derived variables alongside your code.
+
+Click **Render** to save the clean CSV and preparation PDF directly in `team/`. Submit the clean dataset or identify its location in the team project in the Clean Dataset Canvas assignment. Include the preparation filename so the instructor can find how it was made. Download this same named CSV from `team/` when using Excel or Tableau.
+
+Render preparation again when its code or additional data changes. Hypothesis documents load the saved CSV as `clean_data` without repeating raw-data import and cleaning.
+
+### Analysis and Coaching Preparation
+
+Each teammate develops a story in one of `team/hypothesis_01.qmd` through `team/hypothesis_04.qmd`. Record your name and document descriptive evidence, the test, assumptions, interpretation, and limitations. Use `team/descriptive_evidence.qmd` to track how presentation charts, tables, and descriptive findings were produced, including work outside R. These are continuing work files, not separate submissions for every teammate. Bring the developing evidence, presentation, and unresolved questions to coaching; follow Canvas for the presentation and attendance checkpoints.
+
 
 ::: {.callout-warning}
 **PRESENTATION MATERIALS**
@@ -162,7 +194,23 @@ All teams will present their work in a formal business presentation. Ask your in
 **DOCUMENTING YOUR ANALYSIS**
 :::
 
-All teams must create RScripts or RMarkdown documents containing sufficient annotations to enable an outside reader to understand and replicate their work. Code should be “tidy”, meaning code following each pipe in a dplyr call begins on a new line. For ease of dividing work across team members, you may prepare separate RScripts or RMarkdown documents for each piece of your analysis. If you choose to do this, provide a single document that lists the file name of each RScript or RMarkdown with a brief description of contents. **All team members are responsible for the content of all documents submitted. If one is unsatisfactory, the entire team’s grade will suffer.**
+Your Technical Documentation must let a skilled analyst recreate your final presentation findings from source data through preparation, analysis, and conclusions. Use the supplied documents to organize that work:
+
+- `team/analysis_plan.qmd`: current questions, hypotheses, and analytical plan.
+- `team/prepare_data.qmd`: annotated import, cleaning, joins, and derived-variable code, with explanations of the decisions.
+- `team/hypothesis_01.qmd` through `team/hypothesis_04.qmd`: runnable analyses, statistical tests, assumptions, and interpretations.
+- `team/descriptive_evidence.qmd`: how each final chart, table, and descriptive finding was made, including Excel or Tableau work.
+- `team/technical_documentation.qmd`: combined report, team conclusions, and a map connecting presentation findings to the files and evidence that produced them.
+
+For each final visual or table produced outside R, identify the slide, exact source CSV, variables, filters, missing-value decisions, calculations, and grouping. Explain chart type, axes, measures, color grouping, and other choices affecting interpretation. For an Excel pivot table, record rows, columns, values and aggregation, and filters. A high-level description enabling recreation is sufficient; screenshots, click-by-click instructions, and discarded drafts are not required. When existing R code already documents the evidence, identify its file and section rather than duplicate it.
+
+Keep code annotated and readable. For piped R code, start each step on a new line. Ensure documented populations, filters, and calculations match the final slides. **All teammates are responsible for the content of all documents submitted. If one is unsatisfactory, the entire team's grade will suffer.**
+
+### Assemble and Submit Technical Documentation
+
+After preparing the clean dataset and completing the analysis documents, open `team/technical_documentation.qmd` and click **Render**. Its separate file-inclusion chunks assemble the plan, preparation explanation and code, descriptive evidence, and teammate analyses. Update the matching path in the master if you rename or add a source document. Rendering the master displays preparation without rerunning it; analyses use the saved clean CSV. To reproduce the project from raw data, render preparation first, then the master.
+
+One teammate submits `team/technical_documentation.pdf` and `team/TechnicalDocumentation_sources.zip` for the team in the Technical Documentation Canvas assignment. You do not need to render and submit each hypothesis file separately. The ZIP is assembled automatically and contains editable source documents and supporting files. Clean CSVs up to 100 MiB are included; larger clean CSVs remain in `team/` in your Posit Cloud project. Include the project link and exact CSV filename so the instructor can access a dataset not in the ZIP. Use your section's timeline for the deadline.
 
 ## Grading criteria
 

@@ -23,7 +23,7 @@ Prepare a plan that connects your team's statistical stories to the data and ana
 
 ## Prepare Your Plan
 
-Complete the team analysis plan in your project. The original template is named `Group_Analysis_Plan.Rmd`; if your project uses a different filename, identify that file in your submission.
+Complete `team/analysis_plan.qmd` in your team's Posit Cloud project. Rendering creates `team/analysis_plan.pdf` beside it. If your template uses a different filename, identify the equivalent plan in your submission. Keep updating the plan after this checkpoint as your questions and methods develop.
 
 For each story your team intends to investigate:
 
