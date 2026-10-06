@@ -108,6 +108,8 @@ website:
             file: syllabus/project_1_timeline.qmd
           - text: "Analysis Plan"
             file: syllabus/project_1_analysis_plan.qmd
+          - text: "Clean Dataset"
+            file: syllabus/project_1_clean_dataset.qmd
           - text: "Presentation Guide"
             file: syllabus/project_1_presentation_in_person.qmd
       - text: "Datasets"

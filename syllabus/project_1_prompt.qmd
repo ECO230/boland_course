@@ -41,7 +41,7 @@ kbl_course <- function(df, full_width = FALSE, longtable = FALSE) {
 
 ## Overview
 
-[Project Timeline by Section](project_1_timeline.qmd) | [Analysis Plan Instructions](project_1_analysis_plan.qmd) | [Presentation Guide](project_1_presentation_in_person.qmd)
+[Project Prompt](project_1_prompt.qmd) | [Analysis Plan](project_1_analysis_plan.qmd) | [Clean Dataset](project_1_clean_dataset.qmd) | [Timeline by Section](project_1_timeline.qmd) | [Presentation Guide](project_1_presentation_in_person.qmd)
 
 
 The purpose of this project is to introduce you to analysis of organizational data using descriptive statistics, data visualization, and inferential statistics. While completing this project, you will develop and practice the skills necessary to communicate findings. Communication will occur through an oral presentation, professionally prepared presentation, and documentation of your work in RScripts, RMarkdown or other formats as required by your instructor.
@@ -89,7 +89,7 @@ names, identify the equivalent files in your submission.
 | Milestone | Files to work in | What to have ready |
 |---|---|---|
 | Analysis Plan | `team/analysis_plan.qmd` | Stories, hypotheses, variables, preparation decisions, responsibilities, and next steps. |
-| Clean Dataset | `team/prepare_data.qmd` | Documented preparation and the resulting group-named CSV in `team/`. |
+| Clean Dataset | `team/prepare_data.qmd` | Submit `team/prepare_data.pdf`; keep the group-named CSV in the project. |
 | Pre-Coaching Presentation and Coaching Session | `team/hypothesis_01.qmd` through `team/hypothesis_04.qmd`; `team/descriptive_evidence.qmd` | Developing analyses, documented evidence, presentation slides, and questions for coaching. |
 | In-Person Presentation and Presentation Materials | Your PowerPoint or Google Slides presentation; supporting hypothesis and descriptive-evidence files | Final slides whose findings match the documented analysis. |
 | Technical Documentation | `team/technical_documentation.qmd` | One combined PDF and an automatically generated source ZIP, both in `team/`. |
@@ -141,7 +141,7 @@ Follow the [Clean Dataset milestone instructions](project_1_clean_dataset.qmd). 
 
 Open `team/prepare_data.qmd`. First update the document title and `clean_file` setting to identify your team, for example `Group04_Traffic_clean.csv`. The example is not a required naming pattern: choose a filename identifying your group, replace `GroupXX`, and keep `.csv`. Document filters, missing-value decisions, joins, and derived variables alongside your code.
 
-Click **Render** to save the clean CSV and preparation PDF directly in `team/`. Submit the clean dataset or identify its location in the team project in the Clean Dataset Canvas assignment. Include the preparation filename so the instructor can find how it was made. Download this same named CSV from `team/` when using Excel or Tableau.
+Click **Render** to save the clean CSV and preparation PDF directly in `team/`. Submit `team/prepare_data.pdf` in the Prep Work: Clean Data Set Canvas assignment. Keep the named clean CSV and `team/prepare_data.qmd` in your group project; do not upload CSV files. Include the project link and exact CSV filename in the PDF or submission comment. Download this same named CSV from `team/` when using Excel or Tableau.
 
 Render preparation again when its code or additional data changes. Hypothesis documents load the saved CSV as `clean_data` without repeating raw-data import and cleaning.
 
@@ -189,7 +189,7 @@ combined report together before submission.
 
 After preparing the clean dataset and completing the analysis documents, open `team/technical_documentation.qmd` and click **Render**. Its separate file-inclusion chunks assemble the plan, preparation explanation and code, descriptive evidence, and teammate analyses. Update the matching path in the master if you rename or add a source document. Rendering the master displays preparation without rerunning it; analyses use the saved clean CSV. To reproduce the project from raw data, render preparation first, then the master.
 
-One teammate submits `team/technical_documentation.pdf` and `team/TechnicalDocumentation_sources.zip` for the team in the Technical Documentation Canvas assignment. You do not need to render and submit each hypothesis file separately. The ZIP is assembled automatically and contains editable source documents and supporting files. Clean CSVs up to 100 MiB are included; larger clean CSVs remain in `team/` in your Posit Cloud project. Include the project link and exact CSV filename so the instructor can access a dataset not in the ZIP. Use your section's timeline for the deadline.
+One teammate submits `team/technical_documentation.pdf` and `team/TechnicalDocumentation_sources.zip` for the team in the Technical Documentation Canvas assignment. You do not need to render and submit each hypothesis file separately. The ZIP is assembled automatically and contains editable source documents and supporting files. Clean CSVs stay in `team/` in your Posit Cloud project and are not included in the source ZIP. Include the project link and exact CSV filename so the instructor can access the data there. Use your section's timeline for the deadline.
 
 ## Grading Criteria
 

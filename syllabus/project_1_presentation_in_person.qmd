@@ -70,7 +70,7 @@ Your audience may not be experts in statistics. Your goal is not to show everyth
 2.  Presentation materials submitted as a file
 3.  Additional time reserved for audience questions
 
-[Project Prompt](project_1_prompt.qmd) | [Your Section's Timeline](project_1_timeline.qmd) | [Clean Dataset Milestone](project_1_clean_dataset.qmd)
+[Project Prompt](project_1_prompt.qmd) | [Analysis Plan](project_1_analysis_plan.qmd) | [Clean Dataset](project_1_clean_dataset.qmd) | [Timeline by Section](project_1_timeline.qmd) | [Presentation Guide](project_1_presentation_in_person.qmd)
 
 ## Logistical Details
 

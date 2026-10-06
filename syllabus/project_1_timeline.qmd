@@ -18,4 +18,4 @@ Choose your class section. Each timeline uses that section's schedule; Canvas is
 - [Section 11](project_1_timeline_section_11.qmd)
 - [Section 12](project_1_timeline_section_12.qmd)
 
-[Project Prompt](project_1_prompt.qmd) | [Analysis Plan](project_1_analysis_plan.qmd) | [Presentation Guide](project_1_presentation_in_person.qmd)
+[Project Prompt](project_1_prompt.qmd) | [Analysis Plan](project_1_analysis_plan.qmd) | [Clean Dataset](project_1_clean_dataset.qmd) | [Timeline by Section](project_1_timeline.qmd) | [Presentation Guide](project_1_presentation_in_person.qmd)

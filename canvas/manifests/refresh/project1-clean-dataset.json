@@ -1,0 +1,58 @@
+{
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634
+    },
+    {
+      "section": 11,
+      "course_id": 869206
+    },
+    {
+      "section": 12,
+      "course_id": 870121
+    }
+  ],
+  "objects": [
+    {
+      "kind": "assignment",
+      "title": "Prep Work: Clean Data Set",
+      "source_path": "canvas/content/assignments/project1-clean-dataset.md",
+      "input_paths": [
+        "syllabus/project_1_clean_dataset.qmd",
+        "syllabus/project_1_prompt.qmd"
+      ],
+      "targets": {
+        "4": {
+          "id": 11004589,
+          "module_id": 4667282,
+          "assignment_group_id": 1951718
+        },
+        "11": {
+          "id": 11024222,
+          "module_id": 4677008,
+          "assignment_group_id": 1955483
+        },
+        "12": {
+          "id": 11029542,
+          "module_id": 4679326,
+          "assignment_group_id": 1956664
+        }
+      },
+      "validation": {
+        "required_text": [
+          "team/prepare_data.pdf",
+          "Do not upload the clean CSV",
+          "working document",
+          "Clean Dataset Milestone"
+        ],
+        "forbidden_text": [
+          "Submit the clean dataset or identify its location"
+        ]
+      },
+      "id": 11004589,
+      "module_id": 4667282,
+      "assignment_group_id": 1951718
+    }
+  ]
+}

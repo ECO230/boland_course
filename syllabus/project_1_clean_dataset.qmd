@@ -20,7 +20,7 @@ Prepare a shared dataset that fits your team's statistical stories. Document
 how you move from the supplied data to the observations and variables you will
 analyze, so teammates and a skilled analyst can reproduce those decisions.
 
-[Project Prompt](project_1_prompt.qmd) | [Analysis Plan](project_1_analysis_plan.qmd) | [Your Section's Timeline](project_1_timeline.qmd)
+[Project Prompt](project_1_prompt.qmd) | [Analysis Plan](project_1_analysis_plan.qmd) | [Clean Dataset](project_1_clean_dataset.qmd) | [Timeline by Section](project_1_timeline.qmd) | [Presentation Guide](project_1_presentation_in_person.qmd)
 
 ## Your Role and Available Help
 
@@ -105,13 +105,17 @@ instructions are not required.
 
 ## Submission
 
-Submit in **Clean Dataset** in Canvas by the deadline on your section's
-timeline. One teammate may submit for the team; include the group number and
-teammate names. Upload the clean CSV or identify its location in the team
-project as directed in the assignment. Include the exact CSV filename, the
-Posit Cloud project link when identifying its location, and
-`team/prepare_data.qmd` as the preparation source. The preparation PDF is useful
-for reviewing the explanations; keep the editable source in the project.
+Submit **`team/prepare_data.pdf`** in **Prep Work: Clean Data Set** in
+Canvas by the deadline on your section's timeline. One teammate submits for the
+team; include the group number and teammate names in the document. Identify the
+Posit Cloud project link and exact clean CSV filename in the PDF or submission
+comment so the instructor can find the prepared data.
+
+::: {.callout-important title="Submit the PDF; Keep the Data in Your Project"}
+Upload the preparation PDF, not the CSV. Keep the named clean CSV and editable
+`team/prepare_data.qmd` in your group's Posit Cloud project. The instructor can
+review the data and source there when needed.
+:::
 
 This checkpoint does not require separately submitting each teammate's
 hypothesis document. Your final Technical Documentation will assemble the
@@ -125,7 +129,8 @@ preparation explanation and code with the completed analyses.
 - [ ] Filters, missing values, derived variables, and any joins are documented.
 - [ ] The preparation document renders and the saved CSV passes basic checks.
 - [ ] Teammates know which CSV to use and where to find it in `team/`.
-- [ ] The submission identifies the dataset and preparation source.
+- [ ] The preparation PDF identifies the team, project, and clean CSV filename.
+- [ ] Only the preparation PDF is uploaded; the CSV and editable source stay in the group project.
 
 ## Grading Basis
 

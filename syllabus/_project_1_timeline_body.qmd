@@ -52,7 +52,7 @@ timeline <- data.frame(
     get_date("C11")),
   Submission = c("Discuss in class; no separate submission.",
     "Submit in Prep Work: Analysis Plan in Canvas.",
-    "Submit in Prep Work: Clean Data Set in Canvas.",
+    "Upload team/prepare_data.pdf in Prep Work: Clean Data Set; keep the CSV in your group project.",
     "Upload in Prep Work: Pre-Coaching Presentation Draft in Canvas.",
     "Attend your coaching session; use the Canvas attendance checkpoint as directed.",
     "Present in class; upload final slides in Analysis Project - Slides in Canvas.",
@@ -60,4 +60,4 @@ timeline <- data.frame(
 knitr::kable(timeline, format = "html")
 ```
 
-[Project Prompt](project_1_prompt.qmd) | [Analysis Plan Instructions](project_1_analysis_plan.qmd) | [Presentation Guide](project_1_presentation_in_person.qmd) | [Other Sections](project_1_timeline.qmd)
+[Project Prompt](project_1_prompt.qmd) | [Analysis Plan](project_1_analysis_plan.qmd) | [Clean Dataset](project_1_clean_dataset.qmd) | [Timeline by Section](project_1_timeline.qmd) | [Presentation Guide](project_1_presentation_in_person.qmd)
