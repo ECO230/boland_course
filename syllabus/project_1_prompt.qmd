@@ -159,7 +159,7 @@ All teams will present their work in a formal business presentation. Ask your in
 1. No notecards  
 2. Dress is business casual or more formal  
 3. All team members must speak  
-4. The audience may interrupt to ask questions during the presentation. Plan for 8-10 minutes of content, not including questions.  
+4. The audience may interrupt to ask questions during the presentation. Plan for 8-10 minutes of content, not including questions.
 5. Presentation content should be non-technical. Slides should not contain technical output of hypothesis tests and the oral delivery should not include detailed discussions of statistical tests. However, students should be prepared to answer technical questions if prompted and may choose to have supplemental content prepared at the end of the presentation materials in anticipation of technical questions.
 
 ### Technical Documentation
@@ -185,7 +185,8 @@ One teammate submits `team/technical_documentation.pdf` and `team/TechnicalDocum
 ## Grading Criteria
 
 
-The rubrics below will be used to evaluate each of the 4 deliverables for this project and assign team grades. However, grades may be adjusted up or down by up to two letter grades based on the team's independence of work and ingenuity in addressing the prompt using tools taught in the class. Please do not assume traits in this rubric are all weighted equally. Grades are not necessarily a linear function of your scores. Any 1s or 0s will substantially reduce the project grade.  
+The rubrics below will be used to evaluate each of the 4 deliverables for this project and assign team grades. However, grades may be adjusted up or down by up to two letter grades based on the team's independence of work and ingenuity in addressing the prompt using tools taught in the class. Please do not assume traits in this rubric are all weighted equally. Grades are not necessarily a linear function of your scores. Any 1s or 0s will substantially reduce the project grade.
+
 **All team scores are multiplied by individual peer evaluation scores to achieve individual grades. See syllabus for details.**
 
 ### Oral Presentation Rubric
