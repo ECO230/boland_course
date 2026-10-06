@@ -180,6 +180,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Analysis Plan</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../syllabus/project_1_clean_dataset.html">
+ <span class="dropdown-text">Clean Dataset</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../syllabus/project_1_presentation_in_person.html">
  <span class="dropdown-text">Presentation Guide</span></a>
   </li>  
@@ -287,7 +291,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p><a href="../syllabus/project_1_timeline.html">Project Timeline by Section</a> | <a href="../syllabus/project_1_analysis_plan.html">Analysis Plan Instructions</a> | <a href="../syllabus/project_1_presentation_in_person.html">Presentation Guide</a></p>
+<p><a href="../syllabus/project_1_prompt.html">Project Prompt</a> | <a href="../syllabus/project_1_analysis_plan.html">Analysis Plan</a> | <a href="../syllabus/project_1_clean_dataset.html">Clean Dataset</a> | <a href="../syllabus/project_1_timeline.html">Timeline by Section</a> | <a href="../syllabus/project_1_presentation_in_person.html">Presentation Guide</a></p>
 <p>The purpose of this project is to introduce you to analysis of organizational data using descriptive statistics, data visualization, and inferential statistics. While completing this project, you will develop and practice the skills necessary to communicate findings. Communication will occur through an oral presentation, professionally prepared presentation, and documentation of your work in RScripts, RMarkdown or other formats as required by your instructor.</p>
 </section>
 <section id="assignment-learning-objectives" class="level2">
@@ -361,7 +365,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>Clean Dataset</td>
 <td><code>team/prepare_data.qmd</code></td>
-<td>Documented preparation and the resulting group-named CSV in <code>team/</code>.</td>
+<td>Submit <code>team/prepare_data.pdf</code>; keep the group-named CSV in the project.</td>
 </tr>
 <tr class="odd">
 <td>Pre-Coaching Presentation and Coaching Session</td>
@@ -428,7 +432,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="clean-dataset">Clean Dataset</h3>
 <p>Follow the <a href="../syllabus/project_1_clean_dataset.html">Clean Dataset milestone instructions</a>. You are not expected to complete every cleaning, joining, or coding task on your own; the instructor can help wherever needed. Outline the sources and data needs in your current <code>team/analysis_plan.qmd</code>. Changes since the plan’s checkpoint submission are fine: it is a working document, and preparation should follow its current version.</p>
 <p>Open <code>team/prepare_data.qmd</code>. First update the document title and <code>clean_file</code> setting to identify your team, for example <code>Group04_Traffic_clean.csv</code>. The example is not a required naming pattern: choose a filename identifying your group, replace <code>GroupXX</code>, and keep <code>.csv</code>. Document filters, missing-value decisions, joins, and derived variables alongside your code.</p>
-<p>Click <strong>Render</strong> to save the clean CSV and preparation PDF directly in <code>team/</code>. Submit the clean dataset or identify its location in the team project in the Clean Dataset Canvas assignment. Include the preparation filename so the instructor can find how it was made. Download this same named CSV from <code>team/</code> when using Excel or Tableau.</p>
+<p>Click <strong>Render</strong> to save the clean CSV and preparation PDF directly in <code>team/</code>. Submit <code>team/prepare_data.pdf</code> in the Prep Work: Clean Data Set Canvas assignment. Keep the named clean CSV and <code>team/prepare_data.qmd</code> in your group project; do not upload CSV files. Include the project link and exact CSV filename in the PDF or submission comment. Download this same named CSV from <code>team/</code> when using Excel or Tableau.</p>
 <p>Render preparation again when its code or additional data changes. Hypothesis documents load the saved CSV as <code>clean_data</code> without repeating raw-data import and cleaning.</p>
 </section>
 <section id="analysis-and-coaching-preparation" class="level3">
@@ -481,7 +485,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="assemble-and-submit-technical-documentation" class="level4">
 <h4 class="anchored" data-anchor-id="assemble-and-submit-technical-documentation">Assemble and Submit Technical Documentation</h4>
 <p>After preparing the clean dataset and completing the analysis documents, open <code>team/technical_documentation.qmd</code> and click <strong>Render</strong>. Its separate file-inclusion chunks assemble the plan, preparation explanation and code, descriptive evidence, and teammate analyses. Update the matching path in the master if you rename or add a source document. Rendering the master displays preparation without rerunning it; analyses use the saved clean CSV. To reproduce the project from raw data, render preparation first, then the master.</p>
-<p>One teammate submits <code>team/technical_documentation.pdf</code> and <code>team/TechnicalDocumentation_sources.zip</code> for the team in the Technical Documentation Canvas assignment. You do not need to render and submit each hypothesis file separately. The ZIP is assembled automatically and contains editable source documents and supporting files. Clean CSVs up to 100 MiB are included; larger clean CSVs remain in <code>team/</code> in your Posit Cloud project. Include the project link and exact CSV filename so the instructor can access a dataset not in the ZIP. Use your section’s timeline for the deadline.</p>
+<p>One teammate submits <code>team/technical_documentation.pdf</code> and <code>team/TechnicalDocumentation_sources.zip</code> for the team in the Technical Documentation Canvas assignment. You do not need to render and submit each hypothesis file separately. The ZIP is assembled automatically and contains editable source documents and supporting files. Clean CSVs stay in <code>team/</code> in your Posit Cloud project and are not included in the source ZIP. Include the project link and exact CSV filename so the instructor can access the data there. Use your section’s timeline for the deadline.</p>
 </section>
 </section>
 </section>
