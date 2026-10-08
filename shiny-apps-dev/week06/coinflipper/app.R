@@ -1,5 +1,5 @@
 # MUST be at the very top of app.R, before any library(...)
-if (requireNamespace("renv", quietly = TRUE)) {
+if (dir.exists("/data/junior/boland_course") && requireNamespace("renv", quietly = TRUE)) {
   renv::load("/data/junior/boland_course")
 }
 
@@ -106,6 +106,7 @@ run_class <- function(runlen) {
 # ----------------------------
 ui <- fluidPage(
   tags$head(
+    tags$script(src = "coin.js"),
     tags$style(HTML("
       .panel {
         padding: 14px;
@@ -133,10 +134,10 @@ ui <- fluidPage(
       }
 
       /* Run highlights (length >= 3). Longer run -> stronger highlight */
-      .flip-row.run3 { box-shadow: inset 0 0 0 9999px rgba(111,168,220,0.14); }
-      .flip-row.run4 { box-shadow: inset 0 0 0 9999px rgba(111,168,220,0.22); }
-      .flip-row.run5 { box-shadow: inset 0 0 0 9999px rgba(111,168,220,0.32); }
-      .flip-row.run6 { box-shadow: inset 0 0 0 9999px rgba(111,168,220,0.44); }
+      .show-highlights .flip-row.run3 { box-shadow: inset 0 0 0 9999px rgba(111,168,220,0.14); }
+      .show-highlights .flip-row.run4 { box-shadow: inset 0 0 0 9999px rgba(111,168,220,0.22); }
+      .show-highlights .flip-row.run5 { box-shadow: inset 0 0 0 9999px rgba(111,168,220,0.32); }
+      .show-highlights .flip-row.run6 { box-shadow: inset 0 0 0 9999px rgba(111,168,220,0.44); }
 
       .hint { color: rgba(0,0,0,0.65); font-size: 12px; }
 
@@ -202,7 +203,7 @@ server <- function(input, output, session) {
   rv <- reactiveValues(
     seqs = NULL,
     human_col = NULL,
-    revealed = FALSE
+    generation = 0L
   )
   
   observeEvent(input$simulate, {
@@ -210,12 +211,12 @@ server <- function(input, output, session) {
     res <- make_sequences(n)
     rv$seqs <- res$seqs
     rv$human_col <- res$human_col
-    rv$revealed <- FALSE
+    rv$generation <- rv$generation + 1L
   })
   
   observeEvent(input$reveal, {
     if (is.null(rv$seqs)) return()
-    rv$revealed <- TRUE
+    session$sendCustomMessage("coin-reveal", list(human = rv$human_col, generation = rv$generation))
   })
   
   output$grid <- renderUI({
@@ -224,34 +225,19 @@ server <- function(input, output, session) {
     }
     
     n <- length(rv$seqs[[1]])
-    do_hl <- isTRUE(input$show_highlights)
+    generation <- rv$generation
     
     cols <- lapply(1:5, function(k) {
       flips <- rv$seqs[[k]]
       rlen <- run_lengths(flips)
       
-      if (!isTRUE(rv$revealed)) {
-        title <- "Coin Flip"
-        badge <- NULL
-        title_class <- "flip-col-title"
-      } else {
-        if (k == rv$human_col) {
-          title <- "Coin Flip"
-          badge <- span(class = "badge human", "Human (pretending)")
-          title_class <- "flip-col-title reveal-human"
-        } else {
-          title <- "Coin Flip"
-          badge <- span(class = "badge", "Real flips")
-          title_class <- "flip-col-title reveal-real"
-        }
-      }
-      
+      title_class <- "flip-col-title"
+      badge <- span(class = "badge", style = "display:none", `aria-live` = "polite")
+
       rows <- lapply(seq_len(n), function(i) {
         cls <- "flip-row"
-        if (do_hl) {
-          rc <- run_class(rlen[i])
-          if (nzchar(rc)) cls <- paste(cls, rc)
-        }
+        rc <- run_class(rlen[i])
+        if (nzchar(rc)) cls <- paste(cls, rc)
         div(class = cls, flips[i])
       })
       
@@ -259,17 +245,17 @@ server <- function(input, output, session) {
         width = 2,
         div(
           class = "panel",
-          div(class = title_class, title, badge),
+          div(class = title_class, "Coin Flip", badge),
           div(class = "flip-box", rows)
         )
       )
     })
     
-    fluidRow(
+    div(`data-generation` = generation, class = "coin-sequences", fluidRow(
       column(1),
       cols[[1]], cols[[2]], cols[[3]], cols[[4]], cols[[5]],
       column(1)
-    )
+    ))
   })
 }
 

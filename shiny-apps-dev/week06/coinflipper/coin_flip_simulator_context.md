@@ -39,7 +39,7 @@ Single-file `app.R` Shiny app.
 The app begins with:
 
 ``` r
-if (requireNamespace("renv", quietly = TRUE)) {
+if (dir.exists("/data/junior/boland_course") && requireNamespace("renv", quietly = TRUE)) {
   renv::load("/data/junior/boland_course")
 }
 ```
@@ -144,13 +144,16 @@ Before reveal, all columns are labeled simply "Coin Flip".
 
 ## Architectural Notes
 
--   No animation (static render for stability)
--   Pure base Shiny (no additional JS dependencies)
+-   Sequence markup is built only when Simulate generates new flips.
+-   Reveal sends a small message that updates the existing badges and title
+    colors; it does not rebuild the flip rows.
+-   Highlights toggle a CSS class on the existing grid without a server render.
+-   `www/coin.js` uses Shiny's existing browser dependencies; no new package is needed.
 -   CSS injected via `tags$style`
 -   Uses reactiveValues to store:
     -   sequences
     -   human column index
-    -   reveal state
+    -   generation number (prevents an old reveal from marking new sequences)
 
 ------------------------------------------------------------------------
 
@@ -178,3 +181,12 @@ It works particularly well before introducing formal probability theory.
 ------------------------------------------------------------------------
 
 End of context document.
+
+## Deployment and verification
+
+The development source is authoritative; the compatibility copy under
+`shiny-apps/week06/coinflipper` includes the same `app.R` and `www/coin.js`.
+Commit and push, then the instructor pulls on the Shiny server and refreshes
+the app session. No R package recompilation is needed. The sequence generator
+and teaching purpose remain unchanged: reveal preserves every displayed flip,
+one column receives the human badge, and new simulations hide all badges.
