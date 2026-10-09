@@ -43,8 +43,8 @@ parse_ost_results <- function(res_string){
   )
 }
 
-ci_summary <- df %>%
-  group_by(study_index) %>%
+ci_summary <- df |>
+  group_by(study_index) |>
   group_modify(~{
     dat <- .x
 
@@ -74,16 +74,16 @@ ci_summary <- df %>%
       margin_of_error = margin,
       lower_bound = M - margin,
       upper_bound = M + margin
-    ) %>%
+    ) |>
       bind_cols(parsed)
-  }) %>%
-  ungroup() %>%
+  }) |>
+  ungroup() |>
   arrange(study_index)
 
 ci_summary
 
-n_summary <- nf %>%
-  group_by(study_index) %>%
+n_summary <- nf |>
+  group_by(study_index) |>
   group_modify(~{
     dat <- .x
 
@@ -113,10 +113,10 @@ n_summary <- nf %>%
       margin_of_error = margin,
       lower_bound = M - margin,
       upper_bound = M + margin
-    ) %>%
+    ) |>
       bind_cols(parsed)
-  }) %>%
-  ungroup() %>%
+  }) |>
+  ungroup() |>
   arrange(study_index)
 
 
@@ -279,7 +279,7 @@ Humans hate randomness
 library(ggplot2)
 library(dplyr)
 
-plot_df <- ci_summary %>%
+plot_df <- ci_summary |>
   mutate(
     study_label = paste("Study", study_index),
     study_f = factor(study_label, levels = rev(study_label))
@@ -344,7 +344,7 @@ Statistics Review
 library(ggplot2)
 library(dplyr)
 
-plot_df <- ci_summary %>%
+plot_df <- ci_summary |>
   mutate(
     study_label = paste("Study", study_index),
     study_f = factor(study_label, levels = rev(study_label))
@@ -1034,10 +1034,10 @@ p = 0.027
 
 ```{r setup_t echo:FALSE, include:FALSE}
 
-df <- df %>%
+df <- df |>
   filter(study_index == 1)
 
-h1 <- df %>%
+h1 <- df |>
   ost(~change_score, mu= 0)
 
 ```
@@ -1056,7 +1056,7 @@ $\alpha$ = 0.05
 
 ::: fragment
 ```{r show_t, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
-df %>%
+df |>
   ost(~change_score, mu= 0)
 ```
 :::
@@ -1078,7 +1078,7 @@ df %>%
 library(ggplot2)
 library(dplyr)
 
-plot_df <- ci_summary %>%
+plot_df <- ci_summary |>
   mutate(
     study_f = factor(study_index, levels = rev(study_index)),
     p_label = paste0("p = ", sprintf("%.3f", p))
@@ -1191,8 +1191,8 @@ p is the relative frequency of our observed test statistic relative to all test 
 library(ggplot2)
 library(dplyr)
 
-plot_df <- n_summary %>%
-  arrange(N) %>%   # smallest to largest
+plot_df <- n_summary |>
+  arrange(N) |>   # smallest to largest
   mutate(
     study_f = factor(paste0("n = ", N), levels = paste0("n = ", N)),
     n_label = paste0("n = ", N),
@@ -1215,24 +1215,24 @@ ggplot(plot_df, aes(y = study_f)) +
   geom_point(aes(x = Mean),
              size = 5, color = "grey20") +
 
-  # n labels (further left)
+  # Sample-size and p-value labels occupy separate left-hand columns.
   geom_text(
-    aes(x = -35, label = n_label),
+    aes(x = -47, label = n_label),
     hjust = 0,
     size = 5,
     color = "grey30"
   ) +
 
-  # p labels (closer to n)
+  # p-values start well to the right of the complete sample-size labels.
   geom_text(
-    aes(x = -29, label = p_label),
-    hjust = 1,
+    aes(x = -31, label = p_label),
+    hjust = 0,
     size = 5,
     color = "red3",
     fontface = "italic"
   ) +
 
-  coord_cartesian(xlim = c(-40, 40), clip = "off") +
+  coord_cartesian(xlim = c(-50, 40), clip = "off") +
 
   scale_x_continuous(
     breaks = c(-20, -10, 0, 10, 20, 30, 40),
@@ -1246,7 +1246,7 @@ ggplot(plot_df, aes(y = study_f)) +
 
   theme_minimal(base_size = 16) +
   theme(
-    plot.margin = margin(10, 20, 10, 130),
+    plot.margin = margin(10, 20, 10, 20),
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(),
     panel.grid.major.x = element_blank(),
