@@ -1,6 +1,7 @@
 schema_version: 1
 status: active
 date_source: "syllabus/data/section_class_dates.csv"
+milestone_date_source: "syllabus/data/project_1_milestone_dates.csv"
 
 defaults:
   time_zone: "America/Chicago"
@@ -12,6 +13,15 @@ defaults:
 # A rule may use `section_overrides: {12: {due_date_set: alternate}}` when one
 # section needs its alternate CSV timestamp without changing the other sections.
 assignment_rules:
+  prep-work-analysis-plan:
+    code: "C5"
+    use_milestone_dates: true
+  prep-work-clean-data-set:
+    code: "C6"
+    use_milestone_dates: true
+  prep-work-pre-coaching-presentation-draft:
+    code: "C7"
+    use_milestone_dates: true
   analysis-project-individual-score:
     no_due: true
     reason: "Calculated after the group project is graded."

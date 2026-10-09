@@ -32,6 +32,7 @@ project:
     - week01/Homework_01.qmd
     - week02/Homework_02.qmd
     - week03/Homework_03.qmd
+    - week06/Homework_05.qmd
     # Canvas-native source HTML. These outputs are intentionally unlisted: the
     # website navigation exposes only the current public materials above.
     - week04/Homework_04.qmd

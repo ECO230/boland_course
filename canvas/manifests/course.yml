@@ -232,9 +232,10 @@ assignments:
     publish_action: "synchronize"
     source:
       path: "week06/Homework_05.qmd"
-      kind: "assignment"
+      kind: "canvas_quarto"
       published_url: "https://eco230.github.io/boland_course/week06/Homework_05.html"
       distribution_path: "week06/Homework_05_assignment.qmd"
+      refresh_existing: true
       match_method: "homework_number"
     rubric: "homework-5"
   - key: "analysis-project-slides"
@@ -1605,13 +1606,13 @@ modules:
       - key: "lecture"
         type: "ContextModuleSubHeader"
         title: "Lecture"
-        position: 4
+        position: 3
         management: "structure"
         publish_action: "synchronize_structure"
       - key: "guided-notes-4-hypothesis-testing"
         type: "Assignment"
         title: "Guided Notes 4 - Hypothesis Testing"
-        position: 5
+        position: 4
         management: "repository"
         publish_action: "synchronize"
         source:
@@ -1621,7 +1622,7 @@ modules:
       - key: "week-6-slides"
         type: "WikiPage"
         title: "Week 6 Slides"
-        position: 6
+        position: 5
         management: "repository"
         publish_action: "synchronize"
         source:
@@ -1632,7 +1633,7 @@ modules:
       - key: "week-6-slides-link"
         type: "ExternalUrl"
         title: "Week 6 Slides - Link"
-        position: 7
+        position: 6
         management: "repository"
         publish_action: "synchronize"
         source:
@@ -1654,31 +1655,31 @@ modules:
       - key: "lab"
         type: "ContextModuleSubHeader"
         title: "Lab"
-        position: 10
+        position: 7
         management: "structure"
         publish_action: "synchronize_structure"
       - key: "lab-6-hypothesis-testing"
         type: "Quizzes::Quiz"
         title: "Lab 6 Hypothesis Testing"
-        position: 11
+        position: 8
         management: "canvas_assessment"
         publish_action: "preserve"
       - key: "practice-activity-inferential-statistics"
         type: "Quizzes::Quiz"
         title: "Practice Activity - Inferential Statistics"
-        position: 12
+        position: 9
         management: "canvas_assessment"
         publish_action: "preserve"
       - key: "homework"
         type: "ContextModuleSubHeader"
         title: "Homework"
-        position: 13
+        position: 10
         management: "structure"
         publish_action: "synchronize_structure"
       - key: "homework-5-hypothesis-tests"
         type: "Assignment"
         title: "Homework 5: Hypothesis Tests"
-        position: 14
+        position: 11
         management: "repository"
         publish_action: "synchronize"
         source:
@@ -1690,7 +1691,7 @@ modules:
       - key: "prep-work-clean-data-set"
         type: "Assignment"
         title: "Prep Work: Clean Data Set"
-        position: 15
+        position: 12
         management: "repository"
         publish_action: "synchronize"
         source:

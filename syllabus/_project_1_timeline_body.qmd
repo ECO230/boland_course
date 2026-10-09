@@ -16,6 +16,12 @@ fmt_date <- function(d) sub(" 0", " ", format(d, "%B %d, %Y"))
 get_date <- function(code, meeting = FALSE) {
   row <- cd |> filter(.data$code == .env$code)
   if (meeting) return(fmt_date(row$class_date))
+  milestone_dates <- read_csv("data/project_1_milestone_dates.csv", show_col_types = FALSE) |>
+    filter(as.character(section) == selected_section, .data$code == .env$code)
+  if (nrow(milestone_dates) == 1) {
+    row$due_date <- mdy(milestone_dates$due_date)
+    row$due_reg_tm <- milestone_dates$due_time
+  }
   time <- strptime(row$due_reg_tm, "%H:%M")
   paste(fmt_date(row$due_date), "at", sub("^0", "", format(time, "%I:%M %p")))
 }

@@ -1,24 +1,3 @@
----
-title: "Homework 5: Hypothesis-Test Planning"
-subtitle: "In-Person Sections"
-format:
-  typst:
-    toc: false
-    papersize: us-letter
-    fontsize: 10pt
-    linestretch: 1
-    margin:
-      x: 1in
-      y: 1in
-    number-sections: false
-    page-numbering: "1"
-execute:
-  echo: true
-  warning: false
-  message: false
-editor: source
----
-
 ::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
 This assignment focuses on Step 3 of the five-step hypothesis-testing process:
 selecting a test and translating a statistical story into null and alternative

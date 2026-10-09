@@ -1,0 +1,65 @@
+{
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634
+    },
+    {
+      "section": 11,
+      "course_id": 869206
+    },
+    {
+      "section": 12,
+      "course_id": 870121
+    }
+  ],
+  "objects": [
+    {
+      "kind": "assignment",
+      "title": "Homework 5: Hypothesis Tests",
+      "source_path": "canvas/work/week6-public-preview/_site/week06/Homework_05.html",
+      "published_url": "https://eco230.github.io/boland_course/week06/Homework_05.html",
+      "input_paths": [
+        "week06/Homework_05.qmd",
+        "week06/_Homework_05_body.qmd",
+        "week06/Homework_05_assignment.qmd"
+      ],
+      "targets": {
+        "4": {
+          "id": 11004600,
+          "module_id": 4667282,
+          "assignment_group_id": 1951712
+        },
+        "11": {
+          "id": 11024232,
+          "module_id": 4677008,
+          "assignment_group_id": 1955477
+        },
+        "12": {
+          "id": 11029552,
+          "module_id": 4679326,
+          "assignment_group_id": 1956658
+        }
+      },
+      "validation": {
+        "required_text": [
+          "12765412",
+          "Homework_05_IP.qmd",
+          "Homework_05_IP.pdf",
+          "Render",
+          "Plan Hypothesis 1",
+          "Plan Hypothesis 2",
+          "Plan Hypothesis 3"
+        ],
+        "forbidden_text": [
+          "5508040",
+          "Homework_5.Rmd",
+          "Knit to"
+        ]
+      },
+      "id": 11004600,
+      "module_id": 4667282,
+      "assignment_group_id": 1951712
+    }
+  ]
+}

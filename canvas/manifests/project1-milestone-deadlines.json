@@ -1,0 +1,29 @@
+{
+  "date_source": "syllabus/data/project_1_milestone_dates.csv",
+  "objects": [
+    {
+      "section": 4,
+      "course_id": 870634,
+      "assignment_id": 11004585,
+      "name": "Prep Work: Analysis Plan",
+      "code": "C5",
+      "module_id": 4667281
+    },
+    {
+      "section": 4,
+      "course_id": 870634,
+      "assignment_id": 11004589,
+      "name": "Prep Work: Clean Data Set",
+      "code": "C6",
+      "module_id": 4667282
+    },
+    {
+      "section": 4,
+      "course_id": 870634,
+      "assignment_id": 11004593,
+      "name": "Prep Work: Pre-Coaching Presentation Draft",
+      "code": "C7",
+      "module_id": 4667283
+    }
+  ]
+}
