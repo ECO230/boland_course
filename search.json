@@ -2716,13 +2716,6 @@
     "text": "Choose your class section. Each timeline uses that section’s schedule; Canvas is the submission location.\n\nSection 4\nSection 11\nSection 12\n\nProject Prompt | Analysis Plan | Clean Dataset | Timeline by Section | Presentation Guide"
   },
   {
-    "objectID": "syllabus/project_1_timeline_section_4.html",
-    "href": "syllabus/project_1_timeline_section_4.html",
-    "title": "Project 1: Timeline - Section 4",
-    "section": "",
-    "text": "ECO 230 Section 4: Fall 2026\nRegular class meetings: MWF, 13:10:00-14:05:00, Wittich 112.\nAll times are Central Time. Due dates below use the same regular deadlines as Canvas. For coaching and presentations, the meeting date is shown separately from the Canvas deadline.\n\n\n\n\n\nStage\nWhat the team should have ready\nDue or meeting date\nSubmission\n\n\n\n\nLaunch (Week 5)\nChoose statistical stories and begin planning.\nOctober 5, 2026\nDiscuss in class; no separate submission.\n\n\nAnalysis Plan\nHypotheses, variables, planned analyses, cleaning decisions, and teammate responsibilities.\nOctober 12, 2026 at 3:00 PM\nSubmit in Prep Work: Analysis Plan in Canvas.\n\n\nClean Dataset\nA shared dataset prepared in R, with documented cleaning and derived variables.\nOctober 19, 2026 at 3:00 PM\nUpload team/prepare_data.pdf in Prep Work: Clean Data Set; keep the CSV in your group project.\n\n\nPre-Coaching Presentation\nA draft presentation with preliminary findings and questions for coaching.\nOctober 26, 2026 at 3:00 PM\nUpload in Prep Work: Pre-Coaching Presentation Draft in Canvas.\n\n\nCoaching Session\nThe draft presentation and specific questions about your analysis and story.\nClass: November 2, 2026 | Canvas checkpoint: November 2, 2026 at 3:00 PM\nAttend your coaching session; use the Canvas attendance checkpoint as directed.\n\n\nIn-Person Presentation and Presentation Materials\nA rehearsed business presentation and final slides. Have slides ready at least one hour before class.\nClass: November 16, 2026 | Canvas deadline: November 16, 2026 at 3:00 PM\nPresent in class; upload final slides in Analysis Project - Slides in Canvas.\n\n\nTechnical Documentation\nAnnotated R scripts, R Markdown, or Quarto sources that reproduce the presented analysis.\nNovember 23, 2026 at 3:00 PM\nUpload in Analysis Project - Code in Canvas.\n\n\n\n\n\nProject Prompt | Analysis Plan | Clean Dataset | Timeline by Section | Presentation Guide"
-  },
-  {
     "objectID": "syllabus/project_1_timeline_section_11.html",
     "href": "syllabus/project_1_timeline_section_11.html",
     "title": "Project 1: Timeline - Section 11",
@@ -2735,5 +2728,89 @@
     "title": "Project 1: Timeline - Section 12",
     "section": "",
     "text": "ECO 230 Section 12: Fall 2026\nRegular class meetings: Thursday, 17:30:00-20:15:00, Wittich 112.\nAll times are Central Time. Due dates below use the same regular deadlines as Canvas. For coaching and presentations, the meeting date is shown separately from the Canvas deadline.\n\n\n\n\n\nStage\nWhat the team should have ready\nDue or meeting date\nSubmission\n\n\n\n\nLaunch (Week 5)\nChoose statistical stories and begin planning.\nOctober 8, 2026\nDiscuss in class; no separate submission.\n\n\nAnalysis Plan\nHypotheses, variables, planned analyses, cleaning decisions, and teammate responsibilities.\nOctober 15, 2026 at 8:30 PM\nSubmit in Prep Work: Analysis Plan in Canvas.\n\n\nClean Dataset\nA shared dataset prepared in R, with documented cleaning and derived variables.\nOctober 22, 2026 at 8:30 PM\nUpload team/prepare_data.pdf in Prep Work: Clean Data Set; keep the CSV in your group project.\n\n\nPre-Coaching Presentation\nA draft presentation with preliminary findings and questions for coaching.\nOctober 29, 2026 at 8:30 PM\nUpload in Prep Work: Pre-Coaching Presentation Draft in Canvas.\n\n\nCoaching Session\nThe draft presentation and specific questions about your analysis and story.\nClass: November 5, 2026 | Canvas checkpoint: November 5, 2026 at 8:30 PM\nAttend your coaching session; use the Canvas attendance checkpoint as directed.\n\n\nIn-Person Presentation and Presentation Materials\nA rehearsed business presentation and final slides. Have slides ready at least one hour before class.\nClass: November 19, 2026 | Canvas deadline: November 19, 2026 at 8:30 PM\nPresent in class; upload final slides in Analysis Project - Slides in Canvas.\n\n\nTechnical Documentation\nAnnotated R scripts, R Markdown, or Quarto sources that reproduce the presented analysis.\nNovember 24, 2026 at 8:30 PM\nUpload in Analysis Project - Code in Canvas.\n\n\n\n\n\nProject Prompt | Analysis Plan | Clean Dataset | Timeline by Section | Presentation Guide"
+  },
+  {
+    "objectID": "syllabus/project_1_timeline_section_4.html",
+    "href": "syllabus/project_1_timeline_section_4.html",
+    "title": "Project 1: Timeline - Section 4",
+    "section": "",
+    "text": "ECO 230 Section 4: Fall 2026\nRegular class meetings: MWF, 13:10:00-14:05:00, Wittich 112.\nAll times are Central Time. Due dates below use the same regular deadlines as Canvas. For coaching and presentations, the meeting date is shown separately from the Canvas deadline.\n\n\n\n\n\nStage\nWhat the team should have ready\nDue or meeting date\nSubmission\n\n\n\n\nLaunch (Week 5)\nChoose statistical stories and begin planning.\nOctober 5, 2026\nDiscuss in class; no separate submission.\n\n\nAnalysis Plan\nHypotheses, variables, planned analyses, cleaning decisions, and teammate responsibilities.\nOctober 16, 2026 at 3:00 PM\nSubmit in Prep Work: Analysis Plan in Canvas.\n\n\nClean Dataset\nA shared dataset prepared in R, with documented cleaning and derived variables.\nOctober 23, 2026 at 3:00 PM\nUpload team/prepare_data.pdf in Prep Work: Clean Data Set; keep the CSV in your group project.\n\n\nPre-Coaching Presentation\nA draft presentation with preliminary findings and questions for coaching.\nOctober 30, 2026 at 3:00 PM\nUpload in Prep Work: Pre-Coaching Presentation Draft in Canvas.\n\n\nCoaching Session\nThe draft presentation and specific questions about your analysis and story.\nClass: November 2, 2026 | Canvas checkpoint: November 2, 2026 at 3:00 PM\nAttend your coaching session; use the Canvas attendance checkpoint as directed.\n\n\nIn-Person Presentation and Presentation Materials\nA rehearsed business presentation and final slides. Have slides ready at least one hour before class.\nClass: November 16, 2026 | Canvas deadline: November 16, 2026 at 3:00 PM\nPresent in class; upload final slides in Analysis Project - Slides in Canvas.\n\n\nTechnical Documentation\nAnnotated R scripts, R Markdown, or Quarto sources that reproduce the presented analysis.\nNovember 23, 2026 at 3:00 PM\nUpload in Analysis Project - Code in Canvas.\n\n\n\n\n\nProject Prompt | Analysis Plan | Clean Dataset | Timeline by Section | Presentation Guide"
+  },
+  {
+    "objectID": "week06/Homework_05.html",
+    "href": "week06/Homework_05.html",
+    "title": "Homework 5: Hypothesis-Test Planning",
+    "section": "",
+    "text": "NotePurpose\n\n\n\nThis assignment focuses on Step 3 of the five-step hypothesis-testing process: selecting a test and translating a statistical story into null and alternative hypotheses.\nYou will choose three project hypotheses, select an appropriate inferential test for each one, and write pseudocode that outlines how the test would run in R."
+  },
+  {
+    "objectID": "week06/Homework_05.html#objectives",
+    "href": "week06/Homework_05.html#objectives",
+    "title": "Homework 5: Hypothesis-Test Planning",
+    "section": "Objectives",
+    "text": "Objectives\nBy the end of this assignment, you will be able to:\n\ndistinguish among the inferential tests introduced in the course;\nmatch a test to the variables and study design;\nstate \\(H_0\\) and \\(H_A\\) in context; and\noutline data-loading, filtering, and testing steps as R pseudocode."
+  },
+  {
+    "objectID": "week06/Homework_05.html#resources",
+    "href": "week06/Homework_05.html#resources",
+    "title": "Homework 5: Hypothesis-Test Planning",
+    "section": "Resources",
+    "text": "Resources\n\nOpen Homework 5 in Posit Cloud\nWeek 6 slides and test-selection resources\nYour project analysis plan and three candidate hypotheses\nThe four .csv files in the data folder\neco230r function examples from lecture\n\n\n\n\n\n\n\nTipExpectations\n\n\n\nRunning code is not required. Your pseudocode must show a reasonable path from the dataset to the selected test. If you experiment with code that prevents the document from rendering, comment it out with #."
+  },
+  {
+    "objectID": "week06/Homework_05.html#start-in-posit-cloud",
+    "href": "week06/Homework_05.html#start-in-posit-cloud",
+    "title": "Homework 5: Hypothesis-Test Planning",
+    "section": "Start in Posit Cloud",
+    "text": "Start in Posit Cloud\nOpen the Homework 5 project linked above. Run source(\"project_setup.R\") once in the Console, then open Homework_05_IP.qmd. Select Render before editing to check the starting document. Complete the three plans below, render again, and submit Homework_05_IP.pdf in Canvas. The old .Rmd file and Knit instructions have been replaced by Quarto and Render."
+  },
+  {
+    "objectID": "week06/Homework_05.html#review-the-available-tests",
+    "href": "week06/Homework_05.html#review-the-available-tests",
+    "title": "Homework 5: Hypothesis-Test Planning",
+    "section": "1) Review the Available Tests",
+    "text": "1) Review the Available Tests\n\n\n\n\n\n\n\n\nFunction\nTest\nTypical structure\n\n\n\n\ncsf()\nChi-square goodness-of-fit test\nOne categorical variable\n\n\ncsi()\nChi-square test of independence\nTwo categorical variables\n\n\nost()\nOne-sample t-test\nOne numeric variable vs a reference value\n\n\nidt()\nIndependent-samples t-test\nNumeric outcome by two independent groups\n\n\nidw()\nWilcoxon rank-sum test\nNumeric/ordinal outcome by two independent groups\n\n\npst()\nPaired-samples t-test\nNumeric outcome measured in pairs\n\n\npsw()\nWilcoxon signed-rank test\nNumeric/ordinal outcome measured in pairs\n\n\nano()\nOne-way ANOVA\nNumeric outcome by three or more groups\n\n\nslr()\nSimple linear regression\nNumeric outcome and one numeric predictor\n\n\n\nSelect a test based on the variables, number of groups, independence or pairing, and the type of comparison in your statistical story."
+  },
+  {
+    "objectID": "week06/Homework_05.html#review-the-worked-example",
+    "href": "week06/Homework_05.html#review-the-worked-example",
+    "title": "Homework 5: Hypothesis-Test Planning",
+    "section": "2) Review the Worked Example",
+    "text": "2) Review the Worked Example\n\nStatistical story\nThe average number of bedrooms in Chicago Airbnb listings differs from two.\n\n\nEstimate or plot\nA descriptive summary of bedrooms would show whether the sample mean is above or below two. This estimate provides direction but not evidence about sampling uncertainty.\n\n\nTest and hypotheses\nThe outcome is one numeric variable compared with a reference value, so the appropriate test is a one-sample t-test using ost().\n\\(H_0\\): The population mean number of bedrooms is 2.\n\\(H_A\\): The population mean number of bedrooms is not 2.\n\\(\\alpha = 0.05\\)\n\ndf &lt;- read.csv(file.path(\"data\", \"airbnb_chicago.csv\"))\n\nh1 &lt;- df |&gt;\n  ost(~ bedrooms, mu = 2)\n\nprint(h1)\n\nThe exact argument for the reference value may depend on the current eco230r function interface. At this stage, the important work is identifying the test, hypotheses, and intended code sequence.\nSteps 4-5, the statistical and practical interpretations, are not required for this homework because you are planning rather than interpreting test results."
+  },
+  {
+    "objectID": "week06/Homework_05.html#plan-hypothesis-1",
+    "href": "week06/Homework_05.html#plan-hypothesis-1",
+    "title": "Homework 5: Hypothesis-Test Planning",
+    "section": "3) Plan Hypothesis 1",
+    "text": "3) Plan Hypothesis 1\n\nStatistical story: What relationship, difference, or pattern are you investigating, and why might it matter?\nYour response:\nEstimate or plot: What descriptive estimate or plot would support this story? If there were no uncertainty, what action would the business take?\nYour response:\nTest and hypotheses: Which test is appropriate? State \\(H_0\\), \\(H_A\\), and the alpha level.\nTest and function:\n\\(H_0\\):\n\\(H_A\\):\n\\(\\alpha = 0.05\\)\n\n\n# Load the selected dataset.\n\n# Filter or derive variables if needed.\n\n# Run the selected eco230r test."
+  },
+  {
+    "objectID": "week06/Homework_05.html#plan-hypothesis-2",
+    "href": "week06/Homework_05.html#plan-hypothesis-2",
+    "title": "Homework 5: Hypothesis-Test Planning",
+    "section": "4) Plan Hypothesis 2",
+    "text": "4) Plan Hypothesis 2\n\nStatistical story: What relationship, difference, or pattern are you investigating, and why might it matter?\nYour response:\nEstimate or plot: What descriptive estimate or plot would support this story? If there were no uncertainty, what action would the business take?\nYour response:\nTest and hypotheses: Which test is appropriate? State \\(H_0\\), \\(H_A\\), and the alpha level.\nTest and function:\n\\(H_0\\):\n\\(H_A\\):\n\\(\\alpha = 0.05\\)\n\n\n# Load the selected dataset.\n\n# Filter or derive variables if needed.\n\n# Run the selected eco230r test."
+  },
+  {
+    "objectID": "week06/Homework_05.html#plan-hypothesis-3",
+    "href": "week06/Homework_05.html#plan-hypothesis-3",
+    "title": "Homework 5: Hypothesis-Test Planning",
+    "section": "5) Plan Hypothesis 3",
+    "text": "5) Plan Hypothesis 3\n\nStatistical story: What relationship, difference, or pattern are you investigating, and why might it matter?\nYour response:\nEstimate or plot: What descriptive estimate or plot would support this story? If there were no uncertainty, what action would the business take?\nYour response:\nTest and hypotheses: Which test is appropriate? State \\(H_0\\), \\(H_A\\), and the alpha level.\nTest and function:\n\\(H_0\\):\n\\(H_A\\):\n\\(\\alpha = 0.05\\)\n\n\n# Load the selected dataset.\n\n# Filter or derive variables if needed.\n\n# Run the selected eco230r test."
+  },
+  {
+    "objectID": "week06/Homework_05.html#submission",
+    "href": "week06/Homework_05.html#submission",
+    "title": "Homework 5: Hypothesis-Test Planning",
+    "section": "Submission",
+    "text": "Submission\nRender this document and submit Homework_05_IP.pdf in Canvas. The PDF must contain three statistical stories, three test selections, contextual null and alternative hypotheses, and pseudocode for each test."
+  },
+  {
+    "objectID": "week06/Homework_05.html#checklist",
+    "href": "week06/Homework_05.html#checklist",
+    "title": "Homework 5: Hypothesis-Test Planning",
+    "section": "Checklist",
+    "text": "Checklist\n\nI selected three hypotheses connected to my project.\nEach test matches the variables, groups, and study design.\nEach \\(H_0\\) and \\(H_A\\) is stated in context.\nEach pseudocode block shows loading, preparation, and testing steps.\nAny incomplete experimental code is commented out.\nI reviewed and submitted Homework_05_IP.pdf.\n\nGrading focus: Your work will be evaluated for appropriate test selection, testable hypotheses, clear context, and pseudocode that reflects a feasible analysis plan."
   }
 ]

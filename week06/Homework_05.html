@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Homework 5: Hypothesis Tests – ECO 230</title>
+<title>Homework 5: Hypothesis-Test Planning – ECO 230</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -70,14 +67,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cddd4d705d0f1816126855d2197e4081.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,9 +103,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -146,6 +145,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">ECO 230</span>
     </a>
@@ -157,7 +158,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../index.qmd"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -179,90 +180,111 @@ window.Quarto = {
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" href="#" id="nav-menu-project-1" role="link" data-bs-toggle="dropdown" aria-expanded="false"><span class="menu-text">Project 1</span></a>
-<ul class="dropdown-menu" aria-labelledby="nav-menu-project-1">
-<li><a class="dropdown-item" href="https://eco230.github.io/boland_course/syllabus/project_1_prompt.html"><span class="dropdown-text">Project Prompt</span></a></li>
-<li><a class="dropdown-item" href="https://eco230.github.io/boland_course/syllabus/project_1_timeline.html"><span class="dropdown-text">Timeline by Section</span></a></li>
-<li><a class="dropdown-item" href="https://eco230.github.io/boland_course/syllabus/project_1_analysis_plan.html"><span class="dropdown-text">Analysis Plan</span></a></li>
-        <li><a class="dropdown-item" href="https://eco230.github.io/boland_course/syllabus/project_1_clean_dataset.html"><span class="dropdown-text">Clean Dataset</span></a></li>
-<li><a class="dropdown-item" href="https://eco230.github.io/boland_course/syllabus/project_1_presentation_in_person.html"><span class="dropdown-text">Presentation Guide</span></a></li>
-</ul></li>
-<li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-datasets" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Datasets</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-datasets">    
-        <li>
-    <a class="dropdown-item" href="../datasets/index.html">
- <span class="dropdown-text">Dataset Catalog</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/chicago-traffic.html">
- <span class="dropdown-text">Chicago Traffic Crashes</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/airline.html">
- <span class="dropdown-text">U.S. Airline Marketplace</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/nfl.html">
- <span class="dropdown-text">NFL Games and Plays</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/olist.html">
- <span class="dropdown-text">Olist Marketplace</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/health.html">
- <span class="dropdown-text">Synthetic Health Records</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/legacy-traffic.html">
- <span class="dropdown-text">Legacy U.S. Accidents Sample</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../datasets/legacy-hospital.html">
- <span class="dropdown-text">Legacy CMS Inpatient Charges</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Slides</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
         <li>
-    <a class="dropdown-item" href="../week01/week_01.html">
+    <a class="dropdown-item" href="../week01/week_01.qmd">
  <span class="dropdown-text">Week 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week02/week_02.html">
+    <a class="dropdown-item" href="../week02/week_02.qmd">
  <span class="dropdown-text">Week 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week03/week_03.html">
+    <a class="dropdown-item" href="../week03/week_03.qmd">
  <span class="dropdown-text">Week 3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week04/week_04.html">
+    <a class="dropdown-item" href="../week04/week_04.qmd">
  <span class="dropdown-text">Week 4</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week05/week_05.html">
+    <a class="dropdown-item" href="../week05/week_05.qmd">
  <span class="dropdown-text">Week 5</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-homework" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Homework</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-homework">    
         <li>
-    <a class="dropdown-item" href="../week06/week_06.html">
- <span class="dropdown-text">Week 6</span></a>
+    <a class="dropdown-item" href="../week01/Homework_01.qmd">
+ <span class="dropdown-text">Homework 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week07/week_07.html">
- <span class="dropdown-text">Week 7</span></a>
+    <a class="dropdown-item" href="../week02/Homework_02.qmd">
+ <span class="dropdown-text">Homework 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../week12/week_12.html">
- <span class="dropdown-text">Week 12</span></a>
+    <a class="dropdown-item" href="../week03/Homework_03.qmd">
+ <span class="dropdown-text">Homework 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../week04/Homework_04.qmd">
+ <span class="dropdown-text">Homework 4</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project-1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project 1</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-project-1">    
+        <li>
+    <a class="dropdown-item" href="../syllabus/project_1_prompt.qmd">
+ <span class="dropdown-text">Project Prompt</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../syllabus/project_1_timeline.qmd">
+ <span class="dropdown-text">Timeline by Section</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../syllabus/project_1_analysis_plan.qmd">
+ <span class="dropdown-text">Analysis Plan</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../syllabus/project_1_clean_dataset.qmd">
+ <span class="dropdown-text">Clean Dataset</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../syllabus/project_1_presentation_in_person.qmd">
+ <span class="dropdown-text">Presentation Guide</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-datasets" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Datasets</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-datasets">    
+        <li>
+    <a class="dropdown-item" href="../datasets/index.qmd">
+ <span class="dropdown-text">Dataset Catalog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../datasets/chicago-traffic.qmd">
+ <span class="dropdown-text">Chicago Traffic Crashes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../datasets/airline.qmd">
+ <span class="dropdown-text">U.S. Airline Marketplace</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../datasets/nfl.qmd">
+ <span class="dropdown-text">NFL Games and Plays</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../datasets/olist.qmd">
+ <span class="dropdown-text">Olist Marketplace</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../datasets/health.qmd">
+ <span class="dropdown-text">Synthetic Health Records</span></a>
   </li>  
     </ul>
   </li>
@@ -281,13 +303,17 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#homework-5-hypothesis-tests" id="toc-homework-5-hypothesis-tests" class="nav-link active" data-scroll-target="#homework-5-hypothesis-tests"><span class="header-section-number">1</span> HOMEWORK 5: HYPOTHESIS TESTS</a>
   <ul class="collapse">
-  <li><a href="#hypothesis-1" id="toc-hypothesis-1" class="nav-link" data-scroll-target="#hypothesis-1"><span class="header-section-number">1.1</span> Hypothesis 1</a></li>
-  <li><a href="#hypothesis-2" id="toc-hypothesis-2" class="nav-link" data-scroll-target="#hypothesis-2"><span class="header-section-number">1.2</span> Hypothesis 2</a></li>
-  <li><a href="#hypothesis-3" id="toc-hypothesis-3" class="nav-link" data-scroll-target="#hypothesis-3"><span class="header-section-number">1.3</span> Hypothesis 3</a></li>
-  </ul></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">Objectives</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#start-in-posit-cloud" id="toc-start-in-posit-cloud" class="nav-link" data-scroll-target="#start-in-posit-cloud">Start in Posit Cloud</a></li>
+  <li><a href="#review-the-available-tests" id="toc-review-the-available-tests" class="nav-link" data-scroll-target="#review-the-available-tests">1) Review the Available Tests</a></li>
+  <li><a href="#review-the-worked-example" id="toc-review-the-worked-example" class="nav-link" data-scroll-target="#review-the-worked-example">2) Review the Worked Example</a></li>
+  <li><a href="#plan-hypothesis-1" id="toc-plan-hypothesis-1" class="nav-link" data-scroll-target="#plan-hypothesis-1">3) Plan Hypothesis 1</a></li>
+  <li><a href="#plan-hypothesis-2" id="toc-plan-hypothesis-2" class="nav-link" data-scroll-target="#plan-hypothesis-2">4) Plan Hypothesis 2</a></li>
+  <li><a href="#plan-hypothesis-3" id="toc-plan-hypothesis-3" class="nav-link" data-scroll-target="#plan-hypothesis-3">5) Plan Hypothesis 3</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#checklist" id="toc-checklist" class="nav-link" data-scroll-target="#checklist">Checklist</a></li>
   </ul>
 </nav>
     </div>
@@ -296,7 +322,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Homework 5: Hypothesis Tests</h1>
+<h1 class="title">Homework 5: Hypothesis-Test Planning</h1>
 </div>
 
 
@@ -313,124 +339,234 @@ window.Quarto = {
 </header>
 
 
-<section id="homework-5-hypothesis-tests" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="homework-5-hypothesis-tests"><span class="header-section-number">1</span> HOMEWORK 5: HYPOTHESIS TESTS</h2>
-<div class="callout callout-style-default callout-note callout-titled" title="Objectives">
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Purpose">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Objectives
+<span class="screen-reader-only">Note</span>Purpose
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>This assignment focuses on Step 3 of the five-step hypothesis-testing process: selecting a test and translating a statistical story into null and alternative hypotheses.</p>
+<p>You will choose three project hypotheses, select an appropriate inferential test for each one, and write pseudocode that outlines how the test would run in R.</p>
+</div>
+</div>
+<section id="objectives" class="level2">
+<h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
+<p>By the end of this assignment, you will be able to:</p>
 <ul>
-<li>Complete step 3 of the hypothesis testing process: Which test is appropriate and what is the null hypothesis?</li>
-<li>Choose an appropriate inferential test for each hypothesis.</li>
-<li>Translate your hypothesis to null (<span class="math inline">\(H_0\)</span>) and alternate (<span class="math inline">\(H_A\)</span>) form.</li>
-<li>Draft pseudocode that outlines how you would run each test in R.</li>
+<li>distinguish among the inferential tests introduced in the course;</li>
+<li>match a test to the variables and study design;</li>
+<li>state <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span> in context; and</li>
+<li>outline data-loading, filtering, and testing steps as R pseudocode.</li>
 </ul>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled" title="Submission Instructions">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Submission Instructions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Open the Posit Cloud project space: https://posit.cloud/spaces/3173/content/5508040<br>
-</li>
-<li>Open the file named <strong>Homework_5.Rmd</strong>.<br>
-</li>
-<li>Complete Hypotheses 1–3 (fill in hypothesis, test type, <span class="math inline">\(H_0\)</span>, <span class="math inline">\(H_A\)</span>, and pseudocode).<br>
-</li>
-<li>Knit to .pdf and submit the knitted file.</li>
-</ol>
-<p><strong>Important</strong> - Running code is NOT required for this homework. - If you try code and it prevents knitting, comment it out using #.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled" title="What You Will Likely Need To Do In R">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>What You Will Likely Need To Do In R
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Most hypotheses will require:</p>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <ul>
-<li>Load data</li>
-<li>Filter to relevant subset (example: IL, MI, WI)</li>
-<li>Run the appropriate test</li>
+<li><a href="https://posit.cloud/spaces/3173/content/12765412">Open Homework 5 in Posit Cloud</a></li>
+<li><a href="https://eco230.github.io/boland_course/week06/week_06.html">Week 6 slides</a> and test-selection resources</li>
+<li>Your project analysis plan and three candidate hypotheses</li>
+<li>The four <code>.csv</code> files in the <code>data</code> folder</li>
+<li><code>eco230r</code> function examples from lecture</li>
 </ul>
-<p>Example pseudocode (ANOVA across IL/MI/WI):</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Expectations">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Expectations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Running code is not required. Your pseudocode must show a reasonable path from the dataset to the selected test. If you experiment with code that prevents the document from rendering, comment it out with <code>#</code>.</p>
+</div>
+</div>
+</section>
+<section id="start-in-posit-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="start-in-posit-cloud">Start in Posit Cloud</h2>
+<p>Open the Homework 5 project linked above. Run <code>source("project_setup.R")</code> once in the Console, then open <strong><code>Homework_05_IP.qmd</code></strong>. Select <strong>Render</strong> before editing to check the starting document. Complete the three plans below, render again, and submit <strong><code>Homework_05_IP.pdf</code></strong> in Canvas. The old <code>.Rmd</code> file and <strong>Knit</strong> instructions have been replaced by Quarto and <strong>Render</strong>.</p>
+</section>
+<section id="review-the-available-tests" class="level2">
+<h2 class="anchored" data-anchor-id="review-the-available-tests">1) Review the Available Tests</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Test</th>
+<th>Typical structure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>csf()</code></td>
+<td>Chi-square goodness-of-fit test</td>
+<td>One categorical variable</td>
+</tr>
+<tr class="even">
+<td><code>csi()</code></td>
+<td>Chi-square test of independence</td>
+<td>Two categorical variables</td>
+</tr>
+<tr class="odd">
+<td><code>ost()</code></td>
+<td>One-sample t-test</td>
+<td>One numeric variable vs a reference value</td>
+</tr>
+<tr class="even">
+<td><code>idt()</code></td>
+<td>Independent-samples t-test</td>
+<td>Numeric outcome by two independent groups</td>
+</tr>
+<tr class="odd">
+<td><code>idw()</code></td>
+<td>Wilcoxon rank-sum test</td>
+<td>Numeric/ordinal outcome by two independent groups</td>
+</tr>
+<tr class="even">
+<td><code>pst()</code></td>
+<td>Paired-samples t-test</td>
+<td>Numeric outcome measured in pairs</td>
+</tr>
+<tr class="odd">
+<td><code>psw()</code></td>
+<td>Wilcoxon signed-rank test</td>
+<td>Numeric/ordinal outcome measured in pairs</td>
+</tr>
+<tr class="even">
+<td><code>ano()</code></td>
+<td>One-way ANOVA</td>
+<td>Numeric outcome by three or more groups</td>
+</tr>
+<tr class="odd">
+<td><code>slr()</code></td>
+<td>Simple linear regression</td>
+<td>Numeric outcome and one numeric predictor</td>
+</tr>
+</tbody>
+</table>
+<p>Select a test based on the variables, number of groups, independence or pairing, and the type of comparison in your statistical story.</p>
+<hr>
+</section>
+<section id="review-the-worked-example" class="level2">
+<h2 class="anchored" data-anchor-id="review-the-worked-example">2) Review the Worked Example</h2>
+<section id="statistical-story" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-story">Statistical story</h3>
+<p>The average number of bedrooms in Chicago Airbnb listings differs from two.</p>
+</section>
+<section id="estimate-or-plot" class="level3">
+<h3 class="anchored" data-anchor-id="estimate-or-plot">Estimate or plot</h3>
+<p>A descriptive summary of <code>bedrooms</code> would show whether the sample mean is above or below two. This estimate provides direction but not evidence about sampling uncertainty.</p>
+</section>
+<section id="test-and-hypotheses" class="level3">
+<h3 class="anchored" data-anchor-id="test-and-hypotheses">Test and hypotheses</h3>
+<p>The outcome is one numeric variable compared with a reference value, so the appropriate test is a one-sample t-test using <code>ost()</code>.</p>
+<p><span class="math inline">\(H_0\)</span>: The population mean number of bedrooms is 2.</p>
+<p><span class="math inline">\(H_A\)</span>: The population mean number of bedrooms is not 2.</p>
+<p><span class="math inline">\(\alpha = 0.05\)</span></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">file.path</span>(<span class="st">"data"</span>, <span class="st">"airbnb_chicago.csv"</span>))</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to states</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run ANOVA</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>h1 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ost</span>(<span class="sc">~</span> bedrooms, <span class="at">mu =</span> <span class="dv">2</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(h1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-</div>
+<p>The exact argument for the reference value may depend on the current <code>eco230r</code> function interface. At this stage, the important work is identifying the test, hypotheses, and intended code sequence.</p>
+<p>Steps 4-5, the statistical and practical interpretations, are not required for this homework because you are planning rather than interpreting test results.</p>
 <hr>
-<section id="hypothesis-1" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="hypothesis-1"><span class="header-section-number">1.1</span> Hypothesis 1</h3>
-<p><strong>What statistical story am I attempting to tell?</strong></p>
-<p>Hypothesis:</p>
-<p><strong>Which test is appropriate and what is the null hypothesis?</strong></p>
-<p>Test Type:</p>
+</section>
+</section>
+<section id="plan-hypothesis-1" class="level2">
+<h2 class="anchored" data-anchor-id="plan-hypothesis-1">3) Plan Hypothesis 1</h2>
+<ol type="1">
+<li><p><strong>Statistical story:</strong> What relationship, difference, or pattern are you investigating, and why might it matter?</p>
+<p><em>Your response:</em></p></li>
+<li><p><strong>Estimate or plot:</strong> What descriptive estimate or plot would support this story? If there were no uncertainty, what action would the business take?</p>
+<p><em>Your response:</em></p></li>
+<li><p><strong>Test and hypotheses:</strong> Which test is appropriate? State <span class="math inline">\(H_0\)</span>, <span class="math inline">\(H_A\)</span>, and the alpha level.</p>
+<p><strong>Test and function:</strong></p>
 <p><span class="math inline">\(H_0\)</span>:</p>
 <p><span class="math inline">\(H_A\)</span>:</p>
-<p><strong>Pseudocode</strong></p>
+<p><span class="math inline">\(\alpha = 0.05\)</span></p></li>
+</ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter (if needed)</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Run test</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the selected dataset.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter or derive variables if needed.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the selected eco230r test.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <hr>
 </section>
-<section id="hypothesis-2" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="hypothesis-2"><span class="header-section-number">1.2</span> Hypothesis 2</h3>
-<p><strong>What statistical story am I attempting to tell?</strong></p>
-<p>Hypothesis:</p>
-<p><strong>Which test is appropriate and what is the null hypothesis?</strong></p>
-<p>Test Type:</p>
+<section id="plan-hypothesis-2" class="level2">
+<h2 class="anchored" data-anchor-id="plan-hypothesis-2">4) Plan Hypothesis 2</h2>
+<ol type="1">
+<li><p><strong>Statistical story:</strong> What relationship, difference, or pattern are you investigating, and why might it matter?</p>
+<p><em>Your response:</em></p></li>
+<li><p><strong>Estimate or plot:</strong> What descriptive estimate or plot would support this story? If there were no uncertainty, what action would the business take?</p>
+<p><em>Your response:</em></p></li>
+<li><p><strong>Test and hypotheses:</strong> Which test is appropriate? State <span class="math inline">\(H_0\)</span>, <span class="math inline">\(H_A\)</span>, and the alpha level.</p>
+<p><strong>Test and function:</strong></p>
 <p><span class="math inline">\(H_0\)</span>:</p>
 <p><span class="math inline">\(H_A\)</span>:</p>
-<p><strong>Pseudocode</strong></p>
+<p><span class="math inline">\(\alpha = 0.05\)</span></p></li>
+</ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter (if needed)</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Run test</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the selected dataset.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter or derive variables if needed.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the selected eco230r test.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <hr>
 </section>
-<section id="hypothesis-3" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="hypothesis-3"><span class="header-section-number">1.3</span> Hypothesis 3</h3>
-<p><strong>What statistical story am I attempting to tell?</strong></p>
-<p>Hypothesis:</p>
-<p><strong>Which test is appropriate and what is the null hypothesis?</strong></p>
-<p>Test Type:</p>
+<section id="plan-hypothesis-3" class="level2">
+<h2 class="anchored" data-anchor-id="plan-hypothesis-3">5) Plan Hypothesis 3</h2>
+<ol type="1">
+<li><p><strong>Statistical story:</strong> What relationship, difference, or pattern are you investigating, and why might it matter?</p>
+<p><em>Your response:</em></p></li>
+<li><p><strong>Estimate or plot:</strong> What descriptive estimate or plot would support this story? If there were no uncertainty, what action would the business take?</p>
+<p><em>Your response:</em></p></li>
+<li><p><strong>Test and hypotheses:</strong> Which test is appropriate? State <span class="math inline">\(H_0\)</span>, <span class="math inline">\(H_A\)</span>, and the alpha level.</p>
+<p><strong>Test and function:</strong></p>
 <p><span class="math inline">\(H_0\)</span>:</p>
 <p><span class="math inline">\(H_A\)</span>:</p>
-<p><strong>Pseudocode</strong></p>
+<p><span class="math inline">\(\alpha = 0.05\)</span></p></li>
+</ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter (if needed)</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Run test</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the selected dataset.</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter or derive variables if needed.</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the selected eco230r test.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section id="submission" class="level2">
+<h2 class="anchored" data-anchor-id="submission">Submission</h2>
+<p>Render this document and submit <code>Homework_05_IP.pdf</code> in Canvas. The PDF must contain three statistical stories, three test selections, contextual null and alternative hypotheses, and pseudocode for each test.</p>
+</section>
+<section id="checklist" class="level2">
+<h2 class="anchored" data-anchor-id="checklist">Checklist</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">I selected three hypotheses connected to my project.</label></li>
+<li><label><input type="checkbox">Each test matches the variables, groups, and study design.</label></li>
+<li><label><input type="checkbox">Each <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span> is stated in context.</label></li>
+<li><label><input type="checkbox">Each pseudocode block shows loading, preparation, and testing steps.</label></li>
+<li><label><input type="checkbox">Any incomplete experimental code is commented out.</label></li>
+<li><label><input type="checkbox">I reviewed and submitted <code>Homework_05_IP.pdf</code>.</label></li>
+</ul>
+<p><strong>Grading focus:</strong> Your work will be evaluated for appropriate test selection, testable hypotheses, clear context, and pseudocode that reflects a feasible analysis plan.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -507,7 +643,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -839,4 +975,5 @@ window.Quarto = {
 
 
 
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
