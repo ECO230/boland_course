@@ -1,5 +1,8 @@
 # Homework 8: ANOVA and Simple Linear Regression
 
+[Open Homework 8 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765421).
+
+
 This is the in-person version of Homework 8.
 
 When you first open the project in Posit Cloud, run this command once in the R

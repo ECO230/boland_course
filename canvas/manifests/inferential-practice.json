@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "key": "practice-activity-inferential-statistics",
+  "title": "Practice Activity - Inferential Statistics",
+  "purpose": "Cumulative quiz preparation after Homework 8",
+  "private_manifest": "../eco230-assessments/manifests/inferential-practice.json",
+  "publisher": "../eco230-canvas-ops/canvas/scripts/refresh-inferential-practice.ps1",
+  "question_count": 14,
+  "placement": "Week 9, immediately after Homework 8",
+  "publication": "preserve",
+  "deadlines_and_grading": "preserve"
+}

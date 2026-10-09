@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "homeworks": [
+    {
+      "number": 6,
+      "week": 7,
+      "url": "https://posit.cloud/spaces/3173/content/12761519",
+      "filename": "Homework_06_IP.qmd",
+      "pdf": "Homework_06_IP.pdf",
+      "public_source": "week07/Homework_06.qmd",
+      "student_source": "week07/Homework_06_assignment.qmd",
+      "readme_source": "week07/Homework_06_README.md",
+      "targets": {
+        "4": {
+          "course_id": 870634,
+          "assignment_id": 11004603,
+          "module_id": 4667283,
+          "name": "Homework 6: Chi Squared Analysis",
+          "assignment_group_id": 1951712
+        },
+        "11": {
+          "course_id": 869206,
+          "assignment_id": 11024235,
+          "module_id": 4677009,
+          "name": "Homework 6: Chi Squared Analysis",
+          "assignment_group_id": 1955477
+        },
+        "12": {
+          "course_id": 870121,
+          "assignment_id": 11029556,
+          "module_id": 4679327,
+          "name": "Homework 6: Chi Squared Analysis",
+          "assignment_group_id": 1956658
+        }
+      }
+    },
+    {
+      "number": 7,
+      "week": 8,
+      "url": "https://posit.cloud/spaces/3173/content/12765413",
+      "filename": "Homework_07_IP.qmd",
+      "pdf": "Homework_07_IP.pdf",
+      "public_source": "week08/Homework_07.qmd",
+      "student_source": "week08/Homework_07_assignment.qmd",
+      "readme_source": "week08/Homework_07_README.md",
+      "targets": {
+        "4": {
+          "course_id": 870634,
+          "assignment_id": 11004604,
+          "module_id": 4667284,
+          "name": "Homework 7: t-Tests and Wilcoxon Tests",
+          "assignment_group_id": 1951712
+        },
+        "11": {
+          "course_id": 869206,
+          "assignment_id": 11024236,
+          "module_id": 4677010,
+          "name": "Homework 7: t-Tests and Wilcoxon Tests",
+          "assignment_group_id": 1955477
+        },
+        "12": {
+          "course_id": 870121,
+          "assignment_id": 11029557,
+          "module_id": 4679328,
+          "name": "Homework 7: t-Tests and Wilcoxon Tests",
+          "assignment_group_id": 1956658
+        }
+      }
+    },
+    {
+      "number": 8,
+      "week": 9,
+      "url": "https://posit.cloud/spaces/3173/content/12765421",
+      "filename": "Homework_08_IP.qmd",
+      "pdf": "Homework_08_IP.pdf",
+      "public_source": "week09/Homework_08.qmd",
+      "student_source": "week09/Homework_08_assignment.qmd",
+      "readme_source": "week09/Homework_08_README.md",
+      "targets": {
+        "4": {
+          "course_id": 870634,
+          "assignment_id": 11004608,
+          "module_id": 4667285,
+          "name": "Homework 8: ANOVA and Simple Linear Regression",
+          "assignment_group_id": 1951712
+        },
+        "11": {
+          "course_id": 869206,
+          "assignment_id": 11024242,
+          "module_id": 4677011,
+          "name": "Homework 8: ANOVA and Simple Linear Regression",
+          "assignment_group_id": 1955477
+        },
+        "12": {
+          "course_id": 870121,
+          "assignment_id": 11029561,
+          "module_id": 4679329,
+          "name": "Homework 8: ANOVA and Simple Linear Regression",
+          "assignment_group_id": 1956658
+        }
+      }
+    }
+  ]
+}

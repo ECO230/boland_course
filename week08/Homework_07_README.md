@@ -1,5 +1,8 @@
 # Homework 7: t-Tests and Wilcoxon Tests
 
+[Open Homework 7 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765413).
+
+
 This is the in-person version of Homework 7.
 
 When you first open the project in Posit Cloud, run this command once in the R

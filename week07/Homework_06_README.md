@@ -1,5 +1,8 @@
 # Homework 6: Chi-Square Analysis
 
+[Open Homework 6 in Posit Cloud](https://posit.cloud/spaces/3173/content/12761519).
+
+
 This is the in-person version of Homework 6.
 
 Open `Homework_06_IP.qmd` in Posit Cloud and complete the response fields in

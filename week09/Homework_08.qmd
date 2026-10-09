@@ -12,6 +12,13 @@ execute:
   message: false
 ---
 
+::: {.callout-note appearance="minimal" icon="false" title="Posit Cloud Project"}
+[Open Homework 8 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765421). Run `source("project_setup.R")`
+once in the Console, then open `Homework_08_IP.qmd`. Select **Render** to create
+`Homework_08_IP.pdf` and submit the PDF in Canvas. The current project uses Quarto
+`.qmd` documents and **Render** instead of the older R Markdown/Knit workflow.
+:::
+
 ```{r setup, include: false, show:false}
 library(tidyverse)
 library(eco230r)

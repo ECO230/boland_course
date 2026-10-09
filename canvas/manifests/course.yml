@@ -1664,12 +1664,6 @@ modules:
         position: 8
         management: "canvas_assessment"
         publish_action: "preserve"
-      - key: "practice-activity-inferential-statistics"
-        type: "Quizzes::Quiz"
-        title: "Practice Activity - Inferential Statistics"
-        position: 9
-        management: "canvas_assessment"
-        publish_action: "preserve"
       - key: "homework"
         type: "ContextModuleSubHeader"
         title: "Homework"
@@ -1961,6 +1955,12 @@ modules:
           published_url: "https://eco230.github.io/boland_course/week09/Homework_08.html"
           distribution_path: "week09/Homework_08_assignment.qmd"
           match_method: "homework_number"
+      - key: "practice-activity-inferential-statistics"
+        type: "Quizzes::Quiz"
+        title: "Practice Activity - Inferential Statistics"
+        position: 18
+        management: "canvas_assessment"
+        publish_action: "preserve"
   - key: "week-10-documenting-analysis-work-time"
     title: "Week 10: Documenting Analysis / Work Time"
     position: 11
