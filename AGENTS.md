@@ -13,7 +13,9 @@ This repository is a Quarto website for ECO 230 course materials. It contains:
 - Shiny teaching apps under `shiny-apps/` and development app work under `shiny-apps-dev/`.
 - Admin/final practicum materials under `admin/final/`.
 
-The site config is `_quarto.yml`. Rendered output goes to `_site/`.
+The site config is `_quarto.yml`. Website renders normally go to `_site/`;
+confirm the output path for standalone renders. Website publication is a
+separate `gh-pages` deployment; read `.codex/guides/WEBSITE_PUBLISH_WORKFLOW.md`.
 
 ## Important Structure
 
@@ -101,6 +103,11 @@ rg --files
   `.codex/skills/canvas-course-operations/SKILL.md` and use the existing
   wrapper scripts instead of reconstructing the workflow from individual CLI
   commands.
+- Before publishing website content or updating navigation, read
+  `.codex/guides/WEBSITE_PUBLISH_WORKFLOW.md`. For navigation-only requests, use
+  `scripts/publish-site-navigation.ps1` (plan, execute, verify). Do not rely on
+  ignored scripts or release checkout paths from a previous chat. Pushing `dev`
+  does not publish the website.
 - Do not reorganize navigation unless asked.
 - For Reveal.js decks, follow the Week 12 format:
   - `format: revealjs`
@@ -166,6 +173,9 @@ Before handing off changes:
 - If changing syllabus data or parameters, render at least one section with `-P class_section:<section> --cache-refresh`.
 - Check rendered HTML for duplicated section rows and mojibake characters.
 - For slides, open or inspect the rendered deck enough to confirm image paths and slide flow.
+- For website publication, verify the expected `gh-pages` commit has a completed
+  GitHub Pages build and check the live menus, destination pages, and assets.
+  Preserve unrelated deployment changes and Windows case-colliding page bodies.
 - For Canvas provisioning, verify assignment-group membership, module and
   module-item publication separately, and the course workflow state. Unless
   explicitly requested otherwise, the course itself must remain unpublished.
