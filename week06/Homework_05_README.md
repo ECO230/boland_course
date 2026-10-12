@@ -26,3 +26,12 @@ been replaced by these semester samples.
 If packages are needed to render, run `source("project_setup.R")` once in the
 Console. Environment setup is separate from running the planned analyses.
 Use Quarto's **Render**, rather than the older R Markdown **Knit** workflow.
+
+## Plan Ahead (Not Graded)
+
+When appropriate, connect H1 to Homework 6 (`csi()` or `csf()`), H2 to
+Homework 7 (`idt()`, `idw()`, `ost()`, `pst()`, or `psw()`), and H3 to
+Homework 8 (`ano()` or `slr()`). This helps you carry your questions forward.
+It is a planning suggestion, not a graded requirement; you will not lose
+credit for using a different sequence. Let your variables and study design
+determine the test.

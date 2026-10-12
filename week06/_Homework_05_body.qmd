@@ -140,7 +140,25 @@ interpretations of results come later.
 
 ---
 
+::: {.callout-note appearance="minimal" icon="false" title="Plan Ahead for Homeworks 6-8 (Not a Graded Requirement)"}
+When possible, choose your three hypotheses so you can develop them further in
+the next homework assignments:
+
+| Hypothesis | Upcoming homework | Suggested test family |
+|---|---|---|
+| H1 | Homework 6: Chi-square | `csi()` or `csf()` |
+| H2 | Homework 7: t-tests and Wilcoxon tests | `idt()`, `idw()`, `ost()`, `pst()`, or `psw()` |
+| H3 | Homework 8: ANOVA and regression | `ano()` or `slr()` |
+
+This is a planning suggestion, not a graded requirement. You will not lose
+credit if your hypotheses do not follow this sequence. Choose a question and
+test that fit your variables and study design; do not force an unsuitable test
+just to match a homework number.
+:::
+
 ## 3) Plan Hypothesis 1
+
+*Planning suggestion, not graded: connect H1 to Homework 6 using `csi()` or `csf()`, when appropriate.*
 
 1. **Statistical story:** What relationship, difference, or pattern are you
    investigating, and why might it matter?
@@ -181,6 +199,8 @@ interpretations of results come later.
 
 ## 4) Plan Hypothesis 2
 
+*Planning suggestion, not graded: connect H2 to Homework 7 using `idt()`, `idw()`, `ost()`, `pst()`, or `psw()`, when appropriate.*
+
 1. **Statistical story:** What relationship, difference, or pattern are you
    investigating, and why might it matter?
 
@@ -219,6 +239,8 @@ interpretations of results come later.
 ---
 
 ## 5) Plan Hypothesis 3
+
+*Planning suggestion, not graded: connect H3 to Homework 8 using `ano()` or `slr()`, when appropriate.*
 
 1. **Statistical story:** What relationship, difference, or pattern are you
    investigating, and why might it matter?
