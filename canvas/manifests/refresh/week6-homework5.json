@@ -49,12 +49,24 @@
           "Render",
           "Plan Hypothesis 1",
           "Plan Hypothesis 2",
-          "Plan Hypothesis 3"
+          "Plan Hypothesis 3",
+          "traffic_chicago_2024.csv",
+          "airline_midwest_2024.csv",
+          "olist_southeast_2017.csv",
+          "nfl_plays_2024.csv",
+          "health_wisconsin_appointments_2023_2025.csv",
+          "The intent is not to run code yet",
+          "PSEUDOCODE",
+          "OPTIONAL R DRAFT"
         ],
         "forbidden_text": [
           "5508040",
           "Homework_5.Rmd",
-          "Knit to"
+          "Knit to",
+          "airbnb_chicago.csv",
+          "accident_wi.csv",
+          "hospital_charges_wi.csv",
+          "nfl_special_MasonCrosby.csv"
         ]
       },
       "id": 11004600,

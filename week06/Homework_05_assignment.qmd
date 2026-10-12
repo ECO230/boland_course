@@ -25,7 +25,8 @@ selecting a test and translating a statistical story into null and alternative
 hypotheses.
 
 You will choose three project hypotheses, select an appropriate inferential test
-for each one, and write pseudocode that outlines how the test would run in R.
+for each one, and develop pseudocode describing your intended analysis. You are
+planning the analysis, not running tests or producing results yet.
 :::
 
 ## Objectives
@@ -42,22 +43,43 @@ By the end of this assignment, you will be able to:
 - [Open Homework 5 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765412)
 - [Week 6 slides](https://eco230.github.io/boland_course/week06/week_06.html) and test-selection resources
 - Your project analysis plan and three candidate hypotheses
-- The four `.csv` files in the `data` folder
+- This semester's five dataset samples in the `data/` folder:
+
+| Project topic | Provided file |
+|---|---|
+| Chicago traffic crashes | `traffic_chicago_2024.csv` |
+| Midwest airline performance | `airline_midwest_2024.csv` |
+| Olist marketplace | `olist_southeast_2017.csv` |
+| NFL plays | `nfl_plays_2024.csv` |
+| Wisconsin health appointments | `health_wisconsin_appointments_2023_2025.csv` |
+
+Use the sample for your project topic, or your team's cleaned dataset when
+appropriate. These are the same semester samples used in the earlier homework.
+
 - `eco230r` function examples from lecture
 
 ::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
-Running code is not required. Your pseudocode must show a reasonable path from
-the dataset to the selected test. If you experiment with code that prevents the
-document from rendering, comment it out with `#`.
+**The intent is not to run code yet.** Write your steps in plain language as
+pseudocode, using `#` comments in the provided chunks. Describe which file,
+variables, groups, preparation steps, and test you would use.
+
+If you are comfortable, add an actual R draft underneath your pseudocode, but
+keep every line commented out with `#`. Correct executable code, test output,
+and p-values are not required for credit. All analysis chunks have
+`eval: false`, so rendering creates the planning report without running tests.
 :::
 
 ## Start in Posit Cloud
 
-Open the Homework 5 project linked above. Run `source("project_setup.R")`
-once in the Console, then open **`Homework_05_IP.qmd`**. Select **Render**
-before editing to check the starting document. Complete the three plans below,
-render again, and submit **`Homework_05_IP.pdf`** in Canvas. The old `.Rmd`
-file and **Knit** instructions have been replaced by Quarto and **Render**.
+Open the Homework 5 project linked above, then open **`Homework_05_IP.qmd`**.
+Complete the three plans below using pseudocode comments. Select **Render**
+to create **`Homework_05_IP.pdf`** and submit that PDF in Canvas. Rendering the
+report does not run the analysis chunks.
+
+If the project needs package setup before it can render, run
+`source("project_setup.R")` once in the Console. That prepares the environment;
+it is not a request to run your planned hypothesis tests. Keep all analysis
+code commented out. Use Quarto's **Render**, not the older **Knit** workflow.
 
 ## 1) Review the Available Tests
 
@@ -82,41 +104,60 @@ and the type of comparison in your statistical story.
 
 ### Statistical story
 
-The average number of bedrooms in Chicago Airbnb listings differs from two.
+For recorded Chicago crashes, does the mean number of reported injuries per
+crash differ between **Daytime** and **Night or early morning**? A safety team
+could use this question to plan a closer review of when injury burden occurs.
 
-### Estimate or plot
+### Estimate or plot to plan
 
-A descriptive summary of `bedrooms` would show whether the sample mean is above
-or below two. This estimate provides direction but not evidence about sampling
-uncertainty.
+Plan a comparison of the mean `injuries_total` in each of the two `time_period`
+groups, along with their group sizes and distributions. Describe what you would
+look for; do not calculate or report the results for this homework.
 
 ### Test and hypotheses
 
-The outcome is one numeric variable compared with a reference value, so the
-appropriate test is a one-sample t-test using `ost()`.
+The outcome is numeric and the comparison uses two separate groups, so the
+starting plan is an independent-samples t-test using `idt()`. Before running
+it later, check the sampling design, independence, and the distribution of
+injury counts; the variable may contain many zeros and be strongly skewed.
 
-$H_0$: The population mean number of bedrooms is 2.
+$H_0$: The population mean number of reported injuries per recorded crash is
+the same for Daytime and Night or early morning.
 
-$H_A$: The population mean number of bedrooms is not 2.
+$H_A$: Those population mean injury counts differ.
 
 $\alpha = 0.05$
 
+### Pseudocode with an optional commented R draft
+
+The first part describes the plan in plain language. The second part shows how
+that plan might begin to become R code. Both remain comments; you do not need
+to execute the code or produce a test result.
+
 ```{r}
 #| eval: false
-df <- read.csv(file.path("data", "airbnb_chicago.csv"))
+# PSEUDOCODE
+# Read data/traffic_chicago_2024.csv.
+# Keep Daytime and Night or early morning crashes.
+# Exclude records with missing injuries_total or time_period.
+# Plan a check of group sizes, injury distributions, and independence.
+# Compare mean injuries_total between the two groups with an appropriate test.
 
-h1 <- df |>
-  ost(~ bedrooms, mu = 2)
-
-print(h1)
+# OPTIONAL R DRAFT: leave commented out for this homework.
+# crashes <- readr::read_csv("data/traffic_chicago_2024.csv")
+# planned_data <- crashes |>
+#   dplyr::filter(
+#     time_period %in% c("Daytime", "Night or early morning"),
+#     !is.na(injuries_total)
+#   )
+# planned_test <- planned_data |>
+#   eco230r::idt(injuries_total ~ time_period)
 ```
 
-The exact argument for the reference value may depend on the current `eco230r`
-function interface. At this stage, the important work is identifying the test,
-hypotheses, and intended code sequence.
-
-Steps 4-5, the statistical and practical interpretations, are not required for
-this homework because you are planning rather than interpreting test results.
+Missing injuries are not automatically zero. This is a comparison of recorded
+crashes, not a claim that time of day causes injuries or that the sample
+represents every road user. Steps 4-5, test execution, and statistical/practical
+interpretations of results come later.
 
 ---
 
@@ -149,11 +190,12 @@ this homework because you are planning rather than interpreting test results.
 
 ```{r}
 #| eval: false
-# Load the selected dataset.
+# PSEUDOCODE: identify your dataset and variables.
+# Describe any filtering, missing-value handling, or derived variables.
+# Describe the planned comparison and appropriate test.
 
-# Filter or derive variables if needed.
-
-# Run the selected eco230r test.
+# OPTIONAL: add a commented R draft below if you are comfortable.
+# Leave every R line commented out; do not run the analysis yet.
 ```
 
 ---
@@ -187,11 +229,12 @@ this homework because you are planning rather than interpreting test results.
 
 ```{r}
 #| eval: false
-# Load the selected dataset.
+# PSEUDOCODE: identify your dataset and variables.
+# Describe any filtering, missing-value handling, or derived variables.
+# Describe the planned comparison and appropriate test.
 
-# Filter or derive variables if needed.
-
-# Run the selected eco230r test.
+# OPTIONAL: add a commented R draft below if you are comfortable.
+# Leave every R line commented out; do not run the analysis yet.
 ```
 
 ---
@@ -225,18 +268,20 @@ this homework because you are planning rather than interpreting test results.
 
 ```{r}
 #| eval: false
-# Load the selected dataset.
+# PSEUDOCODE: identify your dataset and variables.
+# Describe any filtering, missing-value handling, or derived variables.
+# Describe the planned comparison and appropriate test.
 
-# Filter or derive variables if needed.
-
-# Run the selected eco230r test.
+# OPTIONAL: add a commented R draft below if you are comfortable.
+# Leave every R line commented out; do not run the analysis yet.
 ```
 
 ## Submission
 
 Render this document and submit `Homework_05_IP.pdf` in Canvas. The PDF must
 contain three statistical stories, three test selections, contextual null and
-alternative hypotheses, and pseudocode for each test.
+alternative hypotheses, and pseudocode for each test. No executed code or test output is required.
+Optional actual R drafts must remain commented out.
 
 ## Checklist
 
@@ -244,9 +289,11 @@ alternative hypotheses, and pseudocode for each test.
 - [ ] Each test matches the variables, groups, and study design.
 - [ ] Each $H_0$ and $H_A$ is stated in context.
 - [ ] Each pseudocode block shows loading, preparation, and testing steps.
-- [ ] Any incomplete experimental code is commented out.
+- [ ] Every line of any optional R draft is commented out with `#`.
+- [ ] My submission explains the plan; test results are not required.
 - [ ] I reviewed and submitted `Homework_05_IP.pdf`.
 
 **Grading focus:** Your work will be evaluated for appropriate test selection,
 testable hypotheses, clear context, and pseudocode that reflects a feasible
-analysis plan.
+analysis plan. Executable syntax and successful test execution are not the
+focus of this assignment.

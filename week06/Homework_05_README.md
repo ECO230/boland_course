@@ -1,22 +1,28 @@
 # Homework 5: Hypothesis-Test Planning
 
-This is the in-person version of Homework 5.
-
 [Open Homework 5 in Posit Cloud](https://posit.cloud/spaces/3173/content/12765412).
 
-When you first open the project in Posit Cloud, run this command once in the R
-Console:
+Open `Homework_05_IP.qmd` and develop three hypothesis plans. The task is to
+write pseudocode, not run hypothesis tests yet. Use `#` comments for your steps.
+If comfortable, add actual R drafts, but leave every line commented out.
+All analysis chunks use `eval: false`; Render creates the planning report
+without executing them. Submit `Homework_05_IP.pdf` in Canvas.
 
-```r
-source("project_setup.R")
-```
+The worked planning example uses Chicago crashes, comparing reported injuries
+between Daytime and Night or early morning. No test result is supplied or required.
 
-Open `Homework_05_IP.qmd`, complete the three hypothesis plans, and render the
-finished document to `Homework_05_IP.pdf`. Submit the PDF in Canvas.
+## This Semester's Data
 
-Running code is optional for this assignment. Comment out incomplete code before
-rendering.
+- `data/traffic_chicago_2024.csv`
+- `data/airline_midwest_2024.csv`
+- `data/olist_southeast_2017.csv`
+- `data/nfl_plays_2024.csv`
+- `data/health_wisconsin_appointments_2023_2025.csv`
 
-The instructions in Canvas, on the website, and in this project are aligned.
-The student `.qmd` contains the prompts directly so you can edit them. Use
-**Render** to produce your PDF.
+Use the sample matching your project topic or your team's cleaned dataset.
+The legacy Airbnb, Wisconsin accidents, hospital-charge, and kicker files have
+been replaced by these semester samples.
+
+If packages are needed to render, run `source("project_setup.R")` once in the
+Console. Environment setup is separate from running the planned analyses.
+Use Quarto's **Render**, rather than the older R Markdown **Knit** workflow.
