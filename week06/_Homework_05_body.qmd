@@ -109,28 +109,41 @@ $\alpha = 0.05$
 
 ### Pseudocode with an optional commented R draft
 
-The first part describes the plan in plain language. The second part shows how
-that plan might begin to become R code. Both remain comments; you do not need
-to execute the code or produce a test result.
+Each pseudocode step is followed by a possible R operation. Blank lines separate
+the steps. Every line remains commented out: you are developing the plan, not
+running the analysis yet. Function names are written without package prefixes.
 
 ```{r}
 #| eval: false
-# PSEUDOCODE
-# Read data/traffic_chicago_2024.csv.
-# Keep Daytime and Night or early morning crashes.
-# Exclude records with missing injuries_total or time_period.
-# Plan a check of group sizes, injury distributions, and independence.
-# Compare mean injuries_total between the two groups with an appropriate test.
+# PSEUDOCODE + OPTIONAL R DRAFT
 
-# OPTIONAL R DRAFT: leave commented out for this homework.
-# crashes <- readr::read_csv("data/traffic_chicago_2024.csv")
-# planned_data <- crashes |>
-#   dplyr::filter(
-#     time_period %in% c("Daytime", "Night or early morning"),
-#     !is.na(injuries_total)
-#   )
-# planned_test <- planned_data |>
-#   eco230r::idt(injuries_total ~ time_period)
+# Read the Chicago crash dataset.
+# df <- read_csv("data/traffic_chicago_2024.csv")
+
+# Keep Daytime and Night or early morning crashes.
+# df <- df |>
+#   filter(time_period %in% c("Daytime", "Night or early morning"))
+
+# Exclude records with missing injury counts.
+# df <- df |>
+#   filter(!is.na(injuries_total))
+
+# Check how many records are in each group.
+# df |>
+#   count(time_period)
+```
+
+Also plan to inspect the injury distributions and check independence before
+running the test later.
+
+**The goal we are planning toward:** prepare `df`, then pass it to the selected
+test. Keep this test step separate and commented out for now.
+
+```{r}
+#| eval: false
+# Compare mean injury counts between the two groups.
+# df |>
+#   idt(injuries_total ~ time_period)
 ```
 
 Missing injuries are not automatically zero. This is a comparison of recorded

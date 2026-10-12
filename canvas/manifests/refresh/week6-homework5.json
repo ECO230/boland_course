@@ -71,7 +71,10 @@
           "airbnb_chicago.csv",
           "accident_wi.csv",
           "hospital_charges_wi.csv",
-          "nfl_special_MasonCrosby.csv"
+          "nfl_special_MasonCrosby.csv",
+          "readr::",
+          "dplyr::",
+          "eco230r::"
         ]
       },
       "id": 11004600,
