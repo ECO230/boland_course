@@ -30,10 +30,13 @@ project:
     - week04/week_04.qmd
     - week05/week_05.qmd
     - week06/week_06.qmd
+    - week07/week_07.qmd
+    - week07/interpretation_x2.qmd
     - week01/Homework_01.qmd
     - week02/Homework_02.qmd
     - week03/Homework_03.qmd
     - week06/Homework_05.qmd
+    - week07/Homework_06.qmd
     # Canvas-native source HTML. These outputs are intentionally unlisted: the
     # website navigation exposes only the current public materials above.
     - week04/Homework_04.qmd
@@ -99,6 +102,10 @@ website:
             file: week05/week_05.qmd
           - text: "Week 6"
             file: week06/week_06.qmd
+          - text: "Week 7"
+            file: week07/week_07.qmd
+          - text: "Interpreting Chi-Square Tests"
+            file: week07/interpretation_x2.qmd
       - text: "Homework"
         menu:
           - text: "Homework 1"
@@ -111,6 +118,8 @@ website:
             file: week04/Homework_04.qmd
           - text: "Homework 5"
             file: week06/Homework_05.qmd
+          - text: "Homework 6"
+            file: week07/Homework_06.qmd
       - text: "Project 1"
         menu:
           - text: "Project Prompt"
