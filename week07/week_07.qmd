@@ -962,53 +962,70 @@ Large
 </div>
 
 
-## Chicago crashes: chi-square test of independence
+## `library(eco230r)`
 
-Are injury status and reported lighting condition associated?
+::::: columns
 
-```{r chicago_setup, include=FALSE}
-df <- read_csv(here("week03", "labs", "data", "chicago_traffic_crashes_sample.csv"),
-               show_col_types = FALSE) |>
+::: {.column width="10%"}
+
+![](../shared/images/logo_R.png){width="100%" fig-alt="R Language Logo"}
+
+:::
+
+
+
+::: {.column width="90%"}
+
+```{r setup_t echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
+accident_path <- here("week03", "labs", "data", "chicago_traffic_crashes_sample.csv")
+df <- read_csv(accident_path, show_col_types = FALSE) |>
   mutate(injury_crash = if_else(injuries_total > 0, "Injury", "No injury"))
+
+h1 <- df |>
+  csi(injury_crash ~ reported_lighting_condition)
+
+h2 <- df |>
+  idt(visibility_miles ~ injury_crash)
+
+h3 <- df |>
+  ano(visibility_miles ~ time_period)
+
 ```
 
-```{r chicago_csi, echo=TRUE, results="hide"}
+```{r show_x, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
 h1 <- df |>
   csi(injury_crash ~ reported_lighting_condition)
 ```
 
+### h1$results
+
 **`r h1$results`**
 
-Compare injury percentages within lighting categories. This sample contains
-reported crashes; it does not measure the risk per trip under each condition.
+<br>
 
-## Chicago crashes: independent-samples t-test
-
-Does mean visibility differ between injury and non-injury crashes?
-
-```{r chicago_idt, echo=TRUE, results="hide"}
+```{r show_t, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
 h2 <- df |>
   idt(visibility_miles ~ injury_crash)
 ```
 
+### h2$results
+
 **`r h2$results`**
 
-Visibility is measured in miles. Interpret the size of the mean difference
-alongside the evidence; an association does not establish causation.
+<br>
 
-## Chicago crashes: one-way ANOVA
-
-Does mean visibility differ across time periods?
-
-```{r chicago_ano, echo=TRUE, results="hide"}
+```{r show_a, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
 h3 <- df |>
   ano(visibility_miles ~ time_period)
 ```
 
+### h3$results
+
 **`r h3$results`**
 
-An overall difference does not mean every pair of time periods differs.
-Use group means and the effect size to assess practical importance.
+:::
+
+:::::
 
 ## What effect does it have on test scores? {.week07-score-plot}
 
