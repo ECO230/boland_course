@@ -60,9 +60,10 @@ By the end of this assignment, you will be able to:
 - Your project story and candidate hypotheses
 
 ::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
-This assignment is graded for a sincere analytical attempt, correct use of the
-five-step process, and interpretations that refer to the variables and evidence
-in context. Your project-related code may be incomplete, but it must show the
+The main goal is step 5: explain what the evidence means for a business
+audience. Practical interpretation is worth 30 of the 50 points (15 each for
+Hypotheses 2 and 3). Statistical interpretations are worth 10 points total;
+Hypothesis 3 steps 1 and 3 are worth 5 points, and R coding is worth 5 points. Your project-related code may be incomplete, but it must show the
 test you attempted and any changes you made.
 :::
 
@@ -211,28 +212,40 @@ knitr::kable(h2$standardized_residuals)
 
 ### Hypothesis 3 - Complete the Full Analysis
 
-Choose the dataset associated with your project. All four options are in the
-`data` folder.
+Use your group's clean project dataset if it is ready. Bringing that dataset
+into this homework lets you develop an analysis you can reuse for the project.
+Use the cleaned output, so you do not need to repeat the project's joins and
+cleaning steps here.
 
-| Project dataset | Filename |
-|---|---|
-| Wisconsin traffic accidents | `accident_wi.csv` |
-| Chicago Airbnb listings | `airbnb_chicago.csv` |
-| Wisconsin hospital charges | `hospital_charges_wi.csv` |
-| Mason Crosby special-teams plays | `nfl_special_MasonCrosby.csv` |
+### Bring your clean dataset into this project
 
-Change `project_file` below to the filename for your project. Do not change the
-folder name.
+1. Open your **group project** in Posit Cloud. In the **Files** pane, open the
+   folder containing the clean `.csv` file produced by your group's preparation
+   code. If needed, run that preparation code first to create the file.
+2. Check the box beside the clean `.csv` file. Open **More** (the gear or more
+   options menu), choose **Export**, and download the file to your computer.
+3. Open your own **Homework 6** project. In **Files**, open the `data` folder,
+   select **Upload**, choose the downloaded `.csv` file, and confirm the upload.
+4. Replace the filename below with the exact uploaded filename. Run the chunk,
+   inspect the column names, and choose categorical variables for your test.
 
 ```{r}
+# Example filename: replace it with your group's clean CSV filename.
 project_file <- "accident_wi.csv"
 project_data <- read.csv(file.path("data", project_file))
-
-cat(
-  project_file, "contains", nrow(project_data), "rows and",
-  ncol(project_data), "columns."
-)
+names(project_data)
 ```
+
+The example runs with an included practice dataset until you change the filename.
+If your group's clean file is not ready, you may use one of the included practice
+files: `accident_wi.csv`, `airbnb_chicago.csv`, `hospital_charges_wi.csv`, or
+`nfl_special_MasonCrosby.csv`. State which dataset you used. These practice files
+may differ from your group's current project data.
+
+For a test of independence, choose two categorical variables, such as injury
+status and lighting category in crash data. For goodness of fit, choose one
+categorical variable and state the expected proportions. Check your actual
+column names with `names(project_data)`; the names below are placeholders.
 
 1. **Statistical story:** What relationship, difference, or pattern are you
    investigating, and why might it matter?
@@ -303,7 +316,7 @@ revise it if needed.
 ## Checklist
 
 - [ ] I completed the statistical and practical interpretations for Hypothesis 2.
-- [ ] I selected the correct project dataset for Hypothesis 3.
+- [ ] I uploaded my group's clean dataset or identified the practice file I used.
 - [ ] I completed all five hypothesis-testing steps for Hypothesis 3.
 - [ ] I preserved or commented out the code I attempted.
 - [ ] I rendered the document successfully and reviewed the PDF.

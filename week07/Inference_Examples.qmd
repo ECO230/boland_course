@@ -1,0 +1,112 @@
+---
+title: "Inference Examples"
+format:
+  html:
+    toc: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+Run `source("project_setup.R")` once in the Console before rendering this file.
+Use `|>` to pass a dataset into an `eco230r` test. Change the variables and
+explain the results in context when practicing with your own data.
+
+```{r}
+library(tidyverse)
+library(eco230r)
+data("tea_tab", package = "eco230r")
+data("t_tall", package = "eco230r")
+data("t_wide", package = "eco230r")
+data("napData", package = "eco230r")
+```
+
+## Week 7: Chi-square tests
+
+The tea examples match the interpretation slides. Goodness of fit compares one
+categorical variable to expected proportions; independence examines two
+categorical variables. The default goodness-of-fit model uses equal proportions.
+
+```{r}
+tea_fit <- tea_tab |> csf(~ cool_time)
+tea_fit$results
+tea_fit$standardized_residuals
+
+tea_association <- tea_tab |> csi(finger_preference ~ cool_time)
+tea_association$results
+tea_association$standardized_residuals
+```
+
+## Chicago crash examples from the Week 7 lecture
+
+Each row is a reported crash in the course's Chicago sample. Visibility is
+measured in miles. These comparisons describe reported crashes, not exposure
+per trip or causal effects. Examine missing values and group sizes before
+interpreting a test.
+
+```{r}
+crashes <- read_csv("data/chicago_traffic_crashes_sample.csv",
+                    show_col_types = FALSE) |>
+  mutate(injury_crash = if_else(injuries_total > 0, "Injury", "No injury"))
+
+crashes |> count(reported_lighting_condition, injury_crash)
+h1 <- crashes |> csi(injury_crash ~ reported_lighting_condition)
+h1$results
+h1$standardized_residuals
+
+crashes |> group_by(injury_crash) |>
+  summarise(n = sum(!is.na(visibility_miles)),
+            mean_visibility = mean(visibility_miles, na.rm = TRUE))
+h2 <- crashes |> idt(visibility_miles ~ injury_crash)
+h2$results
+
+crashes |> group_by(time_period) |>
+  summarise(n = sum(!is.na(visibility_miles)),
+            mean_visibility = mean(visibility_miles, na.rm = TRUE))
+h3 <- crashes |> ano(visibility_miles ~ time_period)
+h3$results
+```
+
+## Week 8: t-tests and Wilcoxon tests
+
+Use two groups for independent samples, paired measurements from the same units
+for paired tests, and a stated reference value for a one-sample test.
+
+```{r}
+independent <- t_tall |> idt(scones ~ tea)
+independent$results
+
+paired <- t_wide |> pst(black_tea ~ green_tea)
+paired$results
+
+one_sample <- t_tall |> ost(~ scones, mu = 45)
+one_sample$results
+
+independent_ranks <- t_tall |> idw(scones ~ tea)
+independent_ranks$results
+
+paired_ranks <- t_wide |> psw(black_tea ~ green_tea)
+paired_ranks$results
+```
+
+## Week 9: ANOVA and regression
+
+ANOVA compares group means; regression estimates a relationship with a numeric
+predictor. Use the effect size and uncertainty to explain practical importance.
+
+```{r}
+anova_example <- napData |> ano(naptime ~ light)
+anova_example$results
+
+regression_example <- napData |> slr(naptime ~ timestamp)
+regression_example$results
+```
+
+## Interpret each analysis
+
+1. State the story and why it matters.
+2. Describe the estimates or plot and the decision they suggest.
+3. Select the test and state the null and alternative hypotheses.
+4. Interpret the statistical evidence against the null.
+5. Explain the magnitude and practical consequence for the decision maker.

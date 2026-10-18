@@ -67,7 +67,7 @@ data("napData", package = "eco230r")
 ```{r run_csf echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
 df <- tea_tab
 
-h1 <- df %>%
+h1 <- df |>
   csf(~cool_time)
 ```
 
@@ -99,7 +99,7 @@ h1 <- df %>%
 ### Run the Test
 
 ```{r show_idt, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
-h1 <- df %>%
+h1 <- df |>
   csf(~cool_time)
 ```
 :::
@@ -338,7 +338,7 @@ h1$standardized_residuals
 ```{r run_csi echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
 df <- tea_tab
 
-h2 <- df %>%
+h2 <- df |>
   csi(finger_preference~cool_time)
 ```
 
@@ -370,7 +370,7 @@ h2 <- df %>%
 ### Run the Test
 
 ```{r show_csi, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
-h2 <- df %>%
+h2 <- df |>
   csi(finger_preference~cool_time)
 ```
 :::

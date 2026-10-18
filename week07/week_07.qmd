@@ -12,8 +12,11 @@ format:
     transition: fade
     controls: true
     pdf-export: true
+    css: week_07.css
 execute:
   echo: false
+  warning: false
+  message: false
 ---
 
 ## Mike’s Dumb Casino {background-image="media/images/w7_dumb_casino.svg" background-position="center" background-size="85%" background-repeat="no-repeat" fig-alt="Ruin your grades for statistics"}
@@ -68,8 +71,8 @@ parse_ost_results <- function(res_string){
   )
 }
 
-ci_summary <- sf %>%
-  group_by(study_index) %>%
+ci_summary <- sf |>
+  group_by(study_index) |>
   group_modify(~{
     dat <- .x
 
@@ -99,16 +102,16 @@ ci_summary <- sf %>%
       margin_of_error = margin,
       lower_bound = M - margin,
       upper_bound = M + margin
-    ) %>%
+    ) |>
       bind_cols(parsed)
-  }) %>%
-  ungroup() %>%
+  }) |>
+  ungroup() |>
   arrange(study_index)
 
 ci_summary
 
-n_summary <- nf %>%
-  group_by(study_index) %>%
+n_summary <- nf |>
+  group_by(study_index) |>
   group_modify(~{
     dat <- .x
 
@@ -138,10 +141,10 @@ n_summary <- nf %>%
       margin_of_error = margin,
       lower_bound = M - margin,
       upper_bound = M + margin
-    ) %>%
+    ) |>
       bind_cols(parsed)
-  }) %>%
-  ungroup() %>%
+  }) |>
+  ungroup() |>
   arrange(study_index)
 
 
@@ -149,7 +152,7 @@ n_summary <- nf %>%
 
 # Inference Review
 
-## What effect does it have on test scores?
+## What effect does it have on test scores? {.week07-score-plot}
 
 ::::: columns
 ::: {.column width="95%"}
@@ -157,7 +160,7 @@ n_summary <- nf %>%
 library(ggplot2)
 library(dplyr)
 
-plot_df <- ci_summary %>%
+plot_df <- ci_summary |>
   mutate(
     study_label = paste("Study", study_index),
     study_f = factor(study_label, levels = rev(study_label))
@@ -177,7 +180,7 @@ ggplot(plot_df, aes(y = study_f)) +
   geom_point(aes(x = Mean), size = 5, color = "grey20") +
 
   # DON'T clip CIs: use coord_cartesian instead of limits=
-  coord_cartesian(xlim = c(-20, 35), clip = "off") +
+  coord_cartesian(xlim = c(-34, 35), clip = "off") +
 
   scale_x_continuous(
     breaks = c(-10, 0, 10, 20, 30),
@@ -371,7 +374,7 @@ p is the relative frequency of our observed test statistic relative to all test 
 :::
 :::::
 
-## What effect does it have on test scores?
+## What effect does it have on test scores? {.week07-score-plot}
 
 ::::: columns
 ::: {.column width="95%"}
@@ -379,7 +382,7 @@ p is the relative frequency of our observed test statistic relative to all test 
 library(ggplot2)
 library(dplyr)
 
-plot_df <- ci_summary %>%
+plot_df <- ci_summary |>
   mutate(
     study_f = factor(study_index, levels = rev(study_index)),
     p_label = paste0("p = ", sprintf("%.3f", p))
@@ -403,13 +406,13 @@ ggplot(plot_df, aes(y = study_f)) +
 
   # Left-side p-value labels
   geom_text(
-    aes(x = -30
+    aes(x = -32
         , label = p_label),
     hjust = 0, size = 5,
     color = "red3", fontface = "italic"
   ) +
 
-  coord_cartesian(xlim = c(-20, 35), clip = "off") +
+  coord_cartesian(xlim = c(-34, 35), clip = "off") +
 
   scale_x_continuous(
     breaks = c(-20, -10, 0, 10, 20, 30),
@@ -959,71 +962,55 @@ Large
 </div>
 
 
-## `library(eco230r)`
+## Chicago crashes: chi-square test of independence
 
-::::: columns
+Are injury status and reported lighting condition associated?
 
-::: {.column width="10%"}
-
-![](../shared/images/logo_R.png){width="100%" fig-alt="R Language Logo"}
-
-:::
-
-
-
-::: {.column width="90%"}
-
-```{r setup_t echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
-abb_path <- here("shared","data","airbnb_chicago.csv") 
-df <- read_csv(abb_path, show_col_types = FALSE)
-
-h1 <- df %>%
-  csi(bed_type~room_type)
-
-h2 <- df %>%
-  idt(listed_price~cleaning_fee)
-
-h3 <- df %>%
-  ano(listed_price~bed_type)
-
+```{r chicago_setup, include=FALSE}
+df <- read_csv(here("week03", "labs", "data", "chicago_traffic_crashes_sample.csv"),
+               show_col_types = FALSE) |>
+  mutate(injury_crash = if_else(injuries_total > 0, "Injury", "No injury"))
 ```
 
-```{r show_x, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
-h1 <- df %>%
-  csi(bed_type~room_type)
+```{r chicago_csi, echo=TRUE, results="hide"}
+h1 <- df |>
+  csi(injury_crash ~ reported_lighting_condition)
 ```
-
-### h1$results
 
 **`r h1$results`**
 
-<br>
+Compare injury percentages within lighting categories. This sample contains
+reported crashes; it does not measure the risk per trip under each condition.
 
-```{r show_t, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
-h2 <- df %>%
-  idt(listed_price~cleaning_fee)
+## Chicago crashes: independent-samples t-test
+
+Does mean visibility differ between injury and non-injury crashes?
+
+```{r chicago_idt, echo=TRUE, results="hide"}
+h2 <- df |>
+  idt(visibility_miles ~ injury_crash)
 ```
-
-### h2$results
 
 **`r h2$results`**
 
-<br>
+Visibility is measured in miles. Interpret the size of the mean difference
+alongside the evidence; an association does not establish causation.
 
-```{r show_a, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
-h3 <- df %>%
-  ano(listed_price~bed_type)
+## Chicago crashes: one-way ANOVA
+
+Does mean visibility differ across time periods?
+
+```{r chicago_ano, echo=TRUE, results="hide"}
+h3 <- df |>
+  ano(visibility_miles ~ time_period)
 ```
-
-### h3$results
 
 **`r h3$results`**
 
-:::
+An overall difference does not mean every pair of time periods differs.
+Use group means and the effect size to assess practical importance.
 
-:::::
-
-## What effect does it have on test scores?
+## What effect does it have on test scores? {.week07-score-plot}
 
 ::::: columns
 ::: {.column width="95%"}
@@ -1031,7 +1018,7 @@ h3 <- df %>%
 library(ggplot2)
 library(dplyr)
 
-plot_df <- ci_summary %>%
+plot_df <- ci_summary |>
   mutate(
     study_f = factor(study_index, levels = rev(study_index))
   )
@@ -1063,13 +1050,13 @@ ggplot(plot_df, aes(y = study_f)) +
 
   # Result labels
   geom_text(
-    aes(x = -63, label = res),
+    aes(x = -130, label = res),
     hjust = 0,
-    size = 5
+    size = 3
   ) +
 
   coord_cartesian(
-    xlim = c(-20, 35),
+    xlim = c(-135, 35),
     clip = "off"
   ) +
 
@@ -1077,15 +1064,15 @@ ggplot(plot_df, aes(y = study_f)) +
     breaks = c(-20, -10, 0, 10, 20, 30),
     labels = function(x){
       ifelse(x == 0, "0",
-             paste0(ifelse(x > 0, "+", ""), x, " pts."))
+             paste0(ifelse(x > 0, "+", ""), x))
     }
   ) +
 
-  labs(x = NULL, y = NULL) +
+  labs(x = "Change in test score (points)", y = NULL) +
 
   theme_minimal(base_size = 16) +
   theme(
-    plot.margin = margin(10, 20, 10, 290),
+    plot.margin = margin(10, 20, 10, 15),
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(),
     panel.grid.major.x = element_blank(),
@@ -1109,8 +1096,8 @@ ggplot(plot_df, aes(y = study_f)) +
 library(ggplot2)
 library(dplyr)
 
-plot_df <- n_summary %>%
-  arrange(N) %>%
+plot_df <- n_summary |>
+  arrange(N) |>
   mutate(
     study_f = factor(study_index, levels = rev(study_index))
   )
@@ -1142,13 +1129,13 @@ ggplot(plot_df, aes(y = study_f)) +
 
   # Result labels
   geom_text(
-    aes(x = -64, label = res),
+    aes(x = -130, label = res),
     hjust = 0,
-    size = 5
+    size = 3
   ) +
 
   coord_cartesian(
-    xlim = c(-20, 35),
+    xlim = c(-135, 35),
     clip = "off"
   ) +
 
@@ -1156,15 +1143,15 @@ ggplot(plot_df, aes(y = study_f)) +
     breaks = c(-20, -10, 0, 10, 20, 30),
     labels = function(x){
       ifelse(x == 0, "0",
-             paste0(ifelse(x > 0, "+", ""), x, " pts."))
+             paste0(ifelse(x > 0, "+", ""), x))
     }
   ) +
 
-  labs(x = NULL, y = NULL) +
+  labs(x = "Change in test score (points)", y = NULL) +
 
   theme_minimal(base_size = 16) +
   theme(
-    plot.margin = margin(10, 20, 10, 290),
+    plot.margin = margin(10, 20, 10, 15),
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(),
     panel.grid.major.x = element_blank(),

@@ -1808,18 +1808,6 @@ modules:
           kind: "canvas_markdown_template"
           published_url: "https://eco230.github.io/boland_course/syllabus/project_1_timeline_section_{{class_section}}.html"
           match_method: "course_project_rule"
-      - key: "quiz"
-        type: "ContextModuleSubHeader"
-        title: "Quiz"
-        position: 13
-        management: "structure"
-        publish_action: "synchronize_structure"
-      - key: "graded-quiz-3-r-basics"
-        type: "Quizzes::Quiz"
-        title: "Graded  Quiz 3: R Basics"
-        position: 14
-        management: "canvas_assessment"
-        publish_action: "preserve"
   - key: "week-8-coaching-preparation-and-t-tests"
     title: "Week 8: Coaching Preparation and t-Tests"
     position: 9
@@ -1892,6 +1880,18 @@ modules:
           kind: "canvas_markdown_template"
           published_url: "https://eco230.github.io/boland_course/syllabus/project_1_timeline_section_{{class_section}}.html"
           match_method: "course_project_rule"
+      - key: "quiz"
+        type: "ContextModuleSubHeader"
+        title: "Quiz"
+        position: 10
+        management: "structure"
+        publish_action: "synchronize_structure"
+      - key: "graded-quiz-3-r-basics"
+        type: "Quizzes::Quiz"
+        title: "Graded  Quiz 3: R Basics"
+        position: 11
+        management: "canvas_assessment"
+        publish_action: "preserve"
   - key: "week-9-presentation-coaching-and-linear-regression-anova"
     title: "Week 9: Presentation Coaching and Linear Regression / ANOVA"
     position: 10

@@ -1,0 +1,78 @@
+{
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634
+    },
+    {
+      "section": 11,
+      "course_id": 869206
+    },
+    {
+      "section": 12,
+      "course_id": 870121
+    }
+  ],
+  "objects": [
+    {
+      "kind": "page",
+      "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-chi-squared-analysis",
+      "source_path": "canvas/content/pages/week07-chi-square-videos.md",
+      "targets": {
+        "4": {
+          "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-chi-squared-analysis",
+          "module_id": 4667283
+        },
+        "11": {
+          "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-chi-squared-analysis",
+          "module_id": 4677009
+        },
+        "12": {
+          "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-chi-squared-analysis",
+          "module_id": 4679327
+        }
+      },
+      "validation": {
+        "required_text": [
+          "1_kk7dftoo",
+          "1_h64mi8y0",
+          "Inference_Examples.qmd"
+        ]
+      }
+    },
+    {
+      "kind": "assignment",
+      "id": 11004603,
+      "source_path": "_site/week07/Homework_06.html",
+      "input_paths": [
+        "week07/Homework_06.qmd",
+        "week07/Homework_06_assignment.qmd"
+      ],
+      "published_url": "https://eco230.github.io/boland_course/week07/Homework_06.html",
+      "targets": {
+        "4": {
+          "id": 11004603,
+          "module_id": 4667283,
+          "assignment_group_id": 1951712
+        },
+        "11": {
+          "id": 11024235,
+          "module_id": 4677009,
+          "assignment_group_id": 1955477
+        },
+        "12": {
+          "id": 11029556,
+          "module_id": 4679327,
+          "assignment_group_id": 1956658
+        }
+      },
+      "validation": {
+        "required_text": [
+          "30 of the 50",
+          "Export",
+          "Upload"
+        ]
+      }
+    }
+  ]
+}

@@ -11,12 +11,16 @@ videos:
     entry_id: "1_h64mi8y0"
 ---
 
-These recordings reproduce the chi-square demonstrations from class. Use the
-[Download Guided Notes 5: Inferential Statistical Tests]({{ canvas_file_guided_notes_5_inferential_statistical_tests_docx_url }})
-while watching.
+These recordings reproduce the chi-square demonstrations from class. Download
+**Guided Notes 5 - Inferential Statistical Tests** from the Lecture section of
+Week 7 in Canvas and use the notes while watching.
 
-[Open the current Inference Examples project in Posit Cloud]({{ inference_examples_url }})
-to run and modify the demonstrated code.
+Use the updated **Inference Examples** project in Posit Cloud when your instructor
+provides its link. Run
+`source("project_setup.R")` once, then open `Inference_Examples.qmd`.
+
+The current examples use R's `|>` pipe. In older recordings, replace `%>%` with
+`|>` when following the code.
 
 The first recording introduces chi-square analysis and the `csf()` function
 for goodness-of-fit tests. The second uses `csi()` to examine an association
