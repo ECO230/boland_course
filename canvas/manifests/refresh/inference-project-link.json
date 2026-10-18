@@ -1,0 +1,102 @@
+{
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634
+    },
+    {
+      "section": 11,
+      "course_id": 869206
+    },
+    {
+      "section": 12,
+      "course_id": 870121
+    }
+  ],
+  "objects": [
+    {
+      "kind": "page",
+      "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-chi-squared-analysis",
+      "source_path": "canvas/content/pages/week07-chi-square-videos.md",
+      "targets": {
+        "4": {
+          "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-chi-squared-analysis",
+          "module_id": 4667283
+        },
+        "11": {
+          "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-chi-squared-analysis",
+          "module_id": 4677009
+        },
+        "12": {
+          "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-chi-squared-analysis",
+          "module_id": 4679327
+        }
+      },
+      "validation": {
+        "required_text": [
+          "https://posit.cloud/spaces/3173/content/13169695"
+        ],
+        "forbidden_text": [
+          "{{ inference_examples_url }}",
+          "project_setup.R"
+        ]
+      }
+    },
+    {
+      "kind": "page",
+      "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-t-tests-and-wilcoxon-tests",
+      "source_path": "canvas/content/pages/week08-t-test-wilcoxon-videos.md",
+      "targets": {
+        "4": {
+          "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-t-tests-and-wilcoxon-tests",
+          "module_id": 4667284
+        },
+        "11": {
+          "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-t-tests-and-wilcoxon-tests",
+          "module_id": 4677010
+        },
+        "12": {
+          "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-t-tests-and-wilcoxon-tests",
+          "module_id": 4679328
+        }
+      },
+      "validation": {
+        "required_text": [
+          "https://posit.cloud/spaces/3173/content/13169695"
+        ],
+        "forbidden_text": [
+          "{{ inference_examples_url }}",
+          "project_setup.R"
+        ]
+      }
+    },
+    {
+      "kind": "page",
+      "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-anova-and-regression-analysis",
+      "source_path": "canvas/content/pages/week09-anova-regression-videos.md",
+      "targets": {
+        "4": {
+          "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-anova-and-regression-analysis",
+          "module_id": 4667285
+        },
+        "11": {
+          "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-anova-and-regression-analysis",
+          "module_id": 4677011
+        },
+        "12": {
+          "id": "video-lecture-hypothesis-tests-in-r-using-eco230r-anova-and-regression-analysis",
+          "module_id": 4679329
+        }
+      },
+      "validation": {
+        "required_text": [
+          "https://posit.cloud/spaces/3173/content/13169695"
+        ],
+        "forbidden_text": [
+          "{{ inference_examples_url }}",
+          "project_setup.R"
+        ]
+      }
+    }
+  ]
+}

@@ -19,8 +19,8 @@ Week 7 in Canvas and use the notes while watching.
 If an embedded player is blank, use its **Open ... in a new tab** link below
 the player. The recordings are available through those links.
 
-Use the updated **Inference Examples** project in Posit Cloud when your instructor
-provides its link. Open `Inference_Examples.qmd`.
+[Open the Inference Examples project in Posit Cloud](https://posit.cloud/spaces/3173/content/13169695).
+Open `Inference_Examples.qmd`.
 
 The current examples use R's `|>` pipe. In older recordings, replace `%>%` with
 `|>` when following the code.

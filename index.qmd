@@ -15,3 +15,8 @@ Use the navigation bar to find available resources.
 Canvas course for weekly agendas, assignment instructions and due dates,
 quizzes, submissions, grades, and announcements. When information differs,
 follow the current instructions in Canvas.
+
+## Inference examples
+
+[Open the Inference Examples project in Posit Cloud](https://posit.cloud/spaces/3173/content/13169695)
+for the chi-square, t-test, Wilcoxon, ANOVA, and regression examples.

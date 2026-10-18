@@ -20,7 +20,7 @@ demonstrations from class. Use the
 [Download Guided Notes 5: Inferential Statistical Tests]({{ canvas_file_guided_notes_5_inferential_statistical_tests_docx_url }})
 while watching.
 
-[Open the current Inference Examples project in Posit Cloud]({{ inference_examples_url }})
+[Open the current Inference Examples project in Posit Cloud](https://posit.cloud/spaces/3173/content/13169695)
 to run and modify the demonstrated code.
 
 The first 2 recordings introduce and apply `slr()` to estimate a linear change
