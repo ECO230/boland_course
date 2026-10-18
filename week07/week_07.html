@@ -855,35 +855,33 @@ BF_{10} \approx \frac{2.33}{0.075} \approx 31
 <p><img data-src="../shared//images/bayes_factor.svg" style="width:100.0%"></p>
 </div></div>
 </section>
-<section id="chicago-crashes-chi-square-test-of-independence" class="slide level2">
-<h2>Chicago crashes: chi-square test of independence</h2>
-<p>Are injury status and reported lighting condition associated?</p>
+<section id="libraryeco230r" class="slide level2">
+<h2><code>library(eco230r)</code></h2>
+<div class="columns">
+<div class="column" style="width:10%;">
+<p><img data-src="../shared/images/logo_R.png" style="width:100.0%" alt="R Language Logo"></p>
+</div><div class="column" style="width:90%;">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>h1 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
 <span id="cb1-2"><a></a>  <span class="fu">csi</span>(injury_crash <span class="sc">~</span> reported_lighting_condition)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<h3 id="h1results">h1$results</h3>
 <p><strong>X2(5) = 102.386, p &lt; .001, V = 0.090, bf10 = 6.751e+18</strong></p>
-<p>Compare injury percentages within lighting categories. This sample contains reported crashes; it does not measure the risk per trip under each condition.</p>
-</section>
-<section id="chicago-crashes-independent-samples-t-test" class="slide level2">
-<h2>Chicago crashes: independent-samples t-test</h2>
-<p>Does mean visibility differ between injury and non-injury crashes?</p>
+<p><br></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>h2 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a></a>  <span class="fu">idt</span>(visibility_miles <span class="sc">~</span> injury_crash)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<h3 id="h2results">h2$results</h3>
 <p><strong>t(2376.43) = 0.666, p = 0.506, d = 0.017, bf10 = 0.037</strong></p>
-<p>Visibility is measured in miles. Interpret the size of the mean difference alongside the evidence; an association does not establish causation.</p>
-</section>
-<section id="chicago-crashes-one-way-anova" class="slide level2">
-<h2>Chicago crashes: one-way ANOVA</h2>
-<p>Does mean visibility differ across time periods?</p>
+<p><br></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>h3 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a></a>  <span class="fu">ano</span>(visibility_miles <span class="sc">~</span> time_period)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>F(3,4162.11) = 12.678, p &lt; .001, ξ = 0.09, bf10 = 2.760e+05</strong></p>
-<p>An overall difference does not mean every pair of time periods differs. Use group means and the effect size to assess practical importance.</p>
+<h3 id="h3results">h3$results</h3>
+<p><strong>F(3,4162.11) = 12.678, p &lt; .001, ξ = 0.087, bf10 = 2.760e+05</strong></p>
+</div></div>
 </section>
 <section id="what-effect-does-it-have-on-test-scores-2" class="slide level2 week07-score-plot">
 <h2>What effect does it have on test scores?</h2>
