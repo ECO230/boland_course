@@ -67,7 +67,7 @@ data("napData", package = "eco230r")
 ```{r run_idt echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
 df <- t_tall
 
-h3 <- df %>%
+h3 <- df |>
   idt(scones ~ tea)
 ```
 
@@ -96,7 +96,7 @@ h3 <- df %>%
 ### Run the Test
 
 ```{r show_idt, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
-h3 <- df %>%
+h3 <- df |>
   idt(scones ~ tea)
 ```
 :::
@@ -321,7 +321,7 @@ h3$descriptive_statistics
 ```{r run_pst echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
 df <- t_wide
 
-h4 <- df %>%
+h4 <- df |>
   pst(~black_tea,~green_tea)
 ```
 
@@ -350,7 +350,7 @@ h4 <- df %>%
 ### Run the Test
 
 ```{r show_pst, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
-h4 <- df %>%
+h4 <- df |>
   pst(~black_tea,~green_tea)
 ```
 :::
@@ -577,7 +577,7 @@ h4$descriptive_statistics
 ```{r run_ost echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
 df <- t_tall
 
-h5 <- df %>%
+h5 <- df |>
   ost(~scones, mu=45.0)
 ```
 
@@ -608,7 +608,7 @@ h5 <- df %>%
 ### Run the Test
 
 ```{r show_ost, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
-h5 <- df %>%
+h5 <- df |>
   ost(~scones, mu=45.0)
 ```
 :::
@@ -839,7 +839,7 @@ Comparing Medians between Two Categories
 ```{r run_idw echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
 df <- t_tall
 
-h6 <- df %>%
+h6 <- df |>
   idw(scones~tea)
 ```
 
@@ -868,7 +868,7 @@ h6 <- df %>%
 ### Run the Test
 
 ```{r show_idw, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
-h6 <- df %>%
+h6 <- df |>
   idw(scones~tea)
 ```
 :::
@@ -1093,7 +1093,7 @@ h6$descriptive_statistics
 ```{r run_psw echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
 df <- t_wide
 
-h7 <- df %>%
+h7 <- df |>
   psw(~black_tea,~green_tea)
 ```
 
@@ -1122,7 +1122,7 @@ h7 <- df %>%
 ### Run the Test
 
 ```{r show_psw, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
-h7 <- df %>%
+h7 <- df |>
   psw(~black_tea,~green_tea)
 ```
 :::

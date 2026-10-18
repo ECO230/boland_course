@@ -67,7 +67,7 @@ data("napData", package = "eco230r")
 ```{r run_ano echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
 df <- napData
 
-h8 <- df %>%
+h8 <- df |>
   ano(naptime ~ light)
 ```
 
@@ -96,7 +96,7 @@ h8 <- df %>%
 ### Run the Test
 
 ```{r show_ano, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
-h8 <- df %>%
+h8 <- df |>
   ano(naptime ~ light)
 ```
 :::
@@ -337,7 +337,7 @@ Testing if there is a linear relationship between two ratio scales
 ```{r run_slr echo:FALSE, include:FALSE, message=FALSE, warning=FALSE, results="hide"}
 df <- napData
 
-h9 <- df %>%
+h9 <- df |>
   slr(naptime ~ timestamp)
 ```
 
@@ -366,7 +366,7 @@ h9 <- df %>%
 ### Run the Test
 
 ```{r show_slr, echo=TRUE, results="hide", message=FALSE, warning=FALSE}
-h9 <- df %>%
+h9 <- df |>
   slr(naptime ~ timestamp)
 ```
 :::
