@@ -47,7 +47,7 @@ By the end of this assignment, you will be able to:
 ## Resources
 
 - Week 6 and Week 7 slides and interpretation resources
-- The four `.csv` files in the `data` folder
+- The semester sample `.csv` files and Airbnb data in the `data` folder
 - The `csf()` and `csi()` functions from `eco230r`
 - Your project story and candidate hypotheses
 
@@ -230,16 +230,25 @@ cleaning steps here.
 ```{r}
 #| eval: false
 # Example filename: replace it with your group's clean CSV filename.
-project_file <- "accident_wi.csv"
+project_file <- "traffic_chicago_2024.csv"
 project_data <- read.csv(file.path("data", project_file))
 names(project_data)
 ```
 
 The example runs with an included practice dataset until you change the filename.
-If your group's clean file is not ready, you may use one of the included practice
-files: `accident_wi.csv`, `airbnb_chicago.csv`, `hospital_charges_wi.csv`, or
-`nfl_special_MasonCrosby.csv`. State which dataset you used. These practice files
-may differ from your group's current project data.
+If your group's clean file is not ready, use the semester sample associated with
+your project. These are the same five samples used in Homeworks 1-4. Airbnb is
+also retained for the worked examples. State which dataset you used. These
+practice files may differ from your group's current project data.
+
+| Project dataset | Filename |
+|---|---|
+| Chicago traffic crashes | `traffic_chicago_2024.csv` |
+| Midwest airline flights | `airline_midwest_2024.csv` |
+| Olist orders | `olist_southeast_2017.csv` |
+| NFL plays | `nfl_plays_2024.csv` |
+| Wisconsin health appointments | `health_wisconsin_appointments_2023_2025.csv` |
+| Chicago Airbnb listings (worked examples) | `airbnb_chicago.csv` |
 
 For a test of independence, choose two categorical variables, such as injury
 status and lighting category in crash data. For goodness of fit, choose one

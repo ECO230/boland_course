@@ -1,0 +1,62 @@
+{
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634
+    },
+    {
+      "section": 11,
+      "course_id": 869206
+    },
+    {
+      "section": 12,
+      "course_id": 870121
+    }
+  ],
+  "objects": [
+    {
+      "kind": "assignment",
+      "id": 11004603,
+      "source_path": "_site/week07/Homework_06.html",
+      "published_url": "https://eco230.github.io/boland_course/week07/Homework_06.html",
+      "input_paths": [
+        "week07/Homework_06.qmd",
+        "week07/Homework_06_assignment.qmd",
+        "week07/homework_06.manifest.json"
+      ],
+      "targets": {
+        "4": {
+          "id": 11004603,
+          "module_id": 4667283,
+          "assignment_group_id": 1951712
+        },
+        "11": {
+          "id": 11024235,
+          "module_id": 4677009,
+          "assignment_group_id": 1955477
+        },
+        "12": {
+          "id": 11029556,
+          "module_id": 4679327,
+          "assignment_group_id": 1956658
+        }
+      },
+      "validation": {
+        "required_text": [
+          "traffic_chicago_2024.csv",
+          "airline_midwest_2024.csv",
+          "olist_southeast_2017.csv",
+          "nfl_plays_2024.csv",
+          "health_wisconsin_appointments_2023_2025.csv",
+          "airbnb_chicago.csv"
+        ],
+        "forbidden_text": [
+          "accident_wi.csv",
+          "hospital_charges_wi.csv",
+          "nfl_special_MasonCrosby.csv",
+          "project_setup.R"
+        ]
+      }
+    }
+  ]
+}
