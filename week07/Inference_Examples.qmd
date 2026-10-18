@@ -1,15 +1,24 @@
 ---
 title: "Inference Examples"
 format:
-  html:
-    toc: true
+  typst:
+    toc: false
+    papersize: us-letter
+    fontsize: 10pt
+    linestretch: 1
+    margin:
+      x: 1in
+      y: 1in
+    number-sections: false
+    page-numbering: "1"
 execute:
   echo: true
   warning: false
   message: false
 ---
 
-Open `Inference_Examples.qmd` in the prepared Posit Cloud project and select **Render**.
+Open `Inference_Examples.qmd` in the prepared Posit Cloud project and select
+**Render** to create `Inference_Examples.pdf`.
 Use `|>` to pass a dataset into an `eco230r` test. Change the variables and
 explain the results in context when practicing with your own data.
 

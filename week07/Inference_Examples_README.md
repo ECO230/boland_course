@@ -1,7 +1,7 @@
 # Inference Examples
 
 Open `Inference_Examples.qmd` in the prepared Posit Cloud project and select
-**Render**.
+**Render** to create `Inference_Examples.pdf`.
 
 The examples use the native R pipe `|>`, the course `eco230r` functions, and
 the built-in tea and nap datasets.
