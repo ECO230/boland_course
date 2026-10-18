@@ -1031,7 +1031,7 @@ h3 <- df |>
 
 ::::: columns
 ::: {.column width="95%"}
-```{r}
+```{r score_results_wide}
 library(ggplot2)
 library(dplyr)
 
@@ -1109,7 +1109,7 @@ ggplot(plot_df, aes(y = study_f)) +
 
 ::::: columns
 ::: {.column width="95%"}
-```{r}
+```{r p_hacking_results_wide}
 library(ggplot2)
 library(dplyr)
 
