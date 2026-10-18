@@ -55,10 +55,7 @@ Complete the three plans below using pseudocode comments. Select **Render**
 to create **`Homework_05_IP.pdf`** and submit that PDF in Canvas. Rendering the
 report does not run the analysis chunks.
 
-If the project needs package setup before it can render, run
-`source("project_setup.R")` once in the Console. That prepares the environment;
-it is not a request to run your planned hypothesis tests. Keep all analysis
-code commented out. Use Quarto's **Render**, not the older **Knit** workflow.
+Keep all analysis code commented out. Use Quarto's **Render**, not the older **Knit** workflow.
 
 ## 1) Review the Available Tests
 

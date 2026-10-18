@@ -23,8 +23,6 @@ Use the sample matching your project topic or your team's cleaned dataset.
 The legacy Airbnb, Wisconsin accidents, hospital-charge, and kicker files have
 been replaced by these semester samples.
 
-If packages are needed to render, run `source("project_setup.R")` once in the
-Console. Environment setup is separate from running the planned analyses.
 Use Quarto's **Render**, rather than the older R Markdown **Knit** workflow.
 
 ## Plan Ahead (Not Graded)

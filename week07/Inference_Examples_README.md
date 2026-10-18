@@ -1,8 +1,7 @@
 # Inference Examples
 
-Create a Posit Cloud project from this Git repository. Run
-`source("project_setup.R")` once in the Console, then open
-`Inference_Examples.qmd` and select **Render**.
+Open `Inference_Examples.qmd` in the prepared Posit Cloud project and select
+**Render**.
 
 The examples use the native R pipe `|>`, the course `eco230r` functions, built-in
 tea/nap datasets, and the Chicago crash sample used in the Week 7 lecture.

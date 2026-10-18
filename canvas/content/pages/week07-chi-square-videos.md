@@ -20,8 +20,7 @@ If an embedded player is blank, use its **Open ... in a new tab** link below
 the player. The recordings are available through those links.
 
 Use the updated **Inference Examples** project in Posit Cloud when your instructor
-provides its link. Run
-`source("project_setup.R")` once, then open `Inference_Examples.qmd`.
+provides its link. Open `Inference_Examples.qmd`.
 
 The current examples use R's `|>` pipe. In older recordings, replace `%>%` with
 `|>` when following the code.

@@ -9,7 +9,7 @@ execute:
   message: false
 ---
 
-Run `source("project_setup.R")` once in the Console before rendering this file.
+Open `Inference_Examples.qmd` in the prepared Posit Cloud project and select **Render**.
 Use `|>` to pass a dataset into an `eco230r` test. Change the variables and
 explain the results in context when practicing with your own data.
 

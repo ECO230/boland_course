@@ -148,16 +148,22 @@ The correct configuration lives in both `.Rprofile` and `project_setup.R`.
 `project_setup.R` passes `repos = getOption("repos")` to `renv::restore()` so the
 old repository recorded in a lockfile cannot take precedence.
 
-### Fresh-project student setup
+### Instructor setup before student release
 
-On first opening a project, `renv` bootstraps itself. The student or instructor
-then runs once:
+On first opening the source project, `renv` bootstraps itself. The instructor
+then runs once before distributing student copies:
 
 ```r
 source("project_setup.R")
 ```
 
-This restores the locked environment. Binary installation reduced the tested
+This restores the locked environment. The instructor prepares and verifies the
+source project; students open their prepared copies and start the assignment.
+Do not tell students to run `source("project_setup.R")` in homework prompts,
+student READMEs, inference examples, or Canvas instructions. Keep the setup
+script in the repository for instructor use.
+
+Binary installation reduced the tested
 Homework 6 install to under one minute at the normal Posit Cloud memory level.
 
 If RStudio displays an automatic snapshot/install prompt before restoration,
