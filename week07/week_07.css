@@ -1,0 +1,5 @@
+.reveal .week07-score-plot .cell-output-display img {
+  max-height: 490px;
+  width: auto;
+  object-fit: contain;
+}

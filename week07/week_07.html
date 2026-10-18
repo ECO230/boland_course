@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+<script src="week07-assets/site_libs/clipboard/clipboard.min.js"></script>
+<script src="week07-assets/site_libs/quarto-html/tabby.min.js"></script>
+<script src="week07-assets/site_libs/quarto-html/popper.min.js"></script>
+<script src="week07-assets/site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="week07-assets/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="week07-assets/site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="week07-assets/site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="for BayeBayes">
-  <title>ECO 230 – Week 7 - Testing Hypotheses</title>
+  <title>Week 7 - Testing Hypotheses</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="week07-assets/site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="week07-assets/site_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -98,11 +95,12 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-e5bb095cac77e7bd9454063090bef903.css">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="week07-assets/site_libs/revealjs/dist/theme/quarto-7de2922f2d1fbf696a6ae0955d43c603.css">
+  <link rel="stylesheet" href="week_07.css">
+  <link href="week07-assets/site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="week07-assets/site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="week07-assets/site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="week07-assets/site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -239,7 +237,7 @@ Are my estimates precise enough to tell the story I outlined in part (2)?</em></
 <h1>Inference Review</h1>
 
 </section>
-<section id="what-effect-does-it-have-on-test-scores" class="slide level2">
+<section id="what-effect-does-it-have-on-test-scores" class="slide level2 week07-score-plot">
 <h2>What effect does it have on test scores?</h2>
 <div class="columns">
 <div class="column" style="width:95%;">
@@ -373,7 +371,7 @@ Are my estimates precise enough to tell the story I outlined in part (2)?</em></
 
 </div></div>
 </section>
-<section id="what-effect-does-it-have-on-test-scores-1" class="slide level2">
+<section id="what-effect-does-it-have-on-test-scores-1" class="slide level2 week07-score-plot">
 <h2>What effect does it have on test scores?</h2>
 <div class="columns">
 <div class="column" style="width:95%;">
@@ -857,35 +855,37 @@ BF_{10} \approx \frac{2.33}{0.075} \approx 31
 <p><img data-src="../shared//images/bayes_factor.svg" style="width:100.0%"></p>
 </div></div>
 </section>
-<section id="libraryeco230r" class="slide level2">
-<h2><code>library(eco230r)</code></h2>
-<div class="columns">
-<div class="column" style="width:10%;">
-<p><img data-src="../shared/images/logo_R.png" style="width:100.0%" alt="R Language Logo"></p>
-</div><div class="column" style="width:90%;">
+<section id="chicago-crashes-chi-square-test-of-independence" class="slide level2">
+<h2>Chicago crashes: chi-square test of independence</h2>
+<p>Are injury status and reported lighting condition associated?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>h1 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a></a>  <span class="fu">csi</span>(bed_type<span class="sc">~</span>room_type)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>h1 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a></a>  <span class="fu">csi</span>(injury_crash <span class="sc">~</span> reported_lighting_condition)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<h3 id="h1results">h1$results</h3>
-<p><strong>X2(8) = 327.875, p &lt; .001, V = 0.207, bf10 = 2.609e+19</strong></p>
-<p><br></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>h2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a></a>  <span class="fu">idt</span>(listed_price<span class="sc">~</span>cleaning_fee)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<h3 id="h2results">h2$results</h3>
-<p><strong>t(1455.02) = -1.682, p = 0.093, d = -0.067, bf10 = 0.203</strong></p>
-<p><br></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>h3 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a></a>  <span class="fu">ano</span>(listed_price<span class="sc">~</span>bed_type)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<h3 id="h3results">h3$results</h3>
-<p><strong>F(4,34.25) = 44.326, p &lt; .001, ξ = 0.573, bf10 = 8926.807</strong></p>
-</div></div>
+<p><strong>X2(5) = 102.386, p &lt; .001, V = 0.090, bf10 = 6.751e+18</strong></p>
+<p>Compare injury percentages within lighting categories. This sample contains reported crashes; it does not measure the risk per trip under each condition.</p>
 </section>
-<section id="what-effect-does-it-have-on-test-scores-2" class="slide level2">
+<section id="chicago-crashes-independent-samples-t-test" class="slide level2">
+<h2>Chicago crashes: independent-samples t-test</h2>
+<p>Does mean visibility differ between injury and non-injury crashes?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>h2 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a></a>  <span class="fu">idt</span>(visibility_miles <span class="sc">~</span> injury_crash)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>t(2376.43) = 0.666, p = 0.506, d = 0.017, bf10 = 0.037</strong></p>
+<p>Visibility is measured in miles. Interpret the size of the mean difference alongside the evidence; an association does not establish causation.</p>
+</section>
+<section id="chicago-crashes-one-way-anova" class="slide level2">
+<h2>Chicago crashes: one-way ANOVA</h2>
+<p>Does mean visibility differ across time periods?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>h3 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a></a>  <span class="fu">ano</span>(visibility_miles <span class="sc">~</span> time_period)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>F(3,4162.11) = 12.678, p &lt; .001, ξ = 0.09, bf10 = 2.760e+05</strong></p>
+<p>An overall difference does not mean every pair of time periods differs. Use group means and the effect size to assess practical importance.</p>
+</section>
+<section id="what-effect-does-it-have-on-test-scores-2" class="slide level2 week07-score-plot">
 <h2>What effect does it have on test scores?</h2>
 <div class="columns">
 <div class="column" style="width:95%;">
@@ -929,19 +929,19 @@ BF_{10} \approx \frac{2.33}{0.075} \approx 31
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <script src="week07-assets/site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="week07-assets/site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="week07-assets/site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="week07-assets/site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="week07-assets/site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="week07-assets/site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script src="week07-assets/site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="week07-assets/site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="week07-assets/site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="week07-assets/site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1137,42 +1137,80 @@ BF_{10} \approx \frac{2.33}{0.075} \approx 31
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1244,7 +1282,7 @@ BF_{10} \approx \frac{2.33}{0.075} \approx 31
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+            var filterRegex = new RegExp('/' + window.location.host + '/');
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

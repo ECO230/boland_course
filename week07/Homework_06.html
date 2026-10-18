@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Homework 6: Chi Squared Analysis – ECO 230</title>
+<title>Homework 6: Chi-Square Analysis</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -61,29 +58,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<script src="week07-assets/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="week07-assets/site_libs/clipboard/clipboard.min.js"></script>
+<script src="week07-assets/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="week07-assets/site_libs/quarto-search/fuse.min.js"></script>
+<script src="week07-assets/site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cddd4d705d0f1816126855d2197e4081.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="week07-assets/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="week07-assets/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="week07-assets/site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="week07-assets/site_libs/quarto-html/popper.min.js"></script>
+<script src="week07-assets/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="week07-assets/site_libs/quarto-html/anchor.min.js"></script>
+<link href="week07-assets/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="week07-assets/site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="week07-assets/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="week07-assets/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="week07-assets/site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -107,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -136,13 +133,13 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../shared/styles/accesibility.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+<!-- content -->
+<header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -273,21 +270,21 @@ window.Quarto = {
       </div> <!-- /container-fluid -->
     </nav>
 </header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#homework-6-chi-squared-analysis" id="toc-homework-6-chi-squared-analysis" class="nav-link active" data-scroll-target="#homework-6-chi-squared-analysis"><span class="header-section-number">1</span> HOMEWORK 6: CHI SQUARED ANALYSIS</a>
   <ul class="collapse">
-  <li><a href="#hypothesis-1---full-example" id="toc-hypothesis-1---full-example" class="nav-link" data-scroll-target="#hypothesis-1---full-example"><span class="header-section-number">1.1</span> Hypothesis 1 - Full Example</a></li>
-  <li><a href="#hypothesis-2---interpret-steps-45" id="toc-hypothesis-2---interpret-steps-45" class="nav-link" data-scroll-target="#hypothesis-2---interpret-steps-45"><span class="header-section-number">1.2</span> Hypothesis 2 - Interpret Steps 4–5</a></li>
-  <li><a href="#hypothesis-3---your-full-test" id="toc-hypothesis-3---your-full-test" class="nav-link" data-scroll-target="#hypothesis-3---your-full-test"><span class="header-section-number">1.3</span> Hypothesis 3 - Your Full Test</a></li>
-  </ul></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">Objectives</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#review-the-worked-example" id="toc-review-the-worked-example" class="nav-link" data-scroll-target="#review-the-worked-example">1) Review the Worked Example</a></li>
+  <li><a href="#complete-the-statistical-and-practical-interpretations" id="toc-complete-the-statistical-and-practical-interpretations" class="nav-link" data-scroll-target="#complete-the-statistical-and-practical-interpretations">2) Complete the Statistical and Practical Interpretations</a></li>
+  <li><a href="#complete-a-project-related-analysis" id="toc-complete-a-project-related-analysis" class="nav-link" data-scroll-target="#complete-a-project-related-analysis">3) Complete a Project-Related Analysis</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#checklist" id="toc-checklist" class="nav-link" data-scroll-target="#checklist">Checklist</a></li>
   </ul>
 </nav>
     </div>
@@ -296,7 +293,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Homework 6: Chi Squared Analysis</h1>
+<h1 class="title">Homework 6: Chi-Square Analysis</h1>
 </div>
 
 
@@ -310,153 +307,110 @@ window.Quarto = {
   
 
 
-</header><section id="eco230-homework-project"><h2>Homework 6 in Posit Cloud</h2><p><a href="https://posit.cloud/spaces/3173/content/12761519" target="_blank" rel="noopener">Open Homework 6 in Posit Cloud</a>.</p><p>Run <code>source("project_setup.R")</code> once in the Console, then open <code>Homework_06_IP.qmd</code>. Select <strong>Render</strong> to create <code>Homework_06_IP.pdf</code> and submit the PDF in Canvas. The current project uses Quarto <code>.qmd</code> documents and <strong>Render</strong> instead of the older R Markdown/Knit workflow.</p></section>
+</header>
 
 
-<section id="homework-6-chi-squared-analysis" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="homework-6-chi-squared-analysis"><span class="header-section-number">1</span> HOMEWORK 6: CHI SQUARED ANALYSIS</h2>
-<div class="callout callout-style-default callout-note callout-titled" title="Objectives">
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Posit Cloud Project">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Objectives
+<span class="screen-reader-only">Note</span>Posit Cloud Project
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p><a href="https://posit.cloud/spaces/3173/content/12761519">Open Homework 6 in Posit Cloud</a>. Run <code>source("project_setup.R")</code> once in the Console, then open <code>Homework_06_IP.qmd</code>. Select <strong>Render</strong> to create <code>Homework_06_IP.pdf</code> and submit the PDF in Canvas. The current project uses Quarto <code>.qmd</code> documents and <strong>Render</strong> instead of the older R Markdown/Knit workflow.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Purpose">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Purpose
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This assignment helps you move from selecting a hypothesis test to interpreting the evidence it produces.</p>
+<p>You will review a worked chi-square example, complete two interpretations, and attempt a chi-square analysis connected to your project dataset.</p>
+</div>
+</div>
+<section id="objectives" class="level2">
+<h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
+<p>By the end of this assignment, you will be able to:</p>
 <ul>
-<li>Complete step 4 of the hypothesis testing process: What is the statistical interpretation of the test result?</li>
-<li>Complete step 5 of the hypothesis testing process: What is the practical interpretation of this analysis for a business audience?</li>
-<li>Attempt to run a Chi Squared test in R and complete steps 1–5</li>
+<li>distinguish a chi-square goodness-of-fit test from a chi-square test of independence;</li>
+<li>interpret a p-value in relation to a stated null hypothesis;</li>
+<li>use standardized residuals and available evidence measures to assess practical importance; and</li>
+<li>complete the five-step hypothesis-testing process for a project-related question.</li>
 </ul>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled" title="Resources">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Resources
-</div>
-</div>
-<div class="callout-body-container callout-body">
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <ul>
-<li><code>.csv</code> files included with this project or your groups clean data set</li>
-<li>Week 6 &amp; 7 resources and lectures</li>
+<li>Week 6 and Week 7 slides and interpretation resources</li>
+<li>The four <code>.csv</code> files in the <code>data</code> folder</li>
+<li>The <code>csf()</code> and <code>csi()</code> functions from <code>eco230r</code></li>
+<li>Your project story and candidate hypotheses</li>
 </ul>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled" title="Instructions">
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Expectations">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Instructions
+<span class="screen-reader-only">Tip</span>Expectations
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li>Load the dataset into R as <code>df</code></li>
-</ol>
+<p>The main goal is step 5: explain what the evidence means for a business audience. Practical interpretation is worth 30 of the 50 points (15 each for Hypotheses 2 and 3). Statistical interpretations are worth 10 points total; Hypothesis 3 steps 1 and 3 are worth 5 points, and R coding is worth 5 points. Your project-related code may be incomplete, but it must show the test you attempted and any changes you made.</p>
+</div>
+</div>
+</section>
+<section id="review-the-worked-example" class="level2">
+<h2 class="anchored" data-anchor-id="review-the-worked-example">1) Review the Worked Example</h2>
+<p>The Airbnb dataset is used for the first two hypotheses. Do not change this setup code.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'../shared/data/airbnb_chicago.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">file.path</span>(<span class="st">".."</span>, <span class="st">"shared"</span>, <span class="st">"data"</span>, <span class="st">"airbnb_chicago.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<ol start="2" type="1">
-<li>Review the example in Hypothesis 1<br>
-</li>
-<li>Complete steps 4–5 of the Hypothesis Test for Hypothesis 2<br>
-</li>
-<li>Attempt to run chi squared analysis in R related to your project and complete steps 1–5</li>
-</ol>
-</div>
-</div>
-<hr>
-<section id="hypothesis-1---full-example" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="hypothesis-1---full-example"><span class="header-section-number">1.1</span> Hypothesis 1 - Full Example</h3>
+<section id="hypothesis-1---worked-example" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-1---worked-example">Hypothesis 1 - Worked Example</h3>
 <ol type="1">
-<li><strong>What statistical story am I attempting to tell?</strong></li>
-</ol>
-<p>It is more likely for a property to have a strict cancellation_policy than any other cancellation_policy.</p>
-<ol start="2" type="1">
-<li><strong>What have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone?</strong></li>
-</ol>
+<li><p><strong>Statistical story:</strong> What relationship, difference, or pattern are you investigating, and why might it matter?</p>
+<p>Airbnb properties are more likely to use a strict cancellation policy than either a flexible or moderate cancellation policy. This may matter to an operator deciding how to balance booking risk with customer flexibility.</p></li>
+<li><p><strong>Estimate or plot:</strong> What does the descriptive evidence suggest? If there were no uncertainty, what action would the business take?</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="media/images/H6_csf_graph.png" class="img-fluid figure-img"></p>
-<figcaption>X2 Goodness of Fit</figcaption>
+<p><img src="media/images/H6_csf_graph.png" class="img-fluid figure-img" alt="A horizontal bar chart showing that strict cancellation policies are more common than flexible or moderate policies."></p>
+<figcaption>Counts of Airbnb listings by cancellation policy.</figcaption>
 </figure>
 </div>
-<p>Note: There are very few records in the super strict policies so we will have to filter them out.</p>
-<ol start="3" type="1">
-<li><strong>Which test is appropriate and what is the null hypothesis?</strong></li>
+<p>The super-strict categories contain very few records, so the analysis below filters them out. Among the remaining categories, strict policies appear most often.</p></li>
+<li><p><strong>Test and hypotheses:</strong> Which test is appropriate? State <span class="math inline">\(H_0\)</span>, <span class="math inline">\(H_A\)</span>, and the alpha level.</p>
+<p>Test: chi-square goodness-of-fit test using <code>csf()</code></p>
+<p><span class="math inline">\(H_0\)</span>: Cancellation policy follows the expected model in which flexible, moderate, and strict policies occur equally often.</p>
+<p><span class="math inline">\(H_A\)</span>: Cancellation policy does not follow the expected model.</p>
+<p><span class="math inline">\(\alpha = 0.05\)</span></p></li>
 </ol>
-<p>Test Type: Chi Squared (<span class="math inline">\(X^2\)</span>) Goodness of Fit Test <code>csf()</code></p>
-<p><span class="math inline">\(H_0\)</span>: Cancellation_policy fits the Expected Model (default all categories equal)</p>
-<p><span class="math inline">\(H_A\)</span>: Cancellation_policy does not fit the Expected Model (default all categories equal)</p>
-<p><span class="math inline">\(\alpha = 0.05\)</span></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>h1 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cancellation_policy <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'flexible'</span>,<span class="st">'moderate'</span>,<span class="st">'strict'</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">csf</span>(<span class="sc">~</span>cancellation_policy)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>h1 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cancellation_policy <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"flexible"</span>, <span class="st">"moderate"</span>, <span class="st">"strict"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">csf</span>(<span class="sc">~</span> cancellation_policy)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(h1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$analysis_type
-[1] "Chi Square Test of Goodness of Fit model on x=cancellation_policy (3 levels)"
-
-$results
-[1] "X2(2) = 182.008, p &lt; .001, w = 0.221, bf10 = 2.756e+35"
-
-$fit_model
-[1] "No Goodness of Fit model included"
-
-$observed
-  cancellation_policy Freq
-1            flexible  956
-2            moderate 1148
-3              strict 1609
-
-$expected
-             Freq
-flexible 1237.667
-moderate 1237.667
-strict   1237.667
-
-$standardized_residuals
-  cancellation_policy      Freq
-1            flexible -9.805714
-2            moderate -3.121582
-3              strict 12.927297
-
-$contribution
-  cancellation_policy    Perc
-1            flexible 35.22 %
-2            moderate  3.57 %
-3              strict 61.21 %
-
-$table_percentages
-  cancellation_policy    Perc
-1            flexible 25.75 %
-2            moderate 30.92 %
-3              strict 43.33 %</code></pre>
-</div>
 </div>
 <ol start="4" type="1">
-<li><strong>Statistical Interpretation</strong></li>
-</ol>
+<li><p><strong>Statistical interpretation:</strong> What does the result say about the evidence against <span class="math inline">\(H_0\)</span>? Report the relevant estimate and uncertainty in context.</p>
 <p>X2(2) = 182.008, p &lt; .001, w = 0.221, bf10 = 2.756e+35</p>
-<p>p is less than 0.05 so we reject the null hypothesis. Cancellation_policy does not fit the expected model.</p>
-<ol start="5" type="1">
-<li><strong>Practical Interpretation</strong></li>
+<p>Because the p-value is below 0.05, reject <span class="math inline">\(H_0\)</span>. The observed cancellation policies do not fit an equal-proportions model.</p></li>
+<li><p><strong>Practical interpretation:</strong> How large and consequential is the result for a general business audience?</p>
+<p>The standardized residuals show which categories contribute most to the difference between the observed and expected counts.</p></li>
 </ol>
-<p>Standardized residuals over 2 represent statistical significance so this effect is most likely not happening by chance.</p>
-<p>Airbnb properties are much more likely to have a strict cancellation policy, likely to ensure operators generate income even if customers cancel reservations.</p>
-<p>If you wanted to make your property stand out you might pick a moderate or flexible cancellation policy as they appear less common. However this comes with risk because cancellations become more likely.</p>
-<p>Standardized residuals:</p>
-<table class="caption-top table">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">cancellation_policy</th>
@@ -478,94 +432,50 @@ $table_percentages
 </tr>
 </tbody>
 </table>
-<p>Cohen’s w indicates a small effect size so the overall effect of this relationship may be small. Strict policies appeared more often than expected, but the difference is not extremely high relative to the full distribution of cancellation policies. On the other hand, Bayes factor is extremely large indicating decisive evidence for the explanation that owners are much more likely to have a strict cancellation policy, it indicates that the decision is not random. This is likely representing a rather important real world effect, the increased risk of last minute cancellations may explain why those types of policies are used less freqently.</p>
+</div>
+</div>
+<p>Strict policies appear more often than expected, while flexible and moderate policies appear less often than expected. An operator could use a more flexible policy to differentiate a listing, but that decision should also account for the financial risk of cancellations. If the test output provides an effect size or Bayes factor, use it to qualify the magnitude and strength of this conclusion.</p>
 <hr>
 </section>
-<section id="hypothesis-2---interpret-steps-45" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="hypothesis-2---interpret-steps-45"><span class="header-section-number">1.2</span> Hypothesis 2 - Interpret Steps 4–5</h3>
+</section>
+<section id="complete-the-statistical-and-practical-interpretations" class="level2">
+<h2 class="anchored" data-anchor-id="complete-the-statistical-and-practical-interpretations">2) Complete the Statistical and Practical Interpretations</h2>
+<section id="hypothesis-2---complete-steps-4-5" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-2---complete-steps-4-5">Hypothesis 2 - Complete Steps 4-5</h3>
 <ol type="1">
-<li><strong>Statistical Story</strong></li>
-</ol>
-<p>Number of bathrooms is associated with whether or not there is a cleaning fee.</p>
-<ol start="2" type="1">
-<li><strong>Estimates / Plot</strong></li>
-</ol>
+<li><p><strong>Statistical story:</strong> What relationship, difference, or pattern are you investigating, and why might it matter?</p>
+<p>The number of bathrooms in an Airbnb property is associated with whether the property charges a cleaning fee.</p></li>
+<li><p><strong>Estimate or plot:</strong> What does the descriptive evidence suggest? If there were no uncertainty, what action would the business take?</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="media/images/H6_csi_graph.png" class="img-fluid figure-img"></p>
-<figcaption>X2 Test of Independence</figcaption>
+<p><img src="media/images/H6_csi_graph.png" class="img-fluid figure-img" alt="Two panels compare bathroom counts for listings without and with a cleaning fee."></p>
+<figcaption>Counts of Airbnb listings by bathroom count and cleaning-fee status.</figcaption>
 </figure>
 </div>
-<p>Note: There are very few records with fewer than 1 bathroom or more than 2 bathrooms so we filter those.</p>
-<ol start="3" type="1">
-<li><strong>Test and Hypothesis</strong></li>
+<p>Most properties have between one and two bathrooms. The test below restricts the analysis to that range so categories with very few records do not drive the result.</p></li>
+<li><p><strong>Test and hypotheses:</strong> Which test is appropriate? State <span class="math inline">\(H_0\)</span>, <span class="math inline">\(H_A\)</span>, and the alpha level.</p>
+<p>Test: chi-square test of independence using <code>csi()</code></p>
+<p><span class="math inline">\(H_0\)</span>: Cleaning-fee status is not associated with bathroom category.</p>
+<p><span class="math inline">\(H_A\)</span>: Cleaning-fee status is associated with bathroom category.</p>
+<p><span class="math inline">\(\alpha = 0.05\)</span></p></li>
 </ol>
-<p>Test Type: Chi Squared (<span class="math inline">\(X^2\)</span>) Test of Independence <code>csi()</code></p>
-<p><span class="math inline">\(H_0\)</span>: cleaning_fee is not associated with bathrooms</p>
-<p><span class="math inline">\(H_A\)</span>: cleaning_fee is associated with bathrooms</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>h2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(bathrooms <span class="sc">&gt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> bathrooms <span class="sc">&lt;=</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">csi</span>(cleaning_fee<span class="sc">~</span>bathrooms)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(h2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$analysis_type
-[1] "Chi Square Test of Association between cleaning_fee  and  bathrooms (2x3 contingency)"
-
-$results
-[1] "X2(2) = 8.844, p = 0.012, V = 0.044, bf10 = 0.332"
-
-$odds_ratio
-[1] "Odd Ratio only calculated for 2x2 contingency tables."
-
-$observed
-  cleaning_fee     1 1.5   2
-1         FALSE  695  57 129
-2          TRUE 2043 123 476
-
-$expected
-             X1      X1.5       X2
-FALSE  684.6943  45.01277 151.2929
-TRUE  2053.3057 134.98723 453.7071
-
-$standardized_residuals
-  cleaning_fee           1       1.5         2
-1         FALSE  0.9634757  2.118014 -2.299649
-2          TRUE -0.9634757 -2.118014  2.299649
-
-$contribution
-  cleaning_fee       1     1.5       2
-1         FALSE 1.75 %  36.1 % 37.14 %
-2          TRUE 0.58 % 12.04 % 12.39 %
-
-$table_percentages
-  cleaning_fee        1    1.5       2
-1         FALSE 19.73 % 1.62 %  3.66 %
-2          TRUE 57.99 % 3.49 % 13.51 %
-
-$column_percentages
-  cleaning_fee        1     1.5       2
-1         FALSE 25.38 % 31.67 % 21.32 %
-2          TRUE 74.62 % 68.33 % 78.68 %
-
-$row_percentages
-  cleaning_fee        1    1.5       2
-1         FALSE 78.89 % 6.47 % 14.64 %
-2          TRUE 77.33 % 4.66 % 18.02 %</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>h2 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(bathrooms <span class="sc">&gt;=</span> <span class="dv">1</span>, bathrooms <span class="sc">&lt;=</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bathroom_category =</span> <span class="fu">factor</span>(bathrooms)) <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">csi</span>(cleaning_fee <span class="sc">~</span> bathroom_category)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(h2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="4" type="1">
-<li><strong>Statistical Interpretation</strong></li>
-</ol>
+<li><p><strong>Statistical interpretation:</strong> What does the result say about the evidence against <span class="math inline">\(H_0\)</span>? Report the relevant estimate and uncertainty in context.</p>
 <p>X2(2) = 8.844, p = 0.012, V = 0.044, bf10 = 0.332</p>
-<p>Statistical Interpretation:</p>
-<ol start="5" type="1">
-<li><strong>Practical Interpretation</strong></li>
+<p><em>Your response:</em></p></li>
+<li><p><strong>Practical interpretation:</strong> How large and consequential is the result for a general business audience? Use the standardized residuals and table percentages. If your output provides an effect size or Bayes factor, use it to qualify your conclusion.</p></li>
 </ol>
-<p>Practical Interpretation:</p>
-<p>Hint: look at standardized residuals and effect sizes</p>
-<table class="caption-top table">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">cleaning_fee</th>
@@ -589,46 +499,82 @@ $row_percentages
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<p><em>Your response:</em></p>
 <hr>
 </section>
-<section id="hypothesis-3---your-full-test" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="hypothesis-3---your-full-test"><span class="header-section-number">1.3</span> Hypothesis 3 - Your Full Test</h3>
+</section>
+<section id="complete-a-project-related-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="complete-a-project-related-analysis">3) Complete a Project-Related Analysis</h2>
+<section id="hypothesis-3---complete-the-full-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-3---complete-the-full-analysis">Hypothesis 3 - Complete the Full Analysis</h3>
+<p>Use your group’s clean project dataset if it is ready. Bringing that dataset into this homework lets you develop an analysis you can reuse for the project. Use the cleaned output, so you do not need to repeat the project’s joins and cleaning steps here.</p>
+</section>
+<section id="bring-your-clean-dataset-into-this-project" class="level3">
+<h3 class="anchored" data-anchor-id="bring-your-clean-dataset-into-this-project">Bring your clean dataset into this project</h3>
 <ol type="1">
-<li><strong>What statistical story am I attempting to tell?</strong></li>
+<li>Open your <strong>group project</strong> in Posit Cloud. In the <strong>Files</strong> pane, open the folder containing the clean <code>.csv</code> file produced by your group’s preparation code. If needed, run that preparation code first to create the file.</li>
+<li>Check the box beside the clean <code>.csv</code> file. Open <strong>More</strong> (the gear or more options menu), choose <strong>Export</strong>, and download the file to your computer.</li>
+<li>Open your own <strong>Homework 6</strong> project. In <strong>Files</strong>, open the <code>data</code> folder, select <strong>Upload</strong>, choose the downloaded <code>.csv</code> file, and confirm the upload.</li>
+<li>Replace the filename below with the exact uploaded filename. Run the chunk, inspect the column names, and choose categorical variables for your test.</li>
 </ol>
-<p>Hypothesis:</p>
-<ol start="2" type="1">
-<li><strong>What have I estimated or plotted?</strong></li>
-</ol>
-<p>You may leave blank or include a plot.</p>
-<ol start="3" type="1">
-<li><strong>Which test is appropriate and what is the null hypothesis?</strong></li>
-</ol>
-<p>Test Type:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example filename: replace it with your group's clean CSV filename.</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>project_file <span class="ot">&lt;-</span> <span class="st">"accident_wi.csv"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>project_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">file.path</span>(<span class="st">"data"</span>, project_file))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(project_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The example runs with an included practice dataset until you change the filename. If your group’s clean file is not ready, you may use one of the included practice files: <code>accident_wi.csv</code>, <code>airbnb_chicago.csv</code>, <code>hospital_charges_wi.csv</code>, or <code>nfl_special_MasonCrosby.csv</code>. State which dataset you used. These practice files may differ from your group’s current project data.</p>
+<p>For a test of independence, choose two categorical variables, such as injury status and lighting category in crash data. For goodness of fit, choose one categorical variable and state the expected proportions. Check your actual column names with <code>names(project_data)</code>; the names below are placeholders.</p>
+<ol type="1">
+<li><p><strong>Statistical story:</strong> What relationship, difference, or pattern are you investigating, and why might it matter?</p>
+<p><em>Your response:</em></p></li>
+<li><p><strong>Estimate or plot:</strong> Create or describe at least one estimate or plot. What does the descriptive evidence suggest? If there were no uncertainty, what action would the business or decision maker take?</p>
+<p><em>Your response:</em></p></li>
+<li><p><strong>Test and hypotheses:</strong> Select either a chi-square goodness-of-fit test or a chi-square test of independence. State <span class="math inline">\(H_0\)</span>, <span class="math inline">\(H_A\)</span>, and the alpha level.</p>
+<p>Test:</p>
 <p><span class="math inline">\(H_0\)</span>:</p>
 <p><span class="math inline">\(H_A\)</span>:</p>
-<p><span class="math inline">\(\alpha = 0.05\)</span></p>
+<p><span class="math inline">\(\alpha = 0.05\)</span></p></li>
+</ol>
+<p>Attempt the test below. Replace the placeholder variable names with variables from your project dataset. Keep code that does not yet work, but comment it out before rendering the final PDF.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Attempt a test using csf() or csi()</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ff <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'../shared/data/airbnb_chicago.csv'</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#h3 &lt;- ff %&gt;%</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  csi(cleaning_fee~bathrooms)</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#print(h3)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example structure for a chi-square goodness-of-fit test:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># h3 &lt;- project_data |&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   csf(~ categorical_variable)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Example structure for a chi-square test of independence:</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># h3 &lt;- project_data |&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   csi(outcome_variable ~ group_variable)</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print(h3)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="4" type="1">
-<li><strong>Statistical Interpretation</strong></li>
+<li><p><strong>Statistical interpretation:</strong> What does the result say about the evidence against <span class="math inline">\(H_0\)</span>? If the test did not run, explain the error or decision point you reached.</p>
+<p><em>Your response:</em></p></li>
+<li><p><strong>Practical interpretation:</strong> Explain the direction, magnitude, and business consequence of the result. Use effect size or Bayes factor if your output provides them. If the test did not run, explain what evidence you would need to complete this interpretation.</p>
+<p><em>Your response:</em></p></li>
 </ol>
-<p>Statistical Interpretation:</p>
-<ol start="5" type="1">
-<li><strong>Practical Interpretation</strong></li>
-</ol>
-<p>Practical Interpretation:</p>
-
-
 </section>
+</section>
+<section id="submission" class="level2">
+<h2 class="anchored" data-anchor-id="submission">Submission</h2>
+<p>Render this document to PDF and submit <code>Homework_06_IP.pdf</code> in Canvas. Your PDF must contain your responses for Hypotheses 2 and 3 and the code you attempted for Hypothesis 3. Keep <code>Homework_06_IP.qmd</code> in your Posit Cloud project so you can revise it if needed.</p>
+</section>
+<section id="checklist" class="level2">
+<h2 class="anchored" data-anchor-id="checklist">Checklist</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">I completed the statistical and practical interpretations for Hypothesis 2.</label></li>
+<li><label><input type="checkbox">I uploaded my group’s clean dataset or identified the practice file I used.</label></li>
+<li><label><input type="checkbox">I completed all five hypothesis-testing steps for Hypothesis 3.</label></li>
+<li><label><input type="checkbox">I preserved or commented out the code I attempted.</label></li>
+<li><label><input type="checkbox">I rendered the document successfully and reviewed the PDF.</label></li>
+<li><label><input type="checkbox">I submitted <code>Homework_06_IP.pdf</code> in Canvas.</label></li>
+</ul>
+<p><strong>Grading focus:</strong> Your work will be evaluated for correct hypothesis-test structure, use of evidence in context, distinction between statistical and practical importance, and a sincere project-related analysis attempt.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -705,7 +651,7 @@ $row_percentages
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
