@@ -53,7 +53,7 @@ By the end of this assignment, you will be able to:
 ## Resources
 
 - Week 6-8 slides and interpretation resources
-- The four `.csv` files in the `data` folder
+- The semester sample `.csv` files and Airbnb data in the `data` folder
 - `idt()`, `idw()`, `pst()`, `psw()`, and `ost()` from `eco230r`
 - Your project story and candidate hypotheses
 
@@ -184,19 +184,23 @@ print(h2)
 
 ### Hypothesis 3 - Complete the Full Analysis
 
-Choose the dataset associated with your project.
+Choose the dataset associated with your project. The five semester samples
+are the same files used in Homeworks 1-4. Airbnb is also included for the worked
+examples.
 
 | Project dataset | Filename |
 |---|---|
-| Wisconsin traffic accidents | `accident_wi.csv` |
-| Chicago Airbnb listings | `airbnb_chicago.csv` |
-| Wisconsin hospital charges | `hospital_charges_wi.csv` |
-| Mason Crosby special-teams plays | `nfl_special_MasonCrosby.csv` |
+| Chicago traffic crashes | `traffic_chicago_2024.csv` |
+| Midwest airline flights | `airline_midwest_2024.csv` |
+| Olist orders | `olist_southeast_2017.csv` |
+| NFL plays | `nfl_plays_2024.csv` |
+| Wisconsin health appointments | `health_wisconsin_appointments_2023_2025.csv` |
+| Chicago Airbnb listings (worked examples) | `airbnb_chicago.csv` |
 
 Change `project_file` below. Do not change the `data` folder name.
 
 ```{r}
-project_file <- "accident_wi.csv"
+project_file <- "traffic_chicago_2024.csv"
 project_data <- read.csv(
   file.path("data", project_file),
   check.names = FALSE

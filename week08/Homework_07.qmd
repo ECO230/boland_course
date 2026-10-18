@@ -147,6 +147,20 @@ Hint: Compare this result to Hypothesis 1. Do the t-test and Wilcoxon test tell 
 
 ### Hypothesis 3 - Your Full Test
 
+Choose the dataset associated with your project. The five semester samples are
+the same files used in Homeworks 1-4. Airbnb is retained for the worked examples.
+
+| Project dataset | Filename |
+|---|---|
+| Chicago traffic crashes | `traffic_chicago_2024.csv` |
+| Midwest airline flights | `airline_midwest_2024.csv` |
+| Olist orders | `olist_southeast_2017.csv` |
+| NFL plays | `nfl_plays_2024.csv` |
+| Wisconsin health appointments | `health_wisconsin_appointments_2023_2025.csv` |
+| Chicago Airbnb listings (worked examples) | `airbnb_chicago.csv` |
+
+In your Posit Cloud project, read your chosen file from the `data` folder.
+
 1.  **What statistical story am I attempting to tell?**
 
 Hypothesis:
@@ -166,13 +180,15 @@ $H_A$:
 $\alpha = 0.05$
 
 ```{r}
+#| eval: false
 # Attempt a test using idt(), idw(), pst(), psw(), or ost()
 # If your code does not run, leave your attempted code here and comment out the lines with #
 
-ff <- read.csv('../shared/data/airbnb_chicago.csv')
+project_file <- "traffic_chicago_2024.csv"
+ff <- read.csv(file.path("data", project_file))
 
-# h3 <- ff %>%
-#   idt(listed_price ~ instant_bookable)
+# h3 <- ff |>
+#   idt(numeric_outcome ~ two_group_variable)
 
 # print(h3)
 ```
