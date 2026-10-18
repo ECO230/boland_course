@@ -13,10 +13,6 @@
       "destination": "README.md"
     },
     {
-      "source": "week03/labs/data/chicago_traffic_crashes_sample.csv",
-      "destination": "data/chicago_traffic_crashes_sample.csv"
-    },
-    {
       "source": "shared/posit-cloud/.Rprofile",
       "destination": ".Rprofile"
     },
@@ -49,7 +45,6 @@
     "Inference_Examples.qmd",
     "Inference_Examples.Rproj",
     "README.md",
-    "data/chicago_traffic_crashes_sample.csv",
     "renv.lock"
   ],
   "render": "Inference_Examples.qmd"

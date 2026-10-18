@@ -38,36 +38,6 @@ tea_association$results
 tea_association$standardized_residuals
 ```
 
-## Chicago crash examples from the Week 7 lecture
-
-Each row is a reported crash in the course's Chicago sample. Visibility is
-measured in miles. These comparisons describe reported crashes, not exposure
-per trip or causal effects. Examine missing values and group sizes before
-interpreting a test.
-
-```{r}
-crashes <- read_csv("data/chicago_traffic_crashes_sample.csv",
-                    show_col_types = FALSE) |>
-  mutate(injury_crash = if_else(injuries_total > 0, "Injury", "No injury"))
-
-crashes |> count(reported_lighting_condition, injury_crash)
-h1 <- crashes |> csi(injury_crash ~ reported_lighting_condition)
-h1$results
-h1$standardized_residuals
-
-crashes |> group_by(injury_crash) |>
-  summarise(n = sum(!is.na(visibility_miles)),
-            mean_visibility = mean(visibility_miles, na.rm = TRUE))
-h2 <- crashes |> idt(visibility_miles ~ injury_crash)
-h2$results
-
-crashes |> group_by(time_period) |>
-  summarise(n = sum(!is.na(visibility_miles)),
-            mean_visibility = mean(visibility_miles, na.rm = TRUE))
-h3 <- crashes |> ano(visibility_miles ~ time_period)
-h3$results
-```
-
 ## Week 8: t-tests and Wilcoxon tests
 
 Use two groups for independent samples, paired measurements from the same units
