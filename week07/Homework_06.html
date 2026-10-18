@@ -58,23 +58,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="week07-assets/site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="week07-assets/site_libs/clipboard/clipboard.min.js"></script>
-<script src="week07-assets/site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="week07-assets/site_libs/quarto-search/fuse.min.js"></script>
-<script src="week07-assets/site_libs/quarto-search/quarto-search.js"></script>
+<script src="../week07/week07-assets/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../week07/week07-assets/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../week07/week07-assets/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../week07/week07-assets/site_libs/quarto-search/fuse.min.js"></script>
+<script src="../week07/week07-assets/site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="week07-assets/site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="week07-assets/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="week07-assets/site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="week07-assets/site_libs/quarto-html/popper.min.js"></script>
-<script src="week07-assets/site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="week07-assets/site_libs/quarto-html/anchor.min.js"></script>
-<link href="week07-assets/site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="week07-assets/site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="week07-assets/site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="week07-assets/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="week07-assets/site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../week07/week07-assets/site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../week07/week07-assets/site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../week07/week07-assets/site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../week07/week07-assets/site_libs/quarto-html/popper.min.js"></script>
+<script src="../week07/week07-assets/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../week07/week07-assets/site_libs/quarto-html/anchor.min.js"></script>
+<link href="../week07/week07-assets/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../week07/week07-assets/site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../week07/week07-assets/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../week07/week07-assets/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../week07/week07-assets/site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -360,7 +360,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <ul>
 <li>Week 6 and Week 7 slides and interpretation resources</li>
-<li>The four <code>.csv</code> files in the <code>data</code> folder</li>
+<li>The semester sample <code>.csv</code> files and Airbnb data in the <code>data</code> folder</li>
 <li>The <code>csf()</code> and <code>csi()</code> functions from <code>eco230r</code></li>
 <li>Your project story and candidate hypotheses</li>
 </ul>
@@ -530,11 +530,49 @@ window.Quarto = {
 </ol>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example filename: replace it with your group's clean CSV filename.</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>project_file <span class="ot">&lt;-</span> <span class="st">"accident_wi.csv"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>project_file <span class="ot">&lt;-</span> <span class="st">"traffic_chicago_2024.csv"</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>project_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">file.path</span>(<span class="st">"data"</span>, project_file))</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(project_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The example runs with an included practice dataset until you change the filename. If your group’s clean file is not ready, you may use one of the included practice files: <code>accident_wi.csv</code>, <code>airbnb_chicago.csv</code>, <code>hospital_charges_wi.csv</code>, or <code>nfl_special_MasonCrosby.csv</code>. State which dataset you used. These practice files may differ from your group’s current project data.</p>
+<p>The example runs with an included practice dataset until you change the filename. If your group’s clean file is not ready, use the semester sample associated with your project. These are the same five samples used in Homeworks 1-4. Airbnb is also retained for the worked examples. State which dataset you used. These practice files may differ from your group’s current project data.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Project dataset</th>
+<th>Filename</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chicago traffic crashes</td>
+<td><code>traffic_chicago_2024.csv</code></td>
+</tr>
+<tr class="even">
+<td>Midwest airline flights</td>
+<td><code>airline_midwest_2024.csv</code></td>
+</tr>
+<tr class="odd">
+<td>Olist orders</td>
+<td><code>olist_southeast_2017.csv</code></td>
+</tr>
+<tr class="even">
+<td>NFL plays</td>
+<td><code>nfl_plays_2024.csv</code></td>
+</tr>
+<tr class="odd">
+<td>Wisconsin health appointments</td>
+<td><code>health_wisconsin_appointments_2023_2025.csv</code></td>
+</tr>
+<tr class="even">
+<td>Chicago Airbnb listings (worked examples)</td>
+<td><code>airbnb_chicago.csv</code></td>
+</tr>
+</tbody>
+</table>
 <p>For a test of independence, choose two categorical variables, such as injury status and lighting category in crash data. For goodness of fit, choose one categorical variable and state the expected proportions. Check your actual column names with <code>names(project_data)</code>; the names below are placeholders.</p>
 <ol type="1">
 <li><p><strong>Statistical story:</strong> What relationship, difference, or pattern are you investigating, and why might it matter?</p>
