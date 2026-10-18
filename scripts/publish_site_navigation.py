@@ -29,7 +29,7 @@ def selections(config,values):
   menu,label=value.split('=',1);matches=[m for m in config['website']['navbar']['left'] if m.get('text')==menu]
   require(len(matches)==1 and 'menu' in matches[0],'Unknown navbar menu: '+menu)
   entries=matches[0]['menu'];selected=[e for e in entries if e.get('text')==label];require(len(selected)==1,'Entry missing from _quarto.yml: '+value)
-  result.append({'menu':menu,'label':label,'target':target_path(selected[0]),'order':[e['text'] for e in entries if 'text' in e]})
+  result.append({'menu':menu,'label':label,'target':target_path(selected[0]),'order':[e['text'] for e in entries if 'text' in e], 'menu_order':[m['text'] for m in config['website']['navbar']['left'] if 'text' in m]})
  require(len({(s['menu'],s['label']) for s in result})==len(result),'Duplicate requested entry')
  return result
 def label_of(item):
@@ -40,10 +40,38 @@ def patch_navigation(document,selected,site=SITE,page_path="index.html"):
  if not header:return document,0
  content=header.group();checked=0
  for selected_item in selected:
+  before_selected=content
   menu_id='nav-menu-'+re.sub(r'[^a-z0-9]+','-',selected_item['menu'].lower()).strip('-')
   pattern=re.compile(r'(<ul\b[^>]*aria-labelledby=["\']'+re.escape(menu_id)+r'["\'][^>]*>)(.*?)(</ul>)',re.S)
+  # A moved entry must appear only in its source-configured menu. Match its
+  # resolved destination rather than its former display label.
+  url=urljoin(site,selected_item['target'])
+  other_menus=re.compile(r'(<ul\b[^>]*aria-labelledby=["\'](nav-menu-[^"\']+)["\'][^>]*>)(.*?)(</ul>)',re.S)
+  def remove_old(match):
+   if match.group(2)==menu_id:return match.group()
+   def keep_item(item):
+    href=re.search(r'\bhref=(["\'])(.*?)\1',item.group())
+    return '' if href and urljoin(urljoin(site,page_path),html.unescape(href.group(2)))==url else item.group()
+   return match.group(1)+ITEM.sub(keep_item,match.group(3))+match.group(4)
+  content=other_menus.sub(remove_old,content)
   match=pattern.search(content)
-  if not match:continue
+  if not match:
+   order=selected_item.get('menu_order',[])
+   following=order[order.index(selected_item['menu'])+1:] if selected_item['menu'] in order else []
+   anchor=None
+   for label in following:
+    next_id='nav-menu-'+re.sub(r'[^a-z0-9]+','-',label.lower()).strip('-')
+    anchor=re.search(r'\bid=["\']'+re.escape(next_id)+r'["\']',content)
+    if anchor:break
+   if not anchor:
+    content=before_selected
+    continue
+   starts=list(re.finditer(r'<li\b[^>]*class=["\'][^"\']*\bnav-item\b[^"\']*["\'][^>]*>',content[:anchor.start()]))
+   require(starts,'Cannot locate insertion point for navbar menu')
+   position=starts[-1].start()
+   new_menu='<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="'+menu_id+'" role="link" data-bs-toggle="dropdown" aria-expanded="false"><span class="menu-text">'+html.escape(selected_item['menu'])+'</span></a><ul class="dropdown-menu" aria-labelledby="'+menu_id+'"></ul></li>\n'
+   content=content[:position]+new_menu+content[position:]
+   match=pattern.search(content)
   inner=match.group(2);require('<ul' not in inner,'Nested menus need a rendered navigation refresh')
   items=list(ITEM.finditer(inner));labels=[label_of(i.group()) for i in items];wanted=selected_item['label'];url=urljoin(site,selected_item['target'])
   require(labels.count(wanted)<=1,'Duplicate existing label: '+wanted)

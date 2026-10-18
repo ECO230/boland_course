@@ -32,6 +32,8 @@ project:
     - week06/week_06.qmd
     - week07/week_07.qmd
     - week07/interpretation_x2.qmd
+    - week08/interpretation_tw.qmd
+    - week09/interpretation_anlr.qmd
     - week01/Homework_01.qmd
     - week02/Homework_02.qmd
     - week03/Homework_03.qmd
@@ -104,8 +106,14 @@ website:
             file: week06/week_06.qmd
           - text: "Week 7"
             file: week07/week_07.qmd
-          - text: "Interpreting Chi-Square Tests"
+      - text: "Interpretation"
+        menu:
+          - text: "Chi-square Tests"
             file: week07/interpretation_x2.qmd
+          - text: "t-Tests & Wilcoxon Tests"
+            file: week08/interpretation_tw.qmd
+          - text: "ANOVA & Simple Linear Regression"
+            file: week09/interpretation_anlr.qmd
       - text: "Homework"
         menu:
           - text: "Homework 1"

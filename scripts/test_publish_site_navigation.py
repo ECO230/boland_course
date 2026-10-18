@@ -20,4 +20,12 @@ class NavigationTest(unittest.TestCase):
    with self.assertRaises(ValueError):target_path({'file':path})
  def test_unknown_source_entry_rejected(self):
   with self.assertRaises(ValueError):selections({'website':{'navbar':{'left':[{'text':'Slides','menu':[{'text':'Week 5','file':'week05/week_05.qmd'}]}]}}},['Slides=Week 6'])
+ def test_move_to_restored_menu_preserves_other_links_and_body(self):
+  page=HEAD.replace('<ul class="dropdown-menu"', '<ul class="dropdown-menu"',1).replace('<header id="quarto-header">','<header id="quarto-header"><li class="nav-item dropdown"><a id="nav-menu-slides"></a><ul aria-labelledby="nav-menu-slides"><li><a class="dropdown-item" href="../week07/interpretation_x2.html"><span class="dropdown-text">Wrong label</span></a></li></ul></li><li class="nav-item dropdown"><a id="nav-menu-homework"></a>')
+  item={'menu':'Interpretation','label':'Chi-square Tests','target':'week07/interpretation_x2.html','order':['Chi-square Tests'],'menu_order':['Slides','Interpretation','Homework']}
+  result,count=patch_navigation(page,[item],page_path='syllabus/page.html')
+  self.assertEqual(count,1);self.assertNotIn('Wrong label',result);self.assertEqual(result.count('interpretation_x2.html'),1)
+  self.assertLess(result.index('id="nav-menu-interpretation"'),result.index('id="nav-menu-homework"'))
+  self.assertIn('Homework 3',result);self.assertIn('<main>Keep body and code</main>',result)
+  self.assertEqual(patch_navigation(result,[item],page_path='syllabus/page.html'),(result,1))
 if __name__=='__main__':unittest.main()
