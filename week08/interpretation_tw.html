@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+<script src="../week07/week07-assets/site_libs/clipboard/clipboard.min.js"></script>
+<script src="../week07/week07-assets/site_libs/quarto-html/tabby.min.js"></script>
+<script src="../week07/week07-assets/site_libs/quarto-html/popper.min.js"></script>
+<script src="../week07/week07-assets/site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../week07/week07-assets/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../week07/week07-assets/site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../week07/week07-assets/site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
-  <title>ECO 230 – Interpreting t-Tests &amp; Wilcoxon Tests</title>
+  <title>Interpreting t-Tests &amp; Wilcoxon Tests</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../week07/week07-assets/site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../week07/week07-assets/site_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -97,11 +94,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-e5bb095cac77e7bd9454063090bef903.css">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="../week07/week07-assets/site_libs/revealjs/dist/theme/quarto-7de2922f2d1fbf696a6ae0955d43c603.css">
+  <link href="../week07/week07-assets/site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../week07/week07-assets/site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../week07/week07-assets/site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../week07/week07-assets/site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -318,7 +315,7 @@
 <div class="fragment">
 <h3 id="run-the-test">Run the Test</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>h3 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>h3 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
 <span id="cb1-2"><a></a>  <span class="fu">idt</span>(scones <span class="sc">~</span> tea)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
@@ -516,7 +513,7 @@ Consistent, but not large</p>
 <div class="fragment">
 <h3 id="run-the-test-1">Run the Test</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>h4 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>h4 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a></a>  <span class="fu">pst</span>(<span class="sc">~</span>black_tea,<span class="sc">~</span>green_tea)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
@@ -714,7 +711,7 @@ green_tea 12   47       3.183766</code></pre>
 <div class="fragment">
 <h3 id="run-the-test-2">Run the Test</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>h5 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>h5 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a></a>  <span class="fu">ost</span>(<span class="sc">~</span>scones, <span class="at">mu=</span><span class="fl">45.0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
@@ -915,7 +912,7 @@ scones 24 43.5       2.162761</code></pre>
 <div class="fragment">
 <h3 id="run-the-test-3">Run the Test</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>h6 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>h6 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
 <span id="cb7-2"><a></a>  <span class="fu">idw</span>(scones<span class="sc">~</span>tea)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
@@ -926,7 +923,7 @@ scones 24 43.5       2.162761</code></pre>
 <div class="fragment">
 <h3 id="step-4-do-we-believe-it-3">Step 4: Do we believe it?</h3>
 <p><code>h6$results</code></p>
-<p>W = 46, p = 0.136, r_rb = -0.361, bf10 ≈ 1.013</p>
+<p>W = 46, p = 0.137, r_rb = -0.361, bf10 ≈ 1.013</p>
 <p><br></p>
 <p><strong>Decision Rule:</strong></p>
 <ul>
@@ -948,7 +945,7 @@ p = 0.137 &gt; 0.05 → <strong>Fail to Reject H<sub>0</sub></strong></p>
 <!-- LEFT: test output -->
 <div style="display:flex; justify-content:flex-start; align-items:center;">
 <div style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;">
-<p><strong>W = 46, p = 0.136, r_rb = -0.361, bf10 ≈ 1.013</strong></p>
+<p><strong>W = 46, p = 0.137, r_rb = -0.361, bf10 ≈ 1.013</strong></p>
 </div>
 </div>
 <!-- RIGHT: Bayes factor anchor -->
@@ -1113,7 +1110,7 @@ Consistent, but not large</p>
 <div class="fragment">
 <h3 id="run-the-test-4">Run the Test</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>h7 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>h7 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
 <span id="cb9-2"><a></a>  <span class="fu">psw</span>(<span class="sc">~</span>black_tea,<span class="sc">~</span>green_tea)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
@@ -1124,7 +1121,7 @@ Consistent, but not large</p>
 <div class="fragment">
 <h3 id="step-4-do-we-believe-it-4">Step 4: Do we believe it?</h3>
 <p><code>h7$results</code></p>
-<p>V = 12, p = 0.047, r_rb = -0.709, bf10 ≈ 2.401</p>
+<p>V = 8, p = 0.046, r_rb = -0.709, bf10 ≈ 2.401</p>
 <p><br></p>
 <p><strong>Decision Rule:</strong></p>
 <ul>
@@ -1146,7 +1143,7 @@ p = 0.046 &lt; 0.05 → <strong>Reject H<sub>0</sub></strong></p>
 <!-- LEFT: test output -->
 <div style="display:flex; justify-content:flex-start; align-items:center;">
 <div style="text-align:left; font-size:1rem; color:black; font-weight:400; line-height:1.35; margin-left:.2rem;">
-<p><strong>V = 12, p = 0.047, r_rb = -0.709, bf10 ≈ 2.401</strong></p>
+<p><strong>V = 8, p = 0.046, r_rb = -0.709, bf10 ≈ 2.401</strong></p>
 </div>
 </div>
 <!-- RIGHT: Bayes factor anchor -->
@@ -1320,19 +1317,19 @@ Consistent, but not large</p>
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <script src="../week07/week07-assets/site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="../week07/week07-assets/site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../week07/week07-assets/site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../week07/week07-assets/site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../week07/week07-assets/site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../week07/week07-assets/site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script src="../week07/week07-assets/site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../week07/week07-assets/site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../week07/week07-assets/site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../week07/week07-assets/site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1528,42 +1525,80 @@ Consistent, but not large</p>
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1635,7 +1670,7 @@ Consistent, but not large</p>
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+            var filterRegex = new RegExp('/' + window.location.host + '/');
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
