@@ -1067,13 +1067,13 @@ ggplot(plot_df, aes(y = study_f)) +
 
   # Result labels
   geom_text(
-    aes(x = -130, label = res),
+    aes(x = -51, label = res),
     hjust = 0,
-    size = 3
+    size = 3.2
   ) +
 
   coord_cartesian(
-    xlim = c(-135, 35),
+    xlim = c(-52, 35),
     clip = "off"
   ) +
 
@@ -1146,13 +1146,13 @@ ggplot(plot_df, aes(y = study_f)) +
 
   # Result labels
   geom_text(
-    aes(x = -130, label = res),
+    aes(x = -51, label = res),
     hjust = 0,
-    size = 3
+    size = 3.2
   ) +
 
   coord_cartesian(
-    xlim = c(-135, 35),
+    xlim = c(-52, 35),
     clip = "off"
   ) +
 
