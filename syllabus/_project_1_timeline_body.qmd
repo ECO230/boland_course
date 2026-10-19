@@ -46,7 +46,7 @@ timeline <- data.frame(
   `What the team should have ready` = c(
     "Choose statistical stories and begin planning.",
     "Hypotheses, variables, planned analyses, cleaning decisions, and teammate responsibilities.",
-    "A shared dataset prepared in R, with documented cleaning and derived variables.",
+    "Verify data fit, begin an analysis, and identify specific data requests and next steps.",
     "A draft presentation with preliminary findings and questions for coaching.",
     "The draft presentation and specific questions about your analysis and story.",
     "A rehearsed business presentation and final slides. Have slides ready at least one hour before class.",
@@ -58,7 +58,7 @@ timeline <- data.frame(
     get_date("C11")),
   Submission = c("Discuss in class; no separate submission.",
     "Submit in Prep Work: Analysis Plan in Canvas.",
-    "Upload team/prepare_data.pdf in Prep Work: Clean Data Set; keep the CSV in your group project.",
+    "Submit a brief team reflection in Prep Work: Clean Data Set; keep the CSV and saved analysis work in your team workspace.",
     "Upload in Prep Work: Pre-Coaching Presentation Draft in Canvas.",
     "Attend your coaching session; use the Canvas attendance checkpoint as directed.",
     "Present in class; upload final slides in Analysis Project - Slides in Canvas.",

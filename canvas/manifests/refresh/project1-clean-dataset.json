@@ -41,13 +41,15 @@
       },
       "validation": {
         "required_text": [
-          "team/prepare_data.pdf",
+          "Data access",
+          "Fit for your needs",
+          "Analysis progress",
+          "Requests and next step",
           "Do not upload the clean CSV",
-          "working document",
-          "Clean Dataset Milestone"
+          "pass/fail"
         ],
         "forbidden_text": [
-          "Submit the clean dataset or identify its location"
+          "Submit `team/prepare_data.pdf`"
         ]
       },
       "id": 11004589,

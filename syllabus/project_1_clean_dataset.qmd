@@ -14,126 +14,94 @@ execute:
   message: false
 ---
 
-## Purpose
-
-Prepare a shared dataset that fits your team's statistical stories. Document
-how you move from the supplied data to the observations and variables you will
-analyze, so teammates and a skilled analyst can reproduce those decisions.
-
-[Project Prompt](project_1_prompt.qmd) | [Analysis Plan](project_1_analysis_plan.qmd) | [Clean Dataset](project_1_clean_dataset.qmd) | [Timeline by Section](project_1_timeline.qmd) | [Presentation Guide](project_1_presentation_in_person.qmd)
-
-## Your Role and Available Help
-
-You are **not expected to complete every cleaning, joining, or coding task on
-your own**. The instructor can help wherever needed to get the data prepared.
-Your responsibility is to outline your sources and data needs in the current
-`team/analysis_plan.qmd`: the story or hypothesis, observations and variables
-needed, source tables or additional sources, filters, derived measures, and any
-joins or coding tasks you need help with. Explain how those needs support your
-analysis, even when the implementation is not yet clear.
-
-The Analysis Plan is a **working document**. Changes since its checkpoint
-submission are fine: update the same plan as your questions, hypotheses, sources,
-or data needs develop. Preparation and requests for help should follow the
-current plan, not be constrained to the version originally submitted.
-
-::: {.callout-tip title="Outline the Need; Ask for Help"}
-Describe what data you need and why in your current Analysis Plan. Bring that
-plan and your questions to the instructor for help with preparation. You do
-not need to solve a difficult join or write unfamiliar code before asking.
-Document the resulting decisions and code in the preparation document,
-including steps completed with assistance.
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+Check that your team's clean dataset supports your project and begin using it.
+Submit a brief progress reflection so the instructor can see what is working
+and help resolve specific data needs.
 :::
 
-## Files for This Milestone
+The instructor is handling the bulk of the data cleaning. Your team's role at
+this checkpoint is to verify that the prepared data fits your questions, try an
+analysis, and identify any changes or additional data you need.
 
-These are paths inside your team's own Posit Cloud project, not links to another
-team's files. Work in `team/prepare_data.qmd`. Your named clean CSV and
-`team/prepare_data.pdf` will appear beside that document in `team/`.
-If your template uses different names, identify the equivalent files in your
-submission. Read `data/DATA_NOTES.md` for the supplied tables and scope.
+[Project Prompt](project_1_prompt.qmd) | [Analysis Plan](project_1_analysis_plan.qmd) | [Timeline by Section](project_1_timeline.qmd)
 
-## Name Your Document and Dataset
+## 1) Download and Check Your Clean Data
 
-At the top of `team/prepare_data.qmd`, update the document title to identify your
-group. Set `clean_file` to a CSV filename identifying your team, such as
-`Group04_Traffic_clean.csv`. This is an example, not a required naming pattern.
-Replace `GroupXX`, keep the `.csv` extension, and enter a filename without a
-folder path. The template saves it in `team/` automatically.
+Open your group's Posit Cloud project and locate the current clean `.csv` file,
+usually in `team/`. Read `data/DATA_NOTES.md` and any instructor notes about the
+prepared data. If the file is missing or you are unsure which version to use,
+ask the instructor and identify that blocker in your reflection.
 
-## Prepare and Explain the Data
+In the **Files** pane, check the box beside the clean CSV. Open **More** (the
+gear or more options menu), choose **Export**, and download the file. All
+teammates should use the same version.
 
-Use your current Analysis Plan to decide which observations and variables your
-stories need. With instructor help wherever needed, prepare the data and explain
-the decisions alongside the code:
+Compare the data with your current `team/analysis_plan.qmd`:
 
-1. Identify the source tables, time coverage, and unit of observation.
-2. Select needed variables and document filters and excluded observations.
-3. Explain missing-value treatment and distinguish missing values from zero.
-4. Define derived variables and calculations, including units and denominators.
-5. If you combine tables, identify the keys and expected relationship. Check
-   unmatched records and row counts; summarize first when needed to preserve
-   your intended unit of observation.
-6. Check that the resulting variables and population address your hypotheses.
+- Do the observations, time period, and population fit your project questions?
+- Are the variables, groups, units, and measures you need available?
+- Do missing values, sample sizes, or other limitations affect a planned analysis?
 
-Keep the supplied setup and final save chunks. Add readable R chunks and
-explanations between them. If you identify an additional-data gap, outline the needed
-variables, sources, unit, geography, time period, and possible keys in the
-current plan. The instructor or an assisting agent can help obtain and integrate
-that evidence.
-Record its source and limitations.
+Update the working Analysis Plan if your questions or data needs have changed.
 
-## Render and Check the Saved Dataset
+## 2) Start an Analysis
 
-Click **Render** in `team/prepare_data.qmd`. This intentionally runs import and
-preparation, writes the named CSV to `team/`, and creates the preparation PDF.
-Confirm that the CSV exists, has the expected rows and columns, and contains
-sensible values for the variables used in your stories.
+Use the downloaded data to begin **one** relevant analysis in **Excel or
+Tableau**, or attempt a **hypothesis test in R** using the clean data in your
+group project. Choose work that moves one of your team's questions forward.
+For example, create a grouped summary table, make a chart comparing groups, or
+try a chi-square test for two categorical variables.
 
-::: {.callout-important title="One Shared Dataset"}
-All teammates should analyze the same saved clean CSV. Render preparation again
-when its code or additional data changes. Hypothesis documents read the saved
-CSV as `clean_data`; rendering them does not repeat preparation.
-:::
+Save your work so you can continue it. In your reflection, name the variables
+and tool you used, describe what you tried, and report an initial finding or
+what prevented the analysis from working. An attempted analysis with a specific
+blocker is useful evidence of progress. If the clean file is unavailable,
+identify the analysis you are ready to attempt and the file or data you need.
 
-Download that named CSV directly from `team/` to use in Excel or Tableau.
-Record how each final external-tool chart, table, or descriptive finding was
-made in `team/descriptive_evidence.qmd`: source file, filters, calculations,
-grouping, and relevant visual choices. A skilled analyst should be able to
-recreate the final evidence from the notes; screenshots and click-by-click
-instructions are not required.
+## 3) Submit a Quick Team Reflection
 
-## Submission
+One teammate submits for the team in **Prep Work: Clean Data Set** in Canvas.
+Use the text entry box or upload a short PDF. Include your group number,
+teammate names, Posit Cloud project link, and exact clean CSV filename.
 
-Submit **`team/prepare_data.pdf`** in **Prep Work: Clean Data Set** in
-Canvas by the deadline on your section's timeline. One teammate submits for the
-team; include the group number and teammate names in the document. Identify the
-Posit Cloud project link and exact clean CSV filename in the PDF or submission
-comment so the instructor can find the prepared data.
+Use these four bullets; a few sentences for each is enough:
 
-::: {.callout-important title="Submit the PDF; Keep the Data in Your Project"}
-Upload the preparation PDF, not the CSV. Keep the named clean CSV and editable
-`team/prepare_data.qmd` in your group's Posit Cloud project. The instructor can
-review the data and source there when needed.
-:::
+1. **Data access:** Which clean file did you download and open? If you could not
+   access it, explain what happened.
+2. **Fit for your needs:** Which project question can you address with these
+   data? Identify the variables you checked and any important limitation.
+3. **Analysis progress:** What did you try in Excel, Tableau, or R? Name the
+   variables and describe an initial result or specific obstacle. Identify the
+   saved work file or its location. A screenshot or small output excerpt is
+   optional.
+4. **Requests and next step:** Specify any changes or new data you need and
+   explain which question they would support. Name the needed variable or
+   measure, time period, population, source, or matching key when relevant.
+   If no changes are needed, say so. State your team's next analysis step and
+   who will take it.
 
-This checkpoint does not require separately submitting each teammate's
-hypothesis document. Your final Technical Documentation will assemble the
-preparation explanation and code with the completed analyses.
+For example, a useful request explains that you need monthly counts by ZIP code
+for a particular period to calculate a rate. "We need more data" does not give
+the instructor enough information to act.
+
+**Do not upload the clean CSV.** Keep it and your saved analysis work in the
+group project or shared team workspace. This checkpoint requires the short
+reflection; a preparation PDF or completed hypothesis document is not required.
+Keep the preparation source in your project for the final technical documentation.
 
 ## Checklist
 
-- [ ] The document title and clean CSV filename identify the team.
-- [ ] The current Analysis Plan outlines the sources, data needs, and tasks needing help.
-- [ ] Preparation decisions connect to the current stories and hypotheses.
-- [ ] Filters, missing values, derived variables, and any joins are documented.
-- [ ] The preparation document renders and the saved CSV passes basic checks.
-- [ ] Teammates know which CSV to use and where to find it in `team/`.
-- [ ] The preparation PDF identifies the team, project, and clean CSV filename.
-- [ ] Only the preparation PDF is uploaded; the CSV and editable source stay in the group project.
+- [ ] We identified the current clean file and verified access, or described a blocker.
+- [ ] We checked whether the data supports a project question.
+- [ ] We described an analysis attempt or the specific data needed to begin.
+- [ ] We listed actionable requests and our next step.
+- [ ] Our reflection identifies the team, project, clean file, and saved analysis work.
 
 ## Grading Basis
 
-This is the preparation checkpoint described in the [Project Prompt](project_1_prompt.qmd).
-That prompt defines the existing prep-work policy; the section timeline defines
-the deadline.
+This is a **pass/fail team progress checkpoint** under the existing
+[prep-work policy](project_1_prompt.qmd#prep-work). Credit is based on a specific,
+complete account of your data check, analysis progress or blocker, and next step.
+A successful test or finished analysis is not required. Use the due date shown
+in Canvas and on your section's timeline.

@@ -89,7 +89,7 @@ names, identify the equivalent files in your submission.
 | Milestone | Files to work in | What to have ready |
 |---|---|---|
 | Analysis Plan | `team/analysis_plan.qmd` | Stories, hypotheses, variables, preparation decisions, responsibilities, and next steps. |
-| Clean Dataset | `team/prepare_data.qmd` | Submit `team/prepare_data.pdf`; keep the group-named CSV in the project. |
+| Clean Dataset | Prepared clean CSV and saved analysis work | Submit a brief team reflection on data fit, analysis progress, requests, and next steps. |
 | Pre-Coaching Presentation and Coaching Session | `team/hypothesis_01.qmd` through `team/hypothesis_04.qmd`; `team/descriptive_evidence.qmd` | Developing analyses, documented evidence, presentation slides, and questions for coaching. |
 | In-Person Presentation and Presentation Materials | Your PowerPoint or Google Slides presentation; supporting hypothesis and descriptive-evidence files | Final slides whose findings match the documented analysis. |
 | Technical Documentation | `team/technical_documentation.qmd` | One combined PDF and an automatically generated source ZIP, both in `team/`. |
@@ -122,7 +122,7 @@ Each project template provides a fixed dataset for its topic. Read `data/DATA_NO
 
 ### Prep Work
 
-Prep work will be due in weeks 6 through 9 to ensure you are keeping on track with the work needed to complete the project on time. Prep work is pass/fail and graded per-group. Attendance for coaching sessions is graded individually. Missing prep work will be subtracted from your final project score (e.g., if you do not have your clean data set prepared in time you will have 20 points subtracted from your final project score).
+Prep work will be due in weeks 6 through 9 to ensure you are keeping on track with the work needed to complete the project on time. Prep work is pass/fail and graded per-group. Attendance for coaching sessions is graded individually. Missing prep work will be subtracted from your final project score (e.g., if you do not complete the clean dataset progress checkpoint in time you will have 20 points subtracted from your final project score).
 
 1. [Analysis Plan](project_1_analysis_plan.qmd)  
 2. [Clean Dataset](project_1_clean_dataset.qmd)
@@ -137,13 +137,22 @@ Complete `team/analysis_plan.qmd` together, following the [Analysis Plan instruc
 
 ### Clean Dataset
 
-Follow the [Clean Dataset milestone instructions](project_1_clean_dataset.qmd). You are not expected to complete every cleaning, joining, or coding task on your own; the instructor can help wherever needed. Outline the sources and data needs in your current `team/analysis_plan.qmd`. Changes since the plan's checkpoint submission are fine: it is a working document, and preparation should follow its current version.
+Follow the [Clean Dataset checkpoint instructions](project_1_clean_dataset.qmd).
+The instructor is handling the bulk of the cleaning. Download your team's current
+clean CSV, check whether the observations and variables fit your questions, and
+begin a table or chart in Excel or Tableau, or a hypothesis test in R.
 
-Open `team/prepare_data.qmd`. First update the document title and `clean_file` setting to identify your team, for example `Group04_Traffic_clean.csv`. The example is not a required naming pattern: choose a filename identifying your group, replace `GroupXX`, and keep `.csv`. Document filters, missing-value decisions, joins, and derived variables alongside your code.
+Submit one brief team reflection in **Prep Work: Clean Data Set** in Canvas:
+data access, fit for your needs, analysis progress or a specific blocker, and
+requests for changes or new data with your next step. Include the group number,
+teammate names, project link, exact clean CSV filename, and saved analysis file
+or location. A text entry or short PDF is sufficient; a preparation PDF is not
+required for this checkpoint. Keep the clean CSV and analysis work in the team
+workspace. Update the working Analysis Plan as your questions and needs develop.
 
-Click **Render** to save the clean CSV and preparation PDF directly in `team/`. Submit `team/prepare_data.pdf` in the Prep Work: Clean Data Set Canvas assignment. Keep the named clean CSV and `team/prepare_data.qmd` in your group project; do not upload CSV files. Include the project link and exact CSV filename in the PDF or submission comment. Download this same named CSV from `team/` when using Excel or Tableau.
-
-Render preparation again when its code or additional data changes. Hypothesis documents load the saved CSV as `clean_data` without repeating raw-data import and cleaning.
+Keep `team/prepare_data.qmd` and the preparation documentation in your group
+project for the final technical documentation. Analyses should use the same
+current saved clean CSV.
 
 ### Analysis and Coaching Preparation
 
