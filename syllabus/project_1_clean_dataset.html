@@ -261,13 +261,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#purpose" id="toc-purpose" class="nav-link active" data-scroll-target="#purpose">Purpose</a></li>
-  <li><a href="#your-role-and-available-help" id="toc-your-role-and-available-help" class="nav-link" data-scroll-target="#your-role-and-available-help">Your Role and Available Help</a></li>
-  <li><a href="#files-for-this-milestone" id="toc-files-for-this-milestone" class="nav-link" data-scroll-target="#files-for-this-milestone">Files for This Milestone</a></li>
-  <li><a href="#name-your-document-and-dataset" id="toc-name-your-document-and-dataset" class="nav-link" data-scroll-target="#name-your-document-and-dataset">Name Your Document and Dataset</a></li>
-  <li><a href="#prepare-and-explain-the-data" id="toc-prepare-and-explain-the-data" class="nav-link" data-scroll-target="#prepare-and-explain-the-data">Prepare and Explain the Data</a></li>
-  <li><a href="#render-and-check-the-saved-dataset" id="toc-render-and-check-the-saved-dataset" class="nav-link" data-scroll-target="#render-and-check-the-saved-dataset">Render and Check the Saved Dataset</a></li>
-  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#download-and-check-your-clean-data" id="toc-download-and-check-your-clean-data" class="nav-link active" data-scroll-target="#download-and-check-your-clean-data">1) Download and Check Your Clean Data</a></li>
+  <li><a href="#start-an-analysis" id="toc-start-an-analysis" class="nav-link" data-scroll-target="#start-an-analysis">2) Start an Analysis</a></li>
+  <li><a href="#submit-a-quick-team-reflection" id="toc-submit-a-quick-team-reflection" class="nav-link" data-scroll-target="#submit-a-quick-team-reflection">3) Submit a Quick Team Reflection</a></li>
   <li><a href="#checklist" id="toc-checklist" class="nav-link" data-scroll-target="#checklist">Checklist</a></li>
   <li><a href="#grading-basis" id="toc-grading-basis" class="nav-link" data-scroll-target="#grading-basis">Grading Basis</a></li>
   </ul>
@@ -295,102 +291,64 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="purpose" class="level2">
-<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
-<p>Prepare a shared dataset that fits your team’s statistical stories. Document how you move from the supplied data to the observations and variables you will analyze, so teammates and a skilled analyst can reproduce those decisions.</p>
-<p><a href="../syllabus/project_1_prompt.html">Project Prompt</a> | <a href="../syllabus/project_1_analysis_plan.html">Analysis Plan</a> | <a href="../syllabus/project_1_clean_dataset.html">Clean Dataset</a> | <a href="../syllabus/project_1_timeline.html">Timeline by Section</a> | <a href="../syllabus/project_1_presentation_in_person.html">Presentation Guide</a></p>
-</section>
-<section id="your-role-and-available-help" class="level2">
-<h2 class="anchored" data-anchor-id="your-role-and-available-help">Your Role and Available Help</h2>
-<p>You are <strong>not expected to complete every cleaning, joining, or coding task on your own</strong>. The instructor can help wherever needed to get the data prepared. Your responsibility is to outline your sources and data needs in the current <code>team/analysis_plan.qmd</code>: the story or hypothesis, observations and variables needed, source tables or additional sources, filters, derived measures, and any joins or coding tasks you need help with. Explain how those needs support your analysis, even when the implementation is not yet clear.</p>
-<p>The Analysis Plan is a <strong>working document</strong>. Changes since its checkpoint submission are fine: update the same plan as your questions, hypotheses, sources, or data needs develop. Preparation and requests for help should follow the current plan, not be constrained to the version originally submitted.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Outline the Need; Ask for Help">
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Purpose">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Outline the Need; Ask for Help
+<span class="screen-reader-only">Note</span>Purpose
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Describe what data you need and why in your current Analysis Plan. Bring that plan and your questions to the instructor for help with preparation. You do not need to solve a difficult join or write unfamiliar code before asking. Document the resulting decisions and code in the preparation document, including steps completed with assistance.</p>
+<p>Check that your team’s clean dataset supports your project and begin using it. Submit a brief progress reflection so the instructor can see what is working and help resolve specific data needs.</p>
 </div>
 </div>
+<p>The instructor is handling the bulk of the data cleaning. Your team’s role at this checkpoint is to verify that the prepared data fits your questions, try an analysis, and identify any changes or additional data you need.</p>
+<p><a href="../syllabus/project_1_prompt.html">Project Prompt</a> | <a href="../syllabus/project_1_analysis_plan.html">Analysis Plan</a> | <a href="../syllabus/project_1_timeline.html">Timeline by Section</a></p>
+<section id="download-and-check-your-clean-data" class="level2">
+<h2 class="anchored" data-anchor-id="download-and-check-your-clean-data">1) Download and Check Your Clean Data</h2>
+<p>Open your group’s Posit Cloud project and locate the current clean <code>.csv</code> file, usually in <code>team/</code>. Read <code>data/DATA_NOTES.md</code> and any instructor notes about the prepared data. If the file is missing or you are unsure which version to use, ask the instructor and identify that blocker in your reflection.</p>
+<p>In the <strong>Files</strong> pane, check the box beside the clean CSV. Open <strong>More</strong> (the gear or more options menu), choose <strong>Export</strong>, and download the file. All teammates should use the same version.</p>
+<p>Compare the data with your current <code>team/analysis_plan.qmd</code>:</p>
+<ul>
+<li>Do the observations, time period, and population fit your project questions?</li>
+<li>Are the variables, groups, units, and measures you need available?</li>
+<li>Do missing values, sample sizes, or other limitations affect a planned analysis?</li>
+</ul>
+<p>Update the working Analysis Plan if your questions or data needs have changed.</p>
 </section>
-<section id="files-for-this-milestone" class="level2">
-<h2 class="anchored" data-anchor-id="files-for-this-milestone">Files for This Milestone</h2>
-<p>These are paths inside your team’s own Posit Cloud project, not links to another team’s files. Work in <code>team/prepare_data.qmd</code>. Your named clean CSV and <code>team/prepare_data.pdf</code> will appear beside that document in <code>team/</code>. If your template uses different names, identify the equivalent files in your submission. Read <code>data/DATA_NOTES.md</code> for the supplied tables and scope.</p>
+<section id="start-an-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="start-an-analysis">2) Start an Analysis</h2>
+<p>Use the downloaded data to begin <strong>one</strong> relevant analysis in <strong>Excel or Tableau</strong>, or attempt a <strong>hypothesis test in R</strong> using the clean data in your group project. Choose work that moves one of your team’s questions forward. For example, create a grouped summary table, make a chart comparing groups, or try a chi-square test for two categorical variables.</p>
+<p>Save your work so you can continue it. In your reflection, name the variables and tool you used, describe what you tried, and report an initial finding or what prevented the analysis from working. An attempted analysis with a specific blocker is useful evidence of progress. If the clean file is unavailable, identify the analysis you are ready to attempt and the file or data you need.</p>
 </section>
-<section id="name-your-document-and-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="name-your-document-and-dataset">Name Your Document and Dataset</h2>
-<p>At the top of <code>team/prepare_data.qmd</code>, update the document title to identify your group. Set <code>clean_file</code> to a CSV filename identifying your team, such as <code>Group04_Traffic_clean.csv</code>. This is an example, not a required naming pattern. Replace <code>GroupXX</code>, keep the <code>.csv</code> extension, and enter a filename without a folder path. The template saves it in <code>team/</code> automatically.</p>
-</section>
-<section id="prepare-and-explain-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="prepare-and-explain-the-data">Prepare and Explain the Data</h2>
-<p>Use your current Analysis Plan to decide which observations and variables your stories need. With instructor help wherever needed, prepare the data and explain the decisions alongside the code:</p>
+<section id="submit-a-quick-team-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="submit-a-quick-team-reflection">3) Submit a Quick Team Reflection</h2>
+<p>One teammate submits for the team in <strong>Prep Work: Clean Data Set</strong> in Canvas. Use the text entry box or upload a short PDF. Include your group number, teammate names, Posit Cloud project link, and exact clean CSV filename.</p>
+<p>Use these four bullets; a few sentences for each is enough:</p>
 <ol type="1">
-<li>Identify the source tables, time coverage, and unit of observation.</li>
-<li>Select needed variables and document filters and excluded observations.</li>
-<li>Explain missing-value treatment and distinguish missing values from zero.</li>
-<li>Define derived variables and calculations, including units and denominators.</li>
-<li>If you combine tables, identify the keys and expected relationship. Check unmatched records and row counts; summarize first when needed to preserve your intended unit of observation.</li>
-<li>Check that the resulting variables and population address your hypotheses.</li>
+<li><strong>Data access:</strong> Which clean file did you download and open? If you could not access it, explain what happened.</li>
+<li><strong>Fit for your needs:</strong> Which project question can you address with these data? Identify the variables you checked and any important limitation.</li>
+<li><strong>Analysis progress:</strong> What did you try in Excel, Tableau, or R? Name the variables and describe an initial result or specific obstacle. Identify the saved work file or its location. A screenshot or small output excerpt is optional.</li>
+<li><strong>Requests and next step:</strong> Specify any changes or new data you need and explain which question they would support. Name the needed variable or measure, time period, population, source, or matching key when relevant. If no changes are needed, say so. State your team’s next analysis step and who will take it.</li>
 </ol>
-<p>Keep the supplied setup and final save chunks. Add readable R chunks and explanations between them. If you identify an additional-data gap, outline the needed variables, sources, unit, geography, time period, and possible keys in the current plan. The instructor or an assisting agent can help obtain and integrate that evidence. Record its source and limitations.</p>
-</section>
-<section id="render-and-check-the-saved-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="render-and-check-the-saved-dataset">Render and Check the Saved Dataset</h2>
-<p>Click <strong>Render</strong> in <code>team/prepare_data.qmd</code>. This intentionally runs import and preparation, writes the named CSV to <code>team/</code>, and creates the preparation PDF. Confirm that the CSV exists, has the expected rows and columns, and contains sensible values for the variables used in your stories.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="One Shared Dataset">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>One Shared Dataset
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>All teammates should analyze the same saved clean CSV. Render preparation again when its code or additional data changes. Hypothesis documents read the saved CSV as <code>clean_data</code>; rendering them does not repeat preparation.</p>
-</div>
-</div>
-<p>Download that named CSV directly from <code>team/</code> to use in Excel or Tableau. Record how each final external-tool chart, table, or descriptive finding was made in <code>team/descriptive_evidence.qmd</code>: source file, filters, calculations, grouping, and relevant visual choices. A skilled analyst should be able to recreate the final evidence from the notes; screenshots and click-by-click instructions are not required.</p>
-</section>
-<section id="submission" class="level2">
-<h2 class="anchored" data-anchor-id="submission">Submission</h2>
-<p>Submit <strong><code>team/prepare_data.pdf</code></strong> in <strong>Prep Work: Clean Data Set</strong> in Canvas by the deadline on your section’s timeline. One teammate submits for the team; include the group number and teammate names in the document. Identify the Posit Cloud project link and exact clean CSV filename in the PDF or submission comment so the instructor can find the prepared data.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Submit the PDF; Keep the Data in Your Project">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Submit the PDF; Keep the Data in Your Project
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Upload the preparation PDF, not the CSV. Keep the named clean CSV and editable <code>team/prepare_data.qmd</code> in your group’s Posit Cloud project. The instructor can review the data and source there when needed.</p>
-</div>
-</div>
-<p>This checkpoint does not require separately submitting each teammate’s hypothesis document. Your final Technical Documentation will assemble the preparation explanation and code with the completed analyses.</p>
+<p>For example, a useful request explains that you need monthly counts by ZIP code for a particular period to calculate a rate. “We need more data” does not give the instructor enough information to act.</p>
+<p><strong>Do not upload the clean CSV.</strong> Keep it and your saved analysis work in the group project or shared team workspace. This checkpoint requires the short reflection; a preparation PDF or completed hypothesis document is not required. Keep the preparation source in your project for the final technical documentation.</p>
 </section>
 <section id="checklist" class="level2">
 <h2 class="anchored" data-anchor-id="checklist">Checklist</h2>
 <ul class="task-list">
-<li><label><input type="checkbox">The document title and clean CSV filename identify the team.</label></li>
-<li><label><input type="checkbox">The current Analysis Plan outlines the sources, data needs, and tasks needing help.</label></li>
-<li><label><input type="checkbox">Preparation decisions connect to the current stories and hypotheses.</label></li>
-<li><label><input type="checkbox">Filters, missing values, derived variables, and any joins are documented.</label></li>
-<li><label><input type="checkbox">The preparation document renders and the saved CSV passes basic checks.</label></li>
-<li><label><input type="checkbox">Teammates know which CSV to use and where to find it in <code>team/</code>.</label></li>
-<li><label><input type="checkbox">The preparation PDF identifies the team, project, and clean CSV filename.</label></li>
-<li><label><input type="checkbox">Only the preparation PDF is uploaded; the CSV and editable source stay in the group project.</label></li>
+<li><label><input type="checkbox">We identified the current clean file and verified access, or described a blocker.</label></li>
+<li><label><input type="checkbox">We checked whether the data supports a project question.</label></li>
+<li><label><input type="checkbox">We described an analysis attempt or the specific data needed to begin.</label></li>
+<li><label><input type="checkbox">We listed actionable requests and our next step.</label></li>
+<li><label><input type="checkbox">Our reflection identifies the team, project, clean file, and saved analysis work.</label></li>
 </ul>
 </section>
 <section id="grading-basis" class="level2">
 <h2 class="anchored" data-anchor-id="grading-basis">Grading Basis</h2>
-<p>This is the preparation checkpoint described in the <a href="../syllabus/project_1_prompt.html">Project Prompt</a>. That prompt defines the existing prep-work policy; the section timeline defines the deadline.</p>
+<p>This is a <strong>pass/fail team progress checkpoint</strong> under the existing <a href="../syllabus/project_1_prompt.html#prep-work">prep-work policy</a>. Credit is based on a specific, complete account of your data check, analysis progress or blocker, and next step. A successful test or finished analysis is not required. Use the due date shown in Canvas and on your section’s timeline.</p>
 
 
 </section>
