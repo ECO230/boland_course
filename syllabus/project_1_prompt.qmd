@@ -144,9 +144,8 @@ begin a table or chart in Excel or Tableau, or a hypothesis test in R.
 
 Submit one brief team reflection in **Prep Work: Clean Data Set** in Canvas:
 data access, fit for your needs, analysis progress or a specific blocker, and
-requests for changes or new data with your next step. Include the group number,
-teammate names, project link, exact clean CSV filename, and saved analysis file
-or location. A text entry or short PDF is sufficient; a preparation PDF is not
+requests for changes or new data with your next step. Include the group number and exact clean CSV filename(s).
+Identifying a saved analysis file or its location is optional. A text entry or short PDF is sufficient; a preparation PDF is not
 required for this checkpoint. Keep the clean CSV and analysis work in the team
 workspace. Update the working Analysis Plan as your questions and needs develop.
 

@@ -62,8 +62,8 @@ identify the analysis you are ready to attempt and the file or data you need.
 ## 3) Submit a Quick Team Reflection
 
 One teammate submits for the team in **Prep Work: Clean Data Set** in Canvas.
-Use the text entry box or upload a short PDF. Include your group number,
-teammate names, Posit Cloud project link, and exact clean CSV filename.
+Use the text entry box or upload a short PDF. Include your group number and exact clean CSV filename(s).
+You may also identify a saved analysis file or its location (optional).
 
 Use these four bullets; a few sentences for each is enough:
 
@@ -72,9 +72,9 @@ Use these four bullets; a few sentences for each is enough:
 2. **Fit for your needs:** Which project question can you address with these
    data? Identify the variables you checked and any important limitation.
 3. **Analysis progress:** What did you try in Excel, Tableau, or R? Name the
-   variables and describe an initial result or specific obstacle. Identify the
-   saved work file or its location. A screenshot or small output excerpt is
-   optional.
+   variables and describe an initial result or specific obstacle. You may identify the
+   saved work file or its location (optional). A screenshot or small output
+   excerpt is also optional.
 4. **Requests and next step:** Specify any changes or new data you need and
    explain which question they would support. Name the needed variable or
    measure, time period, population, source, or matching key when relevant.
@@ -96,7 +96,7 @@ Keep the preparation source in your project for the final technical documentatio
 - [ ] We checked whether the data supports a project question.
 - [ ] We described an analysis attempt or the specific data needed to begin.
 - [ ] We listed actionable requests and our next step.
-- [ ] Our reflection identifies the team, project, clean file, and saved analysis work.
+- [ ] Our reflection includes the group number and clean CSV filename(s).
 
 ## Grading Basis
 

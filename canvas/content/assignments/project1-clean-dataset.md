@@ -17,8 +17,8 @@ is to check that the prepared data fits your project and start using it.
    specific problem that stopped you. If the file is unavailable, explain which
    analysis you are ready to start and what data you need.
 3. **Submit a quick team reflection.** One teammate submits a text entry or short
-   PDF for the team. Include the group number, teammate names, project link,
-   exact clean CSV filename, and saved analysis file or location.
+   PDF for the team. Include your group number and exact clean CSV filename(s).
+   You may also identify a saved analysis file or its location (optional).
 
 Use four brief bullets:
 
