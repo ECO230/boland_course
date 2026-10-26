@@ -1,0 +1,100 @@
+{
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634
+    },
+    {
+      "section": 11,
+      "course_id": 869206
+    },
+    {
+      "section": 12,
+      "course_id": 870121
+    }
+  ],
+  "objects": [
+    {
+      "kind": "assignment",
+      "id": 11004604,
+      "source_path": "_site/week08/Homework_07.html",
+      "published_url": "https://eco230.github.io/boland_course/week08/Homework_07.html",
+      "input_paths": [
+        "week08/Homework_07.qmd",
+        "week08/Homework_07_assignment.qmd",
+        "week08/homework_07.manifest.json"
+      ],
+      "targets": {
+        "4": {
+          "id": 11004604,
+          "module_id": 4667284,
+          "assignment_group_id": 1951712
+        },
+        "11": {
+          "id": 11024236,
+          "module_id": 4677010,
+          "assignment_group_id": 1955477
+        },
+        "12": {
+          "id": 11029557,
+          "module_id": 4679328,
+          "assignment_group_id": 1956658
+        }
+      },
+      "validation": {
+        "required_text": [
+          "Export",
+          "Upload",
+          "health_wisconsin_appointments_2023_2025.csv"
+        ],
+        "forbidden_text": [
+          "accident_wi.csv",
+          "hospital_charges_wi.csv",
+          "nfl_special_MasonCrosby.csv",
+          "project_setup.R"
+        ]
+      }
+    },
+    {
+      "kind": "assignment",
+      "id": 11004608,
+      "source_path": "_site/week09/Homework_08.html",
+      "published_url": "https://eco230.github.io/boland_course/week09/Homework_08.html",
+      "input_paths": [
+        "week09/Homework_08.qmd",
+        "week09/Homework_08_assignment.qmd",
+        "week09/homework_08.manifest.json"
+      ],
+      "targets": {
+        "4": {
+          "id": 11004608,
+          "module_id": 4667285,
+          "assignment_group_id": 1951712
+        },
+        "11": {
+          "id": 11024242,
+          "module_id": 4677011,
+          "assignment_group_id": 1955477
+        },
+        "12": {
+          "id": 11029561,
+          "module_id": 4679329,
+          "assignment_group_id": 1956658
+        }
+      },
+      "validation": {
+        "required_text": [
+          "Export",
+          "Upload",
+          "health_wisconsin_appointments_2023_2025.csv"
+        ],
+        "forbidden_text": [
+          "accident_wi.csv",
+          "hospital_charges_wi.csv",
+          "nfl_special_MasonCrosby.csv",
+          "project_setup.R"
+        ]
+      }
+    }
+  ]
+}

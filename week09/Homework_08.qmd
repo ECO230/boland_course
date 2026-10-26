@@ -1,15 +1,15 @@
 ---
-title: "Homework 8"
+title: "Homework 8: ANOVA and Simple Linear Regression"
+subtitle: "In-Person Sections"
 format:
   html:
     toc: true
-    toc-depth: 3
     number-sections: false
-
 execute:
   echo: true
   warning: false
   message: false
+editor: source
 ---
 
 ::: {.callout-note appearance="minimal" icon="false" title="Posit Cloud Project"}
@@ -18,244 +18,291 @@ execute:
 `.qmd` documents and **Render** instead of the older R Markdown/Knit workflow.
 :::
 
-```{r setup, include: false, show:false}
+```{r}
+#| include: false
 library(tidyverse)
 library(eco230r)
 options(scipen = 999)
 ```
 
-## HOMEWORK 8
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+This assignment helps you interpret analyses involving three or more group
+means and a linear relationship between two numeric variables.
 
-::: callout-note
-**OBJECTIVES**
+You will review a worked one-way ANOVA, complete two interpretations for a
+simple linear regression, and attempt one of these analyses using your project
+dataset.
 :::
 
--   Continue applying the hypothesis testing framework\
--   Focus on Step 4 (statistical interpretation) and Step 5 (practical interpretation)\
--   Strengthen communication of results using effect size and Bayes factor
+## Objectives
 
-------------------------------------------------------------------------
+By the end of this assignment, you will be able to:
 
-::: callout-note
-**INSTRUCTIONS**
+- distinguish a one-way ANOVA from a simple linear regression;
+- interpret an omnibus ANOVA and relevant post-hoc comparisons;
+- interpret a regression slope and fitted equation in context;
+- use effect size and Bayes factor in a practical interpretation; and
+- complete the five-step process for a project-related analysis.
+
+## Resources
+
+- Week 6 and Week 9 slides and interpretation resources
+- The `.csv` files in the `data` folder
+- `ano()` and `slr()` from `eco230r`
+- Your project story and candidate hypotheses
+
+::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
+This assignment is graded for correct use of the five-step process,
+interpretations tied to the variables and evidence, and a clear distinction
+between statistical evidence and practical importance.
 :::
 
----
-output:
-  html_document: default
----
+## 1) Review the Worked ANOVA Example
 
-```{r include=FALSE}
-library(tidyverse)
-library(tidyr)
-library(eco230r)
-library(ggplot2)
-library(knitr)
-library(Hmisc)
-#I'm going to turn off scientific notation:
-options(scipen=999)
-#If you want to turn it back on you can uncomment and run this line:
-#options(scipen=0)
-```
-
-## HOMEWORK 8: ANOVA and Simple Linear Regression
-
-::: {.alert .alert-info}
-<strong>Objectives</strong>
-:::
-
--   Complete step 4 of the hypothesis testing process: What is the statistical interpretation of the test result?
--   Complete step 5 of the hypothesis testing process: What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?
--   Attempt to run an ANOVA or Simple Linear Regression in R and complete steps 1-5
-
-::: {.alert .alert-info}
-<strong>Resources</strong>
-:::
-
--   .csv files included with this project or your groups clean data set.
--   Week 6 & 9 resources and lectures
-
-::: {.alert .alert-info}
-<strong>Instructions</strong>
-:::
-
--   Load the dataset into r as df with:
+The larger Airbnb dataset is used for the first two hypotheses. Do not change
+this setup code.
 
 ```{r}
-#load larger data set for these specific analyses
-df <- read.csv('../shared/data/airbnb_full_oa.csv')
+df <- read.csv(file.path("../shared/data", "airbnb_full_oa.csv"))
 ```
 
--   Review the example in Hypothesis 1
+### Hypothesis 1 - Worked Example
 
--   Complete steps 4-5 of the Hypothesis Test for Hypothesis 2
+1. **Statistical story:** What relationship, difference, or pattern are you
+   investigating, and why might it matter?
 
--   Attempt to run an ANOVA or Simple Linear Regression in R related to your project and complete steps 1-5 of the Hypothesis Test
+   Mean listed price differs across bed types. Property owners may use this
+   information when describing and furnishing a listing.
 
-::: {.alert .alert-info}
-<strong>Example: A full Hypothesis Test</strong>
-:::
+2. **Estimate or plot:** What does the descriptive evidence suggest? If there
+   were no uncertainty, what action would the business take?
 
-### Hypothesis 1 - My Interpretation Steps 1-5
+   ![Average listed price by bed type.](media/images/H8_ano_graph.png){fig-alt="A bar chart comparing average listed price across five bed-type categories."}
 
-1.  **What statistical story am I attempting to tell?**
+   Properties listing a real bed have the highest mean listed price. If there
+   were no uncertainty, owners would prioritize a real bed when feasible while
+   recognizing that bed type may also reflect other property characteristics.
 
-    Properties with a real bed listed will have higher list prices than properties with other bed types
+3. **Test and hypotheses:** Which test is appropriate? State $H_0$, $H_A$,
+   and the alpha level.
 
-2.  **What have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?**
+   Test: one-way ANOVA using `ano()`
 
-    ![Avg List Price by bed type](media/images/H8_ano_graph.png)
+   $H_0$: Population mean listed price is equal across all bed types.
 
-    Properties that list real beds have a higher mean price than those that do not.
+   $H_A$: At least one population mean listed price differs by bed type.
 
-3.  **Which test is appropriate and what is the null hypothesis?**
-
-    Analysis of Variance ano()
-
-    $H_0$: $\mu$ Airbed = $\mu$ Couch = $\mu$ Futon = $\mu$ PO-Sofa = $\mu$ Real Bed
-
-    $H_A$: $\mu$ Airbed $\neq$ $\mu$ Couch $\neq$ $\mu$ Futon $\neq$ $\mu$ PO-Sofa $\neq$ $\mu$ Real Bed
-
-    $\alpha$ = 0.05 (you can use this as the default value)
+   $\alpha = 0.05$
 
 ```{r}
-#ano()
-h1 <- df %>%
-  ano(listed_price~bed_type)
+#| output: false
+h1 <- df |>
+  ano(listed_price ~ bed_type)
 
 print(h1)
 ```
 
-4.  **What is the statistical interpretation of the test result?**
+4. **Statistical interpretation:** What does the result say about the evidence
+   against $H_0$? Report the omnibus result and relevant post-hoc comparisons
+   in context.
 
-    `r h1$results`
+   `r h1$results`
 
-    p is less than 0.05 ($\alpha$) so we reject the null hypothesis. Mean list price differs by bed type. Post hoc analysis reveals significant differences betweent the following bed types:
+   Because the omnibus p-value is below 0.05, reject $H_0$. Mean listed price
+   is not equal across all bed types. The post-hoc results identify which pairs
+   provide evidence of a difference; they should be reported from the current
+   output rather than assumed from the plot alone.
 
-    -   Airbed - PO-Sofa
-    -   Airbed - Real Bed
-    -   Couch - PO-Sofa
-    -   Couch - Real Bed
-    -   Futon - PO-Sofa
-    -   Futon - Real Bed
-    -   PO-Sofa - Real Bed
+5. **Practical interpretation:** How large and consequential is the result for a
+   general business audience? Use the effect size and Bayes factor when they
+   help support the conclusion.
 
-5.  **What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?**
+   Real-bed listings have the highest sample mean. The reported effect size
+   indicates whether between-group differences explain a small or substantial
+   share of price variation, while the Bayes factor indicates the strength of
+   evidence for those differences. Bed type may matter to pricing, but the
+   observational data do not establish that changing a bed alone will cause a
+   price increase; size, location, and amenities may also differ across groups.
 
-    There is a significant difference in price based on bed type. Real bed had the highest mean list price as it was significantly higher than any other category. This makes sense as nicer properties are less likely to have worse bed options and owners will charge a premium for them. There were also several significant differences between other bed types. Couch and Airbed had significantly higher mean list prices than Pull-out Sofa. Pull-out Sofa had significantly higher mean list prices than Futon. There were some strange results in the post-hocs. There is no significant difference between couches and futons nor between airbeds and couches or airbeds and futons. This could indicate that there is variation in the non-real bed categories. Providing a real bed clearly has a benefit in terms of the list price, but there is not a conclusive advantage in one remaining category over the others. The effect size for this relationship is 0.36 which represents a large effect so this decision is not trivial. The Bayes factor is very large (\> 100k) so there is decisive evidence for this effect. The effect is large and well supported with strong evidence that group differences explain a large share of the differences in price. It is likely that the choice of bed type will have a material impact on the list price so if a real bed is an option it should be listed.
+---
 
-------------------------------------------------------------------------
+## 2) Complete the Regression Interpretations
 
-### Hypothesis 2 - You Interpret steps 4-5
+### Hypothesis 2 - Complete Steps 4-5
 
-1.  **What statistical story am I attempting to tell?**
+1. **Statistical story:** Listed price has a linear relationship with bathroom
+   ratio, defined as beds per bathroom.
 
-    There is a linear relationship between bathroom ratio (beds per bathroom) and list price.
+2. **Estimate or plot:** The plot suggests a positive relationship: listings
+   with more beds per bathroom tend to have higher prices.
 
-2.  **What have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?**
+   ![Listed price by bathroom ratio.](media/images/H8_slr_graph.png){fig-alt="A scatterplot with a fitted line showing listed price increasing as beds per bathroom increases."}
 
-    ![Scatter Plot comparing Bathroom Ratio to Price](media/images/H8_slr_graph.png)
+3. **Test and hypotheses:**
 
-    There is a positive relationship between bathroom ratio and price. As the number of beds per bathroom goes up, so does the price. Note: we will have to calculate bathroom ratio as it does not exist yet in the data set.
+   Test: simple linear regression using `slr()`
 
-3.  **Which test is appropriate and what is the null hypothesis?**
+   $H_0: \beta_1 = 0$: Bathroom ratio has no linear association with listed
+   price in the population.
 
-    Simple linear regression testing effect between listed_price (y) and bathroom_ratio (x) slr()
+   $H_A: \beta_1 \neq 0$: Bathroom ratio has a linear association with listed
+   price in the population.
 
-    $H_0$: $\beta_1$ (slope) = 0
-
-    $H_A$: $\beta_1$ (slope) $\neq$ 0
-
-    $\alpha$ = 0.05 (you can use this as the default value)
+   $\alpha = 0.05$
 
 ```{r}
-#slr()
-h2 <- df %>%
-  filter(bathrooms > 0) %>% #make sure we don't divide by zero
-  mutate(bathroom_ratio = beds/bathrooms) %>%
-  slr(listed_price~bathroom_ratio)
+#| output: false
+h2 <- df |>
+  filter(bathrooms > 0) |>
+  mutate(bathroom_ratio = beds / bathrooms) |>
+  slr(listed_price ~ bathroom_ratio)
 
 print(h2)
 ```
 
-4.  **What is the statistical interpretation of the test result?**
+4. **Statistical interpretation:** What does the result say about the evidence
+   against $H_0$? Report the slope, direction, p-value, and uncertainty in
+   context.
 
-    `r h2$results`
+   `r h2$results`
 
-    Statistical Interpretation:
+   *Your response:*
 
-5.  **What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?**
 
-    Practical Interpretation:
 
-    Hint what is the equation for the line of best fit, how can it be applied / interpreted
+5. **Practical interpretation:** Explain the fitted equation for a general
+   business audience. Interpret the slope, assess the magnitude and usefulness
+   of the relationship, and use the effect size or Bayes factor when available.
+   Do not present the association as proof that bathroom ratio causes price.
 
-------------------------------------------------------------------------
+   *Your response:*
 
-### Hypothesis 3 - You Attempt the Full Test Steps 1-5 for a Hypothesis Related to Your Project
 
-1.  **What statistical story am I attempting to tell?**
 
-2.  **What have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?**
+---
 
-    You may leave this blank if you want, or you can try uploading an image and displaying.
+## 3) Complete a Project-Related Analysis
 
-3.  **Which test is appropriate and what is the null hypothesis?**
+### Hypothesis 3 - Complete the Full Analysis
 
-    Test Type:
+Use your group's clean project dataset if it is ready. Bringing that dataset
+into this homework lets you develop an analysis you can reuse for the project.
+Use the cleaned output, so you do not need to repeat the project's joins and
+cleaning steps here.
 
-    $H_0$:
+### Bring your clean dataset into this project
 
-    $H_A$:
+1. Open your **group project** in Posit Cloud. In the **Files** pane, open the
+   folder containing the clean `.csv` file produced by your group's preparation
+   code. If needed, run that preparation code first to create the file.
+2. Check the box beside the clean `.csv` file. Open **More** (the gear or more
+   options menu), choose **Export**, and download the file to your computer.
+3. Open your own **Homework 8** project. In **Files**, open the `data` folder,
+   select **Upload**, choose the downloaded `.csv` file, and confirm the upload.
+4. Replace the filename below with the exact uploaded filename. Run the chunk,
+   inspect the column names, and choose variables appropriate for your test.
 
-    $\alpha$ = 0.05 (you can use this as the default value)
+The example runs with an included practice dataset until you change the filename.
+If your group's clean file is not ready, use the semester sample associated with
+your project. These are the same five samples used in Homeworks 1-4. Airbnb is
+also retained for the worked examples. State which dataset you used. These
+practice files may differ from your group's current project data.
+
+| Project dataset | Filename |
+|---|---|
+| Chicago traffic crashes | `traffic_chicago_2024.csv` |
+| Midwest airline flights | `airline_midwest_2024.csv` |
+| Olist orders | `olist_southeast_2017.csv` |
+| NFL plays | `nfl_plays_2024.csv` |
+| Wisconsin health appointments | `health_wisconsin_appointments_2023_2025.csv` |
+| Chicago Airbnb listings (worked examples) | `airbnb_chicago.csv` |
 
 ```{r}
-#Attempt a test using ano() or slr() you can copy the code above and adjust the variables
-#If you can't get it to run leave your code in this chunk and comment out the lines with #
+project_file <- "traffic_chicago_2024.csv"
+project_data <- read.csv(
+  file.path("../shared/data/early-homework-v1", project_file),
+  check.names = FALSE
+)
 
-#load one of the default data sets or your own
-ff <- read.csv('../shared/data/airbnb_chicago.csv')
-
-#h3 <- ff %>%
-#  ano(listed_price~bed_type)
-
-#print(h3)
+cat(
+  project_file, "contains", nrow(project_data), "rows and",
+  ncol(project_data), "columns."
+)
 ```
 
-4.  **What is the statistical interpretation of the test result?**
+1. **Statistical story:** What relationship, difference, or pattern are you
+   investigating, and why might it matter?
 
-    Statistical Interpretation:
+   *Your response:*
 
-5.  **What is the practical interpretation of this analysis for a business audience? Are my estimates precise enough to tell the story I outlined in part (2)?**
 
-    Practical Interpretation:
 
-------------------------------------------------------------------------
+2. **Estimate or plot:** Create or describe an estimate or plot. What does the
+   descriptive evidence suggest? If there were no uncertainty, what action would
+   the business take?
 
-## SUBMISSION REQUIREMENTS
+   *Your response:*
 
-::: callout-warning
-**WHAT TO INCLUDE**
-:::
 
--   Clearly stated hypotheses (H₀ and Hₐ)\
--   Appropriate test selection (using `eco230r`)\
--   Correct statistical interpretation (Step 4)\
--   Practical interpretation (Step 5) including:
-    -   effect size\
-    -   Bayes factor\
--   Clear, concise written explanations
 
-------------------------------------------------------------------------
+3. **Test and hypotheses:** Select either `ano()` or `slr()`. State $H_0$,
+   $H_A$, and the alpha level.
 
-## NOTES
+   **Test:**
 
-::: callout-note
-**GUIDANCE**
-:::
+   $H_0$:
 
--   Focus on clarity over length\
--   Use variable names from your dataset\
--   Avoid copying raw output without interpretation\
--   Connect your findings back to your original question
+   $H_A$:
+
+   $\alpha = 0.05$
+
+```{r}
+# Attempt one of the structures below with variables from your project.
+# Keep code that does not yet work, but comment it out before rendering.
+
+# ANOVA:
+# h3 <- project_data |>
+#   ano(numeric_outcome ~ group_variable)
+
+# Simple linear regression:
+# h3 <- project_data |>
+#   slr(numeric_outcome ~ numeric_predictor)
+
+# print(h3)
+```
+
+4. **Statistical interpretation:** What does the result say about the evidence
+   against $H_0$? Report the relevant estimate and uncertainty. If the test did
+   not run, explain the error or decision point you reached.
+
+   *Your response:*
+
+
+
+5. **Practical interpretation:** Explain the direction, magnitude, and business
+   consequence. Use effect size and Bayes factor if available, and identify any
+   important limitation. If the test did not run, explain what evidence you
+   would need to complete the interpretation.
+
+   *Your response:*
+
+
+
+## Submission
+
+Render this document and submit `Homework_08_IP.pdf` in Canvas. The PDF must
+contain your two interpretations for Hypothesis 2, all five steps for Hypothesis
+3, and the code you attempted.
+
+## Checklist
+
+- [ ] I completed the statistical and practical interpretations for Hypothesis 2.
+- [ ] I interpreted the regression slope and did not imply unsupported causation.
+- [ ] I uploaded my group's clean dataset or identified the semester sample I used.
+- [ ] I completed all five steps using ANOVA or simple linear regression.
+- [ ] I preserved or commented out the code I attempted.
+- [ ] I reviewed and submitted `Homework_08_IP.pdf`.
+
+**Grading focus:** Your work will be evaluated for correct ANOVA or regression
+reasoning, contextual interpretation, appropriate use of effect size and Bayes
+factor, and a sincere project-related analysis attempt.

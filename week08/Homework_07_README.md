@@ -9,9 +9,12 @@ Open `Homework_07_IP.qmd`, complete the response fields and project analysis,
 and render the finished document to `Homework_07_IP.pdf`. Submit the PDF in
 Canvas.
 
-The `data` folder contains the same five semester samples used in Homeworks
-1-4, plus Airbnb for the worked examples. Change `project_file` to the filename
-associated with your project.
+Use your group's clean project dataset if it is ready. In your group project,
+check the clean CSV in Files, choose More > Export, and download it. In your
+Homework 7 project, open the data folder and choose Upload. Set `project_file`
+to the exact uploaded filename. This uses the prepared data without repeating
+its joins or cleaning. If the clean file is not ready, use the matching semester
+sample from Homeworks 1-4. Airbnb is retained for the worked examples.
 
 | Project dataset | Filename |
 |---|---|

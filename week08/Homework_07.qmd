@@ -1,15 +1,15 @@
 ---
 title: "Homework 7: t-Tests and Wilcoxon Tests"
+subtitle: "In-Person Sections"
 format:
   html:
     toc: true
-    toc-depth: 3
-    number-sections: true
-
+    number-sections: false
 execute:
   echo: true
   warning: false
   message: false
+editor: source
 ---
 
 ::: {.callout-note appearance="minimal" icon="false" title="Posit Cloud Project"}
@@ -21,134 +21,184 @@ execute:
 ```{r}
 #| include: false
 library(tidyverse)
-library(tidyr)
 library(eco230r)
-library(ggplot2)
-library(knitr)
-library(Hmisc)
 options(scipen = 999)
 ```
 
-## HOMEWORK 7: t-Tests and Wilcoxon Tests
+::: {.callout-note appearance="minimal" icon="false" title="Purpose"}
+This assignment helps you interpret tests that compare a numeric outcome with a
+reference value or between two groups.
 
-::: {.callout-note title="Objectives"}
--   Complete step 4 of the hypothesis testing process: What is the statistical interpretation of the test result?
--   Complete step 5 of the hypothesis testing process: What is the practical interpretation of this analysis for a business audience?
--   Run t-tests and Wilcoxon tests in R and complete steps 1–5.
+You will review a worked independent-samples t-test, complete two
+interpretations for a Wilcoxon rank-sum test, and attempt a test connected to
+your project.
 :::
 
-::: {.callout-note title="Resources"}
--   `.csv` files included with this project or your group's clean data set
--   Week 6 & 7 resources and lectures
--   Your lecture examples for `idt()`, `idw()`, `pst()`, `psw()`, and `ost()`
+## Objectives
+
+By the end of this assignment, you will be able to:
+
+- distinguish t-tests from Wilcoxon alternatives;
+- interpret p-values in relation to a contextual null hypothesis;
+- use effect size and Bayes factor in a practical interpretation; and
+- complete the five-step process for a project-related test.
+
+## Resources
+
+- Week 6-8 slides and interpretation resources
+- The semester sample `.csv` files and Airbnb data in the `data` folder
+- `idt()`, `idw()`, `pst()`, `psw()`, and `ost()` from `eco230r`
+- Your project story and candidate hypotheses
+
+::: {.callout-tip appearance="minimal" icon="false" title="Expectations"}
+This assignment is graded for correct use of the five-step process and
+interpretations that connect the test result, effect size, and business context.
+Your project code may be incomplete, but it must show the test you attempted.
 :::
 
-::: {.callout-important title="Instructions"}
-1.  Load the dataset into R as `df`
+## 1) Review the Worked Example
+
+The Airbnb dataset is used for the first two hypotheses. Do not change this
+setup code.
 
 ```{r}
-df <- read.csv('../shared/data/airbnb_chicago.csv')
+df <- read.csv(file.path("../shared/data", "airbnb_chicago.csv"))
 ```
 
-2.  Review the full example in Hypothesis 1.
-3.  Complete steps 4–5 for Hypothesis 2.
-4.  Attempt your own full test for Hypothesis 3 using one of the following: `idt()`, `idw()`, `pst()`, `psw()`, or `ost()`.
-5.  For step 5, include both the practical meaning of the result and whether the effect size suggests the result is small, medium, or large.
-6.  If your code will not knit, leave your attempted code in the chunk and comment out lines with `#`.
-:::
+### Hypothesis 1 - Worked Example
 
-------------------------------------------------------------------------
+1. **Statistical story:** What relationship, difference, or pattern are you
+   investigating, and why might it matter?
 
-### Hypothesis 1 - Full Example
+   Properties that are instantly bookable have a different mean listed price
+   than properties that are not instantly bookable. Booking policy may be one
+   pricing decision available to property owners.
 
-1.  **What statistical story am I attempting to tell?**
+2. **Estimate or plot:** What does the descriptive evidence suggest? If there
+   were no uncertainty, what action would the business take?
 
-Properties that are instantly bookable will have a lower mean price than those that are not.
+   ![Average listed price by instant-bookable status.](media/images/H7_idt_graph.png){fig-alt="A bar chart comparing average listed price for properties that are and are not instantly bookable."}
 
-2.  **What have I estimated or plotted to go along with that story and what is my conclusion from those estimates alone? If there was no uncertainty in these estimates, what should the business do?**
+   Instantly bookable properties appear to have a lower mean listed price. If
+   there were no uncertainty, an owner would consider whether booking policy is
+   associated with the price the market supports.
 
-![Average List Price by Instant Bookable](media/images/H7_idt_graph.png)
+3. **Test and hypotheses:** Which test is appropriate? State $H_0$, $H_A$,
+   and the alpha level.
 
-Properties that are instantly bookable appear to have a lower mean price than those that are not.
+   Test: independent-samples t-test using `idt()`
 
-3.  **Which test is appropriate and what is the null hypothesis?**
+   $H_0$: Mean listed price is equal for instantly bookable and non-instantly
+   bookable properties.
 
-Test Type: Independent Samples t-Test `idt()`
+   $H_A$: Mean listed price differs between instantly bookable and
+   non-instantly bookable properties.
 
-$H_0$: $\mu_{\text{Instant Bookable}} = \mu_{\text{Not Instant Bookable}}$
-
-$H_A$: $\mu_{\text{Instant Bookable}} \neq \mu_{\text{Not Instant Bookable}}$
-
-$\alpha = 0.05$
+   $\alpha = 0.05$
 
 ```{r}
-h1 <- df %>%
+#| output: false
+h1 <- df |>
   idt(listed_price ~ instant_bookable)
 
 print(h1)
 ```
 
-4.  **Statistical Interpretation**
+4. **Statistical interpretation:** What does the result say about the evidence
+   against $H_0$? Report the relevant estimate and uncertainty in context.
 
-`r h1$results`
+   `r h1$results`
 
-p is less than 0.05 so we reject the null hypothesis. Properties that are instantly bookable have a statistically significant difference in mean listed price compared to those that are not instantly bookable.
+   Because the p-value is below 0.05, reject $H_0$. The sample provides
+   evidence that mean listed price differs by instant-bookable status.
 
-5.  **Practical Interpretation**
+5. **Practical interpretation:** How large and consequential is the result for a
+   general business audience? Use the effect size and Bayes factor when they
+   help support the conclusion.
 
-There is evidence that instantly bookable properties are priced differently from properties that are not instantly bookable. In this sample, instantly bookable properties have a lower average listed price. One possible explanation is that owners may use instant booking to attract more customers when their property is in a more competitive market or lower-demand area.
+   Instantly bookable properties have a lower sample mean. The small Cohen's
+   `$d$` suggests booking policy explains little price variation. Although the
+   Bayes factor supports a difference, an owner should weigh larger drivers such
+   as location, size, and amenities before changing policy.
 
-Cohen's $d$ is small, which suggests that booking policy explains only a small portion of the overall variation in listed price. Bayes factor indicates strong evidence that this difference is real, but the effect size suggests that booking policy alone is not one of the most important drivers of price. In business terms, instant booking may matter, but owners would still need to consider other larger influences such as location, property size, and amenities.
+---
 
-------------------------------------------------------------------------
+## 2) Complete the Statistical and Practical Interpretations
 
-### Hypothesis 2 - Interpret Steps 4–5
+### Hypothesis 2 - Complete Steps 4-5
 
-1.  **Statistical Story**
+1. **Statistical story:** Properties that are instantly bookable have a
+   different median listed price than properties that are not.
 
-Properties that are instantly bookable will have a lower median price than those that are not.
+2. **Estimate or plot:** The distribution is highly skewed, making the median a
+   useful description of the center.
 
-2.  **Estimates / Plot**
+   ![Boxplot of listed price by instant-bookable status.](media/images/H7_idw_graph.png){fig-alt="Two boxplots compare the skewed listed-price distributions for instantly bookable and non-instantly bookable properties."}
 
-![Box Plot by Instant Bookable](media/images/H7_idw_graph.png)
+3. **Test and hypotheses:**
 
-Properties that are instantly bookable appear to have a lower median listed price than those that are not. The distribution of listed price is highly skewed, so the median may describe the center better than the mean.
+   Test: Wilcoxon rank-sum test using `idw()`
 
-3.  **Test and Hypothesis**
+   $H_0$: The listed-price distributions do not differ by instant-bookable
+   status.
 
-Test Type: Wilcoxon Rank-Sum Test (Independent Samples) `idw()`
+   $H_A$: The listed-price distributions differ by instant-bookable status.
 
-$H_0$: $\text{Median}_{\text{Instant Bookable}} = \text{Median}_{\text{Not Instant Bookable}}$
-
-$H_A$: $\text{Median}_{\text{Instant Bookable}} \neq \text{Median}_{\text{Not Instant Bookable}}$
-
-$\alpha = 0.05$
+   $\alpha = 0.05$
 
 ```{r}
-h2 <- df %>%
+#| output: false
+h2 <- df |>
   idw(listed_price ~ instant_bookable)
 
 print(h2)
 ```
 
-4.  **Statistical Interpretation**
+4. **Statistical interpretation:** What does the result say about the evidence
+   against $H_0$? Report the result in context.
 
-`r h2$results`
+   `r h2$results`
 
-Statistical Interpretation:
+   *Your response:*
 
-5.  **Practical Interpretation**
 
-Practical Interpretation:
 
-Hint: Compare this result to Hypothesis 1. Do the t-test and Wilcoxon test tell a similar story? Does the effect size suggest a small, medium, or large difference?
+5. **Practical interpretation:** How large and consequential is the result for a
+   general business audience? Compare the conclusion with Hypothesis 1 and use
+   the effect size and Bayes factor when they help.
 
-------------------------------------------------------------------------
+   *Your response:*
 
-### Hypothesis 3 - Your Full Test
 
-Choose the dataset associated with your project. The five semester samples are
-the same files used in Homeworks 1-4. Airbnb is retained for the worked examples.
+
+---
+
+## 3) Complete a Project-Related Test
+
+### Hypothesis 3 - Complete the Full Analysis
+
+Use your group's clean project dataset if it is ready. Bringing that dataset
+into this homework lets you develop an analysis you can reuse for the project.
+Use the cleaned output, so you do not need to repeat the project's joins and
+cleaning steps here.
+
+### Bring your clean dataset into this project
+
+1. Open your **group project** in Posit Cloud. In the **Files** pane, open the
+   folder containing the clean `.csv` file produced by your group's preparation
+   code. If needed, run that preparation code first to create the file.
+2. Check the box beside the clean `.csv` file. Open **More** (the gear or more
+   options menu), choose **Export**, and download the file to your computer.
+3. Open your own **Homework 7** project. In **Files**, open the `data` folder,
+   select **Upload**, choose the downloaded `.csv` file, and confirm the upload.
+4. Replace the filename below with the exact uploaded filename. Run the chunk,
+   inspect the column names, and choose variables appropriate for your test.
+
+The example runs with an included practice dataset until you change the filename.
+If your group's clean file is not ready, use the semester sample associated with
+your project. These are the same five samples used in Homeworks 1-4. Airbnb is
+also retained for the worked examples. State which dataset you used. These
+practice files may differ from your group's current project data.
 
 | Project dataset | Filename |
 |---|---|
@@ -159,46 +209,78 @@ the same files used in Homeworks 1-4. Airbnb is retained for the worked examples
 | Wisconsin health appointments | `health_wisconsin_appointments_2023_2025.csv` |
 | Chicago Airbnb listings (worked examples) | `airbnb_chicago.csv` |
 
-In your Posit Cloud project, read your chosen file from the `data` folder.
+```{r}
+project_file <- "traffic_chicago_2024.csv"
+project_data <- read.csv(
+  file.path("../shared/data/early-homework-v1", project_file),
+  check.names = FALSE
+)
 
-1.  **What statistical story am I attempting to tell?**
+cat(
+  project_file, "contains", nrow(project_data), "rows and",
+  ncol(project_data), "columns."
+)
+```
 
-Hypothesis:
+1. **Statistical story:** What relationship, difference, or pattern are you
+   investigating, and why might it matter?
 
-2.  **What have I estimated or plotted?**
+   *Your response:*
 
-You may leave this blank or include a plot.
 
-3.  **Which test is appropriate and what is the null hypothesis?**
 
-Test Type:
+2. **Estimate or plot:** Create or describe an estimate or plot. What does the
+   descriptive evidence suggest? If there were no uncertainty, what action would
+   the business take?
 
-$H_0$:
+   *Your response:*
 
-$H_A$:
 
-$\alpha = 0.05$
+
+3. **Test and hypotheses:** Select `idt()`, `idw()`, `pst()`, `psw()`, or
+   `ost()`. State $H_0$, $H_A$, and the alpha level.
+
+   **Test:**
+
+   $H_0$:
+
+   $H_A$:
+
+   $\alpha = 0.05$
 
 ```{r}
-#| eval: false
-# Attempt a test using idt(), idw(), pst(), psw(), or ost()
-# If your code does not run, leave your attempted code here and comment out the lines with #
-
-project_file <- "traffic_chicago_2024.csv"
-ff <- read.csv(file.path("data", project_file))
-
-# h3 <- ff |>
-#   idt(numeric_outcome ~ two_group_variable)
-
+# Replace the placeholders; comment out code that does not run.
+# h3 <- project_data |> idt(numeric_outcome ~ two_group_variable)
 # print(h3)
 ```
 
-4.  **Statistical Interpretation**
+4. **Statistical interpretation:** What does the result say about the evidence
+   against $H_0$? If the test did not run, explain the error or decision point
+   you reached.
 
-Statistical Interpretation:
+   *Your response:*
 
-5.  **Practical Interpretation**
 
-Practical Interpretation:
 
-Hint: Your practical interpretation should explain the result for a general business audience. Include the effect size and Bayes factor if they help support your conclusion.
+5. **Practical interpretation:** Explain the direction, magnitude, and business
+   consequence. Use effect size and Bayes factor if available. If the test did
+   not run, explain what evidence you would need to complete the interpretation.
+
+   *Your response:*
+
+
+
+## Submission
+
+Submit `Homework_07_IP.pdf` in Canvas with the Hypothesis 2 interpretations, all
+five steps for Hypothesis 3, and your attempted code.
+
+## Checklist
+
+- [ ] I interpreted Hypothesis 2 and compared the Wilcoxon and t-test conclusions.
+- [ ] I selected the correct project dataset and completed all five steps for Hypothesis 3.
+- [ ] I preserved my code attempt and reviewed and submitted the PDF.
+
+**Grading focus:** Your work will be evaluated for correct test selection,
+contextual interpretation, appropriate use of effect size and Bayes factor, and
+a sincere project-related analysis attempt.

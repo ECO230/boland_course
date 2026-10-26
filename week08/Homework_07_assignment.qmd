@@ -184,9 +184,28 @@ print(h2)
 
 ### Hypothesis 3 - Complete the Full Analysis
 
-Choose the dataset associated with your project. The five semester samples
-are the same files used in Homeworks 1-4. Airbnb is also included for the worked
-examples.
+Use your group's clean project dataset if it is ready. Bringing that dataset
+into this homework lets you develop an analysis you can reuse for the project.
+Use the cleaned output, so you do not need to repeat the project's joins and
+cleaning steps here.
+
+### Bring your clean dataset into this project
+
+1. Open your **group project** in Posit Cloud. In the **Files** pane, open the
+   folder containing the clean `.csv` file produced by your group's preparation
+   code. If needed, run that preparation code first to create the file.
+2. Check the box beside the clean `.csv` file. Open **More** (the gear or more
+   options menu), choose **Export**, and download the file to your computer.
+3. Open your own **Homework 7** project. In **Files**, open the `data` folder,
+   select **Upload**, choose the downloaded `.csv` file, and confirm the upload.
+4. Replace the filename below with the exact uploaded filename. Run the chunk,
+   inspect the column names, and choose variables appropriate for your test.
+
+The example runs with an included practice dataset until you change the filename.
+If your group's clean file is not ready, use the semester sample associated with
+your project. These are the same five samples used in Homeworks 1-4. Airbnb is
+also retained for the worked examples. State which dataset you used. These
+practice files may differ from your group's current project data.
 
 | Project dataset | Filename |
 |---|---|
@@ -196,8 +215,6 @@ examples.
 | NFL plays | `nfl_plays_2024.csv` |
 | Wisconsin health appointments | `health_wisconsin_appointments_2023_2025.csv` |
 | Chicago Airbnb listings (worked examples) | `airbnb_chicago.csv` |
-
-Change `project_file` below. Do not change the `data` folder name.
 
 ```{r}
 project_file <- "traffic_chicago_2024.csv"
