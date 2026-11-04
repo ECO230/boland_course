@@ -86,7 +86,7 @@ h8 <- df |>
 <br>
 
 **H<sub>0</sub>:** $\mu$<sub>Low</sub> = $\mu$<sub>Warm</sub> = $\mu$<sub>Harsh</sub>\
-**H<sub>A</sub>:** $\mu$<sub>Low</sub> $\neq$ $\mu$<sub>Warm</sub> $\neq$ $\mu$<sub>Harsh</sub>\
+**H<sub>A</sub>:** At least one population mean differs.\
 **α =** 0.05
 :::
 
@@ -578,7 +578,7 @@ The predictor matters, but only explains a small share of the outcome
 
 -   Potentially important predictor 
 -   Evidence is still limited
--   Relationship described by h9$linear_regression_model
+-   Relationship described by `r h9$linear_regression_model`
 :::
 
 ::: {.column width="40%"}

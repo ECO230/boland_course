@@ -88,7 +88,7 @@ h1 <- df |>
 
 **H<sub>0</sub>:** Cool_Time fits expected model
 
-**H<sub>A</sub>:** Cool_Time fits expected model
+**H<sub>A</sub>:** Cool_Time does not fit the expected model
 
 **α =** 0.05
 :::
@@ -590,7 +590,7 @@ Consistent, but not large
 h2$observed
 ```
 
-`h1$expected`
+`h2$expected`
 
 ```{r csi_exp echo:TRUE, include:TRUE}
 h2$expected

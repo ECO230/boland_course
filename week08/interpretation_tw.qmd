@@ -1334,10 +1334,10 @@ Consistent, but not large
 ::: {.column width="40%"}
 <br>
 
-`h6$descriptive_statistics`
+`h7$descriptive_statistics`
 
 ```{r psw_desc echo:TRUE, include:TRUE}
-h6$descriptive_statistics
+h7$descriptive_statistics
 ```
 :::
 :::::
