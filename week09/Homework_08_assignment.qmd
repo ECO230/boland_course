@@ -124,6 +124,11 @@ print(h1)
    general business audience? Use the effect size and Bayes factor when they
    help support the conclusion.
 
+```{r}
+# Post hoc comparisons for the Step 5 interpretation.
+print(h1$post_hoc_analysis)
+```
+
    Real-bed listings have the highest sample mean. The reported effect size
    indicates whether between-group differences explain a small or substantial
    share of price variation, while the Bayes factor indicates the strength of
@@ -181,6 +186,11 @@ print(h2)
    business audience. Interpret the slope, assess the magnitude and usefulness
    of the relationship, and use the effect size or Bayes factor when available.
    Do not present the association as proof that bathroom ratio causes price.
+
+```{r}
+# Fitted regression equation for the Step 5 interpretation.
+print(h2$linear_regression_model)
+```
 
    *Your response:*
 
