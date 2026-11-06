@@ -14,6 +14,7 @@ assignments:
     submission_types: [online_text_entry, online_upload]
   prep-work-analysis-plan:
     submission_types: [online_text_entry, online_upload]
+    grading_type: pass_fail
   technology-set-up:
     submission_types: [online_text_entry, online_upload]
   guided-notes-1-data-literacy:
@@ -23,6 +24,7 @@ assignments:
     submission_types: [online_upload]
   prep-work-clean-data-set:
     submission_types: [online_text_entry, online_upload]
+    grading_type: pass_fail
   guided-notes-2-descriptive-statistics-data-literacy:
     submission_types: [none]
     grading_type: not_graded
@@ -32,6 +34,7 @@ assignments:
     submission_types: [none]
   prep-work-pre-coaching-presentation-draft:
     submission_types: [online_upload]
+    grading_type: pass_fail
   guided-notes-3-data-visualization:
     submission_types: [none]
     grading_type: not_graded
@@ -39,6 +42,7 @@ assignments:
     submission_types: [online_upload]
   prep-work-coaching-session-attendance:
     submission_types: [online_upload]
+    grading_type: pass_fail
   analysis-project-presentation:
     submission_types: [none]
   guided-notes-4-communicating-data:
