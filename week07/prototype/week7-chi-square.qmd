@@ -1,0 +1,259 @@
+---
+title: "From counts to a decision"
+subtitle: "Week 7 / Chi-square analysis / Interactive prototype"
+format:
+  live-html:
+    toc: true
+    toc-depth: 2
+    css: tutorial.css
+    embed-resources: false
+    include-after-body: navigation.html
+engine: knitr
+execute:
+  warning: false
+  message: false
+search: false
+robots: noindex, nofollow
+header-includes: |
+  <meta name="robots" content="noindex, nofollow">
+---
+
+{{< include _extensions/r-wasm/live/_knitr.qmd >}}
+
+::: {.hero-note}
+**ECO 230 · WORKING PROTOTYPE**
+
+Learn the idea. Try it. Check the evidence.
+
+About 20-30 minutes · Browser R lab · No installation · Not a graded assignment
+:::
+
+Practice the same five steps used in lecture, lab, and Homework 6. First
+choose the test, then move from a table of counts to a decision a manager can
+understand. The browser runs R; written feedback is available without AI.
+
+```{r}
+#| label: introduction-options
+#| echo: false
+learnr2::tutorial_options(allow_skip = TRUE, require_submission = FALSE)
+```
+
+## Introduction
+
+### Your workspace
+
+```{r}
+#| label: student-information-1
+#| echo: false
+learnr2::student_info()
+```
+
+Use a demo identity if you want to download your answers. Progress stays in
+this browser. Use the contents panel to jump straight to the lab or feedback demo.
+
+[Week 7 lecture](../week_07.html) |
+[Lab: Interpreting Chi-Square Tests](../interpretation_x2.html) |
+[Homework 6](../Homework_06.html)
+
+## Choose the test
+
+### Does Cool_Time fit the expected model?
+
+In the lab, **goodness of fit** asks whether one categorical variable follows
+specified proportions. The example below uses practice counts and an equal-share
+model.
+
+- **H0:** Cool_Time fits the expected model.
+- **HA:** Cool_Time does not fit the expected model.
+- **Alpha:** 0.05.
+
+In the course project you would use `csf(~cool_time)`. The browser uses base
+R's `chisq.test()` so you can run it without installing a package.
+
+```{webr}
+#| label: choose-the-test-1
+#| exercise: fit
+#| persist: true
+observed <- c(Short = 38, Medium = 33, Long = 29)
+fit <- chisq.test(observed, p = rep(1 / 3, 3))
+print(rbind(Observed = fit$observed, Expected = round(fit$expected, 1)))
+print(fit)
+```
+
+```{r}
+#| label: choose-the-test-2
+#| echo: false
+learnr2::question("At alpha = 0.05, which statement fits the output?", learnr2::answer("Fail to reject H0: these counts do not provide strong evidence against the equal-share model.", correct=TRUE), learnr2::answer("Accept H0: the population proportions are definitely equal."), learnr2::answer("Reject H0 because the observed counts are not identical."), allow_retry=TRUE, correct="Right. Some deviation from the expected counts is ordinary sampling variation.", incorrect="Compare the p-value with alpha. Failure to reject does not prove the model true.")
+```
+
+## Lab: explain an association
+
+### Steps 1-3: Story, estimate, and hypotheses
+
+The lecture asks whether injury status is associated with reported lighting
+condition in Chicago crashes. This lab uses **two lighting categories** from
+the public course sample: daylight and darkness on a lighted road. It describes
+reported crashes, not risk per mile driven.
+
+Compare **the percent of crashes involving injury within each lighting
+category**. The groups have different numbers of reports, so comparing injury
+counts alone can reverse the story.
+
+- **H0:** Injury status and lighting category are independent.
+- **HA:** Injury status and lighting category are associated.
+- **Alpha:** 0.05.
+
+```r
+# Course syntax, with the two categories selected in df
+h1 <- df |>
+  csi(injury_crash ~ reported_lighting_condition)
+h1$results
+h1$standardized_residuals
+```
+
+### Run the test and inspect the table
+
+Click **Run Code**. Compare observed counts with expected counts under
+independence. Read the row percentages and the adjusted standardized residuals.
+A positive residual means more crashes in that cell than expected under
+independence; a negative residual means fewer.
+
+```{webr}
+#| label: lab-explain-an-association-1
+#| exercise: crashes
+#| persist: true
+counts <- matrix(c(6549, 1074, 2157, 511), nrow = 2, byrow = TRUE,
+                 dimnames = list(c("Daylight", "Dark, lighted road"),
+                                 c("No injury", "Injury")))
+fit <- chisq.test(counts, correct = FALSE)
+print(counts)
+print(round(fit$expected, 1))
+print(round(100 * prop.table(counts, margin = 1), 1))
+print(round(fit$stdres, 2))
+print(fit)
+cat("Cramer's V:", round(sqrt(unname(fit$statistic) / sum(counts)), 3))
+```
+
+::: {.hint exercise="crashes"}
+Read down the **Injury** column of the percentage table. Use the total for each
+lighting group as its denominator.
+:::
+
+### Step 4: Statistical interpretation
+
+What does the result say about the evidence against H0? Use the test statistic,
+degrees of freedom, and p-value. Say what the variables are.
+
+```{r}
+#| label: lab-explain-an-association-2
+#| echo: false
+learnr2::question("Write one or two sentences interpreting the test result.", learnr2::answer("At alpha = 0.05, reject independence. The Pearson chi-square test gives evidence of an association between injury status and the two reported lighting categories. This is an association among the crashes in the sample, not a causal effect of lighting.", correct=TRUE), type="reflection")
+```
+
+### Step 5: Practical interpretation
+
+How large and consequential is the result for a general business audience?
+Use the **table percentages**, **standardized residuals**, and **effect size**.
+The lecture's advice is to never report a p-value alone. A Bayes factor, if
+reported by your course output, addresses strength of evidence; it is not an
+effect size. This browser test does not compute one.
+
+```{r}
+#| label: lab-explain-an-association-3
+#| echo: false
+learnr2::question("Write two or three sentences for a safety manager. Compare the injury percentages, identify the cell with more injuries than expected, and suggest a proportionate next step.", learnr2::answer("About 19.2% of reported crashes on lighted roads after dark involved injury, versus 14.1% in daylight, a difference of about 5.1 percentage points. Dark, lighted roads have more injury crashes than expected under independence, but Cramer's V indicates a small association overall. Investigate where and when injuries cluster before recommending a lighting intervention; the sample cannot establish causation or risk per mile.", correct=TRUE), type="reflection")
+```
+
+## Feedback demo
+
+### What feedback can check
+
+::: {.flawed-answer}
+**Example draft:** "The p-value proves darkness causes injuries. Since the
+result is significant, the city should replace its lights."
+:::
+
+::: {.prompt-card}
+**Example coaching response**
+
+- **What works:** You noticed the test provides evidence against independence.
+- **What to revise:** A small p-value does not establish cause or tell you the
+  size of the association. Compare 19.2% with 14.1% and state what the denominator is.
+- **Try again:** What would you investigate before recommending a lighting change?
+:::
+
+That response is a written example. The tutorial's checks and model answers
+run locally; no AI model is connected. For personalized feedback, build a
+prompt from your own draft below and optionally paste it into an AI tool you
+already have access to. Do not enter names or private project records.
+
+```{r}
+#| label: feedback-demo-evidence
+#| echo: false
+counts <- matrix(c(6549, 1074, 2157, 511), nrow = 2, byrow = TRUE)
+fit <- chisq.test(counts, correct = FALSE)
+facts <- sprintf(paste(
+  "Public Chicago crash sample; daylight (6549 no injury, 1074 injury);",
+  "darkness on a lighted road (2157 no injury, 511 injury).",
+  "Pearson chi-square = %.3f, df = %d, p = %.4g, alpha = .05.",
+  "Within-lighting injury rates: %.2f%% daylight, %.2f%% dark lighted road.",
+  "Adjusted standardized residual for dark lighted road x injury = %.2f.",
+  "Cramer's V = %.3f. No Bayes factor supplied.",
+  "Observational crash records; no exposure denominator or causal design."),
+  fit$statistic, fit$parameter, fit$p.value, 100*1074/7623,
+  100*511/2668, fit$stdres[2,2], sqrt(fit$statistic/sum(counts)))
+htmltools::tags$pre(id="feedback-evidence", hidden=NA, facts)
+```
+
+```{=html}
+<div class="prompt-card">
+  <label for="feedback-draft"><strong>Your Step 4 or Step 5 draft</strong></label>
+  <textarea id="feedback-draft" class="form-control" maxlength="2500"
+    placeholder="Paste a short practice draft here."></textarea>
+  <button id="build-feedback" type="button" class="btn btn-primary mt-2">Build feedback prompt</button>
+  <label for="feedback-prompt" class="d-block mt-3"><strong>Copy this prompt into your AI tool</strong></label>
+  <textarea id="feedback-prompt" class="form-control" readonly></textarea>
+  <p id="feedback-status" role="status"></p>
+</div>
+```
+
+### Who would generate and pay for live feedback?
+
+A live version could use a small server to send the draft, verified output,
+and rubric to a model such as OpenAI's `gpt-6-luna`. It would return one
+strength, one correction tied to the evidence, and one revision question.
+The course or department would own the API account and pay for usage.
+Students would not need a paid account. The prototype has no server or AI bill. See [OpenAI's API pricing](https://developers.openai.com/api/docs/pricing?tab=suite) for model usage rates.
+
+### Transfer to Homework 6
+
+Use your group's clean project data if it is ready, or the matching semester
+sample. Pick a goodness-of-fit test for one categorical variable and a
+specified model, or an independence test for two categorical variables.
+
+```{r}
+#| label: feedback-demo-transfer
+#| echo: false
+learnr2::question("Name the variables, test, and one table percentage or comparison you would use in your Homework 6 Step 5. What would you verify if an AI suggested an interpretation?", type="reflection")
+```
+
+## Summary
+
+### Save your practice
+
+This preview does not submit to Canvas or change the Homework 6 requirements.
+The download saves your submitted reflections and exercise code locally.
+
+```{r}
+#| label: summary-1
+#| echo: false
+learnr2::question("How many minutes, approximately, did this tutorial take? Enter a whole number.", type="reflection_editable", validate="integer")
+```
+
+```{r}
+#| label: summary-2
+#| echo: false
+learnr2::download_answers_button(filename_prefix="eco230-week7-prototype")
+```
+
+Built with [learnr2](https://ppbds.github.io/learnr2/) and WebR.
