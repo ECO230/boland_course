@@ -146,9 +146,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="hero-note">
 <p><strong>ECO 230 · WORKING PROTOTYPE</strong></p>
 <p>Learn the idea. Try it. Check the evidence.</p>
-<p>About 20-30 minutes · Browser R lab · No installation · Not a graded assignment</p>
+<p>About 20-30 minutes · eco230r results · No installation · Not a graded assignment</p>
 </div>
-<p>Practice the same five steps used in lecture, lab, and Homework 6. First choose the test, then move from a table of counts to a decision a manager can understand. The browser runs R; written feedback is available without AI.</p>
+<p>Practice the same five steps used in lecture, lab, and Homework 6. First choose the test, then move from a table of counts to a decision a manager can understand. The displayed results are computed with eco230r when this page is built. Run the same code in your course Posit Cloud project. The interpretation checks and feedback prompt run in your browser.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="learnr2-options" data-learnr2-options="eyJhbGxvd1NraXAiOnRydWUsInJlcXVpcmVTdWJtaXNzaW9uIjpmYWxzZX0=" hidden=""></div>
@@ -177,21 +177,38 @@ fV0sInN1Ym1pdExhYmVsIjoiU3VibWl0IiwiZWRpdExhYmVsIjoiRWRpdCJ9">
 <h2 class="anchored" data-anchor-id="choose-the-test">Choose the test</h2>
 <section id="does-cool_time-fit-the-expected-model" class="level3">
 <h3 class="anchored" data-anchor-id="does-cool_time-fit-the-expected-model">Does Cool_Time fit the expected model?</h3>
-<p>In the lab, <strong>goodness of fit</strong> asks whether one categorical variable follows specified proportions. The example below uses practice counts and an equal-share model.</p>
+<p>In the lab, <strong>goodness of fit</strong> asks whether one categorical variable follows specified proportions. Use the same <code>tea_tab</code> data and equal-share model as the interpretation deck.</p>
 <ul>
 <li><strong>H0:</strong> Cool_Time fits the expected model.</li>
 <li><strong>HA:</strong> Cool_Time does not fit the expected model.</li>
 <li><strong>Alpha:</strong> 0.05.</li>
 </ul>
-<p>In the course project you would use <code>csf(~cool_time)</code>. The browser uses base R’s <code>chisq.test()</code> so you can run it without installing a package.</p>
-<div class="cell" data-exercise="fit" data-persist="true">
-<div>
-<div id="webr-1" class="exercise-cell">
-
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eco230r)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"tea_tab"</span>, <span class="at">package =</span> <span class="st">"eco230r"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>h1 <span class="ot">&lt;-</span> tea_tab <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">csf</span>(<span class="sc">~</span>cool_time)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>h1<span class="sc">$</span>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "X2(3) = 4.333, p = 0.228, w = 0.251, bf10 = 0.082"</code></pre>
 </div>
-<script type="webr-1-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiZml0IiwibGFiZWwiOiJjaG9vc2UtdGhlLXRlc3QtMSIsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoib2JzZXJ2ZWQgPC0gYyhTaG9ydCA9IDM4LCBNZWRpdW0gPSAzMywgTG9uZyA9IDI5KVxuZml0IDwtIGNoaXNxLnRlc3Qob2JzZXJ2ZWQsIHAgPSByZXAoMSAvIDMsIDMpKVxucHJpbnQocmJpbmQoT2JzZXJ2ZWQgPSBmaXQkb2JzZXJ2ZWQsIEV4cGVjdGVkID0gcm91bmQoZml0JGV4cGVjdGVkLCAxKSkpXG5wcmludChmaXQpIn0=
-</script>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>h1<span class="sc">$</span>observed</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      cool_time Freq
+1   0-5 minutes   14
+2 11-15 minutes   21
+3   15+ minutes   12
+4  6-10 minutes   22</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>h1<span class="sc">$</span>expected</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Freq
+0-5 minutes   17.25
+11-15 minutes 17.25
+15+ minutes   17.25
+6-10 minutes  17.25</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -222,54 +239,71 @@ dWUsInNob3dUZXh0Ijp0cnVlLCJ2YWxpZGF0ZSI6Im5vbmUifQ==">
 <h2 class="anchored" data-anchor-id="lab-explain-an-association">Lab: explain an association</h2>
 <section id="steps-1-3-story-estimate-and-hypotheses" class="level3">
 <h3 class="anchored" data-anchor-id="steps-1-3-story-estimate-and-hypotheses">Steps 1-3: Story, estimate, and hypotheses</h3>
-<p>The lecture asks whether injury status is associated with reported lighting condition in Chicago crashes. This lab uses <strong>two lighting categories</strong> from the public course sample: daylight and darkness on a lighted road. It describes reported crashes, not risk per mile driven.</p>
-<p>Compare <strong>the percent of crashes involving injury within each lighting category</strong>. The groups have different numbers of reports, so comparing injury counts alone can reverse the story.</p>
+<p>The lecture asks whether injury status is associated with reported lighting condition in Chicago crashes. Both are categorical, so the lecture uses <code>csi(injury_crash ~ reported_lighting_condition)</code>. Homework 6 applies the same logic to <strong>cleaning-fee status and bathroom category</strong> in Chicago Airbnb listings.</p>
+<p>Compare the share of listings charging a cleaning fee <strong>within each bathroom category</strong>. Homework 6 restricts the analysis to listings with one to two bathrooms so categories with very few records do not drive the result.</p>
 <ul>
-<li><strong>H0:</strong> Injury status and lighting category are independent.</li>
-<li><strong>HA:</strong> Injury status and lighting category are associated.</li>
+<li><strong>H0:</strong> Cleaning-fee status is not associated with bathroom category.</li>
+<li><strong>HA:</strong> Cleaning-fee status is associated with bathroom category.</li>
 <li><strong>Alpha:</strong> 0.05.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Course syntax, with the two categories selected in df</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>h1 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">csi</span>(injury_crash <span class="sc">~</span> reported_lighting_condition)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>h1<span class="sc">$</span>results</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>h1<span class="sc">$</span>standardized_residuals</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="run-the-test-and-inspect-the-table" class="level3">
-<h3 class="anchored" data-anchor-id="run-the-test-and-inspect-the-table">Run the test and inspect the table</h3>
-<p>Click <strong>Run Code</strong>. Compare observed counts with expected counts under independence. Read the row percentages and the adjusted standardized residuals. A positive residual means more crashes in that cell than expected under independence; a negative residual means fewer.</p>
-<div class="cell" data-exercise="crashes" data-persist="true">
-<div>
-<div id="webr-2" class="exercise-cell">
-
+<section id="inspect-the-homework-6-output" class="level3">
+<h3 class="anchored" data-anchor-id="inspect-the-homework-6-output">Inspect the Homework 6 output</h3>
+<p>In the Homework 6 project, the data file is at <code>data/airbnb_chicago.csv</code>. The tutorial uses that same file to compute these outputs.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>h2 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(bathrooms <span class="sc">&gt;=</span> <span class="dv">1</span>, bathrooms <span class="sc">&lt;=</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bathroom_category =</span> <span class="fu">factor</span>(bathrooms)) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">csi</span>(cleaning_fee <span class="sc">~</span> bathroom_category)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>h2<span class="sc">$</span>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "X2(2) = 8.844, p = 0.012, V = 0.044, bf10 = 0.332"</code></pre>
 </div>
-<script type="webr-2-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoiY3Jhc2hlcyIsImxhYmVsIjoibGFiLWV4cGxhaW4tYW4tYXNzb2NpYXRpb24tMSIsInBlcnNpc3QiOnRydWV9LCJjb2RlIjoiY291bnRzIDwtIG1hdHJpeChjKDY1NDksIDEwNzQsIDIxNTcsIDUxMSksIG5yb3cgPSAyLCBieXJvdyA9IFRSVUUsXG4gICAgICAgICAgICAgICAgIGRpbW5hbWVzID0gbGlzdChjKFwiRGF5bGlnaHRcIiwgXCJEYXJrLCBsaWdodGVkIHJvYWRcIiksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjKFwiTm8gaW5qdXJ5XCIsIFwiSW5qdXJ5XCIpKSlcbmZpdCA8LSBjaGlzcS50ZXN0KGNvdW50cywgY29ycmVjdCA9IEZBTFNFKVxucHJpbnQoY291bnRzKVxucHJpbnQocm91bmQoZml0JGV4cGVjdGVkLCAxKSlcbnByaW50KHJvdW5kKDEwMCAqIHByb3AudGFibGUoY291bnRzLCBtYXJnaW4gPSAxKSwgMSkpXG5wcmludChyb3VuZChmaXQkc3RkcmVzLCAyKSlcbnByaW50KGZpdClcbmNhdChcIkNyYW1lcidzIFY6XCIsIHJvdW5kKHNxcnQodW5uYW1lKGZpdCRzdGF0aXN0aWMpIC8gc3VtKGNvdW50cykpLCAzKSkifQ==
-</script>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>h2<span class="sc">$</span>observed</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  cleaning_fee     1 1.5   2
+1         FALSE  695  57 129
+2          TRUE 2043 123 476</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>h2<span class="sc">$</span>column_percentages</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  cleaning_fee        1     1.5       2
+1         FALSE 25.38 % 31.67 % 21.32 %
+2          TRUE 74.62 % 68.33 % 78.68 %</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>h2<span class="sc">$</span>standardized_residuals</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  cleaning_fee           1       1.5         2
+1         FALSE  0.9634757  2.118014 -2.299649
+2          TRUE -0.9634757 -2.118014  2.299649</code></pre>
 </div>
 </div>
-<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="crashes">
-<p>Read down the <strong>Injury</strong> column of the percentage table. Use the total for each lighting group as its denominator.</p>
-</div>
+<p>Each column percentage uses the total for that bathroom category. A positive standardized residual indicates more listings than expected under independence in that cell; a negative residual indicates fewer.</p>
 </section>
 <section id="step-4-statistical-interpretation" class="level3">
 <h3 class="anchored" data-anchor-id="step-4-statistical-interpretation">Step 4: Statistical interpretation</h3>
-<p>What does the result say about the evidence against H0? Use the test statistic, degrees of freedom, and p-value. Say what the variables are.</p>
+<p>What does the result say about the evidence against H0? Use the test statistic, degrees of freedom, and p-value. Name both variables. If the p-value and Bayes factor point in different directions, report both.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="learnr2-question" data-learnr2-question="eyJpZCI6ImxhYi1leHBsYWluLWFuLWFzc29jaWF0aW9uLTIiLCJ0ZXh0IjoiV3JpdGUgb25l
-IG9yIHR3byBzZW50ZW5jZXMgaW50ZXJwcmV0aW5nIHRoZSB0ZXN0IHJlc3VsdC4iLCJ0eXBl
-IjoicmVmbGVjdGlvbiIsImFuc3dlcnMiOlt7InRleHQiOiJBdCBhbHBoYSA9IDAuMDUsIHJl
-amVjdCBpbmRlcGVuZGVuY2UuIFRoZSBQZWFyc29uIGNoaS1zcXVhcmUgdGVzdCBnaXZlcyBl
-dmlkZW5jZSBvZiBhbiBhc3NvY2lhdGlvbiBiZXR3ZWVuIGluanVyeSBzdGF0dXMgYW5kIHRo
-ZSB0d28gcmVwb3J0ZWQgbGlnaHRpbmcgY2F0ZWdvcmllcy4gVGhpcyBpcyBhbiBhc3NvY2lh
-dGlvbiBhbW9uZyB0aGUgY3Jhc2hlcyBpbiB0aGUgc2FtcGxlLCBub3QgYSBjYXVzYWwgZWZm
-ZWN0IG9mIGxpZ2h0aW5nLiIsImNvcnJlY3QiOnRydWUsIm1lc3NhZ2UiOm51bGx9XSwiY29y
-cmVjdE1lc3NhZ2UiOiJDb3JyZWN0ISIsImluY29ycmVjdE1lc3NhZ2UiOiJJbmNvcnJlY3Qu
-IiwiYWxsb3dSZXRyeSI6ZmFsc2UsInJhbmRvbUFuc3dlck9yZGVyIjpmYWxzZSwic3VibWl0
-TGFiZWwiOiJTdWJtaXQgQW5zd2VyIiwidHJ5QWdhaW5MYWJlbCI6IlRyeSBBZ2FpbiIsImVk
-aXRMYWJlbCI6IkVkaXQgQW5zd2VyIiwiYWxsb3dJbWFnZSI6ZmFsc2UsImFsbG93VGV4dCI6
-dHJ1ZSwic2hvd1RleHQiOnRydWUsInZhbGlkYXRlIjoibm9uZSJ9">
+<div class="learnr2-question" data-learnr2-question="eyJpZCI6ImxhYi1leHBsYWluLWFuLWFzc29jaWF0aW9uLTIiLCJ0ZXh0IjoiQXQgYWxwaGEg
+PSAwLjA1LCB3aGF0IGRlY2lzaW9uIGRvZXMgdGhlIHAtdmFsdWUgc3VwcG9ydD8iLCJ0eXBl
+Ijoic2luZ2xlIiwiYW5zd2VycyI6W3sidGV4dCI6IlJlamVjdCBpbmRlcGVuZGVuY2UgYnkg
+dGhlIHAtdmFsdWUgcnVsZSwgd2hpbGUgbm90aW5nIHRoZSBCYXllcyBmYWN0b3IgZmF2b3Jz
+IGluZGVwZW5kZW5jZSB1bmRlciB0aGUgbW9kZWxzIGNvbXBhcmVkLiIsImNvcnJlY3QiOnRy
+dWUsIm1lc3NhZ2UiOm51bGx9LHsidGV4dCI6IkFjY2VwdCBpbmRlcGVuZGVuY2UgYmVjYXVz
+ZSB0aGUgZWZmZWN0IHNpemUgaXMgc21hbGwuIiwiY29ycmVjdCI6ZmFsc2UsIm1lc3NhZ2Ui
+Om51bGx9LHsidGV4dCI6IlJlamVjdCBpbmRlcGVuZGVuY2UgYW5kIGNvbmNsdWRlIGJhdGhy
+b29tIGNvdW50IGNhdXNlcyBjbGVhbmluZyBmZWVzLiIsImNvcnJlY3QiOmZhbHNlLCJtZXNz
+YWdlIjpudWxsfV0sImNvcnJlY3RNZXNzYWdlIjoiUmlnaHQuIFRoZSBwLXZhbHVlIGFuZCBC
+YXllcyBmYWN0b3IgYW5zd2VyIGRpZmZlcmVudCBxdWVzdGlvbnM7IHJlcG9ydCB0aGUgbWl4
+ZWQgZXZpZGVuY2UuIiwiaW5jb3JyZWN0TWVzc2FnZSI6IkNvbXBhcmUgdGhlIHAtdmFsdWUg
+d2l0aCBhbHBoYSwgdGhlbiBjaGVjayB3aGljaCBoeXBvdGhlc2lzIHRoZSBCYXllcyBmYWN0
+b3IgZmF2b3JzLiBOZWl0aGVyIGVzdGFibGlzaGVzIGNhdXNhdGlvbi4iLCJhbGxvd1JldHJ5
+Ijp0cnVlLCJyYW5kb21BbnN3ZXJPcmRlciI6ZmFsc2UsInN1Ym1pdExhYmVsIjoiU3VibWl0
+IEFuc3dlciIsInRyeUFnYWluTGFiZWwiOiJUcnkgQWdhaW4iLCJlZGl0TGFiZWwiOiJFZGl0
+IEFuc3dlciIsImFsbG93SW1hZ2UiOmZhbHNlLCJhbGxvd1RleHQiOnRydWUsInNob3dUZXh0
+Ijp0cnVlLCJ2YWxpZGF0ZSI6Im5vbmUifQ==">
 <noscript>This quiz question requires JavaScript.</noscript>
 </div>
 </div>
@@ -277,28 +311,27 @@ dHJ1ZSwic2hvd1RleHQiOnRydWUsInZhbGlkYXRlIjoibm9uZSJ9">
 </section>
 <section id="step-5-practical-interpretation" class="level3">
 <h3 class="anchored" data-anchor-id="step-5-practical-interpretation">Step 5: Practical interpretation</h3>
-<p>How large and consequential is the result for a general business audience? Use the <strong>table percentages</strong>, <strong>standardized residuals</strong>, and <strong>effect size</strong>. The lecture’s advice is to never report a p-value alone. A Bayes factor, if reported by your course output, addresses strength of evidence; it is not an effect size. This browser test does not compute one.</p>
+<p>How large and consequential is the result for a general business audience? Use the <strong>column percentages</strong>, <strong>standardized residuals</strong>, and <strong>effect size</strong>. A Bayes factor addresses strength of evidence; it is not an effect size.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="learnr2-question" data-learnr2-question="eyJpZCI6ImxhYi1leHBsYWluLWFuLWFzc29jaWF0aW9uLTMiLCJ0ZXh0IjoiV3JpdGUgdHdv
-IG9yIHRocmVlIHNlbnRlbmNlcyBmb3IgYSBzYWZldHkgbWFuYWdlci4gQ29tcGFyZSB0aGUg
-aW5qdXJ5IHBlcmNlbnRhZ2VzLCBpZGVudGlmeSB0aGUgY2VsbCB3aXRoIG1vcmUgaW5qdXJp
-ZXMgdGhhbiBleHBlY3RlZCwgYW5kIHN1Z2dlc3QgYSBwcm9wb3J0aW9uYXRlIG5leHQgc3Rl
-cC4iLCJ0eXBlIjoicmVmbGVjdGlvbiIsImFuc3dlcnMiOlt7InRleHQiOiJBYm91dCAxOS4y
-JSBvZiByZXBvcnRlZCBjcmFzaGVzIG9uIGxpZ2h0ZWQgcm9hZHMgYWZ0ZXIgZGFyayBpbnZv
-bHZlZCBpbmp1cnksIHZlcnN1cyAxNC4xJSBpbiBkYXlsaWdodCwgYSBkaWZmZXJlbmNlIG9m
-IGFib3V0IDUuMSBwZXJjZW50YWdlIHBvaW50cy4gRGFyaywgbGlnaHRlZCByb2FkcyBoYXZl
-IG1vcmUgaW5qdXJ5IGNyYXNoZXMgdGhhbiBleHBlY3RlZCB1bmRlciBpbmRlcGVuZGVuY2Us
-IGJ1dCBDcmFtZXIncyBWIGluZGljYXRlcyBhIHNtYWxsIGFzc29jaWF0aW9uIG92ZXJhbGwu
-IEludmVzdGlnYXRlIHdoZXJlIGFuZCB3aGVuIGluanVyaWVzIGNsdXN0ZXIgYmVmb3JlIHJl
-Y29tbWVuZGluZyBhIGxpZ2h0aW5nIGludGVydmVudGlvbjsgdGhlIHNhbXBsZSBjYW5ub3Qg
-ZXN0YWJsaXNoIGNhdXNhdGlvbiBvciByaXNrIHBlciBtaWxlLiIsImNvcnJlY3QiOnRydWUs
-Im1lc3NhZ2UiOm51bGx9XSwiY29ycmVjdE1lc3NhZ2UiOiJDb3JyZWN0ISIsImluY29ycmVj
-dE1lc3NhZ2UiOiJJbmNvcnJlY3QuIiwiYWxsb3dSZXRyeSI6ZmFsc2UsInJhbmRvbUFuc3dl
-ck9yZGVyIjpmYWxzZSwic3VibWl0TGFiZWwiOiJTdWJtaXQgQW5zd2VyIiwidHJ5QWdhaW5M
-YWJlbCI6IlRyeSBBZ2FpbiIsImVkaXRMYWJlbCI6IkVkaXQgQW5zd2VyIiwiYWxsb3dJbWFn
-ZSI6ZmFsc2UsImFsbG93VGV4dCI6dHJ1ZSwic2hvd1RleHQiOnRydWUsInZhbGlkYXRlIjoi
-bm9uZSJ9">
+IG9yIHRocmVlIHNlbnRlbmNlcyBmb3IgYW4gQWlyYm5iIG9wZXJhdG9yLiBDb21wYXJlIHRo
+ZSBmZWUgcGVyY2VudGFnZXMgYWNyb3NzIGJhdGhyb29tIGNhdGVnb3JpZXMsIHVzZSBhIHJl
+c2lkdWFsIHRvIGRlc2NyaWJlIHRoZSBwYXR0ZXJuLCBhbmQgc3VnZ2VzdCBhIHByb3BvcnRp
+b25hdGUgbmV4dCBzdGVwLiIsInR5cGUiOiJyZWZsZWN0aW9uIiwiYW5zd2VycyI6W3sidGV4
+dCI6IkNsZWFuaW5nIGZlZXMgYXBwZWFyIGluIDc0LjYyJSBvZiBvbmUtYmF0aHJvb20sIDY4
+LjMzJSBvZiBvbmUtYW5kLWEtaGFsZi1iYXRocm9vbSwgYW5kIDc4LjY4JSBvZiB0d28tYmF0
+aHJvb20gbGlzdGluZ3MuIFR3by1iYXRocm9vbSBsaXN0aW5ncyBoYXZlIG1vcmUgZmVlLWNo
+YXJnaW5nIGxpc3RpbmdzIHRoYW4gZXhwZWN0ZWQgKHJlc2lkdWFsICsyLjMwKSwgYnV0IENy
+YW1lcidzIFYgaXMgc21hbGwgKDAuMDQ0KSBhbmQgdGhlIEJheWVzIGZhY3RvciBmYXZvcnMg
+aW5kZXBlbmRlbmNlLiBDaGVjayBjb21wYXJhYmxlIHByb3BlcnRpZXMgYW5kIG90aGVyIHBy
+aWNpbmcgZmFjdG9ycyBiZWZvcmUgY2hhbmdpbmcgeW91ciBwb2xpY3kuIiwiY29ycmVjdCI6
+dHJ1ZSwibWVzc2FnZSI6bnVsbH1dLCJjb3JyZWN0TWVzc2FnZSI6IkNvcnJlY3QhIiwiaW5j
+b3JyZWN0TWVzc2FnZSI6IkluY29ycmVjdC4iLCJhbGxvd1JldHJ5IjpmYWxzZSwicmFuZG9t
+QW5zd2VyT3JkZXIiOmZhbHNlLCJzdWJtaXRMYWJlbCI6IlN1Ym1pdCBBbnN3ZXIiLCJ0cnlB
+Z2FpbkxhYmVsIjoiVHJ5IEFnYWluIiwiZWRpdExhYmVsIjoiRWRpdCBBbnN3ZXIiLCJhbGxv
+d0ltYWdlIjpmYWxzZSwiYWxsb3dUZXh0Ijp0cnVlLCJzaG93VGV4dCI6dHJ1ZSwidmFsaWRh
+dGUiOiJub25lIn0=">
 <noscript>This quiz question requires JavaScript.</noscript>
 </div>
 </div>
@@ -310,20 +343,35 @@ bm9uZSJ9">
 <section id="what-feedback-can-check" class="level3">
 <h3 class="anchored" data-anchor-id="what-feedback-can-check">What feedback can check</h3>
 <div class="flawed-answer">
-<p><strong>Example draft:</strong> “The p-value proves darkness causes injuries. Since the result is significant, the city should replace its lights.”</p>
+<p><strong>Example draft:</strong> “The p-value proves bathroom count causes cleaning fees. Since the result is significant, owners should change their policy.”</p>
 </div>
 <div class="prompt-card">
 <p><strong>Example coaching response</strong></p>
 <ul>
-<li><strong>What works:</strong> You noticed the test provides evidence against independence.</li>
-<li><strong>What to revise:</strong> A small p-value does not establish cause or tell you the size of the association. Compare 19.2% with 14.1% and state what the denominator is.</li>
-<li><strong>Try again:</strong> What would you investigate before recommending a lighting change?</li>
+<li><strong>What works:</strong> You noticed the p-value is below 0.05.</li>
+<li><strong>What to revise:</strong> The test does not establish causation or practical importance. Compare the fee percentages and use Cramer’s V and the Bayes factor to qualify your interpretation.</li>
+<li><strong>Try again:</strong> What would you check about comparable listings before changing a fee policy?</li>
 </ul>
 </div>
 <p>That response is a written example. The tutorial’s checks and model answers run locally; no AI model is connected. For personalized feedback, build a prompt from your own draft below and optionally paste it into an AI tool you already have access to. Do not enter names or private project records.</p>
 <div class="cell">
 <div class="cell-output-display">
-<pre id="feedback-evidence" hidden="">Public Chicago crash sample; daylight (6549 no injury, 1074 injury); darkness on a lighted road (2157 no injury, 511 injury). Pearson chi-square = 38.896, df = 1, p = 4.47e-10, alpha = .05. Within-lighting injury rates: 14.09% daylight, 19.15% dark lighted road. Adjusted standardized residual for dark lighted road x injury = 6.24. Cramer's V = 0.061. No Bayes factor supplied. Observational crash records; no exposure denominator or causal design.</pre>
+<pre id="feedback-evidence" hidden="">Homework 6 Airbnb listings restricted to 1 to 2 bathrooms.
+Test: eco230r csi(cleaning_fee ~ bathroom_category), alpha = 0.05.
+X2(2) = 8.844, p = 0.012, V = 0.044, bf10 = 0.332
+Observed counts:
+  cleaning_fee     1 1.5   2
+1         FALSE  695  57 129
+2          TRUE 2043 123 476
+Within-bathroom percentages:
+  cleaning_fee        1     1.5       2
+1         FALSE 25.38 % 31.67 % 21.32 %
+2          TRUE 74.62 % 68.33 % 78.68 %
+Standardized residuals:
+  cleaning_fee           1       1.5         2
+1         FALSE  0.9634757  2.118014 -2.299649
+2          TRUE -0.9634757 -2.118014  2.299649
+Observational listing data; no causal design.</pre>
 </div>
 </div>
 <div class="prompt-card">
@@ -364,7 +412,7 @@ YXRlIjoibm9uZSJ9">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <section id="save-your-practice" class="level3">
 <h3 class="anchored" data-anchor-id="save-your-practice">Save your practice</h3>
-<p>This preview does not submit to Canvas or change the Homework 6 requirements. The download saves your submitted reflections and exercise code locally.</p>
+<p>This preview does not submit to Canvas or change the Homework 6 requirements. The download saves your submitted responses locally.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="learnr2-question" data-learnr2-question="eyJpZCI6InN1bW1hcnktMSIsInRleHQiOiJIb3cgbWFueSBtaW51dGVzLCBhcHByb3hpbWF0
@@ -390,11 +438,8 @@ d25sb2FkIE15IEFuc3dlcnMifQ==">
 <p>Built with <a href="https://ppbds.github.io/learnr2/">learnr2</a> and WebR.</p>
 
 
-<script type="webr-data">
-eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC42LjAvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyJdLCJyZXBvcyI6W119LCJyZW5kZXJfZGYiOiJkZWZhdWx0In0=
-</script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0yLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcIndlYnItMi1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzIgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzIsIHt9KTtcbl93ZWJyX2ZlZWRiYWNrXzIgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzIuZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfMSA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xLWNvbnRlbnRzXCIsXG4gICAgICBlbnZpcjogYGV4ZXJjaXNlLWVudi0ke2Jsb2NrLmF0dHIuZXhlcmNpc2V9YCxcbiAgICAgIGVycm9yOiBmYWxzZSxcbiAgICAgIGNhcHRpb246ICdFeGVyY2lzZScsXG4gICAgfSxcbiAgICBibG9jay5hdHRyXG4gICk7XG5cbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG52aWV3b2YgX3dlYnJfdmFsdWVfMSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMSwge30pO1xuX3dlYnJfZmVlZGJhY2tfMSA9IHtcbiAgY29uc3QgeyBXZWJSR3JhZGVyIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBlbXB0eUZlZWRiYWNrID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7XG5cbiAgY29uc3QgZ3JhZGVyID0gbmV3IFdlYlJHcmFkZXIoX3dlYnJfdmFsdWVfMS5ldmFsdWF0b3IpO1xuICBjb25zdCBmZWVkYmFjayA9IGF3YWl0IGdyYWRlci5ncmFkZUV4ZXJjaXNlKCk7XG4gIGlmICghZmVlZGJhY2spIHJldHVybiBlbXB0eUZlZWRiYWNrO1xuICByZXR1cm4gZmVlZGJhY2s7XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici1wcmVsdWRlIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoid2ViUk9qcyA9IHtcbiAgY29uc3QgeyBXZWJSLCBDaGFubmVsVHlwZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZS5XZWJSO1xuICBjb25zdCB7XG4gICAgV2ViUkV2YWx1YXRvcixcbiAgICBXZWJSRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoXG4gIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHN0YXR1c0NvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1zdGF0dXNcIik7XG4gIGNvbnN0IGluZGljYXRvckNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGluZGljYXRvckNvbnRhaW5lci5jbGFzc0xpc3QucmVtb3ZlKFwiZC1ub25lXCIpO1xuXG4gIGxldCBzdGF0dXNUZXh0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKVxuICBzdGF0dXNUZXh0LmNsYXNzTGlzdCA9IFwiZXhlcmNpc2UtbG9hZGluZy1kZXRhaWxzXCI7XG4gIHN0YXR1c1RleHQgPSBzdGF0dXNDb250YWluZXIuYXBwZW5kQ2hpbGQoc3RhdHVzVGV4dCk7XG4gIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5pdGlhbGlzZWA7XG5cbiAgLy8gSG9pc3QgaW5kaWNhdG9yIG91dCBmcm9tIGZpbmFsIHNsaWRlIHdoZW4gcnVubmluZyB1bmRlciByZXZlYWxcbiAgY29uc3QgcmV2ZWFsU3RhdHVzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgLmV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpZiAocmV2ZWFsU3RhdHVzKSB7XG4gICAgcmV2ZWFsU3RhdHVzLnJlbW92ZSgpO1xuICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsID4gLnNsaWRlc1wiKS5hcHBlbmRDaGlsZChyZXZlYWxTdGF0dXMpO1xuICB9XG5cbiAgLy8gTWFrZSBhbnkgcmV2ZWFsIHNsaWRlcyB3aXRoIGxpdmUgY2VsbHMgc2Nyb2xsYWJsZVxuICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKFwiLnJldmVhbCAuZXhlcmNpc2UtY2VsbFwiKS5mb3JFYWNoKChlbCkgPT4ge1xuICAgIGVsLmNsb3Nlc3QoJ3NlY3Rpb24uc2xpZGUnKS5jbGFzc0xpc3QuYWRkKFwic2Nyb2xsYWJsZVwiKTtcbiAgfSlcblxuICAvLyB3ZWJSIHN1cHBsZW1lbnRhbCBkYXRhIGFuZCBvcHRpb25zXG4gIGNvbnN0IGRhdGFDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItZGF0YVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKGI2NERlY29kZShkYXRhQ29udGVudCkpO1xuXG4gIC8vIEdyYWIgbGlzdCBvZiByZXNvdXJjZXMgdG8gYmUgZG93bmxvYWRlZFxuICBjb25zdCBmaWxlc0NvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwidmZzLWZpbGVcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBmaWxlcyA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGZpbGVzQ29udGVudCkpO1xuXG4gIC8vIEluaXRpYWxpc2Ugd2ViUiBhbmQgc2V0dXAgZm9yIFIgY29kZSBldmFsdWF0aW9uXG4gIGxldCB3ZWJSUHJvbWlzZSA9IChhc3luYyAod2ViUikgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgd2ViUmA7XG4gICAgYXdhaXQgd2ViUi5pbml0KCk7XG5cbiAgICAvLyBJbnN0YWxsIHByb3ZpZGVkIGxpc3Qgb2YgcGFja2FnZXNcbiAgICAvLyBFbnN1cmUgd2ViUiBkZWZhdWx0IHJlcG8gaXMgaW5jbHVkZWRcbiAgICBkYXRhLnBhY2thZ2VzLnJlcG9zLnB1c2goXCJodHRwczovL3JlcG8uci13YXNtLm9yZ1wiKVxuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIHdlYlIuZXZhbFJWb2lkKGBcbiAgICAgICAgd2Vicjo6aW5zdGFsbChwa2csIHJlcG9zID0gcmVwb3MpXG4gICAgICAgIGxpYnJhcnkocGtnLCBjaGFyYWN0ZXIub25seSA9IFRSVUUpXG4gICAgICBgLCB7IGVudjoge1xuICAgICAgICBwa2c6IHBrZyxcbiAgICAgICAgcmVwb3M6IGRhdGEucGFja2FnZXMucmVwb3MsXG4gICAgICB9fSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgY29uc3QgYW5hbHlzaXMgPSBhd2FpdCB3ZWJSLkZTLmFuYWx5emVQYXRoKHBhdGgpO1xuICAgICAgICBpZiAoIWFuYWx5c2lzLmV4aXN0cykge1xuICAgICAgICAgIHRyeSB7XG4gICAgICAgICAgICBhd2FpdCB3ZWJSLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgICAgIHRocm93IG5ldyBFcnJvcihgRmlsZXN5c3RlbSBFcnJvcjogXCIke2UubWVzc2FnZX1cIi5gKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHJldHVybiBhd2FpdCB3ZWJSLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluc3RhbGxpbmcgd2ViUiBzaGltc2A7XG4gICAgYXdhaXQgd2ViUi5ldmFsUlZvaWQoYHdlYnI6OnNoaW1faW5zdGFsbCgpYCk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFdlYlIgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUih3ZWJSLCBkYXRhKTtcblxuICAgIHN0YXR1c1RleHQucmVtb3ZlKCk7XG4gICAgaWYgKHN0YXR1c0NvbnRhaW5lci5jaGlsZHJlbi5sZW5ndGggPT0gMCkge1xuICAgICAgc3RhdHVzQ29udGFpbmVyLnBhcmVudE5vZGUucmVtb3ZlKCk7XG4gICAgfVxuICAgIHJldHVybiB3ZWJSO1xuICB9KShuZXcgV2ViUihkYXRhLm9wdGlvbnMpKTtcblxuICAvLyBLZWVwIHRyYWNrIG9mIGluaXRpYWwgT0pTIGJsb2NrIHJlbmRlclxuICBjb25zdCByZW5kZXJlZE9qcyA9IHt9O1xuXG4gIGNvbnN0IHByb2Nlc3MgPSBhc3luYyAoY29udGV4dCwgaW5wdXRzKSA9PiB7XG4gICAgY29uc3Qgd2ViUiA9IGF3YWl0IHdlYlJQcm9taXNlO1xuICAgIGNvbnN0IGV2YWx1YXRvciA9IG5ldyBXZWJSRXZhbHVhdG9yKHdlYlIsIGNvbnRleHQpXG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHJvY2VzcyxcbiAgICB3ZWJSUHJvbWlzZSxcbiAgICByZW5kZXJlZE9qcyxcbiAgfTtcbn1cbiJ9XX0=
+eyJjb250ZW50cyI6W119
 </script>
 <div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
 <div id="exercise-loading-status" class="d-flex gap-2">
@@ -453,7 +498,7 @@ document.getElementById('build-feedback').addEventListener('click', function () 
 
     'Use only the verified evidence. Check Step 4 for the decision about independence and Step 5 for within-group percentages, direction, magnitude, and a practical next step.',
 
-    'Flag unsupported claims about causation, population risk, or probability that H0 is true. Do not invent a Bayes factor or assign a grade.',
+    'Flag unsupported claims about causation, practical importance, or probability that H0 is true. Do not invent a Bayes factor or assign a grade.',
 
     'Return one strength, one specific correction with evidence, and one revision question. Keep it under 120 words. Do not write the final answer.',
 
