@@ -9,6 +9,15 @@ format:
     embed-resources: false
     include-after-body: navigation.html
 engine: knitr
+webr:
+  packages:
+    - dplyr
+    - BayesFactor
+    - effectsize
+  resources:
+    - data/eco230r-course.tar.gz
+    - data/load-eco230r.R
+    - data/airbnb_chicago.csv
 execute:
   warning: false
   message: false
@@ -25,12 +34,12 @@ header-includes: |
 
 Learn the idea. Try it. Check the evidence.
 
-About 20-30 minutes · eco230r results · No installation · Not a graded assignment
+About 20-30 minutes · Editable browser R · No installation · Not a graded assignment
 :::
 
 Practice the same five steps used in lecture, lab, and Homework 6. First
 choose the test, then move from a table of counts to a decision a manager can
-understand. The displayed results are computed with eco230r when this page is built. Run the same code in your course Posit Cloud project. The interpretation checks and feedback prompt run in your browser.
+understand. Run and edit the course eco230r examples here in your browser. On first use, WebR downloads the packages; wait for the R cells to be ready. The interpretation checks and feedback prompt also run in your browser.
 
 ```{r}
 #| label: introduction-options
@@ -67,17 +76,26 @@ the interpretation deck.
 - **HA:** Cool_Time does not fit the expected model.
 - **Alpha:** 0.05.
 
-```{r}
+Run the starter code before answering the check below. You can then edit the
+code and run it again.
+
+```{webr}
+#| label: choose-the-test-1-setup
+#| exercise: cool-time
+#| setup: true
+source("data/load-eco230r.R", local = TRUE)
+```
+
+```{webr}
 #| label: choose-the-test-1
-library(eco230r)
+#| exercise: cool-time
+#| persist: true
 data("tea_tab", package = "eco230r")
 
 h1 <- tea_tab |>
   csf(~cool_time)
 
 h1$results
-h1$observed
-h1$expected
 ```
 
 ```{r}
@@ -106,25 +124,29 @@ bathrooms so categories with very few records do not drive the result.
 
 ### Inspect the Homework 6 output
 
-In the Homework 6 project, the data file is at `data/airbnb_chicago.csv`.
-The tutorial uses that same file to compute these outputs.
+Run the same code used in Homework 6. The browser file retains the two
+columns this test needs and every row from the homework file. For the
+interpretation questions and feedback demo, use the starter code's results.
 
-```{r}
-#| label: lab-data
-#| include: false
-library(dplyr)
-df <- read.csv("data/airbnb_chicago.csv")
+```{webr}
+#| label: lab-explain-an-association-1-setup
+#| exercise: airbnb-fees
+#| setup: true
+source("data/load-eco230r.R", local = TRUE)
 ```
 
-```{r}
+```{webr}
 #| label: lab-explain-an-association-1
+#| exercise: airbnb-fees
+#| persist: true
+df <- read.csv("data/airbnb_chicago.csv")
+
 h2 <- df |>
   filter(bathrooms >= 1, bathrooms <= 2) |>
   mutate(bathroom_category = factor(bathrooms)) |>
   csi(cleaning_fee ~ bathroom_category)
 
 h2$results
-h2$observed
 h2$column_percentages
 h2$standardized_residuals
 ```
@@ -186,6 +208,17 @@ already have access to. Do not enter names or private project records.
 ```{r}
 #| label: feedback-demo-evidence
 #| echo: false
+# Reference evidence for the starter exercise, independent of browser edits.
+library(eco230r)
+library(dplyr)
+df <- read.csv("data/airbnb_chicago.csv")
+
+h2 <- df |>
+  filter(bathrooms >= 1, bathrooms <= 2) |>
+  mutate(bathroom_category = factor(bathrooms)) |>
+  csi(cleaning_fee ~ bathroom_category)
+
+
 facts <- paste(
   "Homework 6 Airbnb listings restricted to 1 to 2 bathrooms.",
   "Test: eco230r csi(cleaning_fee ~ bathroom_category), alpha = 0.05.",
@@ -235,7 +268,7 @@ learnr2::question("Name the variables, test, and one table percentage or compari
 ### Save your practice
 
 This preview does not submit to Canvas or change the Homework 6 requirements.
-The download saves your submitted responses locally.
+The download saves your submitted responses and exercise code locally.
 
 ```{r}
 #| label: summary-1
