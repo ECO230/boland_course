@@ -1,0 +1,277 @@
+---
+title: "Evidence before confidence"
+subtitle: "Week 6 / Hypothesis testing / Interactive prototype"
+format:
+  live-html:
+    toc: true
+    toc-depth: 2
+    css: tutorial.css
+    embed-resources: false
+    include-after-body: navigation.html
+engine: knitr
+execute:
+  warning: false
+  message: false
+search: false
+robots: noindex, nofollow
+header-includes: |
+  <meta name="robots" content="noindex, nofollow">
+---
+
+{{< include _extensions/r-wasm/live/_knitr.qmd >}}
+
+::: {.hero-note}
+**ECO 230 · WORKING PROTOTYPE**
+
+Learn the idea. Try it. Check the evidence.
+
+About 25-35 minutes · Browser R lab · No installation · Not a graded assignment
+:::
+
+This prototype turns the Week 6 lecture and lab into short, guided practice.
+You will separate a statistical story from a test, explore sampling variation,
+and write a decision that respects uncertainty. Each reflection reveals a model
+response after you submit. Those responses are instructor-written, not AI grading.
+
+Your answers stay in this browser until you download them. Nothing is sent to
+Canvas or an AI service. For this preview, use a demo identity below. The R
+runtime downloads on first use; allow a little time for **Run code** to become ready.
+
+```{r}
+#| label: introduction-options
+#| echo: false
+learnr2::tutorial_options(allow_skip = TRUE, require_submission = FALSE)
+```
+
+## Introduction
+
+### Your workspace
+
+```{r}
+#| label: student-information-1
+#| echo: false
+learnr2::student_info()
+```
+
+You can jump between topics using the contents panel. Try a complete route, or
+jump straight to **Lab: audit an AI answer**. Use **Submit Answer** to save a
+reflection before downloading. Practice answers are not scored for credit.
+
+[Week 6 slides](../week_06.html) · [Guided notes](../Guided_Notes_Hypothesis_Testing.html)
+
+### Start with a decision
+
+A tutoring company says its new study tonic increases exam scores. An average
+increase in one sample is a starting point, not a guarantee. First define what
+would make a difference worth acting on.
+
+```{r}
+#| label: introduction-1
+#| echo: false
+learnr2::question("Write one decision the tutoring company faces and one numerical improvement that would be useful enough to justify a trial.", learnr2::answer("For a small trial, the company might require at least a five-point average improvement before spending more. The threshold is a business choice to state before examining results; it is not the significance level.", correct=TRUE), type="reflection")
+```
+
+## Uncertainty in action
+
+### See chance produce a pattern
+
+Run this experiment. Each dot is a separate study when the true average effect
+is zero. Red dots would pass a two-sided 0.05 significance threshold by chance.
+Change `n` from 30 to 300 and run again.
+
+```{webr}
+#| label: uncertainty-in-action-1
+#| exercise: chance-studies
+#| persist: true
+set.seed(230)
+n <- 30
+studies <- 200
+observed <- replicate(studies, mean(rnorm(n, mean = 0, sd = 20)))
+se <- 20 / sqrt(n)
+flag <- abs(observed / se) > qnorm(0.975)
+plot(observed, pch = 19, col = ifelse(flag, "#bd4934", "#267a78"),
+     xlab = "Study", ylab = "Observed mean change (points)",
+     main = "All studies have a true effect of zero")
+abline(h = 0, lty = 2)
+cat("Flagged studies:", sum(flag), "of", studies, "\n")
+cat("Typical standard error:", round(se, 2), "points\n")
+```
+
+::: {.hint exercise="chance-studies"}
+Only change the line `n <- 30`. The true effect stays zero in both runs.
+:::
+
+```{r}
+#| label: uncertainty-in-action-2
+#| echo: false
+learnr2::question("Describe what changed when sample size increased and what did not change about false alarms.", learnr2::answer("Study means cluster more tightly around zero as sample size increases. With the same testing rule, some studies still produce false alarms. A larger sample improves precision; it does not make every positive-looking finding true.", correct=TRUE),type="reflection")
+```
+
+### Read a p-value carefully
+
+Use this practice result: estimated increase **12.5 points**, 95% confidence
+interval **3.2 to 21.8 points**, p-value **0.027**. Treat these as supplied
+teaching results, not the output of the simulation above.
+
+```{r}
+#| label: uncertainty-in-action-3
+#| echo: false
+learnr2::question("Select the interpretation supported by p = 0.027.",learnr2::answer("There is a 2.7% probability that the null hypothesis is true."),learnr2::answer("If the null model and assumptions hold, results at least this extreme have probability 2.7%.",correct=TRUE),learnr2::answer("The effect is large enough to justify the investment."),allow_retry=TRUE,correct="Yes. A p-value describes compatibility with a null model, not the probability a hypothesis is true.",incorrect="Condition on the null model. Practical value requires the effect, uncertainty, and decision costs.")
+```
+
+### Turn evidence into a decision
+
+```{r}
+#| label: uncertainty-in-action-4
+#| echo: false
+learnr2::question("Write two sentences for the company. Use the estimate and interval. Explain why passing a five-point business threshold is still uncertain.",learnr2::answer("The estimated average increase is 12.5 points, with plausible values from 3.2 to 21.8 points under this interval procedure. The evidence favors an increase, but the interval includes improvements below five points, so the business case for a larger rollout remains uncertain.",correct=TRUE),type="reflection")
+```
+
+## Lab: audit an AI answer
+
+### 1. Specify the story and design
+
+For this lab, use the small **simulated teaching dataset** embedded in each R
+cell. It represents 40 before/after score changes. It is not student data and
+is not a randomized comparison group. A one-sample t-test of change against
+zero illustrates the test mechanics; this design alone cannot establish that
+the tonic caused an improvement.
+
+```{r}
+#| label: lab-audit-an-ai-answer-1
+#| echo: false
+learnr2::question("State the population quantity and write a two-sided null and alternative for average score change.",learnr2::answer("The parameter is the population mean before/after score change. H0: mean change = 0. HA: mean change is not 0. These hypotheses concern the population, not whether this particular sample average equals zero.",correct=TRUE),type="reflection")
+```
+
+### 2. Ask AI for a checkable analysis
+
+Optional: copy the prompt below into your usual AI tool. Do not include student
+names, project records, or private data. If you skip AI, use the prepared code in
+the next step and the deliberately flawed response in Step 4.
+
+::: {.prompt-card}
+**Copyable AI prompt**
+
+> I am studying before/after exam-score change in a simulated sample. Use base R
+> and a two-sided one-sample t-test against zero. Report n, the mean change,
+> a 95% confidence interval, the p-value, and the assumptions. Use the five-step
+> process: story, estimate/plot, test and hypotheses, statistical interpretation,
+> practical interpretation. Do not claim causation or treat the p-value as the
+> probability that a hypothesis is true. Explain what I should check myself.
+:::
+
+```{r}
+#| label: lab-audit-an-ai-answer-2
+#| echo: false
+learnr2::question("Before you trust an AI answer, list two things you will check against the design or numerical output.",learnr2::answer("Check that the test uses score changes rather than treating before/after scores as independent groups, and that the reported mean, confidence interval, and p-value match the actual R output. Also inspect the distribution and distinguish before/after association from causal evidence.",correct=TRUE),type="reflection")
+```
+
+### 3. Run the analysis yourself
+
+Run the supplied code. It is self-contained: you do not need to run an earlier
+cell first. Then change the confidence level to 0.99, run again, and compare
+the interval. Return to 0.95 before recording your final interpretation.
+
+```{webr}
+#| label: lab-audit-an-ai-answer-3
+#| exercise: tonic-analysis
+#| persist: true
+set.seed(606)
+change <- round(rnorm(40, mean = 7, sd = 18), 1)
+fit <- t.test(change, mu = 0, alternative = "two.sided", conf.level = 0.95)
+cat("n:", length(change), "\nMean change:", round(mean(change), 2), "points\n")
+print(fit)
+hist(change, breaks = 10, col = "#c4e1db", border = "white",
+     xlab = "After minus before (points)", main = "Inspect the score changes")
+abline(v = 0, col = "#bd4934", lwd = 2)
+```
+
+::: {.hint exercise="tonic-analysis"}
+Change `conf.level = 0.95` to `conf.level = 0.99`. A wider confidence interval
+reflects a more conservative coverage target; it does not change the data.
+:::
+
+::: {.solution exercise="tonic-analysis"}
+```r
+set.seed(606)
+change <- round(rnorm(40, mean = 7, sd = 18), 1)
+t.test(change, mu = 0, alternative = "two.sided", conf.level = 0.95)
+```
+:::
+
+```{r}
+#| label: lab-audit-an-ai-answer-4
+#| echo: false
+learnr2::question("Record n, mean change, confidence interval, and p-value from your 95% run. State one design or distribution check you would make before generalizing.",type="reflection")
+```
+
+### 4. Catch an overclaim
+
+::: {.flawed-answer}
+**Deliberately flawed AI-style response**
+
+"A small p-value means the tonic probably works. The observed improvement
+proves the tonic caused higher scores, so the company should launch it now."
+:::
+
+```{r}
+#| label: lab-audit-an-ai-answer-5
+#| echo: false
+learnr2::question("Identify two unsupported claims in that response and replace one with a defensible statement.",learnr2::answer("A p-value is not the probability that the tonic works, and a before/after sample does not establish causation. A defensible statement describes the estimated average change and uncertainty, then explains that a comparison design and business evidence are needed before deciding on a rollout.",correct=TRUE),type="reflection")
+```
+
+### 5. Finish the five-step story
+
+Use your actual R output. In five short bullets: state the story, describe your
+estimate or plot, name the test and hypotheses, interpret statistical evidence,
+and explain the practical decision. Refer to a five-point business threshold.
+You may conclude that more evidence is needed.
+
+```{r}
+#| label: lab-audit-an-ai-answer-6
+#| echo: false
+learnr2::question("Write your five-step analysis. Make the final bullet understandable to a manager who does not use statistical jargon.",type="reflection")
+```
+
+### 6. Transfer the idea to your project
+
+```{r}
+#| label: lab-audit-an-ai-answer-7
+#| echo: false
+learnr2::question("Name one question from your own project, the variables and design it needs, and the first thing you would verify in an AI-generated analysis. If you are previewing, invent a simple business example.",type="reflection")
+```
+
+## Summary
+
+### Your evidence trail
+
+You practiced sampling variation, the meaning of a p-value, and the five-step
+analysis process. You also used AI as a draft analyst whose work needs to be
+checked against the design, code, output, and business decision.
+
+**AI-assisted does not mean AI-verified.** Explain the result in your own words
+and retain the evidence that supports it. Open responses here are self-checks,
+not automatically evaluated for statistical correctness.
+
+This is a preview. There is no new Canvas requirement or grade. Downloading
+creates a local record of submitted reflections and saved exercise code.
+
+```{r}
+#| label: summary-1
+#| echo: false
+learnr2::question("How many minutes, approximately, did this tutorial take? Enter a whole number.",type="reflection_editable",validate="integer")
+```
+
+```{r}
+#| label: summary-2
+#| echo: false
+learnr2::download_answers_button(filename_prefix="eco230-week6-prototype")
+```
+
+### Sources and further practice
+
+Built with [learnr2](https://ppbds.github.io/learnr2/) and its browser R runtime.
+The sequence adapts the approach in [Tutorials in the Age of AI](https://stat.ethz.ch/CRAN/web/packages/learnr2/vignettes/ai.html)
+to ECO 230's public Week 6 slides and guided notes. Practice examples and feedback
+were written for this prototype. Base R's [t.test documentation](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/t.test.html)
+describes the test used in the browser lab.
