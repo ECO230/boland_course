@@ -39,6 +39,8 @@ project:
     - week03/Homework_03.qmd
     - week06/Homework_05.qmd
     - week07/Homework_06.qmd
+    - week08/Homework_07.qmd
+    - week09/Homework_08.qmd
     # Canvas-native source HTML. These outputs are intentionally unlisted: the
     # website navigation exposes only the current public materials above.
     - week04/Homework_04.qmd
@@ -128,6 +130,10 @@ website:
             file: week06/Homework_05.qmd
           - text: "Homework 6"
             file: week07/Homework_06.qmd
+          - text: "Homework 7"
+            file: week08/Homework_07.qmd
+          - text: "Homework 8"
+            file: week09/Homework_08.qmd
       - text: "Project 1"
         menu:
           - text: "Project Prompt"
