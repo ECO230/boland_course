@@ -3,6 +3,14 @@ from publish_site_navigation import patch_navigation,target_path,selections
 HEAD='<html><head><title>Keep title</title></head><body><header id="quarto-header"><ul class="dropdown-menu" aria-labelledby="nav-menu-homework"><li><a class="dropdown-item" href="../week03/Homework_03.html"><span class="dropdown-text">Homework 3</span></a></li></ul></header><main>Keep body and code</main></body></html>'
 ITEM={'menu':'Homework','label':'Homework 5','target':'week06/Homework_05.html','order':['Homework 1','Homework 2','Homework 3','Homework 4','Homework 5']}
 class NavigationTest(unittest.TestCase):
+ def test_explicit_removal_is_scoped_to_menu_and_preserves_body(self):
+  page=HEAD.replace('Keep body and code','Homework 3')
+  result,count=patch_navigation(page,[ITEM],removals=[('Homework','Homework 3')])
+  self.assertEqual(count,1)
+  self.assertNotIn('>Homework 3</span>',result)
+  self.assertIn('<main>Homework 3</main>',result)
+  self.assertIn('>Homework 5</span>',result)
+  self.assertEqual(patch_navigation(result,[ITEM],removals=[('Homework','Homework 3')]),(result,1))
  def test_legacy_gap_inserts_without_changing_content(self):
   result,count=patch_navigation(HEAD,[ITEM],page_path='syllabus/page.html')
   self.assertEqual(count,1);self.assertIn('Homework 5',result);self.assertIn('<main>Keep body and code</main>',result);self.assertIn('<title>Keep title</title>',result)

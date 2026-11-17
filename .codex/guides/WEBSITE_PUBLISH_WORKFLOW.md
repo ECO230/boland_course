@@ -38,6 +38,11 @@ that run directory. It verifies that destination HTML files already exist,
 checks all published navbar pages, and saves `plan.json`. It does not publish.
 A zero-change plan means the selected menus already match the source.
 
+For an explicitly requested menu removal, pass
+`-RemoveLinks @('Slides=Exact previous label')` in plan mode alongside
+`-Links`. The removed label must already be absent from `_quarto.yml`.
+Only that label in that menu is removed. Execute and verify use the saved plan.
+
 3. Review the compact plan. For a user-authorized publishing request, continue
    directly to execution; no additional confirmation is required:
 
