@@ -3,6 +3,14 @@ from publish_site_navigation import patch_navigation,target_path,selections,reor
 HEAD='<html><head><title>Keep title</title></head><body><header id="quarto-header"><ul class="dropdown-menu" aria-labelledby="nav-menu-homework"><li><a class="dropdown-item" href="../week03/Homework_03.html"><span class="dropdown-text">Homework 3</span></a></li></ul></header><main>Keep body and code</main></body></html>'
 ITEM={'menu':'Homework','label':'Homework 5','target':'week06/Homework_05.html','order':['Homework 1','Homework 2','Homework 3','Homework 4','Homework 5']}
 class NavigationTest(unittest.TestCase):
+ def test_new_last_menu_is_added_after_existing_menu(self):
+  page=HEAD.replace('<ul class="dropdown-menu"','<li class="nav-item dropdown"><a id="nav-menu-homework"></a><ul class="dropdown-menu"',1).replace('</ul></header>','</ul></li></header>')
+  item={'menu':'Project 2','label':'Research Proposal','target':'syllabus/project_2_prompt.html','order':['Research Proposal'],'menu_order':['Homework','Project 2']}
+  result,count=patch_navigation(page,[item])
+  self.assertEqual(count,1)
+  self.assertIn('id="nav-menu-project-2"',result)
+  self.assertLess(result.index('id="nav-menu-homework"'),result.index('id="nav-menu-project-2"'))
+  self.assertIn('<main>Keep body and code</main>',result)
  def test_menu_reordering_preserves_nested_links(self):
   first='<li><a><span class="menu-text">Project 1</span></a><ul><li><a href="keep.html">Keep this link</a></li></ul></li>'
   second='<li><a><span class="menu-text">Datasets</span></a><ul><li>Keep dataset</li></ul></li>'

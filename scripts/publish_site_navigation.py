@@ -92,17 +92,30 @@ def patch_navigation(document,selected,site=SITE,page_path="index.html",removals
   if not match:
    order=selected_item.get('menu_order',[])
    following=order[order.index(selected_item['menu'])+1:] if selected_item['menu'] in order else []
-   anchor=None
+   anchor=None;insert_after=False
    for label in following:
     next_id='nav-menu-'+re.sub(r'[^a-z0-9]+','-',label.lower()).strip('-')
     anchor=re.search(r'\bid=["\']'+re.escape(next_id)+r'["\']',content)
     if anchor:break
+   if not anchor:
+    preceding=order[:order.index(selected_item['menu'])] if selected_item['menu'] in order else []
+    for label in reversed(preceding):
+     previous_id='nav-menu-'+re.sub(r'[^a-z0-9]+','-',label.lower()).strip('-')
+     anchor=re.search(r'\bid=["\']'+re.escape(previous_id)+r'["\']',content)
+     if anchor:insert_after=True;break
    if not anchor:
     content=before_selected
     continue
    starts=list(re.finditer(r'<li\b[^>]*class=["\'][^"\']*\bnav-item\b[^"\']*["\'][^>]*>',content[:anchor.start()]))
    require(starts,'Cannot locate insertion point for navbar menu')
    position=starts[-1].start()
+   if insert_after:
+    depth=0
+    for tag in re.finditer(r'</?li\b[^>]*>',content[position:],re.I):
+     depth+=-1 if tag.group().startswith('</') else 1
+     if depth==0:
+      position+=tag.end()
+      break
    new_menu='<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="'+menu_id+'" role="link" data-bs-toggle="dropdown" aria-expanded="false"><span class="menu-text">'+html.escape(selected_item['menu'])+'</span></a><ul class="dropdown-menu" aria-labelledby="'+menu_id+'"></ul></li>\n'
    content=content[:position]+new_menu+content[position:]
    match=pattern.search(content)
