@@ -2195,10 +2195,32 @@ modules:
           path: "canvas/content/assignments/guided-notes-06.md"
           kind: "canvas_markdown_template"
           match_method: "approved_canvas_native_migration"
+      - key: "week-12-1-slides"
+        type: "WikiPage"
+        title: "Week 12.1 Slides"
+        position: 10
+        management: "repository"
+        publish_action: "synchronize"
+        source:
+          path: "week12/problem_definition.qmd"
+          kind: "slides"
+          published_url: "https://eco230.github.io/boland_course/week12/problem_definition.html"
+          match_method: "embedded_site_url"
+      - key: "week-12-1-slides-link"
+        type: "ExternalUrl"
+        title: "Week 12.1 Slides - Link"
+        position: 11
+        management: "repository"
+        publish_action: "synchronize"
+        source:
+          path: "week12/problem_definition.qmd"
+          kind: "slides"
+          published_url: "https://eco230.github.io/boland_course/week12/problem_definition.html"
+          match_method: "direct_site_url"
       - key: "week-12-2-pptx"
         type: "Attachment"
         title: "Week 12.2.pptx"
-        position: 10
+        position: 12
         management: "removed"
         publish_action: "omit_duplicate"
         source:
@@ -2208,8 +2230,8 @@ modules:
           match_method: "approved_legacy_replacement"
       - key: "week-12-slides"
         type: "WikiPage"
-        title: "Week 12 Slides"
-        position: 11
+        title: "Week 12.2 Slides"
+        position: 13
         management: "repository"
         publish_action: "synchronize"
         source:
@@ -2219,8 +2241,8 @@ modules:
           match_method: "embedded_site_url"
       - key: "week-12-slides-link"
         type: "ExternalUrl"
-        title: "Week 12 Slides - Link"
-        position: 12
+        title: "Week 12.2 Slides - Link"
+        position: 14
         management: "repository"
         publish_action: "synchronize"
         source:
@@ -2231,13 +2253,13 @@ modules:
       - key: "lab"
         type: "ContextModuleSubHeader"
         title: "Lab"
-        position: 13
+        position: 15
         management: "structure"
         publish_action: "synchronize_structure"
       - key: "sample-survey"
         type: "WikiPage"
         title: "Sample Survey"
-        position: 14
+        position: 16
         management: "repository"
         publish_action: "synchronize"
         source:
@@ -2247,13 +2269,13 @@ modules:
       - key: "homework"
         type: "ContextModuleSubHeader"
         title: "Homework"
-        position: 15
+        position: 17
         management: "structure"
         publish_action: "synchronize_structure"
       - key: "project-2-prompt-pdf"
         type: "Attachment"
         title: "project_2_prompt.pdf"
-        position: 16
+        position: 18
         management: "removed"
         publish_action: "omit_duplicate"
         source:
@@ -2264,7 +2286,7 @@ modules:
       - key: "problem-definition-examples-1-pdf"
         type: "Attachment"
         title: "Problem Definition Examples-1.pdf"
-        position: 17
+        position: 19
         management: "removed"
         publish_action: "omit_duplicate"
         source:
@@ -2275,7 +2297,7 @@ modules:
       - key: "analysis-plan-outline-pdf"
         type: "ExternalUrl"
         title: "Analysis Plan Outline.pdf"
-        position: 18
+        position: 20
         management: "repository"
         publish_action: "synchronize"
         source:
@@ -2286,7 +2308,7 @@ modules:
       - key: "catme-group-evaluation-2"
         type: "Assignment"
         title: "CATME Group Evaluation 2"
-        position: 19
+        position: 21
         management: "external_service"
         publish_action: "retain_gradebook_shell"
         external_url: "https://catme.org/login/index"
