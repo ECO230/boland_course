@@ -1,5 +1,5 @@
 ---
-title: "Week 12 - Sampling and Survey Research"
+title: "Week 12.2 - Sampling and Survey Research"
 author: "Mike Boland, MBA"
 format:
   revealjs:

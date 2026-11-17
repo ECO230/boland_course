@@ -31,7 +31,7 @@ project:
     - week05/week_05.qmd
     - week06/week_06.qmd
     - week07/week_07.qmd
-    - week12/week_12.qmd
+    - week12/problem_definition.qmd
     - week07/interpretation_x2.qmd
     - week08/interpretation_tw.qmd
     - week09/interpretation_anlr.qmd
@@ -103,14 +103,14 @@ website:
             file: week03/week_03.qmd
           - text: "Week 4"
             file: week04/week_04.qmd
-          - text: "Week 5 - Problem Definition"
+          - text: "Week 5"
             file: week05/week_05.qmd
           - text: "Week 6"
             file: week06/week_06.qmd
           - text: "Week 7"
             file: week07/week_07.qmd
-          - text: "Week 12 - Sampling and Survey Design"
-            file: week12/week_12.qmd
+          - text: "Week 12.1 - Problem Definition"
+            file: week12/problem_definition.qmd
       - text: "Interpretation"
         menu:
           - text: "Chi-square Tests"

@@ -1,0 +1,13 @@
+{
+  "module_prefix": "Week 12:",
+  "title": "Week 12.1 Slides",
+  "link_title": "Week 12.1 Slides - Link",
+  "source_path": "week12/problem_definition.qmd",
+  "published_url": "https://eco230.github.io/boland_course/week12/problem_definition.html",
+  "published": false,
+  "sections": [
+    {"section": 4, "course_id": 870634},
+    {"section": 11, "course_id": 869206},
+    {"section": 12, "course_id": 870121}
+  ]
+}

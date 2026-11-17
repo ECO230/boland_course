@@ -1,0 +1,71 @@
+.reveal .w12-definition-quote {
+  max-width: 940px;
+  margin: 150px auto 0;
+  color: #ffffff;
+}
+.reveal .w12-definition-quote blockquote {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 1.65em;
+  font-style: italic;
+  text-align: left;
+}
+.reveal .w12-definition-quote > p {
+  margin-top: 2em;
+  color: #aaaaaa;
+  font-size: 1.25em;
+  text-align: right;
+}
+.reveal .w12-definition-decision-text {
+  max-width: 1000px;
+  margin: 1.8em auto 2.4em;
+  font-size: 1.25em;
+}
+.reveal .w12-definition-decision h3 {
+  margin-bottom: 1em;
+}
+.reveal .w12-definition-decision li {
+  margin-bottom: 1em;
+}
+.reveal .w12-definition-dining {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  align-items: end;
+  height: 510px;
+  max-width: 1000px;
+  margin: 1em auto 0;
+}
+.reveal .w12-definition-dining-list {
+  align-self: start;
+  padding-top: 1em;
+  font-size: 1.25em;
+}
+.reveal .w12-definition-dining-list li {
+  margin-bottom: 1.8em;
+}
+.reveal .w12-definition-dining img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+}
+.reveal .w12-definition-terms dl {
+  display: grid;
+  grid-template-columns: 38% 62%;
+  max-width: 1000px;
+  margin: 1em auto 0;
+  font-size: 1.15em;
+}
+.reveal .w12-definition-terms dt,
+.reveal .w12-definition-terms dd {
+  display: flex;
+  align-items: center;
+  min-height: 100px;
+  margin: 0;
+  padding: 0.15em 0.6em;
+  box-sizing: border-box;
+}
