@@ -1,0 +1,34 @@
+{
+  "title": "Project 2 - Research Proposal Outline",
+  "html_path": "_site/week12/readings/analysis-plan-outline.html",
+  "published_url": "https://eco230.github.io/boland_course/week12/readings/analysis-plan-outline.html",
+  "rubric_path": "canvas/manifests/rubrics/open-topic-case-executive-summary.yml",
+  "input_paths": [
+    "week12/readings/analysis-plan-outline.qmd",
+    "syllabus/project_2_prompt.qmd",
+    "syllabus/project_2_rubric.qmd"
+  ],
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634,
+      "assignment_id": 11004610,
+      "module_id": 4667288,
+      "outline_item_id": 33302202
+    },
+    {
+      "section": 11,
+      "course_id": 869206,
+      "assignment_id": 11024245,
+      "module_id": 4677014,
+      "outline_item_id": 33358284
+    },
+    {
+      "section": 12,
+      "course_id": 870121,
+      "assignment_id": 11029563,
+      "module_id": 4679332,
+      "outline_item_id": 33378057
+    }
+  ]
+}

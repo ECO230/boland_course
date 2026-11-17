@@ -1,10 +1,10 @@
 ---
-title: "Analysis Plan Outline"
-subtitle: "A practical blueprint for a business data project"
+title: "Project 2: Research Proposal Outline"
 format:
   html:
     toc: true
     toc-depth: 2
+    toc-location: right
     number-sections: false
 execute:
   echo: false
@@ -12,176 +12,102 @@ execute:
   message: false
 ---
 
-## What an analysis plan does
+## Using This Outline
 
-An analysis plan connects a decision problem to the data, methods, and communication needed to answer it. Writing the plan first exposes missing variables, ambiguous definitions, and unrealistic claims before they become expensive.
+Use these questions to plan the Written Research Proposal for
+[Project 2](../../syllabus/project_2_prompt.qmd). The final submission is
+**one 2-4 page paper in paragraph form**, with subheadings. This outline is
+a planning aid and is not a separate submission.
 
-This page is a planning aid. The [Project 1 prompt](../../syllabus/project_1_prompt.qmd) and [Project 1 timeline](../../syllabus/project_1_timeline.qmd) remain the authoritative sources for required deliverables and dates.
+**You are proposing a study. You will not carry out the research, collect data,
+or perform analysis for this project.** Describe the decisions you would make
+and explain your reasons. Use future or conditional language throughout.
 
-## 1. Decision context
+## 1. Decision Context
 
-State:
+Who would use the study's results? What problem, opportunity, or decision
+would those results address? Explain why the decision matters.
 
-- the stakeholder or audience;
-- the decision, action, or opportunity;
-- why the decision matters; and
-- what is outside the stakeholder's control.
+## 2. Research Question
 
-**Template:** `[Stakeholder] needs to decide [decision] because [business consequence].`
+Write a focused question. Identify the population or setting, the topic or
+outcome, and any comparison that matters. Explain how an answer would help
+the decision maker.
 
-## 2. Research question
+## 3. Research Objectives
 
-Write one focused question that names the outcome, population, time, and important comparison.
+Identify what you would need to learn to answer the question. Objectives
+might describe a population, compare groups, assess a relationship, or
+evaluate a proposed change.
 
-**Template:** `Among [population] during [period], how does [outcome] vary with or across [explanatory variables/groups], for the purpose of [decision]?`
+Use objectives to clarify the research question. They can be included in
+that section of your paper rather than submitted separately.
 
-Avoid a question that assumes its conclusion or requires data you do not have.
+## 4. Population, Concepts, and Measures
 
-## 3. Objectives
+Define the population and the unit you would study, such as a person,
+organization, transaction, or event.
 
-List concrete analytical products. Useful verbs include describe, compare, estimate, identify, assess, rank, forecast, and recommend.
+Identify the main concepts. For each one, explain what it means in your
+study and how you would measure it. For survey questions, consider the
+wording, response options, and measurement scale. If you propose using
+existing records, explain what one row represents and which fields you
+would need.
 
-Example:
+## 5. Proposed Study Design
 
-1. Describe monthly crash volume and severity.
-2. Compare severe-outcome percentages across selected conditions.
-3. Identify geographic and temporal segments for deeper review.
-4. Recommend a limited next step supported by the evidence.
+Choose and explain the approach you would use, such as a survey, observational
+study, experiment, or predictive study.
 
-Each objective should help answer the research question. Remove interesting side analyses that do not.
+Describe how you would select participants or records, collect information,
+and organize the study. For an experiment, explain the treatment, comparison,
+and assignment process. Identify practical requirements such as access,
+time, or resources.
 
-## 4. Data and grain
+Do not recruit participants, distribute a survey, gather records, or conduct
+the study. This section describes your plan.
 
-For every input table, record:
+## 6. Quality of the Evidence
 
-| Planning item | What to write |
-|---|---|
-| Source | Publisher, file or URL, snapshot/version |
-| Grain | What one row represents |
-| Coverage | Population, geography, and period |
-| Join keys | Exact fields and expected relationship |
-| Outcome | Variable and operational definition |
-| Explanatory variables | Fields used for grouping or modeling |
-| Missingness | Important unavailable or incomplete fields |
-| Ethics/privacy | Risks, restrictions, and necessary exclusions |
+Consider who the sample would represent and who might be missed. Discuss
+selection, nonresponse, measurement error, and other sources of bias that
+matter for your proposed study.
 
-::: {.callout-warning}
-## Check joins before analysis
+Explain what conclusions the design could support. Distinguish association
+from causation, and identify limits on applying the findings to other people
+or settings.
 
-State whether each join should be one-to-one, many-to-one, or one-to-many. Compare row counts and key uniqueness before and after joining. Unexpected row multiplication can invalidate every result.
-:::
+## 7. Proposed Analysis, If Helpful
 
-## 5. Data preparation
+You may briefly describe how you would summarize the proposed information
+or assess a relationship. Explain why those methods would fit the question
+and measures.
 
-Plan the transformations before doing them:
+This detail is optional. You do not need to run a test, calculate a statistic,
+build a model, or produce results.
 
-- parse dates and numeric fields;
-- define missing-value treatment;
-- resolve duplicates at the intended grain;
-- standardize category labels;
-- create documented derived fields;
-- identify implausible values without automatically deleting them; and
-- save a clean analysis table separately from raw source files.
+## 8. Risks, Limitations, and Ethics
 
-Every derived field should have a plain-language definition and reproducible code.
+Identify specific risks and how you would address them. Consider consent,
+privacy, fairness, possible harm, and exclusion.
 
-## 6. Descriptive analysis
+Explain which limitations would remain and what they would mean for the
+study's conclusions.
 
-Specify the tables and graphs needed to understand:
+## 9. Pitch and Feedback
 
-- volume and missingness;
-- distributions and outliers;
-- differences among important groups;
-- change over time; and
-- geographic patterns when location is meaningful.
+Prepare to explain your question and design to the other teams in your
+small set. During the pitch and critique exercise, record the concerns
+raised, your responses, and the changes you plan to make.
 
-For each planned visual, write the question it answers. "Make a bar chart" is not an analytical objective.
+Every team will have a turn presenting and critiquing another proposal.
 
-## 7. Hypotheses and methods
+## 10. Revise the Written Proposal
 
-For each hypothesis, identify:
+Use the Week 13 discussion and Week 14 feedback to revise the paper.
+Organize it around the required components in the
+[Project 2 prompt](../../syllabus/project_2_prompt.qmd).
 
-1. the outcome variable;
-2. the explanatory variable or groups;
-3. the expected direction, if justified;
-4. the descriptive evidence;
-5. the statistical method and why it fits; and
-6. assumptions and diagnostics.
-
-Choose methods based on the variables, design, and question - not on which function is easiest to run.
-
-## 8. Risks and limitations
-
-Consider:
-
-- selection and nonresponse bias;
-- measurement error and proxies;
-- missing exposure denominators;
-- confounding and causal overclaiming;
-- small groups and unstable estimates;
-- time, geography, and population limits; and
-- synthetic or displaced geographic data.
-
-Write what each limitation changes about the interpretation, not merely that limitations exist.
-
-## 9. Communication plan
-
-Decide in advance:
-
-- the primary audience;
-- the decision-oriented takeaway;
-- the few figures or tables needed to support it;
-- which technical details belong in documentation rather than presentation slides; and
-- how assumptions and uncertainty will be communicated.
-
-A business presentation and technical documentation may use the same analysis, but they serve different readers.
-
-## 10. Reproducibility and reflection
-
-The final work should make it possible to trace a claim back to data and code.
-
-- Keep raw and derived data separate.
-- Use relative paths and scripted transformations.
-- Record source versions and filters.
-- Use meaningful object names and comments.
-- Render the document from a clean session.
-- Revisit early assumptions after seeing the data.
-
-## Copyable short-form plan
-
-Use this outline when drafting:
-
-```text
-Stakeholder and decision:
-
-Research question:
-
-Population, geography, and period:
-
-Objectives:
-1.
-2.
-3.
-
-Data sources and grain:
-
-Outcome and explanatory variables:
-
-Required joins and validation checks:
-
-Data preparation steps:
-
-Planned descriptive tables and graphs:
-
-Hypotheses and methods:
-
-Risks, ethics, and limitations:
-
-Communication plan:
-
-Reproducibility checks:
-```
-
-## Background
-
-This page replaces the earlier ECO 230 *Planning a Data Analysis Project for Business* outline. It has been revised to emphasize grain, join validation, reproducibility, and the distinction between evidence and decisions.
+The [rubric](../../syllabus/project_2_rubric.qmd) scores four aspects of the
+same written proposal. You submit one complete paper, not four separate
+written assignments.

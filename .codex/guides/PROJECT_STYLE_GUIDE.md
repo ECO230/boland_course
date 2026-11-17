@@ -65,7 +65,7 @@ Project 1: Data Analysis Project
 Project 1: Timeline
 Project 1: In-Person Presentation
 Project 1: Rubric
-Project 2: Can We Trust It?
+Project 2: Research Proposal
 Project 2: Rubric
 ```
 

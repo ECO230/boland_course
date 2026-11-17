@@ -1,162 +1,162 @@
 schema_version: 1
 status: draft
-key: "open-topic-case-executive-summary"
-title: "Open Topic Case - Executive Summary"
+key: open-topic-case-executive-summary
+title: Project 2 - Research Proposal
 points_possible: 100.0
 free_form_criterion_comments: false
 hide_score_total: false
 criteria:
-  - key: "week-13-informal-meeting-1"
-    description: "Week 13 Informal Meeting"
-    long_description: ""
+- key: week-13-informal-meeting-1
+  description: Week 13 Informal Topic Meeting
+  long_description: In-class topic discussion, worth 10 points.
+  points: 10.0
+  use_range: true
+  ratings:
+  - key: professional-quality
+    description: Professional Quality
+    long_description: Team brings a proposed topic, explains the problem or opportunity and decision maker, and describes a focused question and a workable direction for the proposed study.
     points: 10.0
-    use_range: true
-    ratings:
-      - key: "professional-quality"
-        description: "Professional Quality"
-        long_description: "Team arrives prepared with a real topic, a clear problem or opportunity, and a plausible research direction. Team can explain who or what might be studied and why the topic is worth pursuing."
-        points: 10.0
-      - key: "high-quality-with-minor-issues"
-        description: "High Quality with Minor Issues"
-        long_description: "Team arrives with a workable topic, but the problem, audience, or research direction is still somewhat vague or underdeveloped."
-        points: 8.0
-      - key: "low-quality-with-major-issues"
-        description: "Low Quality with Major Issues"
-        long_description: "Team is underprepared. Topic is unclear, too broad, or not yet connected to a workable research design."
-        points: 5.0
-      - key: "no-marks"
-        description: "No Marks"
-        long_description: "Team does not participate or does not present a meaningful topic or direction."
-        points: 0.0
-  - key: "week-14-informal-presentation-2"
-    description: "Week 14 Informal Presentation"
-    long_description: ""
+  - key: high-quality-with-minor-issues
+    description: Meets Expectations
+    long_description: Team brings a workable topic, but the problem, decision maker, question, or proposed approach needs clarification.
+    points: 8.0
+  - key: low-quality-with-major-issues
+    description: Needs Revision
+    long_description: Team has a topic but cannot yet explain the problem, question, or how it could be studied.
+    points: 5.0
+  - key: no-marks
+    description: Missing
+    long_description: Team does not participate or does not bring a proposed topic.
+    points: 0.0
+- key: week-14-informal-presentation-2
+  description: Week 14 Research Proposal Pitch
+  long_description: In-class pitch to a small set of teams, worth 10 points.
+  points: 10.0
+  use_range: true
+  ratings:
+  - key: full-marks
+    description: Professional Quality
+    long_description: Pitch explains the problem, question, proposed study design, reasons for the design choices, and main risks. Team responds to questions about the proposed work.
     points: 10.0
-    use_range: true
-    ratings:
-      - key: "full-marks"
-        description: "Full Marks"
-        long_description: "Presentation clearly explains the problem or opportunity, the research question, the proposed design, and why the design could produce trustworthy evidence. The audience can understand what is being proposed and why it matters."
-        points: 10.0
-      - key: "high-quality-with-minor-issues"
-        description: "High Quality with Minor Issues"
-        long_description: "Presentation is understandable, but one or more elements are not clearly developed, such as the research question, the fit between question and design, or the explanation of trustworthiness."
-        points: 8.0
-      - key: "low-quality-with-major-issues"
-        description: "Low Quality with Major Issues"
-        long_description: "Presentation is difficult to follow, lacks important components, or does not make a convincing case for the design."
-        points: 5.0
-      - key: "no-marks"
-        description: "No Marks"
-        long_description: "Presentation is missing or does not meaningfully address the assignment."
-        points: 0.0
-  - key: "week-14-red-team-critique-3"
-    description: "Week 14 Red Team Critique"
-    long_description: ""
+  - key: high-quality-with-minor-issues
+    description: Meets Expectations
+    long_description: Pitch explains the proposal, but a design choice, its rationale, or an important risk remains unclear.
+    points: 8.0
+  - key: low-quality-with-major-issues
+    description: Needs Revision
+    long_description: Pitch omits major parts of the proposed study or is difficult to follow.
+    points: 5.0
+  - key: no-marks
+    description: Missing
+    long_description: Team does not present a research proposal.
+    points: 0.0
+- key: week-14-red-team-critique-3
+  description: Week 14 Red Team Critique Exercise
+  long_description: In-class critique exercise, worth 10 points within Project 2.
+  points: 10.0
+  use_range: true
+  ratings:
+  - key: professional-quality
+    description: Professional Quality
+    long_description: Team identifies specific sampling, measurement, design, ethical, or interpretation concerns in another proposal and discusses changes that could improve it.
     points: 10.0
-    use_range: true
-    ratings:
-      - key: "professional-quality"
-        description: "Professional Quality"
-        long_description: "Critique is serious, professional, and useful. Team identifies meaningful risks or weaknesses related to sampling, measurement, design, ethics, generalization, or limitations and offers feedback that could genuinely improve the project."
-        points: 10.0
-      - key: "high-quality-with-minor-issues"
-        description: "High Quality with Minor Issues"
-        long_description: "Critique identifies some real concerns, but the feedback is somewhat general, incomplete, or not fully developed."
-        points: 8.0
-      - key: "low-quality-with-major-issues"
-        description: "Low Quality with Major Issues"
-        long_description: "Critique is superficial, unfocused, or too vague to help improve the proposal."
-        points: 5.0
-      - key: "no-marks"
-        description: "No Marks"
-        long_description: "Critique is missing or does not meaningfully engage with another team’s proposal."
-        points: 0.0
-  - key: "written-proposal-1-4"
-    description: "Written Proposal 1"
-    long_description: "Problem / Opportunity"
+  - key: high-quality-with-minor-issues
+    description: Meets Expectations
+    long_description: Team identifies relevant concerns, but the explanation or suggested changes need more detail.
+    points: 8.0
+  - key: low-quality-with-major-issues
+    description: Needs Revision
+    long_description: Feedback is too general or incomplete to help the presenting team revise its proposal.
+    points: 5.0
+  - key: no-marks
+    description: Missing
+    long_description: Team does not participate in the critique exercise.
+    points: 0.0
+- key: written-proposal-1-4
+  description: Written Proposal - Problem or Opportunity
+  long_description: One criterion within the same 70-point Written Research Proposal.
+  points: 15.0
+  use_range: true
+  ratings:
+  - key: professional-quality
+    description: Professional Quality
+    long_description: Paper identifies the problem or opportunity, explains why it matters, and names the decision maker and the decision the proposed study would inform.
     points: 15.0
-    use_range: true
-    ratings:
-      - key: "professional-quality"
-        description: "Professional Quality"
-        long_description: "Written report clearly identifies the decision maker, stakeholder, or audience and clearly explains the problem or opportunity. It is easy to see why the question matters and how the results could inform a real decision."
-        points: 15.0
-      - key: "high-quality-with-minor-issues"
-        description: "High Quality with Minor Issues"
-        long_description: "Problem or opportunity is present but not fully clear, specific, or well connected to decision-making."
-        points: 12.0
-      - key: "low-quality-with-major-issues"
-        description: "Low Quality with Major Issues"
-        long_description: "Section is vague, thin, or underdeveloped. The reader cannot clearly tell what problem is being addressed or why it matters."
-        points: 8.0
-      - key: "no-marks"
-        description: "No Marks"
-        long_description: "Section is missing or not meaningfully addressed."
-        points: 0.0
-  - key: "written-proposal-2-5"
-    description: "Written Proposal 2"
-    long_description: "Research Question and Direction"
+  - key: high-quality-with-minor-issues
+    description: Meets Expectations
+    long_description: Paper identifies the problem or opportunity but needs a clearer explanation of its importance, decision maker, or intended use.
+    points: 12.0
+  - key: low-quality-with-major-issues
+    description: Needs Revision
+    long_description: Problem or opportunity is vague, and the paper does not explain how the proposed study would inform a decision.
+    points: 8.0
+  - key: no-marks
+    description: Missing
+    long_description: Problem or opportunity is missing.
+    points: 0.0
+- key: written-proposal-2-5
+  description: Written Proposal - Research Question and Direction
+  long_description: One criterion within the same 70-point Written Research Proposal.
+  points: 15.0
+  use_range: true
+  ratings:
+  - key: professional-quality
+    description: Professional Quality
+    long_description: Paper states a focused research question, explains its scope, and connects it to the decision. Any objectives or tentative hypotheses clarify the proposed work.
     points: 15.0
-    use_range: true
-    ratings:
-      - key: "professional-quality"
-        description: "Professional Quality"
-        long_description: "Written report states a specific, interesting, and actionable research question. The scope is focused enough to study, and any supporting objectives or hypotheses help clarify the design rather than distract from it."
-        points: 15.0
-      - key: "high-quality-with-minor-issues"
-        description: "High Quality with Minor Issues"
-        long_description: "Research question is workable but somewhat broad, narrow, or loosely connected to the proposed design."
-        points: 12.0
-      - key: "low-quality-with-major-issues"
-        description: "Low Quality with Major Issues"
-        long_description: "Research question is unclear, unfocused, or not actionable."
-        points: 8.0
-      - key: "no-marks"
-        description: "No Marks"
-        long_description: "Section is missing or not meaningfully addressed."
-        points: 0.0
-  - key: "written-proposal-3-6"
-    description: "Written Proposal 3"
-    long_description: "Study Design and Measures"
+  - key: high-quality-with-minor-issues
+    description: Meets Expectations
+    long_description: Question is workable but needs a clearer scope or connection to the decision and study design.
+    points: 12.0
+  - key: low-quality-with-major-issues
+    description: Needs Revision
+    long_description: Question is unclear, too broad, or poorly connected to the proposed study.
+    points: 8.0
+  - key: no-marks
+    description: Missing
+    long_description: Research question is missing.
+    points: 0.0
+- key: written-proposal-3-6
+  description: Written Proposal - Study Design and Measures
+  long_description: One criterion within the same 70-point Written Research Proposal. Evaluate the proposed work, not completed research.
+  points: 20.0
+  use_range: true
+  ratings:
+  - key: professional-quality
+    description: Professional Quality
+    long_description: Paper explains and justifies the proposed method, population, sample selection, main concepts and measures, and data collection process. The reader can understand how the study would be conducted.
     points: 20.0
-    use_range: true
-    ratings:
-      - key: "professional-quality"
-        description: "Professional Quality"
-        long_description: "Written report clearly explains the proposed method, defines who or what will be studied, and describes what information would be collected and how. The design is concrete enough that a reader can imagine how the study would actually be carried out."
-        points: 20.0
-      - key: "high-quality-with-minor-issues"
-        description: "High Quality with Minor Issues"
-        long_description: "Study design is reasonable, but parts of the method, measurement plan, or data collection process remain unclear or underdeveloped."
-        points: 16.0
-      - key: "low-quality-with-major-issues"
-        description: "Low Quality with Major Issues"
-        long_description: "Study design is vague, incomplete, or not clearly connected to the research question."
-        points: 10.0
-      - key: "no-marks"
-        description: "No Marks"
-        long_description: "Section is missing or not meaningfully addressed."
-        points: 0.0
-  - key: "written-proposal-4-7"
-    description: "Written Proposal 4"
-    long_description: "Trustworthiness, Risks, and Limits"
+  - key: high-quality-with-minor-issues
+    description: Meets Expectations
+    long_description: Design fits the question, but the method, sampling, measures, or planned collection process needs more detail.
+    points: 16.0
+  - key: low-quality-with-major-issues
+    description: Needs Revision
+    long_description: Design is incomplete or does not explain how the proposed method and measures would answer the question.
+    points: 10.0
+  - key: no-marks
+    description: Missing
+    long_description: Proposed study design and measures are missing.
+    points: 0.0
+- key: written-proposal-4-7
+  description: Written Proposal - Sampling, Measurement, Conclusions, Risks, and Ethics
+  long_description: One criterion within the same 70-point Written Research Proposal. No data collection, study implementation, or analysis is required.
+  points: 20.0
+  use_range: true
+  ratings:
+  - key: professional-quality
+    description: Professional Quality
+    long_description: Paper explains representation, bias, measurement concerns, and limits on generalization or causal claims. It identifies specific risks and ethical concerns, explains how they would be addressed, and acknowledges remaining limitations.
     points: 20.0
-    use_range: true
-    ratings:
-      - key: "professional-quality"
-        description: "Professional Quality"
-        long_description: "Written report thoughtfully addresses sampling, representation, measurement, bias, limitations, and ethics. It shows real reflection about what the study could support, what could go wrong, and why the evidence might still be worth using."
-        points: 20.0
-      - key: "high-quality-with-minor-issues"
-        description: "High Quality with Minor Issues"
-        long_description: "Report addresses trustworthiness and limitations, but some important risks, assumptions, or ethical concerns are only briefly discussed."
-        points: 16.0
-      - key: "low-quality-with-major-issues"
-        description: "Low Quality with Major Issues"
-        long_description: "Discussion of trustworthiness, bias, limitations, or ethics is thin, generic, or incomplete."
-        points: 10.0
-      - key: "no-marks"
-        description: "No Marks"
-        long_description: "Section is missing or not meaningfully addressed."
-        points: 0.0
+  - key: high-quality-with-minor-issues
+    description: Meets Expectations
+    long_description: Paper addresses the quality of the proposed evidence, risks, and ethics, but overlooks an important concern or needs to explain its effect on conclusions.
+    points: 16.0
+  - key: low-quality-with-major-issues
+    description: Needs Revision
+    long_description: Discussion gives general cautions with little connection to this study or omits major sampling, interpretation, or ethical concerns.
+    points: 10.0
+  - key: no-marks
+    description: Missing
+    long_description: Discussion of evidence quality, risks, limitations, and ethics is missing.
+    points: 0.0

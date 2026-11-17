@@ -35,7 +35,37 @@ def selections(config,values):
 def label_of(item):
  match=LABEL.search(item)
  return html.unescape(re.sub('<[^>]*>','',match.group(1))).strip() if match else None
-def patch_navigation(document,selected,site=SITE,page_path="index.html",removals=()):
+
+def reorder_navigation(header,order):
+ root=re.search(r'<ul\b[^>]*class=["\'][^"\']*\bnavbar-nav\b[^"\']*["\'][^>]*>',header)
+ if not root:return header
+ depth=1;end=None
+ for tag in re.finditer(r'</?ul\b[^>]*>',header[root.end():],re.I):
+  depth+=-1 if tag.group().startswith('</') else 1
+  if depth==0:end=root.end()+tag.start();break
+ require(end is not None,'Unclosed navbar list')
+ inner=header[root.end():end];items=[];depth=0;start=None
+ for tag in re.finditer(r'</?li\b[^>]*>',inner,re.I):
+  if tag.group().startswith('</'):
+   depth-=1
+   if depth==0:items.append((start,tag.end(),inner[start:tag.end()]))
+  else:
+   if depth==0:start=tag.start()
+   depth+=1
+ require(depth==0,'Unclosed navbar item')
+ remainder=inner
+ for start,end_item,_ in reversed(items):remainder=remainder[:start]+remainder[end_item:]
+ require(not remainder.strip(),'Unexpected content in navbar list')
+ def menu_label(item):
+  match=re.search(r'<span\b[^>]*class=["\'][^"\']*\bmenu-text\b[^"\']*["\'][^>]*>(.*?)</span>',item,re.S)
+  return html.unescape(re.sub('<[^>]*>','',match.group(1))).strip() if match else None
+ labels=[menu_label(item[2]) for item in items]
+ require(len([v for v in labels if v])==len(set(v for v in labels if v)),'Duplicate navbar menus')
+ ranked=sorted(enumerate(items),key=lambda pair:(order.index(labels[pair[0]]) if labels[pair[0]] in order else len(order),pair[0]))
+ replacement='\n'+ '\n'.join(item[2] for _,item in ranked)+'\n'
+ return header[:root.end()]+replacement+header[end:]
+
+def patch_navigation(document,selected,site=SITE,page_path="index.html",removals=(),menu_order=None):
  header=HEADER.search(document)
  if not header:return document,0
  content=header.group();checked=0
@@ -91,12 +121,13 @@ def patch_navigation(document,selected,site=SITE,page_path="index.html",removals
    position=items[labels.index(previous[-1])].end() if previous else (items[labels.index(following[0])].start() if following else len(inner))
    inner=inner[:position]+'\n'+new_item+'\n'+inner[position:]
   content=content[:match.start()]+match.group(1)+inner+match.group(3)+content[match.end():];checked+=1
+ if menu_order is not None:content=reorder_navigation(content,menu_order)
  result=document[:header.start()]+content+document[header.end():]
  require(HEADER.sub('',result,count=1)==HEADER.sub('',document,count=1),'Changed content outside navbar header')
  return result,checked
 def origin_sha():return git(ROOT,'ls-remote','origin','refs/heads/gh-pages').decode().split()[0]
 def main():
- ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--run-root',required=True,type=Path);ap.add_argument('--remove-link',action='append',default=[]);ap.add_argument('--link',action='append',default=[],help='Exact _quarto.yml menu and label, e.g. Slides=Week 6');mode=ap.add_mutually_exclusive_group();mode.add_argument('--execute',action='store_true');mode.add_argument('--verify',action='store_true');args=ap.parse_args()
+ ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--run-root',required=True,type=Path);ap.add_argument('--reorder-menus',action='store_true');ap.add_argument('--remove-link',action='append',default=[]);ap.add_argument('--link',action='append',default=[],help='Exact _quarto.yml menu and label, e.g. Slides=Week 6');mode=ap.add_mutually_exclusive_group();mode.add_argument('--execute',action='store_true');mode.add_argument('--verify',action='store_true');args=ap.parse_args()
  run=(ROOT/args.run_root).resolve();require((ROOT/'canvas/work').resolve() in run.parents,'Run directory must be below canvas/work');run.mkdir(parents=True,exist_ok=True);planpath=run/'plan.json';config_path=ROOT/'_quarto.yml'
  if not args.execute and not args.verify:
   require(args.link,'Provide at least one --link');require(not planpath.exists(),'Plan already exists; reuse it or choose a new run directory')
@@ -110,12 +141,12 @@ def main():
   # Read Git objects rather than filesystem copies: Windows case-colliding
   # legacy filenames must keep their distinct page bodies.
   for path in paths:
-   body=git(tree,'show','HEAD:'+path).decode('utf8');updated,count=patch_navigation(body,selected,SITE,path,removals)
+   body=git(tree,'show','HEAD:'+path).decode('utf8');updated,count=patch_navigation(body,selected,SITE,path,removals,selected[0]['menu_order'] if args.reorder_menus else None)
    if count:checked.append(path);menu_counts[path]=count
    if updated!=body:
     blob=git(tree,'hash-object','-w','--stdin',input=updated.encode()).decode().strip();changes.append({'path':path,'blob':blob})
   require('index.html' in checked,'Home page navbar not found')
-  plan={'config_sha256':digest(config_path),'base':base,'worktree':str(tree),'branch':branch,'site':SITE,'selected':selected,'removals':removals,'checked_pages':checked,'menu_counts':menu_counts,'changes':changes};save(planpath,plan);print(json.dumps({'status':'planned','checked_pages':len(checked),'changed_pages':len(changes),'plan':str(planpath)}));return
+  plan={'config_sha256':digest(config_path),'base':base,'worktree':str(tree),'branch':branch,'site':SITE,'selected':selected,'removals':removals,'reorder_menus':args.reorder_menus,'checked_pages':checked,'menu_counts':menu_counts,'changes':changes};save(planpath,plan);print(json.dumps({'status':'planned','checked_pages':len(checked),'changed_pages':len(changes),'plan':str(planpath)}));return
  plan=json.loads(planpath.read_text(encoding='utf8'));require(digest(config_path)==plan['config_sha256'],'Navigation source changed; make a new plan');tree=Path(plan['worktree'])
  if args.execute:
   require(git(tree,'rev-parse','HEAD').decode().strip()==plan['base'],'Release HEAD changed')
@@ -131,10 +162,10 @@ def main():
  pages=list(dict.fromkeys(['index.html']+[item['path'] for item in plan['changes']]+[p for p in plan['checked_pages'] if p!='index.html'][:2]))
  for path in pages:
   with urllib.request.urlopen(urljoin(plan['site'],path),timeout=20) as response:body=response.read().decode('utf8')
-  updated,count=patch_navigation(body,plan['selected'],plan['site'],path,plan.get('removals',[]))
+  updated,count=patch_navigation(body,plan['selected'],plan['site'],path,plan.get('removals',[]),plan['selected'][0]['menu_order'] if plan.get('reorder_menus') else None)
   expected_count=plan.get('menu_counts',{}).get(path)
   if expected_count is None:
-   original=git(tree,'show',plan['base']+':'+path).decode('utf8');_,expected_count=patch_navigation(original,plan['selected'],plan['site'],path,plan.get('removals',[]))
+   original=git(tree,'show',plan['base']+':'+path).decode('utf8');_,expected_count=patch_navigation(original,plan['selected'],plan['site'],path,plan.get('removals',[]),plan['selected'][0]['menu_order'] if plan.get('reorder_menus') else None)
   require(count==expected_count and updated==body,'Live menu differs: '+path)
  for selected_item in plan['selected']:
   with urllib.request.urlopen(urljoin(plan['site'],selected_item['target']),timeout=20) as response:require(response.status==200,'Target page did not load')

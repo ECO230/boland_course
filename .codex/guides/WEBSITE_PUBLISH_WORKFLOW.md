@@ -43,6 +43,10 @@ For an explicitly requested menu removal, pass
 `-Links`. The removed label must already be absent from `_quarto.yml`.
 Only that label in that menu is removed. Execute and verify use the saved plan.
 
+When the user requests a top-level menu order change, add `-ReorderMenus`
+in plan mode. The publisher follows the order in `website.navbar.left`
+while preserving each menu's links. Execute and verify use the saved order.
+
 3. Review the compact plan. For a user-authorized publishing request, continue
    directly to execution; no additional confirmation is required:
 

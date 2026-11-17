@@ -1,5 +1,5 @@
 [CmdletBinding()]
-param([Parameter(Mandatory=$true)][string]$RunRoot,[string[]]$Links=@(),[string[]]$RemoveLinks=@(),[string]$PythonPath,[switch]$Execute,[switch]$Verify)
+param([Parameter(Mandatory=$true)][string]$RunRoot,[string[]]$Links=@(),[string[]]$RemoveLinks=@(),[string]$PythonPath,[switch]$ReorderMenus,[switch]$Execute,[switch]$Verify)
 $ErrorActionPreference='Stop'
 if ($Execute -and $Verify) {throw 'Choose Execute or Verify.'}
 $navigationCandidates=@()
@@ -18,6 +18,7 @@ $env:PYTHONUTF8='1'
 $navigationArgs=@((Join-Path $PSScriptRoot 'publish_site_navigation.py'),'--run-root',$RunRoot)
 foreach ($navigationLink in $Links) {$navigationArgs+=@('--link',$navigationLink)}
 foreach ($navigationLink in $RemoveLinks) {$navigationArgs+=@('--remove-link',$navigationLink)}
+if ($ReorderMenus) {$navigationArgs+='--reorder-menus'}
 if ($Execute) {$navigationArgs+='--execute'}
 if ($Verify) {$navigationArgs+='--verify'}
 & $navigationPython @navigationArgs

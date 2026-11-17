@@ -1,0 +1,94 @@
+{
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634,
+      "module_id": 4667288,
+      "project_assignment_id": 11004610
+    },
+    {
+      "section": 11,
+      "course_id": 869206,
+      "module_id": 4677014,
+      "project_assignment_id": 11024245
+    },
+    {
+      "section": 12,
+      "course_id": 870121,
+      "module_id": 4679332,
+      "project_assignment_id": 11029563
+    }
+  ],
+  "entries": [
+    {
+      "type": "SubHeader",
+      "title": "Readings / Video",
+      "previous_title": "Readings / Video"
+    },
+    {
+      "type": "Page",
+      "title": "Week 12 Reading and Preparation",
+      "previous_title": "Week 12 Reading and Preparation"
+    },
+    {
+      "type": "Page",
+      "title": "Project 2 - Research Proposal Outline",
+      "previous_title": "Project 2 - Research Proposal Outline"
+    },
+    {
+      "type": "SubHeader",
+      "title": "Lecture",
+      "previous_title": "Lecture"
+    },
+    {
+      "type": "Assignment",
+      "title": "Guided Notes 6 - Survey Research Methods",
+      "previous_title": "Guided Notes 6 - Survey Research Methods"
+    },
+    {
+      "type": "Page",
+      "title": "Week 12.1 Slides",
+      "previous_title": "Week 12.1 Slides"
+    },
+    {
+      "type": "ExternalUrl",
+      "title": "Week 12.1 Slides - Link",
+      "previous_title": "Week 12.1 Slides - Link"
+    },
+    {
+      "type": "Page",
+      "title": "Week 12.2 Slides",
+      "previous_title": "Week 12 Slides"
+    },
+    {
+      "type": "ExternalUrl",
+      "title": "Week 12.2 Slides - Link",
+      "previous_title": "Week 12 Slides - Link"
+    },
+    {
+      "type": "SubHeader",
+      "title": "Lab",
+      "previous_title": "Lab"
+    },
+    {
+      "type": "Page",
+      "title": "Sample Survey",
+      "previous_title": "Sample Survey"
+    },
+    {
+      "type": "SubHeader",
+      "title": "Homework",
+      "previous_title": "Homework"
+    },
+    {
+      "type": "Assignment",
+      "title": "CATME Group Evaluation 2",
+      "previous_title": "CATME Group Evaluation 2"
+    },
+    {
+      "type": "Assignment",
+      "title": "Project 2 - Research Proposal",
+      "previous_title": "Project 2 - Research Proposal"
+    }
+  ]
+}

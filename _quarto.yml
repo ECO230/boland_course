@@ -24,6 +24,9 @@ project:
     - syllabus/project_1_analysis_plan.qmd
     - syllabus/project_1_clean_dataset.qmd
     - syllabus/project_1_presentation_in_person.qmd
+    - syllabus/project_2_prompt.qmd
+    - syllabus/project_2_rubric.qmd
+    - week12/readings/analysis-plan-outline.qmd
     - week01/week_01.qmd
     - week02/week_02.qmd
     - week03/week_03.qmd
@@ -137,18 +140,6 @@ website:
             file: week08/Homework_07.qmd
           - text: "Homework 8"
             file: week09/Homework_08.qmd
-      - text: "Project 1"
-        menu:
-          - text: "Project Prompt"
-            file: syllabus/project_1_prompt.qmd
-          - text: "Timeline by Section"
-            file: syllabus/project_1_timeline.qmd
-          - text: "Analysis Plan"
-            file: syllabus/project_1_analysis_plan.qmd
-          - text: "Clean Dataset"
-            file: syllabus/project_1_clean_dataset.qmd
-          - text: "Presentation Guide"
-            file: syllabus/project_1_presentation_in_person.qmd
       - text: "Datasets"
         menu:
           - text: "Dataset Catalog"
@@ -163,7 +154,27 @@ website:
             file: datasets/olist.qmd
           - text: "Synthetic Health Records"
             file: datasets/health.qmd
-            
+      - text: "Project 1"
+        menu:
+          - text: "Project Prompt"
+            file: syllabus/project_1_prompt.qmd
+          - text: "Timeline by Section"
+            file: syllabus/project_1_timeline.qmd
+          - text: "Analysis Plan"
+            file: syllabus/project_1_analysis_plan.qmd
+          - text: "Clean Dataset"
+            file: syllabus/project_1_clean_dataset.qmd
+          - text: "Presentation Guide"
+            file: syllabus/project_1_presentation_in_person.qmd
+      - text: "Project 2"
+        menu:
+          - text: "Research Proposal"
+            file: syllabus/project_2_prompt.qmd
+          - text: "Proposal Outline"
+            file: week12/readings/analysis-plan-outline.qmd
+          - text: "Rubric"
+            file: syllabus/project_2_rubric.qmd
+
 
 format:
   html:

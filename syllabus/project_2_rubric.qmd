@@ -1,132 +1,176 @@
 ---
-title: "Project 2 Rubric"
+title: "Project 2: Rubric"
 format:
   html:
-    toc: false
+    toc: true
+    toc-depth: 2
+    toc-location: right
     number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
 ---
 
-## Project 2 Rubric
+## Points and Deliverables
 
-This rubric is designed to match the Project 2 prompt and the course timeline.
+| Deliverable | Points |
+|---|---:|
+| Week 13 informal topic meeting | 10 |
+| Week 14 research proposal pitch | 10 |
+| Week 14 Red Team critique exercise | 10 |
+| Written Research Proposal | 70 |
+| **Total** | **100** |
 
-Project 2 is graded across four parts:
+The Written Research Proposal is **one 2-4 page paper in paragraph form**.
+The four written criteria below score different aspects of that same paper.
+They are not four submissions.
 
--   Week 13 informal meeting: 10 points
--   Week 14 informal presentation: 10 points
--   Week 14 Red Team critique: 10 points
--   Final written proposal: 70 points
+**This is a study-design and research-proposal exercise. Students do not carry
+out the research, collect data, or perform analysis.** Evaluate the proposed
+design and the reasons for its choices. No completed results are required.
 
-Total: 100 points
+See the [Project 2 prompt](project_2_prompt.qmd) for the required components
+and the [Research Proposal Outline](../week12/readings/analysis-plan-outline.qmd)
+for planning questions.
 
-------------------------------------------------------------------------
+## Week 13 Informal Topic Meeting (10 Points)
 
-## Criterion 1: Week 13 Informal Meeting (10 points)
+In-class topic discussion, worth 10 points.
 
-**Professional Quality (10-8 points)**\
-Team arrives prepared with a real topic, a clear problem or opportunity, and a plausible research direction. Team can explain who or what might be studied and why the topic is worth pursuing.
+**Professional Quality (10 points)**
 
-**High Quality with Minor Issues (8-5 points)**\
-Team arrives with a workable topic, but the problem, audience, or research direction is still somewhat vague or underdeveloped.
+Team brings a proposed topic, explains the problem or opportunity and decision maker, and describes a focused question and a workable direction for the proposed study.
 
-**Low Quality with Major Issues (5-1 points)**\
-Team is underprepared. Topic is unclear, too broad, or not yet connected to a workable research design.
+**Meets Expectations (8 points)**
 
-**No Marks (0 points)**\
-Team does not participate or does not present a meaningful topic or direction.
+Team brings a workable topic, but the problem, decision maker, question, or proposed approach needs clarification.
 
-------------------------------------------------------------------------
+**Needs Revision (5 points)**
 
-## Criterion 2: Week 14 Informal Presentation (10 points)
+Team has a topic but cannot yet explain the problem, question, or how it could be studied.
 
-**Professional Quality (10-8 points)**\
-Presentation clearly explains the problem or opportunity, the research question, the proposed design, and why the design could produce trustworthy evidence. The audience can understand what is being proposed and why it matters.
+**Missing (0 points)**
 
-**High Quality with Minor Issues (8-5 points)**\
-Presentation is understandable, but one or more elements are not clearly developed, such as the research question, the fit between question and design, or the explanation of trustworthiness.
+Team does not participate or does not bring a proposed topic.
 
-**Low Quality with Major Issues (5-1 points)**\
-Presentation is difficult to follow, lacks important components, or does not make a convincing case for the design.
+## Week 14 Research Proposal Pitch (10 Points)
 
-**No Marks (0 points)**\
-Presentation is missing or does not meaningfully address the assignment.
+In-class pitch to a small set of teams, worth 10 points.
 
-------------------------------------------------------------------------
+**Professional Quality (10 points)**
 
-## Criterion 3: Week 14 Red Team Critique (10 points)
+Pitch explains the problem, question, proposed study design, reasons for the design choices, and main risks. Team responds to questions about the proposed work.
 
-**Professional Quality (10-8 points)**\
-Critique is serious, professional, and useful. Team identifies meaningful risks or weaknesses related to sampling, measurement, design, ethics, generalization, or limitations and offers feedback that could genuinely improve the project.
+**Meets Expectations (8 points)**
 
-**High Quality with Minor Issues (8-5 points)**\
-Critique identifies some real concerns, but the feedback is somewhat general, incomplete, or not fully developed.
+Pitch explains the proposal, but a design choice, its rationale, or an important risk remains unclear.
 
-**Low Quality with Major Issues (5-1 points)**\
-Critique is superficial, unfocused, or too vague to help improve the proposal.
+**Needs Revision (5 points)**
 
-**No Marks (0 points)**\
-Critique is missing or does not meaningfully engage with another team’s proposal.
+Pitch omits major parts of the proposed study or is difficult to follow.
 
-------------------------------------------------------------------------
+**Missing (0 points)**
 
-## Criterion 4: Written Proposal - Problem / Opportunity (15 points)
+Team does not present a research proposal.
 
-**Professional Quality (15-12 points)**\
-Written report clearly identifies the decision maker, stakeholder, or audience and clearly explains the problem or opportunity. It is easy to see why the question matters and how the results could inform a real decision.
+## Week 14 Red Team Critique Exercise (10 Points)
 
-**High Quality with Minor Issues (12-8 points)**\
-Problem or opportunity is present but not fully clear, specific, or well connected to decision-making.
+In-class critique exercise, worth 10 points within Project 2.
 
-**Low Quality with Major Issues (8-1 points)**\
-Section is vague, thin, or underdeveloped. The reader cannot clearly tell what problem is being addressed or why it matters.
+**Professional Quality (10 points)**
 
-**No Marks (0 points)**\
-Section is missing or not meaningfully addressed.
+Team identifies specific sampling, measurement, design, ethical, or interpretation concerns in another proposal and discusses changes that could improve it.
 
-------------------------------------------------------------------------
+**Meets Expectations (8 points)**
 
-## Criterion 5: Written Proposal - Research Question and Direction (15 points)
+Team identifies relevant concerns, but the explanation or suggested changes need more detail.
 
-**Professional Quality (15-12 points)**\
-Written report states a specific, interesting, and actionable research question. The scope is focused enough to study, and any supporting objectives or hypotheses help clarify the design rather than distract from it.
+**Needs Revision (5 points)**
 
-**High Quality with Minor Issues (12-8 points)**\
-Research question is workable but somewhat broad, narrow, or loosely connected to the proposed design.
+Feedback is too general or incomplete to help the presenting team revise its proposal.
 
-**Low Quality with Major Issues (8-1 points)**\
-Research question is unclear, unfocused, or not actionable.
+**Missing (0 points)**
 
-**No Marks (0 points)**\
-Section is missing or not meaningfully addressed.
+Team does not participate in the critique exercise.
 
-------------------------------------------------------------------------
+## Written Proposal - Problem or Opportunity (15 Points)
 
-## Criterion 6: Written Proposal - Study Design and Measures (20 points)
+One criterion within the same 70-point Written Research Proposal.
 
-**Professional Quality (20-16 points)**\
-Written report clearly explains the proposed method, defines who or what will be studied, and describes what information would be collected and how. The design is concrete enough that a reader can imagine how the study would actually be carried out.
+**Professional Quality (15 points)**
 
-**High Quality with Minor Issues (16-10 points)**\
-Study design is reasonable, but parts of the method, measurement plan, or data collection process remain unclear or underdeveloped.
+Paper identifies the problem or opportunity, explains why it matters, and names the decision maker and the decision the proposed study would inform.
 
-**Low Quality with Major Issues (10-1 points)**\
-Study design is vague, incomplete, or not clearly connected to the research question.
+**Meets Expectations (12 points)**
 
-**No Marks (0 points)**\
-Section is missing or not meaningfully addressed.
+Paper identifies the problem or opportunity but needs a clearer explanation of its importance, decision maker, or intended use.
 
-------------------------------------------------------------------------
+**Needs Revision (8 points)**
 
-## Criterion 7: Written Proposal - Trustworthiness, Risks, and Limits (20 points)
+Problem or opportunity is vague, and the paper does not explain how the proposed study would inform a decision.
 
-**Professional Quality (20-16 points)**\
-Written report thoughtfully addresses sampling, representation, measurement, bias, limitations, and ethics. It shows real reflection about what the study could support, what could go wrong, and why the evidence might still be worth using.
+**Missing (0 points)**
 
-**High Quality with Minor Issues (16-10 points)**\
-Report addresses trustworthiness and limitations, but some important risks, assumptions, or ethical concerns are only briefly discussed.
+Problem or opportunity is missing.
 
-**Low Quality with Major Issues (10-1 points)**\
-Discussion of trustworthiness, bias, limitations, or ethics is thin, generic, or incomplete.
+## Written Proposal - Research Question and Direction (15 Points)
 
-**No Marks (0 points)**\
-Section is missing or not meaningfully addressed.
+One criterion within the same 70-point Written Research Proposal.
+
+**Professional Quality (15 points)**
+
+Paper states a focused research question, explains its scope, and connects it to the decision. Any objectives or tentative hypotheses clarify the proposed work.
+
+**Meets Expectations (12 points)**
+
+Question is workable but needs a clearer scope or connection to the decision and study design.
+
+**Needs Revision (8 points)**
+
+Question is unclear, too broad, or poorly connected to the proposed study.
+
+**Missing (0 points)**
+
+Research question is missing.
+
+## Written Proposal - Study Design and Measures (20 Points)
+
+One criterion within the same 70-point Written Research Proposal. Evaluate the proposed work, not completed research.
+
+**Professional Quality (20 points)**
+
+Paper explains and justifies the proposed method, population, sample selection, main concepts and measures, and data collection process. The reader can understand how the study would be conducted.
+
+**Meets Expectations (16 points)**
+
+Design fits the question, but the method, sampling, measures, or planned collection process needs more detail.
+
+**Needs Revision (10 points)**
+
+Design is incomplete or does not explain how the proposed method and measures would answer the question.
+
+**Missing (0 points)**
+
+Proposed study design and measures are missing.
+
+## Written Proposal - Sampling, Measurement, Conclusions, Risks, and Ethics (20 Points)
+
+One criterion within the same 70-point Written Research Proposal. No data collection, study implementation, or analysis is required.
+
+**Professional Quality (20 points)**
+
+Paper explains representation, bias, measurement concerns, and limits on generalization or causal claims. It identifies specific risks and ethical concerns, explains how they would be addressed, and acknowledges remaining limitations.
+
+**Meets Expectations (16 points)**
+
+Paper addresses the quality of the proposed evidence, risks, and ethics, but overlooks an important concern or needs to explain its effect on conclusions.
+
+**Needs Revision (10 points)**
+
+Discussion gives general cautions with little connection to this study or omits major sampling, interpretation, or ethical concerns.
+
+**Missing (0 points)**
+
+Discussion of evidence quality, risks, limitations, and ethics is missing.
+

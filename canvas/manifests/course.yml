@@ -353,7 +353,7 @@ assignments:
     publish_action: "synchronize"
     source:
       path: "syllabus/project_2_prompt.qmd"
-      kind: "project"
+      kind: "canvas_quarto"
       published_url: "https://eco230.github.io/boland_course/syllabus/project_2_prompt.html"
       match_method: "course_project_rule"
     rubric: "open-topic-case-executive-summary"
@@ -375,7 +375,7 @@ assignments:
     publish_action: "synchronize"
     source:
       path: "syllabus/project_2_prompt.qmd"
-      kind: "project"
+      kind: "canvas_quarto"
       published_url: "https://eco230.github.io/boland_course/syllabus/project_2_prompt.html"
       match_method: "course_project_rule"
     rubric: "open-topic-case-executive-summary"
@@ -460,7 +460,7 @@ rubrics:
     title: "Oral Communication Rubric"
     source: "rubrics/oral-communication-rubric.yml"
   - key: "open-topic-case-executive-summary"
-    title: "Open Topic Case - Executive Summary"
+    title: "Project 2 - Research Proposal"
     source: "rubrics/open-topic-case-executive-summary.yml"
   - key: "homework-4"
     title: "Homework 4"
@@ -2126,17 +2126,128 @@ modules:
           path: "canvas/content/pages/week12-reading-prep.md"
           kind: "canvas_markdown"
           match_method: "consolidated_weekly_reading_page"
+      - key: "analysis-plan-outline-pdf"
+        type: "WikiPage"
+        title: "Project 2 - Research Proposal Outline"
+        position: 3
+        management: "repository"
+        publish_action: "synchronize"
+        source:
+          path: "week12/readings/analysis-plan-outline.qmd"
+          kind: "canvas_quarto"
+          published_url: "https://eco230.github.io/boland_course/week12/readings/analysis-plan-outline.html"
+          match_method: "approved_legacy_replacement"
+      - key: "lecture"
+        type: "ContextModuleSubHeader"
+        title: "Lecture"
+        position: 4
+        management: "structure"
+        publish_action: "synchronize_structure"
+      - key: "guided-notes-6-survey-research-methods"
+        type: "Assignment"
+        title: "Guided Notes 6 - Survey Research Methods"
+        position: 5
+        management: "repository"
+        publish_action: "synchronize"
+        source:
+          path: "canvas/content/assignments/guided-notes-06.md"
+          kind: "canvas_markdown_template"
+          match_method: "approved_canvas_native_migration"
+      - key: "week-12-1-slides"
+        type: "WikiPage"
+        title: "Week 12.1 Slides"
+        position: 6
+        management: "repository"
+        publish_action: "synchronize"
+        source:
+          path: "week12/problem_definition.qmd"
+          kind: "slides"
+          published_url: "https://eco230.github.io/boland_course/week12/problem_definition.html"
+          match_method: "embedded_site_url"
+      - key: "week-12-1-slides-link"
+        type: "ExternalUrl"
+        title: "Week 12.1 Slides - Link"
+        position: 7
+        management: "repository"
+        publish_action: "synchronize"
+        source:
+          path: "week12/problem_definition.qmd"
+          kind: "slides"
+          published_url: "https://eco230.github.io/boland_course/week12/problem_definition.html"
+          match_method: "direct_site_url"
+      - key: "week-12-slides"
+        type: "WikiPage"
+        title: "Week 12.2 Slides"
+        position: 8
+        management: "repository"
+        publish_action: "synchronize"
+        source:
+          path: "week12/week_12.qmd"
+          kind: "slides"
+          published_url: "https://eco230.github.io/boland_course/week12/week_12.html"
+          match_method: "embedded_site_url"
+      - key: "week-12-slides-link"
+        type: "ExternalUrl"
+        title: "Week 12.2 Slides - Link"
+        position: 9
+        management: "repository"
+        publish_action: "synchronize"
+        source:
+          path: "week12/week_12.qmd"
+          kind: "slides"
+          published_url: "https://eco230.github.io/boland_course/week12/week_12.html"
+          match_method: "direct_site_url"
+      - key: "lab"
+        type: "ContextModuleSubHeader"
+        title: "Lab"
+        position: 10
+        management: "structure"
+        publish_action: "synchronize_structure"
+      - key: "sample-survey"
+        type: "WikiPage"
+        title: "Sample Survey"
+        position: 11
+        management: "repository"
+        publish_action: "synchronize"
+        source:
+          path: "canvas/content/pages/week12-sample-survey.md"
+          kind: "canvas_markdown_template"
+          match_method: "approved_canvas_native_migration"
+      - key: "homework"
+        type: "ContextModuleSubHeader"
+        title: "Homework"
+        position: 12
+        management: "structure"
+        publish_action: "synchronize_structure"
+      - key: "catme-group-evaluation-2"
+        type: "Assignment"
+        title: "CATME Group Evaluation 2"
+        position: 13
+        management: "external_service"
+        publish_action: "retain_gradebook_shell"
+        external_url: "https://catme.org/login/index"
+      - key: "project-2-research-proposal"
+        type: "Assignment"
+        title: "Project 2 - Research Proposal"
+        position: 14
+        management: "repository"
+        publish_action: "synchronize"
+        source:
+          path: "syllabus/project_2_prompt.qmd"
+          kind: "canvas_quarto"
+          published_url: "https://eco230.github.io/boland_course/syllabus/project_2_prompt.html"
+          match_method: "course_project_rule"
       - key: "4-types-of-analytics"
         type: "ExternalUrl"
         title: "4 Types of Analytics"
-        position: 2
+        position: 15
         management: "removed"
         publish_action: "omit_duplicate"
         external_url: "https://www.scnsoft.com/blog/4-types-of-data-analytics"
       - key: "videos-pew-research-center-on-sampling"
         type: "WikiPage"
         title: "Videos: Pew Research Center on Sampling"
-        position: 3
+        position: 16
         management: "removed"
         publish_action: "omit_duplicate"
         source:
@@ -2146,7 +2257,7 @@ modules:
       - key: "videos-pew-research-center-on-survey-design-and-mode-effects"
         type: "WikiPage"
         title: "Videos: Pew Research Center on Survey Design and Mode Effects"
-        position: 4
+        position: 17
         management: "removed"
         publish_action: "omit_duplicate"
         source:
@@ -2156,14 +2267,14 @@ modules:
       - key: "reading-nonresponse-bias-1-page"
         type: "ExternalUrl"
         title: "Reading: Nonresponse Bias (1 page)"
-        position: 5
+        position: 18
         management: "removed"
         publish_action: "omit_duplicate"
         external_url: "https://www.pewresearch.org/methods/2017/05/15/what-low-response-rates-mean-for-telephone-surveys/"
       - key: "reading-bias-error-in-survey-research-4-pages"
         type: "WikiPage"
         title: "Reading: Bias-Error in Survey Research (4 pages)"
-        position: 6
+        position: 19
         management: "repository"
         publish_action: "synchronize"
         placement_action: "omit_duplicate"
@@ -2175,52 +2286,14 @@ modules:
       - key: "reading-survey-design-data-design-textbook-okay-to-skim"
         type: "ExternalUrl"
         title: "Reading: Survey Design (Data & Design textbook- okay to skim)"
-        position: 7
+        position: 20
         management: "removed"
         publish_action: "omit_duplicate"
         external_url: "https://trinachi.github.io/data-design-builds/ch03.html"
-      - key: "lecture"
-        type: "ContextModuleSubHeader"
-        title: "Lecture"
-        position: 8
-        management: "structure"
-        publish_action: "synchronize_structure"
-      - key: "guided-notes-6-survey-research-methods"
-        type: "Assignment"
-        title: "Guided Notes 6 - Survey Research Methods"
-        position: 9
-        management: "repository"
-        publish_action: "synchronize"
-        source:
-          path: "canvas/content/assignments/guided-notes-06.md"
-          kind: "canvas_markdown_template"
-          match_method: "approved_canvas_native_migration"
-      - key: "week-12-1-slides"
-        type: "WikiPage"
-        title: "Week 12.1 Slides"
-        position: 10
-        management: "repository"
-        publish_action: "synchronize"
-        source:
-          path: "week12/problem_definition.qmd"
-          kind: "slides"
-          published_url: "https://eco230.github.io/boland_course/week12/problem_definition.html"
-          match_method: "embedded_site_url"
-      - key: "week-12-1-slides-link"
-        type: "ExternalUrl"
-        title: "Week 12.1 Slides - Link"
-        position: 11
-        management: "repository"
-        publish_action: "synchronize"
-        source:
-          path: "week12/problem_definition.qmd"
-          kind: "slides"
-          published_url: "https://eco230.github.io/boland_course/week12/problem_definition.html"
-          match_method: "direct_site_url"
       - key: "week-12-2-pptx"
         type: "Attachment"
         title: "Week 12.2.pptx"
-        position: 12
+        position: 21
         management: "removed"
         publish_action: "omit_duplicate"
         source:
@@ -2228,65 +2301,21 @@ modules:
           kind: "slides"
           published_url: "https://eco230.github.io/boland_course/week12/week_12.html"
           match_method: "approved_legacy_replacement"
-      - key: "week-12-slides"
-        type: "WikiPage"
-        title: "Week 12.2 Slides"
-        position: 13
-        management: "repository"
-        publish_action: "synchronize"
-        source:
-          path: "week12/week_12.qmd"
-          kind: "slides"
-          published_url: "https://eco230.github.io/boland_course/week12/week_12.html"
-          match_method: "embedded_site_url"
-      - key: "week-12-slides-link"
-        type: "ExternalUrl"
-        title: "Week 12.2 Slides - Link"
-        position: 14
-        management: "repository"
-        publish_action: "synchronize"
-        source:
-          path: "week12/week_12.qmd"
-          kind: "slides"
-          published_url: "https://eco230.github.io/boland_course/week12/week_12.html"
-          match_method: "direct_site_url"
-      - key: "lab"
-        type: "ContextModuleSubHeader"
-        title: "Lab"
-        position: 15
-        management: "structure"
-        publish_action: "synchronize_structure"
-      - key: "sample-survey"
-        type: "WikiPage"
-        title: "Sample Survey"
-        position: 16
-        management: "repository"
-        publish_action: "synchronize"
-        source:
-          path: "canvas/content/pages/week12-sample-survey.md"
-          kind: "canvas_markdown_template"
-          match_method: "approved_canvas_native_migration"
-      - key: "homework"
-        type: "ContextModuleSubHeader"
-        title: "Homework"
-        position: 17
-        management: "structure"
-        publish_action: "synchronize_structure"
       - key: "project-2-prompt-pdf"
         type: "Attachment"
         title: "project_2_prompt.pdf"
-        position: 18
+        position: 22
         management: "removed"
         publish_action: "omit_duplicate"
         source:
           path: "syllabus/project_2_prompt.qmd"
-          kind: "project"
+          kind: "canvas_quarto"
           published_url: "https://eco230.github.io/boland_course/syllabus/project_2_prompt.html"
           match_method: "approved_legacy_replacement"
       - key: "problem-definition-examples-1-pdf"
         type: "Attachment"
         title: "Problem Definition Examples-1.pdf"
-        position: 19
+        position: 23
         management: "removed"
         publish_action: "omit_duplicate"
         source:
@@ -2294,24 +2323,7 @@ modules:
           kind: "reading"
           published_url: "https://eco230.github.io/boland_course/week05/readings/problem-definition-examples.html"
           match_method: "approved_legacy_replacement"
-      - key: "analysis-plan-outline-pdf"
-        type: "ExternalUrl"
-        title: "Analysis Plan Outline.pdf"
-        position: 20
-        management: "repository"
-        publish_action: "synchronize"
-        source:
-          path: "week12/readings/analysis-plan-outline.qmd"
-          kind: "reading"
-          published_url: "https://eco230.github.io/boland_course/week12/readings/analysis-plan-outline.html"
-          match_method: "approved_legacy_replacement"
-      - key: "catme-group-evaluation-2"
-        type: "Assignment"
-        title: "CATME Group Evaluation 2"
-        position: 21
-        management: "external_service"
-        publish_action: "retain_gradebook_shell"
-        external_url: "https://catme.org/login/index"
+
   - key: "week-13-advanced-analytics-techniques-experiment-design-machine-learning"
     title: "Week 13: Advanced Analytics Techniques Experiment Design & Machine Learning"
     position: 14
@@ -2437,7 +2449,7 @@ modules:
         publish_action: "synchronize"
         source:
           path: "syllabus/project_2_prompt.qmd"
-          kind: "project"
+          kind: "canvas_quarto"
           published_url: "https://eco230.github.io/boland_course/syllabus/project_2_prompt.html"
           match_method: "course_project_rule"
   - key: "week-14-research-ethics"
@@ -2581,7 +2593,7 @@ modules:
         publish_action: "synchronize"
         source:
           path: "syllabus/project_2_prompt.qmd"
-          kind: "project"
+          kind: "canvas_quarto"
           published_url: "https://eco230.github.io/boland_course/syllabus/project_2_prompt.html"
           match_method: "course_project_rule"
   - key: "week-15-final-exam"
