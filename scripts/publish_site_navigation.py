@@ -141,7 +141,12 @@ def patch_navigation(document,selected,site=SITE,page_path="index.html",removals
 def origin_sha():return git(ROOT,'ls-remote','origin','refs/heads/gh-pages').decode().split()[0]
 def main():
  ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--run-root',required=True,type=Path);ap.add_argument('--reorder-menus',action='store_true');ap.add_argument('--remove-link',action='append',default=[]);ap.add_argument('--link',action='append',default=[],help='Exact _quarto.yml menu and label, e.g. Slides=Week 6');mode=ap.add_mutually_exclusive_group();mode.add_argument('--execute',action='store_true');mode.add_argument('--verify',action='store_true');args=ap.parse_args()
- run=(ROOT/args.run_root).resolve();require((ROOT/'canvas/work').resolve() in run.parents,'Run directory must be below canvas/work');run.mkdir(parents=True,exist_ok=True);planpath=run/'plan.json';config_path=ROOT/'_quarto.yml'
+ run=(ROOT/args.run_root).resolve()
+ allowed_roots=[(ROOT/'canvas/work').resolve()]
+ scratch_root=Path('S:/codex-scratch/boland_course/canvas/work')
+ if scratch_root.exists():allowed_roots.append(scratch_root.resolve())
+ require(any(parent in run.parents for parent in allowed_roots),'Run directory must be below repository canvas/work or S:/codex-scratch/boland_course/canvas/work')
+ run.mkdir(parents=True,exist_ok=True);planpath=run/'plan.json';config_path=ROOT/'_quarto.yml'
  if not args.execute and not args.verify:
   require(args.link,'Provide at least one --link');require(not planpath.exists(),'Plan already exists; reuse it or choose a new run directory')
   config=yaml.safe_load(config_path.read_text(encoding='utf8'));selected=selections(config,args.link);removals=[v.split('=',1) for v in args.remove_link]

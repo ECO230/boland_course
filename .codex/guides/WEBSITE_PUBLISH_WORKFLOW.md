@@ -24,11 +24,11 @@ The tracked commands below are the entry point for a fresh session.
    working changes. Add the requested document to `project.render` when needed
    and add its entry to the appropriate `website.navbar.left` menu. Commit and
    push only the authorized source changes.
-2. Use a new ignored run directory and plan the exact requested entries:
+2. Use a new run directory on S: and plan the exact requested entries:
 
 ```powershell
 & scripts/publish-site-navigation.ps1 `
-  -RunRoot canvas/work/site-nav-week06-homework05 `
+  -RunRoot S:/codex-scratch/boland_course/canvas/work/site-nav-week06-homework05 `
   -Links @('Slides=Week 6', 'Homework=Homework 5')
 ```
 
@@ -41,6 +41,8 @@ A zero-change plan means the selected menus already match the source.
 The deployment worktree uses `--no-checkout` and initializes its Git index
 from HEAD. Navigation reads and writes Git objects, so a full copy of the
 published site is unnecessary and would consume substantial scratch space.
+Use S:/codex-scratch/boland_course/canvas/work for deployment worktrees and
+receipts. Only the Git metadata and object database remain in the source repo.
 
 For an explicitly requested menu removal, pass
 `-RemoveLinks @('Slides=Exact previous label')` in plan mode alongside
@@ -56,7 +58,7 @@ while preserving each menu's links. Execute and verify use the saved order.
 
 ```powershell
 & scripts/publish-site-navigation.ps1 `
-  -RunRoot canvas/work/site-nav-week06-homework05 -Execute
+  -RunRoot S:/codex-scratch/boland_course/canvas/work/site-nav-week06-homework05 -Execute
 ```
 
 The command rejects changed source configuration, an advanced deployment branch,
@@ -70,7 +72,7 @@ course-site URL.
 
 ```powershell
 & scripts/publish-site-navigation.ps1 `
-  -RunRoot canvas/work/site-nav-week06-homework05 -Verify
+  -RunRoot S:/codex-scratch/boland_course/canvas/work/site-nav-week06-homework05 -Verify
 ```
 
 Verification requires the expected commit to have status `built`, checks the
