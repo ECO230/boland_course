@@ -220,7 +220,7 @@ Reproducibility checks:
 ## Using the Reference for Project 2
 
 The [Project 2 prompt](../../syllabus/project_2_prompt.qmd) identifies the required
-parts of your paper, and the [rubric](../../syllabus/project_2_rubric.qmd)
-explains how the proposal is scored. Use this broader reference for ideas and
+parts of your paper, and the rubric attached to the Project 2 assignment in
+Canvas explains how the proposal is scored. Use this broader reference for ideas and
 details that fit your proposed study. You do not need to complete every section
 or produce any of the analysis described here.

@@ -25,7 +25,6 @@ project:
     - syllabus/project_1_clean_dataset.qmd
     - syllabus/project_1_presentation_in_person.qmd
     - syllabus/project_2_prompt.qmd
-    - syllabus/project_2_rubric.qmd
     - week12/readings/analysis-plan-outline.qmd
     - week01/week_01.qmd
     - week02/week_02.qmd
@@ -172,8 +171,6 @@ website:
             file: syllabus/project_2_prompt.qmd
           - text: "Proposal Outline"
             file: week12/readings/analysis-plan-outline.qmd
-          - text: "Rubric"
-            file: syllabus/project_2_rubric.qmd
 
 
 format:

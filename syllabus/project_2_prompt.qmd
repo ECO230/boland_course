@@ -198,7 +198,8 @@ or completed analysis are required. Keep any proposed analysis tied to the
 research question and study design.
 
 Use the [Research Proposal Outline](../week12/readings/analysis-plan-outline.qmd)
-to plan the paper and the [Project 2 Rubric](project_2_rubric.qmd) to check it.
+to plan the paper. The grading rubric is attached to the Project 2 assignment
+in Canvas.
 
 ## Grading
 
