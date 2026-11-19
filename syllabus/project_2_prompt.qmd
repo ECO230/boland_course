@@ -28,13 +28,42 @@ if the proposed study were carried out.
 
 ## Deliverables and Points
 
-| Deliverable | When | Points |
-|---|---|---:|
-| Informal topic meeting | Week 13, in class | 10 |
-| Research proposal pitch | Week 14, in class | 10 |
-| Red Team critique exercise | Week 14, in class | 10 |
-| Written Research Proposal | Before the final exam; see Canvas for your section's deadline | 70 |
-| **Total** | | **100** |
+<table style="width: 100%; border-collapse: collapse; margin: 1em 0;">
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top; background-color: #f7f7f7;">Deliverable</th>
+<th scope="col" style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top; background-color: #f7f7f7;">When</th>
+<th scope="col" style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top; background-color: #f7f7f7;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">Informal topic meeting</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">Week 13, in class</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">10</td>
+</tr>
+<tr>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">Research proposal pitch</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">Week 14, in class</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">10</td>
+</tr>
+<tr>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">Red Team critique exercise</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">Week 14, in class</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">10</td>
+</tr>
+<tr>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">Written Research Proposal</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">Before the final exam; see Canvas for your section's deadline</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">70</td>
+</tr>
+<tr>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;"><strong>Total</strong></td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;"><strong>100</strong></td>
+</tr>
+</tbody>
+</table>
 
 The Written Research Proposal is **one document**, about **2-4 pages in
 paragraph form**. Use subheadings to organize the required components below.
@@ -80,7 +109,21 @@ You may propose a method beyond those practiced in class if you can explain
 how it works and why it fits the question. Keep the design specific enough
 that someone could understand how the study would be conducted.
 
-## In-Class Pitch and Critique
+## In-Class Topic Meeting, Pitch, and Critique
+
+### Topic Exploration and Informal Meeting - 10 Points
+
+Between Weeks 12 and 13, discuss possible topics with your teammates. Consider
+what interests your team, who would use the results, and which question could
+be addressed through a proposed study.
+
+Bring a proposed topic to the Week 13 meeting. Explain the problem or
+opportunity, a possible research question, who or what you would study, and
+how you might obtain the information. Discuss why the approach fits and which
+design choices still need work. Use the feedback to narrow the topic and
+develop the proposal.
+
+### Week 14 Format
 
 Teams will work in small sets of two or three teams. One team presents while
 the other team or teams critique the proposal. Rotate so every team presents
@@ -162,13 +205,42 @@ to plan the paper and the [Project 2 Rubric](project_2_rubric.qmd) to check it.
 The in-class work is worth 30 points. The written proposal is worth 70 points,
 scored across four criteria within the same document.
 
-| Criterion within the Written Research Proposal | Points |
-|---|---:|
-| Problem or opportunity | 15 |
-| Research question and direction | 15 |
-| Study design and measures | 20 |
-| Sampling, measurement, conclusions, risks, and ethics | 20 |
-| **Written proposal total** | **70** |
+<table style="width: 100%; border-collapse: collapse; margin: 1em 0;">
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top; background-color: #f7f7f7;">Criterion within the Written Research Proposal</th>
+<th scope="col" style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top; background-color: #f7f7f7;">What is evaluated</th>
+<th scope="col" style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top; background-color: #f7f7f7;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">Problem or opportunity</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">The situation, its importance, the decision maker, and the decision the proposed study would inform.</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">15</td>
+</tr>
+<tr>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">Research question and direction</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">A focused question, its scope, and its connection to the decision and proposed study.</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">15</td>
+</tr>
+<tr>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">Study design and measures</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">The proposed method, population, sample selection, concepts, measures, and collection process.</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">20</td>
+</tr>
+<tr>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">Sampling, measurement, conclusions, risks, and ethics</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">Representation, bias, conclusions the design could support, specific risks, ethical concerns, and remaining limitations.</td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;">20</td>
+</tr>
+<tr>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;"><strong>Written proposal total</strong></td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #b8b8b8; padding: 0.6em; text-align: left; vertical-align: top;"><strong>70</strong></td>
+</tr>
+</tbody>
+</table>
 
 Explain your design choices and their limitations clearly. A proposal that
 recognizes a problem and explains how to address it is more useful than one

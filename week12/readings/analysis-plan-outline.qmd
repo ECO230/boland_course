@@ -1,10 +1,10 @@
 ---
-title: "Project 2: Research Proposal Outline"
+title: "Analysis Plan Outline"
+subtitle: "Reference for planning research and analysis"
 format:
   html:
     toc: true
     toc-depth: 2
-    toc-location: right
     number-sections: false
 execute:
   echo: false
@@ -12,102 +12,215 @@ execute:
   message: false
 ---
 
-## Using This Outline
+## What an analysis plan does
 
-Use these questions to plan the Written Research Proposal for
-[Project 2](../../syllabus/project_2_prompt.qmd). The final submission is
-**one 2-4 page paper in paragraph form**, with subheadings. This outline is
-a planning aid and is not a separate submission.
+An analysis plan connects a decision problem to the data, methods, and communication needed to answer it. Writing the plan first exposes missing variables, ambiguous definitions, and unrealistic claims before they become expensive.
 
-**You are proposing a study. You will not carry out the research, collect data,
-or perform analysis for this project.** Describe the decisions you would make
-and explain your reasons. Use future or conditional language throughout.
+This reference describes the kinds of decisions that commonly belong in a research
+or analysis plan. Use the sections that fit your question and proposed study.
 
-## 1. Decision Context
+For [Project 2](../../syllabus/project_2_prompt.qmd), use this document to explore
+design choices and develop your proposal. The assignment requires one 2-4 page
+paper in paragraph form. This reference is not an additional form or submission,
+and its sections are not all required headings for your paper.
 
-Who would use the study's results? What problem, opportunity, or decision
-would those results address? Explain why the decision matters.
+**Project 2 is a proposal exercise. You will not carry out the research, collect
+data, or perform analysis.** The preparation, analysis, and reproducibility
+sections below describe what would normally be planned for a study that will
+eventually be conducted. For this assignment, describe proposed methods only
+where they help explain your design.
 
-## 2. Research Question
+## 1. Decision context
 
-Write a focused question. Identify the population or setting, the topic or
-outcome, and any comparison that matters. Explain how an answer would help
-the decision maker.
+State:
 
-## 3. Research Objectives
+- the stakeholder or audience;
+- the decision, action, or opportunity;
+- why the decision matters; and
+- what is outside the stakeholder's control.
 
-Identify what you would need to learn to answer the question. Objectives
-might describe a population, compare groups, assess a relationship, or
-evaluate a proposed change.
+**Template:** `[Stakeholder] needs to decide [decision] because [business consequence].`
 
-Use objectives to clarify the research question. They can be included in
-that section of your paper rather than submitted separately.
+## 2. Research question
 
-## 4. Population, Concepts, and Measures
+Write one focused question that names the outcome, population, time, and important comparison.
 
-Define the population and the unit you would study, such as a person,
-organization, transaction, or event.
+**Template:** `Among [population] during [period], how does [outcome] vary with or across [explanatory variables/groups], for the purpose of [decision]?`
 
-Identify the main concepts. For each one, explain what it means in your
-study and how you would measure it. For survey questions, consider the
-wording, response options, and measurement scale. If you propose using
-existing records, explain what one row represents and which fields you
-would need.
+Avoid a question that assumes its conclusion or requires data you do not have.
 
-## 5. Proposed Study Design
+## 3. Objectives
 
-Choose and explain the approach you would use, such as a survey, observational
-study, experiment, or predictive study.
+List concrete analytical products. Useful verbs include describe, compare, estimate, identify, assess, rank, forecast, and recommend.
 
-Describe how you would select participants or records, collect information,
-and organize the study. For an experiment, explain the treatment, comparison,
-and assignment process. Identify practical requirements such as access,
-time, or resources.
+Example:
 
-Do not recruit participants, distribute a survey, gather records, or conduct
-the study. This section describes your plan.
+1. Describe monthly crash volume and severity.
+2. Compare severe-outcome percentages across selected conditions.
+3. Identify geographic and temporal segments for deeper review.
+4. Recommend a limited next step supported by the evidence.
 
-## 6. Quality of the Evidence
+Each objective should help answer the research question. Remove interesting side analyses that do not.
 
-Consider who the sample would represent and who might be missed. Discuss
-selection, nonresponse, measurement error, and other sources of bias that
-matter for your proposed study.
+## 4. Data and grain
 
-Explain what conclusions the design could support. Distinguish association
-from causation, and identify limits on applying the findings to other people
-or settings.
+For every input table, record:
 
-## 7. Proposed Analysis, If Helpful
+| Planning item | What to write |
+|---|---|
+| Source | Publisher, file or URL, snapshot/version |
+| Grain | What one row represents |
+| Coverage | Population, geography, and period |
+| Join keys | Exact fields and expected relationship |
+| Outcome | Variable and operational definition |
+| Explanatory variables | Fields used for grouping or modeling |
+| Missingness | Important unavailable or incomplete fields |
+| Ethics/privacy | Risks, restrictions, and necessary exclusions |
 
-You may briefly describe how you would summarize the proposed information
-or assess a relationship. Explain why those methods would fit the question
-and measures.
+::: {.callout-warning}
+## Check joins before analysis
 
-This detail is optional. You do not need to run a test, calculate a statistic,
-build a model, or produce results.
+State whether each join should be one-to-one, many-to-one, or one-to-many. Compare row counts and key uniqueness before and after joining. Unexpected row multiplication can invalidate every result.
+:::
 
-## 8. Risks, Limitations, and Ethics
+### Population and sampling
 
-Identify specific risks and how you would address them. Consider consent,
-privacy, fairness, possible harm, and exclusion.
+Define the population you want to understand and the sampling frame you could
+use to reach it. Explain how participants, organizations, or records would be
+selected. Consider who would be missed, who might decline to participate,
+and whether different groups would have different chances of being included.
 
-Explain which limitations would remain and what they would mean for the
-study's conclusions.
+For an experiment, distinguish selection into the study from assignment to a
+treatment or comparison group. Random sampling and random assignment address
+different questions.
 
-## 9. Pitch and Feedback
+### Concepts and measures
 
-Prepare to explain your question and design to the other teams in your
-small set. During the pitch and critique exercise, record the concerns
-raised, your responses, and the changes you plan to make.
+Give each important concept a conceptual definition and an operational
+definition. For example, explain what "customer loyalty" means in the study
+and whether you would measure it through repeat purchases, retention, or a
+survey question. Identify the measurement scale and the response options
+or units.
 
-Every team will have a turn presenting and critiquing another proposal.
+Consider whether a measure captures the intended concept, whether it would
+be consistent across participants, and whether wording or collection methods
+could influence the response.
 
-## 10. Revise the Written Proposal
+## 5. Data preparation
 
-Use the Week 13 discussion and Week 14 feedback to revise the paper.
-Organize it around the required components in the
-[Project 2 prompt](../../syllabus/project_2_prompt.qmd).
+Plan the transformations before doing them:
 
-The [rubric](../../syllabus/project_2_rubric.qmd) scores four aspects of the
-same written proposal. You submit one complete paper, not four separate
-written assignments.
+- parse dates and numeric fields;
+- define missing-value treatment;
+- resolve duplicates at the intended grain;
+- standardize category labels;
+- create documented derived fields;
+- identify implausible values without automatically deleting them; and
+- save a clean analysis table separately from raw source files.
+
+Every derived field should have a plain-language definition and reproducible code.
+
+## 6. Descriptive analysis
+
+Specify the tables and graphs needed to understand:
+
+- volume and missingness;
+- distributions and outliers;
+- differences among important groups;
+- change over time; and
+- geographic patterns when location is meaningful.
+
+For each planned visual, write the question it answers. "Make a bar chart" is not an analytical objective.
+
+## 7. Hypotheses and methods
+
+For each hypothesis, identify:
+
+1. the outcome variable;
+2. the explanatory variable or groups;
+3. the expected direction, if justified;
+4. the descriptive evidence;
+5. the statistical method and why it fits; and
+6. assumptions and diagnostics.
+
+Choose methods based on the variables, design, and question - not on which function is easiest to run.
+
+## 8. Risks and limitations
+
+Consider:
+
+- selection and nonresponse bias;
+- measurement error and proxies;
+- missing exposure denominators;
+- confounding and causal overclaiming;
+- small groups and unstable estimates;
+- time, geography, and population limits; and
+- synthetic or displaced geographic data.
+
+Write what each limitation changes about the interpretation, not merely that limitations exist.
+
+## 9. Communication plan
+
+Decide in advance:
+
+- the primary audience;
+- the decision-oriented takeaway;
+- the few figures or tables needed to support it;
+- which technical details belong in documentation rather than presentation slides; and
+- how assumptions and uncertainty will be communicated.
+
+A business presentation and technical documentation may use the same analysis, but they serve different readers.
+
+## 10. Reproducibility and reflection
+
+The final work should make it possible to trace a claim back to data and code.
+
+- Keep raw and derived data separate.
+- Use relative paths and scripted transformations.
+- Record source versions and filters.
+- Use meaningful object names and comments.
+- Render the document from a clean session.
+- Revisit early assumptions after seeing the data.
+
+## Copyable short-form plan
+
+Use this outline when drafting:
+
+```text
+Stakeholder and decision:
+
+Research question:
+
+Population, geography, and period:
+
+Objectives:
+1.
+2.
+3.
+
+Data sources and grain:
+
+Outcome and explanatory variables:
+
+Required joins and validation checks:
+
+Data preparation steps:
+
+Planned descriptive tables and graphs:
+
+Hypotheses and methods:
+
+Risks, ethics, and limitations:
+
+Communication plan:
+
+Reproducibility checks:
+```
+
+## Using the Reference for Project 2
+
+The [Project 2 prompt](../../syllabus/project_2_prompt.qmd) identifies the required
+parts of your paper, and the [rubric](../../syllabus/project_2_rubric.qmd)
+explains how the proposal is scored. Use this broader reference for ideas and
+details that fit your proposed study. You do not need to complete every section
+or produce any of the analysis described here.
