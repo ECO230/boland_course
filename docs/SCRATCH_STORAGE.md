@@ -51,3 +51,17 @@ Leave registered worktrees, standalone Git checkouts, active previews, and
 private Canvas or grading records in their established locations unless
 specifically migrating them with the appropriate workflow. Never publish
 scratch bundles, logs, or credentials.
+
+
+## Navigation deployment runs relocated November 19, 2026
+
+Navigation checkouts created on C: during the November 17-19 publishing work
+were copied to S:/codex-scratch/boland_course/canvas/work/migrated-from-c-20261119.
+Every file was hash-verified before the original was removed. Git worktree
+registrations were repaired to use the new locations. The migration.json in
+that directory maps original run directories to their S: locations.
+
+The current rubric-navigation deployment and its receipt use
+S:/codex-scratch/boland_course/canvas/work/nav-p2-rubric-20261119.
+The related Canvas refresh receipts use
+S:/codex-scratch/boland_course/canvas/work/project2-canvas-rubric-20261119/canvas-refresh.
