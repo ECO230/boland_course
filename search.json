@@ -2814,146 +2814,6 @@
     "text": "Checklist\n\nI selected three hypotheses connected to my project.\nEach test matches the variables, groups, and study design.\nEach \\(H_0\\) and \\(H_A\\) is stated in context.\nEach pseudocode block shows loading, preparation, and testing steps.\nEvery line of any optional R draft is commented out with #.\nMy submission explains the plan; test results are not required.\nI reviewed and submitted Homework_05_IP.pdf.\n\nGrading focus: Your work will be evaluated for appropriate test selection, testable hypotheses, clear context, and pseudocode that reflects a feasible analysis plan. Executable syntax and successful test execution are not the focus of this assignment."
   },
   {
-    "objectID": "week12/readings/analysis-plan-outline.html",
-    "href": "week12/readings/analysis-plan-outline.html",
-    "title": "Project 2: Research Proposal Outline",
-    "section": "",
-    "text": "Use these questions to plan the Written Research Proposal for Project 2. The final submission is one 2-4 page paper in paragraph form, with subheadings. This outline is a planning aid and is not a separate submission.\nYou are proposing a study. You will not carry out the research, collect data, or perform analysis for this project. Describe the decisions you would make and explain your reasons. Use future or conditional language throughout."
-  },
-  {
-    "objectID": "week12/readings/analysis-plan-outline.html#using-this-outline",
-    "href": "week12/readings/analysis-plan-outline.html#using-this-outline",
-    "title": "Project 2: Research Proposal Outline",
-    "section": "",
-    "text": "Use these questions to plan the Written Research Proposal for Project 2. The final submission is one 2-4 page paper in paragraph form, with subheadings. This outline is a planning aid and is not a separate submission.\nYou are proposing a study. You will not carry out the research, collect data, or perform analysis for this project. Describe the decisions you would make and explain your reasons. Use future or conditional language throughout."
-  },
-  {
-    "objectID": "week12/readings/analysis-plan-outline.html#decision-context",
-    "href": "week12/readings/analysis-plan-outline.html#decision-context",
-    "title": "Project 2: Research Proposal Outline",
-    "section": "1. Decision Context",
-    "text": "1. Decision Context\nWho would use the study’s results? What problem, opportunity, or decision would those results address? Explain why the decision matters."
-  },
-  {
-    "objectID": "week12/readings/analysis-plan-outline.html#research-question",
-    "href": "week12/readings/analysis-plan-outline.html#research-question",
-    "title": "Project 2: Research Proposal Outline",
-    "section": "2. Research Question",
-    "text": "2. Research Question\nWrite a focused question. Identify the population or setting, the topic or outcome, and any comparison that matters. Explain how an answer would help the decision maker."
-  },
-  {
-    "objectID": "week12/readings/analysis-plan-outline.html#research-objectives",
-    "href": "week12/readings/analysis-plan-outline.html#research-objectives",
-    "title": "Project 2: Research Proposal Outline",
-    "section": "3. Research Objectives",
-    "text": "3. Research Objectives\nIdentify what you would need to learn to answer the question. Objectives might describe a population, compare groups, assess a relationship, or evaluate a proposed change.\nUse objectives to clarify the research question. They can be included in that section of your paper rather than submitted separately."
-  },
-  {
-    "objectID": "week12/readings/analysis-plan-outline.html#population-concepts-and-measures",
-    "href": "week12/readings/analysis-plan-outline.html#population-concepts-and-measures",
-    "title": "Project 2: Research Proposal Outline",
-    "section": "4. Population, Concepts, and Measures",
-    "text": "4. Population, Concepts, and Measures\nDefine the population and the unit you would study, such as a person, organization, transaction, or event.\nIdentify the main concepts. For each one, explain what it means in your study and how you would measure it. For survey questions, consider the wording, response options, and measurement scale. If you propose using existing records, explain what one row represents and which fields you would need."
-  },
-  {
-    "objectID": "week12/readings/analysis-plan-outline.html#proposed-study-design",
-    "href": "week12/readings/analysis-plan-outline.html#proposed-study-design",
-    "title": "Project 2: Research Proposal Outline",
-    "section": "5. Proposed Study Design",
-    "text": "5. Proposed Study Design\nChoose and explain the approach you would use, such as a survey, observational study, experiment, or predictive study.\nDescribe how you would select participants or records, collect information, and organize the study. For an experiment, explain the treatment, comparison, and assignment process. Identify practical requirements such as access, time, or resources.\nDo not recruit participants, distribute a survey, gather records, or conduct the study. This section describes your plan."
-  },
-  {
-    "objectID": "week12/readings/analysis-plan-outline.html#quality-of-the-evidence",
-    "href": "week12/readings/analysis-plan-outline.html#quality-of-the-evidence",
-    "title": "Project 2: Research Proposal Outline",
-    "section": "6. Quality of the Evidence",
-    "text": "6. Quality of the Evidence\nConsider who the sample would represent and who might be missed. Discuss selection, nonresponse, measurement error, and other sources of bias that matter for your proposed study.\nExplain what conclusions the design could support. Distinguish association from causation, and identify limits on applying the findings to other people or settings."
-  },
-  {
-    "objectID": "week12/readings/analysis-plan-outline.html#proposed-analysis-if-helpful",
-    "href": "week12/readings/analysis-plan-outline.html#proposed-analysis-if-helpful",
-    "title": "Project 2: Research Proposal Outline",
-    "section": "7. Proposed Analysis, If Helpful",
-    "text": "7. Proposed Analysis, If Helpful\nYou may briefly describe how you would summarize the proposed information or assess a relationship. Explain why those methods would fit the question and measures.\nThis detail is optional. You do not need to run a test, calculate a statistic, build a model, or produce results."
-  },
-  {
-    "objectID": "week12/readings/analysis-plan-outline.html#risks-limitations-and-ethics",
-    "href": "week12/readings/analysis-plan-outline.html#risks-limitations-and-ethics",
-    "title": "Project 2: Research Proposal Outline",
-    "section": "8. Risks, Limitations, and Ethics",
-    "text": "8. Risks, Limitations, and Ethics\nIdentify specific risks and how you would address them. Consider consent, privacy, fairness, possible harm, and exclusion.\nExplain which limitations would remain and what they would mean for the study’s conclusions."
-  },
-  {
-    "objectID": "week12/readings/analysis-plan-outline.html#pitch-and-feedback",
-    "href": "week12/readings/analysis-plan-outline.html#pitch-and-feedback",
-    "title": "Project 2: Research Proposal Outline",
-    "section": "9. Pitch and Feedback",
-    "text": "9. Pitch and Feedback\nPrepare to explain your question and design to the other teams in your small set. During the pitch and critique exercise, record the concerns raised, your responses, and the changes you plan to make.\nEvery team will have a turn presenting and critiquing another proposal."
-  },
-  {
-    "objectID": "week12/readings/analysis-plan-outline.html#revise-the-written-proposal",
-    "href": "week12/readings/analysis-plan-outline.html#revise-the-written-proposal",
-    "title": "Project 2: Research Proposal Outline",
-    "section": "10. Revise the Written Proposal",
-    "text": "10. Revise the Written Proposal\nUse the Week 13 discussion and Week 14 feedback to revise the paper. Organize it around the required components in the Project 2 prompt.\nThe rubric scores four aspects of the same written proposal. You submit one complete paper, not four separate written assignments."
-  },
-  {
-    "objectID": "syllabus/project_2_prompt.html",
-    "href": "syllabus/project_2_prompt.html",
-    "title": "Project 2: Research Proposal",
-    "section": "",
-    "text": "Your team will choose a problem or opportunity and propose a research study that could help a decision maker address it. Explain what you would study, how you would collect information, and what the proposed design would allow you to conclude.\n\n\n\n\n\n\nImportantScope\n\n\n\nThis is a study-design and research-proposal exercise. You are not carrying out the research. Do not collect data, recruit participants, conduct a survey or experiment, or run analyses for this project. Describe what you would do if the proposed study were carried out."
-  },
-  {
-    "objectID": "syllabus/project_2_prompt.html#overview",
-    "href": "syllabus/project_2_prompt.html#overview",
-    "title": "Project 2: Research Proposal",
-    "section": "",
-    "text": "Your team will choose a problem or opportunity and propose a research study that could help a decision maker address it. Explain what you would study, how you would collect information, and what the proposed design would allow you to conclude.\n\n\n\n\n\n\nImportantScope\n\n\n\nThis is a study-design and research-proposal exercise. You are not carrying out the research. Do not collect data, recruit participants, conduct a survey or experiment, or run analyses for this project. Describe what you would do if the proposed study were carried out."
-  },
-  {
-    "objectID": "syllabus/project_2_prompt.html#deliverables-and-points",
-    "href": "syllabus/project_2_prompt.html#deliverables-and-points",
-    "title": "Project 2: Research Proposal",
-    "section": "Deliverables and Points",
-    "text": "Deliverables and Points\n\n\n\n\n\n\n\n\nDeliverable\nWhen\nPoints\n\n\n\n\nInformal topic meeting\nWeek 13, in class\n10\n\n\nResearch proposal pitch\nWeek 14, in class\n10\n\n\nRed Team critique exercise\nWeek 14, in class\n10\n\n\nWritten Research Proposal\nBefore the final exam; see Canvas for your section’s deadline\n70\n\n\nTotal\n\n100\n\n\n\nThe Written Research Proposal is one document, about 2-4 pages in paragraph form. Use subheadings to organize the required components below. The proposal outline is a planning guide for that paper, not a separate submission. An outline or executive summary alone does not replace the paper."
-  },
-  {
-    "objectID": "syllabus/project_2_prompt.html#timeline",
-    "href": "syllabus/project_2_prompt.html#timeline",
-    "title": "Project 2: Research Proposal",
-    "section": "Timeline",
-    "text": "Timeline\n\nWeek 12 - Choose Teammates and Explore Topics\nDecide who you will work with and start discussing possible topics between this week and next. Identify a problem, opportunity, or decision that your team could develop into a research proposal.\n\n\nWeek 13 - Informal Topic Meeting\nBring a proposed topic to the in-class discussion. This meeting is worth 10 points. Your team should be ready to explain the problem, the research question, who or what you would study, a possible source of information, and why the proposed method fits the question.\nUse the discussion to narrow the topic and work through design choices.\n\n\nWeek 14 - Pitch and Critique\nPresent your proposed study and participate in the critique exercise. Use the feedback and your responses to revise the written proposal.\n\n\nBefore the Final Exam - Written Research Proposal\nSubmit your complete proposal in the Project 2 Canvas assignment. Include all teammates’ names. The assignment uses a text-entry box, so paste the complete paper there with its subheadings. Check Canvas for your section’s deadline."
-  },
-  {
-    "objectID": "syllabus/project_2_prompt.html#choosing-a-topic",
-    "href": "syllabus/project_2_prompt.html#choosing-a-topic",
-    "title": "Project 2: Research Proposal",
-    "section": "Choosing a Topic",
-    "text": "Choosing a Topic\nYou may use a business situation you know through work or personal experience, a question connected to your major, or another topic that interests your team. Identify who would use the results and what decision the study could inform.\nYou may propose a method beyond those practiced in class if you can explain how it works and why it fits the question. Keep the design specific enough that someone could understand how the study would be conducted."
-  },
-  {
-    "objectID": "syllabus/project_2_prompt.html#in-class-pitch-and-critique",
-    "href": "syllabus/project_2_prompt.html#in-class-pitch-and-critique",
-    "title": "Project 2: Research Proposal",
-    "section": "In-Class Pitch and Critique",
-    "text": "In-Class Pitch and Critique\nTeams will work in small sets of two or three teams. One team presents while the other team or teams critique the proposal. Rotate so every team presents and critiques. In a three-team set, two teams critique each presentation.\n\nResearch Proposal Pitch - 10 Points\nExplain the problem, research question, proposed study design, reasons for your design choices, and the main risks or limitations. Respond to questions about how you would sample, measure, and collect information.\n\n\nRed Team Critique Exercise - 10 Points\nExamine the other team’s sampling, measures, design, conclusions, and ethical considerations. Identify specific weaknesses and suggest changes the team could make. Discuss your feedback with the presenting team.\nThe critique is part of the in-class exercise. Use the Canvas Red Team review activity during class. Its 10 points are included in the Project 2 rubric."
-  },
-  {
-    "objectID": "syllabus/project_2_prompt.html#written-research-proposal",
-    "href": "syllabus/project_2_prompt.html#written-research-proposal",
-    "title": "Project 2: Research Proposal",
-    "section": "Written Research Proposal",
-    "text": "Written Research Proposal\nWrite one 2-4 page paper in paragraph form covering the following topics. These are sections of the same paper. They are not separate assignments or files. Describe the proposed work using language such as “we would sample” and “the study would measure.”\n\n1. Problem or Opportunity\nDescribe the situation, why it matters, and the decision it could inform. Identify the decision maker or other people who would use the results.\n\n\n2. Research Question\nState a focused question that your study could answer. Explain its scope and how the answer would help with the decision. Short research objectives or a tentative hypothesis may help clarify your question.\n\n\n3. Proposed Study Design and Measures\nExplain whether you would use a survey, observational study, experiment, predictive model, or another approach, and why it fits your question.\nDescribe the population, who or what you would include, how you would select them, what you would measure, and how you would collect the information. Define the main concepts and explain how you would measure them.\nDescribe these plans without collecting data or conducting the study.\n\n\n4. Sampling, Measurement, and Conclusions\nExplain how your choices affect the evidence the study could produce.\n\nWho would be represented, and who might be missed?\nCould the sampling or measurement process bias the results?\nWhat could the study tell the decision maker?\nWhat generalizations or causal claims would the design support?\nFor a predictive study, how would you check performance on new cases?\n\n\n\n5. Risks, Limitations, and Ethics\nDiscuss specific ways the proposed study could go wrong and how you would address them. Consider privacy, consent, fairness, and possible harm or exclusion. Explain what limitations would remain and how they would affect the conclusions.\n\n\n6. Optional Supporting Detail\nYou may describe an expected pattern or briefly explain how you would analyze the proposed data. No calculations, statistical output, charts of results, or completed analysis are required. Keep any proposed analysis tied to the research question and study design.\nUse the Research Proposal Outline to plan the paper and the Project 2 Rubric to check it."
-  },
-  {
-    "objectID": "syllabus/project_2_prompt.html#grading",
-    "href": "syllabus/project_2_prompt.html#grading",
-    "title": "Project 2: Research Proposal",
-    "section": "Grading",
-    "text": "Grading\nThe in-class work is worth 30 points. The written proposal is worth 70 points, scored across four criteria within the same document.\n\n\n\nCriterion within the Written Research Proposal\nPoints\n\n\n\n\nProblem or opportunity\n15\n\n\nResearch question and direction\n15\n\n\nStudy design and measures\n20\n\n\nSampling, measurement, conclusions, risks, and ethics\n20\n\n\nWritten proposal total\n70\n\n\n\nExplain your design choices and their limitations clearly. A proposal that recognizes a problem and explains how to address it is more useful than one that overlooks it. Your grade reflects the proposed design and your reasoning, not results from research you have carried out."
-  },
-  {
     "objectID": "syllabus/project_2_rubric.html",
     "href": "syllabus/project_2_rubric.html",
     "title": "Project 2: Rubric",
@@ -3015,5 +2875,159 @@
     "title": "Project 2: Rubric",
     "section": "Written Proposal - Sampling, Measurement, Conclusions, Risks, and Ethics (20 Points)",
     "text": "Written Proposal - Sampling, Measurement, Conclusions, Risks, and Ethics (20 Points)\nOne criterion within the same 70-point Written Research Proposal. No data collection, study implementation, or analysis is required.\nProfessional Quality (20 points)\nPaper explains representation, bias, measurement concerns, and limits on generalization or causal claims. It identifies specific risks and ethical concerns, explains how they would be addressed, and acknowledges remaining limitations.\nMeets Expectations (16 points)\nPaper addresses the quality of the proposed evidence, risks, and ethics, but overlooks an important concern or needs to explain its effect on conclusions.\nNeeds Revision (10 points)\nDiscussion gives general cautions with little connection to this study or omits major sampling, interpretation, or ethical concerns.\nMissing (0 points)\nDiscussion of evidence quality, risks, limitations, and ethics is missing."
+  },
+  {
+    "objectID": "syllabus/project_2_prompt.html",
+    "href": "syllabus/project_2_prompt.html",
+    "title": "Project 2: Research Proposal",
+    "section": "",
+    "text": "Your team will choose a problem or opportunity and propose a research study that could help a decision maker address it. Explain what you would study, how you would collect information, and what the proposed design would allow you to conclude.\n\n\n\n\n\n\nImportantScope\n\n\n\nThis is a study-design and research-proposal exercise. You are not carrying out the research. Do not collect data, recruit participants, conduct a survey or experiment, or run analyses for this project. Describe what you would do if the proposed study were carried out."
+  },
+  {
+    "objectID": "syllabus/project_2_prompt.html#overview",
+    "href": "syllabus/project_2_prompt.html#overview",
+    "title": "Project 2: Research Proposal",
+    "section": "",
+    "text": "Your team will choose a problem or opportunity and propose a research study that could help a decision maker address it. Explain what you would study, how you would collect information, and what the proposed design would allow you to conclude.\n\n\n\n\n\n\nImportantScope\n\n\n\nThis is a study-design and research-proposal exercise. You are not carrying out the research. Do not collect data, recruit participants, conduct a survey or experiment, or run analyses for this project. Describe what you would do if the proposed study were carried out."
+  },
+  {
+    "objectID": "syllabus/project_2_prompt.html#deliverables-and-points",
+    "href": "syllabus/project_2_prompt.html#deliverables-and-points",
+    "title": "Project 2: Research Proposal",
+    "section": "Deliverables and Points",
+    "text": "Deliverables and Points\n\n\n\n\nDeliverable\n\n\nWhen\n\n\nPoints\n\n\n\n\n\n\nInformal topic meeting\n\n\nWeek 13, in class\n\n\n10\n\n\n\n\nResearch proposal pitch\n\n\nWeek 14, in class\n\n\n10\n\n\n\n\nRed Team critique exercise\n\n\nWeek 14, in class\n\n\n10\n\n\n\n\nWritten Research Proposal\n\n\nBefore the final exam; see Canvas for your section’s deadline\n\n\n70\n\n\n\n\nTotal\n\n\n\n\n100\n\n\n\n\nThe Written Research Proposal is one document, about 2-4 pages in paragraph form. Use subheadings to organize the required components below. The proposal outline is a planning guide for that paper, not a separate submission. An outline or executive summary alone does not replace the paper."
+  },
+  {
+    "objectID": "syllabus/project_2_prompt.html#timeline",
+    "href": "syllabus/project_2_prompt.html#timeline",
+    "title": "Project 2: Research Proposal",
+    "section": "Timeline",
+    "text": "Timeline\n\nWeek 12 - Choose Teammates and Explore Topics\nDecide who you will work with and start discussing possible topics between this week and next. Identify a problem, opportunity, or decision that your team could develop into a research proposal.\n\n\nWeek 13 - Informal Topic Meeting\nBring a proposed topic to the in-class discussion. This meeting is worth 10 points. Your team should be ready to explain the problem, the research question, who or what you would study, a possible source of information, and why the proposed method fits the question.\nUse the discussion to narrow the topic and work through design choices.\n\n\nWeek 14 - Pitch and Critique\nPresent your proposed study and participate in the critique exercise. Use the feedback and your responses to revise the written proposal.\n\n\nBefore the Final Exam - Written Research Proposal\nSubmit your complete proposal in the Project 2 Canvas assignment. Include all teammates’ names. The assignment uses a text-entry box, so paste the complete paper there with its subheadings. Check Canvas for your section’s deadline."
+  },
+  {
+    "objectID": "syllabus/project_2_prompt.html#choosing-a-topic",
+    "href": "syllabus/project_2_prompt.html#choosing-a-topic",
+    "title": "Project 2: Research Proposal",
+    "section": "Choosing a Topic",
+    "text": "Choosing a Topic\nYou may use a business situation you know through work or personal experience, a question connected to your major, or another topic that interests your team. Identify who would use the results and what decision the study could inform.\nYou may propose a method beyond those practiced in class if you can explain how it works and why it fits the question. Keep the design specific enough that someone could understand how the study would be conducted."
+  },
+  {
+    "objectID": "syllabus/project_2_prompt.html#in-class-topic-meeting-pitch-and-critique",
+    "href": "syllabus/project_2_prompt.html#in-class-topic-meeting-pitch-and-critique",
+    "title": "Project 2: Research Proposal",
+    "section": "In-Class Topic Meeting, Pitch, and Critique",
+    "text": "In-Class Topic Meeting, Pitch, and Critique\n\nTopic Exploration and Informal Meeting - 10 Points\nBetween Weeks 12 and 13, discuss possible topics with your teammates. Consider what interests your team, who would use the results, and which question could be addressed through a proposed study.\nBring a proposed topic to the Week 13 meeting. Explain the problem or opportunity, a possible research question, who or what you would study, and how you might obtain the information. Discuss why the approach fits and which design choices still need work. Use the feedback to narrow the topic and develop the proposal.\n\n\nWeek 14 Format\nTeams will work in small sets of two or three teams. One team presents while the other team or teams critique the proposal. Rotate so every team presents and critiques. In a three-team set, two teams critique each presentation.\n\n\nResearch Proposal Pitch - 10 Points\nExplain the problem, research question, proposed study design, reasons for your design choices, and the main risks or limitations. Respond to questions about how you would sample, measure, and collect information.\n\n\nRed Team Critique Exercise - 10 Points\nExamine the other team’s sampling, measures, design, conclusions, and ethical considerations. Identify specific weaknesses and suggest changes the team could make. Discuss your feedback with the presenting team.\nThe critique is part of the in-class exercise. Use the Canvas Red Team review activity during class. Its 10 points are included in the Project 2 rubric."
+  },
+  {
+    "objectID": "syllabus/project_2_prompt.html#written-research-proposal",
+    "href": "syllabus/project_2_prompt.html#written-research-proposal",
+    "title": "Project 2: Research Proposal",
+    "section": "Written Research Proposal",
+    "text": "Written Research Proposal\nWrite one 2-4 page paper in paragraph form covering the following topics. These are sections of the same paper. They are not separate assignments or files. Describe the proposed work using language such as “we would sample” and “the study would measure.”\n\n1. Problem or Opportunity\nDescribe the situation, why it matters, and the decision it could inform. Identify the decision maker or other people who would use the results.\n\n\n2. Research Question\nState a focused question that your study could answer. Explain its scope and how the answer would help with the decision. Short research objectives or a tentative hypothesis may help clarify your question.\n\n\n3. Proposed Study Design and Measures\nExplain whether you would use a survey, observational study, experiment, predictive model, or another approach, and why it fits your question.\nDescribe the population, who or what you would include, how you would select them, what you would measure, and how you would collect the information. Define the main concepts and explain how you would measure them.\nDescribe these plans without collecting data or conducting the study.\n\n\n4. Sampling, Measurement, and Conclusions\nExplain how your choices affect the evidence the study could produce.\n\nWho would be represented, and who might be missed?\nCould the sampling or measurement process bias the results?\nWhat could the study tell the decision maker?\nWhat generalizations or causal claims would the design support?\nFor a predictive study, how would you check performance on new cases?\n\n\n\n5. Risks, Limitations, and Ethics\nDiscuss specific ways the proposed study could go wrong and how you would address them. Consider privacy, consent, fairness, and possible harm or exclusion. Explain what limitations would remain and how they would affect the conclusions.\n\n\n6. Optional Supporting Detail\nYou may describe an expected pattern or briefly explain how you would analyze the proposed data. No calculations, statistical output, charts of results, or completed analysis are required. Keep any proposed analysis tied to the research question and study design.\nUse the Research Proposal Outline to plan the paper and the Project 2 Rubric to check it."
+  },
+  {
+    "objectID": "syllabus/project_2_prompt.html#grading",
+    "href": "syllabus/project_2_prompt.html#grading",
+    "title": "Project 2: Research Proposal",
+    "section": "Grading",
+    "text": "Grading\nThe in-class work is worth 30 points. The written proposal is worth 70 points, scored across four criteria within the same document.\n\n\n\n\nCriterion within the Written Research Proposal\n\n\nWhat is evaluated\n\n\nPoints\n\n\n\n\n\n\nProblem or opportunity\n\n\nThe situation, its importance, the decision maker, and the decision the proposed study would inform.\n\n\n15\n\n\n\n\nResearch question and direction\n\n\nA focused question, its scope, and its connection to the decision and proposed study.\n\n\n15\n\n\n\n\nStudy design and measures\n\n\nThe proposed method, population, sample selection, concepts, measures, and collection process.\n\n\n20\n\n\n\n\nSampling, measurement, conclusions, risks, and ethics\n\n\nRepresentation, bias, conclusions the design could support, specific risks, ethical concerns, and remaining limitations.\n\n\n20\n\n\n\n\nWritten proposal total\n\n\n\n\n70\n\n\n\n\nExplain your design choices and their limitations clearly. A proposal that recognizes a problem and explains how to address it is more useful than one that overlooks it. Your grade reflects the proposed design and your reasoning, not results from research you have carried out."
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html",
+    "href": "week12/readings/analysis-plan-outline.html",
+    "title": "Analysis Plan Outline",
+    "section": "",
+    "text": "An analysis plan connects a decision problem to the data, methods, and communication needed to answer it. Writing the plan first exposes missing variables, ambiguous definitions, and unrealistic claims before they become expensive.\nThis reference describes the kinds of decisions that commonly belong in a research or analysis plan. Use the sections that fit your question and proposed study.\nFor Project 2, use this document to explore design choices and develop your proposal. The assignment requires one 2-4 page paper in paragraph form. This reference is not an additional form or submission, and its sections are not all required headings for your paper.\nProject 2 is a proposal exercise. You will not carry out the research, collect data, or perform analysis. The preparation, analysis, and reproducibility sections below describe what would normally be planned for a study that will eventually be conducted. For this assignment, describe proposed methods only where they help explain your design."
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html#what-an-analysis-plan-does",
+    "href": "week12/readings/analysis-plan-outline.html#what-an-analysis-plan-does",
+    "title": "Analysis Plan Outline",
+    "section": "",
+    "text": "An analysis plan connects a decision problem to the data, methods, and communication needed to answer it. Writing the plan first exposes missing variables, ambiguous definitions, and unrealistic claims before they become expensive.\nThis reference describes the kinds of decisions that commonly belong in a research or analysis plan. Use the sections that fit your question and proposed study.\nFor Project 2, use this document to explore design choices and develop your proposal. The assignment requires one 2-4 page paper in paragraph form. This reference is not an additional form or submission, and its sections are not all required headings for your paper.\nProject 2 is a proposal exercise. You will not carry out the research, collect data, or perform analysis. The preparation, analysis, and reproducibility sections below describe what would normally be planned for a study that will eventually be conducted. For this assignment, describe proposed methods only where they help explain your design."
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html#decision-context",
+    "href": "week12/readings/analysis-plan-outline.html#decision-context",
+    "title": "Analysis Plan Outline",
+    "section": "1. Decision context",
+    "text": "1. Decision context\nState:\n\nthe stakeholder or audience;\nthe decision, action, or opportunity;\nwhy the decision matters; and\nwhat is outside the stakeholder’s control.\n\nTemplate: [Stakeholder] needs to decide [decision] because [business consequence]."
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html#research-question",
+    "href": "week12/readings/analysis-plan-outline.html#research-question",
+    "title": "Analysis Plan Outline",
+    "section": "2. Research question",
+    "text": "2. Research question\nWrite one focused question that names the outcome, population, time, and important comparison.\nTemplate: Among [population] during [period], how does [outcome] vary with or across [explanatory variables/groups], for the purpose of [decision]?\nAvoid a question that assumes its conclusion or requires data you do not have."
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html#objectives",
+    "href": "week12/readings/analysis-plan-outline.html#objectives",
+    "title": "Analysis Plan Outline",
+    "section": "3. Objectives",
+    "text": "3. Objectives\nList concrete analytical products. Useful verbs include describe, compare, estimate, identify, assess, rank, forecast, and recommend.\nExample:\n\nDescribe monthly crash volume and severity.\nCompare severe-outcome percentages across selected conditions.\nIdentify geographic and temporal segments for deeper review.\nRecommend a limited next step supported by the evidence.\n\nEach objective should help answer the research question. Remove interesting side analyses that do not."
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html#data-and-grain",
+    "href": "week12/readings/analysis-plan-outline.html#data-and-grain",
+    "title": "Analysis Plan Outline",
+    "section": "4. Data and grain",
+    "text": "4. Data and grain\nFor every input table, record:\n\n\n\nPlanning item\nWhat to write\n\n\n\n\nSource\nPublisher, file or URL, snapshot/version\n\n\nGrain\nWhat one row represents\n\n\nCoverage\nPopulation, geography, and period\n\n\nJoin keys\nExact fields and expected relationship\n\n\nOutcome\nVariable and operational definition\n\n\nExplanatory variables\nFields used for grouping or modeling\n\n\nMissingness\nImportant unavailable or incomplete fields\n\n\nEthics/privacy\nRisks, restrictions, and necessary exclusions\n\n\n\n\n\n\n\n\n\nWarningCheck joins before analysis\n\n\n\nState whether each join should be one-to-one, many-to-one, or one-to-many. Compare row counts and key uniqueness before and after joining. Unexpected row multiplication can invalidate every result.\n\n\n\nPopulation and sampling\nDefine the population you want to understand and the sampling frame you could use to reach it. Explain how participants, organizations, or records would be selected. Consider who would be missed, who might decline to participate, and whether different groups would have different chances of being included.\nFor an experiment, distinguish selection into the study from assignment to a treatment or comparison group. Random sampling and random assignment address different questions.\n\n\nConcepts and measures\nGive each important concept a conceptual definition and an operational definition. For example, explain what “customer loyalty” means in the study and whether you would measure it through repeat purchases, retention, or a survey question. Identify the measurement scale and the response options or units.\nConsider whether a measure captures the intended concept, whether it would be consistent across participants, and whether wording or collection methods could influence the response."
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html#data-preparation",
+    "href": "week12/readings/analysis-plan-outline.html#data-preparation",
+    "title": "Analysis Plan Outline",
+    "section": "5. Data preparation",
+    "text": "5. Data preparation\nPlan the transformations before doing them:\n\nparse dates and numeric fields;\ndefine missing-value treatment;\nresolve duplicates at the intended grain;\nstandardize category labels;\ncreate documented derived fields;\nidentify implausible values without automatically deleting them; and\nsave a clean analysis table separately from raw source files.\n\nEvery derived field should have a plain-language definition and reproducible code."
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html#descriptive-analysis",
+    "href": "week12/readings/analysis-plan-outline.html#descriptive-analysis",
+    "title": "Analysis Plan Outline",
+    "section": "6. Descriptive analysis",
+    "text": "6. Descriptive analysis\nSpecify the tables and graphs needed to understand:\n\nvolume and missingness;\ndistributions and outliers;\ndifferences among important groups;\nchange over time; and\ngeographic patterns when location is meaningful.\n\nFor each planned visual, write the question it answers. “Make a bar chart” is not an analytical objective."
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html#hypotheses-and-methods",
+    "href": "week12/readings/analysis-plan-outline.html#hypotheses-and-methods",
+    "title": "Analysis Plan Outline",
+    "section": "7. Hypotheses and methods",
+    "text": "7. Hypotheses and methods\nFor each hypothesis, identify:\n\nthe outcome variable;\nthe explanatory variable or groups;\nthe expected direction, if justified;\nthe descriptive evidence;\nthe statistical method and why it fits; and\nassumptions and diagnostics.\n\nChoose methods based on the variables, design, and question - not on which function is easiest to run."
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html#risks-and-limitations",
+    "href": "week12/readings/analysis-plan-outline.html#risks-and-limitations",
+    "title": "Analysis Plan Outline",
+    "section": "8. Risks and limitations",
+    "text": "8. Risks and limitations\nConsider:\n\nselection and nonresponse bias;\nmeasurement error and proxies;\nmissing exposure denominators;\nconfounding and causal overclaiming;\nsmall groups and unstable estimates;\ntime, geography, and population limits; and\nsynthetic or displaced geographic data.\n\nWrite what each limitation changes about the interpretation, not merely that limitations exist."
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html#communication-plan",
+    "href": "week12/readings/analysis-plan-outline.html#communication-plan",
+    "title": "Analysis Plan Outline",
+    "section": "9. Communication plan",
+    "text": "9. Communication plan\nDecide in advance:\n\nthe primary audience;\nthe decision-oriented takeaway;\nthe few figures or tables needed to support it;\nwhich technical details belong in documentation rather than presentation slides; and\nhow assumptions and uncertainty will be communicated.\n\nA business presentation and technical documentation may use the same analysis, but they serve different readers."
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html#reproducibility-and-reflection",
+    "href": "week12/readings/analysis-plan-outline.html#reproducibility-and-reflection",
+    "title": "Analysis Plan Outline",
+    "section": "10. Reproducibility and reflection",
+    "text": "10. Reproducibility and reflection\nThe final work should make it possible to trace a claim back to data and code.\n\nKeep raw and derived data separate.\nUse relative paths and scripted transformations.\nRecord source versions and filters.\nUse meaningful object names and comments.\nRender the document from a clean session.\nRevisit early assumptions after seeing the data."
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html#copyable-short-form-plan",
+    "href": "week12/readings/analysis-plan-outline.html#copyable-short-form-plan",
+    "title": "Analysis Plan Outline",
+    "section": "Copyable short-form plan",
+    "text": "Copyable short-form plan\nUse this outline when drafting:\nStakeholder and decision:\n\nResearch question:\n\nPopulation, geography, and period:\n\nObjectives:\n1.\n2.\n3.\n\nData sources and grain:\n\nOutcome and explanatory variables:\n\nRequired joins and validation checks:\n\nData preparation steps:\n\nPlanned descriptive tables and graphs:\n\nHypotheses and methods:\n\nRisks, ethics, and limitations:\n\nCommunication plan:\n\nReproducibility checks:"
+  },
+  {
+    "objectID": "week12/readings/analysis-plan-outline.html#using-the-reference-for-project-2",
+    "href": "week12/readings/analysis-plan-outline.html#using-the-reference-for-project-2",
+    "title": "Analysis Plan Outline",
+    "section": "Using the Reference for Project 2",
+    "text": "Using the Reference for Project 2\nThe Project 2 prompt identifies the required parts of your paper, and the rubric explains how the proposal is scored. Use this broader reference for ideas and details that fit your proposed study. You do not need to complete every section or produce any of the analysis described here."
   }
 ]
