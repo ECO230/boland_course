@@ -1,0 +1,61 @@
+{
+  "sections": [
+    {
+      "section": 4,
+      "course_id": 870634
+    },
+    {
+      "section": 11,
+      "course_id": 869206
+    },
+    {
+      "section": 12,
+      "course_id": 870121
+    }
+  ],
+  "objects": [
+    {
+      "kind": "page",
+      "title": "Project 2 - Research Proposal Outline",
+      "source_path": "_site/week12/readings/analysis-plan-outline.html",
+      "published_url": "https://eco230.github.io/boland_course/week12/readings/analysis-plan-outline.html",
+      "input_paths": [
+        "week12/readings/analysis-plan-outline.qmd"
+      ],
+      "targets": {
+        "4": {
+          "id": "project-2-research-proposal-outline",
+          "module_id": 4667288
+        },
+        "11": {
+          "id": "project-2-research-proposal-outline",
+          "module_id": 4677014
+        },
+        "12": {
+          "id": "project-2-research-proposal-outline",
+          "module_id": 4679332
+        }
+      },
+      "id": "project-2-research-proposal-outline",
+      "module_id": 4667288,
+      "validation": {
+        "required_text": [
+          "Data and grain",
+          "Check joins before analysis",
+          "Population and sampling",
+          "Concepts and measures",
+          "Reproducibility and reflection",
+          "will not carry out the research",
+          "Design the data collection instrument and procedure",
+          "Ethical considerations",
+          "Light green marks material",
+          "operational definition",
+          "Machine learning applications"
+        ],
+        "forbidden_text": [
+          "This page is a planning aid. The Project 1 prompt"
+        ]
+      }
+    }
+  ]
+}

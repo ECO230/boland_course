@@ -12,9 +12,38 @@ execute:
   message: false
 ---
 
+<style>
+/* Local emphasis for material introduced in Project 2. */
+section.project2-new {
+  background-color: #f3f9f0;
+  border-left: 3px solid #c6ddbc;
+  padding: 0.7rem 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+section.project2-new > :first-child { margin-top: 0; }
+section.project2-new > :last-child { margin-bottom: 0; }
+.project2-highlight-key {
+  display: inline-block;
+  background-color: #f3f9f0;
+  border-left: 3px solid #c6ddbc;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.95em;
+}
+@media print {
+  section.project2-new, .project2-highlight-key {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+</style>
+
 ## What an analysis plan does
 
 An analysis plan connects a decision problem to the data, methods, and communication needed to answer it. Writing the plan first exposes missing variables, ambiguous definitions, and unrealistic claims before they become expensive.
+
+The concepts, measures, and data collection sections are especially relevant to
+Project 2 and the research-design work in Weeks 12-14.
 
 This reference describes the kinds of decisions that commonly belong in a research
 or analysis plan. Use the sections that fit your question and proposed study.
@@ -30,7 +59,11 @@ sections below describe what would normally be planned for a study that will
 eventually be conducted. For this assignment, describe proposed methods only
 where they help explain your design.
 
-## 1. Decision context
+::: {.project2-highlight-key style="display: inline-block; background-color: #f3f9f0; border-left: 3px solid #c6ddbc; padding: 0.35rem 0.65rem; font-size: 0.95em;"}
+Light green marks material we are developing further for Project 2.
+:::
+
+## 1. Decision context {.project2-new style="background-color: #f3f9f0; border-left: 3px solid #c6ddbc; padding: 0.7rem 1.1rem; margin-top: 1.5rem; margin-bottom: 1.5rem;"}
 
 State:
 
@@ -41,7 +74,7 @@ State:
 
 **Template:** `[Stakeholder] needs to decide [decision] because [business consequence].`
 
-## 2. Research question
+## 2. Research question {.project2-new style="background-color: #f3f9f0; border-left: 3px solid #c6ddbc; padding: 0.7rem 1.1rem; margin-top: 1.5rem; margin-bottom: 1.5rem;"}
 
 Write one focused question that names the outcome, population, time, and important comparison.
 
@@ -49,7 +82,7 @@ Write one focused question that names the outcome, population, time, and importa
 
 Avoid a question that assumes its conclusion or requires data you do not have.
 
-## 3. Objectives
+## 3. Objectives {.project2-new style="background-color: #f3f9f0; border-left: 3px solid #c6ddbc; padding: 0.7rem 1.1rem; margin-top: 1.5rem; margin-bottom: 1.5rem;"}
 
 List concrete analytical products. Useful verbs include describe, compare, estimate, identify, assess, rank, forecast, and recommend.
 
@@ -83,7 +116,7 @@ For every input table, record:
 State whether each join should be one-to-one, many-to-one, or one-to-many. Compare row counts and key uniqueness before and after joining. Unexpected row multiplication can invalidate every result.
 :::
 
-### Population and sampling
+### Population and sampling {.project2-new style="background-color: #f3f9f0; border-left: 3px solid #c6ddbc; padding: 0.7rem 1.1rem; margin-top: 1.5rem; margin-bottom: 1.5rem;"}
 
 Define the population you want to understand and the sampling frame you could
 use to reach it. Explain how participants, organizations, or records would be
@@ -94,19 +127,135 @@ For an experiment, distinguish selection into the study from assignment to a
 treatment or comparison group. Random sampling and random assignment address
 different questions.
 
-### Concepts and measures
+## 5. Concepts and measures {.project2-new style="background-color: #f3f9f0; border-left: 3px solid #c6ddbc; padding: 0.7rem 1.1rem; margin-top: 1.5rem; margin-bottom: 1.5rem;"}
 
-Give each important concept a conceptual definition and an operational
-definition. For example, explain what "customer loyalty" means in the study
-and whether you would measure it through repeat purchases, retention, or a
-survey question. Identify the measurement scale and the response options
-or units.
+For Project 2, this is a central part of the proposed study. Explain what you
+need to learn, what each concept means, and how you would obtain evidence of
+it. Naming a variable or saying "we would conduct a survey" leaves the most
+important measurement decisions unresolved.
 
-Consider whether a measure captures the intended concept, whether it would
-be consistent across participants, and whether wording or collection methods
-could influence the response.
+### Define the concepts
 
-## 5. Data preparation
+A **conceptual definition** explains what a concept means in your study,
+before choosing a question, response scale, or data field. Identify its scope
+and any distinct parts. For example, satisfaction with campus dining could
+include food quality, price, service, and convenience. Decide whether you mean
+overall satisfaction or one of those parts.
+
+Define the main outcome and the concepts you expect to explain or compare it
+with. If your question concerns loyalty, distinguish loyalty from satisfaction,
+frequency of visits, and intention to return. They may be related, but they
+are not interchangeable.
+
+### Translate concepts into observable measures
+
+An **operational definition** states exactly how a concept would be observed,
+recorded, or calculated. Specify the question or observation, response options
+or units, time period, and rule for interpreting the recorded value.
+
+| Planning decision | What to explain |
+|---|---|
+| Conceptual definition | What does this concept mean for the research question? Which parts are included or excluded? |
+| Operational definition | What question, task, recorded behavior, or existing field would provide evidence of it? |
+| Source and observational unit | Who would provide the information, or where would the records come from? What would one response or observation represent? |
+| Scale and recording | Is the measure nominal, ordinal, interval, or ratio? What choices, units, codes, or scoring rules would be used? |
+| Reference period | Would you ask about the most recent visit, the past month, or another defined period? |
+| Measurement quality | Why should this measure capture the concept? What could make it inaccurate or inconsistent? |
+
+A short working table can help your team make these decisions before writing
+the proposal. It is a planning tool, not another required submission.
+
+### Example: satisfaction with campus dining
+
+**Conceptual definition:** A student's evaluation of their most recent campus
+dining experience. This differs from how often they visit or how much they
+spend.
+
+**Operational definition:** Ask students who used campus dining in the past
+seven days, "Overall, how satisfied were you with your most recent campus
+dining visit?" Offer Very dissatisfied, Dissatisfied, Neither satisfied nor
+dissatisfied, Satisfied, and Very satisfied. Include a separate option for
+someone who cannot evaluate the visit. The satisfaction responses form an
+ordinal scale; the separate option is not a midpoint or a score of zero.
+
+**Source:** The student's response about one visit. Purchase records could
+provide visit dates and spending, but those records alone would not measure
+satisfaction.
+
+**Measurement checks:** A single overall question may miss differences in
+food quality, price, or service. Separate questions could measure those parts.
+Students may also remember a particularly good or bad visit differently, so
+the reference period and wording matter.
+
+### Assess validity and reliability
+
+**Validity:** Does the measure capture the concept you defined? Explain why
+you chose it and what it could miss. A purchase is evidence of behavior, but
+it may reflect price, location, or lack of alternatives rather than loyalty.
+Consider whether several questions or another source would give a fuller
+picture.
+
+**Reliability:** Would the same measurement procedure give consistent results
+under similar conditions? Explain how you would keep wording, instructions,
+recording rules, equipment, and observer training consistent. For an
+observational study, describe how two observers would apply the same coding
+rules. A consistent measure can still measure the wrong thing.
+
+Describe how you would check the measures before using them, such as a small
+pilot, asking someone to explain how they understood a question, or comparing
+how two observers code the same event. For Project 2, propose these checks;
+you do not need to conduct them.
+
+## 6. Design the data collection instrument and procedure {.project2-new style="background-color: #f3f9f0; border-left: 3px solid #c6ddbc; padding: 0.7rem 1.1rem; margin-top: 1.5rem; margin-bottom: 1.5rem;"}
+
+Choose how you would obtain the information needed for the measures above.
+The instrument might be a questionnaire, interview guide, observation form,
+experimental task, or a specification for extracting and labeling existing
+records. Explain why the approach fits the question and population.
+
+### Where would the data come from?
+
+Distinguish information you would collect for this study from existing data
+you would obtain from another source. Identify who holds the records or who
+would provide responses, how you would gain access, the setting and time
+period, and any permission or cost involved. Explain whether the available
+fields actually measure your concepts or only provide proxies.
+
+For new data, describe who would collect it, how participants or events would
+be selected, and how the information would be recorded. Connect those choices
+to the population and sampling plan in Section 4.
+
+### Match the instrument to the proposed method
+
+These are alternatives to consider, not methods that every proposal must use.
+
+| Proposed approach | Instrument and design details to explain |
+|---|---|
+| Surveys: online, paper, telephone, or face-to-face | Give example questions and response options for the main concepts. Explain question order, skip rules, length, and how responses would be recorded. Consider whether the mode affects access, privacy, interviewer influence, or willingness to answer. |
+| Interviews and focus groups | Describe the interview or discussion guide, open-ended prompts, follow-up questions, and the moderator's role. Explain recruitment, recording or note-taking, and how you would identify themes. Consider who might dominate the discussion and whose views could be missed. |
+| Observational studies | Describe the setting, events or behavior you would observe, the observation schedule, and the recording form or coding guide. Define what counts as an event and how observers would apply the same rules. |
+| Experimental research | Identify the treatment and comparison conditions, assignment procedure, task or materials, and outcome measures. Explain what would be held constant and when the outcome would be measured. Distinguish random assignment from random sampling. |
+| Machine learning applications | Identify the proposed task, source of examples, inputs, and target or labels. Explain who creates the labels and what they mean. Describe how you would assess performance on new cases using data kept separate from model development, and consider whether the examples represent the intended users or setting. Machine learning still requires a defensible source and measurement plan. |
+
+### Show how the instrument would work
+
+Include enough detail that a reader can see how your main concepts become
+recorded information. For a survey, give the actual proposed wording and
+choices for a few key questions. For another method, give an example prompt,
+observation rule, task, or labeling rule. A full questionnaire or separate
+instrument is not an additional required submission.
+
+Explain how you would avoid leading or double-barreled questions, ambiguous
+terms, overlapping categories, missing response options, and unclear scale
+anchors. Consider literacy, accessibility, language, recall, and the burden
+on participants. State how you would handle an unanswered question without
+treating it as a substantive response.
+
+For Project 2, describe the instrument and procedure you propose. Do not
+administer the survey, conduct interviews or focus groups, observe participants,
+run an experiment, or train a model for the assignment.
+
+## 7. Data preparation
 
 Plan the transformations before doing them:
 
@@ -120,7 +269,7 @@ Plan the transformations before doing them:
 
 Every derived field should have a plain-language definition and reproducible code.
 
-## 6. Descriptive analysis
+## 8. Descriptive analysis
 
 Specify the tables and graphs needed to understand:
 
@@ -132,7 +281,7 @@ Specify the tables and graphs needed to understand:
 
 For each planned visual, write the question it answers. "Make a bar chart" is not an analytical objective.
 
-## 7. Hypotheses and methods
+## 9. Hypotheses and methods
 
 For each hypothesis, identify:
 
@@ -145,7 +294,7 @@ For each hypothesis, identify:
 
 Choose methods based on the variables, design, and question - not on which function is easiest to run.
 
-## 8. Risks and limitations
+## 10. Risks, limitations, and ethical considerations {.project2-new style="background-color: #f3f9f0; border-left: 3px solid #c6ddbc; padding: 0.7rem 1.1rem; margin-top: 1.5rem; margin-bottom: 1.5rem;"}
 
 Consider:
 
@@ -159,7 +308,34 @@ Consider:
 
 Write what each limitation changes about the interpretation, not merely that limitations exist.
 
-## 9. Communication plan
+### Ethical considerations
+
+Explain the ethical issues raised by your specific design and what you would
+do about them. Consider:
+
+- **Consent and voluntary participation:** How would people understand the
+  study and choose whether to participate? Could a supervisor, instructor,
+  incentive, or group setting make them feel pressured?
+- **Privacy and confidentiality:** What identifying or sensitive information
+  is necessary? Who would have access, how would it be protected, and when
+  would it be removed? In a focus group, the researcher cannot guarantee
+  that other participants will keep the discussion private.
+- **Potential harm and fairness:** Could the questions, observation, treatment,
+  or intended use of the results create discomfort, exclusion, stigma, or
+  unequal treatment? Consider whose experiences are missing from the sample
+  or from the data used to develop a model.
+- **Permission and appropriate use:** Would you need permission to access
+  records, observe a setting, record a conversation, or reuse data? Publicly
+  accessible information still requires thought about privacy and intended use.
+- **Reporting:** How would you avoid identifying people in small groups,
+  overstating conclusions, or using a prediction or association to justify
+  a decision the design does not support?
+
+Describe the safeguards you would propose and any concerns that would remain.
+For Project 2, this is an assessment of the proposed design; you are not being
+asked to recruit participants or obtain approval to conduct the study.
+
+## 11. Communication plan
 
 Decide in advance:
 
@@ -171,7 +347,7 @@ Decide in advance:
 
 A business presentation and technical documentation may use the same analysis, but they serve different readers.
 
-## 10. Reproducibility and reflection
+## 12. Reproducibility and reflection
 
 The final work should make it possible to trace a claim back to data and code.
 
@@ -198,7 +374,17 @@ Objectives:
 2.
 3.
 
-Data sources and grain:
+Data sources, access, and grain:
+
+Concepts and conceptual definitions:
+
+Operational definitions, scales, and recording rules:
+
+Validity, reliability, and proposed measurement checks:
+
+Data collection method and instrument:
+
+Example questions, observation rules, tasks, or labels:
 
 Outcome and explanatory variables:
 
