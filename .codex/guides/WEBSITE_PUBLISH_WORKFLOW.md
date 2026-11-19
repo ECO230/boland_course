@@ -38,6 +38,10 @@ that run directory. It verifies that destination HTML files already exist,
 checks all published navbar pages, and saves `plan.json`. It does not publish.
 A zero-change plan means the selected menus already match the source.
 
+The deployment worktree uses `--no-checkout` and initializes its Git index
+from HEAD. Navigation reads and writes Git objects, so a full copy of the
+published site is unnecessary and would consume substantial scratch space.
+
 For an explicitly requested menu removal, pass
 `-RemoveLinks @('Slides=Exact previous label')` in plan mode alongside
 `-Links`. The removed label must already be absent from `_quarto.yml`.

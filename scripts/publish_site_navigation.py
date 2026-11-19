@@ -148,7 +148,7 @@ def main():
   for menu,label in removals:
    entries=[m for m in config['website']['navbar']['left'] if m.get('text')==menu];require(len(entries)==1 and all(e.get('text')!=label for e in entries[0].get('menu',[])),'Removed label must be absent from the source menu')
   git(ROOT,'fetch','origin','gh-pages');base=git(ROOT,'rev-parse','origin/gh-pages').decode().strip();tree=run/'checkout';branch='codex/site-nav-'+datetime.now().strftime('%Y%m%d-%H%M%S')+'-'+hashlib.sha256(str(run).encode()).hexdigest()[:6]
-  git(ROOT,'worktree','add','-b',branch,str(tree),'origin/gh-pages');paths=git(tree,'ls-files','*.html').decode().splitlines()
+  git(ROOT,'worktree','add','--no-checkout','-b',branch,str(tree),'origin/gh-pages');git(tree,'read-tree','HEAD');paths=git(tree,'ls-files','*.html').decode().splitlines()
   for item in selected:require(item['target'] in paths,'Target HTML is not published; render and deploy it first: '+item['target'])
   changes=[];checked=[];menu_counts={}
   # Read Git objects rather than filesystem copies: Windows case-colliding
