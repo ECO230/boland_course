@@ -1,5 +1,5 @@
 # MUST be at the very top of app.R, before any library(...)
-if (requireNamespace("renv", quietly = TRUE)) {
+if (dir.exists("/data/junior/boland_course") && requireNamespace("renv", quietly = TRUE)) {
   renv::load("/data/junior/boland_course")
 }
 
@@ -8,6 +8,13 @@ library(dplyr)
 library(readr)
 library(ggplot2)
 library(DBI)
+
+source("comparison.R", local = TRUE)
+source("repeated_comparison.R", local = TRUE)
+
+# Production must not silently substitute simulated responses for the survey.
+default_data_mode <- if (dir.exists("/data/junior/boland_course")) "Live survey DB" else "Demo data"
+private_response_fields <- c("response_id", "response_order", "submitdate", "hometown_text", "hobby_text", "image_click_coords")
 
 `%||%` <- function(a, b) if (!is.null(a) && length(a) > 0 && !all(is.na(a))) a else b
 
@@ -30,7 +37,7 @@ var_labels <- c(
   response_order = "Response order",
   age_band = "Age band",
   class_stand = "Class standing",
-  major = "Major",
+  major = "Major(s)",
   attend = "In-person attendance",
   commute_min = "Commute time (minutes)",
   work_hrs = "Work hours per week",
@@ -95,6 +102,7 @@ interpret_sample <- function(pool_df, sample_df, outcome_var, outcome_level, com
   samp_est <- estimate_value(sample_df, outcome_var, outcome_level)
   gap <- samp_est - pool_est
   outcome_data <- pool_df[[outcome_var]]
+  if (!is.finite(gap)) return("There are no usable outcome answers in the pool or this sample. Compare the answered counts before interpreting an estimate.")
 
   estimate_line <- if (is.numeric(outcome_data)) {
     if (abs(gap) < 0.15) {
@@ -271,6 +279,8 @@ make_clean_data <- function(df) {
 
   for (nm in names(df)) {
     if (is.character(df[[nm]])) {
+      df[[nm]][!nzchar(trimws(df[[nm]]))] <- NA_character_
+      if (nm %in% c(teaching_compare_vars, "transport", "acad_area", "uses_ai")) next
       suppressWarnings({
         numeric_version <- as.numeric(df[[nm]])
       })
@@ -289,18 +299,21 @@ load_limesurvey_responses <- function() {
     stop("RMariaDB is not available in this Shiny runtime.")
   }
 
+  required <- c("SURVEY_DB_HOST", "SURVEY_DB_NAME", "SURVEY_DB_USER", "SURVEY_DB_PASSWORD")
+  if (any(!nzchar(Sys.getenv(required)))) stop("The live survey connection is not configured on this server.")
+
   con <- DBI::dbConnect(
     RMariaDB::MariaDB(),
     host = Sys.getenv("SURVEY_DB_HOST"),
     user = Sys.getenv("SURVEY_DB_USER"),
     password = Sys.getenv("SURVEY_DB_PASSWORD"),
     dbname = Sys.getenv("SURVEY_DB_NAME"),
-    port = as.integer(Sys.getenv("SURVEY_DB_PORT"))
+    port = as.integer(Sys.getenv("SURVEY_DB_PORT", "3306"))
   )
 
   on.exit(DBI::dbDisconnect(con), add = TRUE)
 
-  DBI::dbGetQuery(con, "SELECT * FROM survey_931648 ORDER BY id DESC")
+  DBI::dbGetQuery(con, "SELECT * FROM survey_931648 WHERE submitdate IS NOT NULL ORDER BY id ASC")
 }
 
 clean_limesurvey_responses <- function(df) {
@@ -350,11 +363,16 @@ clean_limesurvey_responses <- function(df) {
     "931648X26X216SQ008" = "Marketing"
   )
 
-  major_values <- df[, names(major_labels), drop = FALSE]
-  major_idx <- max.col(major_values == "Y", ties.method = "first")
-  has_major <- rowSums(major_values == "Y", na.rm = TRUE) > 0
+  available_major <- intersect(names(major_labels), names(df))
   major <- rep(NA_character_, nrow(df))
-  major[has_major] <- unname(major_labels[major_idx[has_major]])
+  if (length(available_major)) {
+    selected <- as.matrix(df[, available_major, drop = FALSE]) == "Y"
+    selected[is.na(selected)] <- FALSE
+    major <- apply(selected, 1, function(row) {
+      labels <- unname(major_labels[available_major[row]])
+      if (length(labels)) paste(labels, collapse = " + ") else NA_character_
+    })
+  }
 
   out <- tibble::tibble(
     response_id = df$id,
@@ -393,8 +411,10 @@ categorical_vars <- function(df) {
 
 estimate_value <- function(df, var, level = NULL) {
   x <- df[[var]]
+  if (!length(x) || all(is.na(x))) return(NA_real_)
   if (is.numeric(x)) {
-    mean(x, na.rm = TRUE)
+    if (!any(is.finite(x))) return(NA_real_)
+    mean(x[is.finite(x)])
   } else {
     if (is.null(level) || !nzchar(level)) return(NA_real_)
     mean(x == level, na.rm = TRUE)
@@ -423,43 +443,21 @@ sample_systematic <- function(df, n, order_var) {
   ord <- order(df[[order_var]], na.last = TRUE)
   df2 <- df[ord, , drop = FALSE]
   N <- nrow(df2)
-  k <- max(1, floor(N / n))
-  start <- sample.int(k, 1)
-  idx <- seq(from = start, to = N, by = k)
-  idx <- idx[seq_len(min(length(idx), n))]
-  if (length(idx) < n) {
-    leftovers <- setdiff(seq_len(N), idx)
-    idx <- c(idx, sample(leftovers, n - length(idx), replace = FALSE))
-  }
+  # Fractional intervals preserve equal inclusion chances when N/n is not
+  # an integer; truncating every floor(N/n)-th row excludes the tail.
+  k <- N / n
+  start <- runif(1, min = 0, max = k)
+  idx <- floor(start + (seq_len(n) - 1) * k) + 1L
   df2[sort(idx), , drop = FALSE]
 }
 
 sample_stratified <- function(df, n, strata_var) {
-  g <- df[[strata_var]]
-  strata <- split(seq_len(nrow(df)), g)
-  strata <- strata[lengths(strata) > 0]
-  props <- lengths(strata) / nrow(df)
-  target <- floor(props * n)
-  remainder <- n - sum(target)
-  if (remainder > 0) {
-    order_idx <- order(props * n - target, decreasing = TRUE)
-    target[order_idx[seq_len(remainder)]] <- target[order_idx[seq_len(remainder)]] + 1
-  }
-  sampled <- integer(0)
-  for (i in seq_along(strata)) {
-    ids <- strata[[i]]
-    take <- min(length(ids), target[i])
-    if (take > 0) sampled <- c(sampled, sample(ids, take, replace = FALSE))
-  }
-  if (length(sampled) < n) {
-    leftovers <- setdiff(seq_len(nrow(df)), sampled)
-    sampled <- c(sampled, sample(leftovers, n - length(sampled), replace = FALSE))
-  }
-  df[sampled, , drop = FALSE]
+  sample_by_group(df, n, strata_var, random = TRUE)
 }
 
 draw_sample <- function(df, method, n, order_var = "response_order", strata_var = NULL) {
-  n <- min(n, nrow(df))
+  n <- max(0L, min(as.integer(n), nrow(df)))
+  if (n == 0L) return(df[integer(0), , drop = FALSE])
   switch(
     method,
     "Simple random sample" = sample_srs(df, n),
@@ -473,20 +471,22 @@ draw_sample <- function(df, method, n, order_var = "response_order", strata_var 
 ui <- fluidPage(
   tags$style("
     h2 { margin-top: 0.25rem; }
-    .small { opacity: 0.78; font-size: 0.96rem; }
-    .box { background:#f7f7f7; border-radius:12px; padding:12px; margin-bottom:12px; }
-    details.param { background:#f7f7f7; border-radius:12px; margin-bottom:12px; }
+    .small { opacity: 0.85; font-size: 14px; }
+    body { font-size: 16px; }
+    .table { font-size: 15px; }
+    .box { background:#f7f7f7; border-radius:4px; padding:12px; margin-bottom:12px; }
+    details.param { background:#f7f7f7; border-radius:4px; margin-bottom:12px; }
     details.param > summary { cursor:pointer; font-weight:700; padding:12px; list-style:none; }
     details.param > summary::-webkit-details-marker { display:none; }
     details.param .content { padding:12px; padding-top:0; }
-    .metric { background:white; border:1px solid #e7e7e7; border-radius:12px; padding:12px; margin-bottom:12px; }
-    .metricTitle { font-weight:800; font-size:0.95rem; color:#555; }
+    .metric { background:white; border:1px solid #e7e7e7; border-radius:4px; padding:12px; margin-bottom:12px; }
+    .metricTitle { font-weight:800; font-size:14px; color:#555; }
     .metricValue { font-weight:900; font-size:1.8rem; line-height:1.1; }
-    .callout { border-left:6px solid #1b6ca8; background:rgba(27,108,168,.06); border-radius:12px; padding:12px; margin-bottom:12px; }
+    .callout { border-left:6px solid #1b6ca8; background:rgba(27,108,168,.06); border-radius:4px; padding:12px; margin-bottom:12px; }
   "),
 
-  h2("Sampling and Survey Error Lab"),
-  div(class = "small", "Compare sampling methods against a known response pool. This app teaches random vs representative using either demo data or a survey export."),
+  h2("Sampling Lab"),
+  div(class = "small", "Compare a random sample and a nonrandom sample with the full response pool. Check both the outcome and who is included."),
   hr(),
 
   fluidRow(
@@ -498,10 +498,11 @@ ui <- fluidPage(
           tags$summary("Controls"),
           div(
             class = "content",
-          radioButtons("data_mode", "Data source", choices = c("Demo data", "Live survey DB", "Upload CSV"), selected = "Demo data"),
+          radioButtons("data_mode", "Data source", choices = c("Demo data", "Live survey DB", "Upload CSV"), selected = default_data_mode),
           conditionalPanel(
             "input.data_mode == 'Live survey DB'",
-            uiOutput("live_db_status")
+            uiOutput("live_db_status"),
+            actionButton("refresh_live", "Refresh survey responses")
           ),
           conditionalPanel(
             "input.data_mode == 'Upload CSV'",
@@ -511,30 +512,56 @@ ui <- fluidPage(
           selectInput("outcome_var", "Outcome variable", choices = NULL),
           uiOutput("outcome_level_ui"),
           sliderInput("sample_n", "Sample size", min = 5, max = 60, value = 20, step = 1),
-          selectInput(
-            "method",
-            "Sampling method",
-            choices = c("Simple random sample", "Convenience sample", "Systematic sample", "Stratified sample")
-          ),
-          uiOutput("order_var_ui"),
-          uiOutput("strata_var_ui"),
-          selectInput("compare_var", "Compare representativeness by", choices = NULL),
-          actionButton("draw_sample", "Draw sample"),
-          hr(),
-          sliderInput("n_reps", "Repeat samples", min = 50, max = 500, value = 200, step = 50),
-          actionButton("simulate", "Simulate many samples")
+          selectInput("compare_var", "Compare group proportions", choices = NULL),
+          selectInput("nonrandom_method", "Nonrandom selection", choices = c("Convenience sample", "Quota sample")),
+          uiOutput("nonrandom_controls"),
+          actionButton("redraw_random", "Draw another random sample", class = "btn-primary"),
+          p(class = "small", "Both samples use the same size. Changing a selection rule or sample size starts a new comparison."),
+          tags$details(
+            tags$summary("Other sampling methods and repeated draws"),
+            selectInput(
+              "method",
+              "Sampling method",
+              choices = c("Simple random sample", "Convenience sample", "Systematic sample", "Stratified sample")
+            ),
+            uiOutput("order_var_ui"),
+            uiOutput("strata_var_ui"),
+            actionButton("draw_sample", "Draw sample"),
+            hr(),
+            sliderInput("n_reps", "Repeat samples", min = 50, max = 500, value = 200, step = 50),
+            actionButton("simulate", "Simulate many samples")
+          )
         )
       ),
       div(
         class = "callout",
-        strong("Teaching note"),
-        p("The response pool is not the true population. It is the class data we can observe today. That makes it good for comparing methods, but not for claiming perfect truth."),
-        uiOutput("method_note")
+        strong("What are we comparing?"),
+        p("The full response pool is everyone whose response is included here. Matching this pool does not establish that a sample represents the whole class or university. The survey may already exclude some people."),
+        uiOutput("comparison_rule")
       )
     ),
     column(
       9,
       tabsetPanel(
+        id = "lab_tabs",
+        tabPanel(
+          "Compare samples",
+          br(),
+          uiOutput("comparison_source"),
+          h4("Same outcome, three groups"),
+          textOutput("comparison_outcome_label"),
+          tableOutput("comparison_estimates"),
+          h4("Who is included?"),
+          plotOutput("paired_composition_plot", height = 380),
+          textOutput("paired_summary"),
+          tags$details(
+            tags$summary("Counts, percentages, and differences"),
+            tableOutput("paired_composition_table")
+          ),
+          p("Does a sample that is close on the outcome also have similar group proportions? Try another comparison variable."),
+          p(class = "small", "These comparisons describe the displayed variables. They do not give an overall pass/fail rating for representativeness.")
+        ),
+        many_samples_ui(),
         tabPanel(
           "Response pool",
           br(),
@@ -591,7 +618,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  rv <- reactiveValues(current_sample = NULL, sim_results = NULL, live_db_error = NULL)
+  rv <- reactiveValues(current_sample = NULL, sim_results = NULL, live_db_error = NULL, paired_random = NULL, paired_nonrandom = NULL, pair_rule = NULL, random_run = NULL, run_selected = 1L, live_loaded_at = NULL)
 
   uploaded_data <- reactive({
     req(input$csv_file)
@@ -601,9 +628,13 @@ server <- function(input, output, session) {
   })
 
   live_data <- reactive({
+    req(identical(input$data_mode, "Live survey DB"))
+    input$refresh_live
     tryCatch({
       rv$live_db_error <- NULL
-      clean_limesurvey_responses(load_limesurvey_responses())
+      df <- clean_limesurvey_responses(load_limesurvey_responses())
+      rv$live_loaded_at <- Sys.time()
+      df
     }, error = function(e) {
       rv$live_db_error <- conditionMessage(e)
       NULL
@@ -615,7 +646,7 @@ server <- function(input, output, session) {
       make_clean_data(uploaded_data())
     } else if (identical(input$data_mode, "Live survey DB")) {
       df <- live_data()
-      validate(need(!is.null(df), paste("Live survey database load failed:", rv$live_db_error %||% "unknown error")))
+      validate(need(!is.null(df), "Live survey responses are unavailable. Check the server connection or use the explicitly labeled demo option."))
       make_clean_data(df)
     } else {
       make_clean_data(generate_demo_data())
@@ -626,17 +657,18 @@ server <- function(input, output, session) {
     if (identical(input$data_mode, "Live survey DB")) {
       df <- live_data()
       if (is.null(df)) {
-        div(class = "small", style = "color:#8b1e1e;", paste("DB load failed:", rv$live_db_error %||% "unknown error"))
+        div(class = "small", style = "color:#8b1e1e;", "Unable to load completed survey responses. Check the server connection.")
       } else {
-        div(class = "small", style = "color:#1b6c3f;", paste("Connected. Rows loaded:", nrow(df)))
+        div(class = "small", style = "color:#1b6c3f;", paste("Connected. Completed responses:", nrow(df)))
       }
     }
   })
 
   observe({
     df <- base_data()
-    num_vars <- setdiff(numeric_vars(df), "response_order")
-    cat_vars <- setdiff(categorical_vars(df), "response_order")
+    validate(need(nrow(df) > 0, "No completed responses are available yet. Choose demo data or upload a CSV."))
+    num_vars <- setdiff(numeric_vars(df), c("response_order", "response_id"))
+    cat_vars <- setdiff(categorical_vars(df), c("response_order", "response_id", "submitdate", "hometown_text", "hobby_text", "image_click_coords"))
     outcome_choices <- intersect(c(teaching_outcome_vars, num_vars, cat_vars), c(num_vars, cat_vars))
     compare_vars <- intersect(c(teaching_compare_vars, cat_vars), cat_vars)
     outcome_named <- stats::setNames(outcome_choices, pretty_var_name(outcome_choices))
@@ -647,9 +679,9 @@ server <- function(input, output, session) {
 
     updateSelectInput(session, "outcome_var", choices = outcome_named, selected = default_outcome)
     updateSelectInput(session, "compare_var", choices = compare_named, selected = default_compare)
-    max_n <- max(5, min(100, nrow(df)))
+    max_n <- max(1, nrow(df))
     current_n <- min(input$sample_n %||% 20, max_n)
-    updateSliderInput(session, "sample_n", max = max_n, value = current_n)
+    updateSliderInput(session, "sample_n", min = 1, max = max_n, value = max(1, current_n))
   })
 
   output$outcome_level_ui <- renderUI({
@@ -674,11 +706,146 @@ server <- function(input, output, session) {
   output$strata_var_ui <- renderUI({
     if (!identical(input$method, "Stratified sample")) return(NULL)
     df <- base_data()
-    cat_vars <- intersect(c(teaching_compare_vars, categorical_vars(df)), categorical_vars(df))
+    safe_vars <- setdiff(categorical_vars(df), private_response_fields)
+    cat_vars <- intersect(c(teaching_compare_vars, safe_vars), safe_vars)
     named_vars <- stats::setNames(cat_vars, pretty_var_name(cat_vars))
     default_strata <- if ("class_stand" %in% cat_vars) "class_stand" else cat_vars[1] %||% ""
     selectInput("strata_var", "Stratify by", choices = named_vars, selected = default_strata)
   })
+
+
+  output$nonrandom_controls <- renderUI({
+    df <- base_data()
+    if (identical(input$nonrandom_method, "Quota sample")) {
+      vars <- setdiff(categorical_vars(df), c("response_id", "response_order", "submitdate", "hobby_text", "hometown_text", "image_click_coords"))
+      req(length(vars))
+      selectInput("quota_var", "Match quotas for", choices = stats::setNames(vars, pretty_var_name(vars)),
+                  selected = if ("class_stand" %in% vars) "class_stand" else vars[1])
+    } else {
+      vars <- intersect(c("response_order", "commute_min", "work_hrs", "sleep_hrs", "bias_conf"), names(df))
+      if (!length(vars)) vars <- "response_order"
+      tagList(
+        selectInput("convenience_order", "Take the first rows after ordering by", choices = stats::setNames(vars, pretty_var_name(vars)), selected = vars[1]),
+        p(class = "small", "Smallest values first; response order means the earliest rows in the pool. The selection rule stays fixed when you redraw the random sample.")
+      )
+    }
+  })
+
+  # Draw both samples atomically from the same pool and size. Outcome and
+  # comparison-variable changes reuse the selected rows, rather than redrawing.
+  observeEvent(list(base_data(), input$sample_n, input$nonrandom_method,
+                    input$convenience_order, input$quota_var), {
+    df <- base_data()
+    req(nrow(df) > 0, input$sample_n, input$nonrandom_method)
+    n <- min(as.integer(input$sample_n), nrow(df))
+    if (identical(input$nonrandom_method, "Quota sample")) {
+      req(input$quota_var, input$quota_var %in% names(df))
+      nonrandom <- sample_by_group(df, n, input$quota_var, random = FALSE)
+      rule <- paste("Quota sample: match the pool's", pretty_var_name(input$quota_var),
+                    "proportions as closely as whole people allow, then take the first rows within each group. No random selection.")
+    } else {
+      req(input$convenience_order, input$convenience_order %in% names(df))
+      nonrandom <- sample_convenience(df, n, input$convenience_order)
+      rule <- paste("Convenience sample: take the first", n, "rows ordered by",
+                    pretty_var_name(input$convenience_order), "(smallest first). No random selection.")
+    }
+    rv$paired_nonrandom <- nonrandom
+    rv$paired_random <- sample_srs(df, n)
+    rv$pair_rule <- rule
+  }, ignoreNULL = FALSE)
+
+  observeEvent(input$redraw_random, {
+    req(rv$paired_nonrandom)
+    rv$paired_random <- sample_srs(base_data(), nrow(rv$paired_nonrandom))
+  })
+
+  pair_data <- reactive({
+    req(rv$paired_random, rv$paired_nonrandom)
+    list("Full response pool" = base_data(), "Random sample" = rv$paired_random,
+         "Nonrandom sample" = rv$paired_nonrandom)
+  })
+
+  pair_stats <- reactive({
+    req(input$outcome_var)
+    groups <- pair_data()
+    is_numeric <- is.numeric(base_data()[[input$outcome_var]])
+    if (!is_numeric) req(input$outcome_level)
+    estimates <- vapply(groups, estimate_value, numeric(1), var = input$outcome_var,
+                        level = input$outcome_level %||% NULL)
+    answered <- vapply(groups, function(df) {
+      x <- df[[input$outcome_var]]
+      sum(if (is.numeric(x)) is.finite(x) else !is.na(x) & nzchar(trimws(as.character(x))))
+    }, integer(1))
+    data.frame(source = names(groups), rows = vapply(groups, nrow, integer(1)),
+               answered = answered, estimate = estimates, numeric = is_numeric, row.names = NULL)
+  })
+
+  paired_composition <- reactive({
+    req(input$compare_var)
+    composition_comparison(base_data(), pair_data()[[2]], pair_data()[[3]], input$compare_var)
+  })
+
+  output$comparison_source <- renderUI({
+    label <- switch(input$data_mode, "Demo data" = "Demo data (simulated responses)",
+                    "Live survey DB" = "Completed class survey responses", "Uploaded CSV")
+    tagList(
+      p(strong(label), paste("| Full response pool:", nrow(base_data()), "rows")),
+      if (identical(input$data_mode, "Live survey DB") && !is.null(rv$live_loaded_at))
+        p(class = "small", paste("Last refreshed:", format(rv$live_loaded_at, "%I:%M %p %Z", tz = "America/Chicago"), ". Use Refresh survey responses after the class completes the survey."))
+    )
+  })
+  output$comparison_rule <- renderUI({
+    req(rv$pair_rule)
+    tagList(p("Random sample: every row in this pool has an equal chance of selection."), p(rv$pair_rule))
+  })
+  output$comparison_outcome_label <- renderText({
+    req(input$outcome_var)
+    if (is.numeric(base_data()[[input$outcome_var]])) {
+      paste("Mean:", pretty_var_name(input$outcome_var))
+    } else paste("Percent:", pretty_var_name(input$outcome_var), "=", input$outcome_level %||% "")
+  })
+  output$comparison_estimates <- renderTable({
+    stats <- pair_stats()
+    gap <- stats$estimate - stats$estimate[1]
+    data.frame(Group = stats$source, Rows = stats$rows, Answered = stats$answered,
+      Estimate = if (stats$numeric[1]) vapply(stats$estimate, fmt_num, character(1)) else vapply(stats$estimate, fmt_pct, character(1)),
+      `Difference from pool` = if (stats$numeric[1]) ifelse(is.finite(gap), sprintf("%+.2f", gap), "No answers") else ifelse(is.finite(gap), sprintf("%+.1f percentage points", 100 * gap), "No answers"), check.names = FALSE)
+  }, striped = TRUE, rownames = FALSE)
+
+  output$paired_composition_plot <- renderPlot({
+    comp <- paired_composition()
+    plot <- rbind(
+      data.frame(level = comp$level, source = "Full response pool", pct = comp$pool_pct),
+      data.frame(level = comp$level, source = "Random sample", pct = comp$random_pct),
+      data.frame(level = comp$level, source = "Nonrandom sample", pct = comp$nonrandom_pct))
+    plot$source <- factor(plot$source, levels = c("Full response pool", "Random sample", "Nonrandom sample"))
+    ggplot(plot, aes(x = pct, y = level, fill = source)) +
+      geom_col(position = position_dodge(width = .8), width = .7) +
+      scale_fill_manual(values = c("Full response pool" = "#555555", "Random sample" = "#286ca5", "Nonrandom sample" = "#b86622"), name = NULL) +
+      scale_x_continuous(limits = c(0,1), labels = function(x) paste0(round(x*100), "%")) +
+      labs(x = "Percent of all rows (including no response)", y = pretty_var_name(input$compare_var)) +
+      theme_minimal(base_size = 14) + theme(legend.position = "top")
+  })
+
+  output$paired_composition_table <- renderTable({
+    comp <- paired_composition()
+    cell <- function(n, pct) paste0(n, " (", vapply(pct, fmt_pct, character(1)), ")")
+    data.frame(Group = comp$level,
+      Pool = cell(comp$pool_n, comp$pool_pct), Random = cell(comp$random_n, comp$random_pct),
+      `Random difference (pp)` = sprintf("%+.1f", 100*(comp$random_pct-comp$pool_pct)),
+      Nonrandom = cell(comp$nonrandom_n, comp$nonrandom_pct),
+      `Nonrandom difference (pp)` = sprintf("%+.1f", 100*(comp$nonrandom_pct-comp$pool_pct)), check.names = FALSE)
+  }, striped = TRUE, rownames = FALSE)
+
+  output$paired_summary <- renderText({
+    comp <- paired_composition()
+    paste0("Largest group difference from the pool on ", pretty_var_name(input$compare_var),
+           ": random sample ", fmt_num(100*max(abs(comp$random_pct-comp$pool_pct)), 1),
+           " percentage points; nonrandom sample ", fmt_num(100*max(abs(comp$nonrandom_pct-comp$pool_pct)), 1),
+           " percentage points. Outcome estimates use answered rows; group percentages include missing responses.")
+  })
+
+  repeated_comparison <- bind_many_samples(input, output, session, base_data, rv)
 
   current_estimate <- reactive({
     req(rv$current_sample, input$outcome_var)
@@ -782,11 +949,15 @@ server <- function(input, output, session) {
   })
 
   output$data_preview <- renderTable({
+    if (identical(input$data_mode, "Live survey DB"))
+      return(data.frame(Note = "Live survey responses are displayed as summaries. Individual records and free-text answers are not shown."))
     head(base_data(), 8)
   }, striped = TRUE)
 
   output$sample_preview <- renderTable({
     req(rv$current_sample)
+    if (identical(input$data_mode, "Live survey DB"))
+      return(data.frame(Note = "Live survey responses are displayed as summaries. Individual records and free-text answers are not shown."))
     head(rv$current_sample, 10)
   }, striped = TRUE)
 
@@ -913,7 +1084,7 @@ server <- function(input, output, session) {
       input$method,
       "Simple random sample" = "Every row in the response pool has the same chance of selection. This is the cleanest benchmark method in the app.",
       "Convenience sample" = "Rows are taken from the top of an ordering variable. This is useful for showing how easy it is to get a quick sample that is not representative.",
-      "Systematic sample" = "The app orders the rows, picks a random start, and then takes every k-th row. This works well until the ordering itself hides a pattern.",
+      "Systematic sample" = "The app orders the rows, picks a random start, and takes evenly spaced rows. The interval is pool size divided by sample size; patterns in the ordering can affect the result.",
       "Stratified sample" = "The app samples within groups to preserve subgroup balance. This is a good way to talk about representation as a design choice rather than a lucky accident."
     )
     tags$p(txt)
