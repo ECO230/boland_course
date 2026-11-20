@@ -134,3 +134,9 @@ the completed-response count and last-refresh time in America/Chicago.
 Individual live response records and free-text answers are not displayed in the
 pool/sample preview tables or exposed as grouping/stratification choices.
 Connection errors are generic in the public UI.
+
+For a newly selected data source, the initial sample size is at most half the
+pool (capped at 20), so a small class pool does not initially produce three
+identical full-pool comparisons. Refreshing the same source preserves the
+chosen outcome, demographic, and sample size where valid. Changing sample size
+does not reset the outcome or demographic controls.

@@ -618,7 +618,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  rv <- reactiveValues(current_sample = NULL, sim_results = NULL, live_db_error = NULL, paired_random = NULL, paired_nonrandom = NULL, pair_rule = NULL, random_run = NULL, run_selected = 1L, live_loaded_at = NULL)
+  rv <- reactiveValues(current_sample = NULL, sim_results = NULL, live_db_error = NULL, paired_random = NULL, paired_nonrandom = NULL, pair_rule = NULL, random_run = NULL, run_selected = 1L, live_loaded_at = NULL, controls_mode = NULL)
 
   uploaded_data <- reactive({
     req(input$csv_file)
@@ -664,7 +664,7 @@ server <- function(input, output, session) {
     }
   })
 
-  observe({
+  observeEvent(base_data(), {
     df <- base_data()
     validate(need(nrow(df) > 0, "No completed responses are available yet. Choose demo data or upload a CSV."))
     num_vars <- setdiff(numeric_vars(df), c("response_order", "response_id"))
@@ -677,10 +677,18 @@ server <- function(input, output, session) {
     default_outcome <- if ("sleep_hrs" %in% outcome_choices) "sleep_hrs" else outcome_choices[1] %||% ""
     default_compare <- if ("class_stand" %in% compare_vars) "class_stand" else compare_vars[1] %||% ""
 
+    current_outcome <- isolate(input$outcome_var)
+    current_compare <- isolate(input$compare_var)
+    if (length(current_outcome) && current_outcome %in% outcome_choices) default_outcome <- current_outcome
+    if (length(current_compare) && current_compare %in% compare_vars) default_compare <- current_compare
     updateSelectInput(session, "outcome_var", choices = outcome_named, selected = default_outcome)
     updateSelectInput(session, "compare_var", choices = compare_named, selected = default_compare)
     max_n <- max(1, nrow(df))
-    current_n <- min(input$sample_n %||% 20, max_n)
+    current_n <- min(isolate(input$sample_n) %||% 20, max_n)
+    if (is.null(rv$controls_mode) || !identical(rv$controls_mode, input$data_mode)) {
+      current_n <- min(20L, max(1L, floor(nrow(df) / 2)))
+    }
+    rv$controls_mode <- input$data_mode
     updateSliderInput(session, "sample_n", min = 1, max = max_n, value = max(1, current_n))
   })
 
