@@ -471,6 +471,35 @@
   border-radius: 0;
   pointer-events: none;
 }
+
+/* Reuse the example's own title and give these compositions the full slide. */
+.reveal .w12-question-example .q-example {
+  width: 1000px;
+  height: 630px;
+}
+
+.reveal .w12-question-example .food {
+  max-width: 280px;
+}
+
+.reveal .w12-question-example .pillow {
+  left: 320px;
+  right: auto;
+  max-width: 260px;
+}
+
+.reveal img.w12-survey-faces {
+  width: 1000px;
+  height: auto;
+}
+
+.reveal img.w12-heatmap-image {
+  display: block;
+  height: 570px;
+  width: auto;
+  max-height: none;
+  margin: 0 auto;
+}
 /* Week 12.2 sampling photos: one visible label; retain the full image. */
 .reveal .w12-method-slide { height: 650px; }
 .reveal .w12-photo-label { position: absolute; top: 30px; left: 24px; max-width: 660px; padding: 18px 24px; background: rgba(0,0,0,.72); color: white; }
