@@ -2980,5 +2980,299 @@
     "title": "Project 2: Research Proposal",
     "section": "Grading",
     "text": "Grading\nThe in-class work is worth 30 points. The written proposal is worth 70 points, scored across four criteria within the same document.\n\n\n\n\nCriterion within the Written Research Proposal\n\n\nWhat is evaluated\n\n\nPoints\n\n\n\n\n\n\nProblem or opportunity\n\n\nThe situation, its importance, the decision maker, and the decision the proposed study would inform.\n\n\n15\n\n\n\n\nResearch question and direction\n\n\nA focused question, its scope, and its connection to the decision and proposed study.\n\n\n15\n\n\n\n\nStudy design and measures\n\n\nThe proposed method, population, sample selection, concepts, measures, and collection process.\n\n\n20\n\n\n\n\nSampling, measurement, conclusions, risks, and ethics\n\n\nRepresentation, bias, conclusions the design could support, specific risks, ethical concerns, and remaining limitations.\n\n\n20\n\n\n\n\nWritten proposal total\n\n\n\n\n70\n\n\n\n\nExplain your design choices and their limitations clearly. A proposal that recognizes a problem and explains how to address it is more useful than one that overlooks it. Your grade reflects the proposed design and your reasoning, not results from research you have carried out."
+  },
+  {
+    "objectID": "week12/week_12.html#class-survey",
+    "href": "week12/week_12.html#class-survey",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Class Survey",
+    "text": "Class Survey\n\nTake the class survey.\nWe will use the responses to compare sampling methods. As you answer, notice how the questions and response options are written."
+  },
+  {
+    "objectID": "week12/week_12.html#total-population",
+    "href": "week12/week_12.html#total-population",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Total Population",
+    "text": "Total Population\n\n                                                                                                   \n\nCensus"
+  },
+  {
+    "objectID": "week12/week_12.html#sampling-frame",
+    "href": "week12/week_12.html#sampling-frame",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Sampling Frame",
+    "text": "Sampling Frame\n\n                                                                                                   \n\nTotal Population &gt; Sampling Frame = Sampling Frame Error"
+  },
+  {
+    "objectID": "week12/week_12.html#planned-sample",
+    "href": "week12/week_12.html#planned-sample",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Planned Sample",
+    "text": "Planned Sample\n\n                                                                                                   \n\nSampling Frame &gt; Planned Sample = Random Sampling Error"
+  },
+  {
+    "objectID": "week12/week_12.html#sample",
+    "href": "week12/week_12.html#sample",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Sample",
+    "text": "Sample\n\n                                                                                                   \n\nPlanned Sample &gt; Respondents = Nonresponse Error"
+  },
+  {
+    "objectID": "week12/week_12.html#from-population-to-survey-results",
+    "href": "week12/week_12.html#from-population-to-survey-results",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "From Population to Survey Results",
+    "text": "From Population to Survey Results\n\n\n\n\nStage\nQuestion\n\n\n\n\nTarget population\nWho do we want to understand?\n\n\nSampling frame\nWho could be selected?\n\n\nPlanned sample\nWho did we try to select?\n\n\nRespondents\nWho actually answered?\n\n\nFinal estimate\nWhat did we conclude?\n\n\n\n\nAsk where people could be left out between the population and the responses we receive."
+  },
+  {
+    "objectID": "week12/week_12.html#random-and-representative",
+    "href": "week12/week_12.html#random-and-representative",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Random and Representative",
+    "text": "Random and Representative\n\n\n\n\n\n\n\nRepresentative\n\n\nNot representative\n\n\n\n\n\n\nRandom\n\n\nThe goal\n\n\nCan happen, even with random selection\n\n\n\n\nNot random\n\n\nPossible, but selection still matters\n\n\nA concern with convenience samples"
+  },
+  {
+    "objectID": "week12/week_12.html#how-will-we-choose-the-sample",
+    "href": "week12/week_12.html#how-will-we-choose-the-sample",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "How will we choose the sample?",
+    "text": "How will we choose the sample?\n\nWho can be selected, and how will we select them?\nThe selection rule determines the sampling method."
+  },
+  {
+    "objectID": "week12/week_12.html#probability-sampling",
+    "href": "week12/week_12.html#probability-sampling",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Probability Sampling",
+    "text": "Probability Sampling\n\n\nProbability Sampling\n\n\nEach unit has a known, nonzero chance of selection."
+  },
+  {
+    "objectID": "week12/week_12.html#nonprobability-sampling",
+    "href": "week12/week_12.html#nonprobability-sampling",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Nonprobability Sampling",
+    "text": "Nonprobability Sampling\n\n\nNonprobability Sampling\n\n\nSelection depends on access, judgment, or volunteers."
+  },
+  {
+    "objectID": "week12/week_12.html#simple-random-sample",
+    "href": "week12/week_12.html#simple-random-sample",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Simple Random Sample",
+    "text": "Simple Random Sample\n \n\n\nSimple Random Sample\n\n\nEvery unit has an equal chance of selection.\n\n\n\nA simple random sample gives every possible sample of a given size the same chance of selection. Use the bingo cage to illustrate drawing without choosing particular numbers. The coin-flip image on the left links to the Week 6 example: random selection can still produce a run or an uneven short sample."
+  },
+  {
+    "objectID": "week12/week_12.html#systematic-sample",
+    "href": "week12/week_12.html#systematic-sample",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Systematic Sample",
+    "text": "Systematic Sample\n\n\n\n+\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n+\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n+\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n+\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n+\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n+\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n+\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n+\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n+\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n×\n\n\n+\n\n\nStart at the first address, then select every sixth address."
+  },
+  {
+    "objectID": "week12/week_12.html#convenience-sample",
+    "href": "week12/week_12.html#convenience-sample",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Convenience Sample",
+    "text": "Convenience Sample\n\n\nConvenience Sample\n\n\nSelect people who are easy to reach."
+  },
+  {
+    "objectID": "week12/week_12.html#stratified-sample",
+    "href": "week12/week_12.html#stratified-sample",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Stratified Sample",
+    "text": "Stratified Sample\n\n\nStratified Sample\n\n\nDivide the population into groups, then randomly sample within each group."
+  },
+  {
+    "objectID": "week12/week_12.html#quota-sample",
+    "href": "week12/week_12.html#quota-sample",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Quota Sample",
+    "text": "Quota Sample\n\n\nQuota Sample\n\n\nFill a target number from each group without random selection."
+  },
+  {
+    "objectID": "week12/week_12.html#cluster-judgment-and-snowball-samples",
+    "href": "week12/week_12.html#cluster-judgment-and-snowball-samples",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Cluster, Judgment, and Snowball Samples",
+    "text": "Cluster, Judgment, and Snowball Samples\n\n\nCluster: randomly select groups, then include their members.\n\n\nJudgment: select people for their relevant knowledge.\n\n\nSnowball: ask participants to refer other participants."
+  },
+  {
+    "objectID": "week12/week_12.html#multistage-area-sample",
+    "href": "week12/week_12.html#multistage-area-sample",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Multistage Area Sample",
+    "text": "Multistage Area Sample"
+  },
+  {
+    "objectID": "week12/week_12.html#compare-samples",
+    "href": "week12/week_12.html#compare-samples",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Compare Samples",
+    "text": "Compare Samples\n\nChoose an outcome and sample size in the sampling app.\nCompare a random sample with a convenience sample.\nDraw another sample. What changes?\n\nCompare both the outcome and who is included with the full response pool. Record your comparisons in Guided Notes 6.\n\nKeep the outcome and sample size fixed when comparing methods. Compare class standing or attendance as well as the outcome. The response pool is our reference for this exercise; it may not represent the whole university."
+  },
+  {
+    "objectID": "week12/week_12.html#bias-sources",
+    "href": "week12/week_12.html#bias-sources",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Bias Sources",
+    "text": "Bias Sources"
+  },
+  {
+    "objectID": "week12/week_12.html#questions-from-our-survey",
+    "href": "week12/week_12.html#questions-from-our-survey",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Questions from Our Survey",
+    "text": "Questions from Our Survey\n\nWhich questions were easy to answer? Which made you pause?\nLook at the wording, the choices, and whether you could give the answer you wanted."
+  },
+  {
+    "objectID": "week12/week_12.html#select-one",
+    "href": "week12/week_12.html#select-one",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Select One",
+    "text": "Select One\n\nCan everyone choose one answer that fits?"
+  },
+  {
+    "objectID": "week12/week_12.html#select-all-that-apply",
+    "href": "week12/week_12.html#select-all-that-apply",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Select All That Apply",
+    "text": "Select All That Apply\n\nWould the percentages add to 100%?"
+  },
+  {
+    "objectID": "week12/week_12.html#ordered-response-scale",
+    "href": "week12/week_12.html#ordered-response-scale",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Ordered Response Scale",
+    "text": "Ordered Response Scale"
+  },
+  {
+    "objectID": "week12/week_12.html#likert-scale",
+    "href": "week12/week_12.html#likert-scale",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Likert Scale",
+    "text": "Likert Scale\n\n\nCompare this agreement scale with the confidence question on the preceding slide. Discuss what each response tells us and how the statements are worded."
+  },
+  {
+    "objectID": "week12/week_12.html#semantic-differential",
+    "href": "week12/week_12.html#semantic-differential",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Semantic Differential",
+    "text": "Semantic Differential\n\nWhat do the two ends of each scale mean?"
+  },
+  {
+    "objectID": "week12/week_12.html#numeric-scales-need-anchors",
+    "href": "week12/week_12.html#numeric-scales-need-anchors",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Numeric Scales Need Anchors",
+    "text": "Numeric Scales Need Anchors\n\nWhat does 0 mean? What does 100 mean?\n\nDiscuss whether numerical bounds alone explain the scale. Compare with explicit anchors: 0 = not confident at all; 50 = somewhat confident; 100 = completely confident. These are discussion examples, not labels shown in the live question."
+  },
+  {
+    "objectID": "week12/week_12.html#constant-sum",
+    "href": "week12/week_12.html#constant-sum",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Constant Sum",
+    "text": "Constant Sum\n\n\nThe total must equal 100. Ask what allocating more points to one item requires students to do with the others."
+  },
+  {
+    "objectID": "week12/week_12.html#graphic-rating-scales",
+    "href": "week12/week_12.html#graphic-rating-scales",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Graphic Rating Scales",
+    "text": "Graphic Rating Scales\n\n\nUse the slider students saw in the survey as the graphical rating example. Discuss how the scale is presented and what the endpoints mean."
+  },
+  {
+    "objectID": "week12/week_12.html#drilldown-questions",
+    "href": "week12/week_12.html#drilldown-questions",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Drilldown Questions",
+    "text": "Drilldown Questions\n\n\n\n\n\n\n\n\nDrilldown\n\n\nStart broad, then narrow the choices.\n\n\n\n\n\nBetter than forcing people through a giant pick list.\nExample:\nCollege -&gt; Department -&gt; Major"
+  },
+  {
+    "objectID": "week12/week_12.html#answer-categories-in-our-survey",
+    "href": "week12/week_12.html#answer-categories-in-our-survey",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Answer Categories in Our Survey",
+    "text": "Answer Categories in Our Survey\n\nWhere would a 20-year-old fit? What about someone who is 25?"
+  },
+  {
+    "objectID": "week12/week_12.html#collectively-exhaustive-vs-mutually-exclusive",
+    "href": "week12/week_12.html#collectively-exhaustive-vs-mutually-exclusive",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Collectively Exhaustive vs Mutually Exclusive",
+    "text": "Collectively Exhaustive vs Mutually Exclusive\n\n\nQuestion categories can fail in different ways\n\n\n\nCollectively Exhaustive\n\n\nHow old are you?\n\n\n18-20\n20-22\n22-24\n\n\nHow old are you?\n\n\n&lt; 18\n18-20\n20-22\n22-24\n24+\n\n\n\n\nMutually Exclusive\n\n\nHow old are you?\n\n\n18-20\n21-22\n23-24\n\n\nHow old are you?\n\n\n&lt; 18\n18-20\n21-22\n23-24\n25+"
+  },
+  {
+    "objectID": "week12/week_12.html#generate-variance",
+    "href": "week12/week_12.html#generate-variance",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Generate Variance",
+    "text": "Generate Variance\n\n\nGenerate Variance\n\n\n\n\nHow many meals per day do you eat?\n\n\n0-5\n6-10\n11+\n\n\nHow many meals per day do you eat?\n\n\nLess than 1\n1\n2\n3\nMore than 3"
+  },
+  {
+    "objectID": "week12/week_12.html#sensitivity",
+    "href": "week12/week_12.html#sensitivity",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Sensitivity",
+    "text": "Sensitivity\n\n\nSensitivity\n\n\n\nI am bored.\n\n\nStrongly Disagree\nDisagree\nNeutral\nAgree\nStrongly Agree\n\n\nI am bored.\n\n\nDisagree\nAgree\n\n\nI am bored.\n\n\nStrongly Disagree\nDisagree\nSomewhat Disagree\nAgree\n\n\n\n\n\nI am bored.\n\n\nExtremely Very Strongly Disagree\nVery Strongly Disagree\nStrongly Disagree\nDisagree\nExtremely Very Moderately Disagree\nVery Moderately Disagree\nModerately Disagree\nExtremely Very Somewhat Disagree\nVery Somewhat Disagree\nSomewhat Disagree\nDisagree Somewhat\nKind of Disagree to some extent\nNot Really Disagree\nNeutral\nModerately Neutral\nExtremely Neutral\nNeutrally Neutral"
+  },
+  {
+    "objectID": "week12/week_12.html#heat-maps",
+    "href": "week12/week_12.html#heat-maps",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Heat Maps",
+    "text": "Heat Maps\n\n\nReturn to the image-click question in the class survey. Where did students click? Use the sampling app’s image heatmap to compare the class responses."
+  },
+  {
+    "objectID": "week12/week_12.html#text-boxes",
+    "href": "week12/week_12.html#text-boxes",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Text Boxes",
+    "text": "Text Boxes\n\n\n\n\n\n\n\n\nOpen text\n\n\nText boxes reveal categories the researcher did not anticipate.\n\n\n\n\n\nExample:\n\nWhat is something unique about you that a normal survey would not know to ask?"
+  },
+  {
+    "objectID": "week12/week_12.html#from-text-boxes-to-sampling",
+    "href": "week12/week_12.html#from-text-boxes-to-sampling",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "From Text Boxes to Sampling",
+    "text": "From Text Boxes to Sampling\n\nIf someone writes:\n\nMy obscure hobby is competitive speedcubing.\n\n\nHow would we sample that population?\n\n\n\n\n\n\n\nKey link\n\n\nRare or niche populations often require judgment, cluster, or snowball sampling."
+  },
+  {
+    "objectID": "week12/week_12.html#leading-question",
+    "href": "week12/week_12.html#leading-question",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Leading Question",
+    "text": "Leading Question\n\nBad:\n\nHow much do you agree that this helpful course improves your analytical thinking?\n\n\nProblem:\nThe wording pushes respondents toward a positive answer."
+  },
+  {
+    "objectID": "week12/week_12.html#loaded-question",
+    "href": "week12/week_12.html#loaded-question",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Loaded Question",
+    "text": "Loaded Question\n\nBad:\n\nHow often do you waste time using AI instead of thinking for yourself?\n\n\nProblem:\nThe wording judges the respondent before they answer."
+  },
+  {
+    "objectID": "week12/week_12.html#double-barreled-question",
+    "href": "week12/week_12.html#double-barreled-question",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Double-Barreled Question",
+    "text": "Double-Barreled Question\n\nBad:\n\nThe Shiny apps are easy to use and help me learn the material.\n\n\nProblem:\nThis asks two questions at once."
+  },
+  {
+    "objectID": "week12/week_12.html#assumption-question",
+    "href": "week12/week_12.html#assumption-question",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Assumption Question",
+    "text": "Assumption Question\n\nBad:\n\nHow often do you use ChatGPT to complete your homework?\n\n\nProblem:\nIt assumes the respondent uses ChatGPT."
+  },
+  {
+    "objectID": "week12/week_12.html#better-question-flow",
+    "href": "week12/week_12.html#better-question-flow",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "Better Question Flow",
+    "text": "Better Question Flow\n\n\nHave you used ChatGPT or another AI assistant for homework?\nIf yes, how often?\nIf yes, for which tasks?\nWhat did you check yourself?\n\n\nUse this to connect back to responsible AI expectations from earlier homework."
+  },
+  {
+    "objectID": "week12/week_12.html#what-makes-a-survey-good",
+    "href": "week12/week_12.html#what-makes-a-survey-good",
+    "title": "Week 12.2 - Sampling and Survey Research",
+    "section": "What makes a survey good?",
+    "text": "What makes a survey good?\n\nSurvey quality depends on:\n\nwho could be selected\nwho was selected\nwho responded\nwhat they were asked\nwhether the question measured what we think it measured\n\n\n\n\n\n\n\n\nBefore trusting a survey result\n\n\nAsk: who was in the frame, how were they sampled, who responded, and how was the question worded?"
   }
 ]

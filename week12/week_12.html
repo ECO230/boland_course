@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+<script src="week12_2_libs/clipboard/clipboard.min.js"></script>
+<script src="week12_2_libs/quarto-html/tabby.min.js"></script>
+<script src="week12_2_libs/quarto-html/popper.min.js"></script>
+<script src="week12_2_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="week12_2_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="week12_2_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="week12_2_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Mike Boland, MBA">
-  <title>ECO 230 – Week 12 - Sampling and Survey Research</title>
+  <title>Week 12.2 - Sampling and Survey Research</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="week12_2_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="week12_2_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -32,12 +29,12 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-e5bb095cac77e7bd9454063090bef903.css">
+  <link rel="stylesheet" href="week12_2_libs/revealjs/dist/theme/quarto-7de2922f2d1fbf696a6ae0955d43c603.css">
   <link rel="stylesheet" href="population_pipeline.css">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="week12_2_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="week12_2_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="week12_2_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="week12_2_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -131,7 +128,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Week 12 - Sampling and Survey Research</h1>
+  <h1 class="title">Week 12.2 - Sampling and Survey Research</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -143,86 +140,15 @@ Mike Boland, MBA
 
 </section>
 <section>
-<section id="can-a-sample-tell-the-truth" class="title-slide slide level1 center">
-<h1>Can a sample tell the truth?</h1>
-<p><br></p>
-<div title="Today's question">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Today’s question</strong></p>
-</div>
-<div class="callout-content">
-<p>When does a small group of people tell us something useful about a much larger group?</p>
-</div>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>Open with the idea that students already trust samples constantly: reviews, polls, product ratings, class feedback, medical studies.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="can-our-sample-represent-the-population" class="title-slide slide level1 center">
+<h1>Can our sample represent the population?</h1>
+
 </section>
-<section id="first-take-the-survey" class="slide level2">
-<h2>First: take the survey</h2>
+<section id="class-survey" class="slide level2">
+<h2>Class Survey</h2>
 <p><br></p>
-<div title="Class data lab">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Class data lab</strong></p>
-</div>
-<div class="callout-content">
-<p>We are going to use your responses as today’s dataset.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<ol type="1">
-<li>Take the survey.</li>
-<li>Do not overthink your answers.</li>
-<li>We will use the response pool to test sampling methods.</li>
-</ol>
-<aside class="notes">
-<p>Use the LimeSurvey link or QR code here once the final survey is active. Keep this slide up while students respond.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="today" class="slide level2">
-<h2>Today</h2>
-<p><br></p>
-<ol type="1">
-<li>What a sample is trying to represent</li>
-<li>Random vs representative</li>
-<li>Sampling methods</li>
-<li>Sampling frame and nonresponse error</li>
-<li>Survey question design</li>
-</ol>
+<p><a href="https://survey.60land.com/index.php/931648">Take the class survey</a>.</p>
+<p>We will use the responses to compare sampling methods. As you answer, notice how the questions and response options are written.</p>
 </section></section>
 <section>
 <section id="population-to-sample" class="title-slide slide level1 center">
@@ -265,8 +191,8 @@ Census
 </div>
 </div>
 </section>
-<section id="the-survey-pipeline" class="slide level2">
-<h2>The Survey Pipeline</h2>
+<section id="from-population-to-survey-results" class="slide level2">
+<h2>From Population to Survey Results</h2>
 <p><br></p>
 <table class="caption-top">
 <thead>
@@ -299,7 +225,7 @@ Census
 </tbody>
 </table>
 <aside class="notes">
-<p>This replaces the old population -&gt; frame -&gt; sample sequence with the full measurement pipeline.</p>
+<p>Ask where people could be left out between the population and the responses we receive.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -317,136 +243,47 @@ Census
 <h1>Random vs Representative</h1>
 
 </section>
-<section id="the-goal" class="slide level2">
-<h2>The goal</h2>
-<p><br></p>
-<div title="Good sample">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Good sample</strong></p>
-</div>
-<div class="callout-content">
-<p>A good sample is random enough to protect against selection bias and representative enough to reflect the population we care about.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="randomness-is-not-the-same-as-representativeness" class="slide level2">
-<h2>Randomness is not the same as representativeness</h2>
-<p><br></p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
+<section id="random-and-representative" class="slide level2">
+<h2>Random and Representative</h2>
+<div class="w12-matrix-wrap">
+<table class="w12-sampling-matrix">
 <thead>
-<tr class="header">
-<th></th>
-<th>Representative</th>
-<th>Not representative</th>
+<tr>
+<td>
+</td>
+<th scope="col">
+Representative
+</th>
+<th scope="col">
+Not representative
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>Random</td>
-<td>Best case</td>
-<td>Possible, especially with small samples or bad frames</td>
+<tr>
+<th scope="row">
+Random
+</th>
+<td>
+The goal
+</td>
+<td>
+Can happen, even with random selection
+</td>
 </tr>
-<tr class="even">
-<td>Not random</td>
-<td>Possible, but harder to defend</td>
-<td>Common convenience-sample problem</td>
+<tr>
+<th scope="row">
+Not random
+</th>
+<td>
+Possible, but selection still matters
+</td>
+<td>
+A concern with convenience samples
+</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="random" class="slide level2">
-<h2>Random</h2>
-<p><br></p>
-<div title="Random sample">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Random sample</strong></p>
-</div>
-<div class="callout-content">
-<p>Every unit in the frame has a known chance of being selected.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>Random sampling helps protect us from hidden selection rules.</p>
-<p>It does not guarantee perfection in every single sample.</p>
-</section>
-<section id="representative" class="slide level2">
-<h2>Representative</h2>
-<p><br></p>
-<div title="Representative sample">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Representative sample</strong></p>
-</div>
-<div class="callout-content">
-<p>The sample resembles the population on variables that matter for the question.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>Representative is about the result.</p>
-<p>Random is about the process.</p>
-</section>
-<section id="random-but-not-representative" class="slide level2">
-<h2>Random but not representative</h2>
-<p><br></p>
-<p>This can happen when:</p>
-<ul>
-<li>the sample is small</li>
-<li>the frame is flawed</li>
-<li>an important subgroup is rare</li>
-<li>the random draw is unlucky</li>
-<li>nonresponse changes the final data</li>
-</ul>
-</section>
-<section id="nonrandom-but-representative" class="slide level2">
-<h2>Nonrandom but representative</h2>
-<p><br></p>
-<p>This can happen, but it usually requires careful control.</p>
-<p>Examples:</p>
-<ul>
-<li>quota sampling</li>
-<li>judgment sampling</li>
-<li>balanced recruitment</li>
-<li>post-stratification or weighting</li>
-</ul>
-<div title="Tradeoff">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tradeoff</strong></p>
-</div>
-<div class="callout-content">
-<p>Nonrandom samples can be useful, but they are harder to defend.</p>
-</div>
-</div>
-</div>
 </div>
 </section></section>
 <section>
@@ -454,66 +291,61 @@ Census
 <h1>Sampling Methods</h1>
 
 </section>
-<section id="same-goal-different-risks" class="slide level2">
-<h2>Same goal, different risks</h2>
+<section id="how-will-we-choose-the-sample" class="slide level2">
+<h2>How will we choose the sample?</h2>
 <p><br></p>
-<p>Every sampling method is trying to answer:</p>
-<blockquote>
-<p>How do we learn about the population without measuring everyone?</p>
-</blockquote>
-<p><br></p>
-<p>But each method creates different risks.</p>
+<p>Who can be selected, and how will we select them?</p>
+<p>The selection rule determines the sampling method.</p>
 </section>
-<section id="probability-sampling" class="slide level2" data-background-image="media/images/w12_go.jpeg" data-background-size="cover" data-background-position="center">
-<h2>Probability Sampling</h2>
-<div class="method-panel">
-<div class="method-kicker">
-Known chance of selection
-</div>
-<div class="method-title">
+<section id="probability-sampling" class="slide level2 w12-method-slide" data-background-image="media/images/w12_go.jpeg" data-background-size="cover">
+<h2><span class="sr-only">Probability Sampling</span></h2>
+<div class="w12-photo-label">
+<h3>
 Probability Sampling
-</div>
-<div class="method-subtitle">
-Every unit in the frame has a known path into the sample. That makes the process easier to defend.
-</div>
-</div>
-</section>
-<section id="non-probability-sampling" class="slide level2" data-background-image="media/images/w12_spider.jpeg" data-background-size="cover" data-background-position="center">
-<h2>Non Probability Sampling</h2>
-<div class="method-panel">
-<div class="method-title" style="top: 28px; right: 28px; left: auto; max-width: 48%; text-align: right;">
-Non Probability Sampling
-</div>
-<div class="method-subtitle" style="left:auto; right:28px; max-width:42%; text-align:right;">
-Useful when speed or access matters, but the selection process is shaped by availability, judgment, or networks.
-</div>
+</h3>
+<p>
+Each unit has a known, nonzero chance of selection.
+</p>
 </div>
 </section>
-<section id="simple-random-sample" class="slide level2" data-background-image="media/images/w12_bingo.jpeg" data-background-size="contain" data-background-position="center" data-background-color="#ffffff">
-<h2>Simple Random Sample</h2>
-<div class="method-panel">
-<div class="method-title" style="color:#111; text-shadow:none; top: 18px;">
+<section id="nonprobability-sampling" class="slide level2 w12-method-slide" data-background-image="media/images/w12_spider.jpeg" data-background-size="cover">
+<h2><span class="sr-only">Nonprobability Sampling</span></h2>
+<div class="w12-photo-label w12-label-right">
+<h3>
+Nonprobability Sampling
+</h3>
+<p>
+Selection depends on access, judgment, or volunteers.
+</p>
+</div>
+</section>
+<section id="simple-random-sample" class="slide level2 w12-method-slide">
+<h2><span class="sr-only">Simple Random Sample</span></h2>
+<a class="w12-coin-callback" href="https://shiny.60land.com/week06/coinflipper/"><img src="../week06/media/images/w6_shiny_coin_flip.png" alt="Week 6 coin-flip simulator callback"></a> <img class="w12-bingo" src="media/images/w12_bingo.jpeg" alt="Bingo cage and numbered balls">
+<div class="w12-plain-label">
+<h3>
 Simple Random Sample
+</h3>
+<p>
+Every unit has an equal chance of selection.
+</p>
 </div>
-<div class="method-note">
-<pre><code>Coin flip each row in the app.
-&lt;span class="small"&gt;Fast way to make randomness visible without pretending every draw is perfectly representative.&lt;/span&gt;</code></pre>
-</div>
-</div>
+<aside class="notes">
+<p>A simple random sample gives every possible sample of a given size the same chance of selection. Use the bingo cage to illustrate drawing without choosing particular numbers. The coin-flip image on the left links to the Week 6 example: random selection can still produce a run or an uneven short sample.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="systematic-sample" class="slide level2" data-background-image="media/images/w12_hood_wide.png" data-background-size="contain" data-background-position="center" data-background-color="#ffffff">
+<section id="systematic-sample" class="slide level2">
 <h2>Systematic Sample</h2>
-<div class="method-panel">
-<div class="method-title" style="color:#111; text-shadow:none; top: 18px;">
-Systematic Sample
-</div>
-<div class="method-chip">
-Every 6th house after a starting point
-</div>
-</div>
-</section>
-<section id="systematic-sample-walkthrough" class="slide level2">
-<h2>Systematic Sample Walkthrough</h2>
 <div class="systematic-map">
 <img src="media/images/w12_hood_wide.png" alt="Neighborhood map for systematic sampling walkthrough">
 <div class="sys-marker plus fragment" data-fragment-index="1" style="left:4.84%; top:10.1%;">
@@ -531,11 +363,11 @@ Every 6th house after a starting point
 <div class="sys-marker cross fragment" data-fragment-index="5" style="left:22.29%; top:10.1%;">
 ×
 </div>
-<div class="sys-marker plus fragment" data-fragment-index="6" style="left:25.19%; top:10.1%;">
-+
-</div>
-<div class="sys-marker cross fragment" data-fragment-index="7" style="left:25.19%; top:25.25%;">
+<div class="sys-marker cross fragment" data-fragment-index="6" style="left:25.19%; top:10.1%;">
 ×
+</div>
+<div class="sys-marker plus fragment" data-fragment-index="7" style="left:25.19%; top:25.25%;">
++
 </div>
 <div class="sys-marker cross fragment" data-fragment-index="8" style="left:25.19%; top:29.46%;">
 ×
@@ -546,14 +378,14 @@ Every 6th house after a starting point
 <div class="sys-marker cross fragment" data-fragment-index="10" style="left:16.96%; top:29.46%;">
 ×
 </div>
-<div class="sys-marker plus fragment" data-fragment-index="11" style="left:9.69%; top:29.46%;">
-+
+<div class="sys-marker cross fragment" data-fragment-index="11" style="left:9.69%; top:29.46%;">
+×
 </div>
 <div class="sys-marker cross fragment" data-fragment-index="12" style="left:7.75%; top:29.46%;">
 ×
 </div>
-<div class="sys-marker cross fragment" data-fragment-index="13" style="left:5.81%; top:42.09%;">
-×
+<div class="sys-marker plus fragment" data-fragment-index="13" style="left:5.81%; top:42.09%;">
++
 </div>
 <div class="sys-marker cross fragment" data-fragment-index="14" style="left:10.66%; top:42.09%;">
 ×
@@ -561,8 +393,8 @@ Every 6th house after a starting point
 <div class="sys-marker cross fragment" data-fragment-index="15" style="left:13.57%; top:42.09%;">
 ×
 </div>
-<div class="sys-marker plus fragment" data-fragment-index="16" style="left:17.44%; top:42.09%;">
-+
+<div class="sys-marker cross fragment" data-fragment-index="16" style="left:17.44%; top:42.09%;">
+×
 </div>
 <div class="sys-marker cross fragment" data-fragment-index="17" style="left:22.29%; top:42.09%;">
 ×
@@ -570,14 +402,14 @@ Every 6th house after a starting point
 <div class="sys-marker cross fragment" data-fragment-index="18" style="left:25.19%; top:42.09%;">
 ×
 </div>
-<div class="sys-marker cross fragment" data-fragment-index="19" style="left:25.19%; top:60.61%;">
-×
+<div class="sys-marker plus fragment" data-fragment-index="19" style="left:25.19%; top:60.61%;">
++
 </div>
 <div class="sys-marker cross fragment" data-fragment-index="20" style="left:23.26%; top:60.61%;">
 ×
 </div>
-<div class="sys-marker plus fragment" data-fragment-index="21" style="left:20.35%; top:60.61%;">
-+
+<div class="sys-marker cross fragment" data-fragment-index="21" style="left:20.35%; top:60.61%;">
+×
 </div>
 <div class="sys-marker cross fragment" data-fragment-index="22" style="left:17.44%; top:60.61%;">
 ×
@@ -588,11 +420,11 @@ Every 6th house after a starting point
 <div class="sys-marker cross fragment" data-fragment-index="24" style="left:9.69%; top:60.61%;">
 ×
 </div>
-<div class="sys-marker cross fragment" data-fragment-index="25" style="left:5.81%; top:63.97%;">
-×
-</div>
-<div class="sys-marker plus fragment" data-fragment-index="26" style="left:5.81%; top:71.55%;">
+<div class="sys-marker plus fragment" data-fragment-index="25" style="left:5.81%; top:63.97%;">
 +
+</div>
+<div class="sys-marker cross fragment" data-fragment-index="26" style="left:5.81%; top:71.55%;">
+×
 </div>
 <div class="sys-marker cross fragment" data-fragment-index="27" style="left:16.96%; top:71.55%;">
 ×
@@ -621,11 +453,11 @@ Every 6th house after a starting point
 <div class="sys-marker cross fragment" data-fragment-index="35" style="left:46.03%; top:71.55%;">
 ×
 </div>
-<div class="sys-marker plus fragment" data-fragment-index="36" style="left:47.48%; top:71.55%;">
-+
-</div>
-<div class="sys-marker cross fragment" data-fragment-index="37" style="left:49.42%; top:71.55%;">
+<div class="sys-marker cross fragment" data-fragment-index="36" style="left:47.48%; top:71.55%;">
 ×
+</div>
+<div class="sys-marker plus fragment" data-fragment-index="37" style="left:49.42%; top:71.55%;">
++
 </div>
 <div class="sys-marker cross fragment" data-fragment-index="38" style="left:55.72%; top:71.55%;">
 ×
@@ -636,14 +468,14 @@ Every 6th house after a starting point
 <div class="sys-marker cross fragment" data-fragment-index="40" style="left:50.87%; top:58.92%;">
 ×
 </div>
-<div class="sys-marker plus fragment" data-fragment-index="41" style="left:46.03%; top:58.92%;">
-+
+<div class="sys-marker cross fragment" data-fragment-index="41" style="left:46.03%; top:58.92%;">
+×
 </div>
 <div class="sys-marker cross fragment" data-fragment-index="42" style="left:42.64%; top:58.92%;">
 ×
 </div>
-<div class="sys-marker cross fragment" data-fragment-index="43" style="left:38.76%; top:58.92%;">
-×
+<div class="sys-marker plus fragment" data-fragment-index="43" style="left:38.76%; top:58.92%;">
++
 </div>
 <div class="sys-marker cross fragment" data-fragment-index="44" style="left:34.88%; top:58.92%;">
 ×
@@ -651,8 +483,8 @@ Every 6th house after a starting point
 <div class="sys-marker cross fragment" data-fragment-index="45" style="left:34.88%; top:42.09%;">
 ×
 </div>
-<div class="sys-marker plus fragment" data-fragment-index="46" style="left:38.76%; top:42.09%;">
-+
+<div class="sys-marker cross fragment" data-fragment-index="46" style="left:38.76%; top:42.09%;">
+×
 </div>
 <div class="sys-marker cross fragment" data-fragment-index="47" style="left:42.64%; top:42.09%;">
 ×
@@ -660,14 +492,14 @@ Every 6th house after a starting point
 <div class="sys-marker cross fragment" data-fragment-index="48" style="left:47.48%; top:42.09%;">
 ×
 </div>
-<div class="sys-marker cross fragment" data-fragment-index="49" style="left:51.36%; top:42.09%;">
-×
+<div class="sys-marker plus fragment" data-fragment-index="49" style="left:51.36%; top:42.09%;">
++
 </div>
 <div class="sys-marker cross fragment" data-fragment-index="50" style="left:55.72%; top:43.77%;">
 ×
 </div>
-<div class="sys-marker plus fragment" data-fragment-index="51" style="left:55.72%; top:37.88%;">
-+
+<div class="sys-marker cross fragment" data-fragment-index="51" style="left:55.72%; top:37.88%;">
+×
 </div>
 <div class="sys-marker cross fragment" data-fragment-index="52" style="left:55.72%; top:29.46%;">
 ×
@@ -678,44 +510,59 @@ Every 6th house after a starting point
 <div class="sys-marker cross fragment" data-fragment-index="54" style="left:41.18%; top:29.46%;">
 ×
 </div>
-<div class="sys-marker cross fragment" data-fragment-index="55" style="left:34.88%; top:29.46%;">
-×
+<div class="sys-marker plus fragment" data-fragment-index="55" style="left:34.88%; top:29.46%;">
++
 </div>
 <div class="systematic-note">
-Your exact route: start at the first house, then mark every 6th address.
+Start at the first address, then select every sixth address.
 </div>
 </div>
 </section>
-<section id="convenience-sample" class="slide level2" data-background-image="media/images/w12_marathon.jpeg" data-background-size="cover" data-background-position="center">
-<h2>Convenience Sample</h2>
-<div class="method-panel">
-<div class="method-chip">
+<section id="convenience-sample" class="slide level2 w12-method-slide" data-background-image="media/images/w12_marathon.jpeg" data-background-size="cover">
+<h2><span class="sr-only">Convenience Sample</span></h2>
+<div class="w12-photo-label">
+<h3>
 Convenience Sample
-</div>
+</h3>
+<p>
+Select people who are easy to reach.
+</p>
 </div>
 </section>
-<section id="stratified-sample" class="slide level2" data-background-image="media/images/w12_red_white.jpeg" data-background-size="cover" data-background-position="center">
-<h2>Stratified Sample</h2>
-<div class="method-panel">
-<div class="method-chip">
+<section id="stratified-sample" class="slide level2 w12-method-slide" data-background-image="media/images/w12_red_white.jpeg" data-background-size="cover">
+<h2><span class="sr-only">Stratified Sample</span></h2>
+<div class="w12-photo-label">
+<h3>
 Stratified Sample
-</div>
+</h3>
+<p>
+Divide the population into groups, then randomly sample within each group.
+</p>
 </div>
 </section>
-<section id="quota-sample" class="slide level2" data-background-image="media/images/w12_black_yellow.jpeg" data-background-size="cover" data-background-position="center">
-<h2>Quota Sample</h2>
-<div class="method-panel">
-<div class="method-chip">
+<section id="quota-sample" class="slide level2 w12-method-slide" data-background-image="media/images/w12_black_yellow.jpeg" data-background-size="cover">
+<h2><span class="sr-only">Quota Sample</span></h2>
+<div class="w12-photo-label">
+<h3>
 Quota Sample
-</div>
+</h3>
+<p>
+Fill a target number from each group without random selection.
+</p>
 </div>
 </section>
-<section id="cluster-judgement-snowball-sample" class="slide level2" data-background-image="media/images/w12_larp.jpeg" data-background-size="cover" data-background-position="center">
-<h2>Cluster | Judgement | Snowball Sample</h2>
-<div class="method-panel">
-<div class="method-chip">
-Cluster Sample | Judgement Sample | Snowball Sample
-</div>
+<section id="cluster-judgment-and-snowball-samples" class="slide level2 w12-method-slide" data-background-image="media/images/w12_larp.jpeg" data-background-size="cover">
+<h2><span class="sr-only">Cluster, Judgment, and Snowball Samples</span></h2>
+<div class="w12-photo-label w12-method-list">
+<p>
+<strong>Cluster:</strong> randomly select groups, then include their members.
+</p>
+<p>
+<strong>Judgment:</strong> select people for their relevant knowledge.
+</p>
+<p>
+<strong>Snowball:</strong> ask participants to refer other participants.
+</p>
 </div>
 </section>
 <section id="multistage-area-sample" class="slide level2">
@@ -727,80 +574,27 @@ Cluster Sample | Judgement Sample | Snowball Sample
 <h1>Sampling Lab</h1>
 
 </section>
-<section id="app-activity" class="slide level2">
-<h2>App Activity</h2>
-<p><br></p>
-<p>In the app, choose:</p>
+<section id="compare-samples" class="slide level2">
+<h2>Compare Samples</h2>
 <ol type="1">
-<li>an outcome variable</li>
-<li>a sample size</li>
-<li>a sampling method</li>
-<li>a comparison group</li>
+<li>Choose an outcome and sample size in the sampling app.</li>
+<li>Compare a random sample with a convenience sample.</li>
+<li>Draw another sample. What changes?</li>
 </ol>
-<p><br></p>
-<p>Then ask:</p>
-<blockquote>
-<p>Did the sample look like the response pool?</p>
-</blockquote>
-</section>
-<section id="what-to-watch" class="slide level2">
-<h2>What to watch</h2>
-<p><br></p>
-<div class="tight-list">
-<ul>
-<li>Sample estimate</li>
-<li>Full response-pool estimate</li>
-<li>Difference between the two</li>
-<li>Class standing mix</li>
-<li>Attendance mix</li>
-<li>Work hours</li>
-<li>Commute time</li>
-<li>Early vs late responders</li>
-</ul>
-</div>
-</section>
-<section id="the-important-comparison" class="slide level2">
-<h2>The important comparison</h2>
-<p><br></p>
-<div title="Not just the estimate">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Not just the estimate</strong></p>
-</div>
-<div class="callout-content">
-<p>Two samples can have similar averages but very different subgroup composition.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>Representation is about who is in the data, not just whether one number looks close.</p>
-</section>
-<section id="random-sampling-error" class="slide level2">
-<h2>Random Sampling Error</h2>
-<p><br></p>
-<div title="Random sampling error">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Random sampling error</strong></p>
-</div>
-<div class="callout-content">
-<p>Random sampling error is the difference caused by selecting one random sample instead of another.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>It is noise from sampling.</p>
-<p>It is not the same as bias.</p>
+<p>Compare both the outcome and who is included with the full response pool. Record your comparisons in Guided Notes 6.</p>
+<aside class="notes">
+<p>Keep the outcome and sample size fixed when comparing methods. Compare class standing or attendance as well as the outcome. The response pool is our reference for this exercise; it may not represent the whole university.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="bias-sources" class="slide level2">
 <h2>Bias Sources</h2>
@@ -811,143 +605,99 @@ Cluster Sample | Judgement Sample | Snowball Sample
 <h1>Survey Design</h1>
 
 </section>
-<section id="the-transition" class="slide level2">
-<h2>The transition</h2>
+<section id="questions-from-our-survey" class="slide level2">
+<h2>Questions from Our Survey</h2>
 <p><br></p>
-<div title="Measurement problem">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Measurement problem</strong></p>
-</div>
-<div class="callout-content">
-<p>Even if we sample the right people, we can still ask the wrong question.</p>
-</div>
-</div>
-</div>
-</div>
+<p>Which questions were easy to answer? Which made you pause?</p>
+<p>Look at the wording, the choices, and whether you could give the answer you wanted.</p>
 </section>
 <section id="select-one" class="slide level2">
 <h2>Select One</h2>
-<p><br></p>
-<p>Use select-one questions when respondents should choose one best answer.</p>
-<p>Example:</p>
-<blockquote>
-<p>What is your primary way of getting to campus?</p>
-</blockquote>
-<div title="Design check">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Design check</strong></p>
-</div>
-<div class="callout-content">
-<p>Are the choices mutually exclusive enough for the question?</p>
-</div>
-</div>
-</div>
-</div>
+<p><img data-src="media/images/survey-select-one.png" alt="Class survey: class standing with four radio-button choices" height="390"></p>
+<p>Can everyone choose one answer that fits?</p>
 </section>
 <section id="select-all-that-apply" class="slide level2">
 <h2>Select All That Apply</h2>
-<p><br></p>
-<p>Use all-that-apply when multiple answers can be true.</p>
-<p>Example:</p>
-<blockquote>
-<p>Which tools have you used for coursework this semester?</p>
-</blockquote>
-<div title="Interpretation warning">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Interpretation warning</strong></p>
-</div>
-<div class="callout-content">
-<p>The percentages across choices usually do not add to 100%.</p>
-</div>
-</div>
-</div>
-</div>
+<p><img data-src="media/images/survey-select-all.png" alt="Class survey: majors with checkboxes for multiple selections" height="460"></p>
+<p>Would the percentages add to 100%?</p>
+</section>
+<section id="ordered-response-scale" class="slide level2">
+<h2>Ordered Response Scale</h2>
+<p><img data-src="media/images/survey-ordered-scale.png" alt="Class survey: confidence interpreting statistical results, from not at all to extremely confident" height="440"></p>
 </section>
 <section id="likert-scale" class="slide level2">
 <h2>Likert Scale</h2>
-<p><br></p>
-<p>Likert scales make attitudes easier to measure consistently.</p>
-<p>Example:</p>
-<blockquote>
-<p>I feel confident interpreting statistical results.</p>
-</blockquote>
-<p><br></p>
-<p>Strongly disagree -&gt; Strongly agree</p>
+
+<img data-src="media/images/survey-likert.png" alt="Class survey: agreement statements with strongly disagree through strongly agree choices" width="950" class="r-stretch"><aside class="notes">
+<p>Compare this agreement scale with the confidence question on the preceding slide. Discuss what each response tells us and how the statements are worded.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="semantic-differential" class="slide level2">
 <h2>Semantic Differential</h2>
-<p><br></p>
-<p>Semantic differential scales measure perception between opposite ideas.</p>
-<p>Example:</p>
-<blockquote>
-<p>Statistics feels…</p>
-</blockquote>
-<p><br></p>
-<p>Easy 1 2 3 4 5 6 7 Difficult</p>
+
+<img data-src="media/images/survey-semantic-differential.png" alt="Class survey: statistics rated between easy and difficult, useful and useless, concrete and abstract" width="950" class="r-stretch"><p>What do the two ends of each scale mean?</p>
 </section>
 <section id="numeric-scales-need-anchors" class="slide level2">
 <h2>Numeric Scales Need Anchors</h2>
-<p><br></p>
-<p>Bad:</p>
-<blockquote>
-<p>Rate your confidence from 0 to 100.</p>
-</blockquote>
-<p><br></p>
-<p>Better:</p>
-<blockquote>
-<p>0 = not confident at all<br>
-50 = somewhat confident<br>
-100 = completely confident</p>
-</blockquote>
+
+<img data-src="media/images/survey-numeric-slider.png" alt="Class survey: a zero-to-100 slider for confidence explaining sampling bias" width="950" class="r-stretch"><p>What does 0 mean? What does 100 mean?</p>
+<aside class="notes">
+<p>Discuss whether numerical bounds alone explain the scale. Compare with explicit anchors: 0 = not confident at all; 50 = somewhat confident; 100 = completely confident. These are discussion examples, not labels shown in the live question.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="constant-sum" class="slide level2">
 <h2>Constant Sum</h2>
-<p><br></p>
-<div title="Constant sum">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Constant sum</strong></p>
-</div>
-<div class="callout-content">
-<p>Respondents allocate a fixed number of points across options.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>Use it when you want prioritization.</p>
-<p>Electronic surveys can enforce the total.</p>
+<p><img data-src="media/images/survey-constant-sum.png" alt="Class survey: allocate 100 points among six influences on success in class" height="530"></p>
+<aside class="notes">
+<p>The total must equal 100. Ask what allocating more points to one item requires students to do with the others.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="graphic-rating-scales" class="slide level2">
 <h2>Graphic Rating Scales</h2>
-<p><br></p>
-<p>Graphic scales can help when numbers or words are difficult.</p>
-<p>Useful in:</p>
-<ul>
-<li>child surveys</li>
-<li>low literacy contexts</li>
-<li>medical pain scales</li>
-<li>fatigue or communication difficulty</li>
-</ul>
+
+<img data-src="media/images/survey-numeric-slider.png" alt="Class survey: graphical slider for confidence explaining sampling bias, from zero to 100" width="950" class="r-stretch"><aside class="notes">
+<p>Use the slider students saw in the survey as the graphical rating example. Discuss how the scale is presented and what the endpoints mean.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="drilldown-questions" class="slide level2">
 <h2>Drilldown Questions</h2>
@@ -971,6 +721,11 @@ Cluster Sample | Judgement Sample | Snowball Sample
 <p>Better than forcing people through a giant pick list.</p>
 <p>Example:</p>
 <p>College -&gt; Department -&gt; Major</p>
+</section>
+<section id="answer-categories-in-our-survey" class="slide level2">
+<h2>Answer Categories in Our Survey</h2>
+<p><img data-src="media/images/survey-age-options.png" alt="Class survey: age categories 18 to 20, 20 to 22, and 22 to 24" height="360"></p>
+<p>Where would a 20-year-old fit? What about someone who is 25?</p>
 </section>
 <section id="collectively-exhaustive-vs-mutually-exclusive" class="slide level2">
 <h2>Collectively Exhaustive vs Mutually Exclusive</h2>
@@ -1125,20 +880,20 @@ Cluster Sample | Judgement Sample | Snowball Sample
 </section>
 <section id="heat-maps" class="slide level2">
 <h2>Heat Maps</h2>
-<p><br></p>
-<p>Electronic surveys can collect information paper surveys cannot.</p>
-<p>Example:</p>
-<blockquote>
-<p>Click the part of this chart that is most confusing.</p>
-</blockquote>
-<p><br></p>
-<p>Useful for testing:</p>
-<ul>
-<li>visuals</li>
-<li>dashboards</li>
-<li>app screens</li>
-<li>instructions</li>
-</ul>
+<p><img data-src="media/images/Print_Gallery_by_M._C._Escher.jpg" alt="Escher's Print Gallery, the image used in the class survey's click question" height="490"></p>
+<aside class="notes">
+<p>Return to the image-click question in the class survey. Where did students click? Use the sampling app’s image heatmap to compare the class responses.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="text-boxes" class="slide level2">
 <h2>Text Boxes</h2>
@@ -1277,10 +1032,6 @@ Cluster Sample | Judgement Sample | Snowball Sample
 <li>what they were asked</li>
 <li>whether the question measured what we think it measured</li>
 </ul>
-</section>
-<section id="prime-directive" class="slide level2">
-<h2>Prime Directive</h2>
-<p><br></p>
 <div title="Before trusting a survey result">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -1296,18 +1047,6 @@ Cluster Sample | Judgement Sample | Snowball Sample
 </div>
 </div>
 </div>
-</section>
-<section id="exit-question" class="slide level2">
-<h2>Exit Question</h2>
-<p><br></p>
-<p>Pick one survey result you saw today.</p>
-<p><br></p>
-<p>Answer:</p>
-<ol type="1">
-<li>What population did it claim to describe?</li>
-<li>What could make it biased?</li>
-<li>What would make the sample more representative?</li>
-</ol>
 
 
 </section></section>
@@ -1319,19 +1058,19 @@ Cluster Sample | Judgement Sample | Snowball Sample
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <script src="week12_2_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="week12_2_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="week12_2_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="week12_2_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="week12_2_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="week12_2_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script src="week12_2_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="week12_2_libs/revealjs/plugin/search/search.js"></script>
+  <script src="week12_2_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="week12_2_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1596,7 +1335,7 @@ Cluster Sample | Judgement Sample | Snowball Sample
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/ECO230\.github\.io\/boland_course\/");
+            var filterRegex = new RegExp('/' + window.location.host + '/');
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
