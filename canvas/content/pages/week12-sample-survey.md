@@ -13,3 +13,8 @@ Complete the survey before the sampling activity. We will use the response pool
 to compare sampling methods and discuss what the resulting data can and cannot
 represent.
 
+[Open the sampling lab](https://shiny.60land.com/week12/samplinglab/).
+
+Use the completed survey responses to compare sampling methods and check who
+was included in each sample.
+

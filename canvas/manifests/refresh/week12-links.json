@@ -1,0 +1,43 @@
+{
+  "sections": [
+    {"section": 4, "course_id": 870634},
+    {"section": 11, "course_id": 869206},
+    {"section": 12, "course_id": 870121}
+  ],
+  "objects": [
+    {
+      "kind": "page",
+      "id": "week-12-dot-2-slides",
+      "module_id": 4667288,
+      "source_path": "canvas/content/pages/week12-slides.md",
+      "input_paths": ["week12/week_12.qmd"],
+      "targets": {
+        "11": {"module_id": 4677014},
+        "12": {"module_id": 4679332}
+      },
+      "validation": {
+        "required_text": [
+          "Week 12.2 Slides - Sampling and Survey Research",
+          "https://eco230.github.io/boland_course/week12/week_12.html"
+        ]
+      }
+    },
+    {
+      "kind": "page",
+      "id": "sample-survey",
+      "module_id": 4667288,
+      "source_path": "canvas/content/pages/week12-sample-survey.md",
+      "targets": {
+        "11": {"module_id": 4677014},
+        "12": {"module_id": 4679332}
+      },
+      "validation": {
+        "required_text": [
+          "https://survey.60land.com/index.php/931648",
+          "https://shiny.60land.com/week12/samplinglab/",
+          "Open the sampling lab"
+        ]
+      }
+    }
+  ]
+}
