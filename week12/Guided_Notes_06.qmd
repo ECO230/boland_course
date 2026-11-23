@@ -91,6 +91,39 @@ Identify the population, frame, and selection rule.
 | Nonresponse bias |  |  |
 | Self-selection bias |  |  |
 
+Could a randomly selected sample fail to represent the population? Describe
+an example and explain how that could happen.
+
+*Your response:*
+
+Could a nonrandom sample resemble the population? Describe an example. What
+would you still want to know about how people were selected?
+
+*Your response:*
+
+### Sampling lab comparison
+
+Keep the outcome and sample size the same as you compare methods. Use the full
+response pool as the reference for this exercise.
+
+| Sampling method and draw | Outcome estimate | Full-pool estimate | How does the sample's composition compare with the pool? |
+|---|---|---|---|
+| Simple random, first draw | | | |
+| Simple random, second draw | | | |
+| Convenience | | | |
+| Another method discussed in class | | | |
+
+Which differences seem to come from the selection rule? Which vary from one
+random draw to the next? Can similar outcome estimates hide differences in
+who is included?
+
+*Your response:*
+
+The response pool itself came from our class survey. What population could it
+reasonably describe? Who might be missing?
+
+*Your response:*
+
 Explain why a large sample can still produce a misleading result.
 
 *Your response:*
@@ -173,4 +206,3 @@ Choose one published survey result or one result from the class survey.
 - [ ] I separated random sampling error from systematic bias.
 - [ ] I diagnosed question-wording and response-option problems.
 - [ ] I evaluated a survey conclusion using its design and limitations.
-

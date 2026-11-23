@@ -11,6 +11,7 @@ library(DBI)
 
 source("comparison.R", local = TRUE)
 source("repeated_comparison.R", local = TRUE)
+source("demonstration.R", local = TRUE)
 
 # Production must not silently substitute simulated responses for the survey.
 default_data_mode <- if (dir.exists("/data/junior/boland_course")) "Live survey DB" else "Demo data"
@@ -253,7 +254,10 @@ generate_demo_data <- function(n = 120) {
 
   hobby_text <- sample(hobby_pool, size = n, replace = TRUE)
 
+  summer_lacrosse <- sample(rep(c("Yes", "No"), length.out = n))
+
   tibble(
+    summer_lacrosse = summer_lacrosse,
     response_order = seq_len(n),
     class_stand = class_stand,
     acad_area = acad_area,
@@ -486,9 +490,12 @@ ui <- fluidPage(
   "),
 
   h2("Sampling Lab"),
-  div(class = "small", "Compare a random sample and a nonrandom sample with the full response pool. Check both the outcome and who is included."),
+  div(class = "small", "Draw a sample, look at its result, then check who was included."),
   hr(),
 
+  tabsetPanel(id = "app_mode",
+    class_demo_ui(),
+    tabPanel("Explore",
   fluidRow(
     column(
       3,
@@ -498,16 +505,6 @@ ui <- fluidPage(
           tags$summary("Controls"),
           div(
             class = "content",
-          radioButtons("data_mode", "Data source", choices = c("Demo data", "Live survey DB", "Upload CSV"), selected = default_data_mode),
-          conditionalPanel(
-            "input.data_mode == 'Live survey DB'",
-            uiOutput("live_db_status"),
-            actionButton("refresh_live", "Refresh survey responses")
-          ),
-          conditionalPanel(
-            "input.data_mode == 'Upload CSV'",
-            fileInput("csv_file", "CSV file", accept = c(".csv"))
-          ),
           hr(),
           selectInput("outcome_var", "Outcome variable", choices = NULL),
           uiOutput("outcome_level_ui"),
@@ -613,6 +610,8 @@ ui <- fluidPage(
           )
         )
       )
+    )
+  )
     )
   )
 )
@@ -853,6 +852,7 @@ server <- function(input, output, session) {
            " percentage points. Outcome estimates use answered rows; group percentages include missing responses.")
   })
 
+  class_demonstration <- bind_class_demo(input, output, session, base_data)
   repeated_comparison <- bind_many_samples(input, output, session, base_data, rv)
 
   current_estimate <- reactive({

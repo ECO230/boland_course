@@ -140,3 +140,43 @@ pool (capped at 20), so a small class pool does not initially produce three
 identical full-pool comparisons. Refreshing the same source preserves the
 chosen outcome, demographic, and sample size where valid. Changing sample size
 does not reset the outcome or demographic controls.
+
+## Instructor-led revision (2026-11-23)
+
+The new default Class demonstration follows the lecture: simple random,
+stratified, systematic, convenience, then quota. Previous/Next or the numbered
+method list controls the sequence. The older comparison tabs are under Explore.
+The main flow is draw, inspect the outcome, then Check who we got. Demographic
+checks do not redraw the sample. The data source is a collapsed control; source
+labels always distinguish actual completed responses from simulated data.
+
+Probability methods can draw 200 genuine samples using the current selection
+rule. The inspect button selects the largest demographic mismatch on the chosen
+characteristic among those saved draws. It does not fabricate a sample or
+select on its outcome. Distribution and composition views alternate to keep
+the classroom screen focused. Benchmarks in this exercise are the response
+pool, not a claim about the true population.
+
+Stratification randomly selects within proportional groups fixed before the
+draw. Switching the demographic check reveals whether balancing one variable
+also balanced others. The systematic example uses a random start and N/n
+interval. In simulated mode, an explicitly labeled alternating summer-residence
+list demonstrates periodicity. The simulated pool now includes balanced
+summer-residence groups; real responses are never rearranged by this option.
+
+Convenience recruitment can be restricted to respondents who report being in
+La Crosse over summer. This models local availability, not on-campus employment.
+Missing summer-residence answers are not assumed to mean present. An unavailable
+field falls back to a first-response convenience list. Quotas use full-pool
+benchmarks, then fill only from the available recruiting frame. Unreachable
+slots remain unfilled and are displayed; excluded people are never silently
+used to complete the quota. Summer residence is the initial check for this
+convenience example; the instructor can examine other recorded characteristics.
+
+The live source and aggregate-only safeguards remain in place. The instructor
+approved this revision for publication on November 23. Deployment and live
+verification are recorded in the S: release receipt.
+Checks: test-demonstration.R covers saved uneven draws, fixed rows when checking
+another variable, stratified allocations, periodicity, restricted frames, and
+unfilled quotas. test-comparison.R preserves the existing comparison/live-mode
+checks. Runtime, logs, and screenshots remain on S:.
