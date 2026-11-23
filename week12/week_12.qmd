@@ -203,7 +203,7 @@ random selection can still produce a run or an uneven short sample.
 
 ## Compare Samples
 
-1. Choose an outcome and sample size in the sampling app.
+1. Choose an outcome and sample size in the [sampling app](https://shiny.60land.com/week12/samplinglab/).
 2. Compare a random sample with a convenience sample.
 3. Draw another sample. What changes?
 
@@ -290,10 +290,10 @@ students to do with the others.
 
 ## Graphic Rating Scales
 
-![](media/images/survey-numeric-slider.png){width=950px fig-alt="Class survey: graphical slider for confidence explaining sampling bias, from zero to 100"}
+![](media/images/survey-graphic-faces.png){.w12-survey-faces fig-alt="Class survey: five faces from sad to happy for rating how coding in R feels"}
 
 ::: notes
-Use the slider students saw in the survey as the graphical rating example.
+Use the face scale students saw in the survey as the graphical rating example.
 Discuss how the scale is presented and what the endpoints mean.
 :::
 
@@ -379,7 +379,7 @@ How old are you?
 :::
 ::::
 
-## Generate Variance
+## [Generate Variance]{.sr-only} {.w12-question-example}
 
 :::: {.q-example}
 ::: {.q-title}
@@ -411,7 +411,7 @@ How many meals per day do you eat?
 ![](media/images/w12_taters.jpeg){.food fig-alt="Potatoes"}
 ::::
 
-## Sensitivity
+## [Sensitivity]{.sr-only} {.w12-question-example}
 
 :::: {.q-example}
 ::: {.q-title}
@@ -477,7 +477,7 @@ I am bored.
 
 ## Heat Maps
 
-![](media/images/Print_Gallery_by_M._C._Escher.jpg){height=490px fig-alt="Escher's Print Gallery, the image used in the class survey's click question"}
+![](media/images/Print_Gallery_by_M._C._Escher.jpg){.w12-heatmap-image fig-alt="Escher's Print Gallery, the image used in the class survey's click question"}
 
 ::: notes
 Return to the image-click question in the class survey. Where did students
@@ -599,6 +599,6 @@ Survey quality depends on:
 -   what they were asked
 -   whether the question measured what we think it measured
 
-::: {.callout-tip title="Before trusting a survey result"}
+::: {.callout-tip .fragment title="Before trusting a survey result"}
 Ask: who was in the frame, how were they sampled, who responded, and how was the question worded?
 :::
