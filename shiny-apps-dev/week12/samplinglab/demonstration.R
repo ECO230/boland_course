@@ -99,7 +99,7 @@ bind_class_demo <- function(input,output,session,base_data) {
     state$sample <- select_sample(cfg)
     state$batch <- lapply(seq_len(200),function(i) select_sample(cfg))
   }
-  observeEvent(settings(),draw(),ignoreNULL=FALSE)
+  observe({settings(); draw()})
   observeEvent(input$demo_draw,draw())
   observeEvent(input$demo_batch,{
     cfg <- settings(); req(cfg$step %in% c("srs","stratified","systematic"))

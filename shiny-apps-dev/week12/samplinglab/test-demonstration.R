@@ -9,6 +9,20 @@ stopifnot(nrow(quota$sample)==10,sum(quota$quotas$Target)==20,
 empty <- quota_from_frame(pool,frame[FALSE,],20,"summer_lacrosse")
 stopifnot(nrow(empty$sample)==0,sum(empty$quotas$Filled)==0)
 
+# The live pool and server-populated selectors can arrive after initial inputs.
+shiny::testServer(function(input,output,session) {
+  delayed_pool <- reactiveVal(NULL)
+  demo <- bind_class_demo(input,output,session,reactive({req(delayed_pool()); delayed_pool()}))
+},{
+  session$setInputs(data_mode="Live survey DB",demo_step="srs",demo_n=20)
+  session$flushReact()
+  delayed_pool(make_clean_data(pool))
+  session$flushReact()
+  stopifnot(nrow(demo$state$sample)==20,length(demo$state$batch)==200)
+  session$setInputs(demo_outcome="sleep_hrs",demo_compare="class_stand")
+  stopifnot(grepl("Most uneven draw",output$demo_estimate))
+})
+
 shiny::testServer(server,{
   session$setInputs(data_mode="Demo data",outcome_var="sleep_hrs",compare_var="class_stand",sample_n=20,
     nonrandom_method="Convenience sample",convenience_order="response_order",
