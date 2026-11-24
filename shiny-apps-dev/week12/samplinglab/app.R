@@ -508,6 +508,8 @@ ui <- fluidPage(
     .response-cloud { width:100%; }
     .response-cloud canvas { display:block; width:100%; }
     .response-cloud-status { min-height:20px; }
+    #heatmap_plot { max-width:1000px; margin:0 auto; aspect-ratio:318 / 314; }
+    #heatmap_plot img { object-fit:contain; }
     .tab-pane[data-value='Explore']:has(#lab_tabs li.active a:is([data-value='Open-ended responses'],[data-value='Image heatmap'])) > .row > .col-sm-3 { display:none; }
     .tab-pane[data-value='Explore']:has(#lab_tabs li.active a:is([data-value='Open-ended responses'],[data-value='Image heatmap'])) > .row > .col-sm-9 { width:100%; }
   ")),
@@ -593,7 +595,7 @@ ui <- fluidPage(
             column(8, div(class = "callout", strong("What this shows"), p("Each point marks where a respondent clicked on the Escher image. Brighter regions show where class attention clustered.")))
           ),
           fluidRow(
-            column(12, div(class = "box", h4("Class click map"), plotOutput("heatmap_plot", height = 700)))
+            column(12, div(class = "box", h4("Class click map"), plotOutput("heatmap_plot", height = "auto")))
           )
         )
       )
@@ -1097,9 +1099,10 @@ server <- function(input, output, session) {
       scale_y_reverse(limits = c(100, 0), expand = c(0, 0)) +
       scale_fill_gradient(low = "#FDBFB6", high = "#A61E4D", guide = "none") +
       scale_alpha(range = c(0.08, 0.35), guide = "none") +
+      coord_fixed(ratio = if (has_jpeg && has_image) dim(img)[1]/dim(img)[2] else 314/318, expand = FALSE) +
       labs(x = NULL, y = NULL) +
-      theme_void()
-  })
+      theme_void() + theme(plot.margin = margin(0, 0, 0, 0))
+  }, execOnResize = TRUE)
 
   output$repeat_note <- renderUI({
     if (is.null(rv$sim_results)) {

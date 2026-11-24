@@ -81,6 +81,10 @@ the other answers contained text rather than clickable locations. Density is
 drawn only when enough distinct points are available. No simulated clicks are
 substituted if the live connection fails. Both supplementary views hide the
 sampling controls and show a last-updated timestamp beside their manual refresh.
+The heat map preserves the source image's 318:314 aspect ratio. Its responsive
+plot fills the available width up to 1,000 pixels and is centered horizontally;
+height follows the aspect ratio. Fixed plot coordinates keep the image and
+click/density overlays aligned, and resizing rerenders the plot.
 
 Development evidence and logs:
 S:/codex-scratch/boland_course/canvas/work/sampling-lab-comparison-grid-20261124.
