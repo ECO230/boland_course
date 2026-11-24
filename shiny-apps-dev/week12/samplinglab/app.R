@@ -508,8 +508,8 @@ ui <- fluidPage(
     .response-cloud { width:100%; }
     .response-cloud canvas { display:block; width:100%; }
     .response-cloud-status { min-height:20px; }
-    #heatmap_plot { max-width:1000px; margin:0 auto; aspect-ratio:318 / 314; }
-    #heatmap_plot img { object-fit:contain; }
+    #heatmap_plot { position:relative; max-width:1000px; margin:0 auto; aspect-ratio:318 / 314; }
+    #heatmap_plot img { position:absolute; inset:0; width:100% !important; height:100% !important; object-fit:contain; }
     .tab-pane[data-value='Explore']:has(#lab_tabs li.active a:is([data-value='Open-ended responses'],[data-value='Image heatmap'])) > .row > .col-sm-3 { display:none; }
     .tab-pane[data-value='Explore']:has(#lab_tabs li.active a:is([data-value='Open-ended responses'],[data-value='Image heatmap'])) > .row > .col-sm-9 { width:100%; }
   ")),
