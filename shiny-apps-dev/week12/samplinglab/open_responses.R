@@ -58,7 +58,7 @@ open_responses_ui <- function() {
     conditionalPanel("input.open_response_order != 'cloud'",uiOutput("open_responses_list")),
     conditionalPanel("input.open_response_order == 'cloud'",
       p("Larger words occur more often. All words are included by default."),
-      checkboxInput("cloud_omit_common","Omit common filler and prompt words",FALSE),
+      checkboxInput("cloud_omit_common","Filter out filler words",FALSE),
       uiOutput("open_responses_cloud"),
       tags$details(tags$summary("Word counts"),tableOutput("open_responses_word_counts"))))
 }
