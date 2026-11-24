@@ -11,10 +11,12 @@ library(DBI)
 
 source("comparison.R", local = TRUE)
 source("repeated_comparison.R", local = TRUE)
+source("recruitment.R", local = TRUE)
 source("demonstration.R", local = TRUE)
+source("open_responses.R", local = TRUE)
 
 # Production must not silently substitute simulated responses for the survey.
-default_data_mode <- if (dir.exists("/data/junior/boland_course")) "Live survey DB" else "Demo data"
+default_data_mode <- "Live survey DB"
 private_response_fields <- c("response_id", "response_order", "submitdate", "hometown_text", "hobby_text", "image_click_coords")
 
 `%||%` <- function(a, b) if (!is.null(a) && length(a) > 0 && !all(is.na(a))) a else b
@@ -258,6 +260,9 @@ generate_demo_data <- function(n = 120) {
 
   tibble(
     summer_lacrosse = summer_lacrosse,
+    age_band = ifelse(class_stand %in% c("First-year", "Sophomore"), "18 - 20", "20 - 22"),
+    major = sample(c("Accountancy", "Business Administration", "Economics", "Finance",
+      "Information Systems", "International Business", "Management", "Marketing"), n, replace = TRUE),
     response_order = seq_len(n),
     class_stand = class_stand,
     acad_area = acad_area,
@@ -298,7 +303,7 @@ make_clean_data <- function(df) {
   df
 }
 
-load_limesurvey_responses <- function() {
+connect_limesurvey <- function() {
   if (!requireNamespace("RMariaDB", quietly = TRUE)) {
     stop("RMariaDB is not available in this Shiny runtime.")
   }
@@ -306,7 +311,7 @@ load_limesurvey_responses <- function() {
   required <- c("SURVEY_DB_HOST", "SURVEY_DB_NAME", "SURVEY_DB_USER", "SURVEY_DB_PASSWORD")
   if (any(!nzchar(Sys.getenv(required)))) stop("The live survey connection is not configured on this server.")
 
-  con <- DBI::dbConnect(
+  DBI::dbConnect(
     RMariaDB::MariaDB(),
     host = Sys.getenv("SURVEY_DB_HOST"),
     user = Sys.getenv("SURVEY_DB_USER"),
@@ -315,8 +320,11 @@ load_limesurvey_responses <- function() {
     port = as.integer(Sys.getenv("SURVEY_DB_PORT", "3306"))
   )
 
-  on.exit(DBI::dbDisconnect(con), add = TRUE)
+}
 
+load_limesurvey_responses <- function() {
+  con <- connect_limesurvey()
+  on.exit(DBI::dbDisconnect(con), add = TRUE)
   DBI::dbGetQuery(con, "SELECT * FROM survey_931648 WHERE submitdate IS NOT NULL ORDER BY id ASC")
 }
 
@@ -473,7 +481,8 @@ draw_sample <- function(df, method, n, order_var = "response_order", strata_var 
 }
 
 ui <- fluidPage(
-  tags$style("
+  tags$head(tags$script(src="vendor/wordcloud2/wordcloud2.js"),tags$script(src="response-cloud.js")),
+  tags$style(htmltools::HTML("
     h2 { margin-top: 0.25rem; }
     .small { opacity: 0.85; font-size: 14px; }
     body { font-size: 16px; }
@@ -487,7 +496,13 @@ ui <- fluidPage(
     .metricTitle { font-weight:800; font-size:14px; color:#555; }
     .metricValue { font-weight:900; font-size:1.8rem; line-height:1.1; }
     .callout { border-left:6px solid #1b6ca8; background:rgba(27,108,168,.06); border-radius:4px; padding:12px; margin-bottom:12px; }
-  "),
+    .open-response-list li { padding: 10px 4px; border-bottom: 1px solid #ddd; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .response-cloud { width:100%; }
+    .response-cloud canvas { display:block; width:100%; }
+    .response-cloud-status { min-height:20px; }
+    .tab-pane[data-value='Explore']:has(#lab_tabs li.active a[data-value='Open-ended responses']) > .row > .col-sm-3 { display:none; }
+    .tab-pane[data-value='Explore']:has(#lab_tabs li.active a[data-value='Open-ended responses']) > .row > .col-sm-9 { width:100%; }
+  ")),
 
   h2("Sampling Lab"),
   div(class = "small", "Draw a sample, look at its result, then check who was included."),
@@ -513,21 +528,7 @@ ui <- fluidPage(
           selectInput("nonrandom_method", "Nonrandom selection", choices = c("Convenience sample", "Quota sample")),
           uiOutput("nonrandom_controls"),
           actionButton("redraw_random", "Draw another random sample", class = "btn-primary"),
-          p(class = "small", "Both samples use the same size. Changing a selection rule or sample size starts a new comparison."),
-          tags$details(
-            tags$summary("Other sampling methods and repeated draws"),
-            selectInput(
-              "method",
-              "Sampling method",
-              choices = c("Simple random sample", "Convenience sample", "Systematic sample", "Stratified sample")
-            ),
-            uiOutput("order_var_ui"),
-            uiOutput("strata_var_ui"),
-            actionButton("draw_sample", "Draw sample"),
-            hr(),
-            sliderInput("n_reps", "Repeat samples", min = 50, max = 500, value = 200, step = 50),
-            actionButton("simulate", "Simulate many samples")
-          )
+          p(class = "small", "Both samples use the same size. Changing a selection rule or sample size starts a new comparison.")
         )
       ),
       div(
@@ -572,32 +573,7 @@ ui <- fluidPage(
             column(6, div(class = "box", h4("Response pool preview"), tableOutput("data_preview")))
           )
         ),
-        tabPanel(
-          "Sampling lab",
-          br(),
-          fluidRow(
-            column(4, div(class = "metric", div(class = "metricTitle", "Current sample size"), div(class = "metricValue", textOutput("n_sample", inline = TRUE)))),
-            column(4, div(class = "metric", div(class = "metricTitle", "Current sample estimate"), div(class = "metricValue", textOutput("sample_estimate", inline = TRUE)))),
-            column(4, div(class = "metric", div(class = "metricTitle", "Difference from pool"), div(class = "metricValue", textOutput("estimate_gap", inline = TRUE))))
-          ),
-          fluidRow(
-            column(12, div(class = "callout", strong("Interpretation"), textOutput("interpretation_text")))
-          ),
-          fluidRow(
-            column(6, div(class = "box", h4("Sample vs response pool"), plotOutput("compare_plot", height = 320))),
-            column(6, div(class = "box", h4("Representativeness by subgroup"), plotOutput("composition_plot", height = 320)))
-          ),
-          fluidRow(
-            column(12, div(class = "box", h4("Current sample rows"), tableOutput("sample_preview")))
-          )
-        ),
-        tabPanel(
-          "Repeat sampling",
-          br(),
-          fluidRow(
-            column(12, div(class = "box", h4("Sampling distribution of the estimator"), plotOutput("sampling_dist_plot", height = 360), uiOutput("repeat_note")))
-          )
-        ),
+        open_responses_ui(),
         tabPanel(
           "Image heatmap",
           br(),
@@ -853,6 +829,17 @@ server <- function(input, output, session) {
   })
 
   class_demonstration <- bind_class_demo(input, output, session, base_data)
+  raw_open_responses <- reactiveVal(NULL)
+  open_refreshed_at <- reactiveVal(NULL)
+  observe({
+    req(identical(input$app_mode,"Explore"),identical(input$lab_tabs,"Open-ended responses"))
+    invalidateLater(15000,session)
+    input$refresh_open_responses
+    actual <- tryCatch(load_limesurvey_open_responses(),error=function(e) NULL)
+    raw_open_responses(actual)
+    open_refreshed_at(if (is.null(actual)) NULL else Sys.time())
+  })
+  open_responses <- bind_open_responses(input,output,session,raw_open_responses,open_refreshed_at)
   repeated_comparison <- bind_many_samples(input, output, session, base_data, rv)
 
   current_estimate <- reactive({
@@ -958,14 +945,14 @@ server <- function(input, output, session) {
 
   output$data_preview <- renderTable({
     if (identical(input$data_mode, "Live survey DB"))
-      return(data.frame(Note = "Live survey responses are displayed as summaries. Individual records and free-text answers are not shown."))
+      return(data.frame(Note = "Individual response rows are not shown. Open-ended answers are listed separately in the Open-ended responses tab."))
     head(base_data(), 8)
   }, striped = TRUE)
 
   output$sample_preview <- renderTable({
     req(rv$current_sample)
     if (identical(input$data_mode, "Live survey DB"))
-      return(data.frame(Note = "Live survey responses are displayed as summaries. Individual records and free-text answers are not shown."))
+      return(data.frame(Note = "Individual response rows are not shown. Open-ended answers are listed separately in the Open-ended responses tab."))
     head(rv$current_sample, 10)
   }, striped = TRUE)
 
@@ -1039,9 +1026,11 @@ server <- function(input, output, session) {
   output$heatmap_plot <- renderPlot({
     pts <- click_df()
 
-    img_path <- "/data/junior/boland_course/week12/media/images/Print_Gallery_by_M._C._Escher.jpg"
+    img_paths <- c("/data/junior/boland_course/week12/media/images/Print_Gallery_by_M._C._Escher.jpg",
+      "../../../week12/media/images/Print_Gallery_by_M._C._Escher.jpg")
+    img_path <- img_paths[file.exists(img_paths)][1]
     has_jpeg <- requireNamespace("jpeg", quietly = TRUE)
-    has_image <- file.exists(img_path)
+    has_image <- !is.na(img_path) && file.exists(img_path)
 
     if (has_jpeg && has_image) {
       img <- jpeg::readJPEG(img_path)

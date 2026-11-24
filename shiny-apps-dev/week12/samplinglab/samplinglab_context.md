@@ -1,12 +1,87 @@
 # Sampling Lab App
 
 Development source: `shiny-apps-dev/week12/samplinglab`.
-The comparison redesign is approved for classroom publication. Deployment and
-live-connection verification are recorded in the S: release receipt.
+The November 24 release below uses actual survey responses by default for the
+class exercise and a separate live feed for every recorded G03Q17 answer.
+Deployment and live-connection receipts remain on S:.
 
-## Classroom flow
+## November 24 release: automatic comparisons and parallel recruitment
 
-The default **Compare samples** tab shows the full response pool, a simple
+Probability methods immediately draw our sample and 200 additional samples.
+The view always shows our sample, the largest demographic mismatch in that
+batch, and the distribution, in that order. There is no reveal or inspection
+button. The mismatch uses the selected demographic, not the outcome. Changing
+the demographic or outcome preserves the saved rows. Draw another sample
+replaces our sample and batch; Draw another set of 200 preserves our sample.
+
+Convenience and quota show every available recruitment method simultaneously,
+with one independent selector per row. A summary compares outcome estimates,
+selected and answered counts, and the largest demographic difference. Each
+chart uses the same full pool and 0-100% scale. All rules are deterministic.
+
+Defaults and flips:
+
+- Response order: first responses, or last responses.
+- Summer availability: in La Crosse, or away for summer. Missing responses do
+  not count as either group.
+- Commute: shortest first, or longest first, among answered travel times.
+- Attendance: most frequent first, or least frequent first, using the survey's
+  ordered attendance categories. This is reported frequency, not a presence log.
+- Major: one recorded major, changeable. Multiple-major respondents qualify for
+  each major they selected; missing majors do not qualify.
+- Class standing: earlier or later class years first. These are class years,
+  not an inferred chronological age.
+- Age band: younger or older recorded bands first. The original overlapping
+  response options are retained; no exact age is inferred.
+
+Changing one row keeps the other recruitment examples fixed. Missing priority
+values are excluded from that frame. Quotas allocate from the full pool and
+fill only eligible respondents. Unfilled places remain visible in each row's
+quota table. If quota groups and recruitment priority are the same variable,
+reversing that priority can correctly leave the sample unchanged. The class
+standing quota default is retained, and the demographic check remains separate.
+The old single recruitment selector and Recruit only control are removed.
+
+Open-ended responses retains newest and oldest lists and adds Word cloud.
+The cloud now uses the locally vendored MIT-licensed wordcloud2.js canvas
+layout, pinned in www/vendor/wordcloud2. Words are packed spatially with some
+rotation rather than arranged as paragraph text. Size uses word occurrence
+frequency; the count table also retains response-level mentions. Case and
+punctuation are normalized. All words, including one-letter and numeric tokens,
+are included by default with no top-60 cap. Common filler/prompt words can be
+omitted with an explicit checkbox. The canvas grows if words fail to fit and
+reports how many distinct words were actually placed. Newest and oldest retain
+the complete, unmodified nonblank answer list, including duplicates. No response
+text is sent to an external service; this summarizes literal shared words, not
+inferred semantic groups. Answer text and serialized cloud data are HTML-escaped.
+Sampling comparison controls are hidden while Open-ended responses is selected;
+they never filter the complete answer list or word cloud.
+
+The response view now has its own live-only feed, independent of the sampling
+data mode and sample size. It verifies question code G03Q17 against survey 931648
+metadata (qid 260, gid 28, column 931648X28X260), then reads every recorded
+nonblank answer to that column, including partial responses. The list preserves
+raw answer text and genuine duplicates. It sorts by completion/update time with
+response order breaking ties. It never substitutes the simulated hobby pool.
+If live access is unavailable, it says so instead of showing demo answers.
+
+While Open-ended responses is open, this feed refreshes every 15 seconds and
+also supports immediate manual refresh. Refreshing it does not redraw the
+sampling examples. Unchanged answers do not redraw the cloud. The sampling
+pool itself still uses completed survey responses only.
+
+Development evidence and logs:
+S:/codex-scratch/boland_course/canvas/work/sampling-lab-comparison-grid-20261124.
+Publication URL: https://shiny.60land.com/week12/samplinglab/.
+The authenticated server review verified 47 raw answers and all 124 distinct
+words, including the instructor's four example terms. The newest and oldest
+lists were exact reversals. Live Shiny integration checks confirmed that demo
+mode and sample size cannot filter the G03Q17 feed. Counts can grow with new
+responses; these numbers record the November 24 review, not fixed expectations.
+
+## Explore: Compare samples
+
+The **Compare samples** tab under Explore shows the full response pool, a simple
 random sample, and a nonrandom sample together. Both samples have the same
 number of rows. Start with an outcome and sample size, then compare group
 proportions such as class standing or attendance.
@@ -47,13 +122,10 @@ verdict. The response pool itself may omit people in the target population.
 
 ## Other tabs
 
-Response pool, the original single-method Sampling lab, Repeat sampling, and
-Image heatmap remain available. The original method controls and repeated-draw
-controls are grouped under **Other sampling methods and repeated draws**.
-The original methods are simple random, convenience, systematic, and
-stratified sampling. Systematic sampling uses a fractional N/n interval with
-a random start; stratified sampling randomly selects within proportional
-whole-person allocations, including missing-group responses.
+Explore retains Compare samples, Many random samples, Response pool, and Image
+heatmap. Open-ended responses lists the hobby/interest question separately.
+The old Sampling lab and Repeat sampling tabs and their controls were removed
+from the interface because the class demonstration supersedes them.
 
 ## Data sources
 
@@ -121,8 +193,8 @@ and identical estimates when sampling the entire pool.
 
 ## Production live-data behavior
 
-The Linux course-server deployment defaults to Live survey DB. Local Windows
-previews default to Demo data. A failed production connection never silently
+The app defaults to Live survey DB on every host. A local runtime without the
+survey connection reports that live data is unavailable; it never silently
 substitutes demo responses. Demo mode remains an explicitly labeled option.
 The connection requires the existing server environment variables; port defaults
 to 3306 if SURVEY_DB_PORT is absent. No credentials or response exports belong
@@ -132,7 +204,8 @@ Refresh survey responses reloads completed responses during class. It updates
 the pool and resets sample comparisons and repeated batches. The display shows
 the completed-response count and last-refresh time in America/Chicago.
 Individual live response records and free-text answers are not displayed in the
-pool/sample preview tables or exposed as grouping/stratification choices.
+pool/sample preview tables or exposed as grouping/stratification choices. The
+requested open-ended text is available only as a separate, unlinked answer list.
 Connection errors are generic in the public UI.
 
 For a newly selected data source, the initial sample size is at most half the
@@ -180,3 +253,44 @@ Checks: test-demonstration.R covers saved uneven draws, fixed rows when checking
 another variable, stratified allocations, periodicity, restricted frames, and
 unfilled quotas. test-comparison.R preserves the existing comparison/live-mode
 checks. Runtime, logs, and screenshots remain on S:.
+
+## Earlier November 24 review draft (superseded above)
+
+The default remains Class demonstration, with class standing as the initial
+demographic check. Draw 200 samples now always shows its distribution, including
+while demographic checks are open. The old conditional explicitly hid that
+chart when the demographic check was shown.
+
+Inspecting an uneven draw preserves our original sample. Two stacked charts
+compare each sample with the same full-pool proportions on a fixed 0-100% axis.
+The inspected comparison stays hidden until requested. The outcome table then
+shows all three groups. Switching the demographic rechecks the same saved 200
+draws; changing the design, refreshing data, or drawing a new sample clears the
+batch. Starting another batch leaves our sample fixed and clears inspection.
+
+Convenience recruitment offers only available survey fields: first responses,
+summer availability, commute time, attendance, major, class standing, and age
+band. Summer availability defaults to Yes; commute uses a maximum travel time.
+Other options select a recorded category. Major eligibility includes respondents
+who selected that major alongside another major. Missing answers do not satisfy
+a restriction. A short commute is not labeled on-campus housing, and summer
+residence is not labeled employment. Gender and housing are not collected.
+
+Quota sampling uses the same recruitment choices and full-pool class-standing
+targets by default. The target group and the recruitment criterion are separate
+controls. Unreachable groups remain unfilled. Convenience and quota rules are
+deterministic: the demonstration asks the instructor to change the recruitment
+rule rather than drawing 200 identical nonrandom samples.
+
+The current survey has one genuine open-text prompt: hobby/interest/community/
+skill. Hometown is a map-location question and is not included in the text list.
+Open-ended responses shows each nonblank answer, retaining duplicates, newest
+or oldest first by completion time (response order breaks ties). CSV/demo data
+without timestamps uses response order. The list does not link answers to any
+other response fields, IDs, timestamps, or individual records. HTML is escaped.
+Refresh responses reloads completed responses and resets sample comparisons;
+there is no automatic timer that would interrupt a demonstration. Uploaded
+unknown columns are not automatically published as free text.
+
+Development checks use simulated/synthetic data. Review runtime and logs:
+S:/codex-scratch/boland_course/canvas/work/sampling-lab-review-20261124.

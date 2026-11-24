@@ -112,12 +112,19 @@ if (requireNamespace("shiny", quietly = TRUE)) {
   raw$`931648X26X228` <- c("6", "8")
   raw$`931648X28X260` <- c("PRIVATE_HOBBY", "PRIVATE_HOBBY")
   original_loader <- load_limesurvey_responses
+  original_open_loader <- load_limesurvey_open_responses
   live_loads <- 0L
+  open_loads <- 0L
   load_limesurvey_responses <- function() { live_loads <<- live_loads + 1L; raw }
+  load_limesurvey_open_responses <- function() {
+    open_loads <<- open_loads+1L
+    data.frame(response_order=raw$id,answer_time=raw$submitdate,hobby_text=raw$`931648X28X260`)
+  }
   shiny::testServer(server, {
     session$setInputs(data_mode = "Live survey DB", outcome_var = "sleep_hrs",
       compare_var = "class_stand", sample_n = 1, method = "Stratified sample",
-      nonrandom_method = "Convenience sample", convenience_order = "response_order")
+      nonrandom_method = "Convenience sample", convenience_order = "response_order",
+      app_mode="Explore",lab_tabs="Open-ended responses")
     session$flushReact()
     stopifnot(nrow(base_data()) == 2, live_loads == 1,
       !is.null(rv$live_loaded_at), !grepl("PRIVATE_HOBBY", output$data_preview),
@@ -125,7 +132,14 @@ if (requireNamespace("shiny", quietly = TRUE)) {
       !grepl("hobby_text", paste(output$strata_var_ui, collapse="")))
     session$setInputs(refresh_live = 1)
     stopifnot(live_loads == 2, nrow(base_data()) == 2)
+    stopifnot(grepl("PRIVATE_HOBBY", output$open_responses_list$html, fixed=TRUE))
+    session$setInputs(refresh_open_responses = 1)
+    stopifnot(live_loads == 2,open_loads == 2,nrow(base_data()) == 2)
+    session$setInputs(data_mode="Demo data",sample_n=1)
+    stopifnot(nrow(base_data())==120,length(open_responses$answers())==2,
+      all(open_responses$answers()=="PRIVATE_HOBBY"))
   })
   load_limesurvey_responses <- original_loader
+  load_limesurvey_open_responses <- original_open_loader
   cat("Reactive comparison, stable rows, full-pool size, repeated sampling, and missing-outcome checks passed.\n")
 }
