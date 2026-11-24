@@ -212,9 +212,10 @@ The connection requires the existing server environment variables; port defaults
 to 3306 if SURVEY_DB_PORT is absent. No credentials or response exports belong
 in this repository.
 
-Refresh survey responses reloads completed responses during class. It updates
-the pool and resets sample comparisons and repeated batches. The display shows
-the completed-response count and last-refresh time in America/Chicago.
+Refresh survey responses appears in the main Class demonstration controls,
+above Data source. It reloads completed responses during class, updates the
+pool, and resets sample comparisons and repeated batches. The connection
+details show the completed-response count.
 Individual live response records and free-text answers are not displayed in the
 pool/sample preview tables or exposed as grouping/stratification choices. The
 requested open-ended text is available only as a separate, unlinked answer list.
