@@ -113,12 +113,20 @@ if (requireNamespace("shiny", quietly = TRUE)) {
   raw$`931648X28X260` <- c("PRIVATE_HOBBY", "PRIVATE_HOBBY")
   original_loader <- load_limesurvey_responses
   original_open_loader <- load_limesurvey_open_responses
+  original_image_loader <- load_limesurvey_image_responses
   live_loads <- 0L
   open_loads <- 0L
+  image_loads <- 0L
   load_limesurvey_responses <- function() { live_loads <<- live_loads + 1L; raw }
   load_limesurvey_open_responses <- function() {
     open_loads <<- open_loads+1L
     data.frame(response_order=raw$id,answer_time=raw$submitdate,hobby_text=raw$`931648X28X260`)
+  }
+  load_limesurvey_image_responses <- function() {
+    image_loads <<- image_loads+1L
+    if (image_loads>=3L) return(data.frame(image_click_coords=c("the bottom","the middle")))
+    data.frame(image_click_coords=c("10,20","30,80","60,40","the bottom",
+      if (image_loads>=2L) "80,10" else character()))
   }
   shiny::testServer(server, {
     session$setInputs(data_mode = "Live survey DB", outcome_var = "sleep_hrs",
@@ -138,8 +146,21 @@ if (requireNamespace("shiny", quietly = TRUE)) {
     session$setInputs(data_mode="Demo data",sample_n=1)
     stopifnot(nrow(base_data())==120,length(open_responses$answers())==2,
       all(open_responses$answers()=="PRIVATE_HOBBY"))
+    # The map has its own actual-survey feed even with simulated sampling selected.
+    session$setInputs(lab_tabs="Image heatmap")
+    stopifnot(image_loads==1L,nrow(click_df())==3L,output$n_clicks=="3",
+      all(click_df()$x==c(10,30,60)),live_loads==2L,open_loads==2L)
+    session$setInputs(lab_tabs="Open-ended responses",sample_n=2)
+    session$setInputs(lab_tabs="Image heatmap")
+    stopifnot(open_loads==2L,image_loads==1L)
+    session$setInputs(refresh_heatmap=1)
+    stopifnot(image_loads==2L,nrow(click_df())==4L,live_loads==2L,open_loads==2L)
+    session$setInputs(refresh_heatmap=2)
+    stopifnot(image_loads==3L,nrow(click_df())==0L,!is.null(output$heatmap_plot),
+      !grepl("15 seconds",output$open_responses_source$html,fixed=TRUE))
   })
   load_limesurvey_responses <- original_loader
   load_limesurvey_open_responses <- original_open_loader
+  load_limesurvey_image_responses <- original_image_loader
   cat("Reactive comparison, stable rows, full-pool size, repeated sampling, and missing-outcome checks passed.\n")
 }

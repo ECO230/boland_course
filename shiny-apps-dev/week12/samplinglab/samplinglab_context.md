@@ -65,10 +65,22 @@ raw answer text and genuine duplicates. It sorts by completion/update time with
 response order breaking ties. It never substitutes the simulated hobby pool.
 If live access is unavailable, it says so instead of showing demo answers.
 
-While Open-ended responses is open, this feed refreshes every 15 seconds and
-also supports immediate manual refresh. Refreshing it does not redraw the
+Open-ended responses loads when first opened and updates only through Refresh
+responses. There is no automatic timer. Refreshing it does not redraw the
 sampling examples. Unchanged answers do not redraw the cloud. The sampling
 pool itself still uses completed survey responses only.
+
+Image heatmap also uses its own live-only feed from the same survey 931648,
+question G03Q14 (column 931648X28X257). It loads on first opening and updates
+only through Refresh heat map. Sampling modes, sample sizes and the selected
+demographic never filter it. Every nonblank recorded image answer is read,
+including partial responses; only valid 0-100 coordinate pairs can be plotted.
+The source badge shows the total answers and the number without plottable
+coordinates. The November 24 check found 47 answers and 27 coordinate pairs;
+the other answers contained text rather than clickable locations. Density is
+drawn only when enough distinct points are available. No simulated clicks are
+substituted if the live connection fails. Both supplementary views hide the
+sampling controls and show a last-updated timestamp beside their manual refresh.
 
 Development evidence and logs:
 S:/codex-scratch/boland_course/canvas/work/sampling-lab-comparison-grid-20261124.

@@ -328,6 +328,14 @@ load_limesurvey_responses <- function() {
   DBI::dbGetQuery(con, "SELECT * FROM survey_931648 WHERE submitdate IS NOT NULL ORDER BY id ASC")
 }
 
+load_limesurvey_image_responses <- function() {
+  con <- connect_limesurvey()
+  on.exit(DBI::dbDisconnect(con),add=TRUE)
+  # G03Q14: include every recorded answer, independent of completion or sampling.
+  DBI::dbGetQuery(con,paste0("SELECT `931648X28X257` AS image_click_coords FROM survey_931648 ",
+    "WHERE `931648X28X257` IS NOT NULL AND TRIM(`931648X28X257`) <> '' ORDER BY id ASC"))
+}
+
 clean_limesurvey_responses <- function(df) {
   if (!nrow(df)) return(df)
 
@@ -500,8 +508,8 @@ ui <- fluidPage(
     .response-cloud { width:100%; }
     .response-cloud canvas { display:block; width:100%; }
     .response-cloud-status { min-height:20px; }
-    .tab-pane[data-value='Explore']:has(#lab_tabs li.active a[data-value='Open-ended responses']) > .row > .col-sm-3 { display:none; }
-    .tab-pane[data-value='Explore']:has(#lab_tabs li.active a[data-value='Open-ended responses']) > .row > .col-sm-9 { width:100%; }
+    .tab-pane[data-value='Explore']:has(#lab_tabs li.active a:is([data-value='Open-ended responses'],[data-value='Image heatmap'])) > .row > .col-sm-3 { display:none; }
+    .tab-pane[data-value='Explore']:has(#lab_tabs li.active a:is([data-value='Open-ended responses'],[data-value='Image heatmap'])) > .row > .col-sm-9 { width:100%; }
   ")),
 
   h2("Sampling Lab"),
@@ -577,6 +585,9 @@ ui <- fluidPage(
         tabPanel(
           "Image heatmap",
           br(),
+          p("All recorded image responses from the class survey. Sampling controls do not filter this heat map."),
+          actionButton("refresh_heatmap","Refresh heat map"),
+          uiOutput("heatmap_source"),
           fluidRow(
             column(4, div(class = "metric", div(class = "metricTitle", "Recorded clicks"), div(class = "metricValue", textOutput("n_clicks", inline = TRUE)))),
             column(8, div(class = "callout", strong("What this shows"), p("Each point marks where a respondent clicked on the Escher image. Brighter regions show where class attention clustered.")))
@@ -831,15 +842,34 @@ server <- function(input, output, session) {
   class_demonstration <- bind_class_demo(input, output, session, base_data)
   raw_open_responses <- reactiveVal(NULL)
   open_refreshed_at <- reactiveVal(NULL)
-  observe({
-    req(identical(input$app_mode,"Explore"),identical(input$lab_tabs,"Open-ended responses"))
-    invalidateLater(15000,session)
-    input$refresh_open_responses
+  open_attempted <- reactiveVal(FALSE)
+  refresh_open_data <- function() {
     actual <- tryCatch(load_limesurvey_open_responses(),error=function(e) NULL)
     raw_open_responses(actual)
     open_refreshed_at(if (is.null(actual)) NULL else Sys.time())
+    open_attempted(TRUE)
+  }
+  observe({
+    req(identical(input$app_mode,"Explore"),identical(input$lab_tabs,"Open-ended responses"))
+    if (!isolate(open_attempted())) refresh_open_data()
   })
+  observeEvent(input$refresh_open_responses,refresh_open_data())
   open_responses <- bind_open_responses(input,output,session,raw_open_responses,open_refreshed_at)
+
+  live_image_responses <- reactiveVal(NULL)
+  image_refreshed_at <- reactiveVal(NULL)
+  image_attempted <- reactiveVal(FALSE)
+  refresh_image_data <- function() {
+    actual <- tryCatch(load_limesurvey_image_responses(),error=function(e) NULL)
+    live_image_responses(actual)
+    image_refreshed_at(if (is.null(actual)) NULL else Sys.time())
+    image_attempted(TRUE)
+  }
+  observe({
+    req(identical(input$app_mode,"Explore"),identical(input$lab_tabs,"Image heatmap"))
+    if (!isolate(image_attempted())) refresh_image_data()
+  })
+  observeEvent(input$refresh_heatmap,refresh_image_data())
   repeated_comparison <- bind_many_samples(input, output, session, base_data, rv)
 
   current_estimate <- reactive({
@@ -1014,11 +1044,16 @@ server <- function(input, output, session) {
   })
 
   click_df <- reactive({
-    df <- base_data()
-    if (!"image_click_coords" %in% names(df)) {
-      return(data.frame(x = numeric(0), y = numeric(0)))
-    }
+    df <- live_image_responses(); req(!is.null(df))
     parse_click_coords(stats::na.omit(df$image_click_coords))
+  })
+
+  output$heatmap_source <- renderUI({
+    df <- live_image_responses()
+    if (is.null(df)) return(p("The live survey connection is unavailable. No simulated clicks are shown."))
+    tagList(p(strong("Live survey: G03Q14")),
+      p(class="small",paste("Updated",format(image_refreshed_at(),"%I:%M:%S %p %Z",tz="America/Chicago"))),
+      p(class="small",paste(nrow(df),"recorded answers;",nrow(df)-nrow(click_df()),"without plottable coordinates.")))
   })
 
   output$n_clicks <- renderText(nrow(click_df()))
@@ -1042,15 +1077,16 @@ server <- function(input, output, session) {
         annotate("rect", xmin = 0, xmax = 100, ymin = 0, ymax = 100, fill = "grey95", color = "grey70")
     }
 
-    p +
-      stat_density_2d(
+    if (nrow(pts)>=3 && length(unique(pts$x))>1 && length(unique(pts$y))>1) {
+      p <- p + stat_density_2d(
         data = pts,
         aes(x = x, y = y, fill = after_stat(level), alpha = after_stat(level)),
         geom = "polygon",
         contour = TRUE,
         na.rm = TRUE
-      ) +
-      geom_point(
+      )
+    }
+    p + geom_point(
         data = pts,
         aes(x = x, y = y),
         color = "#D34E4E",

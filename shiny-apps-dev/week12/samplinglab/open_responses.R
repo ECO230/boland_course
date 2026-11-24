@@ -69,8 +69,7 @@ bind_open_responses <- function(input,output,session,response_data,last_refreshe
   output$open_responses_source <- renderUI({
     if (is.null(response_data())) return(p("The live survey connection is unavailable. No simulated answers are shown."))
     tagList(p(strong("Live survey: G03Q17")),
-      p(class="small",paste("Refreshes every 15 seconds while this view is open.",
-        if (!is.null(last_refreshed())) paste("Updated",format(last_refreshed(),"%I:%M:%S %p %Z",tz="America/Chicago")) else "")))
+      p(class="small",if (!is.null(last_refreshed())) paste("Updated",format(last_refreshed(),"%I:%M:%S %p %Z",tz="America/Chicago")) else ""))
   })
   output$open_responses_count <- renderText(paste(length(answers()),"raw answers"))
   output$open_responses_list <- renderUI({
