@@ -138,6 +138,14 @@ if (requireNamespace("shiny", quietly = TRUE)) {
       !is.null(rv$live_loaded_at), !grepl("PRIVATE_HOBBY", output$data_preview),
       !grepl("PRIVATE_HOBBY", output$sample_preview),
       !grepl("hobby_text", paste(output$strata_var_ui, collapse="")))
+    # Hundreds of draws reuse the loaded pool; only an explicit refresh queries again.
+    session$setInputs(demo_step="srs",demo_n=1,demo_outcome="sleep_hrs",demo_compare="class_stand")
+    stopifnot(length(class_demonstration$state$batch)==200,live_loads==1L)
+    loaded_at <- rv$live_loaded_at
+    session$setInputs(demo_batch=1)
+    session$setInputs(demo_draw=1)
+    stopifnot(length(class_demonstration$state$batch)==200,live_loads==1L,
+      identical(rv$live_loaded_at,loaded_at))
     rv$live_loaded_at <- as.POSIXct("2026-11-24 14:23:45",tz="America/Chicago")
     session$flushReact()
     stopifnot(grepl("Last refreshed: 02:23:45 PM CST",output$demo_source$html,fixed=TRUE))

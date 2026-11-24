@@ -1,6 +1,11 @@
 # MUST be at the very top of app.R, before any library(...)
 if (dir.exists("/data/junior/boland_course") && requireNamespace("renv", quietly = TRUE)) {
-  renv::load("/data/junior/boland_course")
+  local({
+    # Activate the existing library without scanning the entire course repository.
+    previous <- options(renv.config.synchronized.check = FALSE)
+    on.exit(options(previous), add = TRUE)
+    renv::load("/data/junior/boland_course")
+  })
 }
 
 library(shiny)
@@ -615,6 +620,7 @@ server <- function(input, output, session) {
     read_csv(input$csv_file$datapath, show_col_types = FALSE)
   })
 
+  # This reactive caches one complete pool per session, not one query per draw.
   live_data <- reactive({
     req(identical(input$data_mode, "Live survey DB"))
     input$refresh_live

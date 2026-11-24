@@ -157,6 +157,24 @@ its first choice. No live student data was loaded for local verification.
 
 ## Implementation and checks
 
+The class exercise loads all completed responses once into a session's in-memory
+reactive cache. All single draws and batches of 200 sample this same data frame;
+the draw loop never connects to the survey database. Refresh survey responses,
+or switching back to Live survey DB, reloads the pool. With 47 responses in the
+November 24 check, the cleaned pool occupied about 21 KB; no response cap was
+needed. The open-text and image feeds retain their separate manual refreshes.
+
+Server profiling measured one database fetch at 0.014 seconds, 200 in-memory
+draws at 0.089 seconds, and their demographic mismatch checks at 0.426 seconds.
+The main cold-start delay was the renv repository-wide synchronization check:
+sourcing the app in fresh R processes took 21.842 seconds with the check and
+3.510 seconds without it. App startup still activates the existing renv library,
+but temporarily disables this diagnostic during renv::load and restores the
+previous option afterward. Repository maintenance settings and package versions
+are unchanged. The integration check counts survey fetches across the initial
+200 draws, another batch, and another sample; only Refresh causes another fetch.
+Timing receipts contain counts and durations, not survey records.
+
 comparison.R contains the shared quota/stratified allocation and group
 comparison helpers. All random draws sample row indices, including singleton
 groups. The new comparison does not change the pool while students inspect it.
