@@ -216,6 +216,10 @@ Refresh survey responses appears in the main Class demonstration controls,
 above Data source. It reloads completed responses during class, updates the
 pool, and resets sample comparisons and repeated batches. The connection
 details show the completed-response count.
+The Class demonstration source badge also shows the last successful survey-pool
+refresh time, including seconds and the America/Chicago time-zone abbreviation.
+Drawing another sample does not change this timestamp; refreshing the survey
+pool does. Simulated and uploaded sources do not display a live refresh time.
 Individual live response records and free-text answers are not displayed in the
 pool/sample preview tables or exposed as grouping/stratification choices. The
 requested open-ended text is available only as a separate, unlinked answer list.

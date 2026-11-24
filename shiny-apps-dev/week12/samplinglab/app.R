@@ -839,7 +839,7 @@ server <- function(input, output, session) {
            " percentage points. Outcome estimates use answered rows; group percentages include missing responses.")
   })
 
-  class_demonstration <- bind_class_demo(input, output, session, base_data)
+  class_demonstration <- bind_class_demo(input, output, session, base_data, function() rv$live_loaded_at)
   raw_open_responses <- reactiveVal(NULL)
   open_refreshed_at <- reactiveVal(NULL)
   open_attempted <- reactiveVal(FALSE)

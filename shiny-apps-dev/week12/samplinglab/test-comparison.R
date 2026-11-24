@@ -138,14 +138,19 @@ if (requireNamespace("shiny", quietly = TRUE)) {
       !is.null(rv$live_loaded_at), !grepl("PRIVATE_HOBBY", output$data_preview),
       !grepl("PRIVATE_HOBBY", output$sample_preview),
       !grepl("hobby_text", paste(output$strata_var_ui, collapse="")))
+    rv$live_loaded_at <- as.POSIXct("2026-11-24 14:23:45",tz="America/Chicago")
+    session$flushReact()
+    stopifnot(grepl("Last refreshed: 02:23:45 PM CST",output$demo_source$html,fixed=TRUE))
     session$setInputs(refresh_live = 1)
-    stopifnot(live_loads == 2, nrow(base_data()) == 2)
+    stopifnot(live_loads == 2, nrow(base_data()) == 2,
+      grepl(format(rv$live_loaded_at,"%I:%M:%S %p %Z",tz="America/Chicago"),output$demo_source$html,fixed=TRUE))
     stopifnot(grepl("PRIVATE_HOBBY", output$open_responses_list$html, fixed=TRUE))
     session$setInputs(refresh_open_responses = 1)
     stopifnot(live_loads == 2,open_loads == 2,nrow(base_data()) == 2)
     session$setInputs(data_mode="Demo data",sample_n=1)
     stopifnot(nrow(base_data())==120,length(open_responses$answers())==2,
-      all(open_responses$answers()=="PRIVATE_HOBBY"))
+      all(open_responses$answers()=="PRIVATE_HOBBY"),
+      !grepl("Last refreshed:",output$demo_source$html,fixed=TRUE))
     # The map has its own actual-survey feed even with simulated sampling selected.
     session$setInputs(lab_tabs="Image heatmap")
     stopifnot(image_loads==1L,nrow(click_df())==3L,output$n_clicks=="3",

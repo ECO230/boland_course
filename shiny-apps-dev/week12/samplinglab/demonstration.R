@@ -42,7 +42,7 @@ class_demo_ui <- function() {
       hr(),p(class="small","The response pool is our known benchmark for this demonstration. In a real survey, check representation against credible population information. Matching a few demographics does not establish that every outcome is accurate."))))
 }
 
-bind_class_demo <- function(input,output,session,base_data) {
+bind_class_demo <- function(input,output,session,base_data,last_refreshed=function() NULL) {
   state <- reactiveValues(sample=NULL,batch=NULL,mode=NULL)
   groups <- reactive({
     vars <- setdiff(categorical_vars(base_data()),private_response_fields)
@@ -126,7 +126,10 @@ bind_class_demo <- function(input,output,session,base_data) {
     i <- which.max(gaps); list(index=i,sample=state$batch[[i]],gap=gaps[i])
   })
   output$demo_source <- renderUI({req(input$data_mode)
-    p(strong(if (input$data_mode=="Live survey DB") "Completed class survey responses" else if (input$data_mode=="Demo data") "Simulated response pool" else "Uploaded response pool"),paste("|",nrow(base_data()),"responses"))
+    tagList(
+      p(strong(if (input$data_mode=="Live survey DB") "Completed class survey responses" else if (input$data_mode=="Demo data") "Simulated response pool" else "Uploaded response pool"),paste("|",nrow(base_data()),"responses")),
+      if (identical(input$data_mode,"Live survey DB") && !is.null(last_refreshed()))
+        p(class="small",paste("Last refreshed:",format(last_refreshed(),"%I:%M:%S %p %Z",tz="America/Chicago"))))
   })
   output$demo_heading <- renderText({req(input$demo_step); names(demo_steps)[match(input$demo_step,demo_steps)]})
   output$demo_rule <- renderText({
